@@ -46,3 +46,6 @@ pnpm-debug.log*
 coverage/
 htmlcov/
 .coverage
+
+# Workflow agent scratch (task plans, reviews) — internal, not product code
+.agents/
