@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "motion-xray-movement"
+version = "0.1.0"
+description = "Motion X Ray — deterministic movement analysis (angles, smoothing, rep segmentation, metrics)."
+requires-python = ">=3.12"
+dependencies = [
+    "numpy==2.1.2",
+    "motion-xray-contracts",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["movement"]

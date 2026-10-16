@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "motion-xray-benchmarks"
+version = "0.1.0"
+description = "Motion X Ray — reference-profile loading and provider/reference compatibility checks."
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic==2.9.2",
+    "motion-xray-contracts",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["benchmarks"]

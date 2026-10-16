@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "motion-xray-providers"
+version = "0.1.0"
+description = "Motion X Ray — provider interfaces (Protocols), Fake doubles, and real-provider stubs for pose, LLM, and search."
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic==2.9.2",
+    "motion-xray-contracts",
+]
+
+[project.optional-dependencies]
+# Pose ML deps are an isolable extra so the api image never pulls them;
+# only the worker image installs '[pose]' (see infra/compose.yaml + D002).
+pose = [
+    "mediapipe==0.10.14",
+]
+llm = [
+    "openai==1.51.0",
+]
+search = [
+    "tavily-python==0.5.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["providers"]
