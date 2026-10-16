@@ -1,0 +1,48 @@
+# Secrets — never commit
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Raw private footage and large/derived artifacts
+data/demo/*.mp4
+data/demo/*.mov
+data/demo/*.webm
+data/references/**/*.mp4
+data/references/**/*.mov
+state/
+artifacts/
+*.ckpt
+models/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+
+# Node / web
+node_modules/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Test / coverage
+coverage/
+htmlcov/
+.coverage

@@ -1,0 +1,64 @@
+# Motion X Ray — local development stack.
+# Everything runs in containers; nothing installs on the host.
+#   Start:  docker compose -f infra/compose.yaml up --build
+#   Stop:   docker compose -f infra/compose.yaml down -v   (removes volumes too)
+#
+# The pose stack lives in its own image/environment, isolated from the API, so a
+# dependency conflict in the ML stack can never break the API service.
+
+name: motion-xray
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: infra/web.Dockerfile
+    environment:
+      - NEXT_PUBLIC_API_BASE=${APP_ORIGIN:-http://localhost:3000}/api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    volumes:
+      - ../apps/web:/app/apps/web
+      - web_node_modules:/app/apps/web/node_modules
+
+  api:
+    build:
+      context: ..
+      dockerfile: infra/api.Dockerfile
+    env_file:
+      - ../.env
+    environment:
+      - DATABASE_URL=sqlite:////state/motion_xray.db
+      - ARTIFACT_ROOT=/state/artifacts
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../services/api:/app/services/api
+      - ../packages:/app/packages
+      - state:/state
+
+  worker:
+    build:
+      context: ..
+      dockerfile: infra/worker.Dockerfile
+    env_file:
+      - ../.env
+    environment:
+      - DATABASE_URL=sqlite:////state/motion_xray.db
+      - ARTIFACT_ROOT=/state/artifacts
+    volumes:
+      - ../services:/app/services
+      - ../packages:/app/packages
+      - ../data:/app/data
+      - state:/state
+      - models:/models
+    # The worker claims jobs from the durable queue; it does not expose a port.
+    depends_on:
+      - api
+
+volumes:
+  state:       # SQLite db + private artifacts (durable across restarts, removed with -v)
+  models:      # downloaded pose checkpoints (verified by revision/checksum)
+  web_node_modules:
