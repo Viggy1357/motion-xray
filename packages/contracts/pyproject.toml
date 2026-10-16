@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "motion-xray-contracts"
+version = "0.1.0"
+description = "Motion X Ray — Pydantic v2 schema source of truth (contracts-first, AGENTS.md rule 4)."
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic==2.9.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.3",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["contracts"]
