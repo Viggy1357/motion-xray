@@ -1,0 +1,3 @@
+# Placeholder so the empty data/references scaffold dir survives a clone.
+# CachedSearchProvider (providers.search.cached) reads reviewed JSON records
+# from this directory; records are added under their owning tasks (T06/T10).

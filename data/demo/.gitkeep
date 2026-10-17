@@ -1,0 +1,2 @@
+# Placeholder so the empty data/demo scaffold dir survives a clone.
+# Demo clips are provided later and are gitignored (see .gitignore data/demo/*).

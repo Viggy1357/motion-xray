@@ -1,0 +1,2 @@
+# Placeholder so the empty tests/integration scaffold dir survives a clone.
+# Integration tests land with the pipeline tasks (T08+); see docs/EVALUATION.md.
