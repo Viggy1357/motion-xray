@@ -10,6 +10,7 @@ requires-python = ">=3.12"
 dependencies = [
     "pydantic==2.9.2",
     "motion-xray-contracts",
+    "motion-xray-providers",
 ]
 
 [tool.hatch.build.targets.wheel]
