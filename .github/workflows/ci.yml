@@ -1,0 +1,64 @@
+# Motion X Ray — Continuous Integration.
+# CI uses fixtures only and makes NO paid provider calls (no network to Nebius
+# Token Factory or Tavily). No provider credentials are injected here; the live
+# smoke scripts are NEVER run with --live in CI.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python:
+    name: python (lint, type-check, tests)
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.12-slim
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        run: pip install --no-cache-dir uv==0.4.18
+
+      - name: Install first-party packages + dev tools
+        run: |
+          uv pip install --system \
+            ./packages/contracts \
+            ./packages/providers \
+            ./packages/movement \
+            ./packages/scoring \
+            ./packages/benchmarks \
+            ./services/api
+          uv pip install --system ruff==0.6.9 mypy==1.11.2 pytest==8.3.3 pyyaml==6.0.2
+
+      - name: Lint (ruff)
+        run: ruff check .
+
+      - name: Type-check (mypy)
+        run: mypy packages services
+
+      - name: Unit tests
+        run: pytest tests/unit
+
+      - name: Contract tests
+        run: pytest tests/contracts
+
+  web:
+    name: web (type-check)
+    runs-on: ubuntu-latest
+    container:
+      image: node:20-slim
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install dependencies
+        working-directory: apps/web
+        run: pnpm install
+
+      - name: Type-check
+        working-directory: apps/web
+        run: pnpm tsc --noEmit

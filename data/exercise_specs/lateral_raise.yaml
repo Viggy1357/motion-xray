@@ -1,0 +1,27 @@
+# Motion X Ray — exercise spec: standing dumbbell lateral raise.
+# Declarative scoring configuration consumed by movement + scoring (STRUCTURE-ONLY).
+# The 'weights' map MUST sum to exactly 1.0. Segmentation thresholds are on the
+# normalised phase signal; 'missing_required_metric: null_overall_score' enforces
+# the no-fabrication rule — a missing required metric nulls the overall score with
+# a machine-readable reason rather than inventing a value (AGENTS.md).
+exercise_id: lateral_raise
+variant: standing_both_arms
+spec_version: 0.1.0
+scoring_profile_id: lateral_raise.default
+supported_view: front
+required_capabilities:
+  - estimated_3d
+  - timestamps
+phase_signal: shoulder_abduction_angle
+segmentation:
+  low: 0.2
+  high: 0.8
+  dwell_s: 0.15
+metric_rules_from: lateral_raise.default
+weights:
+  arm_elevation: 0.25
+  side_difference: 0.20
+  torso_sway: 0.20
+  phase_tempo: 0.15
+  trajectory_error: 0.20
+missing_required_metric: null_overall_score
