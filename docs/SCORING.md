@@ -30,19 +30,23 @@ exercise specs and are subject to review before any config freeze (DECISIONS.md 
 decisions). Each column matches the `weights` map in the corresponding
 `data/exercise_specs/*.yaml` and sums to exactly 1.0.
 
-| Component | dumbbell_curl | lateral_raise | squat |
-| --- | --- | --- | --- |
-| elbow_rom | 0.25 | — | — |
-| upper_arm_drift | 0.25 | — | — |
-| arm_elevation | — | 0.25 | — |
-| side_difference | — | 0.20 | — |
-| knee_rom | — | — | 0.25 |
-| hip_descent | — | — | 0.20 |
-| torso_sway | 0.20 | 0.20 | — |
-| torso_lean | — | — | 0.20 |
-| phase_tempo | 0.15 | 0.15 | 0.15 |
-| trajectory_error | 0.15 | 0.20 | 0.20 |
-| **Total** | **1.00** | **1.00** | **1.00** |
+| Component | dumbbell_curl | lateral_raise | squat | lat_pulldown |
+| --- | --- | --- | --- | --- |
+| elbow_rom | 0.25 | — | — | 0.25 |
+| upper_arm_drift | 0.25 | — | — | — |
+| arm_elevation | — | 0.25 | — | — |
+| side_difference | — | 0.20 | — | — |
+| knee_rom | — | — | 0.25 | — |
+| hip_descent | — | — | 0.20 | — |
+| shoulder_drive | — | — | — | 0.25 |
+| torso_sway | 0.20 | 0.20 | — | — |
+| torso_lean | — | — | 0.20 | 0.20 |
+| phase_tempo | 0.15 | 0.15 | 0.15 | 0.15 |
+| trajectory_error | 0.15 | 0.20 | 0.20 | 0.15 |
+| **Total** | **1.00** | **1.00** | **1.00** | **1.00** |
+
+`bilateral_difference` is defined for `lat_pulldown` but is **informational-only** at the
+diagonal/side view (far arm occluded); it is not a scored component and carries no weight.
 
 ## Missing-data policy
 

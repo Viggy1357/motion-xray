@@ -13,12 +13,19 @@ not correctness, safety, or effectiveness.
 The P0 pipeline is: capture/upload → pose extraction → rep segmentation → exercise
 metrics → reference comparison → deterministic similarity score → grounded coaching.
 Results are shown as synchronized video + 2D overlay + rotatable 3D skeleton + a shared
-rep timeline. Launch exercises are the simultaneous standing dumbbell curl, the
-bilateral standing lateral raise, and the bodyweight squat.
+rep timeline. Supported exercises are the simultaneous standing dumbbell curl, the
+bilateral standing lateral raise, the bodyweight squat, and the cable lat pulldown
+(added per `DECISIONS.md` D005; lat pulldown is the first exercise exercised end-to-end).
 
-Out of scope for P0: medical or safety claims, exercises beyond the three launch
-movements, multi-person analysis, and anything requiring a GPU entitlement the project
-does not have (GEM-X 3D pose stays a documented stretch goal — see `DECISIONS.md` D002).
+The product targets the **solo user** training without a personal trainer present. The
+default comparison target is a **curated** reference that ships with the app — the user
+never needs a second person. Trainer-provided and personal-best references are optional
+P1 sources, not a requirement (see `DECISIONS.md` D006).
+
+Out of scope for P0: medical or safety claims, exercises beyond the supported movements,
+multi-person analysis, trainer/personal-best reference workflows (P1), and anything
+requiring a GPU entitlement the project does not have (GEM-X 3D pose stays a documented
+stretch goal — see `DECISIONS.md` D002).
 
 ## Functional requirements
 

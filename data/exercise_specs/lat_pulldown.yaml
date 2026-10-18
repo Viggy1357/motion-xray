@@ -1,0 +1,47 @@
+# Motion X Ray — exercise spec: cable lat pulldown (ADDED as a 4th exercise).
+# See DECISIONS.md D005 for the scope decision. Declarative scoring configuration
+# consumed by movement + scoring (STRUCTURE-ONLY until T05/T07 fill in the math).
+#
+# The 'weights' map MUST sum to exactly 1.0. Segmentation thresholds are on the
+# normalised phase signal. 'missing_required_metric: null_overall_score' enforces
+# the no-fabrication rule — a missing required metric nulls the overall score with
+# a machine-readable reason rather than inventing a value (AGENTS.md).
+#
+# VIEW NOTE: the first authorised test clip is filmed from a diagonal / predominantly
+# side angle (seated cable machine). That angle reads elbow pull range and torso lean
+# well, but the far arm is occluded, so bilateral symmetry is NOT in the scored
+# profile for this view — it is reported informationally with low confidence only.
+# A frontal profile for lat pulldown would need its own validation + weights.
+exercise_id: lat_pulldown
+variant: cable_seated_bilateral
+spec_version: 0.1.0
+scoring_profile_id: lat_pulldown.default
+supported_view: diagonal_side
+required_capabilities:
+  - estimated_3d
+  - timestamps
+# Phase signal: the pull is driven by elbow flexion (bar coming down toward the
+# upper chest) combined with shoulder adduction/depression. Elbow flexion is the
+# most reliably visible driver at the diagonal/side view, so it anchors the signal.
+phase_signal: elbow_flexion_angle
+segmentation:
+  low: 0.2
+  high: 0.8
+  dwell_s: 0.15
+metric_rules_from: lat_pulldown.default
+# Scored components (sum to 1.0). Chosen for the diagonal/side view:
+#   elbow_rom       — pull depth (bar travel proxy via elbow flexion range)
+#   shoulder_drive  — shoulder adduction/depression excursion (lat engagement proxy)
+#   torso_lean      — backward torso lean from a set-level upright baseline
+#   phase_tempo     — pull vs. controlled return durations
+#   trajectory_error— phase-aligned wrist/elbow path error vs. reference
+weights:
+  elbow_rom: 0.25
+  shoulder_drive: 0.25
+  torso_lean: 0.20
+  phase_tempo: 0.15
+  trajectory_error: 0.15
+missing_required_metric: null_overall_score
+# Informational-only (NOT scored at this view; reported with coverage/confidence):
+informational_metrics:
+  - bilateral_difference   # far arm occluded at diagonal/side view — low confidence

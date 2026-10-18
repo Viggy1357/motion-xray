@@ -14,19 +14,33 @@ Build the first usable curl flow before visual polish or additional exercises.
   Docker Compose skeleton, skills drafts, `.env.example`, git initialized.
 - **Next:** T01 feasibility spike.
 
-## T01 — Feasibility (Gate A)  ·  status: todo  ·  date: 16 Oct
+## T01 — Feasibility (Gate A)  ·  status: wip  ·  date: 16 Oct
 - **FRs:** FR04, FR12
 - **Goal:** Prove the chosen pose provider (MediaPipe) yields usable timestamped
-  coordinates, correct anatomical sides, and synchronized playback on an authorized
-  10–20s curl clip. Run ONE real Nemotron inference through Token Factory and verify
-  structured output. Record hardware, model revision, cold/warm runtime, peak memory,
-  artifact size, dependency licenses.
-- **Blocked on:** (1) an authorized demo curl clip from product owner; (2) Docker
-  Desktop installed; (3) confirmed Token Factory model ID.
+  coordinates, correct anatomical sides, and synchronized playback on the authorized
+  **lat pulldown** test clip (`data/demo/lat_pulldown.mp4`, diagonal/side view, ~55s,
+  464×832, ~60fps → downsample to 30Hz). Run ONE real Nemotron inference through Token
+  Factory and verify structured output. Record hardware, model revision, cold/warm
+  runtime, peak memory, artifact size, dependency licenses.
+- **Unblocked:** ✅ Docker Desktop running; ✅ test clip provided; ✅ Token Factory key
+  present (model ID to confirm from catalog during the spike).
 - **Acceptance:** usable coordinates + synchronized playback + stable body identity
-  demonstrated; one Token Factory coaching call returns valid JSON. Pass/fail and
-  provider decision recorded in DECISIONS.md.
+  demonstrated (note: a second person is in the clip background — verify single-track
+  stability); one Token Factory coaching call returns valid JSON. Pass/fail and provider
+  decision recorded in DECISIONS.md.
 - **Next:** on pass → T02 lock environments; on fail → isolate + fallback.
+
+## T01b — Lat pulldown exercise + evidence/reference flows  ·  status: wip  ·  date: 18 Oct
+- **FRs:** FR06, FR11
+- **Goal:** (1) lat pulldown is the first exercise wired end-to-end (spec added:
+  `data/exercise_specs/lat_pulldown.yaml`); (2) Tavily evidence-discovery flow that finds
+  credible technique sources + candidate video URLs and extracts guidance text for
+  operator review; (3) a reference-build script that turns product-owner-downloaded clips
+  in `data/demo/` into a trajectory + tolerance ranges, flagged `authoritative=false`
+  unless an owned/authorized reference (DECISIONS.md D005/D006/D007).
+- **Acceptance:** `evidence/refresh` returns a reviewable shortlist from a real Tavily
+  call; reference build produces a trajectory from an owned clip; experimental references
+  are flagged non-authoritative and cannot yield a displayed valid score.
 
 ## T02 — Scaffold hardening  ·  status: todo  ·  date: 16–17 Oct
 - Locked dependency versions, working Compose, CI (fixtures only), contracts exported.
@@ -48,5 +62,7 @@ Build the first usable curl flow before visual polish or additional exercises.
 ---
 
 ## Immediate next action
-Product owner to: (1) install Docker Desktop, (2) provide an authorized curl clip,
-(3) confirm a Token Factory NVIDIA model ID. Then run the T01 feasibility spike.
+Infrastructure ready (Docker running, lat pulldown clip in data/demo/, Token Factory key
+present). Next: build the pose container, run MediaPipe on the lat pulldown clip
+(feasibility spike T01), and make one real Nemotron call. In parallel, wire the Tavily
+evidence-discovery flow and the reference-build script (T01b).

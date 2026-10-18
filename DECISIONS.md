@@ -61,6 +61,68 @@ Specification v2.0 (15 Oct 2026).
   identical analyses never re-spend tokens.
 - **Verification owed:** Confirm the exact model ID from the account catalog at Gate A.
 
+## D005 — Add cable lat pulldown as a 4th exercise; it is the first pipeline test
+
+- **Date:** 2026-10-18
+- **Status:** Accepted
+- **Context:** Product owner has an authorized lat pulldown clip and wants it as the
+  first end-to-end pipeline test. The spec's launch set is curl/raise/squat and lists
+  cable variations as unsupported "until separately specified"; this is that explicit
+  specification.
+- **Decision:** Add `lat_pulldown` (`data/exercise_specs/lat_pulldown.yaml`,
+  variant `cable_seated_bilateral`) as a supported exercise. Supported view is
+  `diagonal_side` based on the first clip (seated machine, filmed ~3/4 side). Scored
+  components: elbow_rom, shoulder_drive, torso_lean, phase_tempo, trajectory_error
+  (weights sum to 1.0). `bilateral_difference` is informational-only at this view
+  because the far arm is occluded.
+- **Consequence:** Lat pulldown is tracked and measured first. A frontal lat pulldown
+  profile, if ever needed, requires its own view validation and weights.
+- **Verification owed:** Confirm metrics on the real clip at the feasibility spike;
+  freeze the view/mask once validated.
+
+## D006 — Solo-user scope: curated reference only; trainer/personal-best deferred to P1
+
+- **Date:** 2026-10-18
+- **Status:** Accepted
+- **Context:** The target user trains alone with no personal trainer present — that is
+  the product's reason to exist. "Trainer reference" and "personal best" are optional
+  reference *sources*, not a requirement for a coach to be present.
+- **Decision:** Current scope ships only the **curated** reference type (a known-good
+  comparison trajectory that ships with the app). The user never needs a second person.
+  The "operator/reviewer" role is a BUILD-TIME role (the developer approving a
+  reference), not an end-user-facing feature. Trainer-provided and personal-best
+  references stay P1 and are out of current scope.
+- **Consequence:** Reference UI/flows for trainer/personal-best are deferred; the
+  `ReferenceProfile` contract still carries the `type` field so P1 can add them without
+  a schema break.
+
+## D007 — Experimental references from third-party video: dev-only, flagged, never shipped
+
+- **Date:** 2026-10-18
+- **Status:** Accepted (guarded)
+- **Context:** Product owner wants to test the full pipeline using reference clips
+  sourced from public technique videos. Tavily extracts TEXT/pages, not video files,
+  and cannot certify a video or grant platform access. Public social clips carry reuse
+  rights that saving "only the skeleton" does NOT remove.
+- **Decision — split evidence by type:**
+  - **Tavily (automated, legitimate):** discovers + ranks CREDIBLE technique sources
+    and candidate video URLs per exercise, and extracts guidance TEXT. This text feeds
+    metric tolerance *ranges* and coaching claims, with operator review. Satisfies the
+    runtime-search path (and the Tavily bonus).
+  - **Download (manual, product owner):** the product owner personally downloads the
+    clips they judge credible/usable from Tavily's shortlist into `data/demo/`
+    (gitignored). No automated video scraping; no `yt-dlp` in the product.
+  - **Reference build:** owned/downloaded clips run through the SAME MediaPipe pipeline
+    to build a trajectory.
+- **Guardrails:** References built from third-party clips are flagged
+  `source=experimental`, `authoritative=false`, and MUST NOT (a) appear in the public
+  submission repo/demo, or (b) produce a displayed overall score presented as valid.
+  Accuracy limitation is real and stated: do NOT average unaligned cross-view
+  trajectories into a single "normalized" reference. The public submission uses only
+  an owned/authorized reference, or ships measurements-only with no overall score.
+- **Verification owed:** Enforce the `authoritative` flag in scoring + UI before any
+  public build; confirm no experimental assets are committed.
+
 ---
 
 ## Open decisions (to close during implementation)
