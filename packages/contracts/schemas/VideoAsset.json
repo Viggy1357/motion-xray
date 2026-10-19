@@ -1,0 +1,91 @@
+{
+  "additionalProperties": false,
+  "description": "A single uploaded workout video and the facts we record about it.\n\nThe bytes themselves live in object storage under ``storage_key``; this\nmodel carries only verifiable metadata (hash, dimensions, duration) so the\npipeline can reason about the asset without touching the media.",
+  "properties": {
+    "bytes": {
+      "title": "Bytes",
+      "type": "integer"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "duration_s": {
+      "title": "Duration S",
+      "type": "number"
+    },
+    "expires_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expires At"
+    },
+    "height": {
+      "title": "Height",
+      "type": "integer"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "mime": {
+      "title": "Mime",
+      "type": "string"
+    },
+    "owner_session_id": {
+      "title": "Owner Session Id",
+      "type": "string"
+    },
+    "rotation": {
+      "title": "Rotation",
+      "type": "integer"
+    },
+    "sha256": {
+      "title": "Sha256",
+      "type": "string"
+    },
+    "storage_key": {
+      "title": "Storage Key",
+      "type": "string"
+    },
+    "timestamp_map_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Timestamp Map Key"
+    },
+    "width": {
+      "title": "Width",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "owner_session_id",
+    "storage_key",
+    "sha256",
+    "mime",
+    "bytes",
+    "duration_s",
+    "width",
+    "height",
+    "rotation",
+    "created_at"
+  ],
+  "title": "VideoAsset",
+  "type": "object"
+}

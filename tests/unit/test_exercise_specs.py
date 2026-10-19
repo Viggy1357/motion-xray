@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Unit tests over the exercise-spec YAMLs (structure scaffold).
 
 These checks need neither the ML stack nor the LLM/search SDKs, so they are the
@@ -9,6 +7,8 @@ scoring layer relies on: every spec declares the expected shape and its metric
 skew a score, which AGENTS.md rule 2 forbids). The real metric/scoring math is
 exercised elsewhere once T05/T07 land; this is structure-only verification.
 """
+
+from __future__ import annotations
 
 from pathlib import Path
 
@@ -20,7 +20,9 @@ yaml = pytest.importorskip("yaml")
 _REPO_ROOT = Path(__file__).resolve().parents[2]
 _SPEC_DIR = _REPO_ROOT / "data" / "exercise_specs"
 
-_EXPECTED_SPECS = ("dumbbell_curl.yaml", "lateral_raise.yaml", "squat.yaml")
+_EXPECTED_SPECS = (
+    "dumbbell_curl.yaml", "lateral_raise.yaml", "squat.yaml", "lat_pulldown.yaml"
+)
 
 
 def _spec_paths() -> list[Path]:

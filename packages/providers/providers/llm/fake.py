@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Deterministic coaching LLM double for tests and offline development.
 
 :class:`FakeLLMProvider` returns a fixed, valid
@@ -7,6 +5,8 @@ from __future__ import annotations
 no SDK, no credit spend. CI uses this instead of a live Nebius call
 (skills/nebius-token-factory: "CI never spends").
 """
+
+from __future__ import annotations
 
 from typing import Any
 
@@ -20,7 +20,7 @@ class FakeLLMProvider:
     async def coach(self, evidence: Any) -> CoachingResult:
         """Return a fixed, valid coaching result independent of ``evidence``."""
         return CoachingResult(
-            status=CoachingStatus.ok,
+            status=CoachingStatus.OK,
             summary="Fake coaching summary for deterministic tests.",
             observations=[
                 "Fake observation: elbow path stayed consistent across reps.",

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling==1.25.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -11,8 +11,9 @@ dependencies = [
     "fastapi==0.115.0",
     "pydantic==2.9.2",
     "uvicorn==0.31.0",
-    "motion-xray-contracts",
-    "motion-xray-providers",
+    "motion-xray-contracts==0.2.0",
+    "motion-xray-providers==0.1.0",
+    "motion-xray-benchmarks==0.1.0",
 ]
 
 [tool.hatch.build.targets.wheel]

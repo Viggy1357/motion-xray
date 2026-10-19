@@ -1,0 +1,98 @@
+{
+  "additionalProperties": false,
+  "description": "A single reviewable source backing one or more reference profiles.",
+  "properties": {
+    "canonical_url": {
+      "title": "Canonical Url",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "publisher": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Publisher"
+    },
+    "relevant_claims": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Relevant Claims",
+      "type": "array"
+    },
+    "retrieved_at": {
+      "format": "date-time",
+      "title": "Retrieved At",
+      "type": "string"
+    },
+    "reuse_terms": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reuse Terms"
+    },
+    "review_status": {
+      "title": "Review Status",
+      "type": "string"
+    },
+    "reviewed_date": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewed Date"
+    },
+    "reviewer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewer"
+    },
+    "source_tier": {
+      "title": "Source Tier",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "canonical_url",
+    "title",
+    "retrieved_at",
+    "source_tier",
+    "review_status"
+  ],
+  "title": "SourceRecord",
+  "type": "object"
+}

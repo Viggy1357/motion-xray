@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Export JSON Schema for every public contract model.
 
 These schemas are generated, not committed (see context: downstream code
@@ -7,6 +5,8 @@ generates TypeScript types / validates payloads from them). Run as::
 
     python -m contracts.schema_export [out_dir]
 """
+
+from __future__ import annotations
 
 import json
 import sys

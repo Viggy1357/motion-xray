@@ -1,6 +1,6 @@
-from __future__ import annotations
-
 """Media-domain contracts: the uploaded video asset and its metadata."""
+
+from __future__ import annotations
 
 from typing import Optional
 

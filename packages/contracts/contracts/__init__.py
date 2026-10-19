@@ -1,11 +1,11 @@
-from __future__ import annotations
-
 """Motion X Ray contracts — the Pydantic v2 schema source of truth.
 
 Import public models and enums from this package root, e.g.::
 
     from contracts import AnalysisResult, JobState
 """
+
+from __future__ import annotations
 
 from .analysis import (
     AnalysisResult,

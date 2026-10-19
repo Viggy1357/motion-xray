@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling==1.25.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -9,7 +9,7 @@ description = "Motion X Ray — provider interfaces (Protocols), Fake doubles, a
 requires-python = ">=3.12"
 dependencies = [
     "pydantic==2.9.2",
-    "motion-xray-contracts",
+    "motion-xray-contracts==0.2.0",
 ]
 
 [project.optional-dependencies]
@@ -20,6 +20,7 @@ pose = [
 ]
 llm = [
     "openai==1.51.0",
+    "httpx==0.27.2",
 ]
 search = [
     "tavily-python==0.5.0",

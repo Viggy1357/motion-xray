@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Motion X Ray providers — provider-agnostic interfaces and adapters.
 
 This package defines the ``typing.Protocol`` interfaces for the three external
@@ -15,6 +13,8 @@ Submodules:
     ``providers.llm``          — coaching LLM interface + Nebius stub.
     ``providers.search``       — evidence search interface + Tavily stub.
 """
+
+from __future__ import annotations
 
 from .capabilities import PoseCapabilities, SourceCandidate
 

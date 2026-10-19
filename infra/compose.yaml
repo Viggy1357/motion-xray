@@ -1,7 +1,7 @@
 # Motion X Ray — local development stack.
 # Everything runs in containers; nothing installs on the host.
 #   Start:  docker compose -f infra/compose.yaml up --build
-#   Stop:   docker compose -f infra/compose.yaml down -v   (removes volumes too)
+#   Stop:   docker compose -f infra/compose.yaml down
 #
 # The pose stack lives in its own image/environment, isolated from the API, so a
 # dependency conflict in the ML stack can never break the API service.
@@ -15,8 +15,9 @@ services:
       dockerfile: infra/web.Dockerfile
     environment:
       - NEXT_PUBLIC_API_BASE=${APP_ORIGIN:-http://localhost:3000}/api
+      - API_INTERNAL_URL=http://api:8000
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
     depends_on:
       - api
     volumes:
@@ -33,7 +34,7 @@ services:
       - DATABASE_URL=sqlite:////state/motion_xray.db
       - ARTIFACT_ROOT=/state/artifacts
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     volumes:
       - ../services/api:/app/services/api
       - ../packages:/app/packages

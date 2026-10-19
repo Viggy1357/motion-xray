@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling==1.25.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -9,8 +9,8 @@ description = "Motion X Ray — reference-profile loading and provider/reference
 requires-python = ">=3.12"
 dependencies = [
     "pydantic==2.9.2",
-    "motion-xray-contracts",
-    "motion-xray-providers",
+    "motion-xray-contracts==0.2.0",
+    "motion-xray-providers==0.1.0",
 ]
 
 [tool.hatch.build.targets.wheel]

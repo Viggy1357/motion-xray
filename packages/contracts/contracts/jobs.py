@@ -1,6 +1,6 @@
-from __future__ import annotations
-
 """Jobs-domain contract: the analysis job and its lease/retry bookkeeping."""
+
+from __future__ import annotations
 
 from typing import Optional
 

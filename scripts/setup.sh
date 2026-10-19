@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Motion X Ray — one-time local setup (STRUCTURE-ONLY stub).
-# Real setup copies .env.example to .env and builds the container images.
-echo "[setup] STRUCTURE-ONLY stub."
-echo "[setup] TODO(T01): cp .env.example .env (fill secrets), then:"
-echo "[setup]   docker compose -f infra/compose.yaml build"
-exit 0
+repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+if [[ ! -e "$repo_root/.env" ]]; then
+  (umask 077; cp "$repo_root/.env.example" "$repo_root/.env")
+fi
+docker compose -f "$repo_root/infra/compose.yaml" build "$@"

@@ -1,10 +1,10 @@
-from __future__ import annotations
-
 """Enumerations shared across Motion X Ray contracts.
 
 All enums are ``(str, Enum)`` so they serialise to their string value in JSON
 and read naturally in logs and API payloads.
 """
+
+from __future__ import annotations
 
 from enum import Enum
 

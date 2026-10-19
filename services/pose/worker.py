@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Motion X Ray pose worker entry point.
 
 This process claims analysis jobs from the durable queue and runs the
@@ -12,6 +10,8 @@ NOT imported at module top — they belong inside the pipeline functions added b
 their owning tasks (T04/T05/T07/T09) so that merely importing this module, or
 running main(), never requires the ML stack.
 """
+
+from __future__ import annotations
 
 import logging
 

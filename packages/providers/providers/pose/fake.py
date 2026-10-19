@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Deterministic pose double for tests and offline development.
 
 :class:`FakePoseProvider` returns a small, fixed :class:`PoseSequence` built
@@ -9,7 +7,10 @@ sequence is explicitly labelled with provider ``"fake"`` so no downstream
 code mistakes it for genuine MediaPipe output (AGENTS.md rule 3).
 """
 
+from __future__ import annotations
+
 from contracts.pose import PoseSequence
+from contracts.base import SCHEMA_VERSION
 
 from providers.capabilities import PoseCapabilities
 
@@ -52,7 +53,7 @@ class FakePoseProvider:
         """
         video_id = getattr(video, "id", "fake-video")
         return PoseSequence(
-            schema_version="1",
+            schema_version=SCHEMA_VERSION,
             video_id=video_id,
             provider="fake",
             model_revision="fake-0",

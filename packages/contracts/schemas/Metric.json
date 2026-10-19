@@ -1,0 +1,131 @@
+{
+  "additionalProperties": false,
+  "description": "One measured quantity for a rep.\n\n``value`` is ``None`` when it could not be measured; ``reason`` then states\nwhy in machine-readable form. ``reference_interval`` is the acceptable\n``(lower, upper)`` band used by scoring.",
+  "properties": {
+    "coverage": {
+      "anyOf": [
+        {
+          "ge": 0,
+          "le": 1,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Coverage"
+    },
+    "deviation": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Deviation"
+    },
+    "dimensionality": {
+      "title": "Dimensionality",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "quality_method": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Quality Method"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "reference_interval": {
+      "anyOf": [
+        {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference Interval"
+    },
+    "rep_id": {
+      "title": "Rep Id",
+      "type": "string"
+    },
+    "side": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Side"
+    },
+    "status": {
+      "title": "Status",
+      "type": "string"
+    },
+    "unit": {
+      "title": "Unit",
+      "type": "string"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Value"
+    }
+  },
+  "required": [
+    "id",
+    "rep_id",
+    "unit",
+    "dimensionality",
+    "status"
+  ],
+  "title": "Metric",
+  "type": "object"
+}

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling==1.25.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -9,7 +9,7 @@ description = "Motion X Ray — deterministic scoring (normalize/align, DTW, per
 requires-python = ">=3.12"
 dependencies = [
     "numpy==2.1.2",
-    "motion-xray-contracts",
+    "motion-xray-contracts==0.2.0",
 ]
 
 [tool.hatch.build.targets.wheel]

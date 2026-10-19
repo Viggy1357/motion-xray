@@ -1,0 +1,96 @@
+{
+  "$defs": {
+    "CompletionStatus": {
+      "description": "Whether a detected repetition was carried to completion.",
+      "enum": [
+        "completed",
+        "partial",
+        "uncertain"
+      ],
+      "title": "CompletionStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "A single detected repetition with its phase boundaries (seconds).",
+  "properties": {
+    "completion_status": {
+      "$ref": "#/$defs/CompletionStatus"
+    },
+    "end_s": {
+      "title": "End S",
+      "type": "number"
+    },
+    "excluded_reasons": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Excluded Reasons",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "ordinal": {
+      "minimum": 1,
+      "title": "Ordinal",
+      "type": "integer"
+    },
+    "scorable": {
+      "title": "Scorable",
+      "type": "boolean"
+    },
+    "side": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Side"
+    },
+    "start_s": {
+      "title": "Start S",
+      "type": "number"
+    },
+    "turnaround_end_s": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Turnaround End S"
+    },
+    "turnaround_start_s": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Turnaround Start S"
+    }
+  },
+  "required": [
+    "id",
+    "ordinal",
+    "start_s",
+    "end_s",
+    "completion_status",
+    "scorable"
+  ],
+  "title": "Rep",
+  "type": "object"
+}

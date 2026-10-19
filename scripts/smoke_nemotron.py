@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Motion X Ray — Nemotron (Nebius Token Factory) connectivity smoke test.
 
 Token Factory is OpenAI-compatible; this script proves the coaching LLM path
@@ -12,6 +10,8 @@ Safety and credit rules (this project has limited credits):
     makes NO network call. CI relies on this.
   * ONLY with --live does it make exactly ONE bounded chat.completions call.
 """
+
+from __future__ import annotations
 
 import argparse
 import os

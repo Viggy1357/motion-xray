@@ -1,0 +1,65 @@
+{
+  "$defs": {
+    "CoachingStatus": {
+      "description": "Whether coaching output is available for a result.",
+      "enum": [
+        "ok",
+        "unavailable"
+      ],
+      "title": "CoachingStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "LLM-generated coaching text, kept separate from deterministic metrics.\n\nWhen ``status`` is ``unavailable`` the narrative fields are empty rather\nthan invented, honoring the never-fabricate rule.",
+  "properties": {
+    "limitations": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "next_set_cue": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Next Set Cue"
+    },
+    "observations": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Observations",
+      "type": "array"
+    },
+    "status": {
+      "$ref": "#/$defs/CoachingStatus"
+    },
+    "summary": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Summary"
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "title": "CoachingResult",
+  "type": "object"
+}

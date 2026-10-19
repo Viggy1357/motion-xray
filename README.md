@@ -46,9 +46,12 @@ coding agent follows before changing code.
 
 ## Status
 
-Scaffolded; no complete video-to-report flow yet. The 19 October container audit found
-Python import/test/lint/type blockers; the heading-only web scaffold builds. Next:
-T02.1 executable checks, then real MediaPipe pose on the lat-pulldown clip.
+Baseline repaired; no complete video-to-report flow yet. Container lint/types and 61
+tests pass; API/worker/web images build and MediaPipe imports. The web still shows a
+scaffold heading. Next: T01/T04 real MediaPipe pose on the lat-pulldown clip.
+
+Run `./scripts/test.sh all` for the actual offline checks. See `docs/OPERATIONS.md`
+for setup, local startup and contract-generation commands.
 
 - [Audit and verified progress](docs/AUDIT-2026-10-19.md)
 - [Step-by-step delivery workflow](docs/DELIVERY.md)

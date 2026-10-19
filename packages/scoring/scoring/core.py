@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Deterministic scoring primitives (SCAFFOLD — no real math).
 
 Scoring compares a user's measured metrics against an approved reference
@@ -13,6 +11,8 @@ score. Implementations are deferred to TODO(T07); each raises
 :class:`NotImplementedError` so no caller mistakes a scaffold for a real score
 (AGENTS.md rules 2 and 3 — scores are deterministic and never fabricated).
 """
+
+from __future__ import annotations
 
 from typing import Any, Sequence
 

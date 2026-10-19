@@ -1,0 +1,100 @@
+{
+  "additionalProperties": false,
+  "description": "Per-component inputs and the resulting raw/displayed scores.",
+  "properties": {
+    "component_values": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "default": {},
+      "title": "Component Values",
+      "type": "object"
+    },
+    "component_weights": {
+      "additionalProperties": {
+        "ge": 0,
+        "le": 1,
+        "type": "number"
+      },
+      "default": {},
+      "title": "Component Weights",
+      "type": "object"
+    },
+    "coverage": {
+      "anyOf": [
+        {
+          "ge": 0,
+          "le": 1,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Coverage"
+    },
+    "displayed_score": {
+      "anyOf": [
+        {
+          "ge": 0,
+          "le": 100,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Displayed Score"
+    },
+    "missing_reasons": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Reasons",
+      "type": "array"
+    },
+    "profile_id": {
+      "title": "Profile Id",
+      "type": "string"
+    },
+    "profile_version": {
+      "title": "Profile Version",
+      "type": "string"
+    },
+    "raw_score": {
+      "anyOf": [
+        {
+          "ge": 0,
+          "le": 100,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Raw Score"
+    },
+    "reference_version": {
+      "title": "Reference Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "profile_id",
+    "profile_version",
+    "reference_version"
+  ],
+  "title": "ScoreBreakdown",
+  "type": "object"
+}

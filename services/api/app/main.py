@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Motion X Ray HTTP API — the public /v1 surface.
 
 This module constructs the FastAPI application and declares every route the
@@ -21,7 +19,20 @@ FastAPI serves GET /openapi.json automatically from these declarations; do not
 hand-write it. The importable ASGI target is ``app.main:app``.
 """
 
+from __future__ import annotations
+
+import os
+
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel
+
+from app import errors
+from contracts.analysis import AnalysisResult
+from contracts.jobs import AnalysisJob
+from contracts.media import VideoAsset
+from contracts.reference import ReferenceProfile, SourceRecord
+from providers.search.protocol import SearchProvider
 
 app = FastAPI(
     title="Motion X Ray API",
@@ -47,31 +58,31 @@ def list_exercises() -> None:
     raise _not_implemented()
 
 
-@app.post("/v1/videos")
+@app.post("/v1/videos", response_model=VideoAsset, status_code=201)
 def create_video() -> None:
     """Register/upload a source video asset for analysis. FR01, FR02. TODO(T03)."""
     raise _not_implemented()
 
 
-@app.get("/v1/references")
+@app.get("/v1/references", response_model=list[ReferenceProfile])
 def list_references() -> None:
     """List approved reference profiles. FR07, FR11. TODO(T06)."""
     raise _not_implemented()
 
 
-@app.post("/v1/analyses")
+@app.post("/v1/analyses", response_model=AnalysisJob, status_code=202)
 def create_analysis() -> None:
     """Enqueue an analysis job for a video + exercise/variant. FR03. TODO(T08)."""
     raise _not_implemented()
 
 
-@app.get("/v1/analyses/{analysis_id}")
+@app.get("/v1/analyses/{analysis_id}", response_model=AnalysisJob)
 def get_analysis(analysis_id: str) -> None:
     """Fetch an analysis job's state/stage. FR03, FR12. TODO(T08)."""
     raise _not_implemented()
 
 
-@app.get("/v1/analyses/{analysis_id}/result")
+@app.get("/v1/analyses/{analysis_id}/result", response_model=AnalysisResult)
 def get_analysis_result(analysis_id: str) -> None:
     """Fetch the completed AnalysisResult (reps, metrics, score). FR07, FR08. TODO(T07)."""
     raise _not_implemented()
@@ -95,19 +106,71 @@ def delete_analysis(analysis_id: str) -> None:
     raise _not_implemented()
 
 
-@app.post("/v1/references")
+@app.post("/v1/references", response_model=ReferenceProfile, status_code=201)
 def create_reference() -> None:
     """Create a draft reference profile from curated sources. FR07, FR11. TODO(T06)."""
     raise _not_implemented()
 
 
-@app.post("/v1/references/{reference_id}/approve")
+@app.post("/v1/references/{reference_id}/approve", response_model=ReferenceProfile)
 def approve_reference(reference_id: str) -> None:
     """Approve a reference profile for use in scoring. FR07. TODO(T06)."""
     raise _not_implemented()
 
 
-@app.post("/v1/evidence/refresh")
-def refresh_evidence() -> None:
-    """Refresh cached evidence sources for references. FR11. TODO(T10)."""
-    raise _not_implemented()
+class EvidenceRefreshRequest(BaseModel):
+    """Body for POST /v1/evidence/refresh — one exercise technique query."""
+
+    exercise_id: str
+    technique_question: str
+    allowlist: list[str] | None = None
+
+
+class EvidenceRefreshResponse(BaseModel):
+    provider: str
+    drafts: list[SourceRecord]
+
+
+@app.post("/v1/evidence/refresh", response_model=EvidenceRefreshResponse)
+async def refresh_evidence(body: EvidenceRefreshRequest):
+    # TODO(operator-auth): gate on operator credentials per docs/API.md before
+    # enabling live refresh. The cached default keeps this route credit-safe; a
+    # live Tavily refresh must be restricted to an authenticated operator.
+    """Refresh evidence source drafts for a reference. FR11.
+
+    Returns DRAFT SourceRecords (never approved). SEARCH_PROVIDER selects the
+    provider: 'tavily' makes a bounded live call; anything else uses the cached
+    offline default so the route spends zero credits by default.
+    """
+    from benchmarks.evidence import discover_evidence
+
+    provider_name = os.environ.get("SEARCH_PROVIDER", "cached").strip().lower()
+    provider: SearchProvider
+    if provider_name == "tavily":
+        # T10 must add operator authentication and spend limits before live use.
+        raise HTTPException(status_code=503, detail="Live evidence refresh is not enabled")
+    else:
+        provider_name = "cached"
+        from providers.search.cached import CachedSearchProvider
+
+        provider = CachedSearchProvider()
+
+    try:
+        drafts = await discover_evidence(
+            body.exercise_id,
+            body.technique_question,
+            provider=provider,
+            allowlist=body.allowlist,
+        )
+    except Exception as exc:  # provider timeout/failure -> honest typed signal.
+        envelope = errors.ErrorEnvelope(
+            code=errors.PROVIDER_TIMEOUT,
+            message=f"Evidence provider '{provider_name}' failed: {exc}",
+            retryable=True,
+        )
+        return JSONResponse(status_code=504, content=envelope.model_dump(mode="json"))
+
+    return {
+        "provider": provider_name,
+        "drafts": [record.model_dump(mode="json") for record in drafts],
+    }

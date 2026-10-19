@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Shared Pydantic v2 base model and reusable validators for Motion X Ray.
 
 This module is the foundation of the contracts package (AGENTS.md rule 4).
@@ -10,25 +8,29 @@ real measured number or an explicit ``None`` with a machine-readable reason;
 silent NaN/inf is never allowed to masquerade as data.
 """
 
+from __future__ import annotations
+
 from datetime import datetime, timezone
-from typing import Annotated
+from typing import Annotated, Final
 
 from pydantic import AfterValidator, BaseModel, ConfigDict
+
+SCHEMA_VERSION: Final = "0.2.0"
 
 
 class MXRModel(BaseModel):
     """Base model for every Motion X Ray contract.
 
     Configuration:
-        * ``ser_json_inf_nan='strict'`` — JSON serialisation raises on NaN/inf
-          instead of emitting non-standard JSON tokens.
+        * ``allow_inf_nan=False`` — validation rejects non-finite floats.
         * ``extra='forbid'`` — unknown input fields are a validation error, so
           schema drift is caught at the boundary rather than silently dropped.
     """
 
     model_config = ConfigDict(
-        ser_json_inf_nan="strict",
+        allow_inf_nan=False,
         extra="forbid",
+        protected_namespaces=(),
     )
 
 

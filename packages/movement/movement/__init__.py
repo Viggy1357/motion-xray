@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Motion X Ray movement — deterministic movement analysis.
 
 Pure, deterministic processing kept strictly separate from any LLM output
@@ -7,6 +5,8 @@ Pure, deterministic processing kept strictly separate from any LLM output
 a missing perception input yields an honest partial result, never a fabricated
 angle or rep (rule 3).
 """
+
+from __future__ import annotations
 
 from .core import (
     compute_angle,

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """The provider-agnostic evidence search interface.
 
 Search populates the reviewed evidence library that grounds coaching and
@@ -7,6 +5,8 @@ reference tolerances. The default provider is ``cached`` (reviewed local
 records, zero spend); the live Tavily provider is used only for
 operator-triggered refresh (skills/tavily-search).
 """
+
+from __future__ import annotations
 
 from typing import Protocol, runtime_checkable
 

@@ -1,9 +1,8 @@
-from __future__ import annotations
-
 """Motion X Ray — Tavily search connectivity smoke test.
 
 Tavily populates the reviewed evidence library on an operator-triggered refresh
-(skills/tavily-search). This script proves the search path can reach the API.
+(skills/tavily-search). This script proves the search path can reach the API and
+prints a ranked shortlist for a lat pulldown technique query.
 
 Safety and credit rules (this project has limited credits):
   * The key is read from the environment ONLY (TAVILY_API_KEY). No key is ever
@@ -13,11 +12,14 @@ Safety and credit rules (this project has limited credits):
   * ONLY with --live does it make exactly ONE bounded search call.
 """
 
+from __future__ import annotations
+
 import argparse
+import asyncio
 import os
 import sys
 
-_DEMO_QUERY = "standing dumbbell curl upper-arm position coaching cue"
+_DEMO_QUERY = "cable lat pulldown proper form elbow path torso lean coaching cues"
 
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -42,9 +44,18 @@ def _dry_run() -> int:
     )
     print("[smoke_tavily] Would call (Python SDK):")
     print("[smoke_tavily]   client = TavilyClient(api_key=TAVILY_API_KEY)")
-    print(f"[smoke_tavily]   client.search(query={_DEMO_QUERY!r}, max_results=3)")
+    print(f"[smoke_tavily]   client.search(query={_DEMO_QUERY!r}, max_results=5)")
     print("[smoke_tavily] Re-run with --live to make exactly ONE real call.")
     return 0
+
+
+def _why_credible(tier: str) -> str:
+    """Return a short operator-facing note derived from the source tier."""
+    if tier == "professional":
+        return "professional source (edu/gov/journal/manufacturer/coaching org)"
+    if tier == "social":
+        return "social/user-generated platform — review carefully before trusting"
+    return "other source — needs operator review"
 
 
 def _live() -> int:
@@ -56,14 +67,22 @@ def _live() -> int:
         )
         return 2
 
-    # Lazy import so the dry-run path never requires the SDK.
-    from tavily import TavilyClient
+    # Lazy imports so the dry-run path never requires the SDK or packages.
+    from benchmarks.evidence import rank_candidates, source_tier
+    from providers.search.tavily_provider import TavilySearchProvider
 
-    client = TavilyClient(api_key=api_key)
-    res = client.search(query=_DEMO_QUERY, max_results=3)
-    results = res.get("results", []) if isinstance(res, dict) else []
-    print("[smoke_tavily] LIVE ok — one call made.")
-    print(f"[smoke_tavily]   results returned = {len(results)}")
+    provider = TavilySearchProvider(max_results=5)
+    candidates = asyncio.run(provider.search(_DEMO_QUERY))  # exactly one call.
+    ranked = rank_candidates(candidates)
+
+    print("[smoke_tavily] LIVE ok — one search made.")
+    print(f"[smoke_tavily]   ranked shortlist ({len(ranked)}):")
+    for candidate in ranked:
+        tier = source_tier(candidate.url)
+        title = candidate.title or "(untitled)"
+        print(f"[smoke_tavily]   - {title}")
+        print(f"[smoke_tavily]       {candidate.url}")
+        print(f"[smoke_tavily]       why: {_why_credible(tier)}")
     return 0
 
 

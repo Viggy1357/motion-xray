@@ -1,0 +1,136 @@
+{
+  "$defs": {
+    "ReferenceType": {
+      "description": "Provenance class of a reference profile.",
+      "enum": [
+        "evidence",
+        "trainer",
+        "personal"
+      ],
+      "title": "ReferenceType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "A versioned, approved reference for one exercise/variant/view.",
+  "properties": {
+    "approval_status": {
+      "title": "Approval Status",
+      "type": "string"
+    },
+    "approved_by": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Approved By"
+    },
+    "approved_date": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Approved Date"
+    },
+    "exercise": {
+      "title": "Exercise",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "metric_rules": {
+      "additionalProperties": {
+        "type": "object"
+      },
+      "default": {},
+      "title": "Metric Rules",
+      "type": "object"
+    },
+    "pose_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Pose Key"
+    },
+    "provider_compatibility": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Provider Compatibility",
+      "type": "array"
+    },
+    "scope": {
+      "title": "Scope",
+      "type": "string"
+    },
+    "source_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Ids",
+      "type": "array"
+    },
+    "type": {
+      "$ref": "#/$defs/ReferenceType"
+    },
+    "variant": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Variant"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    },
+    "view": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "View"
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "type",
+    "scope",
+    "exercise",
+    "approval_status"
+  ],
+  "title": "ReferenceProfile",
+  "type": "object"
+}

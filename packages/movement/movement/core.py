@@ -1,11 +1,11 @@
-from __future__ import annotations
-
 """Deterministic movement-analysis primitives (SCAFFOLD — no real math).
 
 These are the public signatures the pipeline depends on. Implementations are
 deferred to TODO(T05); each raises :class:`NotImplementedError` so a caller can
 never mistake an empty scaffold for a real measurement (AGENTS.md rule 3).
 """
+
+from __future__ import annotations
 
 from typing import Any, Sequence
 

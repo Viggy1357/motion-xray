@@ -1,11 +1,11 @@
-from __future__ import annotations
-
 """Round-trip + invariant tests for every Motion X Ray contract model.
 
 Each model is built with valid example data, serialised to JSON, parsed back,
 and asserted equal. We also assert the shared NaN/inf rejection and that the
 schema export yields one entry per model.
 """
+
+from __future__ import annotations
 
 import math
 from datetime import datetime, timezone
@@ -32,6 +32,7 @@ from contracts import (
     VideoAsset,
 )
 from contracts.schema_export import export_json_schema
+from contracts.base import SCHEMA_VERSION
 
 UTC_NOW = datetime(2024, 1, 2, 3, 4, 5, tzinfo=timezone.utc)
 
@@ -104,7 +105,7 @@ def _examples() -> list:
             joints={"left_knee": joint},
         ),
         PoseSequence(
-            schema_version="1.0",
+            schema_version=SCHEMA_VERSION,
             video_id="vid-1",
             provider="mediapipe",
             model_revision="rev-1",
@@ -121,7 +122,7 @@ def _examples() -> list:
         metric,
         coaching,
         AnalysisResult(
-            schema_version="1.0",
+            schema_version=SCHEMA_VERSION,
             analysis_id="an-1",
             exercise="squat",
             variant="back",

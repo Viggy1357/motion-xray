@@ -1,0 +1,78 @@
+{
+  "additionalProperties": false,
+  "description": "Header/manifest for a pose capture over a whole video.\n\nThe per-frame data is large and is stored out of band under\n``frames_artifact_key``; this model is the versioned descriptor that makes\nthe artifact interpretable and reproducible.",
+  "properties": {
+    "capabilities": {
+      "additionalProperties": {
+        "type": "boolean"
+      },
+      "title": "Capabilities",
+      "type": "object"
+    },
+    "coordinate_system": {
+      "title": "Coordinate System",
+      "type": "string"
+    },
+    "frames_artifact_key": {
+      "title": "Frames Artifact Key",
+      "type": "string"
+    },
+    "joint_mapping_version": {
+      "title": "Joint Mapping Version",
+      "type": "string"
+    },
+    "model_revision": {
+      "title": "Model Revision",
+      "type": "string"
+    },
+    "native_skeleton": {
+      "title": "Native Skeleton",
+      "type": "string"
+    },
+    "provider": {
+      "title": "Provider",
+      "type": "string"
+    },
+    "quality_method": {
+      "title": "Quality Method",
+      "type": "string"
+    },
+    "sample_rate_hz": {
+      "gt": 0,
+      "title": "Sample Rate Hz",
+      "type": "number"
+    },
+    "schema_version": {
+      "const": "0.2.0",
+      "default": "0.2.0",
+      "enum": [
+        "0.2.0"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "units": {
+      "title": "Units",
+      "type": "string"
+    },
+    "video_id": {
+      "title": "Video Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "video_id",
+    "provider",
+    "model_revision",
+    "native_skeleton",
+    "joint_mapping_version",
+    "sample_rate_hz",
+    "units",
+    "coordinate_system",
+    "capabilities",
+    "quality_method",
+    "frames_artifact_key"
+  ],
+  "title": "PoseSequence",
+  "type": "object"
+}

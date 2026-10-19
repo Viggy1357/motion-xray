@@ -1,9 +1,9 @@
 # OPERATIONS
 
-**Implementation status, 19 Oct:** this runbook contains intended operations, not
-verified running services. Upload/jobs/deletion/retention are not implemented, script
-entrypoints are stubs, and Python checks fail. See `AUDIT-2026-10-19.md` and T02.1 in
-`DELIVERY.md` before using these commands as evidence of readiness.
+**T02.1 status:** container builds, offline checks and local web/API routing are verified.
+Upload/jobs/deletion/retention and actual pose inference are not implemented. The worker
+image imports MediaPipe, but its entrypoint is still a stub. Live evidence refresh is
+disabled. The dated audit is a historical baseline, not the current test result.
 
 This is the runbook for operating Motion X Ray locally. Everything runs in containers so
 nothing installs on the host beyond Docker Desktop (DECISIONS.md D003). It covers the
@@ -16,8 +16,18 @@ they are verified; do not assume a command works until it appears in this file.
 The Compose build context is the repo root (`..`) with Dockerfiles under `infra/`.
 
 ```bash
-# Start the full stack (web + api + worker); nothing touches the host
-docker compose -f infra/compose.yaml up --build
+# Build images, copying .env.example only if .env does not already exist
+./scripts/setup.sh
+
+# Start local web/API (pipeline worker is not functional yet)
+./scripts/dev.sh -d api web
+
+# Actual CI checks: hashes/frozen installs at build; runtime checks have no network/keys
+./scripts/test.sh all
+# Focused checks: ./scripts/test.sh python  OR  ./scripts/test.sh web
+
+# Regenerate API/JSON schemas and frontend types inside containers
+./scripts/export-contracts.sh
 
 # Validate the compose file without starting anything
 docker compose -f infra/compose.yaml config
@@ -32,10 +42,16 @@ docker compose -f infra/compose.yaml down
 docker compose -f infra/compose.yaml down -v
 ```
 
-`web` is published on `localhost:3000`, `api` on `localhost:8000`. The `worker` exposes no
-port — it leases jobs from the durable queue. In-container checks (once Docker Desktop is
-available): `pytest tests/contracts tests/unit`, `ruff check`, `mypy`, and `pnpm install
-&& pnpm tsc --noEmit`.
+`web` is bound to `127.0.0.1:3000`, `api` to `127.0.0.1:8000`. Browser `/api/*` rewrites
+to the private API `/v1/*`. The worker exposes no port and does not claim jobs yet.
+`test.sh` uses separate `infra/checks.yaml`, never runtime `.env` or state volumes.
+Python locks live in `infra/requirements`; regenerate with `scripts/lock_python.py`
+inside the test container. Web uses the checked-in pnpm lockfile with frozen installs.
+Build tools/images are pinned. Debian package dependencies still follow the pinned base
+image's configured repositories; recorded image IDs identify tested artifacts.
+
+Unimplemented analyze/evaluate/cleanup/seed commands return exit code 2, never a false
+success. Do not interpret health checks or a successful build as a working analysis.
 
 ## Environment and secrets
 

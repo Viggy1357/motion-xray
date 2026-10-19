@@ -1,0 +1,18 @@
+name: motion-xray-checks
+services:
+  python:
+    build:
+      context: ..
+      dockerfile: infra/test.Dockerfile
+    network_mode: none
+    environment:
+      SEARCH_PROVIDER: cached
+      LLM_PROVIDER: fake
+  web:
+    build:
+      context: ..
+      dockerfile: infra/web.Dockerfile
+    network_mode: none
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"
+    command: ["sh", "-c", "pnpm typecheck && pnpm build"]

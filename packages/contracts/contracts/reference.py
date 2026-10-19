@@ -1,11 +1,11 @@
-from __future__ import annotations
-
 """Reference-domain contracts: approved reference profiles and their sources.
 
 A :class:`ReferenceProfile` is the versioned, human-approved target a user's
 movement is compared against; :class:`SourceRecord` captures the vetted,
 reviewable provenance behind it (AGENTS.md rules 5 and 6).
 """
+
+from __future__ import annotations
 
 from typing import List, Optional
 

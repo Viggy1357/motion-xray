@@ -81,7 +81,7 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 ## T02 — Scaffold hardening  ·  status: todo  ·  date: 16–17 Oct
 - Locked dependency versions, working Compose, CI (fixtures only), contracts exported.
 
-### T02.1 — Executable baseline repair · status: todo · next implementation task
+### T02.1 — Executable baseline repair · status: done · Codex, 19 Oct
 - **FRs:** FR01–FR12 infrastructure.
 - **Steps/files:** Fix Pydantic import configuration and fake enum; enforce meaningful
   contract invariants; resolve pytest package collision; fix lint/type failures; create
@@ -90,7 +90,22 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 - **Acceptance:** Fresh documented container commands execute actual imports/lint/types/
   unit/contract tests and frontend build; failures return nonzero; no provider credentials
   or host runtimes needed. Full bounded sequence: `docs/DELIVERY.md#t021--make-checks-and-local-startup-trustworthy`.
-- **Evidence:** Audit baseline in docs/audit/2026-10-19-checks.txt. Not started.
+- **Changed files:** Contract validators/version 0.2.0 and generated schemas/types;
+  module docstring order and fake enum; offline test image/Compose/scripts/CI;
+  hashed Python locks, pnpm lock and digest-pinned bases; Next 15.5.28/React 19.3.0;
+  localhost binding and web/API rewrite; docs/runbook. Paused Kiro evidence code was
+  reviewed/adopted as incomplete T01b/T10 work with live route hard-disabled (503).
+- **Checks:** `./scripts/test.sh python`: Ruff clean, mypy clean (36 source files),
+  61 tests pass; `./scripts/test.sh web`: clean type generation/type-check and build.
+  API/worker images build; actual MediaPipe 0.10.14 + NumPy 2.1.2 import succeeds.
+  Intentional container-only test failure exits 1. Local smoke: health 200, web 200,
+  `/api/exercises` forwards to `/v1/exercises` and honestly returns 501.
+- **Evidence:** docs/audit/T02.1-verification.md. No product paid calls or Addy Osmani
+  skills used. One upstream TestClient deprecation warning and empty-scaffold Tailwind
+  warning remain; neither is suppressed or interpreted as a completed product.
+- **Assumptions/blockers:** Verified locally on Linux/aarch64 Docker; remote GitHub CI
+  not executed here. No real pose/artifact yet; reference review, coaching and T10 live
+  evidence guards still pending. Private diagnostic scripts remain uncommitted.
 - **Next:** T01/T04 real pose.
 
 ## T03 — Ingestion  ·  status: todo  ·  date: 17 Oct  ·  FR01, FR02, FR03
@@ -129,8 +144,8 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 ---
 
 ## Immediate next action
-Finish the T16 audit handoff, then claim **T02.1**. No more scaffold review loop.
-After its checks work, implement **T01/T04** on a documented lat-pulldown segment.
+T02.1 is complete. Claim **T01/T04** and process a documented lat-pulldown segment
+through the real canonical pose adapter. Do not restart the scaffold review loop.
 Every remaining task's steps, files, dependencies and acceptance are in docs/DELIVERY.md.
 Additional user clips are analysis inputs, not approved references. Budget caps and a
 reviewed reference remain open; neither prevents offline baseline and pose work.

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Reference-compatibility checks (SCAFFOLD — no real logic).
 
 Benchmarks decide whether a given pose provider's capabilities are sufficient
@@ -7,6 +5,8 @@ to compare against a particular reference profile, so scoring never runs an
 unsupportable comparison (AGENTS.md rule 3). Implementations are deferred to
 TODO(T06); each raises :class:`NotImplementedError`.
 """
+
+from __future__ import annotations
 
 from contracts.reference import ReferenceProfile
 

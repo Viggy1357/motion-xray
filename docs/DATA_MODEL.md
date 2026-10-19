@@ -1,8 +1,10 @@
 # DATA MODEL
 
-**19 Oct implementation note:** definitions exist but the contract base fails import
-under pinned Pydantic; frontend types are not yet generated from route response models.
-Several documented invariants are not enforced. See `AUDIT-2026-10-19.md` A01/A05 and T02.1.
+**T02.1 implementation note:** contracts import successfully and reject non-finite
+values, missing metrics without reasons, invalid rep intervals and out-of-range scores.
+Contracts package and versioned pose/report payloads are now `0.2.0`. Generated JSON
+schemas, actual OpenAPI and frontend types are checked in. Structured coaching and
+reference-provenance extensions remain T06/T09 work; the dated audit records the old baseline.
 
 The Pydantic v2 models in `packages/contracts` are the single schema source of truth for
 Motion X Ray (AGENTS.md rule 4). TypeScript types and JSON Schemas are generated from

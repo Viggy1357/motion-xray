@@ -125,6 +125,27 @@ Specification v2.0 (15 Oct 2026).
 
 ---
 
+## D008 — Executable baseline and contract version 0.2.0
+
+- **Date:** 19 Oct 2026; **Status:** Accepted implementation hardening under T02.1.
+- **Context:** Imports failed with an invalid Pydantic configuration; test-package
+  shadowing and placeholder scripts concealed the absence of executable checks.
+- **Decision:** Reject non-finite values at validation, enforce missing-metric reasons,
+  ordered rep intervals and score/coverage bounds. Bump contracts to 0.2.0 and migrate
+  versioned pose/report payloads, fake provider and fixtures together. Generate actual
+  OpenAPI/JSON schemas and TypeScript types; check generated artifacts for drift.
+- **Execution:** Separate offline Compose checks have no runtime credentials, state
+  volumes or network. Hashed Python locks and a frozen pnpm lockfile pin dependencies;
+  compatible OpenAI/httpx remain 1.51.0/0.27.2. Python and Node bases are digest-pinned.
+  Next.js moves from 14.2.15 to supported Maintenance LTS 15.5.28 with React 19.3.0,
+  following the 14 Oct 2026 advisory; this is security maintenance of the empty scaffold.
+- **Evidence policy:** Paused Kiro evidence work is reviewed/adopted as unfinished T01b/T10
+  code. Live refresh now fails closed with 503 until operator/spend controls exist.
+  Cached discovery is not an approved technique library and cannot justify scoring.
+- **Limits:** No model, exercise threshold or scoring weight changed. Successful builds
+  and MediaPipe import are environment proof only; real clip inference remains T01/T04.
+- **Source:** https://nextjs.org/blog/nextjs-security-update-october-14-2026
+
 ## Open decisions (to close during implementation)
 
 | Decision | Owner | Closure point |

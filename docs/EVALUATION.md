@@ -33,6 +33,7 @@ provider credits — AGENTS.md).
 | Integration | `tests/integration` | API `/v1` surface and the pose → segment → metrics → score → coach flow with `Fake*` providers. |
 | Evaluation | `tests/evaluation` | Held-out fixtures against the acceptance targets above, including determinism regression. |
 
-Host-level scaffold validation (Python 3.9, no Docker) is limited to `py_compile`, JSON/
-YAML parsing, and gated dry-run smokes. Container-level checks (pytest, ruff, mypy, pnpm
-`tsc --noEmit`) run once Docker Desktop is available — see `docs/OPERATIONS.md`.
+T02.1 establishes `./scripts/test.sh all`: containerized Ruff, mypy, unit/contract/API
+integration tests, web type generation/checking and production build. Sixty-one tests pass;
+these validate the baseline and contracts, not movement accuracy. Real pose extraction,
+labelled rep/metric evaluation and held-out quality measurements are still pending.

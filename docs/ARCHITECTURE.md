@@ -46,8 +46,9 @@ downstream code depends on the contract, not on a concrete SDK:
   Token Factory provider (`nebius_provider.py`, stub) for the required runtime NVIDIA
   Nemotron call (D001, D004).
 - **`SearchProvider`** (`providers/search/protocol.py`) — `search()` + `extract()`. The
-  default `cached` provider reads reviewed local records (zero spend); the live
-  `tavily_provider.py` (stub) is used only on operator-triggered evidence refresh.
+  default `cached` provider reads local records (zero spend; approval filtering remains
+  T10 work). Tavily search/extract is partially implemented, but the API blocks live
+  selection until operator/spend controls exist. Discovery does not approve claims.
 
 Each interface ships a deterministic `Fake*` double that returns canned, valid contract
 objects for tests, so CI never spends provider credits.

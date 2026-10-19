@@ -1,0 +1,136 @@
+{
+  "$defs": {
+    "JobStage": {
+      "description": "Pipeline stage an analysis job is currently executing.",
+      "enum": [
+        "validate",
+        "pose",
+        "segment",
+        "metrics",
+        "compare",
+        "coach"
+      ],
+      "title": "JobStage",
+      "type": "string"
+    },
+    "JobState": {
+      "description": "Lifecycle state of an analysis job.",
+      "enum": [
+        "queued",
+        "running",
+        "succeeded",
+        "failed",
+        "cancelled"
+      ],
+      "title": "JobState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "description": "One unit of pipeline work with its state, stage, and lease.\n\n``lease_owner``/``lease_until`` support at-most-one-worker processing;\n``input_hash`` and ``version_hash`` make runs reproducible and cacheable;\n``error`` is populated only on a failed state.",
+  "properties": {
+    "attempt": {
+      "title": "Attempt",
+      "type": "integer"
+    },
+    "cancel_requested": {
+      "title": "Cancel Requested",
+      "type": "boolean"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "input_hash": {
+      "title": "Input Hash",
+      "type": "string"
+    },
+    "lease_owner": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Lease Owner"
+    },
+    "lease_until": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Lease Until"
+    },
+    "owner": {
+      "title": "Owner",
+      "type": "string"
+    },
+    "result_key": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Result Key"
+    },
+    "stage": {
+      "$ref": "#/$defs/JobStage"
+    },
+    "state": {
+      "$ref": "#/$defs/JobState"
+    },
+    "updated_at": {
+      "format": "date-time",
+      "title": "Updated At",
+      "type": "string"
+    },
+    "version_hash": {
+      "title": "Version Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "owner",
+    "state",
+    "stage",
+    "attempt",
+    "cancel_requested",
+    "input_hash",
+    "version_hash",
+    "created_at",
+    "updated_at"
+  ],
+  "title": "AnalysisJob",
+  "type": "object"
+}

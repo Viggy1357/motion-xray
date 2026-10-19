@@ -1,0 +1,1367 @@
+{
+  "components": {
+    "schemas": {
+      "AnalysisJob": {
+        "additionalProperties": false,
+        "description": "One unit of pipeline work with its state, stage, and lease.\n\n``lease_owner``/``lease_until`` support at-most-one-worker processing;\n``input_hash`` and ``version_hash`` make runs reproducible and cacheable;\n``error`` is populated only on a failed state.",
+        "properties": {
+          "attempt": {
+            "title": "Attempt",
+            "type": "integer"
+          },
+          "cancel_requested": {
+            "title": "Cancel Requested",
+            "type": "boolean"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "input_hash": {
+            "title": "Input Hash",
+            "type": "string"
+          },
+          "lease_owner": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lease Owner"
+          },
+          "lease_until": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lease Until"
+          },
+          "owner": {
+            "title": "Owner",
+            "type": "string"
+          },
+          "result_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Result Key"
+          },
+          "stage": {
+            "$ref": "#/components/schemas/JobStage"
+          },
+          "state": {
+            "$ref": "#/components/schemas/JobState"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "version_hash": {
+            "title": "Version Hash",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "owner",
+          "state",
+          "stage",
+          "attempt",
+          "cancel_requested",
+          "input_hash",
+          "version_hash",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "AnalysisJob",
+        "type": "object"
+      },
+      "AnalysisResult": {
+        "additionalProperties": false,
+        "description": "The complete rep-by-rep report for one analyzed video.",
+        "properties": {
+          "analysis_id": {
+            "title": "Analysis Id",
+            "type": "string"
+          },
+          "best_rep_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Best Rep Id"
+          },
+          "coaching": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CoachingResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "exercise": {
+            "title": "Exercise",
+            "type": "string"
+          },
+          "metrics": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/Metric"
+            },
+            "title": "Metrics",
+            "type": "array"
+          },
+          "provenance": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "title": "Provenance",
+            "type": "object"
+          },
+          "reps": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/Rep"
+            },
+            "title": "Reps",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "0.2.0",
+            "default": "0.2.0",
+            "enum": [
+              "0.2.0"
+            ],
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "score": {
+            "anyOf": [
+              {
+                "ge": 0,
+                "le": 100,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score"
+          },
+          "source_ids": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Source Ids",
+            "type": "array"
+          },
+          "variant": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Variant"
+          },
+          "warnings": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          },
+          "worst_rep_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Worst Rep Id"
+          }
+        },
+        "required": [
+          "analysis_id",
+          "exercise"
+        ],
+        "title": "AnalysisResult",
+        "type": "object"
+      },
+      "CoachingResult": {
+        "additionalProperties": false,
+        "description": "LLM-generated coaching text, kept separate from deterministic metrics.\n\nWhen ``status`` is ``unavailable`` the narrative fields are empty rather\nthan invented, honoring the never-fabricate rule.",
+        "properties": {
+          "limitations": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Limitations",
+            "type": "array"
+          },
+          "next_set_cue": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Set Cue"
+          },
+          "observations": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Observations",
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CoachingStatus"
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Summary"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "CoachingResult",
+        "type": "object"
+      },
+      "CoachingStatus": {
+        "description": "Whether coaching output is available for a result.",
+        "enum": [
+          "ok",
+          "unavailable"
+        ],
+        "title": "CoachingStatus",
+        "type": "string"
+      },
+      "CompletionStatus": {
+        "description": "Whether a detected repetition was carried to completion.",
+        "enum": [
+          "completed",
+          "partial",
+          "uncertain"
+        ],
+        "title": "CompletionStatus",
+        "type": "string"
+      },
+      "EvidenceRefreshRequest": {
+        "description": "Body for POST /v1/evidence/refresh \u2014 one exercise technique query.",
+        "properties": {
+          "allowlist": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowlist"
+          },
+          "exercise_id": {
+            "title": "Exercise Id",
+            "type": "string"
+          },
+          "technique_question": {
+            "title": "Technique Question",
+            "type": "string"
+          }
+        },
+        "required": [
+          "exercise_id",
+          "technique_question"
+        ],
+        "title": "EvidenceRefreshRequest",
+        "type": "object"
+      },
+      "EvidenceRefreshResponse": {
+        "properties": {
+          "drafts": {
+            "items": {
+              "$ref": "#/components/schemas/SourceRecord"
+            },
+            "title": "Drafts",
+            "type": "array"
+          },
+          "provider": {
+            "title": "Provider",
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider",
+          "drafts"
+        ],
+        "title": "EvidenceRefreshResponse",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "JobStage": {
+        "description": "Pipeline stage an analysis job is currently executing.",
+        "enum": [
+          "validate",
+          "pose",
+          "segment",
+          "metrics",
+          "compare",
+          "coach"
+        ],
+        "title": "JobStage",
+        "type": "string"
+      },
+      "JobState": {
+        "description": "Lifecycle state of an analysis job.",
+        "enum": [
+          "queued",
+          "running",
+          "succeeded",
+          "failed",
+          "cancelled"
+        ],
+        "title": "JobState",
+        "type": "string"
+      },
+      "Metric": {
+        "additionalProperties": false,
+        "description": "One measured quantity for a rep.\n\n``value`` is ``None`` when it could not be measured; ``reason`` then states\nwhy in machine-readable form. ``reference_interval`` is the acceptable\n``(lower, upper)`` band used by scoring.",
+        "properties": {
+          "coverage": {
+            "anyOf": [
+              {
+                "ge": 0,
+                "le": 1,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coverage"
+          },
+          "deviation": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deviation"
+          },
+          "dimensionality": {
+            "title": "Dimensionality",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "quality_method": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Quality Method"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          },
+          "reference_interval": {
+            "anyOf": [
+              {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Interval"
+          },
+          "rep_id": {
+            "title": "Rep Id",
+            "type": "string"
+          },
+          "side": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Side"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "unit": {
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "id",
+          "rep_id",
+          "unit",
+          "dimensionality",
+          "status"
+        ],
+        "title": "Metric",
+        "type": "object"
+      },
+      "ReferenceProfile": {
+        "additionalProperties": false,
+        "description": "A versioned, approved reference for one exercise/variant/view.",
+        "properties": {
+          "approval_status": {
+            "title": "Approval Status",
+            "type": "string"
+          },
+          "approved_by": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approved By"
+          },
+          "approved_date": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approved Date"
+          },
+          "exercise": {
+            "title": "Exercise",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "metric_rules": {
+            "additionalProperties": {
+              "type": "object"
+            },
+            "default": {},
+            "title": "Metric Rules",
+            "type": "object"
+          },
+          "pose_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pose Key"
+          },
+          "provider_compatibility": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Provider Compatibility",
+            "type": "array"
+          },
+          "scope": {
+            "title": "Scope",
+            "type": "string"
+          },
+          "source_ids": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Source Ids",
+            "type": "array"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ReferenceType"
+          },
+          "variant": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Variant"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          },
+          "view": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "View"
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "type",
+          "scope",
+          "exercise",
+          "approval_status"
+        ],
+        "title": "ReferenceProfile",
+        "type": "object"
+      },
+      "ReferenceType": {
+        "description": "Provenance class of a reference profile.",
+        "enum": [
+          "evidence",
+          "trainer",
+          "personal"
+        ],
+        "title": "ReferenceType",
+        "type": "string"
+      },
+      "Rep": {
+        "additionalProperties": false,
+        "description": "A single detected repetition with its phase boundaries (seconds).",
+        "properties": {
+          "completion_status": {
+            "$ref": "#/components/schemas/CompletionStatus"
+          },
+          "end_s": {
+            "title": "End S",
+            "type": "number"
+          },
+          "excluded_reasons": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Excluded Reasons",
+            "type": "array"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "ordinal": {
+            "minimum": 1.0,
+            "title": "Ordinal",
+            "type": "integer"
+          },
+          "scorable": {
+            "title": "Scorable",
+            "type": "boolean"
+          },
+          "side": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Side"
+          },
+          "start_s": {
+            "title": "Start S",
+            "type": "number"
+          },
+          "turnaround_end_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turnaround End S"
+          },
+          "turnaround_start_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Turnaround Start S"
+          }
+        },
+        "required": [
+          "id",
+          "ordinal",
+          "start_s",
+          "end_s",
+          "completion_status",
+          "scorable"
+        ],
+        "title": "Rep",
+        "type": "object"
+      },
+      "SourceRecord": {
+        "additionalProperties": false,
+        "description": "A single reviewable source backing one or more reference profiles.",
+        "properties": {
+          "canonical_url": {
+            "title": "Canonical Url",
+            "type": "string"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "publisher": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Publisher"
+          },
+          "relevant_claims": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Relevant Claims",
+            "type": "array"
+          },
+          "retrieved_at": {
+            "format": "date-time",
+            "title": "Retrieved At",
+            "type": "string"
+          },
+          "reuse_terms": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reuse Terms"
+          },
+          "review_status": {
+            "title": "Review Status",
+            "type": "string"
+          },
+          "reviewed_date": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewed Date"
+          },
+          "reviewer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewer"
+          },
+          "source_tier": {
+            "title": "Source Tier",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "canonical_url",
+          "title",
+          "retrieved_at",
+          "source_tier",
+          "review_status"
+        ],
+        "title": "SourceRecord",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      },
+      "VideoAsset": {
+        "additionalProperties": false,
+        "description": "A single uploaded workout video and the facts we record about it.\n\nThe bytes themselves live in object storage under ``storage_key``; this\nmodel carries only verifiable metadata (hash, dimensions, duration) so the\npipeline can reason about the asset without touching the media.",
+        "properties": {
+          "bytes": {
+            "title": "Bytes",
+            "type": "integer"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "duration_s": {
+            "title": "Duration S",
+            "type": "number"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          },
+          "height": {
+            "title": "Height",
+            "type": "integer"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "mime": {
+            "title": "Mime",
+            "type": "string"
+          },
+          "owner_session_id": {
+            "title": "Owner Session Id",
+            "type": "string"
+          },
+          "rotation": {
+            "title": "Rotation",
+            "type": "integer"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          },
+          "storage_key": {
+            "title": "Storage Key",
+            "type": "string"
+          },
+          "timestamp_map_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timestamp Map Key"
+          },
+          "width": {
+            "title": "Width",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "owner_session_id",
+          "storage_key",
+          "sha256",
+          "mime",
+          "bytes",
+          "duration_s",
+          "width",
+          "height",
+          "rotation",
+          "created_at"
+        ],
+        "title": "VideoAsset",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Turns a short workout video into a rep-by-rep movement report.",
+    "title": "Motion X Ray API",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/healthz": {
+      "get": {
+        "description": "Liveness probe used by Compose/CI; returns a static ok with no I/O.",
+        "operationId": "healthz_healthz_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Healthz Healthz Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Healthz"
+      }
+    },
+    "/v1/analyses": {
+      "post": {
+        "description": "Enqueue an analysis job for a video + exercise/variant. FR03. TODO(T08).",
+        "operationId": "create_analysis_v1_analyses_post",
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalysisJob"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Create Analysis"
+      }
+    },
+    "/v1/analyses/{analysis_id}": {
+      "delete": {
+        "description": "Delete an analysis and its private artifacts. FR03. TODO(T08).",
+        "operationId": "delete_analysis_v1_analyses__analysis_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "analysis_id",
+            "required": true,
+            "schema": {
+              "title": "Analysis Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Delete Analysis V1 Analyses  Analysis Id  Delete",
+                  "type": "null"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Analysis"
+      },
+      "get": {
+        "description": "Fetch an analysis job's state/stage. FR03, FR12. TODO(T08).",
+        "operationId": "get_analysis_v1_analyses__analysis_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "analysis_id",
+            "required": true,
+            "schema": {
+              "title": "Analysis Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalysisJob"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Analysis"
+      }
+    },
+    "/v1/analyses/{analysis_id}/artifacts/{kind}": {
+      "get": {
+        "description": "Fetch a private artifact (e.g. pose frames) for the X Ray UI. FR10. TODO(T11).",
+        "operationId": "get_analysis_artifact_v1_analyses__analysis_id__artifacts__kind__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "analysis_id",
+            "required": true,
+            "schema": {
+              "title": "Analysis Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "kind",
+            "required": true,
+            "schema": {
+              "title": "Kind",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Get Analysis Artifact V1 Analyses  Analysis Id  Artifacts  Kind  Get",
+                  "type": "null"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Analysis Artifact"
+      }
+    },
+    "/v1/analyses/{analysis_id}/cancel": {
+      "post": {
+        "description": "Request cooperative cancellation of a running job. FR03, FR12. TODO(T08).",
+        "operationId": "cancel_analysis_v1_analyses__analysis_id__cancel_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "analysis_id",
+            "required": true,
+            "schema": {
+              "title": "Analysis Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Cancel Analysis V1 Analyses  Analysis Id  Cancel Post",
+                  "type": "null"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Cancel Analysis"
+      }
+    },
+    "/v1/analyses/{analysis_id}/result": {
+      "get": {
+        "description": "Fetch the completed AnalysisResult (reps, metrics, score). FR07, FR08. TODO(T07).",
+        "operationId": "get_analysis_result_v1_analyses__analysis_id__result_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "analysis_id",
+            "required": true,
+            "schema": {
+              "title": "Analysis Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalysisResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Analysis Result"
+      }
+    },
+    "/v1/evidence/refresh": {
+      "post": {
+        "description": "Refresh evidence source drafts for a reference. FR11.\n\nReturns DRAFT SourceRecords (never approved). SEARCH_PROVIDER selects the\nprovider: 'tavily' makes a bounded live call; anything else uses the cached\noffline default so the route spends zero credits by default.",
+        "operationId": "refresh_evidence_v1_evidence_refresh_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvidenceRefreshRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvidenceRefreshResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Refresh Evidence"
+      }
+    },
+    "/v1/exercises": {
+      "get": {
+        "description": "List supported exercises and their variants. FR06. TODO(T12).",
+        "operationId": "list_exercises_v1_exercises_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response List Exercises V1 Exercises Get",
+                  "type": "null"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Exercises"
+      }
+    },
+    "/v1/references": {
+      "get": {
+        "description": "List approved reference profiles. FR07, FR11. TODO(T06).",
+        "operationId": "list_references_v1_references_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ReferenceProfile"
+                  },
+                  "title": "Response List References V1 References Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List References"
+      },
+      "post": {
+        "description": "Create a draft reference profile from curated sources. FR07, FR11. TODO(T06).",
+        "operationId": "create_reference_v1_references_post",
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReferenceProfile"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Create Reference"
+      }
+    },
+    "/v1/references/{reference_id}/approve": {
+      "post": {
+        "description": "Approve a reference profile for use in scoring. FR07. TODO(T06).",
+        "operationId": "approve_reference_v1_references__reference_id__approve_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "reference_id",
+            "required": true,
+            "schema": {
+              "title": "Reference Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReferenceProfile"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Approve Reference"
+      }
+    },
+    "/v1/videos": {
+      "post": {
+        "description": "Register/upload a source video asset for analysis. FR01, FR02. TODO(T03).",
+        "operationId": "create_video_v1_videos_post",
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoAsset"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Create Video"
+      }
+    }
+  }
+}

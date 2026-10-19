@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """The provider-agnostic coaching LLM interface.
 
 The ONLY runtime LLM job in Motion X Ray is coaching: turning validated,
@@ -7,6 +5,8 @@ deterministic measurements into a few grounded observations. The model never
 sees raw video, never produces scores, and never invents numbers
 (skills/nebius-token-factory; AGENTS.md rule 2).
 """
+
+from __future__ import annotations
 
 from typing import Any, Protocol, runtime_checkable
 

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Shared provider capability and candidate models.
 
 :class:`PoseCapabilities` lets downstream code reason about what a pose
@@ -11,6 +9,8 @@ comparisons instead of fabricating them (AGENTS.md rule 3).
 before an operator reviews and promotes it to an approved
 ``contracts.reference.SourceRecord``.
 """
+
+from __future__ import annotations
 
 from typing import Optional
 

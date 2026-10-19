@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Error contract for the Motion X Ray API.
 
 A single ``ErrorEnvelope`` shape is returned for every failure so clients can
@@ -12,6 +10,8 @@ permanent rejection (e.g. unsupported variant).
 STRUCTURE-ONLY: this defines the envelope and the canonical code constants. The
 handlers that raise them are wired by their owning tasks (see app.main).
 """
+
+from __future__ import annotations
 
 from typing import List, Optional
 

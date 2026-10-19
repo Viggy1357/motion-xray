@@ -1,0 +1,135 @@
+{
+  "$defs": {
+    "JointObservation": {
+      "additionalProperties": false,
+      "description": "One joint at one frame.\n\n``xy`` and ``xyz`` are both optional: a provider may deliver 2D, 3D, or\nneither (when the joint is occluded). ``valid`` records whether this is a\nusable observation; ``interpolated`` and ``quality_method`` document how a\nfilled value was produced so downstream determinism is auditable.",
+      "properties": {
+        "interpolated": {
+          "title": "Interpolated",
+          "type": "boolean"
+        },
+        "native_quality": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Native Quality"
+        },
+        "quality_method": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quality Method"
+        },
+        "valid": {
+          "title": "Valid",
+          "type": "boolean"
+        },
+        "xy": {
+          "anyOf": [
+            {
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Xy"
+        },
+        "xyz": {
+          "anyOf": [
+            {
+              "maxItems": 3,
+              "minItems": 3,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Xyz"
+        }
+      },
+      "required": [
+        "valid",
+        "interpolated"
+      ],
+      "title": "JointObservation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "All observed joints at a single video frame.",
+  "properties": {
+    "frame_index": {
+      "minimum": 0,
+      "title": "Frame Index",
+      "type": "integer"
+    },
+    "joints": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JointObservation"
+      },
+      "title": "Joints",
+      "type": "object"
+    },
+    "subject_track_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Subject Track Id"
+    },
+    "timestamp_s": {
+      "ge": 0,
+      "title": "Timestamp S",
+      "type": "number"
+    }
+  },
+  "required": [
+    "frame_index",
+    "timestamp_s",
+    "joints"
+  ],
+  "title": "PoseFrame",
+  "type": "object"
+}

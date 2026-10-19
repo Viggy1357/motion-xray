@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Scoring-domain contract: the auditable breakdown behind a displayed score.
 
 The deterministic scoring formula (recorded for implementers in T-stage tasks)
@@ -9,7 +7,11 @@ inputs and outputs so a score is always explainable, and leaves scores
 ``None`` with ``missing_reasons`` when inputs are absent (AGENTS.md rule 3).
 """
 
-from typing import List, Optional
+from __future__ import annotations
+
+from typing import Annotated, List, Optional, Self
+
+from pydantic import Field, model_validator
 
 from .base import FiniteFloat, MXRModel
 
@@ -21,8 +23,16 @@ class ScoreBreakdown(MXRModel):
     profile_version: str
     reference_version: str
     component_values: dict[str, Optional[FiniteFloat]] = {}
-    component_weights: dict[str, FiniteFloat] = {}
-    raw_score: Optional[FiniteFloat] = None
-    displayed_score: Optional[FiniteFloat] = None
-    coverage: Optional[FiniteFloat] = None
+    component_weights: dict[str, Annotated[FiniteFloat, Field(ge=0, le=1)]] = {}
+    raw_score: Optional[Annotated[FiniteFloat, Field(ge=0, le=100)]] = None
+    displayed_score: Optional[Annotated[FiniteFloat, Field(ge=0, le=100)]] = None
+    coverage: Optional[Annotated[FiniteFloat, Field(ge=0, le=1)]] = None
     missing_reasons: List[str] = []
+
+    @model_validator(mode="after")
+    def valid_breakdown(self) -> Self:
+        if self.component_weights and abs(sum(self.component_weights.values()) - 1.0) > 1e-9:
+            raise ValueError("component weights must sum to one")
+        if self.displayed_score is None and not any(reason.strip() for reason in self.missing_reasons):
+            raise ValueError("missing displayed score requires a reason")
+        return self

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Real coaching provider: NVIDIA Nemotron via Nebius Token Factory (STUB).
 
 Token Factory is OpenAI-compatible; this is the required runtime NVIDIA-model
@@ -25,6 +23,8 @@ Call shape to implement::
 Cache by a hash of the structured input, bound the budget, and on exhaustion
 return ``CoachingResult(status=unavailable)`` rather than retrying.
 """
+
+from __future__ import annotations
 
 import os
 from typing import Any

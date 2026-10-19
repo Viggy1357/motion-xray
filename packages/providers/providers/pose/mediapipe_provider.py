@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Real pose provider backed by the MediaPipe Pose Landmarker (STUB).
 
 Primary provider for this build (DECISIONS.md D002). The MediaPipe import is
@@ -25,6 +23,8 @@ Call shape to implement (skills/pose-pipeline/SKILL.md)::
 Map landmarks to canonical named joints (never leak provider indices), label
 interpolated samples, and keep unknown world scale unknown.
 """
+
+from __future__ import annotations
 
 import os
 

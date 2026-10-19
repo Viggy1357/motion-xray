@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """The provider-agnostic pose estimation interface.
 
 Downstream movement analysis depends only on this Protocol, never on a
@@ -7,6 +5,8 @@ concrete provider's joint indices or SDK types (see skills/pose-pipeline:
 "map by anatomical name, not index"). MediaPipe is the primary provider for
 this build; GEM-X is a documented stretch (DECISIONS.md D002).
 """
+
+from __future__ import annotations
 
 from typing import Protocol, runtime_checkable
 

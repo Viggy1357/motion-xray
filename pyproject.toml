@@ -1,0 +1,11 @@
+[tool.pytest.ini_options]
+addopts = "--import-mode=importlib"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+
+[[tool.mypy.overrides]]
+module = ["tavily"]
+# Optional SDK is intentionally absent from the offline test image.
+ignore_missing_imports = true

@@ -1,15 +1,15 @@
 # API
 
-**19 Oct implementation note:** 11 product handlers remain 501 placeholders. The
-uncommitted evidence-refresh handler is partially implemented, without operator guards;
-keep live use disabled until T10 hardening. Route response models do not yet expose the
-domain contract schemas. See `AUDIT-2026-10-19.md` and `DELIVERY.md`.
+**T02.1 implementation note:** 11 product handlers remain 501 placeholders. Response
+models now expose domain schemas through OpenAPI. Cached evidence discovery is partial;
+selecting live Tavily returns 503 until T10 operator/spend controls exist. The checked-in
+OpenAPI is generated with `scripts/export-contracts.sh`, with a drift check in CI.
 
 Motion X Ray exposes a single versioned HTTP surface under `/v1`, served by the FastAPI
 app at `app.main:app` (`services/api`). This document lists every endpoint, the uniform
 error envelope, and the canonical error codes. The route shapes here are the contract the
-web client and tests build against; in the current scaffold each `/v1` handler returns
-HTTP 501 until its owning task lands. FastAPI serves `GET /openapi.json` automatically
+web client and tests build against; unfinished handlers return HTTP 501 until their
+owning task lands. FastAPI serves `GET /openapi.json` automatically
 from these declarations — the OpenAPI document is generated, not hand-written.
 
 A liveness probe `GET /healthz` exists outside the `/v1` surface for Compose/CI.
