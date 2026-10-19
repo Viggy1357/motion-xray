@@ -80,6 +80,11 @@ resp = client.chat.completions.create(
 
 ## Gate A checklist (prove it works once)
 
+A model-list response proves catalog access only. A completion response with empty
+final content proves transport, not usable coaching. Inspect finish reason/usage and
+validate nonempty schema-correct output within the approved total token/time budget;
+do not increase budgets repeatedly to chase a green smoke result.
+
 - [ ] List models the key can access; pick the smallest NVIDIA Nemotron.
 - [ ] One real chat completion returns parseable JSON matching the coaching schema.
 - [ ] Record model ID, latency, token usage → DECISIONS.md D004.

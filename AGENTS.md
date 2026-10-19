@@ -3,6 +3,12 @@
 Read this file, `docs/PRODUCT.md`, `docs/ARCHITECTURE.md`, `TASKS.md`, and any
 relevant `DECISIONS.md` entry **before** changing code.
 
+For implementation/recovery work, also read `skills/motion-xray-delivery/SKILL.md`
+and the relevant work package in `docs/DELIVERY.md`. The 19 Oct baseline audit is
+`docs/AUDIT-2026-10-19.md`; it is a dated snapshot, not a substitute for current checks.
+The original full brief is archived in `docs/SPECIFICATION-v2.0.md`. Its FR numbering
+differs from `docs/PRODUCT.md`; use the audit's mapping and current repo FR IDs in tasks.
+
 ## Golden rules
 
 1. **Claim one bounded task.** Reference its ID from `TASKS.md`. Each task cites one or

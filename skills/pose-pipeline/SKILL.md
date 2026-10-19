@@ -79,7 +79,8 @@ Run inference in a worker, not the UI thread (synchronous inference can block).
 
 ## Gate A checklist (prove it works once)
 
-- [ ] Extract timestamped 2D + world landmarks from a real curl clip.
+- [ ] Extract timestamped 2D + world landmarks from the authorized lat-pulldown
+  segment first (D005); record its offset within the 55s source clip.
 - [ ] Map to canonical named joints; verify correct anatomical left/right.
 - [ ] Render a simple skeleton; confirm synchronized playback against the video clock.
 - [ ] Record model revision, cold/warm runtime, peak memory, artifact size → DECISIONS.md.

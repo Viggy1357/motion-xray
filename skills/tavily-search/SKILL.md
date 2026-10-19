@@ -20,6 +20,11 @@ to an approved benchmark.
 Key: `TAVILY_API_KEY` (server-side only). SDKs: `tavily-python` (API) or `@tavily/core`.
 Do NOT use the CLI as the product's runtime integration — use the SDK/REST.
 
+Enforce operator authentication and request/budget limits before exposing live refresh.
+An env switch or an operator-auth TODO does not provide that protection. Cached reads
+must validate approved review status and applicable exercise/variant before grounding
+coaching; draft discovery records never become approved by being saved as JSON.
+
 ## Credit conservation (this project has limited credits)
 
 1. **Default to `SEARCH_PROVIDER=cached`.** Reviewed local records serve all normal

@@ -1,0 +1,128 @@
+Motion X Ray audit evidence — 19 October 2026 (Malaysia time)
+Baseline commit: c989c9c plus existing uncommitted Tavily work.
+Kiro was editing early in audit, paused by user before handoff.
+Source mounted read-only in disposable Docker containers. No runtime keys passed.
+No product paid provider call made by this audit. No host project runtimes installed.
+
+PYTHON BASELINE
+Image: python:3.12-slim; observed Python 3.12.15 on linux/aarch64.
+Installed local packages: contracts, providers, movement, scoring, benchmarks, api.
+Tools: uv 0.4.18; ruff 0.6.9; mypy 1.11.2; pytest 8.3.3;
+PyYAML 6.0.2; httpx 0.27.2 for offline TestClient.
+Repo path inside container: /repo, read-only. Bytecode/cache directed off repo.
+
+pytest -p no:cacheprovider tests/unit tests/contracts
+  collected 9 items / 3 errors; exit 2
+  tests/contracts/__init__.py shadows top-level contracts.
+  ModuleNotFoundError: No module named 'contracts.reference'
+  ImportError: cannot import name 'AnalysisJob' from 'contracts'
+
+ruff check --no-cache .
+  Found 121 errors; exit 1
+  E402 module-level import placement is widespread (docstring after future import).
+
+mypy packages services
+  contracts/base.py: invalid ser_json_inf_nan literal 'strict'
+  providers/search/tavily_provider.py: optional tavily module not installed/typed
+  providers/llm/fake.py: CoachingStatus has no attribute ok
+  services/api/app/main.py: cached versus tavily provider assignment type
+  Found 4 errors in 4 files (checked 36 source files); exit 1
+
+python scripts/smoke_nemotron.py
+python scripts/smoke_tavily.py
+  Both dry runs exit 0. No network call; no provider credentials present.
+
+Direct original contract import through runtime probes:
+  pydantic_core.SchemaError: Invalid Schema: model.config.ser_json_inf_nan
+  Input should be 'null', 'constants' or 'strings'; input_value='strict'
+
+DIAGNOSTIC COPY ONLY — NOT AN UNMODIFIED PASS
+Copied repository into container /tmp/source; no host source changes.
+Replaced ser_json_inf_nan="strict" with "null" in copied contracts/base.py.
+Explicit PYTHONPATH points to copied first-party packages and API source.
+pytest --import-mode=importlib -p no:cacheprovider tests/unit tests/contracts
+  30 passed, 1 warning in 0.14s; exit 0
+  15 contract tests, 9 original-three-exercise YAML tests, 6 evidence tests.
+  Warning: PoseSequence model_revision conflicts with protected namespace model_.
+  This demonstrates a narrow recovery route, not pipeline or frontend acceptance.
+
+Runtime probes with only the temporary contract correction:
+  GET /v1/exercises -> 501
+  POST /v1/videos -> 501
+  GET /v1/references -> 501
+  POST /v1/analyses -> 501
+  GET /v1/analyses/audit -> 501
+  GET /v1/analyses/audit/result -> 501
+  GET /v1/analyses/audit/artifacts/pose -> 501
+  POST /v1/analyses/audit/cancel -> 501
+  DELETE /v1/analyses/audit -> 501
+  POST /v1/references -> 501
+  POST /v1/references/audit/approve -> 501
+  POST /v1/evidence/refresh (cached default, no records) -> 200
+  OpenAPI has AnalysisResult: False
+  OpenAPI evidence successful response schema: {}
+  source_tier('https://acsm.org.evil.invalid/article') -> professional
+  Cache with one pending source returns 1 candidate.
+  Discovery max_results=0 plus unrelated allowlist still returns 3 fake leads.
+  Metric(value=None, reason=None) accepted.
+  Rep(start_s=5, end_s=1, completion_status='completed', scorable=True) accepted.
+  FakeLLMProvider.coach -> AttributeError: CoachingStatus has no attribute ok.
+  Configured secret values were not found in scanned source/test/script files.
+  Secret comparison printed paths only; it was not a git-history/entropy scan.
+
+WEB BASELINE
+Image: node:20-slim, repo web folder read-only; copied to /tmp/web inside container.
+corepack enable
+pnpm install                  # repository pins pnpm 9.12.1; no committed lockfile
+pnpm exec tsc --noEmit         # pass
+NEXT_TELEMETRY_DISABLED=1 pnpm build  # pass, static / and /_not-found
+Installed Next 14.2.15; package manager warns version has a security vulnerability.
+Main page only displays 'Motion X Ray — scaffold'. No UI acceptance inferred.
+
+DOCKER INITIAL INVENTORY
+docker compose -f infra/compose.yaml ps -a -> no project containers
+docker image ls -> initially only linuxserver/ffmpeg:latest and python:3.12-slim
+Node image downloaded by this audit; no project images claimed built/verified.
+
+MEDIA METADATA — OFFLINE
+docker run --rm --network none -v <repo>/data/demo:/input:ro \
+  --entrypoint ffprobe linuxserver/ffmpeg:latest -v error \
+  -show_entries format=duration,size:stream=codec_type,codec_name,width,height,r_frame_rate,avg_frame_rate \
+  -of json /input/lat_pulldown.mp4
+Observed: h264 video, 464x832, r_frame_rate=60000/1001,
+avg_frame_rate=1981800/33067; AAC audio; duration=55.111667; size=6704838.
+No pose inference performed; no claim that a reference or ground truth exists.
+
+POSE WHEEL PROBE
+PyPI advertised mediapipe 0.10.14 cp312 manylinux aarch64 wheel (33.0 MB).
+Probe download did not establish completed installation or runtime import.
+
+KIRO HISTORY REFRESH — LOG EVIDENCE, NOT AUDIT CALLS
+At 22:21 MYT: OpenAI 1.51.0 failed client construction due to httpx proxies mismatch.
+At 22:34 MYT: existing Kiro live smoke returned:
+  LIVE ok — one call made
+  model = nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B
+  content = None
+Larger _nemotron_probe.py created; no later successful structured coaching output
+was found in the selected latest session messages. Empty text cause is unconfirmed.
+
+RAW TRANSCRIPTS (temporary, not required for repo handoff)
+/private/tmp/motion-xray-audit-python.log
+/private/tmp/motion-xray-audit-web.log
+/private/tmp/motion-xray-audit-diagnostic.log
+/private/tmp/motion-xray-audit-probes.log
+/private/tmp/motion-xray-kiro-review.log
+The diagnostic harness initially shadowed stdlib inspect with a helper filename;
+that harness error was corrected before the successful runtime probes above.
+
+Independent subagent reviews: contracts/reference/scoring and operational delivery,
+read-only, static file evidence. Kiro CLI review used supplied snapshot, no tools.
+Kiro CLI sandbox session initially failed ACP startup; approved outside-sandbox
+attempt started and produced snapshot-labelled planning feedback.
+
+AUDIT DELIVERABLE VALIDATION
+New motion-xray-delivery skill passed the bundled quick_validate.py in Docker.
+Original specification SHA-256, Markdown fence balance, relative file links and task/FR
+mapping checked in an offline read-only container; passed after correcting overly
+literal wording checks in the temporary documentation-check harness.
+git diff --check for audit-owned documentation returned no whitespace errors.

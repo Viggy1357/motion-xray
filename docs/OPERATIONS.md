@@ -1,5 +1,10 @@
 # OPERATIONS
 
+**Implementation status, 19 Oct:** this runbook contains intended operations, not
+verified running services. Upload/jobs/deletion/retention are not implemented, script
+entrypoints are stubs, and Python checks fail. See `AUDIT-2026-10-19.md` and T02.1 in
+`DELIVERY.md` before using these commands as evidence of readiness.
+
 This is the runbook for operating Motion X Ray locally. Everything runs in containers so
 nothing installs on the host beyond Docker Desktop (DECISIONS.md D003). It covers the
 Compose commands, environment and secret handling, the data-retention and deletion policy,
@@ -20,7 +25,10 @@ docker compose -f infra/compose.yaml config
 # Build the api, worker, and web images
 docker compose -f infra/compose.yaml build
 
-# Tear everything down and remove named volumes (state, models, web_node_modules)
+# Stop services while retaining state/model volumes
+docker compose -f infra/compose.yaml down
+
+# Explicit full reset only: also deletes state, models and web_node_modules volumes
 docker compose -f infra/compose.yaml down -v
 ```
 

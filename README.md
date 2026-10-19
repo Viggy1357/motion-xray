@@ -46,9 +46,18 @@ coding agent follows before changing code.
 
 ## Status
 
-Scaffolded. The feasibility spike (Gate A) is the next step: prove MediaPipe produces
-usable coordinates with synchronized playback, and run one real Token Factory
-Nemotron inference. See `TASKS.md`.
+Scaffolded; no complete video-to-report flow yet. The 19 October container audit found
+Python import/test/lint/type blockers; the heading-only web scaffold builds. Next:
+T02.1 executable checks, then real MediaPipe pose on the lat-pulldown clip.
+
+- [Audit and verified progress](docs/AUDIT-2026-10-19.md)
+- [Step-by-step delivery workflow](docs/DELIVERY.md)
+- [Current tasks](TASKS.md)
+- [Full original specification](docs/SPECIFICATION-v2.0.md) (later decisions apply)
+- [Project delivery skill](skills/motion-xray-delivery/SKILL.md)
+
+The current goal is a usable personal training MVP. Codex leads implementation;
+Kiro and other agents support bounded tasks/reviews with one writer per checkout.
 
 ## Commands
 
