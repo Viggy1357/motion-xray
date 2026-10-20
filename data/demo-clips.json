@@ -1,0 +1,58 @@
+{
+  "recorded_at": "2026-10-20",
+  "purpose": "User-owned analysis inputs; not approved technique references or scored benchmarks",
+  "media_committed": false,
+  "probe_tool": "ffprobe in the existing pose-worker container",
+  "clips": [
+    {
+      "path": "data/demo/lat_pulldown.mp4",
+      "exercise": "lat_pulldown",
+      "sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+      "bytes": 6704838,
+      "duration_s": 55.111678,
+      "encoded_dimensions": [464, 832],
+      "display_rotation_degrees": 0,
+      "diagnostic_segment_s": [10, 20],
+      "product_upload_duration_eligible": false
+    },
+    {
+      "path": "data/demo/Bicep Curls.MOV",
+      "exercise": "dumbbell_curl",
+      "sha256": "54603abf7580ce0d2b1155b9fe2ce77e3388226276b4c00c0464c1576bb3c09a",
+      "bytes": 46008563,
+      "duration_s": 20.653333,
+      "encoded_dimensions": [1920, 1080],
+      "display_rotation_degrees": -90,
+      "diagnostic_segment_s": [0, 10],
+      "product_upload_duration_eligible": true
+    },
+    {
+      "path": "data/demo/Squat.MOV",
+      "exercise": "bodyweight_squat",
+      "sha256": "9dc83cd2cc0da13748486dbd91856949377a2ef98f1f51a121b17dcfcd2bde5b",
+      "bytes": 27808876,
+      "duration_s": 14.248333,
+      "encoded_dimensions": [1920, 1080],
+      "display_rotation_degrees": -90,
+      "diagnostic_segment_s": [0, 10],
+      "product_upload_duration_eligible": true
+    },
+    {
+      "path": "data/demo/Incline Chest Press.mov",
+      "exercise": "incline_chest_press_candidate_T17",
+      "sha256": "22c5823c65315286e2f21167dbde772af7c4f47bdb1a4aa14d662f11c795365e",
+      "bytes": 44702924,
+      "duration_s": 39.923333,
+      "encoded_dimensions": [1920, 1080],
+      "display_rotation_degrees": -180,
+      "diagnostic_segment_s": [0, 10],
+      "product_upload_duration_eligible": false
+    }
+  ],
+  "limitations": [
+    "Duration eligibility alone does not prove upload acceptance or analysis support",
+    "Full clips above 30 seconds remain outside the product upload limit",
+    "Incline press is a T17 candidate, not an implemented supported exercise",
+    "Single-frame detection is not tracking, accuracy, rep counting or score validation"
+  ]
+}

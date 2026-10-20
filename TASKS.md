@@ -140,6 +140,22 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   all completion reported as reasoning; finish_reason=length; no final code accepted.
   Connection/authentication work. Development request policy is corrected under D011;
   the local 12k replacement request was prepared but not sent. Resume after T21.1.
+### T04 batch C — Real pose components · status: wip · 20 Oct · FR04, FR12
+- **Claim:** Codex coordinates, reviews and integrates direct Nebius scoped drafts.
+  Clips inventoried in data/demo-clips.json; model provenance/checksum in
+  data/pose_models/mediapipe-full-v1.json. Private video/frames remain local and ignored.
+- **T04.1 done:** Qwen 235B JSON-mode mapping draft plus one defect-guided repair;
+  reviewed integration corrections address invalid-derived provenance and faulty test
+  assertions. Canonical MP33 mapping, finite/type masks, qualified estimated XYZ,
+  derived midpoint provenance and no-detection gaps are implemented.
+- **Checks:** ./scripts/test.sh python exit0; Ruff clean, mypy37 files clean, 78 tests
+  pass (17 new mapping cases), existing dependency deprecation warning only. No paid
+  runtime coaching or Tavily calls. No threshold/weight/schema changes.
+- **Next:** T04.2 immutable frame artifacts, then T04.3 timestamped adapter + diagnostic.
+  T21.1 generic tooling deferred after rejected drafts; manually bounded accounting,
+  one worker at a time and no automatic draft execution/application remain enforced.
+- **Evidence:** docs/audit/T04-resumed-pose-batch.md. One-frame diagnostics detect poses
+  in all four clips; this is not a temporal tracking or real-sequence acceptance pass.
 ## T05 — First exercise engine (lat pulldown, D005) · status: todo · FR05, FR06, FR07
 - **T19 TODOs:** Typed signal/config/side context; contiguous filtering; full-cycle
   state machine adapted from reviewed patterns; separate segmentation calibration;
@@ -248,7 +264,31 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   pass. No application code changed; no application tests or live inference rerun.
 - **Next:** T21.1, then T01/T04; do not expand product scope.
 
-### T21.1 — Reliable external coding request/usage handling · status: todo · FR04, FR12 delivery
+### T21.1 — Reliable external coding request/usage handling · status: wip · FR04, FR12 delivery
+- **20 Oct resumed claim:** Codex coordinates one direct Nebius Kimi coding worker;
+  bounded first batch T21.1 plus T04 mapping/artifacts/adapter. No parallel generation
+  before a reviewed, tested first result. Each request has no automatic retries, 600s
+  total/90s idle timeout and sufficient completion space. Private clips stay local.
+- **Accounting bootstrap:** First request reserves under $0.25 at conservative USD2/5
+  per million input/completion tokens; 50k cumulative T21.1 allocation. Prior four
+  unknown calls remain unknown, with $1 contingency (not measured spend or balance).
+  Known historical Kimi usage remains approximately $0.02094. Protected $30 excluded.
+- **Scope correction:** Broader Kimi draft truncated (975 input, 24,576 completion;
+  20,787 reasoning); Qwen draft (923 input, 5,455 completion) rejected for placeholder
+  dispatch and missing budget enforcement. Neither applied. Third request separates
+  pure accounting/stream core from CLI; T21.1 allocation raised to 75k for this measured
+  integration difficulty, still within the $70 ceiling. No blind generation retries.
+- **Further diagnosis:** Kimi K2.6 generic thinking control still yielded no visible
+  output. Template control yielded a complete but incorrect core (4,506 tokens);
+  source review rejected locking/accounting/validation defects. Focused Kimi Code
+  repair now has 49,152 output ceiling and a justified 150k cumulative task allocation
+  to accommodate reasoning plus final code. Generation remains sequential.
+- **Checkpoint:** Focused repair hit its 600s deadline with no final content; latest
+  reported usage 973 input + 11,836 completion is partial, not final billing proof.
+  Generic tooling remains unfinished. Per TOKEN-BUDGET's "not a replacement for T04"
+  rule, resume one small mapping worker using the manually capped/accounted bootstrap;
+  no parallel dispatch, no auto-application and no Codex product implementation fallback.
+  Reusable CLI glue was removed while its required core is unavailable.
 - **Budget:** 50k initial cumulative tokens, expandable under D011; first supporting task.
 - **D012:** Optimize accepted progress within $70 Nebius operating ceiling; keep $30
   backup. Add cumulative cost/in-flight accounting and preserve unknown historic costs.

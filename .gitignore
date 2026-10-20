@@ -6,9 +6,9 @@
 *.pem
 
 # Raw private footage and large/derived artifacts
-data/demo/*.mp4
-data/demo/*.mov
-data/demo/*.webm
+data/demo/*.[mM][pP]4
+data/demo/*.[mM][oO][vV]
+data/demo/*.[wW][eE][bB][mM]
 data/references/**/*.mp4
 data/references/**/*.mov
 state/

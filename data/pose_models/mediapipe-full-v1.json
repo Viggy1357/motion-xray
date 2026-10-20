@@ -1,0 +1,20 @@
+{
+  "provider": "mediapipe",
+  "sdk_version": "0.10.14",
+  "model": "pose_landmarker_full",
+  "model_bundle_revision": "float16/1",
+  "download_url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/1/pose_landmarker_full.task",
+  "sha256": "5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+  "bytes": 9398198,
+  "local_path": "models/pose_landmarker_full.task",
+  "model_card": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+  "license": "Apache-2.0 per the linked model card",
+  "documentation": "https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker",
+  "checksum_basis": "SHA256 of bytes downloaded over verified HTTPS from the versioned official URL on 20 October 2026; not an independently published checksum",
+  "limitations": [
+    "Estimated hip-relative geometry, not calibrated depth or world translation",
+    "Visibility/presence do not establish 3D accuracy",
+    "Multiple-person identity continuity requires separate validation",
+    "Inference requires this verified local checkpoint; no runtime auto-download"
+  ]
+}
