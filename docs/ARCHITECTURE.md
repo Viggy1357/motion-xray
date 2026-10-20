@@ -36,7 +36,11 @@ artifacts and config/implementation versions. Perception is recorded separately 
 backend, hardware and transform versions; identical inference across hardware is not
 assumed. Only stage 7 involves an LLM, downstream of every displayed measurement/score.
 
-## Integration boundaries (implementation plan; not delivered)
+## Integration boundaries (mixed implementation status)
+
+T04 canonical mapping, immutable artifact read/write and the local MediaPipe adapter
+are implemented and exercised on owned clips (20 October). Job integration, numerical
+processing and comparison/scoring below remain pending. See the T04 feasibility report.
 
 | Boundary | Owner / planned integration |
 | --- | --- |
@@ -57,8 +61,10 @@ Provider interfaces are `typing.Protocol` definitions in `packages/providers`, s
 downstream code depends on the contract, not on a concrete SDK:
 
 - **`PoseProvider`** (`providers/pose/protocol.py`) — `capabilities()` + `infer()`.
-  Primary implementation is MediaPipe (`mediapipe_provider.py`, a stub raising
-  `NotImplementedError` in this scaffold); GEM-X is a documented stretch (D002).
+  Primary implementation is MediaPipe (`mediapipe_provider.py`), with verified local
+  checkpoint, original PTS, rotation-aware decoding and qualified observation masks.
+  No/multiple detections produce gaps; identity remains explicitly unverified.
+  GEM-X is a documented stretch (D002). The service job loop is still scaffold-only.
 - **`LLMProvider`** (`providers/llm/protocol.py`) — `coach()`. Implemented by the Nebius
   Token Factory provider (`nebius_provider.py`, stub) for the required runtime NVIDIA
   Nemotron call (D001, D004).

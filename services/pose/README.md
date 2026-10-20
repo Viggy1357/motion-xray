@@ -29,8 +29,16 @@ The entry point is `worker.py`, which runs a job loop: it claims a queued
 `AnalysisJob`, runs perception followed by deterministic measurements, honours the
 job's lease and cancel flag, and writes a result. In this scaffold `worker.py`
 only logs `pose worker started`; the pipeline stages are pseudocode comments to
-be implemented by their owning tasks (T04 pose, T05 metrics, T07 scoring, T08
+be implemented by their owning tasks (T05 metrics, T07 scoring, T08
 jobs, T09 coaching).
+
+The T04 provider is implemented separately and can be exercised locally with
+`./scripts/pose-smoke.sh --video demo/lat_pulldown.mp4 --start-s 10 --duration-s 10 --repeat`
+from the repository root. It uses the existing worker image with mounted source,
+network disabled and no credentials. Model provenance is in
+`data/pose_models/mediapipe-full-v1.json`; place the matching local checkpoint in
+`models/`. Output is an immutable pose artifact plus a private diagnostic, not a
+durable analysis job or a completed exercise report. No runtime download occurs.
 
 ## Reuse boundaries (D009/D010; implementation pending)
 

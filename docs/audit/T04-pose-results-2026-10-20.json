@@ -1,0 +1,392 @@
+{
+  "as_of": "2026-10-20",
+  "scope": "Owned diagnostic segments only; not rep, score, accuracy or full-MVP acceptance",
+  "worker_image_id": "sha256:c7f177e304d6fbc8ef85fd01bdfdfb197a42a91c991d3918e1ea59dbf48e9e02",
+  "identity_verification": "unverified",
+  "depth": "model estimate, not calibrated geometry",
+  "clips": [
+    {
+      "clip": "lat-pulldown",
+      "manifest": {
+        "schema_version": "0.2.0",
+        "video_id": "61eec07e-f3f5-435b-a9bd-34e3fbc983a4",
+        "provider": "mediapipe",
+        "model_revision": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+        "native_skeleton": "mediapipe-33",
+        "joint_mapping_version": "mp33-camera-v1",
+        "sample_rate_hz": 29.964925003004016,
+        "units": "model_estimated_meters_uncalibrated",
+        "coordinate_system": "hip_relative_camera_x_right_y_up_z_toward_viewer",
+        "capabilities": {
+          "supports_2d": true,
+          "supports_estimated_3d": true,
+          "world_translation": false,
+          "physical_scale": false,
+          "identity_verified": false
+        },
+        "quality_method": "mp33-camera-v1;visibility_presence_proxy_not_3d_confidence;identity_unverified;source_pts_sampling_v1_tolerance_1us",
+        "frames_artifact_key": "pose/ceb52406971fe89772ed8bd4cd12a9a1a96297d5a0778d195099ea66503d05f9.jsonl"
+      },
+      "diagnostic": {
+        "source_hash": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+        "source_name": "lat_pulldown.mp4",
+        "source_bytes": 6704838,
+        "segment_start_s": 10.0,
+        "segment_duration_s": 10.0,
+        "probe": {
+          "width": 464,
+          "height": 832,
+          "duration_s": 55.111678,
+          "rotation": 0
+        },
+        "model_sha256": "5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+        "sdk_versions": {
+          "python": "3.12.15",
+          "platform": "Linux-7.0.14-linuxkit-aarch64-with-glibc2.36",
+          "architecture": "aarch64",
+          "mediapipe": "0.10.14",
+          "numpy": "2.1.2",
+          "opencv-contrib-python": "5.0.0.93"
+        },
+        "provider_source_sha256": "48c873d9f2425e70963b7732b6f6f97911f51e1f590fc0083d37bfaa3eab4d9f",
+        "peak_rss_kib": {
+          "self": 379600,
+          "children": 323312
+        },
+        "runs": [
+          {
+            "elapsed_s": 9.8039,
+            "artifact_key": "pose/ceb52406971fe89772ed8bd4cd12a9a1a96297d5a0778d195099ea66503d05f9.jsonl",
+            "artifact_bytes": 1555317,
+            "artifact_sha256": "ceb52406971fe89772ed8bd4cd12a9a1a96297d5a0778d195099ea66503d05f9",
+            "frame_count": 300,
+            "first_pts": 10.005,
+            "last_pts": 19.983333,
+            "actual_rate_hz": 29.96,
+            "all_invalid_frames": 0,
+            "joint_coverage": {
+              "left_ankle": 1.0,
+              "left_elbow": 1.0,
+              "left_foot_index": 1.0,
+              "left_heel": 1.0,
+              "left_hip": 1.0,
+              "left_knee": 1.0,
+              "left_shoulder": 1.0,
+              "left_wrist": 0.9867,
+              "pelvis": 1.0,
+              "right_ankle": 0.0,
+              "right_elbow": 0.3133,
+              "right_foot_index": 0.0133,
+              "right_heel": 0.0133,
+              "right_hip": 1.0,
+              "right_knee": 0.0,
+              "right_shoulder": 1.0,
+              "right_wrist": 0.3667,
+              "shoulder_midpoint": 1.0
+            }
+          },
+          {
+            "elapsed_s": 8.913,
+            "artifact_key": "pose/ceb52406971fe89772ed8bd4cd12a9a1a96297d5a0778d195099ea66503d05f9.jsonl",
+            "artifact_bytes": 1555317,
+            "artifact_sha256": "ceb52406971fe89772ed8bd4cd12a9a1a96297d5a0778d195099ea66503d05f9",
+            "frame_count": 300,
+            "first_pts": 10.005,
+            "last_pts": 19.983333,
+            "actual_rate_hz": 29.96,
+            "all_invalid_frames": 0,
+            "joint_coverage": {
+              "left_ankle": 1.0,
+              "left_elbow": 1.0,
+              "left_foot_index": 1.0,
+              "left_heel": 1.0,
+              "left_hip": 1.0,
+              "left_knee": 1.0,
+              "left_shoulder": 1.0,
+              "left_wrist": 0.9867,
+              "pelvis": 1.0,
+              "right_ankle": 0.0,
+              "right_elbow": 0.3133,
+              "right_foot_index": 0.0133,
+              "right_heel": 0.0133,
+              "right_hip": 1.0,
+              "right_knee": 0.0,
+              "right_shoulder": 1.0,
+              "right_wrist": 0.3667,
+              "shoulder_midpoint": 1.0
+            }
+          }
+        ],
+        "artifact_hashes": [
+          "ceb52406971fe89772ed8bd4cd12a9a1a96297d5a0778d195099ea66503d05f9"
+        ],
+        "total_artifact_bytes": 1555317
+      },
+      "raw_artifacts_committed": false
+    },
+    {
+      "clip": "curl",
+      "manifest": {
+        "schema_version": "0.2.0",
+        "video_id": "ec2e5e9d-3f40-4396-8be1-27ba49152daa",
+        "provider": "mediapipe",
+        "model_revision": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+        "native_skeleton": "mediapipe-33",
+        "joint_mapping_version": "mp33-camera-v1",
+        "sample_rate_hz": 29.999998996655552,
+        "units": "model_estimated_meters_uncalibrated",
+        "coordinate_system": "hip_relative_camera_x_right_y_up_z_toward_viewer",
+        "capabilities": {
+          "supports_2d": true,
+          "supports_estimated_3d": true,
+          "world_translation": false,
+          "physical_scale": false,
+          "identity_verified": false
+        },
+        "quality_method": "mp33-camera-v1;visibility_presence_proxy_not_3d_confidence;identity_unverified;source_pts_sampling_v1_tolerance_1us",
+        "frames_artifact_key": "pose/cf5b2c19f228b0b4d5e119be09b024b6b3426aee5ce2e5c97041babb161e1838.jsonl"
+      },
+      "diagnostic": {
+        "source_hash": "54603abf7580ce0d2b1155b9fe2ce77e3388226276b4c00c0464c1576bb3c09a",
+        "source_name": "Bicep Curls.MOV",
+        "source_bytes": 46008563,
+        "segment_start_s": 0.0,
+        "segment_duration_s": 10.0,
+        "probe": {
+          "width": 1920,
+          "height": 1080,
+          "duration_s": 20.653333,
+          "rotation": -90
+        },
+        "model_sha256": "5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+        "sdk_versions": {
+          "python": "3.12.15",
+          "platform": "Linux-7.0.14-linuxkit-aarch64-with-glibc2.36",
+          "architecture": "aarch64",
+          "mediapipe": "0.10.14",
+          "numpy": "2.1.2",
+          "opencv-contrib-python": "5.0.0.93"
+        },
+        "provider_source_sha256": "48c873d9f2425e70963b7732b6f6f97911f51e1f590fc0083d37bfaa3eab4d9f",
+        "peak_rss_kib": {
+          "self": 305572,
+          "children": 312916
+        },
+        "runs": [
+          {
+            "elapsed_s": 23.0409,
+            "artifact_key": "pose/cf5b2c19f228b0b4d5e119be09b024b6b3426aee5ce2e5c97041babb161e1838.jsonl",
+            "artifact_bytes": 1550611,
+            "artifact_sha256": "cf5b2c19f228b0b4d5e119be09b024b6b3426aee5ce2e5c97041babb161e1838",
+            "frame_count": 300,
+            "first_pts": 0.0,
+            "last_pts": 9.966667,
+            "actual_rate_hz": 30.0,
+            "all_invalid_frames": 3,
+            "joint_coverage": {
+              "left_ankle": 0.0567,
+              "left_elbow": 0.2833,
+              "left_foot_index": 0.04,
+              "left_heel": 0.01,
+              "left_hip": 0.99,
+              "left_knee": 0.1533,
+              "left_shoulder": 0.99,
+              "left_wrist": 0.29,
+              "pelvis": 0.99,
+              "right_ankle": 0.2,
+              "right_elbow": 0.99,
+              "right_foot_index": 0.2067,
+              "right_heel": 0.1467,
+              "right_hip": 0.99,
+              "right_knee": 0.2567,
+              "right_shoulder": 0.99,
+              "right_wrist": 0.9733,
+              "shoulder_midpoint": 0.99
+            }
+          }
+        ],
+        "artifact_hashes": [
+          "cf5b2c19f228b0b4d5e119be09b024b6b3426aee5ce2e5c97041babb161e1838"
+        ],
+        "total_artifact_bytes": 1550611
+      },
+      "raw_artifacts_committed": false
+    },
+    {
+      "clip": "squat",
+      "manifest": {
+        "schema_version": "0.2.0",
+        "video_id": "88b7f809-37e7-4e9f-adb1-f711d0166c36",
+        "provider": "mediapipe",
+        "model_revision": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+        "native_skeleton": "mediapipe-33",
+        "joint_mapping_version": "mp33-camera-v1",
+        "sample_rate_hz": 29.999998996655552,
+        "units": "model_estimated_meters_uncalibrated",
+        "coordinate_system": "hip_relative_camera_x_right_y_up_z_toward_viewer",
+        "capabilities": {
+          "supports_2d": true,
+          "supports_estimated_3d": true,
+          "world_translation": false,
+          "physical_scale": false,
+          "identity_verified": false
+        },
+        "quality_method": "mp33-camera-v1;visibility_presence_proxy_not_3d_confidence;identity_unverified;source_pts_sampling_v1_tolerance_1us",
+        "frames_artifact_key": "pose/ef2202d32f112f100bde30f4e49c47da6c4e060c099cf85e8ca7a5f1bf0f655c.jsonl"
+      },
+      "diagnostic": {
+        "source_hash": "9dc83cd2cc0da13748486dbd91856949377a2ef98f1f51a121b17dcfcd2bde5b",
+        "source_name": "Squat.MOV",
+        "source_bytes": 27808876,
+        "segment_start_s": 0.0,
+        "segment_duration_s": 10.0,
+        "probe": {
+          "width": 1920,
+          "height": 1080,
+          "duration_s": 14.248333,
+          "rotation": -90
+        },
+        "model_sha256": "5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+        "sdk_versions": {
+          "python": "3.12.15",
+          "platform": "Linux-7.0.14-linuxkit-aarch64-with-glibc2.36",
+          "architecture": "aarch64",
+          "mediapipe": "0.10.14",
+          "numpy": "2.1.2",
+          "opencv-contrib-python": "5.0.0.93"
+        },
+        "provider_source_sha256": "48c873d9f2425e70963b7732b6f6f97911f51e1f590fc0083d37bfaa3eab4d9f",
+        "peak_rss_kib": {
+          "self": 308300,
+          "children": 313652
+        },
+        "runs": [
+          {
+            "elapsed_s": 18.3054,
+            "artifact_key": "pose/ef2202d32f112f100bde30f4e49c47da6c4e060c099cf85e8ca7a5f1bf0f655c.jsonl",
+            "artifact_bytes": 1501078,
+            "artifact_sha256": "ef2202d32f112f100bde30f4e49c47da6c4e060c099cf85e8ca7a5f1bf0f655c",
+            "frame_count": 300,
+            "first_pts": 0.0,
+            "last_pts": 9.966667,
+            "actual_rate_hz": 30.0,
+            "all_invalid_frames": 24,
+            "joint_coverage": {
+              "left_ankle": 0.7933,
+              "left_elbow": 0.0,
+              "left_foot_index": 0.8867,
+              "left_heel": 0.81,
+              "left_hip": 0.92,
+              "left_knee": 0.41,
+              "left_shoulder": 0.92,
+              "left_wrist": 0.0,
+              "pelvis": 0.92,
+              "right_ankle": 0.9167,
+              "right_elbow": 0.92,
+              "right_foot_index": 0.9167,
+              "right_heel": 0.9167,
+              "right_hip": 0.92,
+              "right_knee": 0.9167,
+              "right_shoulder": 0.92,
+              "right_wrist": 0.92,
+              "shoulder_midpoint": 0.92
+            }
+          }
+        ],
+        "artifact_hashes": [
+          "ef2202d32f112f100bde30f4e49c47da6c4e060c099cf85e8ca7a5f1bf0f655c"
+        ],
+        "total_artifact_bytes": 1501078
+      },
+      "raw_artifacts_committed": false
+    },
+    {
+      "clip": "incline-press",
+      "manifest": {
+        "schema_version": "0.2.0",
+        "video_id": "f39c26ce-ddd1-449e-beb1-a360eeed05c6",
+        "provider": "mediapipe",
+        "model_revision": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+        "native_skeleton": "mediapipe-33",
+        "joint_mapping_version": "mp33-camera-v1",
+        "sample_rate_hz": 29.894667443392994,
+        "units": "model_estimated_meters_uncalibrated",
+        "coordinate_system": "hip_relative_camera_x_right_y_up_z_toward_viewer",
+        "capabilities": {
+          "supports_2d": true,
+          "supports_estimated_3d": true,
+          "world_translation": false,
+          "physical_scale": false,
+          "identity_verified": false
+        },
+        "quality_method": "mp33-camera-v1;visibility_presence_proxy_not_3d_confidence;identity_unverified;source_pts_sampling_v1_tolerance_1us",
+        "frames_artifact_key": "pose/ee9dc2a6400c5221e1addd156b278e9db43bd2d7615d82fa0fd86052ed1a3b1d.jsonl"
+      },
+      "diagnostic": {
+        "source_hash": "22c5823c65315286e2f21167dbde772af7c4f47bdb1a4aa14d662f11c795365e",
+        "source_name": "Incline Chest Press.mov",
+        "source_bytes": 44702924,
+        "segment_start_s": 0.0,
+        "segment_duration_s": 10.0,
+        "probe": {
+          "width": 1920,
+          "height": 1080,
+          "duration_s": 39.923333,
+          "rotation": -180
+        },
+        "model_sha256": "5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+        "sdk_versions": {
+          "python": "3.12.15",
+          "platform": "Linux-7.0.14-linuxkit-aarch64-with-glibc2.36",
+          "architecture": "aarch64",
+          "mediapipe": "0.10.14",
+          "numpy": "2.1.2",
+          "opencv-contrib-python": "5.0.0.93"
+        },
+        "provider_source_sha256": "48c873d9f2425e70963b7732b6f6f97911f51e1f590fc0083d37bfaa3eab4d9f",
+        "peak_rss_kib": {
+          "self": 310632,
+          "children": 316204
+        },
+        "runs": [
+          {
+            "elapsed_s": 23.5255,
+            "artifact_key": "pose/ee9dc2a6400c5221e1addd156b278e9db43bd2d7615d82fa0fd86052ed1a3b1d.jsonl",
+            "artifact_bytes": 1541296,
+            "artifact_sha256": "ee9dc2a6400c5221e1addd156b278e9db43bd2d7615d82fa0fd86052ed1a3b1d",
+            "frame_count": 299,
+            "first_pts": 0.0,
+            "last_pts": 9.968333,
+            "actual_rate_hz": 29.89,
+            "all_invalid_frames": 3,
+            "joint_coverage": {
+              "left_ankle": 0.0033,
+              "left_elbow": 0.0,
+              "left_foot_index": 0.0,
+              "left_heel": 0.0,
+              "left_hip": 0.99,
+              "left_knee": 0.0,
+              "left_shoulder": 0.99,
+              "left_wrist": 0.0067,
+              "pelvis": 0.99,
+              "right_ankle": 0.4883,
+              "right_elbow": 0.99,
+              "right_foot_index": 0.214,
+              "right_heel": 0.4548,
+              "right_hip": 0.99,
+              "right_knee": 0.9699,
+              "right_shoulder": 0.99,
+              "right_wrist": 0.9766,
+              "shoulder_midpoint": 0.99
+            }
+          }
+        ],
+        "artifact_hashes": [
+          "ee9dc2a6400c5221e1addd156b278e9db43bd2d7615d82fa0fd86052ed1a3b1d"
+        ],
+        "total_artifact_bytes": 1541296
+      },
+      "raw_artifacts_committed": false
+    }
+  ]
+}

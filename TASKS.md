@@ -62,6 +62,11 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   coaching is unvalidated. Clip duration 55.111667s exceeds the 30s default. Use a
   documented short segment for the spike. Implement the same real adapter under T04.
 - **Dependency correction:** T02.1 first; then this gate. See DELIVERY T01/T04.
+- **20 Oct pose outcome:** Real T04 adapter passes 131 tests and produces a 300-frame
+  artifact for source10–20s at29.96Hz, with synchronized browser overlay/rotatable
+  estimated3D. Visible-side coverage supports proceeding to measurements; far-arm
+  occlusion and unverified identity/depth remain explicit. Other clips have real
+  artifacts with gaps. Structured runtime Nemotron remains unvalidated, so T01 stays wip.
 
 ## T01b — Lat pulldown exercise + evidence/reference flows  ·  status: wip  ·  date: 18 Oct
 - **FRs:** FR06, FR11
@@ -111,7 +116,13 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 - **Next:** T01/T04 real pose.
 
 ## T03 — Ingestion  ·  status: todo  ·  date: 17 Oct  ·  FR01, FR02, FR03
-## T04 — Pose adapter  ·  status: todo  ·  date: 17–18 Oct  ·  FR04
+- **Next batch:** Register/upload private assets with enforced30s duration/size limits,
+  bounded metadata probing, original/proxy timestamp maps and owner-scoped access.
+  Invoke the delivered provider through T08.1; no CLI-only success claims for browser jobs.
+## T04 — Pose adapter  ·  status: done (local adapter)  ·  20 Oct  ·  FR04, FR12
+- Local canonical extraction/artifacts/diagnostic delivered by batch C; the historical
+  failed batches below are superseded. Service job integration remains T03/T08.1;
+  subject association, broader quality validation and scoring are not claimed complete.
 - **T19 TODOs:** Validated frame-artifact reader; PTS/aspect/coordinate fixtures; raw
   observation masks and provenance. Conditional rtmlib/Norfair only on measured failure;
   no predicted joints or silently reduced 3D capabilities. DELIVERY + pose skill.
@@ -140,7 +151,7 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   all completion reported as reasoning; finish_reason=length; no final code accepted.
   Connection/authentication work. Development request policy is corrected under D011;
   the local 12k replacement request was prepared but not sent. Resume after T21.1.
-### T04 batch C — Real pose components · status: wip · 20 Oct · FR04, FR12
+### T04 batch C — Real pose components · status: done · 20 Oct · FR04, FR12
 - **Claim:** Codex coordinates, reviews and integrates direct Nebius scoped drafts.
   Clips inventoried in data/demo-clips.json; model provenance/checksum in
   data/pose_models/mediapipe-full-v1.json. Private video/frames remain local and ignored.
@@ -162,6 +173,21 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   rejection, immutable/idempotent writing and cleanup are implemented.
 - **Latest checks:** ./scripts/test.sh python exit0; Ruff/mypy38 files clean, 94 tests
   pass (16 artifact cases), existing deprecation warning only. Next T04.3 is in progress.
+- **T04.3 done:** Real ffprobe PTS/rotation, bounded FFmpeg decode/cleanup, lazy local
+  verified MediaPipe checkpoint, explicit no/multiple-person gaps, content-addressed
+  frames, local smoke scripts and source-hash-verified video/2D/rotatable3D diagnostic.
+  Nebius supplied drafts/tests; Codex integrated targeted contract/runtime/test fixes.
+- **Final checks:** ./scripts/test.sh python: Ruff/mypy clean, 131 tests pass. Actual
+  lat10–20s:300 frames29.96Hz, no all-invalid samples, cold9.8039s/second8.913s, same
+  artifact hash. Curl0–10s:300 frames/3 gaps; squat:300/24; press:299/3. Browser verified
+  source playback, frame seek at10.005/15.045/19.717s, overlay alignment and yaw rotation.
+  No general accuracy, verified identity, rep count, metric or score claim.
+- **Budget:** 15 coding generations,162,809 known-final tokens plus12,809 reported
+  partial tokens. Conservative batch commitment USD0.958405 retains full USD0.263922
+  timeout reservation. USD30 backup untouched; old unknown usage is not reconciled.
+  No Tavily or paid runtime coaching. Ledger: docs/development-usage-2026-10-20.json.
+- **Next:** T03/T08.1 upload/queue integration, then T05 visible-side measurements with
+  explicit calibration/eligibility. T01 structured coaching and T21.1 tooling remain open.
 ## T05 — First exercise engine (lat pulldown, D005) · status: todo · FR05, FR06, FR07
 - **T19 TODOs:** Typed signal/config/side context; contiguous filtering; full-cycle
   state machine adapted from reviewed patterns; separate segmentation calibration;
@@ -315,10 +341,13 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   application/schema/runtime change in this update; previous forecasts remain estimates.
 
 ## Immediate next action
-T02.1 is complete. Claim **T01/T04** and process a documented lat-pulldown segment
-through the real canonical pose adapter. Do not restart the scaffold review loop.
-First resolve T21.1 request handling using D011 allocation; the old tiny draft limits
-are historical. Then resume the three pose tasks with meaningful final-code allowance.
+T02.1 and the three local T04 components are complete. Claim **T03/T08.1**: private
+upload metadata/validation and one durable job that invokes the actual provider.
+Then T05 visible-side measurements, calibration and full-cycle segmentation. Do not
+restart scaffold/source-screening or the failed generic-tooling loop. T21.1 remains
+unfinished; use sequential bounded requests, explicit reservations and the actual usage
+ledger while its reusable implementation is deferred. T01 runtime coaching is separate.
 Every remaining task's steps, files, dependencies and acceptance are in docs/DELIVERY.md.
-Additional user clips are analysis inputs, not approved references. Budget caps and a
-reviewed reference remain open; neither prevents offline baseline and pose work.
+Additional user clips are analysis inputs, not approved references. The $70 active/$30
+backup ceiling is recorded; actual account balance/history reconciliation and a reviewed
+reference remain open. Neither prevents the local upload/measurement work.

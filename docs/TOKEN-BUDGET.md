@@ -153,13 +153,30 @@ Codex usage is on a separate billing system; no numerical Codex saving is claime
 
 ## Calibration and next batch
 
-Implement T21.1 request handling/ledger as a bounded supporting task, not a replacement
-for T04. Use one real canonical-mapping implementation to calibrate settings and accepted
-code quality, then expand to the other two pose tasks. Reforecast after the first three
-accepted tasks. Keep the first usable lat-pulldown flow ahead of the remaining exercises;
-the 2.47M estimate covers the full planned four-exercise MVP.
+20 October checkpoint: three pose components accepted after container checks and real
+clip diagnostics; final Python count131. The [sanitized usage ledger](development-usage-2026-10-20.json)
+records15 coding requests,162,809 final tokens plus12,809 partially reported timeout
+tokens. Conservative USD2/5-per-million accounting commits USD0.958405 for this batch,
+including the full USD0.263922 timeout reservation. These are not verified invoice
+prices or account balances; the four old unknown calls remain unknown, with USD1
+contingency rather than a false reconciliation. Backup remains protected.
 
-The last Kimi attempt recorded 987 input and 5,000 completion tokens, all completion
+Reported pose-task usage totals83,996 tokens; supporting T21.1 reports91,622 including
+the timeout partial usage and remains unfinished despite a justified150k allocation.
+Six generic-helper drafts consumed time without an accepted implementation. Defer that
+loop; compact source-specific drafts plus targeted review/integration corrections
+delivered the pose components. Keep the remaining MVP forecast provisional: three pose
+components do not justify a blanket reduction for upload/jobs, numerical algorithms or
+evaluation. No product runtime coaching/Tavily calls occurred. Use one writer and
+sequential bounded requests until reliable automatic aggregate accounting is delivered.
+
+T21.1 remains a bounded supporting task, not a replacement for product delivery.
+The first three pose components now supply an initial calibration; next implement
+T03/T08.1 and T05, then reforecast from accepted upload/job/numerical work. Keep the
+first usable lat-pulldown flow ahead of exercise expansion. The original2.47M estimate
+covers the planned four-exercise MVP, not an authorization to exhaust that amount.
+
+An earlier Kimi attempt recorded 987 input and 5,000 completion tokens, all completion
 reported as reasoning, no final code, finish_reason=length. At the published rates,
 that call is approximately $0.02094 before other charges. Four earlier draft calls lack
 usable accounting records. No reliable tokens-per-accepted-task baseline exists yet.

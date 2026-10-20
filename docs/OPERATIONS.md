@@ -1,5 +1,45 @@
 # OPERATIONS
 
+## Local pose diagnostic (T04, 20 October)
+
+With the existing worker image, owned footage in `data/demo/` and the exact local
+checkpoint described in `data/pose_models/mediapipe-full-v1.json`:
+
+```bash
+./scripts/pose-smoke.sh --video demo/lat_pulldown.mp4 --start-s 10 --duration-s 10 --repeat
+./scripts/pose-smoke.sh --video 'demo/Bicep Curls.MOV' --start-s 0 --duration-s 10 --output-dir /out/pose-smoke/curl
+```
+
+The wrapper disables container networking and provides no credentials. It mounts code,
+media and the model read-only, and writes only to ignored `artifacts/`. It does not
+silently build images or download models. `manifest.json`, `diagnostic.json` and
+`diagnostic.html` describe actual poses, original source timestamps, coverage and limits.
+An explicit segment of a longer source is a diagnostic; it does not bypass the
+product's 30-second upload rule. The main analysis/job command is still unfinished.
+
+Open a generated HTML locally and choose its original source video. The viewer checks
+the source SHA256 before displaying it. For loopback serving of the lat example:
+
+```bash
+mkdir -p artifacts/pose-smoke/lat-pulldown/media
+docker run -d --name motion-xray-pose-diagnostic -p 127.0.0.1:8765:8765 \
+  -v "$PWD/artifacts/pose-smoke/lat-pulldown:/served:ro" \
+  -v "$PWD/data/demo:/served/media:ro" --entrypoint python motion-xray-worker \
+  -m http.server 8765 --bind 0.0.0.0 --directory /served
+```
+
+Visit `http://localhost:8765/diagnostic.html`. The preview loads the source locally as
+a blob so seeking works without a range-capable server. Playback and the slider use
+the original source clock; only valid joints are drawn. Drag the 3D canvas to rotate.
+No source is uploaded. Stop/remove only this disposable server when finished:
+
+```bash
+docker rm -f motion-xray-pose-diagnostic
+```
+
+This viewer is an inspection artifact, not T11 product completion. Identity/depth
+accuracy, measurements, reference eligibility and scores need their later gates.
+
 **T02.1 status:** container builds, offline checks and local web/API routing are verified.
 Upload/jobs/deletion/retention and actual pose inference are not implemented. The worker
 image imports MediaPipe, but its entrypoint is still a stub. Live evidence refresh is

@@ -169,5 +169,14 @@
     "known_reasoning_tokens": 5000,
     "prior_unaccounted_calls": 4,
     "note": "Historical failed calls excluded from remaining-work forecast. Unknown usage is not zero."
+  },
+  "calibration_2026_10_20": {
+    "usage_report": "docs/development-usage-2026-10-20.json",
+    "accepted_pose_components": 3,
+    "pose_task_tokens_reported": 83996,
+    "supporting_task_T21_1_tokens_reported": 91622,
+    "T21_1_allocation_override_tokens": 150000,
+    "reason": "Reasoning exhaustion, rejected source and request-control diagnosis; generic helper remains deferred.",
+    "forecast_decision": "Retain the remaining MVP forecast as provisional. Three pose components do not justify a blanket reduction; include failed-call overhead and human integration corrections. Use compact source-specific requests with one writer; no generic framework retry loop."
   }
 }

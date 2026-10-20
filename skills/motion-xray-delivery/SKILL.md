@@ -24,6 +24,14 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 ## Resume one task
 
+Current 20 October checkpoint: T04's three local components are delivered and real
+pose artifacts exist for four owned clips. Next is T03/T08.1, then T05. See the latest
+T04 report and `docs/development-usage-2026-10-20.json`; the 19 October audit remains
+historical. T21.1 generic helper drafts failed and are deferred; do not repeat that
+loop in place of product delivery. Keep direct workers bounded/sequential, retain
+timeout reservations and integrate one reviewed draft at a time. No automatic parallel
+dispatch or paid runtime coaching is implied by these implementation results.
+
 1. Inspect git status and the previous task's evidence. Identify existing unfinished
    changes before editing; do not overwrite or commit another agent's work.
 2. Claim one bounded TASKS work package. State its FRs, concrete output and check.

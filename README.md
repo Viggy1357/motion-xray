@@ -48,9 +48,21 @@ coding agent follows before changing code.
 
 ## Status
 
-Baseline repaired; no complete video-to-report flow yet. Container lint/types and 61
-tests pass; API/worker/web images build and MediaPipe imports. The web still shows a
-scaffold heading. Next: T01/T04 real MediaPipe pose on the lat-pulldown clip.
+Real local pose extraction now runs on all four owned test clips. Canonical mapping,
+immutable artifacts and the timestamped MediaPipe adapter pass 131 container tests,
+Ruff and mypy. A diagnostic provides synchronized video/2D and rotatable estimated 3D.
+The main web app is still a scaffold; upload/jobs, reps, metrics, scores and coaching
+are unfinished. Next: T03/T08.1 private upload + durable jobs, then T05 measurements.
+
+Run a local pose diagnostic with an existing worker image and the pinned local model:
+
+```bash
+./scripts/pose-smoke.sh --video demo/lat_pulldown.mp4 --start-s 10 --duration-s 10 --repeat
+```
+
+See [pose validation and limitations](docs/audit/T04-resumed-pose-batch.md) and the
+[recorded checkpoint](data/pose_models/mediapipe-full-v1.json). Private footage,
+checkpoints and generated diagnostics remain ignored; an owned set is not a reference.
 
 Run `./scripts/test.sh all` for the actual offline checks. See `docs/OPERATIONS.md`
 for setup, local startup and contract-generation commands.

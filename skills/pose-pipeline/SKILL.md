@@ -91,6 +91,13 @@ Run inference in a worker, not the UI thread (synchronous inference can block).
 
 ## Gate A checklist (prove it works once)
 
+20 October T04 local pose checkpoint is recorded in
+`docs/audit/T04-resumed-pose-batch.md` and `T04-pose-results-2026-10-20.json` in the
+same audit directory. Mapping/artifacts/adapter and diagnostic playback are delivered;
+131 tests pass. Reuse that evidence instead of restarting the feasibility scaffold.
+Identity remains unverified and depth is estimated; later measurements still need
+quality/calibration gates. T01's separate runtime coaching proof remains open.
+
 - [ ] Extract timestamped 2D + world landmarks from the authorized lat-pulldown
   segment first (D005); record its offset within the 55s source clip.
 - [ ] Map to canonical named joints; verify correct anatomical left/right.

@@ -9,7 +9,7 @@ workflow is paused. This plan does not claim the MVP is built.
 
 Read `AUDIT-2026-10-19.md` for the evidence baseline and `../TASKS.md` for current task
 status. Read the archived full `SPECIFICATION-v2.0.md` for detailed formulas and UI
-behavior; accepted decisions D001–D011 override or clarify its earlier choices.
+behavior; accepted decisions D001–D013 override or clarify its earlier choices.
 
 The dependency order is:
 
@@ -37,6 +37,14 @@ machine-readable ledger. The user permits 100k cumulative tokens per bounded tas
 with justified heavier allocations. T21.1 improves streaming/usage handling before
 resuming T04; it does not reopen product scope or authorize runtime coaching spend.
 Historical small output caps are superseded by the task-based allocation policy.
+
+**20 October checkpoint:** T04's three local pose components now pass 131 tests and
+real ten-second clip diagnostics. T01 runtime structured coaching is still open.
+T21.1 generic helper drafts failed review/deadlines and were deferred so they did not
+replace T04; direct workers remained sequential, manually reserved/accounted and
+reviewed before integration. Usage and timeout reservations are recorded in
+`development-usage-2026-10-20.json`. Next is T03/T08.1, then T05. Do not repeat the
+generic tooling loop or treat the diagnostic as the finished product viewer.
 
 ## Working rules and agent roles
 

@@ -1,6 +1,7 @@
 # T21.1 / T04 resumed implementation batch
 
-20 October 2026, Malaysia time. Work in progress; this is not a Gate A pass.
+20 October 2026, Malaysia time. Three local pose components delivered; T01 runtime
+coaching remains open. This is not full analysis/MVP acceptance.
 
 ## Inputs and local preflight
 
@@ -63,7 +64,7 @@ not claimed invoice prices. Reasoning is part of completion and is not added aga
 Historical four unknown calls remain unknown, with $1 contingency, not a claimed
 balance reconciliation. The earlier known Kimi call remains approximately $0.02094.
 
-## Pending acceptance
+## Component acceptance
 
 ### T04.1 accepted mapping component
 
@@ -87,6 +88,77 @@ and tests that previously conflated independent bounds or corrupted JSON before 
 including 16 artifact tests. Symlinks, traversal, duplicate JSON, malformed/gapped
 ordering, conflicting writes, hash tampering and failed-generator cleanup are covered.
 
-The real timestamped adapter must land before a real
-pose-sequence acceptance claim; reusable T21.1 tooling remains deferred. The single-frame
-preflight is useful runtime evidence, not a substitute for those requirements.
+### T04.3 accepted local provider and diagnostic
+
+The Qwen adapter draft completed but violated its file allowlist and source requirements;
+it was rejected. A Kimi K2.6 template-control repair supplied the working adapter.
+Its oversized, faulty tests were replaced by a smaller focused draft and one targeted
+repair. Codex integrated bounded fixes for contract fields, original-PTS parsing,
+source clock quantization, lazy runtime injection, actual fixture semantics and cleanup.
+The generated diagnostic needed real Pydantic/Path arguments, correct normalized-XY
+projection, animation-frame updates, hash-verified local video seeking and removal of
+an unintended extra inference. No generic helper code was substituted into the product.
+
+`./scripts/test.sh python` exits0: Ruff clean, mypy clean over38 files,131 tests pass
+(37 adapter cases). Existing Starlette/AnyIO warning remains. MediaPipe emits upstream
+feedback-tensor/protobuf warnings during actual inference; these did not prevent output.
+No public schema, exercise threshold, score weight or dependency was changed.
+
+All commands used the existing worker image
+`sha256:c7f177e304d6fbc8ef85fd01bdfdfb197a42a91c991d3918e1ea59dbf48e9e02`
+with mounted provider source SHA256
+`48c873d9f2425e70963b7732b6f6f97911f51e1f590fc0083d37bfaa3eab4d9f`.
+Environment: Linux/aarch64, Python3.12.15, MediaPipe0.10.14, NumPy2.1.2,
+opencv-contrib-python5.0.0.93. Inference is CPU-local with no network or credentials.
+
+| Source / explicit segment | Frames / actual Hz | All-invalid frames | Inference elapsed |
+| --- | --- | --- | --- |
+| Lat pulldown10–20s | 300 /29.96 | 0 | first-process9.8039s; second8.9130s |
+| Curl0–10s | 300 /30.00 | 3 | 23.0409s |
+| Squat0–10s | 300 /30.00 | 24 | 18.3054s |
+| Incline press0–10s | 299 /29.89 | 3 | 23.5255s |
+
+These are small owned-clip diagnostics, not general accuracy or speed benchmarks.
+Lat's left elbow coverage is100%, left wrist98.67%; far right elbow31.33%, wrist36.67%.
+Other clips predominantly expose the right side; far-arm/cropped-foot failures remain
+in the artifact. A visibility/presence mask is not measured depth accuracy.
+
+Lat artifacts are1,555,317 bytes. Two fresh landmarker instances in the same process
+produced the same content hash
+`ceb52406971fe89772ed8bd4cd12a9a1a96297d5a0778d195099ea66503d05f9`.
+This is evidence for that backend/input only. Self peak RSS379,600KiB and child peak
+323,312KiB are separate measurements, not a summed whole-system peak. Full per-clip
+coverage/provenance is in `T04-pose-results-2026-10-20.json`.
+
+The first202-frame run exposed microsecond rounding in FFprobe PTS. Greedy30Hz sampling
+mistakenly skipped timestamps0.33us below1/30s. Comparison now permits1us formatting
+tolerance, with a regression fixture and explicit sampling-v1 provenance; raw times
+remain untouched. The initial private artifact/manifest was preserved, not rewritten.
+
+Browser verification used the original source clock at10.005s,15.045s and19.717s,
+plus playback and3D yaw drag. Visible joints aligned with the foreground subject in
+those inspections; automatic identity verification is still false. The loopback preview
+is `http://localhost:8765/diagnostic.html` while its local container runs. Source video
+is read locally and checked against the analysis SHA before display; it is never uploaded.
+Screenshot proof remains private at `artifacts/pose-smoke/lat-pulldown/viewer-proof.png`.
+The viewer is a diagnostic; the main web app and durable job loop remain scaffolds.
+
+## Accounting and next work
+
+`../development-usage-2026-10-20.json` records all15 direct coding requests, including
+rejected drafts. Known-final usage162,809 tokens; timeout partial usage12,809 tokens
+is not treated as final billing. Conservative known-final costUSD0.694483 plus the
+full timeout reservationUSD0.263922 gives new-batch commitmentUSD0.958405. Including
+the old estimatedUSD0.02093765 andUSD1 unknown-history contingency yieldsUSD1.97934265
+of dispatch accounting, not a verified balance or invoice. Four old calls remain
+unreconciled. No backup activation, Tavily call or paid runtime-coaching call occurred.
+
+Three pose components used83,996 reported development tokens. T21.1 used91,622 reported
+tokens including its timeout partial usage, but produced no accepted reusable helper.
+Defer that loop. Continue sequential bounded requests and explicit usage checkpoints;
+the remaining MVP forecast stays provisional after this first small calibration.
+
+Next: T03/T08.1 private upload and durable lifecycle invoking this adapter; T05 visible-side
+measurements/quality/calibration/full-cycle reps. Keep missing outputs unavailable.
+T01 structured runtime Nemotron, reviewed references, scores and the product viewer
+remain unfinished. Incline press is still a T17 candidate, not supported scoring.

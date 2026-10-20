@@ -211,6 +211,26 @@ Specification v2.0 (15 Oct 2026).
 - **Limits:** No new paid call, live-route activation, provider-side cap, infrastructure
   purchase or change to product scope occurs in this documentation update.
 
+## D013 — Retain MediaPipe after the first real local pose validation
+
+- **Date:** 20 Oct 2026; **Status:** Local adapter accepted with explicit limitations.
+- **Evidence:** T04 batch C; docs/audit/T04-resumed-pose-batch.md and sanitized result
+  JSON. Pinned SDK0.10.14, Full float16/1 checkpoint SHA256
+  `5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1`.
+- **Outcome:** Source10–20s lat pulldown yields300 frames at29.96Hz; cold9.8039s,
+  second-run8.913s, identical artifacts on this CPU/runtime. Real artifacts also exist
+  for curl, squat and incline-press diagnostic segments; this adds no scoring support.
+- **Semantics:** Preserve original PTS/source indices and qualify estimated XYZ.
+  Microsecond-formatted PTS need1us sampling-comparison tolerance; record sampling-v1
+  in provenance. No exercise threshold/scoring weight changed. Missing/multiple poses
+  remain gaps, not predicted anatomy. Physical scale and verified identity stay false.
+- **Limits:** Foreground alignment inspected at start/middle/end and during playback;
+  this is not general identity tracking or 3D accuracy proof. Far arm is poorly covered.
+  Squat has24/300 all-invalid samples. Metrics, reviewed reference and scores remain
+  pending. T01 runtime structured Nemotron remains unvalidated; coding calls are separate.
+- **Next:** Keep MediaPipe primary. T03/T08.1/T05 proceed; D009 conditional alternatives
+  remain gated on a measured need, not installed by this result.
+
 ## Remaining implementation choices
 
 | Decision | Owner | Closure point |
