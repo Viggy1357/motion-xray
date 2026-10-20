@@ -156,6 +156,12 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   one worker at a time and no automatic draft execution/application remain enforced.
 - **Evidence:** docs/audit/T04-resumed-pose-batch.md. One-frame diagnostics detect poses
   in all four clips; this is not a temporal tracking or real-sequence acceptance pass.
+- **T04.2 done:** Nebius artifact draft plus one targeted repair; Codex integrated bounded
+  fixes for the missing tempfile import, exclusive-install race, line bound and test
+  fixtures. Canonical JSONL, SHA256 checks, bounded validated reading, symlink/traversal
+  rejection, immutable/idempotent writing and cleanup are implemented.
+- **Latest checks:** ./scripts/test.sh python exit0; Ruff/mypy38 files clean, 94 tests
+  pass (16 artifact cases), existing deprecation warning only. Next T04.3 is in progress.
 ## T05 — First exercise engine (lat pulldown, D005) · status: todo · FR05, FR06, FR07
 - **T19 TODOs:** Typed signal/config/side context; contiguous filtering; full-cycle
   state machine adapted from reviewed patterns; separate segmentation calibration;

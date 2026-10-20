@@ -77,6 +77,16 @@ test regex/threshold expectations and missing/no-detection regressions.
 (17 new mapping tests), one existing dependency deprecation warning. Offline provider
 smokes remain dry-run. Public contracts and exercise thresholds are unchanged.
 
-Validated artifacts and the real timestamped adapter must land before a real
+### T04.2 accepted artifact component
+
+Qwen artifact generation took 78.73s (1,277 input, 2,385 completion); one source-guided
+repair took 106.86s (3,313 input, 3,814 completion). Codex integrated bounded fixes for
+the tempfile import/cleanup, exclusive-link installation race, line-size comparison
+and tests that previously conflated independent bounds or corrupted JSON before hashing.
+`./scripts/test.sh python` exits 0: Ruff/mypy clean over 38 files and 94 tests pass,
+including 16 artifact tests. Symlinks, traversal, duplicate JSON, malformed/gapped
+ordering, conflicting writes, hash tampering and failed-generator cleanup are covered.
+
+The real timestamped adapter must land before a real
 pose-sequence acceptance claim; reusable T21.1 tooling remains deferred. The single-frame
 preflight is useful runtime evidence, not a substitute for those requirements.
