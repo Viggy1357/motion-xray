@@ -9,7 +9,7 @@ workflow is paused. This plan does not claim the MVP is built.
 
 Read `AUDIT-2026-10-19.md` for the evidence baseline and `../TASKS.md` for current task
 status. Read the archived full `SPECIFICATION-v2.0.md` for detailed formulas and UI
-behavior; accepted decisions D001–D010 override or clarify its earlier choices.
+behavior; accepted decisions D001–D011 override or clarify its earlier choices.
 
 The dependency order is:
 
@@ -31,6 +31,12 @@ T16 audit and T18/T19 source research are complete; they do not prove video anal
 T01 and T04 share implementation: implement the real adapter once, use a small clip to
 prove it, then harden it. Do not write a throwaway alternate pipeline. Likewise, a
 simple persistent queue is an early requirement; cloud deployment is a later concern.
+
+Development allocation is recorded in [TOKEN-BUDGET.md](TOKEN-BUDGET.md) and its
+machine-readable ledger. The user permits 100k cumulative tokens per bounded task
+with justified heavier allocations. T21.1 improves streaming/usage handling before
+resuming T04; it does not reopen product scope or authorize runtime coaching spend.
+Historical small output caps are superseded by the task-based allocation policy.
 
 ## Working rules and agent roles
 

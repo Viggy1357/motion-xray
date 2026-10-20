@@ -58,6 +58,7 @@ for setup, local startup and contract-generation commands.
 - [Audit and verified progress](docs/AUDIT-2026-10-19.md)
 - [Step-by-step delivery workflow](docs/DELIVERY.md)
 - [Current tasks](TASKS.md)
+- [MVP token allocations and cost forecast](docs/TOKEN-BUDGET.md)
 - [Upstream methods and exact integration plan](docs/INTEGRATION-REVIEW-2026-10-20.md)
 - [Repository and dataset screening](docs/REUSE-SCREEN-2026-10-19.md)
 - [Full original specification](docs/SPECIFICATION-v2.0.md) (later decisions apply)

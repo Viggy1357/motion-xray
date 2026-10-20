@@ -131,6 +131,15 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   generation availability/quality did not. Billed usage is unknown for these failed calls.
 - **Next:** Resolve coding model/route in a separately bounded batch, then implement
   artifacts, canonical mapping and adapter. T04 and real-pose Gate A remain incomplete.
+### T04 batch B — Canonical mapping only · status: blocked · 20 Oct · FR04, FR12
+- **Claim:** Codex reviews/verifies; one streamed Nebius Kimi-K2.7-Code draft, no retries,
+  at most 5,000 output tokens. Smaller source-only prompt and strict file allowlist.
+- **Acceptance:** Complete scoped output, source review and relevant offline container
+  tests. No contracts or runtime model changes; real video adapter remains separate.
+- **Outcome:** Request completed in 21.66s: 987 input + 5,000 completion tokens;
+  all completion reported as reasoning; finish_reason=length; no final code accepted.
+  Connection/authentication work. Development request policy is corrected under D011;
+  the local 12k replacement request was prepared but not sent. Resume after T21.1.
 ## T05 — First exercise engine (lat pulldown, D005) · status: todo · FR05, FR06, FR07
 - **T19 TODOs:** Typed signal/config/side context; contiguous filtering; full-cycle
   state machine adapted from reviewed patterns; separate segmentation calibration;
@@ -227,9 +236,32 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   paid call or new benchmark. Archived brief/audits and private probe scripts preserved.
 - **Next:** T01/T04 real canonical pose, with D009/D010 and updated DELIVERY gates.
 
+## T21 — MVP token forecast and allocation · status: done · 20 Oct · FR01–FR12 delivery
+- **Scope:** Estimate remaining four-exercise MVP through T14; current model pricing,
+  separate development/runtime accounting, user-authorized per-task allocations.
+- **Output:** docs/TOKEN-BUDGET.md and docs/development-budget.json; D011; routing in
+  AGENTS/DELIVERY. Forecast 2.47M tokens, 3.0875M with 25% reserve across 30 bounded tasks.
+- **Limits:** Provisional engineering forecast, no measured successful-task baseline.
+  No paid generation in this planning task. Earlier unaccounted calls stay unknown.
+- **Checks:** Offline container verification passes allocation sums, 30-task count,
+  per-task averages, reserve and price arithmetic; local links/fences and diff whitespace
+  pass. No application code changed; no application tests or live inference rerun.
+- **Next:** T21.1, then T01/T04; do not expand product scope.
+
+### T21.1 — Reliable external coding request/usage handling · status: todo · FR04, FR12 delivery
+- **Budget:** 50k initial cumulative tokens, expandable under D011; first supporting task.
+- **Scope:** Streaming, verified model output/parameter limits, sufficient reasoning/final
+  allowance, idle vs total deadline, usage/finish-reason persistence on errors, scoped file
+  validation and per-task aggregate ledger. SDK automatic retries off.
+- **Acceptance:** Offline fake-stream tests cover reasoning-only exhaustion, truncation,
+  invalid/scoped JSON, transport errors and usage capture. One valid scoped implementation
+  can be reviewed/tested before parallel dispatch. No automatic execution of drafts.
+
 ## Immediate next action
 T02.1 is complete. Claim **T01/T04** and process a documented lat-pulldown segment
 through the real canonical pose adapter. Do not restart the scaffold review loop.
+First resolve T21.1 request handling using D011 allocation; the old tiny draft limits
+are historical. Then resume the three pose tasks with meaningful final-code allowance.
 Every remaining task's steps, files, dependencies and acceptance are in docs/DELIVERY.md.
 Additional user clips are analysis inputs, not approved references. Budget caps and a
 reviewed reference remain open; neither prevents offline baseline and pose work.

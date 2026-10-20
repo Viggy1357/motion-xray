@@ -17,6 +17,11 @@ for T04–T07/T13. Reuse methods selectively: Sports2D/Good-GYM patterns, condit
 tracking/pose alternatives, and a verified DTW kernel behind our wrapper. No reviewed
 candidate is installed or validated merely because it appears in that report.
 
+Use D011 and `docs/TOKEN-BUDGET.md` for development calls: 100k cumulative tokens per
+task is authorized, heavier allocations may be justified. Request output must cover
+reasoning plus final code within model limits; retain usage/finish reason on failure.
+Do not repeat the historical tiny caps. Runtime coaching has separate controls.
+
 ## Resume one task
 
 1. Inspect git status and the previous task's evidence. Identify existing unfinished

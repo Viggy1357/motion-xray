@@ -10,6 +10,13 @@ Never send credentials or private media as coding context. Do not silently fall 
 to a large Codex implementation when the external coding route fails. Coding usage is
 separate from product runtime coaching and never proves the hackathon runtime path.
 
+Development allocation: the user authorizes up to 100,000 cumulative input+completion
+tokens per task, with justified increases for heavier work. This is not a per-request
+output/context limit; completion includes reasoning. Follow `docs/TOKEN-BUDGET.md`
+and `docs/development-budget.json`, record actual usage on failures too, and avoid
+tiny reasoning-output caps that prevent a final answer. No new paid calls are implied
+by the estimates; product-runtime controls remain separate.
+
 Read this file, `docs/PRODUCT.md`, `docs/ARCHITECTURE.md`, `TASKS.md`, and any
 relevant `DECISIONS.md` entry **before** changing code.
 

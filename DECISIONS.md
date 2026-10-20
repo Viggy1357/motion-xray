@@ -181,7 +181,22 @@ Specification v2.0 (15 Oct 2026).
   Missing calibration/reference/measurements yield unavailable outputs, not defaults.
   These requirements clarify intent; formulas, thresholds and weights remain unchanged.
 
-## Remaining open decisions
+## D011 — Task-based development token allocation
+
+- **Date:** 20 Oct 2026; **Status:** Accepted user authorization; forecast provisional.
+- **Decision:** Allow up to 100k cumulative input+completion tokens per development task,
+  with reasoned increases for heavier tasks. Allocate enough request completion for
+  reasoning plus final code, within verified model limits. Stream and preserve accounting
+  even on failed drafts. Codex coordinates; Nebius performs substantive coding/review.
+- **Forecast:** 30 bounded tasks, 2.47M development tokens plus 25% reserve, 3.0875M total.
+  Reforecast after three accepted tasks. Estimates are not measured usage or an account
+  spend cap. No successful implementation baseline exists yet.
+- **Separation:** This supersedes tiny development draft caps, not runtime coaching
+  controls or D004. Per-request limits, retries and environment controls remain explicit.
+- **Sources:** docs/TOKEN-BUDGET.md; docs/development-budget.json. Published rates and
+  actual usage must be reconciled; missing historic usage remains unknown.
+
+## Outstanding implementation choices
 
 | Decision | Owner | Closure point |
 | --- | --- | --- |

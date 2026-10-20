@@ -1,0 +1,155 @@
+{
+  "as_of": "2026-10-20",
+  "timezone": "Asia/Kuala_Lumpur",
+  "status": "planning_estimate_not_measured_usage",
+  "scope": "Remaining personal MVP, four planned exercises through T14; T15 and T17 excluded",
+  "task_token_definition": "Cumulative billed input plus completion tokens across drafting, review and repairs. Completion includes reasoning; do not double count it.",
+  "default_task_allowance_tokens": 100000,
+  "heavier_task_policy": "Increase deliberately when scope or measured usage justifies it; log revised forecast before further calls. User authorizes heavier allocations.",
+  "max_concurrent_work_tasks": 3,
+  "max_work_tasks_per_batch": 4,
+  "sdk_automatic_retries": 0,
+  "request_output_policy": "Allocate reasoning plus final output; typically 16384-32768 initially, 49152-65536 for justified heavy requests only if provider supports it. Task allowance is not max_tokens or context size.",
+  "streaming": true,
+  "usage_preserved_on_failure": true,
+  "request_idle_timeout_s": 90,
+  "initial_request_total_deadline_s": 600,
+  "development_estimate": {
+    "input_tokens": 1480000,
+    "completion_tokens": 990000,
+    "total_tokens": 2470000,
+    "reserve_fraction": 0.25,
+    "reserve_tokens": 617500,
+    "planning_envelope_tokens": 3087500
+  },
+  "runtime_validation_reserve": {
+    "input_tokens": 200000,
+    "completion_tokens": 300000,
+    "total_tokens": 500000,
+    "status": "Separate optional allowance for bounded application validation, not approval for automatic live calls"
+  },
+  "pricing_usd_per_million": {
+    "nvidia/Nemotron-3.5-Super-VL": {
+      "input": 0.3,
+      "output": 0.9,
+      "source": "https://nebius.com/blog/posts/three-new-open-weight-models-from-us-companies-give-builders-more-choice"
+    },
+    "nvidia/Nemotron-3_5-Lightning": {
+      "input": 0.06,
+      "output": 0.24,
+      "source": "https://nebius.com/services/token-factory/models/nvidia-nemotron-models-inference"
+    },
+    "moonshotai/Kimi-K2.7-Code": {
+      "input": 0.95,
+      "output": 4,
+      "source": "https://nebius.com/services/token-factory/models/kimi-models-inference"
+    }
+  },
+  "availability": "Verify exact model ID, account access, reasoning controls and maximum output before selection. Published prices do not prove deployment quality.",
+  "work_packages": [
+    {
+      "work": "Delegation/request handling",
+      "task": "T21.1",
+      "subtasks": 1,
+      "input_tokens": 30000,
+      "output_tokens": 20000,
+      "total_tokens": 50000
+    },
+    {
+      "work": "Canonical pose + real smoke",
+      "task": "T01/T04",
+      "subtasks": 3,
+      "input_tokens": 120000,
+      "output_tokens": 80000,
+      "total_tokens": 200000
+    },
+    {
+      "work": "Upload + durable jobs",
+      "task": "T03/T08.1",
+      "subtasks": 3,
+      "input_tokens": 150000,
+      "output_tokens": 100000,
+      "total_tokens": 250000
+    },
+    {
+      "work": "Lat-pulldown measurement engine",
+      "task": "T05",
+      "subtasks": 3,
+      "input_tokens": 160000,
+      "output_tokens": 110000,
+      "total_tokens": 270000
+    },
+    {
+      "work": "Measurements viewer",
+      "task": "T11.1",
+      "subtasks": 3,
+      "input_tokens": 140000,
+      "output_tokens": 90000,
+      "total_tokens": 230000
+    },
+    {
+      "work": "Reviewed reference builder",
+      "task": "T06",
+      "subtasks": 2,
+      "input_tokens": 110000,
+      "output_tokens": 70000,
+      "total_tokens": 180000
+    },
+    {
+      "work": "Alignment + similarity scoring",
+      "task": "T07",
+      "subtasks": 2,
+      "input_tokens": 100000,
+      "output_tokens": 70000,
+      "total_tokens": 170000
+    },
+    {
+      "work": "Evidence review controls",
+      "task": "T10",
+      "subtasks": 2,
+      "input_tokens": 90000,
+      "output_tokens": 60000,
+      "total_tokens": 150000
+    },
+    {
+      "work": "Coaching + complete results viewer",
+      "task": "T09/T11.2",
+      "subtasks": 3,
+      "input_tokens": 160000,
+      "output_tokens": 110000,
+      "total_tokens": 270000
+    },
+    {
+      "work": "Curl, raise and squat expansion",
+      "task": "T12",
+      "subtasks": 3,
+      "input_tokens": 180000,
+      "output_tokens": 120000,
+      "total_tokens": 300000
+    },
+    {
+      "work": "Held-out + browser evaluation",
+      "task": "T13",
+      "subtasks": 3,
+      "input_tokens": 140000,
+      "output_tokens": 90000,
+      "total_tokens": 230000
+    },
+    {
+      "work": "Personal release + recovery",
+      "task": "T14",
+      "subtasks": 2,
+      "input_tokens": 100000,
+      "output_tokens": 70000,
+      "total_tokens": 170000
+    }
+  ],
+  "past_usage": {
+    "known_input_tokens": 987,
+    "known_completion_tokens": 5000,
+    "known_total_tokens": 5987,
+    "known_reasoning_tokens": 5000,
+    "prior_unaccounted_calls": 4,
+    "note": "Historical failed calls excluded from remaining-work forecast. Unknown usage is not zero."
+  }
+}
