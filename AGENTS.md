@@ -10,6 +10,16 @@ Never send credentials or private media as coding context. Do not silently fall 
 to a large Codex implementation when the external coding route fails. Coding usage is
 separate from product runtime coaching and never proves the hackathon runtime path.
 
+Next-run clarification: keep Codex use light. Delegate substantive implementation,
+focused test-failure repair, targeted research and first-pass review to Nebius workers.
+Codex supplies a small task packet, checks concise results and relevant diffs, runs
+container checks, and integrates with a final contract/correctness gate. Do not resend
+whole-repository context, repeatedly load full worker drafts, duplicate reviews, or
+restart generic dispatcher/model-comparison work. Reuse accepted artifacts and bound
+failed-route diagnosis; stop and report a blocked worker rather than silently doing a
+large Codex rewrite. Record provider usage and reservations; do not claim measured
+Codex savings without evidence. Keep one integrating writer and existing budget caps.
+
 Development allocation: the user authorizes up to 100,000 cumulative input+completion
 tokens per task, with justified increases for heavier work. This is not a per-request
 output/context limit; completion includes reasoning. Follow `docs/TOKEN-BUDGET.md`

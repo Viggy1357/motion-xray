@@ -46,6 +46,10 @@ reviewed before integration. Usage and timeout reservations are recorded in
 `development-usage-2026-10-20.json`. Next is T03/T08.1, then T05. Do not repeat the
 generic tooling loop or treat the diagnostic as the finished product viewer.
 
+For the next run, follow the Nebius-led, light-Codex execution policy in `../AGENTS.md`:
+delegate implementation, focused repairs and first-pass review; keep Codex dispatch,
+verification and integration concise. This preference does not start another paid batch.
+
 ## Working rules and agent roles
 
 - **Codex lead:** owns the active task, shared checkout, integration, contract/config
