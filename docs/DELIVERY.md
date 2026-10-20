@@ -368,8 +368,9 @@ Prepare materials locally; user controls final submission/publication and spendi
    before assigning exercise support or accuracy claims.
 2. Obtain a separate suitable reference and identify its reviewer/rules. User clips are
    currently analysis inputs, not approved standards.
-3. Confirm runtime provider caps/remaining credits and hosting spend before live tests
-   or deployment. No numerical budget has been supplied in this handoff.
+3. Reconcile current balances and per-run controls: user reports $100 Nebius allowance,
+   $70 operating ceiling and $30 backup, plus 8,000 separate Tavily credits. These are
+   ceilings, not spend targets; hosting scope/budget remains undecided. See TOKEN-BUDGET.
 4. Decide whether hackathon submission remains an additional goal; the personal MVP
    remains the primary finish line.
 

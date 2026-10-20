@@ -196,7 +196,22 @@ Specification v2.0 (15 Oct 2026).
 - **Sources:** docs/TOKEN-BUDGET.md; docs/development-budget.json. Published rates and
   actual usage must be reconciled; missing historic usage remains unknown.
 
-## Outstanding implementation choices
+## D012 — Resource ceilings and efficient delegation
+
+- **Date:** 20 Oct 2026; **Status:** Accepted user instruction.
+- **Resources:** User reports $100 Nebius allowance; use up to $70 for active work and
+  retain $30 backup. Tavily has a separate 8,000-credit allowance. Balances unverified.
+- **Decision:** Ceilings are not consumption targets. Expand D011 task token allocations
+  only with justified need; measure cost per accepted/tested change, not cheap tokens.
+  Establish one functioning worker before independent parallel work; no duplicate coding,
+  unnecessary multi-model comparisons or automatic review/search loops. Keep batches small.
+- **Accounting:** Nebius development and bounded runtime validation share $70; preserve
+  backup pending user activation. Separate Tavily credit ledger, cache-first/deduplicated
+  targeted refreshes. Include failed costs/in-flight commitments and reconcile unknowns.
+- **Limits:** No new paid call, live-route activation, provider-side cap, infrastructure
+  purchase or change to product scope occurs in this documentation update.
+
+## Remaining implementation choices
 
 | Decision | Owner | Closure point |
 | --- | --- | --- |

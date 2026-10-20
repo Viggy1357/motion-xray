@@ -27,6 +27,12 @@ coaching; draft discovery records never become approved by being saved as JSON.
 
 ## Credit conservation (this project has limited credits)
 
+User reports 8,000 Tavily credits, separate from the Nebius $70 operating ceiling/$30
+backup. This is available capacity, not a target. Keep a separate credit ledger,
+deduplicate queries/URLs, reuse reviewed cache and check operation cost before each
+bounded refresh. Do not equate credits to search count or activate the unfinished live
+product route merely because credits exist. See docs/TOKEN-BUDGET.md.
+
 1. **Default to `SEARCH_PROVIDER=cached`.** Reviewed local records serve all normal
    traffic with zero spend. Only `SEARCH_PROVIDER=tavily` makes live calls.
 2. **Refresh is manual and rare.** Provisional cache interval is 7 days; an operator

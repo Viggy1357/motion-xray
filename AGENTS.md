@@ -17,6 +17,13 @@ and `docs/development-budget.json`, record actual usage on failures too, and avo
 tiny reasoning-output caps that prevent a final answer. No new paid calls are implied
 by the estimates; product-runtime controls remain separate.
 
+Budget clarification: Nebius allowance is user-reported $100, with a $70 active ceiling
+and $30 protected backup; neither is a target to spend. Resize task tokens by demonstrated
+need within that ceiling. Tavily has a separate user-reported 8,000-credit allowance.
+Optimize cost per accepted/tested change: prove one worker first, parallelize independent
+work only, reuse context/cache, avoid duplicate agents/searches and blind retries.
+Track both ledgers and failed-call costs; do not use backup without user activation.
+
 Read this file, `docs/PRODUCT.md`, `docs/ARCHITECTURE.md`, `TASKS.md`, and any
 relevant `DECISIONS.md` entry **before** changing code.
 

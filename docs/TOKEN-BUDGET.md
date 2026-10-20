@@ -3,6 +3,44 @@
 20 October 2026, Malaysia time. T21 planning estimate, not measured implementation usage.
 Machine-readable allocations: [development-budget.json](development-budget.json).
 
+## Approved resources and efficiency policy
+
+The user reports **$100 Nebius allowance: up to $70 for planned work and $30 backup**,
+plus **8,000 Tavily credits tracked separately**. These are available ceilings, not
+spending targets or verified current balances. The $70 covers Token Factory development
+and bounded product validation together; it does not authorize new infrastructure.
+
+Keep the earlier token forecast as the initial expected workload rather than inflate
+it to consume the available dollars. Increase a task above 100k cumulative tokens only
+when scope or measured progress justifies it. Reallocate within $70 as needed; preserve
+the $30 backup until user activation. Record actual cost, failures and maximum in-flight
+commitments. Historical unknown usage is not zero; reconcile it with the account.
+No provider-side budget setting was changed; enforce dispatch accounting in T21.1.
+
+Subagent strategy:
+
+- Establish one successful scoped implementation before parallel dispatch. Use one
+  default worker and, when useful, two or three independent workers; four tasks per batch
+  remains the maximum. Dependent work waits for its inputs. One writer integrates.
+- Compare cost per accepted, tested result rather than token price alone. Start with
+  one suitable model, not a model tournament. Escalate when a concrete failure justifies
+  it; avoid repeating the same failing request or asking multiple agents to do the same work.
+- Send relevant contracts/source and actual test failures; reuse stable context and
+  request focused patches. Use a targeted reviewer for material risk or uncertainty,
+  not an automatic full review of every low-impact change.
+- Preserve enough completion allowance for reasoning and final code. Larger output caps
+  permit completion; they do not imply larger scope or a need to exhaust the cap.
+- Report accepted outputs, unresolved blockers, tokens and both known/unknown costs at
+  each checkpoint. Reforecast after three accepted tasks before broadening concurrency.
+
+Tavily strategy: keep a separate credit ledger; reuse reviewed cache, deduplicate
+exercise/variant queries and candidate URLs, and extract only selected sources. Bound
+each search/extract refresh by credits and timeout, record returned usage, and check the
+current operation's credit cost before live use. Do not convert 8,000 credits to dollars
+or assume it equals 8,000 searches. No automated broad crawl, routine per-set search or
+unnecessary repeat discovery. Existing T10 live-route safeguards remain prerequisites;
+this allowance does not complete them or schedule recurring searches.
+
 ## Scope and accounting
 
 Forecast the remaining four-exercise MVP through T14: real pose, upload/jobs,

@@ -250,12 +250,23 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ### T21.1 — Reliable external coding request/usage handling · status: todo · FR04, FR12 delivery
 - **Budget:** 50k initial cumulative tokens, expandable under D011; first supporting task.
+- **D012:** Optimize accepted progress within $70 Nebius operating ceiling; keep $30
+  backup. Add cumulative cost/in-flight accounting and preserve unknown historic costs.
 - **Scope:** Streaming, verified model output/parameter limits, sufficient reasoning/final
   allowance, idle vs total deadline, usage/finish-reason persistence on errors, scoped file
   validation and per-task aggregate ledger. SDK automatic retries off.
 - **Acceptance:** Offline fake-stream tests cover reasoning-only exhaustion, truncation,
   invalid/scoped JSON, transport errors and usage capture. One valid scoped implementation
   can be reviewed/tested before parallel dispatch. No automatic execution of drafts.
+
+## T22 — Resource ceilings and delegation efficiency · status: done · 20 Oct · FR01–FR12 delivery
+- **Scope:** Record user-reported $100 Nebius ($70 operating/$30 backup) and separate
+  8,000 Tavily credits; ceilings not targets, needs-based task resizing and efficient agents.
+- **Changed:** Budget JSON/guide, AGENTS, D012, DELIVERY, Tavily skill and this task record.
+- **Checks:** Offline JSON validation passes $70/$30 arithmetic, separate 8,000 credits,
+  no target spend and unchanged token forecast; diff whitespace check clean.
+- **Next:** T21.1 reliable single worker, then independent T04 tasks. No paid call or
+  application/schema/runtime change in this update; previous forecasts remain estimates.
 
 ## Immediate next action
 T02.1 is complete. Claim **T01/T04** and process a documented lat-pulldown segment
