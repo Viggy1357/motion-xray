@@ -115,6 +115,22 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 - **T19 TODOs:** Validated frame-artifact reader; PTS/aspect/coordinate fixtures; raw
   observation masks and provenance. Conditional rtmlib/Norfair only on measured failure;
   no predicted joints or silently reduced 3D capabilities. DELIVERY + pose skill.
+### T04 batch A — Canonical pose implementation · status: blocked · 20 Oct · FR04, FR12
+- **Claim:** Codex coordinates/reviews; Nebius Token Factory generates bounded coding
+  drafts. Three tasks only: (1) immutable pose artifacts, (2) named joint/quality mapping,
+  (3) timestamped MediaPipe adapter. One writer applies reviewed outputs.
+- **Call cap:** Four coding generations including at most one repair; no SDK retries;
+  Qwen/Qwen3-30B-A3B-Instruct-2507; explicit output/time caps per call. This does not
+  change runtime Nemotron or prove coaching. No secrets/private media sent as prompts.
+- **Acceptance:** Relevant container checks; measured real smoke if model/runtime are
+  available; preserve honest capability/quality failures. Record code, usage and limits.
+- **Outcome:** No product code accepted. First three generations timed out after about
+  90 seconds each; fourth streamed draft was truncated/malformed and failed source review.
+  Four-call batch cap reached; no automatic retries or Codex implementation fallback.
+- **Evidence:** docs/audit/T04-batch-a-nebius.md. Account model catalog succeeded;
+  generation availability/quality did not. Billed usage is unknown for these failed calls.
+- **Next:** Resolve coding model/route in a separately bounded batch, then implement
+  artifacts, canonical mapping and adapter. T04 and real-pose Gate A remain incomplete.
 ## T05 — First exercise engine (lat pulldown, D005) · status: todo · FR05, FR06, FR07
 - **T19 TODOs:** Typed signal/config/side context; contiguous filtering; full-cycle
   state machine adapted from reviewed patterns; separate segmentation calibration;

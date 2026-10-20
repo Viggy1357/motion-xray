@@ -1,5 +1,15 @@
 # AGENTS.md — contract for every coding agent (Codex, Hero, Bob, Kiro, …)
 
+## Development execution preference (20 October)
+
+Codex coordinates, reviews and verifies; use user-authorized Nebius Token Factory
+coding calls for substantive drafts to conserve Codex credits. Work in batches of at
+most 3–4 tasks, report outcomes before continuing, and keep one writer integrating
+reviewed outputs. Bound generation count, tokens, retries and deadlines per batch.
+Never send credentials or private media as coding context. Do not silently fall back
+to a large Codex implementation when the external coding route fails. Coding usage is
+separate from product runtime coaching and never proves the hackathon runtime path.
+
 Read this file, `docs/PRODUCT.md`, `docs/ARCHITECTURE.md`, `TASKS.md`, and any
 relevant `DECISIONS.md` entry **before** changing code.
 

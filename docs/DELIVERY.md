@@ -35,10 +35,16 @@ simple persistent queue is an early requirement; cloud deployment is a later con
 ## Working rules and agent roles
 
 - **Codex lead:** owns the active task, shared checkout, integration, contract/config
-  updates, checks and commits. One task is in progress per writer.
+  review, checks and commits. Per the 20 October instruction, delegate substantive
+  coding drafts through authorized Nebius calls to conserve Codex credits. Use no more
+  than 3–4 tasks per batch; report results before continuing. One writer integrates.
 - **Subagents:** independently review or research a bounded question and return
   file/line evidence. Implementation delegation uses isolated files/checkouts with
   explicit ownership; the lead integrates and verifies the result.
+- **External coding calls:** explicit generation/token/retry/time caps; source-only
+  context, never credentials or private video. Review returned file scope and code before
+  application. Record failed/truncated calls and unknown billing honestly. Catalog access
+  is not generation proof. Do not silently move failed external work onto Codex.
 - **Kiro:** initially a second reviewer of a concrete diff or proposed algorithm.
   Use a fresh non-interactive session, supply the task and evidence, and grant only
   the tools needed. Do not resume the old scaffold workflow automatically. A Kiro
