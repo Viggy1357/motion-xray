@@ -202,7 +202,26 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   multivariate phase paths, tested band/endpoints, explicit cost normalization, unwarped
   tempo and pinned backend. Report index maps and breakdowns; maintain null/approval gates.
 ## T08 — Jobs & cloud  ·  status: todo  ·  date: 21–22 Oct  ·  FR03, FR12
-### T08.1 — Local durable queue/lifecycle · status: todo · FR03, FR12
+### T08.1 — Local durable queue/lifecycle · status: wip · FR03, FR12
+- **Claim (20 Oct, next run):** T08.1a durable owner-scoped SQLite asset/job repository.
+  Nebius drafts implementation/tests; Codex runs offline checks and integrates.
+  No HTTP upload/worker completion is implied by this internal foundation.
+- **T08.1a done:** `services/api/app/store.py`, `tests/unit/test_job_store.py` implement
+  schema-v1 SQLite metadata, ownership checks, owner-scoped idempotency, atomic claims,
+  unique lease fencing, heartbeat/stage updates, cancellation and deletion tombstones.
+  Raw-asset expiry blocks processing; unexpired report/job status remains accessible.
+  Connection cleanup, concurrent claims, stale workers and malformed paths are tested.
+- **Checks:** `./scripts/test.sh python` exit 0: Ruff clean, mypy clean, 212 tests pass
+  (81 new store cases); existing Starlette/AnyIO deprecation warning only. Contract drift
+  tests pass. Provider smoke checks are offline dry runs, not runtime acceptance.
+- **Usage:** Three Nebius generations, 61,368 reported tokens; conservative USD0.237798,
+  not verified billing. First draft rejected; two repairs reviewed before integration.
+  See `docs/audit/T08.1a-durable-store.md` and its linked usage report.
+- **Remaining/next:** T03 private ingestion/session ownership at HTTP boundary, then
+  T08.1b worker + lifecycle routes + real pose acceptance. Physical retention cleanup,
+  upload/proxy validation and full application integration remain open. Internal store
+  assumes its caller authenticates owner and verifies uploaded media; it is not an auth
+  system and does not validate or serve files. No new public schema/dependency.
 - Build with T03 before the first browser analysis; cloud deployment remains later.
 - Acceptance: persistent job/status, lease/restart safety, cancellation/deletion and
   private artifact access. Steps and files: docs/DELIVERY.md T03/T08.1.

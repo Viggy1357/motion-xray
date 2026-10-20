@@ -50,6 +50,12 @@ For the next run, follow the Nebius-led, light-Codex execution policy in `../AGE
 delegate implementation, focused repairs and first-pass review; keep Codex dispatch,
 verification and integration concise. This preference does not start another paid batch.
 
+**Next-run checkpoint (20 October):** T08.1a internal SQLite store is delivered with
+81 new cases; all 212 Python tests, lint, types and schema-drift checks pass. Durable
+metadata/claims/fencing/tombstones are implemented; HTTP session ownership, ingestion,
+physical cleanup and real worker integration remain pending. See
+`audit/T08.1a-durable-store.md`. Continue T03, then T08.1b; do not recreate the store.
+
 ## Working rules and agent roles
 
 - **Codex lead:** owns the active task, shared checkout, integration, contract/config

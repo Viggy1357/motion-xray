@@ -1,0 +1,90 @@
+{
+  "as_of": "2026-10-20",
+  "task": "T08.1a",
+  "requests": [
+    {
+      "task": "T08.1a",
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "jobs-store",
+      "request_id": "chatcmpl-7f13739cb858e928c07639c4bdeb792c",
+      "status": "failed",
+      "finish_reason": "stop",
+      "error_type": "AssertionError",
+      "elapsed_s": 61.84,
+      "usage": {
+        "completion_tokens": 15510,
+        "prompt_tokens": 2657,
+        "total_tokens": 18167,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "maximum_cost_usd": 0.15526,
+      "conservative_cost_usd": 0.082864
+    },
+    {
+      "task": "T08.1a",
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "jobs-store-repair",
+      "request_id": "chatcmpl-036f55bbad65ae6d262cfabd32920308",
+      "status": "draft_pending_review",
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 57.44,
+      "usage": {
+        "completion_tokens": 17039,
+        "prompt_tokens": 14869,
+        "total_tokens": 31908,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        }
+      },
+      "maximum_cost_usd": 0.246046,
+      "conservative_cost_usd": 0.11493300000000001
+    },
+    {
+      "task": "T08.1a",
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "jobs-store-final",
+      "request_id": "chatcmpl-89c7b6732b99bff05338caa25ad35681",
+      "status": "draft_pending_review",
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 31.52,
+      "usage": {
+        "completion_tokens": 5805,
+        "prompt_tokens": 5488,
+        "total_tokens": 11293,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        }
+      },
+      "maximum_cost_usd": 0.142242,
+      "conservative_cost_usd": 0.040000999999999995
+    }
+  ],
+  "summary": {
+    "generations": 3,
+    "tokens_reported": 61368,
+    "conservative_cost_usd": 0.237798,
+    "task_allowance_tokens": 100000,
+    "accepted_component": "T08.1a",
+    "tavily_calls": 0,
+    "paid_runtime_coaching_calls": 0,
+    "backup_activated": false
+  },
+  "basis": "USD2/M input + USD5/M completion guard rates; not verified invoice pricing/account balance.",
+  "prior_commitment_with_history_and_contingency_usd": 1.97934265,
+  "cumulative_commitment_with_history_and_contingency_usd": 2.21714065,
+  "prior_unknown_calls": 4,
+  "prior_usage_reconciled": false,
+  "codex_credit_savings_measured": false,
+  "notes": [
+    "First draft rejected; wrong paths remapped only into fixed private draft files.",
+    "Repair local preflight initially failed before network call; no additional provider request.",
+    "Public upload and worker integration remain pending."
+  ]
+}
