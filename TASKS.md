@@ -143,6 +143,38 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ---
 
+## T18 — Adjacent repositories and dataset screening · status: done · FR04, FR05, FR07, FR08, FR10
+- **Scope:** Documentation-only screen of sports biomechanics, rehabilitation,
+  tracking, repetition counting and temporal alignment; rank reuse candidates.
+- **Acceptance:** Primary-source links, reuse/access limitations and bounded benchmark
+  recommendations recorded; no dependency/provider changes or claims of runtime validation.
+- **Changed:** docs/REUSE-SCREEN-2026-10-19.md and TASKS.md.
+- **Checks:** Primary-source documentation/licence screen; git diff whitespace check.
+  Documentation only; no runtime tests, model execution or dataset downloads performed.
+- **Open:** Checkpoint terms, runtime fit and dataset-specific permissions/access require
+  verification before adoption. No new approved lat-pulldown reference identified.
+- **Next:** T01/T04 real MediaPipe artifact; conditional Sports2D comparison and T07
+  DTAIDistance evaluation as documented in the screen. Existing private probes untouched.
+
+## T19 — Critical upstream method and integration review · status: done · 20 Oct · FR04, FR05, FR07, FR08, FR10, FR11, FR12
+- **Claim:** Codex consolidator with three user-authorized, read-only repository reviews.
+- **Scope:** Source-level assessment of shortlisted pose, segmentation, alignment,
+  tracking and reference/evaluation methods against current contracts and delivery gates.
+- **Acceptance:** Exact existing/proposed integration files, benefits, incompatibilities,
+  required adaptations and adoption checks; distinguish source review from runtime proof.
+- **Output:** docs/INTEGRATION-REVIEW-2026-10-20.md; no application/dependency changes.
+- **Changed:** Review report, DELIVERY cross-link and TASKS. T18 screening report retained.
+- **Findings:** Adapt Sports2D/Good-GYM methods; evaluate DTAIDistance kernel; conditional
+  Norfair/rtmlib. Defer paired-view learned assessors. Exact methods, local integration
+  points, contract gaps, evaluation caveats and promotion checks recorded in the report.
+- **Checks:** Current source/contracts/specs inspected; three read-only upstream reviews
+  consolidated; documentation diff whitespace checks. No runtime benchmark or model/data
+  download; no claimed accuracy or speed improvement. Private probe scripts untouched.
+- **Open:** Pin adoption revisions/terms; prove runtime/quality in isolated containers;
+  approved reference and typed alignment/provenance work remain implementation tasks.
+- **Next:** T01/T04 real MediaPipe artifact, then T05; use T19 amendments during those
+  tasks and T06/T07, without treating recommendations as completed integrations.
+
 ## Immediate next action
 T02.1 is complete. Claim **T01/T04** and process a documented lat-pulldown segment
 through the real canonical pose adapter. Do not restart the scaffold review loop.

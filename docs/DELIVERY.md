@@ -59,6 +59,12 @@ Send a progress update at meaningful checkpoints, including a stalled check.
 
 ## Work packages
 
+Source-level reuse recommendations and implementation amendments are mapped to these
+packages in [T19 integration review](INTEGRATION-REVIEW-2026-10-20.md). These are proposed
+methods and acceptance checks, not installed dependencies or measured performance.
+Keep the dependency order below; conditional upstream experiments do not block the
+first real MediaPipe artifact.
+
 ### T02.1 — Make checks and local startup trustworthy
 
 **FRs:** FR01–FR12 infrastructure. **Depends on:** audit only.
