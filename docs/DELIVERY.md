@@ -1,6 +1,6 @@
 # Motion X Ray — delivery workflow
 
-Updated 19 October 2026, Malaysia time. Goal confirmed by the product owner:
+Updated 20 October 2026, Malaysia time. Goal confirmed by the product owner:
 **a usable personal training MVP**, with Codex leading implementation and other
 agents, including Kiro, supporting bounded tasks and reviews. Kiro's previous editing
 workflow is paused. This plan does not claim the MVP is built.
@@ -9,7 +9,7 @@ workflow is paused. This plan does not claim the MVP is built.
 
 Read `AUDIT-2026-10-19.md` for the evidence baseline and `../TASKS.md` for current task
 status. Read the archived full `SPECIFICATION-v2.0.md` for detailed formulas and UI
-behavior; D001–D007 override its earlier provider/reference choices.
+behavior; accepted decisions D001–D010 override or clarify its earlier choices.
 
 The dependency order is:
 
@@ -25,7 +25,7 @@ T02.1 executable checks
   -> T13 evaluation -> T14 usable release -> T15 optional hackathon submission
 
 T01b/T10 evidence hardening supports T06/T09; it does not block real pose extraction.
-T16 audit is complete only when its evidence and handoff are recorded.
+T16 audit and T18/T19 source research are complete; they do not prove video analysis.
 ```
 
 T01 and T04 share implementation: implement the real adapter once, use a small clip to
@@ -127,6 +127,12 @@ no fabricated frames. Provider failure yields a useful error. Nemotron outcome i
 recorded independently; a provider outage does not erase successful pose evidence.
 **Next:** T03/T08.1 and T05. If pose fails, isolate the cause before scoring/UI expansion.
 
+**T19 integration TODOs:** Add a validated artifact-reader boundary and aspect-correct
+2D transform fixtures. Use only current observations if subject association is needed.
+On a measured baseline failure, compare one isolated Sports2D/rtmlib configuration on
+the same segment; add Norfair only for a demonstrated association gap. Pin source/model
+terms and record lost capabilities; 2D-only output does not satisfy the 3D profiles.
+
 ### T03 + T08.1 — Private upload and one durable analysis job
 
 **FRs:** FR01, FR02, FR03, FR12. **Depends on:** T02.1; real pose used for acceptance.
@@ -174,6 +180,13 @@ unit/regression tests, fixture/annotation manifests, EXERCISES/EVALUATION.
 standing-still, noise, gaps, plateaus and partial cycles tested. Reruns match on identical
 artifacts/config. One development clip is not a general accuracy claim.
 **Next:** T11.1, then T06/T07.
+
+**T19 integration TODOs:** Adapt Sports2D geometry/filtering and Good-GYM hysteresis
+concepts without importing full pipelines. Introduce typed timestamp/mask/side/config
+context for `smooth_series` and `compute_metrics`; define artifact resolution explicitly.
+Separate segmentation calibration from score-reference approval. If excursion calibration
+is unavailable, expose raw angles/uncertain candidates rather than inventing bounds.
+Require return completion and processing-speed invariance; suppress occluded-side values.
 
 ### T11.1 — First usable measurements report
 
@@ -238,6 +251,13 @@ experimental/unreviewed/missing references produce explicit null reasons end-to-
 **Next:** T09/T11.2. If reference unavailable, keep measurements usable and seek a scope
 decision before calling the full scored MVP complete.
 
+**T19 integration TODOs:** T06 owns provenance/eligibility plus deterministic representative
+selection; T07 owns typed `AlignmentResult` and a narrow DTAIDistance adapter. Verify shared
+multivariate paths, per-phase anchors, library band/endpoint semantics and path-normalized
+cost. Keep tempo unwarped, pin backend and preserve original index mappings. Contract
+changes must include reference authority/hashes, refusal reasons, alignment artifacts and
+per-rep/set breakdowns with generated consumers. Follow SCORING and DATA_MODEL checklists.
+
 ### T09 + T11.2 — Grounded coaching and complete X Ray inspection
 
 **FRs:** FR09, FR10, FR11, FR12. **Depends on:** T05/T06/T07; T10 for technique advice.
@@ -282,6 +302,10 @@ and evaluation; annotate counts, boundaries and visibility. Report sample size, 
 count error, boundary errors including missed/spurious reps, determinism, synchronization,
 runtime and memory. Targets from specification §17 remain targets until measured.
 Test desktop Chrome, Android Chrome and iOS Safari before declaring those supported.
+For optional learned counters, choose exercise before inspecting ground-truth count;
+do not repeat oracle selection from the reviewed PoseRAC evaluator. Do not use random
+row splits as evidence of subject-independent performance. External skeleton fixtures
+need rights/mapping review and cannot establish phone-video perception accuracy.
 Exercise camera denial, long/invalid media, queue load, restarts, budget/timeouts, deleted
 artifacts and broken WebGL. Record defects and known limitations explicitly.
 

@@ -55,7 +55,8 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   demonstrated (note: a second person is in the clip background — verify single-track
   stability); one Token Factory coaching call returns valid JSON. Pass/fail and provider
   decision recorded in DECISIONS.md.
-- **Next:** on pass → T02 lock environments; on fail → isolate + fallback.
+- **Next:** T02.1 baseline is complete; on pose pass → T03/T08.1/T05; on failure →
+  isolate cause and use D009 conditional comparisons before changing provider.
 - **19 Oct audit:** No real pose artifact or measured feasibility pass. Latest Kiro
   live smoke returned Nano response with `content=None`; transport works but structured
   coaching is unvalidated. Clip duration 55.111667s exceeds the 30s default. Use a
@@ -78,8 +79,9 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   reference builder/contracts and score guard remain unfinished. Preserve the diff.
 - **Next:** T02.1; then bounded T10 hardening. Reference build waits for T04/T05.
 
-## T02 — Scaffold hardening  ·  status: todo  ·  date: 16–17 Oct
-- Locked dependency versions, working Compose, CI (fixtures only), contracts exported.
+## T02 — Scaffold hardening · status: done via T02.1 · historical estimate: 16–17 Oct
+- Locked dependencies, executable Compose/CI checks and generated contracts delivered by
+  T02.1; real model checkpoints and functional pipeline acceptance remain T01/T04 onward.
 
 ### T02.1 — Executable baseline repair · status: done · Codex, 19 Oct
 - **FRs:** FR01–FR12 infrastructure.
@@ -110,16 +112,31 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## T03 — Ingestion  ·  status: todo  ·  date: 17 Oct  ·  FR01, FR02, FR03
 ## T04 — Pose adapter  ·  status: todo  ·  date: 17–18 Oct  ·  FR04
+- **T19 TODOs:** Validated frame-artifact reader; PTS/aspect/coordinate fixtures; raw
+  observation masks and provenance. Conditional rtmlib/Norfair only on measured failure;
+  no predicted joints or silently reduced 3D capabilities. DELIVERY + pose skill.
 ## T05 — First exercise engine (lat pulldown, D005) · status: todo · FR05, FR06, FR07
+- **T19 TODOs:** Typed signal/config/side context; contiguous filtering; full-cycle
+  state machine adapted from reviewed patterns; separate segmentation calibration;
+  observable shoulder_drive definition without activation claims. Tests: gaps, occlusion,
+  plateaus, stillness, partials, incomplete excursion and processing-speed invariance.
 ## T06 — References  ·  status: todo  ·  date: 20 Oct  ·  FR07, FR11
+- **T19 TODOs:** Typed eligibility reasons; authority/rights/reviewer/artifact hashes;
+  same-pipeline reference builder and deterministic representative/medoid. No automatic
+  restricted-dataset import. Schema migration and generated consumers before exposure.
 ## T07 — Scoring  ·  status: todo  ·  date: 20–21 Oct  ·  FR07, FR08
+- **T19 TODOs:** Narrow DTAIDistance experiment and typed alignment result; shared
+  multivariate phase paths, tested band/endpoints, explicit cost normalization, unwarped
+  tempo and pinned backend. Report index maps and breakdowns; maintain null/approval gates.
 ## T08 — Jobs & cloud  ·  status: todo  ·  date: 21–22 Oct  ·  FR03, FR12
 ### T08.1 — Local durable queue/lifecycle · status: todo · FR03, FR12
 - Build with T03 before the first browser analysis; cloud deployment remains later.
 - Acceptance: persistent job/status, lease/restart safety, cancellation/deletion and
   private artifact access. Steps and files: docs/DELIVERY.md T03/T08.1.
 ## T09 — Coaching  ·  status: todo  ·  date: 22 Oct  ·  FR09
-## T10 — Evidence  ·  status: todo  ·  date: 23 Oct  ·  FR11 (P1)
+## T10 — Evidence · status: todo · historical estimate: 23 Oct · FR11
+- Reviewed evidence supports P0 technique advice/reference rules; live discovery and
+  bonus eligibility are separate optional runtime proofs, not gates for real pose.
 ## T11 — X Ray UI  ·  status: todo  ·  date: 23–25 Oct  ·  FR10
 ### T11.1 — Real measurements inspector · status: todo · FR01, FR02, FR03, FR10, FR12
 - Upload/status/video/2D/estimated-3D/rep inspection using real pipeline output.
@@ -128,6 +145,9 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 - Complete reference overlay, phase mapping, score breakdown, sources and limitations.
 ## T12 — Other exercises  ·  status: todo  ·  date: 25–26 Oct  ·  FR06
 ## T13 — Evaluation  ·  status: todo  ·  date: 27–28 Oct
+- **T19 TODOs:** Subject/session-held-out clips; separate count/boundary/quality/metric
+  measures; no oracle class selection or leakage. External skeleton sets are optional
+  rights-cleared downstream tests, not phone-pose validation. See EVALUATION matrix.
 ## T14 — Release  ·  status: todo  ·  date: 29 Oct
 ## T15 — Submission  ·  status: todo  ·  date: 30 Oct
 - Optional workstream pending confirmation; personal MVP is the current primary goal.
@@ -174,6 +194,22 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   approved reference and typed alignment/provenance work remain implementation tasks.
 - **Next:** T01/T04 real MediaPipe artifact, then T05; use T19 amendments during those
   tasks and T06/T07, without treating recommendations as completed integrations.
+
+## T20 — Synchronize project guidance after upstream review · status: done · 20 Oct · FR01–FR12
+- **Claim:** Codex, one writer; documentation and nonfunctional config comments only.
+- **Scope:** Propagate T19 methods, conditional adoption gates, contract gaps and
+  acceptance checks into active specs, delivery tasks, agent guidance and operations.
+- **Acceptance:** Consistent scope/order/status; exact task ownership for follow-ups;
+  archived evidence and generated schemas preserved; no algorithm or threshold changes.
+- **Changed:** README/AGENTS/DECISIONS/TASKS; active product, architecture, delivery,
+  contract/API, exercise/scoring/evaluation/operations docs; pose-service README and four
+  project skills; lat-pulldown YAML comments only; docs/audit/T20-documentation-sync.md.
+- **Checks:** `./scripts/test.sh python` exit 0: Ruff/mypy clean, 61 tests pass; one
+  existing dependency deprecation warning. Offline container doc check: 18 Markdown
+  files, local links/fences/routing pass; parsed YAML equals HEAD. Diff whitespace clean.
+- **Limits:** No algorithm, schema, lockfile or dependency implementation; no real pose,
+  paid call or new benchmark. Archived brief/audits and private probe scripts preserved.
+- **Next:** T01/T04 real canonical pose, with D009/D010 and updated DELIVERY gates.
 
 ## Immediate next action
 T02.1 is complete. Claim **T01/T04** and process a documented lat-pulldown segment

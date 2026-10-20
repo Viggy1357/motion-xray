@@ -48,7 +48,33 @@ decisions). Each column matches the `weights` map in the corresponding
 `bilateral_difference` is defined for `lat_pulldown` but is **informational-only** at the
 diagonal/side view (far arm occluded); it is not a scored component and carries no weight.
 
-## Missing-data policy
+## Alignment implementation requirements (T07; not yet implemented)
+
+DTAIDistance is the preferred numerical-kernel candidate under D009. Wrap it inside
+the scoring package; it supplies a path, not a percentage, exercise policy or approved
+reference. Require compatible variant/view/provider/mapping before alignment.
+
+- Normalize using a stable set-level body transform/scale, preserving original motion
+  for sway and lean. Do not normalize each rep to its own ROM or erase reduced excursion.
+- Use a shared multivariate feature path, explicit feature scales/weights and separate
+  anchored outbound/return alignment. Preserve dwell handling and original index/time
+  maps. Compute tempo from original timestamps, never the warped sequence.
+- Translate the provisional fractional band into tested library semantics, including
+  unequal-length behaviour. Disable endpoint relaxation for complete reps; gaps and
+  partial endpoints cannot disappear through alignment. Validate the final path.
+- Define path-normalized feature cost explicitly rather than using the library's raw
+  rooted cumulative distance as a comparable score. For squared-Euclidean cost,
+  coordinate weighting uses square-root weights.
+- Pin the implementation/backend and record source/config/reference hashes, feature
+  order, normalization, cost and tie rules. Do not silently switch Python/C backends.
+  Verify determinism on frozen pose artifacts; cross-backend parity is separate evidence.
+
+T06 builds a reviewed representative trajectory or deterministic medoid from eligible
+reps. A medoid does not establish scalar tolerance intervals or technique validity.
+Typed alignment/provenance and report breakdowns require coordinated contract migration
+before API/UI exposure. Details and exact function boundaries are in the T19 review.
+
+## Required missing-data behaviour
 
 Each spec sets `missing_required_metric: null_overall_score`. When a required metric has
 no value, the overall score is **null**, not a fabricated number: `ScoreBreakdown` leaves

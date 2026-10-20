@@ -8,9 +8,9 @@
 # a machine-readable reason rather than inventing a value (AGENTS.md).
 #
 # VIEW NOTE: the first authorised test clip is filmed from a diagonal / predominantly
-# side angle (seated cable machine). That angle reads elbow pull range and torso lean
-# well, but the far arm is occluded, so bilateral symmetry is NOT in the scored
-# profile for this view — it is reported informationally with low confidence only.
+# side angle (seated cable machine). Visible-side elbow motion and torso lean need
+# real validation; the far arm is occluded, so bilateral symmetry is NOT in the scored
+# profile for this view — informational only when observable; otherwise null + reason.
 # A frontal profile for lat pulldown would need its own validation + weights.
 exercise_id: lat_pulldown
 variant: cable_seated_bilateral
@@ -30,8 +30,8 @@ segmentation:
   dwell_s: 0.15
 metric_rules_from: lat_pulldown.default
 # Scored components (sum to 1.0). Chosen for the diagonal/side view:
-#   elbow_rom       — pull depth (bar travel proxy via elbow flexion range)
-#   shoulder_drive  — shoulder adduction/depression excursion (lat engagement proxy)
+#   elbow_rom       — visible-side elbow flexion range, not measured bar travel
+#   shoulder_drive  — upper-arm/torso geometry; T05 definition pending, not activation
 #   torso_lean      — backward torso lean from a set-level upright baseline
 #   phase_tempo     — pull vs. controlled return durations
 #   trajectory_error— phase-aligned wrist/elbow path error vs. reference
@@ -44,4 +44,4 @@ weights:
 missing_required_metric: null_overall_score
 # Informational-only (NOT scored at this view; reported with coverage/confidence):
 informational_metrics:
-  - bilateral_difference   # far arm occluded at diagonal/side view — low confidence
+  - bilateral_difference   # null + reason when far-arm coverage is insufficient

@@ -27,6 +27,24 @@ multi-person analysis, trainer/personal-best reference workflows (P1), and anyth
 requiring a GPU entitlement the project does not have (GEM-X 3D pose stays a documented
 stretch goal — see `DECISIONS.md` D002).
 
+## Processing and reuse requirements (20 October clarification)
+
+- MediaPipe remains primary. Sports2D/Good-GYM supply methods to adapt; DTAIDistance is
+  the preferred kernel candidate to verify. Norfair/rtmlib are conditional alternatives,
+  not automatic additional services. D009 and the integration review define the gates.
+- Count completed cycles from original video timestamps; retain partial/uncertain reps.
+  A threshold crossing alone is not a completed repetition. Occluded arms are not averaged
+  into valid measurements, and tracker predictions never count as observed joints.
+- Complete existing profiles require estimated 3D; a 2D-only provider cannot silently
+  satisfy them. Keep measured output where possible and explain unavailable quantities.
+- Reference similarity needs a compatible, authorized and reviewed reference. Segmentation
+  calibration is separate from reference approval; missing calibration does not justify
+  invented excursion bounds. Raw angle inspection may precede valid rep/scoring output.
+- Observable upper-arm/trunk geometry does not establish muscle activation, scapular
+  depression, lumbar curvature, injury risk or safety. Coaching obeys these limits too.
+- No general model training, paired-camera capture or external dataset dependency is
+  added to P0. Skeleton datasets supplement isolated evaluation, not phone-video proof.
+
 ## Functional requirements
 
 | ID | Name | One-line description |

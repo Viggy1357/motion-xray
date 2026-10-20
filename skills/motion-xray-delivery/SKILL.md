@@ -12,6 +12,11 @@ Use `docs/DELIVERY.md` for the dependency order and acceptance criteria. The arc
 decisions override its original provider and reference scope. Its FR numbering differs
 from PRODUCT.md: use the audit's mapping, never assume the numbers are interchangeable.
 
+Read D009/D010 and the relevant section of `docs/INTEGRATION-REVIEW-2026-10-20.md`
+for T04–T07/T13. Reuse methods selectively: Sports2D/Good-GYM patterns, conditional
+tracking/pose alternatives, and a verified DTW kernel behind our wrapper. No reviewed
+candidate is installed or validated merely because it appears in that report.
+
 ## Resume one task
 
 1. Inspect git status and the previous task's evidence. Identify existing unfinished

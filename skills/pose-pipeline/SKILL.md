@@ -22,6 +22,10 @@ map by anatomical name.
   world landmarks). See DECISIONS.md D002.
 - **Later/stretch:** NVIDIA GEM-X (GPU, 77-joint SOMA). Reserve: MMPose RTMW3D.
 - Do NOT implement three stacks by default.
+- Apply D009/D010 and the relevant T19 review. rtmlib is conditional on a measured
+  baseline failure; a 2D-only model cannot satisfy current 3D-required profiles.
+  Validate exact checkpoint coordinates/terms before enabling estimated 3D. Keep
+  verified local checkpoints; no uncontrolled runtime downloads or TLS bypasses.
 
 ## Canonical skeleton (map by anatomical name, not index)
 
@@ -37,6 +41,8 @@ by name.
   transform. Record handedness, units, native frame, scale status.
 - Validate the transform against a known fixture BEFORE using the 3D viewer.
 - Unknown world scale stays unknown — report body-length ratios, not centimeters.
+- Restore image aspect ratio before Euclidean 2D angles; preview-normalized XY is
+  not an isotropic measurement plane. Static export depth is not estimated anatomy.
 - Client preview mirroring MUST NOT flip anatomical left/right in stored data.
 
 ## Quality gating (never fabricate)
@@ -49,6 +55,12 @@ by name.
 - If the person track changes, critical joints disappear, or depth is unstable: suppress
   affected metrics and explain why. Do not stitch two people into one set.
 - Low quality may still allow video playback without allowing an overall score.
+- If conditional Norfair association is needed, carry only current matched pose
+  observations into joints. Predictions, stale last detections and live-point flags
+  are not proof of a current measurement. Ambiguous reacquisition yields a gap.
+- Resolve the PoseSequence manifest through a validated frame reader; preserve raw
+  observations separately from timestamped filtered signals. Perception provenance
+  does not imply bit-identical inference across hardware.
 
 ## Timing discipline
 

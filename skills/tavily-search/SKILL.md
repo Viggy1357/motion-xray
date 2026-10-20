@@ -64,6 +64,10 @@ pages = client.extract(urls=[candidate_url])
   reviews it.
 - A public page is a research lead, not permission to bundle its content. Record reuse
   terms per source.
+- D009/D010: code, checkpoint, body-model and dataset terms are separate. A research
+  dataset or author video does not automatically approve an exercise reference or
+  tolerance. Separate source/rights review, segmentation calibration and scoring-profile
+  approval; never copy model/dataset accuracy claims into product validation.
 
 ## Hackathon bonus note
 

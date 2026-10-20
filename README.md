@@ -14,8 +14,10 @@ Capture/upload → pose extraction → rep segmentation → exercise metrics →
 comparison → deterministic similarity score → grounded Nemotron coaching, shown as
 synchronized video + 2D overlay + rotatable 3D skeleton + a shared rep timeline.
 
-Launch exercises: simultaneous standing dumbbell curl, bilateral standing lateral
-raise, bodyweight squat.
+Planned P0 exercises: cable lat pulldown first, then simultaneous standing dumbbell
+curl, bilateral standing lateral raise and bodyweight squat. Each needs its own real
+validation before being advertised as working. Incline bench chest press is a candidate,
+not accepted support (T17).
 
 ## Everything runs in containers
 
@@ -56,13 +58,24 @@ for setup, local startup and contract-generation commands.
 - [Audit and verified progress](docs/AUDIT-2026-10-19.md)
 - [Step-by-step delivery workflow](docs/DELIVERY.md)
 - [Current tasks](TASKS.md)
+- [Upstream methods and exact integration plan](docs/INTEGRATION-REVIEW-2026-10-20.md)
+- [Repository and dataset screening](docs/REUSE-SCREEN-2026-10-19.md)
 - [Full original specification](docs/SPECIFICATION-v2.0.md) (later decisions apply)
 - [Project delivery skill](skills/motion-xray-delivery/SKILL.md)
 
 The current goal is a usable personal training MVP. Codex leads implementation;
 Kiro and other agents support bounded tasks/reviews with one writer per checkout.
 
-## Commands
+## Reuse plan
+
+Keep MediaPipe primary. Adapt Sports2D geometry/filtering and Good-GYM counter patterns
+inside our canonical pipeline; evaluate DTAIDistance as the T07 alignment kernel.
+Norfair tracking and rtmlib inference are conditional on a measured baseline failure.
+ALEX/PoseRAC learned assessors and restricted research datasets remain deferred.
+These are implementation directions, not installed integrations or benchmark results.
+See D009/D010 and the delivery work packages for the required checks.
+
+## Verified commands
 
 Exact, verified commands are recorded in `docs/OPERATIONS.md` after each capability is
 implemented. Do not assume a command works until it is listed there.

@@ -36,7 +36,8 @@ Specification v2.0 (15 Oct 2026).
   scope choice per the spec's contingency clause, not a silent satisfaction of the
   GEM-X P0 line.
 - **Verification owed:** At Gate A, prove MediaPipe gives usable coordinates with
-  synchronized playback and stable body identity on a real curl clip. If world-landmark
+  synchronized playback and stable body identity on the lat-pulldown segment (D005
+  supersedes the original curl-first input). If world-landmark
   quality is inadequate for the 3D overlay, record the reduced capability here.
 
 ## D003 — Host stays clean: all runtimes live in Docker containers
@@ -146,12 +147,49 @@ Specification v2.0 (15 Oct 2026).
   and MediaPipe import are environment proof only; real clip inference remains T01/T04.
 - **Source:** https://nextjs.org/blog/nextjs-security-update-october-14-2026
 
-## Open decisions (to close during implementation)
+## D009 — Selective upstream reuse with conditional adoption
+
+- **Date:** 20 Oct 2026; **Status:** Accepted direction, implementation pending.
+- **Basis:** T18 screening and T19 source review; user requested project-wide updates.
+- **Decision:** Retain MediaPipe and the existing pipeline. Adapt Sports2D geometry/
+  filtering and Good-GYM hysteresis patterns behind canonical contracts. Evaluate
+  DTAIDistance as the T07 numerical kernel, with our phase, quality and scoring wrapper.
+  Norfair identity association and rtmlib inference are conditional on a measured T04
+  failure, not parallel default stacks. AIFit informs methodology; restricted assets
+  are not adopted. ALEX/PoseRAC learned models remain optional later evaluators.
+- **Promotion gate:** Exact source/model revisions and applicable terms; isolated
+  container dependency resolution; same-input comparison; capability/coordinate tests;
+  relevant deterministic fixtures; recorded runtime/quality evidence before adoption.
+- **Limits:** No dependency, runtime provider, threshold or score weight changed by
+  this decision. Code, weights, body models and data require separate rights checks.
+- **Evidence:** docs/INTEGRATION-REVIEW-2026-10-20.md.
+
+## D010 — Measurement and comparison semantics for upstream integration
+
+- **Date:** 20 Oct 2026; **Status:** Accepted requirements; implementation pending.
+- **Decision:** Use original presentation timestamps, actual matched observations and
+  explicit gap masks. No predicted tracker positions, static depth exports or long-gap
+  fills as measured anatomy. Complete reps need full return; preserve partial/uncertain
+  cycles. Define observable geometry rather than activation or spinal-curvature claims.
+- **Comparison:** Use one shared multivariate path within established phases, explicit
+  feature scales/band semantics and path-normalized cost. Keep tempo unwarped and retain
+  original index/time mappings. Pin a backend; no silent numerical fallback.
+- **Contracts:** Typed numerical context/alignment results and immutable reference
+  provenance are T04–T07 work. Public changes require schema/consumer migration together.
+  Segmentation calibration and score-reference approval are distinct review obligations.
+- **Consequence:** Complete 3D profiles stay incompatible with 2D-only providers.
+  Missing calibration/reference/measurements yield unavailable outputs, not defaults.
+  These requirements clarify intent; formulas, thresholds and weights remain unchanged.
+
+## Remaining open decisions
 
 | Decision | Owner | Closure point |
 | --- | --- | --- |
 | Final pose provider, model revision, 3D capability | Implementer | Gate A (T01) |
 | Valid camera profiles, confidence masks, supported variants | Implementer + reviewer | Before held-out testing |
+| Visible-side policy, phase calibration and shoulder_drive geometry | Implementer + reviewer | T05 before scored metric/config freeze |
+| Typed signal/alignment contracts and provenance migration | Implementer | T04–T07 before exposing new payloads |
+| Exact adopted upstream revisions, backend and model/data terms | Implementer | Before each D009 candidate is promoted |
 | Reference rights, reviewer, metric tolerances | Product owner / reviewer | Before publishing scored profiles |
 | Exact Nemotron ID, JSON behavior, endpoint, credits | Implementer | Gate A (T01) |
 | Budget cap + retention implementation | Product owner + implementer | Before paid deployment |

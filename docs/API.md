@@ -33,7 +33,21 @@ A liveness probe `GET /healthz` exists outside the `/v1` surface for Compose/CI.
 
 That is twelve `/v1` endpoints in total.
 
-## Error envelope
+## Planned integration behaviour (T04–T11; not new routes)
+
+- Artifact responses must preserve observation timestamps, validity and provenance.
+  Expose alignment paths and per-rep/set breakdowns only through implemented, versioned
+  contracts and private artifact access. Do not add guessed fields to generated clients.
+- Unapproved/experimental/incompatible references and missing required metrics must not
+  expose valid-looking score or best/worst values in either the API or UI.
+- A 2D-only fallback reports lost capabilities explicitly; it cannot satisfy current
+  3D-required exercise profiles. Preserve usable measurements/playback on partial output.
+- Operator reference approval must check rights and technical suitability separately;
+  discovery, upload ownership and dataset availability do not automatically approve form.
+- Internal numerical or tracking libraries add no public endpoints. Keep their native
+  objects/indices out of response schemas. See DATA_MODEL and D009/D010.
+
+## Error envelope fields
 
 Every failure returns the same `ErrorEnvelope` body (`services/api/app/errors.py`) so
 clients branch on a stable, machine-readable `code` rather than parsing prose. A failure

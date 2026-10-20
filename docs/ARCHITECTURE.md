@@ -31,8 +31,25 @@ capture/upload → pose → segment → metrics → compare → score → coach
    short `CoachingResult`. The model never sees raw video, never produces scores, and
    never invents numbers; on failure it returns `status=unavailable`.
 
-Stages 2 through 6 are fully deterministic. Only stage 7 involves an LLM, and it is
-downstream of and separate from every number the product displays.
+Stages 3 through 6 must reproduce identical metrics/scores from identical frozen pose
+artifacts and config/implementation versions. Perception is recorded separately by model,
+backend, hardware and transform versions; identical inference across hardware is not
+assumed. Only stage 7 involves an LLM, downstream of every displayed measurement/score.
+
+## Integration boundaries (implementation plan; not delivered)
+
+| Boundary | Owner / planned integration |
+| --- | --- |
+| Decode → canonical pose | T04 `mediapipe_provider.py`; preserve PTS and actual observations. Conditional `subject_tracking.py` associates detections; conditional `rtmlib_provider.py` implements the same protocol. |
+| Pose manifest → numerical input | T04/T05 validated artifact reader: resolve `frames_artifact_key` into immutable frames/timestamps/quality masks. A `PoseSequence` header is not a frame array. |
+| Numerical input → reps/metrics | T05 `movement/core.py`: typed signal/config context, aspect-correct geometry, contiguous filtering and full-cycle state machine; adapt methods, not upstream application defaults. |
+| Compatible reference → alignment | T06 compatibility/provenance gates; T07 proposed `scoring/alignment.py` wraps a verified DTAIDistance kernel, with phase anchors, original index mapping and explicit cost semantics. |
+| Alignment/metrics → score/report | T07 existing scoring policy plus typed alignment artifacts and per-rep/set breakdowns; coordinated schema evolution before public exposure. |
+
+Proposed helper files live under the existing package directories, not new runtime
+services. Keep raw observations separate from processed signals. Body-scale/orientation
+normalization is stable at set level; preserve unnormalized motion for sway/lean metrics.
+Tempo is computed before warping. See `INTEGRATION-REVIEW-2026-10-20.md` and D009/D010.
 
 ## Provider boundaries
 

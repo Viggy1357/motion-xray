@@ -72,6 +72,9 @@ resp = client.chat.completions.create(
   omit external sources if labelled as observations.
 - Reject: medical diagnosis, invented numbers, unsupported causal claims (e.g. "fatigue
   caused this"), load/activation claims not observed.
+- D010: torso-axis lean is not lumbar curvature; upper-arm motion is not muscle
+  activation or measured scapular depression. Tracking predictions and filled gaps
+  cannot justify observed-motion claims. Preserve unsupported/missing metric reasons.
 - Validate types, allowed IDs, numeric values against inputs, bounded text lengths.
   Allow ONE bounded repair request. On failure → `status=unavailable`. Never regenerate
   scores.

@@ -35,7 +35,25 @@ package root).
 | `AnalysisJob` | `jobs.py` | One unit of pipeline work with its state, stage, and lease bookkeeping. |
 | `CoachingResult` | `analysis.py` | LLM-generated coaching text, kept separate from deterministic metrics. |
 
-## Shared enums
+## Planned contract work from T19 (not current fields)
+
+The schema stays at `0.2.0` until implementation and consumer migration land together.
+Do not hand-edit checked-in schemas or frontend types to represent these plans.
+
+| Owner | Required typed data / invariant |
+| --- | --- |
+| T04/T05 | Artifact reader resolves manifest to immutable observations; signal context carries timestamps, quality masks, side, dimensionality and exercise/config versions. Keep raw and processed values distinct. |
+| T04 | Track ID identifies an associated subject, not a recovered measurement. Current matched observations populate joints; stale/predicted positions do not become valid anatomy. |
+| T06 | Reference authority/experimental status, immutable input/artifact hashes, selected rep IDs, mapping/normalization versions, applicable rights and reviewer provenance. |
+| T06/T07 | Compatibility result with machine-readable refusal reasons; typed alignment input/result with feature order/scales, path/index-time mapping, phase anchors, cost definition and backend/config versions. |
+| T07/T11.2 | Per-rep/set score breakdowns and alignment artifact references in the report, with eligibility/null reasons propagated through API and UI. |
+
+Current `ReferenceProfile` approval/source fields and `AnalysisResult.provenance` do not
+fully encode these requirements. Current `Any` alignment signatures are scaffold shapes,
+not approved long-term public contracts. Existing `VideoAsset` dimensions support
+aspect-correct 2D geometry; normalized XY alone is not a Euclidean measurement plane.
+
+## Shared enum definitions
 
 Defined in `enums.py`, all `(str, Enum)` so they serialise to their string value:
 `CompletionStatus`, `ReferenceType`, `JobState`, `JobStage`, `CoachingStatus`.

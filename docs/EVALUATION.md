@@ -13,7 +13,7 @@ identical metrics and scores (AGENTS.md rule 2).
 | Area | Target (aspirational) |
 | --- | --- |
 | Determinism | Re-running the deterministic pipeline on identical inputs yields byte-identical metrics and scores — a hard requirement, verified by regression fixtures. |
-| Pose usability (Gate A) | MediaPipe produces usable coordinates with synchronized playback and stable body identity on a real curl clip (D002, owed at Gate A). |
+| Pose usability (Gate A) | MediaPipe produces usable coordinates with synchronized playback and stable identity on the owned lat-pulldown segment (D005 supersedes the original curl-first gate). |
 | Rep segmentation | Detected rep count matches hand-labelled counts on the fixture set within an agreed margin. |
 | Scoring stability | Small input perturbations do not cause disproportionate score swings. |
 | Coaching groundedness | Coaching references only validated metrics/claims; no invented numbers, with `status=unavailable` on failure. |
@@ -37,3 +37,23 @@ T02.1 establishes `./scripts/test.sh all`: containerized Ruff, mypy, unit/contra
 integration tests, web type generation/checking and production build. Sixty-one tests pass;
 these validate the baseline and contracts, not movement accuracy. Real pose extraction,
 labelled rep/metric evaluation and held-out quality measurements are still pending.
+
+## Upstream integration acceptance matrix (pending)
+
+| Owner / candidate | Required evidence |
+| --- | --- |
+| T04 primary pose; conditional rtmlib/Sports2D | Same owned segment/offset; known geometry and anatomical sides; PTS synchronization including variable frame rate; coverage/identity; coordinate/3D capability; cold/warm runtime, memory and artifact size. Compare like-dimensional quantities. |
+| T04 conditional Norfair | Background entry, crossing, target loss/reacquisition, mirrors, detection reordering and per-video reset. No stale detection or Kalman prediction becomes a current measured joint. |
+| T05 geometry/filtering/counter | Aspect-correct 2D angles, degenerate limbs, timestamp gaps, visible-side occlusion, jitter, plateaus, stillness, incomplete excursion, partial clip edges, full return and processing-speed invariance. |
+| T06 reference | Rights and technique review separate; compatible view/variant/provider/mapping; stable representative/medoid ties; immutable provenance; experimental/unapproved profiles blocked through API/UI. |
+| T07 DTAIDistance wrapper | Identity/known warp, shared multivariate path, strict phases, unequal lengths/band boundaries, partial endpoints, missing samples, cost normalization and deterministic ties. Pin backend; characterize Python/C differences before promotion. |
+| T13 optional learned evaluators | Choose exercise before observing true count; no oracle class/result selection. Subject/session-held-out splits. Binary-label F1 does not validate continuous similarity or boundary timing. |
+
+Report count error, missed/spurious reps, boundary timing, partial-rep classification,
+coverage, metric agreement and score sensitivity separately. Preserve independent manual
+labels; freeze configuration before held-out runs. External skeleton data validates
+downstream handling only; it cannot demonstrate phone-video pose quality. Rep-separated
+files do not establish continuous-set segmentation performance.
+
+No new benchmark results are asserted by T18–T20. Dataset/model rights and compatible
+artifacts must be verified before use. See T19 and D009/D010 for promotion gates.

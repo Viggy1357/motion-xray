@@ -9,6 +9,12 @@ and the relevant work package in `docs/DELIVERY.md`. The 19 Oct baseline audit i
 The original full brief is archived in `docs/SPECIFICATION-v2.0.md`. Its FR numbering
 differs from `docs/PRODUCT.md`; use the audit's mapping and current repo FR IDs in tasks.
 
+For pose, movement, reference, scoring or evaluation tasks, also read the relevant
+section of `docs/INTEGRATION-REVIEW-2026-10-20.md` and D009/D010. Recommendations are
+not installed dependencies or passed benchmarks. Keep MediaPipe primary; upstream
+alternatives need the conditional gates in DELIVERY. Preserve archived specifications
+and dated audits; maintain active guidance instead of rewriting historical evidence.
+
 ## Golden rules
 
 1. **Claim one bounded task.** Reference its ID from `TASKS.md`. Each task cites one or
@@ -27,6 +33,9 @@ differs from `docs/PRODUCT.md`; use the audit's mapping and current repo FR IDs 
    the config version AND regression fixtures.
 6. **Justify dependencies.** Pin exact versions. Avoid unrelated refactors. Prefer
    reusing vetted upstream repos (with license checks) over rewriting from scratch.
+   Record exact upstream revision, copied files, notices and checkpoint/data terms.
+   Never import whole example pipelines to obtain a small algorithm. Tracker predictions,
+   static export depth and filled gaps are not measured joints or valid rep events.
 
 ## Everything runs in containers
 

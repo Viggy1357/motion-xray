@@ -105,3 +105,28 @@ advice.
 
 Paid provider calls (Token Factory, Tavily) run only in authorized environments; CI uses
 fixtures and never spends credits (AGENTS.md).
+
+## Upstream experiment and promotion runbook (planned)
+
+No T19 candidate is installed by this documentation update. Record candidate revision,
+code notices, checkpoint/body-model/data terms, checksum, tested image/platform and
+bounded question before execution. Use isolated Docker images and verified local model
+paths; do not inherit upstream TLS bypasses or uncontrolled checkpoint downloads.
+
+Keep ML-only alternatives in optional worker experiments, not API dependencies. Resolve
+NumPy/ONNX/OpenCV compatibility and exact hashes; avoid conflicting OpenCV distributions.
+DTAIDistance belongs to the scoring runtime only after wrapper tests and lock updates.
+Do not install Sports2D's full application stack just to obtain angle/filtering methods.
+
+| Candidate | Adoption state / owner |
+| --- | --- |
+| Sports2D / Good-GYM | Methods only; T05 must record exact copied/adapted source and notices if any code is reused. |
+| DTAIDistance | Preferred T07 kernel candidate; Apache-2.0 code screened, selected revision/backend not yet pinned or benchmarked. |
+| Norfair | Conditional T04 association helper; BSD-3-Clause code screened; no prediction-as-measurement use. |
+| rtmlib | Conditional T04 provider; Apache-2.0 code screened, selected checkpoints and dependency terms still require review. |
+| AIFit/Fit3D | Method reference; restricted assets are not approved product inputs. |
+| ALEX / PoseRAC / other learned assessors | Deferred evaluation candidates; model/data compatibility and rights not established. |
+
+After promotion, update this inventory with exact adopted artifacts, lockfiles, container
+placement, checks and rollback path. T19 holds source links and limitations. A permissive
+wrapper licence does not grant rights to its datasets/models.
