@@ -12,8 +12,46 @@ status. Read the archived full `SPECIFICATION-v2.0.md` for detailed formulas and
 behavior; accepted decisions D001–D014 override or clarify its earlier choices.
 
 Latest accepted slice: T08.1b.3/T08.1c.1 worker daemon and authenticated lifecycle/
-report API. See `audit/T08.1b.3-lifecycle.md`. Next: T08.1c.2 artifact streaming/ranges,
-T08.1d physical cleanup, then the browser vertical slice. Results remain pose-only.
+report API. See `audit/T08.1b.3-lifecycle.md`. Results remain pose-only.
+
+## Priority override — 22 October 2026
+
+User prioritizes the core measurement and reviewed-technique comparison first.
+Run T05 -> T06 -> T07 comparison validation before more infrastructure/UI work.
+Hold artifact streaming, physical cleanup, browser integration, hosting, coaching
+and exercise expansion. Retain existing infrastructure. This order supersedes older
+"Next" instructions below; no new paid batch is authorized by this document alone.
+
+1. **T05.1 definitions and labels:** specify observable lat-pulldown quantities,
+   anatomical side and view/visibility eligibility, coordinate conventions and units.
+   Define separate segmentation calibration. Prepare independent timestamped manual
+   rep/phase/occlusion labels and an angle-check protocol; do not tune labels to output.
+2. **T05.2 measurement proof:** implement valid-span geometry/filtering and complete
+   cycle detection; report visible-side ROM, torso lean and original-time phase duration
+   with coverage and explicit unavailable reasons. Compare against labels and known
+   geometry. Freeze versioned configuration before held-out evaluation.
+3. **T06.1 reference sourcing/review (parallel with T05):** identify a matching variant
+   and camera view; record source authority and permission separately from technique
+   reviewer approval. Existing user sets remain analysis inputs. Public availability
+   alone is not reuse permission or technique approval.
+4. **T06.2 reference artifact:** run authorized footage through the same pipeline,
+   review selected reps, record immutable hashes/version/reviewer, and select a
+   deterministic representative. Record evidence for tolerances; invent none.
+5. **T07.1 comparison proof:** align compatible complete reps by phase using shared
+   multivariate paths; retain source timestamps, component deviations, coverage and
+   unwarped tempo. Validate numerical alignment before aggregating a score. Missing
+   approval or required quantities produces explicit unavailable comparisons/scores.
+6. **T07.2 acceptance:** evaluate frozen settings on separate held-out sets; report
+   rep/boundary errors, angle agreement, comparison behavior and sensitivity. Collect
+   additional footage if the existing view or sample size cannot support a claim.
+   A reviewer checks whether reported deviations match visible movement. Only then
+   resume downstream UI/coaching and widen exercise coverage.
+
+First deliverable: an offline evidence report with labelled rep intervals, measured
+quantities, reference provenance/eligibility and timestamped differences. It must
+demonstrate observable movement comparison; a polished UI or plausible score is
+insufficient. Accurate 3D depth, muscle activation and universal technique correctness
+are outside the evidence available from one ordinary video.
 
 The dependency order is:
 

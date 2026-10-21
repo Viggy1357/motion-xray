@@ -13,6 +13,25 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 ## Legend
 - `todo` not started · `wip` in progress · `blocked` waiting · `done` evidence recorded
 
+## Active priority — measurement and reviewed comparison (22 October)
+
+User-directed order: T05 -> T06 -> T07 comparison validation. Hold new work on
+artifact streaming, physical cleanup, browser UI, hosting, coaching and exercise
+expansion until this core is demonstrated. Preserve the accepted local infrastructure.
+This supersedes earlier "next" entries recommending T08.1c.2 first.
+
+First prove lat pulldown: observable metric/side/view definitions and segmentation
+calibration; independently annotated real reps/angles/occlusions; deterministic
+measurement engine; authorized technique reference with separate technique review;
+compatible phase-aware comparison with timestamped component differences; frozen
+config held-out validation. Score aggregation follows validated comparison, not the
+other way round. Missing reference approval blocks a valid technique score, while
+measurement implementation and candidate research can proceed independently.
+
+Next bounded task: T05.1 measurement definitions, clip eligibility and manual-label
+protocol. In parallel, T06.1 may research suitable reference sources and reviewer needs.
+No new coding/provider batch is claimed by this documentation update. See DELIVERY.
+
 ## T16 — Recovery audit and delivery workflow · status: done · 19 Oct
 - **FRs:** FR01–FR12 (traceability and delivery gates).
 - **Claim:** Codex; audit and documentation only. Preserve existing uncommitted implementation.

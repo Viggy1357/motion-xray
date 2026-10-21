@@ -24,6 +24,12 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 ## Resume one task
 
+22 October user priority overrides older next-task pointers: prove T05 measurements,
+T06 reviewed references and T07 comparison before streaming/cleanup/UI/coaching/hosting
+or exercise expansion. Read DELIVERY's priority override. Reference candidate research
+can overlap measurement work; permission, technique approval and segmentation
+calibration are separate gates. No valid score from an unreviewed reference.
+
 Current 21 October checkpoint: T04's three local components, T08.1a durable store and
 T03a signed-session/private HTTP upload and standalone T03b proxy are delivered.
 T08.1b.1 parent supervision is now delivered:20 real-Store/subprocess cases and389
