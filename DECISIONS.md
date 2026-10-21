@@ -234,6 +234,20 @@ Specification v2.0 (15 Oct 2026).
 - **Next:** Keep MediaPipe primary. T03/T08.1/T05 proceed; D009 conditional alternatives
   remain gated on a measured need, not installed by this result.
 
+## D014 — Shared pose processing version and safe lifecycle projection
+
+- **Date:** 21 October 2026. **Status:** accepted for local pose-only jobs.
+- **Decision:** API and worker hash a canonical recipe containing pipeline, checkpoint
+  SHA256, mapping, sample rate and visibility threshold. Worker startup verifies the
+  actual checkpoint; mismatched queued versions fail before child launch.
+- **Public contract:** Add AnalysisCreateRequest and AnalysisStatus without changing
+  existing artifact schema0.2.0. Status adds explicit pose_only scope and always nulls
+  internal lease_owner/result_key. Report access requires the owning signed session,
+  live report retention, and a validated committed manifest. Raw expiry does not by
+  itself expire an already-published report. Deletion revokes access immediately;
+  physical removal and private artifact streaming remain separate tasks.
+- **Evidence:** T08.1b.3/T08.1c.1 audit; generated OpenAPI/TS and contract tests.
+
 ## Remaining implementation choices
 
 | Decision | Owner | Closure point |

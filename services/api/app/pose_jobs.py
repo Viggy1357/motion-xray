@@ -18,6 +18,7 @@ from providers.pose.mediapipe_provider import select_samples
 
 from app.store import LeaseLost, NotFound, Store
 from app.supervisor import supervise_once
+from app.processing_config import processing_version
 
 MAX_MANIFEST_BYTES = 1_048_576
 MAX_REQUEST_BYTES = 1_048_576
@@ -275,6 +276,8 @@ def run_pose_once(
 
     def make_command(claimed: AnalysisJob, attempt: Path) -> Sequence[str]:
         nonlocal captured_request, captured_hash
+        if claimed.version_hash != processing_version(checkpoint_sha256):
+            raise ValueError("processing recipe differs from queued job version")
         try:
             video, exercise, variant = store.get_input(claimed.owner, claimed.id)
         except NotFound as exc:

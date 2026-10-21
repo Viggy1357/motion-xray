@@ -261,6 +261,8 @@ def test_export_json_schema_has_entry_per_model() -> None:
         "SourceRecord",
         "ScoreBreakdown",
         "AnalysisJob",
+        "AnalysisCreateRequest",
+        "AnalysisStatus",
         "SessionInfo",
         "TimestampPair",
         "ProxyTimestampMap",

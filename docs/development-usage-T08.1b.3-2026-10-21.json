@@ -1,0 +1,242 @@
+{
+  "as_of": "2026-10-21",
+  "tasks": [
+    "T08.1b.3-daemon",
+    "T08.1c.1-api"
+  ],
+  "status": "accepted_local_pose_only_lifecycle",
+  "requests": [
+    {
+      "task": "T08.1c.1-api",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "lifecycle-contracts",
+      "status": "failed",
+      "maximum_cost_usd": 0.039220000000000005,
+      "input_token_bound": 9370,
+      "output_token_bound": 4096,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 476,
+        "prompt_tokens": 1173,
+        "total_tokens": 1649,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1173
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-4ecceff07496c421e6435b447e28b246",
+      "error_type": "AssertionError",
+      "elapsed_s": 4.03,
+      "received_chars": 1893,
+      "conservative_cost_usd": 0.004726
+    },
+    {
+      "task": "T08.1b.3-daemon",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "worker-daemon",
+      "status": "failed",
+      "maximum_cost_usd": 0.124138,
+      "input_token_bound": 31349,
+      "output_token_bound": 12288,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3450,
+        "prompt_tokens": 6013,
+        "total_tokens": 9463,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 5981
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-e5c3cfdae2055d886a0b4320601202a4",
+      "error_type": "AssertionError",
+      "elapsed_s": 11.87,
+      "received_chars": 13267,
+      "conservative_cost_usd": 0.029276000000000003
+    },
+    {
+      "task": "T08.1b.3-daemon",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "worker-daemon-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.068742,
+      "input_token_bound": 13891,
+      "output_token_bound": 8192,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2191,
+        "prompt_tokens": 2204,
+        "total_tokens": 4395,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 2172
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-05aa8a52170c430600742fa4d1ba841b",
+      "elapsed_s": 7.87,
+      "received_chars": 8395,
+      "conservative_cost_usd": 0.015362999999999998
+    },
+    {
+      "task": "T08.1c.1-api",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "lifecycle-api",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.13222,
+      "input_token_bound": 35390,
+      "output_token_bound": 12288,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3327,
+        "prompt_tokens": 6816,
+        "total_tokens": 10143,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 6784
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-852a8a18c2226c66bf3cb679dc8f5507",
+      "elapsed_s": 11.67,
+      "received_chars": 13570,
+      "conservative_cost_usd": 0.030267000000000002
+    },
+    {
+      "task": "T08.1c.1-api",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "lifecycle-api-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.11335200000000001,
+      "input_token_bound": 25956,
+      "output_token_bound": 12288,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3421,
+        "prompt_tokens": 4807,
+        "total_tokens": 8228,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 4775
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-758a3f20bf264b3d9ad2643d138f4016",
+      "elapsed_s": 95.5,
+      "received_chars": 14106,
+      "conservative_cost_usd": 0.026719
+    },
+    {
+      "task": "T08.1c.1-api",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "lifecycle-api-tests",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.09583,
+      "input_token_bound": 27435,
+      "output_token_bound": 8192,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2850,
+        "prompt_tokens": 5395,
+        "total_tokens": 8245,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 5395
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-b0e09c9922600f4af068270fe455fc5e",
+      "elapsed_s": 10.46,
+      "received_chars": 9878,
+      "conservative_cost_usd": 0.02504
+    },
+    {
+      "task": "T08.1b.3-daemon",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "shutdown-publication",
+      "status": "failed",
+      "maximum_cost_usd": 0.07947000000000001,
+      "input_token_bound": 19255,
+      "output_token_bound": 8192,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2652,
+        "prompt_tokens": 3324,
+        "total_tokens": 5976,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 3292
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-900cc3c31a2f7882d04bbba76c9cd332",
+      "error_type": "AssertionError",
+      "elapsed_s": 88.63,
+      "received_chars": 11077,
+      "conservative_cost_usd": 0.019908
+    }
+  ],
+  "reported_tokens": 48099,
+  "task_tokens": {
+    "T08.1c.1-api": 28265,
+    "T08.1b.3-daemon": 19834
+  },
+  "per_task_ceiling": 200000,
+  "conservative_cost_usd": 0.151299,
+  "price_basis": "USD2/M input + USD5/M completion guard, not invoice price or balance",
+  "prior_aggregate_commitment_usd": 3.96553865,
+  "aggregate_commitment_including_historical_contingency_usd": 4.11683765,
+  "historical_unknown_calls": 4,
+  "unknown_history_contingency_usd": 1,
+  "active_allocation_usd_user_reported": 70,
+  "protected_backup_usd": 30,
+  "backup_activated": false,
+  "runtime_paid_calls": 0,
+  "local_no_spend_preflight_failures": 3,
+  "peak_concurrent_calls": 2,
+  "notes": "Transport failed status includes strict draft-key rejection; all received drafts were reviewed before bounded integration. Full usage retained for rejected and repaired calls."
+}

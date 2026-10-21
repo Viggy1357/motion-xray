@@ -19,10 +19,10 @@ import uuid
 from pathlib import Path
 from typing import Callable, Optional, Sequence
 
-from contracts.enums import JobStage
+from contracts.enums import JobStage, JobState
 from contracts.jobs import AnalysisJob
 
-from app.store import LeaseLost, Store
+from app.store import LeaseLost, NotFound, Store
 
 
 def supervise_once(
@@ -83,6 +83,8 @@ def supervise_once(
 
     owned = False
     stopped = False
+    publication_started = False
+    result_key: Optional[str] = None
     proc: Optional[subprocess.Popen[bytes]] = None
     start_time = time.monotonic()
 
@@ -236,6 +238,7 @@ def supervise_once(
             _fail("OUTPUT_INVALID")
             return True
 
+        publication_started = True
         try:
             store.finish(job_id, lease_token, result_key=result_key)
         except LeaseLost:
@@ -249,4 +252,12 @@ def supervise_once(
         try:
             _terminate()
         finally:
+            if owned and publication_started:
+                try:
+                    latest = store.get_job(job.owner, job.id)
+                except NotFound:
+                    pass
+                else:
+                    if latest.state == JobState.SUCCEEDED and latest.result_key == result_key:
+                        owned = False
             _cleanup()

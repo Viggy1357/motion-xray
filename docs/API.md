@@ -88,6 +88,26 @@ is an honest, typed signal — never a silently-degraded success (AGENTS.md rule
 | `request_id` | string / null | Correlation id for tracing one request through logs. |
 | `field_errors` | map / null | Optional per-field validation messages, keyed by field. |
 
+## Implemented local pose lifecycle (21 October 2026)
+
+Create a session with `GET /v1/session`; retain the HttpOnly cookie. Mutations require
+the exact configured Origin and returned X-CSRF-Token. Upload raw video through the
+existing consent-gated `/v1/videos` route. Then:
+
+| Method and route | Behavior |
+| --- | --- |
+| POST `/v1/analyses` | 202; body video_id, exercise_id, optional variant, request_key. Same request is idempotent; conflicting reuse409. |
+| GET `/v1/analyses/{id}` | Owner-only status; analysis_scope=pose_only, lease_owner/result_key=null. |
+| POST `/v1/analyses/{id}/cancel` | Owner/CSRF-gated cancellation. |
+| DELETE `/v1/analyses/{id}` | 204; immediate access revocation, physical cleanup pending. |
+| GET `/v1/analyses/{id}/result` | Owner-only committed report; unfinished409, unavailable/corrupt503, foreign/deleted/expired404. |
+
+All lifecycle responses use no-store and nosniff. Processing versions are server-owned.
+Results currently contain real pose provenance and warnings, null scores, and empty
+rep/metric arrays. Report retention defaults to7 days independently of raw-media TTL.
+Artifact streaming remains unimplemented; these routes do not yet provide a browser
+video/overlay experience. See generated OpenAPI for current request schemas.
+
 ## Error codes
 
 | Code | When it is returned |

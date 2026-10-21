@@ -17,6 +17,7 @@ from pydantic import BaseModel
 
 from .analysis import AnalysisResult, CoachingResult, Metric, Rep
 from .jobs import AnalysisJob
+from .lifecycle import AnalysisCreateRequest, AnalysisStatus
 from .media import VideoAsset
 from .pose import JointObservation, PoseFrame, PoseSequence
 from .pose_job import PoseJobArtifacts, PoseJobInput
@@ -39,6 +40,8 @@ _MODELS: tuple[Type[BaseModel], ...] = (
     SourceRecord,
     ScoreBreakdown,
     AnalysisJob,
+    AnalysisCreateRequest,
+    AnalysisStatus,
     SessionInfo,
     TimestampPair,
     ProxyTimestampMap,

@@ -1,0 +1,34 @@
+{
+  "source": "Squat.MOV",
+  "duration_s": 14.248333,
+  "state": "succeeded",
+  "analysis_scope": "pose_only",
+  "score": null,
+  "warnings": [
+    "POSE_ONLY",
+    "MEASUREMENTS_UNAVAILABLE",
+    "REFERENCE_UNAVAILABLE",
+    "COACHING_UNAVAILABLE",
+    "ESTIMATED_3D",
+    "IDENTITY_UNVERIFIED"
+  ],
+  "elapsed_s": 33.596,
+  "checks": [
+    "real signed upload",
+    "durable enqueue",
+    "separate daemon",
+    "idempotency",
+    "conflicting request",
+    "private report",
+    "cross-owner denial",
+    "CSRF denial",
+    "cancel",
+    "delete revocation"
+  ],
+  "transport": "ASGI TestClient plus separate Docker worker; no TCP deployment claim",
+  "python_tests": 428,
+  "typechecked_files": 52,
+  "worker_shutdown_exit_code": 0,
+  "web_build": "passed",
+  "compose_config": "passed"
+}

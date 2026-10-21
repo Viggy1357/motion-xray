@@ -1,8 +1,8 @@
 """Motion X Ray HTTP API — the public /v1 surface.
 
 This module constructs the FastAPI application and declares the public routes.
-Session and private upload routes are implemented in app.uploads; other product
-handlers return HTTP 501 (Not Implemented) until their owning task lands. Path shapes and
+Session/private uploads are implemented in app.uploads; lifecycle and pose-only reports
+in app.analyses. Remaining product handlers return HTTP501 until their owning task lands. Path shapes and
 path-parameter signatures here are the contract the web client and tests build
 against; the real request logic is filled in per the TODO(Txx) markers.
 
@@ -23,14 +23,13 @@ from __future__ import annotations
 
 import os
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from app import errors
 from app.uploads import router as uploads_router
-from contracts.analysis import AnalysisResult
-from contracts.jobs import AnalysisJob
+from app.analyses import router as analyses_router
 from contracts.reference import ReferenceProfile, SourceRecord
 from providers.search.protocol import SearchProvider
 
@@ -40,6 +39,16 @@ app = FastAPI(
     description="Turns a short workout video into a rep-by-rep movement report.",
 )
 app.include_router(uploads_router)
+app.include_router(analyses_router)
+
+
+@app.middleware("http")
+async def private_analysis_headers(request: Request, call_next):
+    response = await call_next(request)
+    if request.url.path == "/v1/analyses" or request.url.path.startswith("/v1/analyses/"):
+        response.headers["Cache-Control"] = "no-store"
+        response.headers["X-Content-Type-Options"] = "nosniff"
+    return response
 
 
 def _not_implemented() -> HTTPException:
@@ -65,39 +74,9 @@ def list_references() -> None:
     raise _not_implemented()
 
 
-@app.post("/v1/analyses", response_model=AnalysisJob, status_code=202)
-def create_analysis() -> None:
-    """Enqueue an analysis job for a video + exercise/variant. FR03. TODO(T08)."""
-    raise _not_implemented()
-
-
-@app.get("/v1/analyses/{analysis_id}", response_model=AnalysisJob)
-def get_analysis(analysis_id: str) -> None:
-    """Fetch an analysis job's state/stage. FR03, FR12. TODO(T08)."""
-    raise _not_implemented()
-
-
-@app.get("/v1/analyses/{analysis_id}/result", response_model=AnalysisResult)
-def get_analysis_result(analysis_id: str) -> None:
-    """Fetch the completed AnalysisResult (reps, metrics, score). FR07, FR08. TODO(T07)."""
-    raise _not_implemented()
-
-
 @app.get("/v1/analyses/{analysis_id}/artifacts/{kind}")
 def get_analysis_artifact(analysis_id: str, kind: str) -> None:
     """Fetch a private artifact (e.g. pose frames) for the X Ray UI. FR10. TODO(T11)."""
-    raise _not_implemented()
-
-
-@app.post("/v1/analyses/{analysis_id}/cancel")
-def cancel_analysis(analysis_id: str) -> None:
-    """Request cooperative cancellation of a running job. FR03, FR12. TODO(T08)."""
-    raise _not_implemented()
-
-
-@app.delete("/v1/analyses/{analysis_id}")
-def delete_analysis(analysis_id: str) -> None:
-    """Delete an analysis and its private artifacts. FR03. TODO(T08)."""
     raise _not_implemented()
 
 

@@ -30,7 +30,7 @@ RUN uv pip install --system --no-deps --no-build-isolation \
     /app/packages/movement \
     /app/packages/scoring
 
-ENV PYTHONPATH=/app/packages/contracts:/app/packages/providers:/app/packages/benchmarks:/app/packages/movement:/app/packages/scoring
+ENV PYTHONPATH=/app/packages/contracts:/app/packages/providers:/app/packages/benchmarks:/app/packages/movement:/app/packages/scoring:/app/services/api
 
 # The worker claims jobs from the durable queue; it never serves HTTP.
 CMD ["python", "services/pose/worker.py"]

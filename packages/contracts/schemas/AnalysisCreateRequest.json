@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "description": "Public request to create a new analysis job.",
+  "properties": {
+    "exercise_id": {
+      "enum": [
+        "lat_pulldown",
+        "squat",
+        "dumbbell_curl",
+        "lateral_raise"
+      ],
+      "title": "Exercise Id",
+      "type": "string"
+    },
+    "request_key": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._:-]+$",
+      "title": "Request Key",
+      "type": "string"
+    },
+    "variant": {
+      "anyOf": [
+        {
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Variant"
+    },
+    "video_id": {
+      "pattern": "^[0-9a-f]{32}$",
+      "title": "Video Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "video_id",
+    "exercise_id",
+    "request_key"
+  ],
+  "title": "AnalysisCreateRequest",
+  "type": "object"
+}

@@ -42,6 +42,7 @@ services:
       - state:/state
 
   worker:
+    init: true
     build:
       context: ..
       dockerfile: infra/worker.Dockerfile
@@ -56,12 +57,11 @@ services:
       - ../packages:/app/packages
       - ../data:/app/data
       - state:/state
-      - models:/models
+      - ../models:/models:ro
     # The worker claims jobs from the durable queue; it does not expose a port.
     depends_on:
       - api
 
 volumes:
   state:       # SQLite db + private artifacts (durable across restarts, removed with -v)
-  models:      # downloaded pose checkpoints (verified by revision/checksum)
   web_node_modules:

@@ -9,7 +9,11 @@ workflow is paused. This plan does not claim the MVP is built.
 
 Read `AUDIT-2026-10-19.md` for the evidence baseline and `../TASKS.md` for current task
 status. Read the archived full `SPECIFICATION-v2.0.md` for detailed formulas and UI
-behavior; accepted decisions D001–D013 override or clarify its earlier choices.
+behavior; accepted decisions D001–D014 override or clarify its earlier choices.
+
+Latest accepted slice: T08.1b.3/T08.1c.1 worker daemon and authenticated lifecycle/
+report API. See `audit/T08.1b.3-lifecycle.md`. Next: T08.1c.2 artifact streaming/ranges,
+T08.1d physical cleanup, then the browser vertical slice. Results remain pose-only.
 
 The dependency order is:
 

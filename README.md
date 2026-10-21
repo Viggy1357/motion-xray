@@ -64,6 +64,13 @@ See [pose validation and limitations](docs/audit/T04-resumed-pose-batch.md) and 
 [recorded checkpoint](data/pose_models/mediapipe-full-v1.json). Private footage,
 checkpoints and generated diagnostics remain ignored; an owned set is not a reference.
 
+The worker now runs a durable pose-only daemon. Signed-session clients can upload,
+enqueue, poll, cancel, delete and retrieve validated reports through the API. Configure
+the pinned local model as described in [OPERATIONS](docs/OPERATIONS.md). Artifact
+streaming, physical cleanup and the browser analysis flow remain pending; reports
+currently have null scores and no exercise measurements. See the
+[lifecycle checkpoint](docs/audit/T08.1b.3-lifecycle.md).
+
 Run `./scripts/test.sh all` for the actual offline checks. See `docs/OPERATIONS.md`
 for setup, local startup and contract-generation commands.
 

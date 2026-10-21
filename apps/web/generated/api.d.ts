@@ -33,10 +33,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /**
-         * Create Analysis
-         * @description Enqueue an analysis job for a video + exercise/variant. FR03. TODO(T08).
-         */
+        /** Create Analysis */
         post: operations["create_analysis_v1_analyses_post"];
         delete?: never;
         options?: never;
@@ -51,17 +48,11 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /**
-         * Get Analysis
-         * @description Fetch an analysis job's state/stage. FR03, FR12. TODO(T08).
-         */
-        get: operations["get_analysis_v1_analyses__analysis_id__get"];
+        /** Get Analysis Status */
+        get: operations["get_analysis_status_v1_analyses__analysis_id__get"];
         put?: never;
         post?: never;
-        /**
-         * Delete Analysis
-         * @description Delete an analysis and its private artifacts. FR03. TODO(T08).
-         */
+        /** Delete Analysis */
         delete: operations["delete_analysis_v1_analyses__analysis_id__delete"];
         options?: never;
         head?: never;
@@ -97,10 +88,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /**
-         * Cancel Analysis
-         * @description Request cooperative cancellation of a running job. FR03, FR12. TODO(T08).
-         */
+        /** Cancel Analysis */
         post: operations["cancel_analysis_v1_analyses__analysis_id__cancel_post"];
         delete?: never;
         options?: never;
@@ -115,10 +103,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /**
-         * Get Analysis Result
-         * @description Fetch the completed AnalysisResult (reps, metrics, score). FR07, FR08. TODO(T07).
-         */
+        /** Get Analysis Result */
         get: operations["get_analysis_result_v1_analyses__analysis_id__result_get"];
         put?: never;
         post?: never;
@@ -272,46 +257,21 @@ export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
         /**
-         * AnalysisJob
-         * @description One unit of pipeline work with its state, stage, and lease.
-         *
-         *     ``lease_owner``/``lease_until`` support at-most-one-worker processing;
-         *     ``input_hash`` and ``version_hash`` make runs reproducible and cacheable;
-         *     ``error`` is populated only on a failed state.
+         * AnalysisCreateRequest
+         * @description Public request to create a new analysis job.
          */
-        AnalysisJob: {
-            /** Attempt */
-            attempt: number;
-            /** Cancel Requested */
-            cancel_requested: boolean;
+        AnalysisCreateRequest: {
             /**
-             * Created At
-             * Format: date-time
+             * Exercise Id
+             * @enum {string}
              */
-            created_at: string;
-            /** Error */
-            error?: string | null;
-            /** Id */
-            id: string;
-            /** Input Hash */
-            input_hash: string;
-            /** Lease Owner */
-            lease_owner?: string | null;
-            /** Lease Until */
-            lease_until?: string | null;
-            /** Owner */
-            owner: string;
-            /** Result Key */
-            result_key?: string | null;
-            stage: components["schemas"]["JobStage"];
-            state: components["schemas"]["JobState"];
-            /**
-             * Updated At
-             * Format: date-time
-             */
-            updated_at: string;
-            /** Version Hash */
-            version_hash: string;
+            exercise_id: "lat_pulldown" | "squat" | "dumbbell_curl" | "lateral_raise";
+            /** Request Key */
+            request_key: string;
+            /** Variant */
+            variant?: string | null;
+            /** Video Id */
+            video_id: string;
         };
         /**
          * AnalysisResult
@@ -365,6 +325,55 @@ export interface components {
             warnings: string[];
             /** Worst Rep Id */
             worst_rep_id?: string | null;
+        };
+        /**
+         * AnalysisStatus
+         * @description Public view of an analysis job.
+         *
+         *     This is an additive subclass of :class:`AnalysisJob`.  Worker-only fencing
+         *     and storage fields are always nulled so they are never exposed through the
+         *     public API, while every other field is inherited unchanged.
+         */
+        AnalysisStatus: {
+            /**
+             * Analysis Scope
+             * @default pose_only
+             * @constant
+             * @enum {string}
+             */
+            analysis_scope: "pose_only";
+            /** Attempt */
+            attempt: number;
+            /** Cancel Requested */
+            cancel_requested: boolean;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Error */
+            error?: string | null;
+            /** Id */
+            id: string;
+            /** Input Hash */
+            input_hash: string;
+            /** Lease Owner */
+            lease_owner?: null;
+            /** Lease Until */
+            lease_until?: string | null;
+            /** Owner */
+            owner: string;
+            /** Result Key */
+            result_key?: null;
+            stage: components["schemas"]["JobStage"];
+            state: components["schemas"]["JobState"];
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /** Version Hash */
+            version_hash: string;
         };
         /**
          * CoachingResult
@@ -689,7 +698,11 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        requestBody?: never;
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AnalysisCreateRequest"];
+            };
+        };
         responses: {
             /** @description Successful Response */
             202: {
@@ -697,12 +710,21 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["AnalysisJob"];
+                    "application/json": components["schemas"]["AnalysisStatus"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
     };
-    get_analysis_v1_analyses__analysis_id__get: {
+    get_analysis_status_v1_analyses__analysis_id__get: {
         parameters: {
             query?: never;
             header?: never;
@@ -719,7 +741,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["AnalysisJob"];
+                    "application/json": components["schemas"]["AnalysisStatus"];
                 };
             };
             /** @description Validation Error */
@@ -745,13 +767,11 @@ export interface operations {
         requestBody?: never;
         responses: {
             /** @description Successful Response */
-            200: {
+            204: {
                 headers: {
                     [name: string]: unknown;
                 };
-                content: {
-                    "application/json": null;
-                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {
@@ -813,7 +833,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": null;
+                    "application/json": components["schemas"]["AnalysisStatus"];
                 };
             };
             /** @description Validation Error */

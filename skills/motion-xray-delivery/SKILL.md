@@ -30,9 +30,11 @@ T08.1b.1 parent supervision is now delivered:20 real-Store/subprocess cases and3
 Python checks pass, lint/types clean. Read `docs/audit/T08.1b.1-resumed-supervisor.md`.
 T08.1b.2 is now delivered: real lat/squat jobs pass supervisor -> child -> validated
 pose-only publication;403 Python checks pass, lint/types clean. Read
-`docs/audit/T08.1b.2-real-pose-child.md`. Next T08.1b.3 worker loop/shutdown,
-T08.1c lifecycle/artifact access and T08.1d physical cleanup, before T05. The worker
-daemon is still inactive. Earlier failed drafts are historical evidence, not implementation
+`docs/audit/T08.1b.2-real-pose-child.md`. T08.1b.3/T08.1c.1 now deliver the daemon and
+authenticated lifecycle/report API;428 Python tests plus web checks pass. Real signed
+squat upload -> separate daemon -> report is verified. Read
+`docs/audit/T08.1b.3-lifecycle.md`. Next T08.1c.2 artifact streaming/ranges and T08.1d
+physical cleanup, then browser integration and T05. Earlier failed drafts are historical evidence, not implementation
 baselines. Keep the proven fixture and small groups of tests; do not regenerate the
 whole suite. Same-task usage120,986/200k retains the earlier79,431 failed-run tokens.
 See the latest

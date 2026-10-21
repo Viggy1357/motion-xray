@@ -234,7 +234,24 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   multivariate phase paths, tested band/endpoints, explicit cost normalization, unwarped
   tempo and pinned backend. Report index maps and breakdowns; maintain null/approval gates.
 ## T08 — Jobs & cloud  ·  status: todo  ·  date: 21–22 Oct  ·  FR03, FR12
-### T08.1 — Local durable queue/lifecycle · status: wip (internal pose jobs work; service/API pending) · FR03, FR12
+### T08.1 — Local durable queue/lifecycle · status: wip (daemon/API implemented; streaming/cleanup pending) · FR03, FR12
+- **Claim T08.1b.3 + T08.1c.1 (21 Oct) · done · FR02/03/04/12:** Worker daemon,
+  graceful shutdown/reclaim and authenticated enqueue/status/cancel/delete/report API.
+  Add safe pose-only public request/status contracts; bind job versions to the configured
+  checkpoint and processing recipe. Worker and HTTP drafts may overlap after contracts.
+  Artifact streaming/ranges and physical cleanup remain T08.1c.2/T08.1d. Each bounded
+  task ceiling200k; no runtime LLM/Tavily/backup activation. One integrating writer.
+- **Accepted files:** `services/pose/worker.py`, API `analyses.py`,
+  `processing_config.py`, supervisor publication-race fix, lifecycle contracts and
+  generated schemas/TS, Docker configuration and focused tests. API/worker share a
+  canonical checkpoint/recipe version. Public status redacts lease tokens/storage keys.
+- **Checks:** Docker full Python suite428 passed; Ruff/mypy52 files clean; generated
+  contracts, web typecheck and production build pass. Existing AnyIO warning remains.
+  Evidence and real-video outcome: `docs/audit/T08.1b.3-lifecycle.md`.
+- **Usage:** seven Nebius calls48,099 tokens, conservative USD0.151299; peak two
+  concurrent calls, one integrating writer. Includes rejected drafts and repairs.
+- **Next T08.1c.2:** authenticated artifact streaming with byte ranges; then T08.1d
+  physical expiry/deletion cleanup and T10 usable browser upload/poll/result flow.
 - **Claim T08.1b.2 (21 Oct) · done · FR03, FR04, FR10, FR12:** Connect the accepted
   supervisor to real proxy/MediaPipe child processing through typed private request/
   artifact manifests. Validate actual artifact hashes, ownership and pose-only honesty
@@ -253,9 +270,8 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 - **Usage:** six Nebius calls45,721 reported tokens, conservative USD0.143597; up to
   three independent calls overlapped, one writer. Scope ceiling200k. See
   `docs/audit/T08.1b.2-real-pose-child.md` and its linked results/ledger.
-- **Next T08.1b.3/T08.1c/T08.1d:** worker loop/shutdown, authenticated lifecycle/artifact
-  access and physical retention. Current worker entrypoint remains inactive and job
-  routes placeholders. Internal completion is pose-only; browser analysis remains open.
+- **Historical next, now advanced above:** worker loop and lifecycle routes are
+  implemented. Artifact streaming, physical retention and browser analysis remain open.
 - **Resume (21 Oct, user-authorized): T08.1b.1 · done · FR03, FR12.** Raise this
   task's cumulative ceiling to200k, retaining the prior79,431 tokens. Prove only a
   real-Store success/timeout fixture first. In parallel, Nebius reviews the small

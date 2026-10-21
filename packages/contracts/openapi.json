@@ -1,109 +1,52 @@
 {
   "components": {
     "schemas": {
-      "AnalysisJob": {
+      "AnalysisCreateRequest": {
         "additionalProperties": false,
-        "description": "One unit of pipeline work with its state, stage, and lease.\n\n``lease_owner``/``lease_until`` support at-most-one-worker processing;\n``input_hash`` and ``version_hash`` make runs reproducible and cacheable;\n``error`` is populated only on a failed state.",
+        "description": "Public request to create a new analysis job.",
         "properties": {
-          "attempt": {
-            "title": "Attempt",
-            "type": "integer"
-          },
-          "cancel_requested": {
-            "title": "Cancel Requested",
-            "type": "boolean"
-          },
-          "created_at": {
-            "format": "date-time",
-            "title": "Created At",
+          "exercise_id": {
+            "enum": [
+              "lat_pulldown",
+              "squat",
+              "dumbbell_curl",
+              "lateral_raise"
+            ],
+            "title": "Exercise Id",
             "type": "string"
           },
-          "error": {
+          "request_key": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9._:-]+$",
+            "title": "Request Key",
+            "type": "string"
+          },
+          "variant": {
             "anyOf": [
               {
+                "maxLength": 64,
+                "minLength": 1,
                 "type": "string"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Error"
+            "title": "Variant"
           },
-          "id": {
-            "title": "Id",
-            "type": "string"
-          },
-          "input_hash": {
-            "title": "Input Hash",
-            "type": "string"
-          },
-          "lease_owner": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Lease Owner"
-          },
-          "lease_until": {
-            "anyOf": [
-              {
-                "format": "date-time",
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Lease Until"
-          },
-          "owner": {
-            "title": "Owner",
-            "type": "string"
-          },
-          "result_key": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Result Key"
-          },
-          "stage": {
-            "$ref": "#/components/schemas/JobStage"
-          },
-          "state": {
-            "$ref": "#/components/schemas/JobState"
-          },
-          "updated_at": {
-            "format": "date-time",
-            "title": "Updated At",
-            "type": "string"
-          },
-          "version_hash": {
-            "title": "Version Hash",
+          "video_id": {
+            "pattern": "^[0-9a-f]{32}$",
+            "title": "Video Id",
             "type": "string"
           }
         },
         "required": [
-          "id",
-          "owner",
-          "state",
-          "stage",
-          "attempt",
-          "cancel_requested",
-          "input_hash",
-          "version_hash",
-          "created_at",
-          "updated_at"
+          "video_id",
+          "exercise_id",
+          "request_key"
         ],
-        "title": "AnalysisJob",
+        "title": "AnalysisCreateRequest",
         "type": "object"
       },
       "AnalysisResult": {
@@ -229,6 +172,106 @@
           "exercise"
         ],
         "title": "AnalysisResult",
+        "type": "object"
+      },
+      "AnalysisStatus": {
+        "additionalProperties": false,
+        "description": "Public view of an analysis job.\n\nThis is an additive subclass of :class:`AnalysisJob`.  Worker-only fencing\nand storage fields are always nulled so they are never exposed through the\npublic API, while every other field is inherited unchanged.",
+        "properties": {
+          "analysis_scope": {
+            "const": "pose_only",
+            "default": "pose_only",
+            "enum": [
+              "pose_only"
+            ],
+            "title": "Analysis Scope",
+            "type": "string"
+          },
+          "attempt": {
+            "title": "Attempt",
+            "type": "integer"
+          },
+          "cancel_requested": {
+            "title": "Cancel Requested",
+            "type": "boolean"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "input_hash": {
+            "title": "Input Hash",
+            "type": "string"
+          },
+          "lease_owner": {
+            "title": "Lease Owner",
+            "type": "null"
+          },
+          "lease_until": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lease Until"
+          },
+          "owner": {
+            "title": "Owner",
+            "type": "string"
+          },
+          "result_key": {
+            "title": "Result Key",
+            "type": "null"
+          },
+          "stage": {
+            "$ref": "#/components/schemas/JobStage"
+          },
+          "state": {
+            "$ref": "#/components/schemas/JobState"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "version_hash": {
+            "title": "Version Hash",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "owner",
+          "state",
+          "stage",
+          "attempt",
+          "cancel_requested",
+          "input_hash",
+          "version_hash",
+          "created_at",
+          "updated_at"
+        ],
+        "title": "AnalysisStatus",
         "type": "object"
       },
       "CoachingResult": {
@@ -999,18 +1042,37 @@
     },
     "/v1/analyses": {
       "post": {
-        "description": "Enqueue an analysis job for a video + exercise/variant. FR03. TODO(T08).",
         "operationId": "create_analysis_v1_analyses_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalysisCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "202": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AnalysisJob"
+                  "$ref": "#/components/schemas/AnalysisStatus"
                 }
               }
             },
             "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
           }
         },
         "summary": "Create Analysis"
@@ -1018,7 +1080,6 @@
     },
     "/v1/analyses/{analysis_id}": {
       "delete": {
-        "description": "Delete an analysis and its private artifacts. FR03. TODO(T08).",
         "operationId": "delete_analysis_v1_analyses__analysis_id__delete",
         "parameters": [
           {
@@ -1032,15 +1093,7 @@
           }
         ],
         "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "title": "Response Delete Analysis V1 Analyses  Analysis Id  Delete",
-                  "type": "null"
-                }
-              }
-            },
+          "204": {
             "description": "Successful Response"
           },
           "422": {
@@ -1057,8 +1110,7 @@
         "summary": "Delete Analysis"
       },
       "get": {
-        "description": "Fetch an analysis job's state/stage. FR03, FR12. TODO(T08).",
-        "operationId": "get_analysis_v1_analyses__analysis_id__get",
+        "operationId": "get_analysis_status_v1_analyses__analysis_id__get",
         "parameters": [
           {
             "in": "path",
@@ -1075,7 +1127,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AnalysisJob"
+                  "$ref": "#/components/schemas/AnalysisStatus"
                 }
               }
             },
@@ -1092,7 +1144,7 @@
             "description": "Validation Error"
           }
         },
-        "summary": "Get Analysis"
+        "summary": "Get Analysis Status"
       }
     },
     "/v1/analyses/{analysis_id}/artifacts/{kind}": {
@@ -1147,7 +1199,6 @@
     },
     "/v1/analyses/{analysis_id}/cancel": {
       "post": {
-        "description": "Request cooperative cancellation of a running job. FR03, FR12. TODO(T08).",
         "operationId": "cancel_analysis_v1_analyses__analysis_id__cancel_post",
         "parameters": [
           {
@@ -1165,8 +1216,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Response Cancel Analysis V1 Analyses  Analysis Id  Cancel Post",
-                  "type": "null"
+                  "$ref": "#/components/schemas/AnalysisStatus"
                 }
               }
             },
@@ -1188,7 +1238,6 @@
     },
     "/v1/analyses/{analysis_id}/result": {
       "get": {
-        "description": "Fetch the completed AnalysisResult (reps, metrics, score). FR07, FR08. TODO(T07).",
         "operationId": "get_analysis_result_v1_analyses__analysis_id__result_get",
         "parameters": [
           {

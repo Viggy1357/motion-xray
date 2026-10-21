@@ -1,64 +1,111 @@
-"""Motion X Ray pose worker entry point.
-
-This process claims analysis jobs from the durable queue and runs the
-deterministic perception → metrics → scoring pipeline inside the isolated pose
-image (MediaPipe + ffmpeg). It never serves HTTP.
-
-STRUCTURE-ONLY: the job loop below is pseudocode in comments; main() only
-configures logging and announces startup. Heavy ML imports (e.g. mediapipe) are
-NOT imported at module top — they belong inside the pipeline functions added by
-their owning tasks (T04/T05/T07/T09) so that merely importing this module, or
-running main(), never requires the ML stack.
-"""
-
 from __future__ import annotations
 
 import logging
+import os
+import signal
+import sys
+import threading
+
+from app.processing_config import WorkerConfig, load_worker_config
+from app.pose_jobs import run_pose_once
+from app.store import Store
 
 _LOG = logging.getLogger("motion_xray.pose.worker")
 
-
-# ---------------------------------------------------------------------------
-# Job loop sketch (pseudocode — implemented by owning tasks, do NOT run yet):
-#
-#   while not shutdown_requested:
-#       job = queue.claim_next(lease=LEASE_SECONDS)   # AnalysisJob or None (T08)
-#       if job is None:
-#           sleep(poll_interval); continue
-#       try:
-#           video = store.load_video(job.input_hash)          # validate (T03)
-#           if not media_is_valid(video):
-#               fail(job, INVALID_MEDIA); continue
-#           pose = pose_provider.infer(video)                 # pose    (T04)
-#           reps = movement.segment_reps(pose, exercise_spec) # segment (T05)
-#           metrics = movement.compute_metrics(pose, reps)    # metrics (T05)
-#           scores = scoring.score_set(metrics, reference)    # compare (T07)
-#           coaching = llm_provider.coach(evidence)           # coach   (T09)
-#           result = assemble_result(reps, metrics, scores, coaching)
-#           if job.cancel_requested:                          # honour cancel
-#               mark_cancelled(job); continue
-#           store.write_result(job, result)                   # write   (T08)
-#           queue.succeed(job)
-#       except LeaseExpired:
-#           queue.release(job)        # JOB_EXPIRED — another worker may retry
-#       except ProviderTimeout:
-#           queue.retry(job)          # PROVIDER_TIMEOUT — transient, retryable
-#       finally:
-#           queue.renew_or_release_lease(job)
-# ---------------------------------------------------------------------------
+WORKER_FAILED = "WORKER_FAILED"
+WORKER_CONFIG_INVALID = "WORKER_CONFIG_INVALID"
 
 
-def main() -> None:
-    """Configure logging and announce the worker is up.
+class WorkerShutdown(BaseException):
+    pass
 
-    The real loop (claim → validate → pose → segment → metrics → compare →
-    coach → write) is wired by T08; this scaffold just proves the entry point
-    runs with stdlib only.
-    """
+
+def _install_shutdown_handlers(stop: threading.Event) -> tuple:
+    saved_term = signal.getsignal(signal.SIGTERM)
+    saved_int = signal.getsignal(signal.SIGINT)
+
+    def handler(signum: int, frame: object) -> None:
+        stop.set()
+        raise WorkerShutdown()
+
+    signal.signal(signal.SIGTERM, handler)
+    signal.signal(signal.SIGINT, handler)
+    return saved_term, saved_int
+
+
+def _restore_handlers(saved: tuple) -> None:
+    signal.signal(signal.SIGTERM, saved[0])
+    signal.signal(signal.SIGINT, saved[1])
+
+
+def run_loop(
+    store: Store,
+    config: WorkerConfig,
+    stop: threading.Event,
+    *,
+    once: bool = False,
+) -> None:
+    while not stop.is_set():
+        claimed = run_pose_once(
+            store,
+            config.source_root,
+            config.artifact_root,
+            config.checkpoint_path,
+            config.checkpoint_sha256,
+            lease_s=config.lease_s,
+            poll_s=config.poll_s,
+            timeout_s=config.timeout_s,
+        )
+        if once:
+            return
+        if not claimed:
+            stop.wait(config.idle_s)
+
+
+def main(argv: list[str] | None = None) -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Pose-only worker daemon")
+    parser.add_argument("--once", action="store_true", help="process one job or empty queue then exit")
+    args = parser.parse_args(argv)
+
+    os.umask(0o077)
+
+    try:
+        config = load_worker_config()
+    except Exception:
+        _LOG.error(WORKER_CONFIG_INVALID)
+        return 2
+
     logging.basicConfig(level=logging.INFO)
-    _LOG.info("pose worker started")
-    # TODO(T08): run the durable-queue job loop sketched above.
+    _LOG.info("pose-only worker started")
+
+    try:
+        for root in (config.source_root, config.artifact_root):
+            root.mkdir(parents=True, exist_ok=True, mode=0o700)
+            root.chmod(0o700)
+        store = Store(config.db_path)
+    except Exception:
+        _LOG.error(WORKER_CONFIG_INVALID)
+        return 1
+
+    stop = threading.Event()
+    saved = _install_shutdown_handlers(stop)
+
+    try:
+        run_loop(store, config, stop, once=args.once)
+    except WorkerShutdown:
+        return 0
+    except KeyboardInterrupt:
+        return 0
+    except Exception:
+        _LOG.error(WORKER_FAILED)
+        return 1
+    finally:
+        _restore_handlers(saved)
+
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

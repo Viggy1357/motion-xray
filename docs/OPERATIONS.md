@@ -15,7 +15,8 @@ media and the model read-only, and writes only to ignored `artifacts/`. It does 
 silently build images or download models. `manifest.json`, `diagnostic.json` and
 `diagnostic.html` describe actual poses, original source timestamps, coverage and limits.
 An explicit segment of a longer source is a diagnostic; it does not bypass the
-product's 30-second upload rule. The main analysis/job command is still unfinished.
+product's 30-second upload rule. The daemon now runs queued full eligible videos;
+artifact streaming and the browser analysis flow remain unfinished.
 
 Open a generated HTML locally and choose its original source video. The viewer checks
 the source SHA256 before displaying it. For loopback serving of the lat example:
@@ -180,3 +181,19 @@ Do not install Sports2D's full application stack just to obtain angle/filtering 
 After promotion, update this inventory with exact adopted artifacts, lockfiles, container
 placement, checks and rollback path. T19 holds source links and limitations. A permissive
 wrapper licence does not grant rights to its datasets/models.
+# Pose daemon checkpoint (21 October 2026)
+
+The worker entrypoint now runs the durable pose-only queue. Compose mounts local
+`models/` read-only at `/models`; set POSE_CHECKPOINT_PATH to
+`/models/pose_landmarker_full.task` and POSE_CHECKPOINT_SHA256 to
+`5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1`.
+Startup rejects a missing/mismatched checkpoint. WORKER_CONCURRENCY must be1;
+WORKER_POLL_SECONDS must be less than a third of WORKER_LEASE_SECONDS. Defaults:
+lease60s, poll1s, idle1s, job timeout300s. `--once` processes one claim or exits idle.
+SIGTERM/SIGINT reap child process groups and leave interrupted jobs reclaimable after
+lease expiry. An already committed result survives shutdown. Configuration/runtime
+failures log constant codes without provider credentials or media paths.
+
+Physical TTL/deletion cleanup and artifact streaming are pending. Do not describe
+logical revocation as secure physical erasure. No paid coaching call is part of this
+daemon acceptance check.

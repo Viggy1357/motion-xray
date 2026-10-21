@@ -105,8 +105,14 @@ Named volumes:
 | Volume | Purpose |
 | --- | --- |
 | `state` | SQLite DB + private artifacts; durable across restarts, removed with `-v`. |
-| `models` | Downloaded pose checkpoints, verified by revision/checksum. |
 | `web_node_modules` | Web dependencies kept inside the container, off the host. |
 
 `web` depends on `api`; `worker` depends on `api`. The worker does not expose a port — it
 leases jobs from the durable queue. See `docs/OPERATIONS.md` for the runbook.
+
+The worker mounts repository `models/` read-only at `/models`; checkpoint bytes are
+SHA256-verified at startup. API and worker derive the same processing-version hash
+from checkpoint revision and the pose recipe. A queued job with a mismatched version
+fails explicitly. The daemon runs one supervised child at a time; SIGTERM/SIGINT reap
+the child, leaving interrupted work reclaimable after lease expiry. A publication
+interruption reconciles the committed job before removing attempt files.
