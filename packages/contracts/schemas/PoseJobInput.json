@@ -1,0 +1,255 @@
+{
+  "$defs": {
+    "AnalysisJob": {
+      "additionalProperties": false,
+      "description": "One unit of pipeline work with its state, stage, and lease.\n\n``lease_owner``/``lease_until`` support at-most-one-worker processing;\n``input_hash`` and ``version_hash`` make runs reproducible and cacheable;\n``error`` is populated only on a failed state.",
+      "properties": {
+        "attempt": {
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "cancel_requested": {
+          "title": "Cancel Requested",
+          "type": "boolean"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "input_hash": {
+          "title": "Input Hash",
+          "type": "string"
+        },
+        "lease_owner": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lease Owner"
+        },
+        "lease_until": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lease Until"
+        },
+        "owner": {
+          "title": "Owner",
+          "type": "string"
+        },
+        "result_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Result Key"
+        },
+        "stage": {
+          "$ref": "#/$defs/JobStage"
+        },
+        "state": {
+          "$ref": "#/$defs/JobState"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "title": "Updated At",
+          "type": "string"
+        },
+        "version_hash": {
+          "title": "Version Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "owner",
+        "state",
+        "stage",
+        "attempt",
+        "cancel_requested",
+        "input_hash",
+        "version_hash",
+        "created_at",
+        "updated_at"
+      ],
+      "title": "AnalysisJob",
+      "type": "object"
+    },
+    "JobStage": {
+      "description": "Pipeline stage an analysis job is currently executing.",
+      "enum": [
+        "validate",
+        "pose",
+        "segment",
+        "metrics",
+        "compare",
+        "coach"
+      ],
+      "title": "JobStage",
+      "type": "string"
+    },
+    "JobState": {
+      "description": "Lifecycle state of an analysis job.",
+      "enum": [
+        "queued",
+        "running",
+        "succeeded",
+        "failed",
+        "cancelled"
+      ],
+      "title": "JobState",
+      "type": "string"
+    },
+    "VideoAsset": {
+      "additionalProperties": false,
+      "description": "A single uploaded workout video and the facts we record about it.\n\nThe bytes themselves live in object storage under ``storage_key``; this\nmodel carries only verifiable metadata (hash, dimensions, duration) so the\npipeline can reason about the asset without touching the media.",
+      "properties": {
+        "bytes": {
+          "title": "Bytes",
+          "type": "integer"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "duration_s": {
+          "title": "Duration S",
+          "type": "number"
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expires At"
+        },
+        "height": {
+          "title": "Height",
+          "type": "integer"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "mime": {
+          "title": "Mime",
+          "type": "string"
+        },
+        "owner_session_id": {
+          "title": "Owner Session Id",
+          "type": "string"
+        },
+        "rotation": {
+          "title": "Rotation",
+          "type": "integer"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        },
+        "storage_key": {
+          "title": "Storage Key",
+          "type": "string"
+        },
+        "timestamp_map_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timestamp Map Key"
+        },
+        "width": {
+          "title": "Width",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "owner_session_id",
+        "storage_key",
+        "sha256",
+        "mime",
+        "bytes",
+        "duration_s",
+        "width",
+        "height",
+        "rotation",
+        "created_at"
+      ],
+      "title": "VideoAsset",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Validated input bundle for a pose-only job.",
+  "properties": {
+    "exercise_id": {
+      "title": "Exercise Id",
+      "type": "string"
+    },
+    "job": {
+      "$ref": "#/$defs/AnalysisJob"
+    },
+    "variant": {
+      "title": "Variant",
+      "type": "string"
+    },
+    "video": {
+      "$ref": "#/$defs/VideoAsset"
+    }
+  },
+  "required": [
+    "job",
+    "video",
+    "exercise_id",
+    "variant"
+  ],
+  "title": "PoseJobInput",
+  "type": "object"
+}

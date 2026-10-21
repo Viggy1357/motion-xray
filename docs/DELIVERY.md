@@ -89,6 +89,13 @@ the worker entrypoint, lifecycle routes and physical retention remain pending.
 
 ## Working rules and agent roles
 
+**T08.1b.2 accepted (21 October):** The internal supervisor-to-real-child flow now
+publishes validated pose-only artifacts on an owned lat excerpt and the full squat
+clip.403 Python tests, lint and types pass; six coding calls45,721 tokens (conservative
+USD0.143597), no runtime LLM/Tavily. See `audit/T08.1b.2-real-pose-child.md`.
+Next T08.1b.3 worker daemon/shutdown, T08.1c owner-scoped lifecycle/artifact routes
+and T08.1d retention. Public/browser workflow and movement measurements remain open.
+
 - **Codex lead:** owns the active task, shared checkout, integration, contract/config
   review, checks and commits. Per the 20 October instruction, delegate substantive
   coding drafts through authorized Nebius calls to conserve Codex credits. Use no more

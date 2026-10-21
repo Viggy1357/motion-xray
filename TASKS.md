@@ -234,7 +234,28 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   multivariate phase paths, tested band/endpoints, explicit cost normalization, unwarped
   tempo and pinned backend. Report index maps and breakdowns; maintain null/approval gates.
 ## T08 — Jobs & cloud  ·  status: todo  ·  date: 21–22 Oct  ·  FR03, FR12
-### T08.1 — Local durable queue/lifecycle · status: wip (parent delivered; child pending) · FR03, FR12
+### T08.1 — Local durable queue/lifecycle · status: wip (internal pose jobs work; service/API pending) · FR03, FR12
+- **Claim T08.1b.2 (21 Oct) · done · FR03, FR04, FR10, FR12:** Connect the accepted
+  supervisor to real proxy/MediaPipe child processing through typed private request/
+  artifact manifests. Validate actual artifact hashes, ownership and pose-only honesty
+  before publication. Nebius drafts bounded components in parallel after contracts
+  are fixed; one integrator. Verify a lat excerpt and eligible full clip in Docker.
+  Ceiling200k cumulative tokens; no runtime LLM/Tavily or protected backup use.
+- **Accepted:** private PoseJobInput/PoseJobArtifacts contracts + JSON schemas;
+  `services/pose/child.py`, `services/api/app/pose_jobs.py`, artifact/CLI tests. Original
+  video inference covers full duration; proxy/pose/request hashes, identity binding,
+  actual timestamps and expected sample set validated before fenced publication.
+- **Real proof:** lat excerpt10.01s:600 source/proxy frames,300 pose samples; full squat
+  14.248333s:427 source/proxy frames,425 pose samples. Both real queued jobs published
+  pose-only manifests, null scores, no rep/metric/reference/coaching claims.
+- **Checks:** `./scripts/test.sh python` exit0:403 tests, Ruff clean, mypy49 files clean;
+  pre-existing AnyIO warning only. No web/public route change; provider smokes offline.
+- **Usage:** six Nebius calls45,721 reported tokens, conservative USD0.143597; up to
+  three independent calls overlapped, one writer. Scope ceiling200k. See
+  `docs/audit/T08.1b.2-real-pose-child.md` and its linked results/ledger.
+- **Next T08.1b.3/T08.1c/T08.1d:** worker loop/shutdown, authenticated lifecycle/artifact
+  access and physical retention. Current worker entrypoint remains inactive and job
+  routes placeholders. Internal completion is pose-only; browser analysis remains open.
 - **Resume (21 Oct, user-authorized): T08.1b.1 · done · FR03, FR12.** Raise this
   task's cumulative ceiling to200k, retaining the prior79,431 tokens. Prove only a
   real-Store success/timeout fixture first. In parallel, Nebius reviews the small

@@ -1,0 +1,71 @@
+{
+  "as_of": "2026-10-21",
+  "method": "real Store + supervisor + subprocess + FFmpeg + MediaPipe + parent artifact validation",
+  "lat_excerpt_origin": {
+    "source": "lat_pulldown.mp4",
+    "requested_offset_s": 10,
+    "requested_duration_s": 10,
+    "observed_duration_s": 10.01,
+    "reencoded_private_excerpt": true
+  },
+  "clips": [
+    {
+      "clip": "lat_excerpt",
+      "source_sha256": "80365e9b6d1059111cea0c072fd86ca95d71b43de66ac101c87b9a5d3e1e7000",
+      "duration_s": 10.01,
+      "source_frame_count": 600,
+      "pose_frame_count": 300,
+      "first_pose_s": 0.0,
+      "last_pose_s": 9.976633,
+      "observed_joint_count": 3821,
+      "proxy_frame_count": 600,
+      "state": "succeeded",
+      "score": null,
+      "warnings": [
+        "POSE_ONLY",
+        "MEASUREMENTS_UNAVAILABLE",
+        "REFERENCE_UNAVAILABLE",
+        "COACHING_UNAVAILABLE",
+        "ESTIMATED_3D",
+        "IDENTITY_UNVERIFIED"
+      ],
+      "pose_artifact_sha256": "89463817179a96071efe794b2aa371577ab09c0bdfe5bf49946af8da46462f40",
+      "elapsed_s": 10.296,
+      "rep_records": 0,
+      "segmentation_run": false,
+      "scope": "pose_only"
+    },
+    {
+      "clip": "squat_full",
+      "source_sha256": "9dc83cd2cc0da13748486dbd91856949377a2ef98f1f51a121b17dcfcd2bde5b",
+      "duration_s": 14.248333,
+      "source_frame_count": 427,
+      "pose_frame_count": 425,
+      "first_pose_s": 0.0,
+      "last_pose_s": 14.201667,
+      "observed_joint_count": 5929,
+      "proxy_frame_count": 427,
+      "state": "succeeded",
+      "score": null,
+      "warnings": [
+        "POSE_ONLY",
+        "MEASUREMENTS_UNAVAILABLE",
+        "REFERENCE_UNAVAILABLE",
+        "COACHING_UNAVAILABLE",
+        "ESTIMATED_3D",
+        "IDENTITY_UNVERIFIED"
+      ],
+      "pose_artifact_sha256": "94620324fd619c258163298c5ee09fb59a09fd2ea732929671ac0a45425d8536",
+      "elapsed_s": 32.252,
+      "rep_records": 0,
+      "segmentation_run": false,
+      "scope": "pose_only"
+    }
+  ],
+  "limitations": [
+    "Rep records are empty because segmentation was not run, not a measured zero reps.",
+    "Proxy frame count can exceed pose samples; source timestamps and expected30Hz sample indices were validated.",
+    "Identity is unverified; XYZ is estimated and physical scale uncalibrated.",
+    "Original media was mounted read-only; no browser workflow was exercised."
+  ]
+}

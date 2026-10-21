@@ -1,0 +1,641 @@
+{
+  "$defs": {
+    "AnalysisResult": {
+      "additionalProperties": false,
+      "description": "The complete rep-by-rep report for one analyzed video.",
+      "properties": {
+        "analysis_id": {
+          "title": "Analysis Id",
+          "type": "string"
+        },
+        "best_rep_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Best Rep Id"
+        },
+        "coaching": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CoachingResult"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "exercise": {
+          "title": "Exercise",
+          "type": "string"
+        },
+        "metrics": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Metric"
+          },
+          "title": "Metrics",
+          "type": "array"
+        },
+        "provenance": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "title": "Provenance",
+          "type": "object"
+        },
+        "reps": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Rep"
+          },
+          "title": "Reps",
+          "type": "array"
+        },
+        "schema_version": {
+          "const": "0.2.0",
+          "default": "0.2.0",
+          "enum": [
+            "0.2.0"
+          ],
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 100,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score"
+        },
+        "source_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Ids",
+          "type": "array"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Variant"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "worst_rep_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Worst Rep Id"
+        }
+      },
+      "required": [
+        "analysis_id",
+        "exercise"
+      ],
+      "title": "AnalysisResult",
+      "type": "object"
+    },
+    "CoachingResult": {
+      "additionalProperties": false,
+      "description": "LLM-generated coaching text, kept separate from deterministic metrics.\n\nWhen ``status`` is ``unavailable`` the narrative fields are empty rather\nthan invented, honoring the never-fabricate rule.",
+      "properties": {
+        "limitations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        },
+        "next_set_cue": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Next Set Cue"
+        },
+        "observations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Observations",
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/CoachingStatus"
+        },
+        "summary": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Summary"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "CoachingResult",
+      "type": "object"
+    },
+    "CoachingStatus": {
+      "description": "Whether coaching output is available for a result.",
+      "enum": [
+        "ok",
+        "unavailable"
+      ],
+      "title": "CoachingStatus",
+      "type": "string"
+    },
+    "CompletionStatus": {
+      "description": "Whether a detected repetition was carried to completion.",
+      "enum": [
+        "completed",
+        "partial",
+        "uncertain"
+      ],
+      "title": "CompletionStatus",
+      "type": "string"
+    },
+    "Metric": {
+      "additionalProperties": false,
+      "description": "One measured quantity for a rep.\n\n``value`` is ``None`` when it could not be measured; ``reason`` then states\nwhy in machine-readable form. ``reference_interval`` is the acceptable\n``(lower, upper)`` band used by scoring.",
+      "properties": {
+        "coverage": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Coverage"
+        },
+        "deviation": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Deviation"
+        },
+        "dimensionality": {
+          "title": "Dimensionality",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "quality_method": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Quality Method"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "reference_interval": {
+          "anyOf": [
+            {
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reference Interval"
+        },
+        "rep_id": {
+          "title": "Rep Id",
+          "type": "string"
+        },
+        "side": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Side"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "id",
+        "rep_id",
+        "unit",
+        "dimensionality",
+        "status"
+      ],
+      "title": "Metric",
+      "type": "object"
+    },
+    "PoseSequence": {
+      "additionalProperties": false,
+      "description": "Header/manifest for a pose capture over a whole video.\n\nThe per-frame data is large and is stored out of band under\n``frames_artifact_key``; this model is the versioned descriptor that makes\nthe artifact interpretable and reproducible.",
+      "properties": {
+        "capabilities": {
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "title": "Capabilities",
+          "type": "object"
+        },
+        "coordinate_system": {
+          "title": "Coordinate System",
+          "type": "string"
+        },
+        "frames_artifact_key": {
+          "title": "Frames Artifact Key",
+          "type": "string"
+        },
+        "joint_mapping_version": {
+          "title": "Joint Mapping Version",
+          "type": "string"
+        },
+        "model_revision": {
+          "title": "Model Revision",
+          "type": "string"
+        },
+        "native_skeleton": {
+          "title": "Native Skeleton",
+          "type": "string"
+        },
+        "provider": {
+          "title": "Provider",
+          "type": "string"
+        },
+        "quality_method": {
+          "title": "Quality Method",
+          "type": "string"
+        },
+        "sample_rate_hz": {
+          "gt": 0,
+          "title": "Sample Rate Hz",
+          "type": "number"
+        },
+        "schema_version": {
+          "const": "0.2.0",
+          "default": "0.2.0",
+          "enum": [
+            "0.2.0"
+          ],
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "units": {
+          "title": "Units",
+          "type": "string"
+        },
+        "video_id": {
+          "title": "Video Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "video_id",
+        "provider",
+        "model_revision",
+        "native_skeleton",
+        "joint_mapping_version",
+        "sample_rate_hz",
+        "units",
+        "coordinate_system",
+        "capabilities",
+        "quality_method",
+        "frames_artifact_key"
+      ],
+      "title": "PoseSequence",
+      "type": "object"
+    },
+    "ProxyTimestampMap": {
+      "additionalProperties": false,
+      "description": "Complete mapping from source PTS to proxy PTS for a transcoded video.",
+      "properties": {
+        "frames": {
+          "items": {
+            "$ref": "#/$defs/TimestampPair"
+          },
+          "title": "Frames",
+          "type": "array"
+        },
+        "padding_bottom": {
+          "title": "Padding Bottom",
+          "type": "integer"
+        },
+        "padding_right": {
+          "title": "Padding Right",
+          "type": "integer"
+        },
+        "proxy_height": {
+          "title": "Proxy Height",
+          "type": "integer"
+        },
+        "proxy_sha256": {
+          "title": "Proxy Sha256",
+          "type": "string"
+        },
+        "proxy_width": {
+          "title": "Proxy Width",
+          "type": "integer"
+        },
+        "schema_version": {
+          "const": "0.2.0",
+          "default": "0.2.0",
+          "enum": [
+            "0.2.0"
+          ],
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_height": {
+          "title": "Source Height",
+          "type": "integer"
+        },
+        "source_rotation": {
+          "title": "Source Rotation",
+          "type": "integer"
+        },
+        "source_sha256": {
+          "title": "Source Sha256",
+          "type": "string"
+        },
+        "source_width": {
+          "title": "Source Width",
+          "type": "integer"
+        },
+        "transform_version": {
+          "const": "ffmpeg-proxy-v1",
+          "default": "ffmpeg-proxy-v1",
+          "enum": [
+            "ffmpeg-proxy-v1"
+          ],
+          "title": "Transform Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_sha256",
+        "proxy_sha256",
+        "source_width",
+        "source_height",
+        "source_rotation",
+        "proxy_width",
+        "proxy_height",
+        "padding_right",
+        "padding_bottom",
+        "frames"
+      ],
+      "title": "ProxyTimestampMap",
+      "type": "object"
+    },
+    "Rep": {
+      "additionalProperties": false,
+      "description": "A single detected repetition with its phase boundaries (seconds).",
+      "properties": {
+        "completion_status": {
+          "$ref": "#/$defs/CompletionStatus"
+        },
+        "end_s": {
+          "title": "End S",
+          "type": "number"
+        },
+        "excluded_reasons": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Excluded Reasons",
+          "type": "array"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "ordinal": {
+          "minimum": 1,
+          "title": "Ordinal",
+          "type": "integer"
+        },
+        "scorable": {
+          "title": "Scorable",
+          "type": "boolean"
+        },
+        "side": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Side"
+        },
+        "start_s": {
+          "title": "Start S",
+          "type": "number"
+        },
+        "turnaround_end_s": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Turnaround End S"
+        },
+        "turnaround_start_s": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Turnaround Start S"
+        }
+      },
+      "required": [
+        "id",
+        "ordinal",
+        "start_s",
+        "end_s",
+        "completion_status",
+        "scorable"
+      ],
+      "title": "Rep",
+      "type": "object"
+    },
+    "TimestampPair": {
+      "additionalProperties": false,
+      "description": "A single frame's source-to-proxy timestamp mapping.",
+      "properties": {
+        "proxy_s": {
+          "title": "Proxy S",
+          "type": "number"
+        },
+        "source_index": {
+          "title": "Source Index",
+          "type": "integer"
+        },
+        "source_s": {
+          "title": "Source S",
+          "type": "number"
+        }
+      },
+      "required": [
+        "source_index",
+        "source_s",
+        "proxy_s"
+      ],
+      "title": "TimestampPair",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Artifacts produced by a pose-only job.\n\n``pose`` and ``proxy`` are the actual typed headers; ``report`` is a\npose-only partial report whose deterministic fields are empty and whose coaching\nstatus is explicitly unavailable.",
+  "properties": {
+    "format_version": {
+      "const": "pose-job-v1",
+      "default": "pose-job-v1",
+      "enum": [
+        "pose-job-v1"
+      ],
+      "title": "Format Version",
+      "type": "string"
+    },
+    "pose": {
+      "$ref": "#/$defs/PoseSequence"
+    },
+    "proxy": {
+      "$ref": "#/$defs/ProxyTimestampMap"
+    },
+    "report": {
+      "$ref": "#/$defs/AnalysisResult"
+    },
+    "request_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Request Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_sha256",
+    "pose",
+    "proxy",
+    "report"
+  ],
+  "title": "PoseJobArtifacts",
+  "type": "object"
+}

@@ -42,12 +42,13 @@ T04 canonical mapping, immutable artifact read/write and the local MediaPipe ada
 are implemented and exercised on owned clips (20 October). T08.1a SQLite metadata/leases
 and T03a signed-session private HTTP uploads are implemented (21 October). Original
 files remain private under VIDEO_ROOT. Standalone proxy/actual PTS mapping is implemented
-and verified on owned footage; worker invocation/publication and physical cleanup remain
-pending. T08.1b.1 parent subprocess supervision is verified with the real Store and
-controlled subprocesses (20 new tests); the real video child and worker entrypoint
-are not connected yet. Unreviewed drafts are not active.
+and verified on owned footage. T08.1b.1 supervision and T08.1b.2 real child publication
+now work through the Store on owned lat/squat inputs. Private typed manifests bind
+actual proxy/pose bytes and source timestamps before fenced publication; reports are
+explicitly pose-only, with no metrics or score. The worker daemon, HTTP job/artifact
+consumers and physical cleanup remain pending. Unreviewed drafts are not active.
 The API uses pinned FFmpeg tooling for bounded metadata validation, without ML imports.
-Worker job integration, numerical
+Daemon/lifecycle integration, numerical
 processing and comparison/scoring below remain pending. See the T04 feasibility report.
 
 | Boundary | Owner / planned integration |

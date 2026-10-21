@@ -28,9 +28,11 @@ Current 21 October checkpoint: T04's three local components, T08.1a durable stor
 T03a signed-session/private HTTP upload and standalone T03b proxy are delivered.
 T08.1b.1 parent supervision is now delivered:20 real-Store/subprocess cases and389
 Python checks pass, lint/types clean. Read `docs/audit/T08.1b.1-resumed-supervisor.md`.
-Next T08.1b.2 connects the real proxy/pose child and typed artifact validation; then
-worker entrypoint, lifecycle access and physical cleanup, before T05. The worker is
-still inactive. Earlier failed drafts are historical evidence, not implementation
+T08.1b.2 is now delivered: real lat/squat jobs pass supervisor -> child -> validated
+pose-only publication;403 Python checks pass, lint/types clean. Read
+`docs/audit/T08.1b.2-real-pose-child.md`. Next T08.1b.3 worker loop/shutdown,
+T08.1c lifecycle/artifact access and T08.1d physical cleanup, before T05. The worker
+daemon is still inactive. Earlier failed drafts are historical evidence, not implementation
 baselines. Keep the proven fixture and small groups of tests; do not regenerate the
 whole suite. Same-task usage120,986/200k retains the earlier79,431 failed-run tokens.
 See the latest

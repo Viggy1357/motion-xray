@@ -25,12 +25,17 @@ Per `infra/compose.yaml`, the `worker` service mounts `../services`, `../package
 `models` volume (downloaded pose checkpoints). It reads config from `.env` and
 `DATABASE_URL` / `ARTIFACT_ROOT` env vars — no secrets are baked into the image.
 
-The entry point is `worker.py`, which runs a job loop: it claims a queued
-`AnalysisJob`, runs perception followed by deterministic measurements, honours the
-job's lease and cancel flag, and writes a result. In this scaffold `worker.py`
-only logs `pose worker started`; the pipeline stages are pseudocode comments to
-be implemented by their owning tasks (T05 metrics, T07 scoring, T08
-jobs, T09 coaching).
+The entry point `worker.py` is still startup-only; its daemon loop and shutdown
+integration are T08.1b.3 work. The internal `app.pose_jobs.run_pose_once` bridge now
+uses the real Store and supervisor to launch `child.py`, run proxy/original-video
+MediaPipe processing and publish validated pose-only artifacts. It needs
+`services/api` alongside the first-party packages on `PYTHONPATH` inside the worker
+container. No ML runtime is installed in the API image.
+
+The internal flow passed on an owned lat excerpt and the full squat clip. Reports
+explicitly lack segmentation, measurements, scoring and coaching; HTTP lifecycle/
+artifact routes, the app viewer and physical retention are not connected yet. See
+`docs/audit/T08.1b.2-real-pose-child.md` for exact checks, limits and the next tasks.
 
 The T04 provider is implemented separately and can be exercised locally with
 `./scripts/pose-smoke.sh --video demo/lat_pulldown.mp4 --start-s 10 --duration-s 10 --repeat`

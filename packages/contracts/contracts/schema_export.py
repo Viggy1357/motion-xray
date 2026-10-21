@@ -19,6 +19,7 @@ from .analysis import AnalysisResult, CoachingResult, Metric, Rep
 from .jobs import AnalysisJob
 from .media import VideoAsset
 from .pose import JointObservation, PoseFrame, PoseSequence
+from .pose_job import PoseJobArtifacts, PoseJobInput
 from .proxy import ProxyTimestampMap, TimestampPair
 from .reference import ReferenceProfile, SourceRecord
 from .scoring import ScoreBreakdown
@@ -41,6 +42,8 @@ _MODELS: tuple[Type[BaseModel], ...] = (
     SessionInfo,
     TimestampPair,
     ProxyTimestampMap,
+    PoseJobInput,
+    PoseJobArtifacts,
 )
 
 

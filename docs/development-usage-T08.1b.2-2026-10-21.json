@@ -1,0 +1,187 @@
+{
+  "as_of": "2026-10-21",
+  "task": "T08.1b.2-child",
+  "status": "accepted_internal_pose_only_bridge",
+  "basis": "USD2/M input + USD5/M completion conservative guard rates; not verified invoice pricing/balance.",
+  "requests": [
+    {
+      "task": "T08.1b.2-child",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "child-contracts",
+      "request_id": "chatcmpl-85056ec9df05abc728cf4d9f536ac0f1",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.054672,
+      "usage": {
+        "completion_tokens": 762,
+        "prompt_tokens": 2922,
+        "total_tokens": 3684,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2922
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 60.32,
+      "conservative_cost_usd": 0.009654
+    },
+    {
+      "task": "T08.1b.2-child",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "child-pipeline",
+      "request_id": "chatcmpl-b95709cfe076c9227c7063d79611d508",
+      "status": "failed",
+      "maximum_cost_usd": 0.11626800000000001,
+      "usage": {
+        "completion_tokens": 4164,
+        "prompt_tokens": 5116,
+        "total_tokens": 9280,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 5084
+      },
+      "finish_reason": "stop",
+      "error_type": "AssertionError",
+      "elapsed_s": 102.33,
+      "conservative_cost_usd": 0.031052000000000003
+    },
+    {
+      "task": "T08.1b.2-child",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "child-bridge",
+      "request_id": "chatcmpl-6fd9bed71bb36d0430660c511c3f5091",
+      "status": "failed",
+      "maximum_cost_usd": 0.126212,
+      "usage": {
+        "completion_tokens": 5611,
+        "prompt_tokens": 6281,
+        "total_tokens": 11892,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 6249
+      },
+      "finish_reason": "stop",
+      "error_type": "AssertionError",
+      "elapsed_s": 106.7,
+      "conservative_cost_usd": 0.040617
+    },
+    {
+      "task": "T08.1b.2-child",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "child-source-repair",
+      "request_id": "chatcmpl-59777df85a254e11d2e62e54e3d94c63",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.07157,
+      "usage": {
+        "completion_tokens": 1439,
+        "prompt_tokens": 2409,
+        "total_tokens": 3848,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 2377
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 14.46,
+      "conservative_cost_usd": 0.012013
+    },
+    {
+      "task": "T08.1b.2-child",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "bridge-source-repair",
+      "request_id": "chatcmpl-6cce9e0a9d2e38e0bded111a8b6d592b",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.135512,
+      "usage": {
+        "completion_tokens": 3379,
+        "prompt_tokens": 7241,
+        "total_tokens": 10620,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 7209
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 25.37,
+      "conservative_cost_usd": 0.031377
+    },
+    {
+      "task": "T08.1b.2-child",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "child-fixture-tests",
+      "request_id": "chatcmpl-1dfde49fd7661b3691968d5ca3ff66d9",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.087664,
+      "usage": {
+        "completion_tokens": 2030,
+        "prompt_tokens": 4367,
+        "total_tokens": 6397,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 4367
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 84.06,
+      "conservative_cost_usd": 0.018883999999999998
+    }
+  ],
+  "prior_commitment_including_history_contingency_usd": 3.82194165,
+  "cumulative_commitment_including_history_contingency_usd": 3.96553865,
+  "unreconciled_historical_calls": 4,
+  "codex_savings_measured": false,
+  "summary": {
+    "generations": 6,
+    "reported_tokens": 45721,
+    "task_allowance_tokens": 200000,
+    "conservative_cost_usd": 0.143597,
+    "peak_concurrent_requests": 3,
+    "parallel_nebius_used": true,
+    "sdk_automatic_retries": 0,
+    "backup_activated": false,
+    "tavily_calls": 0,
+    "runtime_coaching_calls": 0
+  },
+  "review_outcomes": {
+    "child-contracts": "Accepted with corrected PoseSequence import; additive private schemas exported.",
+    "child-pipeline": "Rejected initial path validation and invented fixture fields; raw strict-format failure retained.",
+    "child-bridge": "Rejected double claiming/static Store APIs, custom reader and incomplete hash binding; raw strict-format failure retained.",
+    "child-source-repair": "Accepted with lexical leaf/source-root symlink correction.",
+    "bridge-source-repair": "Accepted after replacing duplicate JSONL parser with existing reader, binding actual request bytes/embedded map, size guard and expected sample-set check.",
+    "child-fixture-tests": "Accepted with verified Store helper and actual validator-call/import/zero-score corrections."
+  },
+  "checks": {
+    "focused": "exit0: Ruff, mypy49 files,26 focused tests",
+    "full_python": "./scripts/test.sh python exit0:403 tests, Ruff clean, mypy49 files clean; one pre-existing AnyIO warning",
+    "real_media": "Supervisor -> real child -> FFmpeg + MediaPipe -> validated publication passed on owned lat excerpt and full squat; no paid runtime calls"
+  },
+  "limitations": [
+    "Conservative guard rates are not verified invoice prices or account balance.",
+    "Earlier task usage and historical contingency remain in aggregate commitment.",
+    "Private media/credentials were never model context; raw responses and footage remain ignored.",
+    "No daemon worker loop, HTTP job/result routes, physical retention, reps, metrics, scoring or coaching enabled."
+  ]
+}
