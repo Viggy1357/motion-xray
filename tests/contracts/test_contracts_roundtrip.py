@@ -262,6 +262,8 @@ def test_export_json_schema_has_entry_per_model() -> None:
         "ScoreBreakdown",
         "AnalysisJob",
         "SessionInfo",
+        "TimestampPair",
+        "ProxyTimestampMap",
     }
     assert set(schemas) == expected
     for schema in schemas.values():

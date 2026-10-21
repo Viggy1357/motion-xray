@@ -64,6 +64,13 @@ the real pose worker and authorized artifacts/cleanup. Original media is not ser
 The user permits independent Nebius tasks in parallel, within existing caps, with one
 integrating writer. Preserve existing store and ingestion code rather than redrafting.
 
+**Later21 October checkpoint:** Standalone T03b proxy/timestamp mapping is accepted:
+real Squat.MOV gives427 frames with actual source/proxy PTS;369 Python tests pass.
+T08.1b delegated worker is blocked after99,574/100k task tokens without an accepted
+implementation. HTTP/retention drafts remain private and unintegrated. Stop repeating
+this generation route and revise the worker approach; no large Codex fallback is implied.
+See `audit/T03b-proxy-checkpoint.md` for evidence and a smaller next acceptance packet.
+
 ## Working rules and agent roles
 
 - **Codex lead:** owns the active task, shared checkout, integration, contract/config

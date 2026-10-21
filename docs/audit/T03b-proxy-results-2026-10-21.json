@@ -1,0 +1,19 @@
+{
+  "frames": 427,
+  "proxy_width": 1080,
+  "proxy_height": 1920,
+  "source_first": 0.0,
+  "proxy_first": 0.0,
+  "source_last": 14.201667,
+  "proxy_last": 14.201667,
+  "date": "2026-10-21",
+  "source": "Squat.MOV",
+  "audio_streams": 0,
+  "video_streams": 1,
+  "proxy_bytes": 6235104,
+  "max_pts_error_s": 0.0,
+  "source_sha256": "9dc83cd2cc0da13748486dbd91856949377a2ef98f1f51a121b17dcfcd2bde5b",
+  "pipeline_integration": "pending",
+  "network": "disabled",
+  "proxy_sha256": "2db862f72e641728b1195c3154ac375690bfcd2c7946c497c8d6fe1d312fe66d"
+}

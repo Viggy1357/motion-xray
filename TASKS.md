@@ -141,6 +141,16 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   tests. Browser capture/upload UI remains T11.1. Current session expires after24h;
   anonymous identity recovery/renewal needs review before release. No raw media serving,
   scoring, coaching or end-to-end analysis claim. Missing SESSION_SECRET fails503.
+- **T03b standalone component done (21 Oct):** `providers/pose/proxy.py` creates a
+  private audio-free H264 proxy and typed `contracts/proxy.py` actual timestamp map.
+  Source bytes/hash/metadata, rotation, even-dimension padding, frame preservation and
+  timestamp drift are checked; owned partial outputs are cleaned on failure.
+  Generated JSON schemas and 28 focused cases are included. `./scripts/test.sh python`
+  exits0:369 tests, Ruff and mypy45 files clean. Existing AnyIO warning only.
+- **Real proxy evidence:** Owned Squat.MOV ->427 frames,1080x1920 proxy, one video stream,
+  no audio/subtitle/data; source/proxy PTS verified. `docs/audit/T03b-proxy-checkpoint.md`.
+  This helper is not invoked automatically by uploads; VideoAsset timestamp_map_key
+  remains null until worker publication is implemented.
 ## T04 — Pose adapter  ·  status: done (local adapter)  ·  20 Oct  ·  FR04, FR12
 - Local canonical extraction/artifacts/diagnostic delivered by batch C; the historical
   failed batches below are superseded. Service job integration remains T03/T08.1;
@@ -224,7 +234,23 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   multivariate phase paths, tested band/endpoints, explicit cost normalization, unwarped
   tempo and pinned backend. Report index maps and breakdowns; maintain null/approval gates.
 ## T08 — Jobs & cloud  ·  status: todo  ·  date: 21–22 Oct  ·  FR03, FR12
-### T08.1 — Local durable queue/lifecycle · status: wip · FR03, FR12
+### T08.1 — Local durable queue/lifecycle · status: blocked (delegated worker) · FR03, FR12
+- **Claim (21 Oct):** T03b/T08.1b queued pose-only vertical slice: private proxy/PTS
+  map, fenced subprocess worker, authenticated lifecycle/artifact routes and retention.
+  Up to four bounded Nebius work tasks; independent drafts may overlap, one integrator.
+  Success at this checkpoint must explicitly identify missing measurements/scoring.
+- **Batch outcome (21 Oct):** Only the standalone proxy component passed acceptance.
+  T08.1b worker drafts failed review/checks; four requests used99,574/100,000 task tokens.
+  Final reasoning-enabled request consumed32,768 completion tokens with no final source.
+  Stop this retry route; do not silently replace it with a large Codex implementation.
+  T08.1c HTTP and T08.1d janitor drafts are private and NOT accepted/enabled.
+- **Failure evidence:** Wrong checkpoint-vs-frame hashes, unsafe attempt ownership/
+  cleanup, process reaping defects, invented Store APIs/fixture fields, unsafe artifact
+  resolution and invalid database state strings. Prior working service files preserved.
+- **Resource record:** Four bounded work tasks,10 generations,193,333 reported tokens,
+  conservative USD0.734405 including failures; no Tavily/runtime coaching/backup use.
+  See `docs/development-usage-T03b-2026-10-21.json`. Remaining active resource allocation
+  is not verified account credit. Next worker approach must change before more requests.
 - **Claim (20 Oct, next run):** T08.1a durable owner-scoped SQLite asset/job repository.
   Nebius drafts implementation/tests; Codex runs offline checks and integrates.
   No HTTP upload/worker completion is implied by this internal foundation.
@@ -382,9 +408,12 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   application/schema/runtime change in this update; previous forecasts remain estimates.
 
 ## Immediate next action
-T02.1, local T04, T08.1a store and T03a private HTTP ingestion are complete. Claim
-**T03b/T08.1b**: audio-free proxy/original PTS map and one durable job invoking the
-actual provider, with authenticated lifecycle/artifact access and physical cleanup.
+T02.1, local T04, T08.1a store, T03a private HTTP ingestion and the standalone T03b proxy
+are complete. **T08.1b is blocked on a rejected delegated implementation**; revise the
+worker approach before another paid generation. Reuse the accepted proxy/store/pose
+components. The exact next acceptance packet is `docs/audit/T03b-proxy-checkpoint.md`.
+Then complete one durable job invoking the actual provider, private lifecycle/artifact
+access and physical cleanup. No worker/HTTP/retention draft from this batch is accepted.
 Then T05 visible-side measurements, calibration and full-cycle segmentation. Do not
 restart scaffold/source-screening or the failed generic-tooling loop. T21.1 remains
 unfinished; use bounded requests, explicit reservations and the actual usage

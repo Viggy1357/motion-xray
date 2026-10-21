@@ -1,0 +1,25 @@
+{
+  "additionalProperties": false,
+  "description": "A single frame's source-to-proxy timestamp mapping.",
+  "properties": {
+    "proxy_s": {
+      "title": "Proxy S",
+      "type": "number"
+    },
+    "source_index": {
+      "title": "Source Index",
+      "type": "integer"
+    },
+    "source_s": {
+      "title": "Source S",
+      "type": "number"
+    }
+  },
+  "required": [
+    "source_index",
+    "source_s",
+    "proxy_s"
+  ],
+  "title": "TimestampPair",
+  "type": "object"
+}

@@ -25,8 +25,12 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 ## Resume one task
 
 Current 21 October checkpoint: T04's three local components, T08.1a durable store and
-T03a signed-session/private HTTP upload are delivered. Next is T03b/T08.1b proxy,
-worker/lifecycle/artifact integration and cleanup, then T05. See the latest
+T03a signed-session/private HTTP upload and standalone T03b proxy are delivered.
+T08.1b worker is blocked after rejected drafts and99,574/100k task tokens; its last
+reasoning-enabled request returned no source. Do not repeat that route or silently
+fall back to a large Codex rewrite. Read `docs/audit/T03b-proxy-checkpoint.md` for the
+smaller next acceptance packet. Worker/lifecycle/cleanup integration still precedes T05.
+See the latest
 T04 report and `docs/development-usage-2026-10-20.json`; the 19 October audit remains
 historical. T21.1 generic helper drafts failed and are deferred; do not repeat that
 loop in place of product delivery. Keep direct workers bounded, retain timeout

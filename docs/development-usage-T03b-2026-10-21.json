@@ -1,0 +1,264 @@
+{
+  "as_of": "2026-10-21",
+  "basis": "USD2/M input + USD5/M completion conservative guard rates; not verified invoice pricing/balance.",
+  "batch": "T03b/T08.1b recovery",
+  "codex_savings_measured": false,
+  "cumulative_commitment_including_history_contingency_usd": 3.39174065,
+  "limitations": [
+    "Worker reasoning-enabled request exhausted32768 completion tokens without final content; full reported cost retained.",
+    "Other worker drafts failed syntax, process cleanup, artifact hash, ownership or fixture review; none applied.",
+    "No queued processing, lifecycle API or physical janitor was enabled.",
+    "Private drafts/media remain ignored; model context contained source only."
+  ],
+  "prior_commitment_including_history_contingency_usd": 2.65733565,
+  "requests": [
+    {
+      "conservative_cost_usd": 0.053352,
+      "elapsed_s": 30.14,
+      "error_type": "AssertionError",
+      "finish_reason": "stop",
+      "maximum_cost_usd": 0.184028,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "proxy-core",
+      "request_id": "chatcmpl-e23337a885f4a8b49ce08ea3000a28f3",
+      "status": "failed",
+      "task": "T03b-proxy",
+      "usage": {
+        "completion_tokens": 8366,
+        "completion_tokens_details": null,
+        "prompt_tokens": 5761,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 14127
+      }
+    },
+    {
+      "conservative_cost_usd": 0.068051,
+      "elapsed_s": 28.16,
+      "error_type": null,
+      "finish_reason": "stop",
+      "maximum_cost_usd": 0.20089,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "proxy-repair",
+      "request_id": "chatcmpl-a9f023985a2cb3bc5d69905fa6e6f797",
+      "status": "draft_pending_review",
+      "task": "T03b-proxy",
+      "usage": {
+        "completion_tokens": 10319,
+        "completion_tokens_details": null,
+        "prompt_tokens": 8228,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 18547
+      }
+    },
+    {
+      "conservative_cost_usd": 0.030281000000000002,
+      "elapsed_s": 14.11,
+      "error_type": null,
+      "finish_reason": "stop",
+      "maximum_cost_usd": 0.10351199999999999,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "proxy-tests",
+      "request_id": "chatcmpl-6b82b3700201bb1ec5a950295271e69f",
+      "status": "draft_pending_review",
+      "task": "T03b-proxy",
+      "usage": {
+        "completion_tokens": 4519,
+        "completion_tokens_details": null,
+        "prompt_tokens": 3843,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 8362
+      }
+    },
+    {
+      "conservative_cost_usd": 0.080647,
+      "elapsed_s": 43.25,
+      "error_type": "AssertionError",
+      "finish_reason": "stop",
+      "maximum_cost_usd": 0.213396,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "job-worker",
+      "request_id": "chatcmpl-348ccefc0b670a003c0b19e29efe21d9",
+      "status": "failed",
+      "task": "T08.1b-worker",
+      "usage": {
+        "completion_tokens": 12683,
+        "completion_tokens_details": null,
+        "prompt_tokens": 8616,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 21299
+      }
+    },
+    {
+      "conservative_cost_usd": 0.06522599999999999,
+      "elapsed_s": 32.62,
+      "error_type": "AssertionError",
+      "finish_reason": "stop",
+      "maximum_cost_usd": 0.195502,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "job-worker-repair",
+      "request_id": "chatcmpl-93c84370174c02e8b37cae620a59e801",
+      "status": "failed",
+      "task": "T08.1b-worker",
+      "usage": {
+        "completion_tokens": 10346,
+        "completion_tokens_details": null,
+        "prompt_tokens": 6748,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 17094
+      }
+    },
+    {
+      "conservative_cost_usd": 0.061840000000000006,
+      "elapsed_s": 31.15,
+      "error_type": null,
+      "finish_reason": "stop",
+      "maximum_cost_usd": 0.21436,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "job-worker-final",
+      "request_id": "chatcmpl-891b14e1562b8f1600a413522fc45ea1",
+      "status": "draft_pending_review",
+      "task": "T08.1b-worker",
+      "usage": {
+        "completion_tokens": 8884,
+        "completion_tokens_details": null,
+        "prompt_tokens": 8710,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 17594
+      }
+    },
+    {
+      "conservative_cost_usd": 0.185478,
+      "elapsed_s": 118.54,
+      "error_type": "JSONDecodeError",
+      "finish_reason": "length",
+      "maximum_cost_usd": 0.27639600000000003,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "job-worker-checked",
+      "request_id": "chatcmpl-06b426c9ab66f47a79534c568938f482",
+      "status": "failed",
+      "task": "T08.1b-worker",
+      "usage": {
+        "completion_tokens": 32768,
+        "completion_tokens_details": null,
+        "prompt_tokens": 10819,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 43587
+      }
+    },
+    {
+      "conservative_cost_usd": 0.069818,
+      "elapsed_s": 27.91,
+      "error_type": "AssertionError",
+      "finish_reason": "stop",
+      "maximum_cost_usd": 0.231948,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "job-api",
+      "request_id": "chatcmpl-ed772a7626c7e1778c30381dbf1539ba",
+      "status": "failed",
+      "task": "T08.1c-http",
+      "usage": {
+        "completion_tokens": 9656,
+        "completion_tokens_details": null,
+        "prompt_tokens": 10769,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 20425
+      }
+    },
+    {
+      "conservative_cost_usd": 0.048291,
+      "elapsed_s": 25.54,
+      "error_type": "AssertionError",
+      "finish_reason": "stop",
+      "maximum_cost_usd": 0.152352,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "job-retention",
+      "request_id": "chatcmpl-7d132ee47e153e4df1ee4bca46cfa471",
+      "status": "failed",
+      "task": "T08.1d-retention",
+      "usage": {
+        "completion_tokens": 7089,
+        "completion_tokens_details": null,
+        "prompt_tokens": 6423,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 13512
+      }
+    },
+    {
+      "conservative_cost_usd": 0.071421,
+      "elapsed_s": 35.31,
+      "error_type": "AssertionError",
+      "finish_reason": "stop",
+      "maximum_cost_usd": 0.15810000000000002,
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "job-retention-repair",
+      "request_id": "chatcmpl-3c790c14629650e7989bf84bb8362b66",
+      "status": "failed",
+      "task": "T08.1d-retention",
+      "usage": {
+        "completion_tokens": 11283,
+        "completion_tokens_details": null,
+        "prompt_tokens": 7503,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "total_tokens": 18786
+      }
+    }
+  ],
+  "summary": {
+    "accepted_components": [
+      "T03b standalone proxy and actual timestamp map"
+    ],
+    "backup_activated": false,
+    "blocked_components": [
+      "T08.1b delegated worker"
+    ],
+    "conservative_cost_usd": 0.734405,
+    "drafts_not_accepted": [
+      "T08.1c API",
+      "T08.1d retention"
+    ],
+    "generations": 10,
+    "max_authorized_concurrent_tasks": 3,
+    "parallel_nebius_used": true,
+    "reported_tokens": 193333,
+    "reported_tokens_by_task": {
+      "T03b-proxy": 41036,
+      "T08.1b-worker": 99574,
+      "T08.1c-http": 20425,
+      "T08.1d-retention": 32298
+    },
+    "runtime_coaching_calls": 0,
+    "task_allowance_tokens": 100000,
+    "tavily_calls": 0
+  },
+  "unreconciled_historical_calls": 4
+}

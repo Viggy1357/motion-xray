@@ -1,0 +1,108 @@
+{
+  "$defs": {
+    "TimestampPair": {
+      "additionalProperties": false,
+      "description": "A single frame's source-to-proxy timestamp mapping.",
+      "properties": {
+        "proxy_s": {
+          "title": "Proxy S",
+          "type": "number"
+        },
+        "source_index": {
+          "title": "Source Index",
+          "type": "integer"
+        },
+        "source_s": {
+          "title": "Source S",
+          "type": "number"
+        }
+      },
+      "required": [
+        "source_index",
+        "source_s",
+        "proxy_s"
+      ],
+      "title": "TimestampPair",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Complete mapping from source PTS to proxy PTS for a transcoded video.",
+  "properties": {
+    "frames": {
+      "items": {
+        "$ref": "#/$defs/TimestampPair"
+      },
+      "title": "Frames",
+      "type": "array"
+    },
+    "padding_bottom": {
+      "title": "Padding Bottom",
+      "type": "integer"
+    },
+    "padding_right": {
+      "title": "Padding Right",
+      "type": "integer"
+    },
+    "proxy_height": {
+      "title": "Proxy Height",
+      "type": "integer"
+    },
+    "proxy_sha256": {
+      "title": "Proxy Sha256",
+      "type": "string"
+    },
+    "proxy_width": {
+      "title": "Proxy Width",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "0.2.0",
+      "default": "0.2.0",
+      "enum": [
+        "0.2.0"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_height": {
+      "title": "Source Height",
+      "type": "integer"
+    },
+    "source_rotation": {
+      "title": "Source Rotation",
+      "type": "integer"
+    },
+    "source_sha256": {
+      "title": "Source Sha256",
+      "type": "string"
+    },
+    "source_width": {
+      "title": "Source Width",
+      "type": "integer"
+    },
+    "transform_version": {
+      "const": "ffmpeg-proxy-v1",
+      "default": "ffmpeg-proxy-v1",
+      "enum": [
+        "ffmpeg-proxy-v1"
+      ],
+      "title": "Transform Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_sha256",
+    "proxy_sha256",
+    "source_width",
+    "source_height",
+    "source_rotation",
+    "proxy_width",
+    "proxy_height",
+    "padding_right",
+    "padding_bottom",
+    "frames"
+  ],
+  "title": "ProxyTimestampMap",
+  "type": "object"
+}
