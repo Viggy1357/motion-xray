@@ -1,0 +1,159 @@
+{
+  "as_of": "2026-10-21",
+  "task": "T08.1b.1-parent",
+  "prior_same_task_ledger": "development-usage-T08.1b.1-2026-10-21.json",
+  "prior_same_task_tokens": 79431,
+  "cumulative_same_task_tokens": 120986,
+  "task_allowance_tokens_user_updated": 200000,
+  "basis": "USD2/M input + USD5/M completion conservative guard rates; not verified invoice pricing/balance.",
+  "prior_commitment_including_history_contingency_usd": 3.70121765,
+  "cumulative_commitment_including_history_contingency_usd": 3.82194165,
+  "unreconciled_historical_calls": 4,
+  "codex_savings_measured": false,
+  "requests": [
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "resume-minimal-tests",
+      "request_id": "chatcmpl-38dd8a779fe006503cbae8b09de36965",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.12429599999999999,
+      "usage": {
+        "completion_tokens": 1176,
+        "prompt_tokens": 7743,
+        "total_tokens": 8919,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 7743
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 8.77,
+      "conservative_cost_usd": 0.021366
+    },
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "resume-parent-review",
+      "request_id": "chatcmpl-3f1a8ccce8556c9734c23760b5dead95",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.120204,
+      "usage": {
+        "completion_tokens": 2876,
+        "prompt_tokens": 7209,
+        "total_tokens": 10085,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 7177
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 74.62,
+      "conservative_cost_usd": 0.028798
+    },
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "resume-races",
+      "request_id": "chatcmpl-6a34a16dc00b168519d66ff7e18870c8",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.082202,
+      "usage": {
+        "completion_tokens": 1635,
+        "prompt_tokens": 3643,
+        "total_tokens": 5278,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 3611
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 61.8,
+      "conservative_cost_usd": 0.015460999999999999
+    },
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "resume-artifacts",
+      "request_id": "chatcmpl-145483c8fe73cd339f73caba2e93cdb9",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.098436,
+      "usage": {
+        "completion_tokens": 2610,
+        "prompt_tokens": 5344,
+        "total_tokens": 7954,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 5312
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 98.95,
+      "conservative_cost_usd": 0.023738000000000002
+    },
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "resume-expanded-repair",
+      "request_id": "chatcmpl-69e8945a1716a2e1e12959f7e82a4d16",
+      "status": "failed",
+      "maximum_cost_usd": 0.113872,
+      "usage": {
+        "completion_tokens": 4241,
+        "prompt_tokens": 5078,
+        "total_tokens": 9319,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 5046
+      },
+      "finish_reason": "stop",
+      "error_type": "AssertionError",
+      "elapsed_s": 145.12,
+      "conservative_cost_usd": 0.031361
+    }
+  ],
+  "summary": {
+    "generations": 5,
+    "reported_tokens": 41555,
+    "conservative_cost_usd": 0.120724,
+    "backup_activated": false,
+    "runtime_coaching_calls": 0,
+    "tavily_calls": 0,
+    "parallel_nebius_used": true,
+    "peak_concurrent_requests": 2,
+    "sdk_automatic_retries": 0
+  },
+  "review_outcomes": {
+    "resume-minimal-tests": "Accepted with bounded enum/import corrections; added delayed success to verify lease renewal.",
+    "resume-parent-review": "Rejected unsafe ownership suggestions and incorrect Popen.wait claims; no recommendation applied.",
+    "resume-races": "Initial source rejected on fixture/field assertions; repaired in explicit same-task call.",
+    "resume-artifacts": "Initial isolated6pass3fail; wrong collision path, traversal side effect and grandchild fixture repaired.",
+    "resume-expanded-repair": "See current checkpoint for final container checks and acceptance."
+  },
+  "limitations": [
+    "Conservative guard prices and account commitment are not verified invoice rates or remaining balance.",
+    "Earlier failed task usage and unknown history are retained, not reset by the200k ceiling.",
+    "No model context contained private media or credentials.",
+    "Supervisor acceptance is not automatic video analysis, scoring or product-runtime model validation."
+  ]
+}

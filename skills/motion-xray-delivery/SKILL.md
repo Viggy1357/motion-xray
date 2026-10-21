@@ -17,7 +17,7 @@ for T04–T07/T13. Reuse methods selectively: Sports2D/Good-GYM patterns, condit
 tracking/pose alternatives, and a verified DTW kernel behind our wrapper. No reviewed
 candidate is installed or validated merely because it appears in that report.
 
-Use D011 and `docs/TOKEN-BUDGET.md` for development calls: 100k cumulative tokens per
+Use D011 and `docs/TOKEN-BUDGET.md` for development calls: 200k cumulative tokens per
 task is authorized, heavier allocations may be justified. Request output must cover
 reasoning plus final code within model limits; retain usage/finish reason on failure.
 Do not repeat the historical tiny caps. Runtime coaching has separate controls.
@@ -26,13 +26,13 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 Current 21 October checkpoint: T04's three local components, T08.1a durable store and
 T03a signed-session/private HTTP upload and standalone T03b proxy are delivered.
-T08.1b worker is blocked after rejected drafts and99,574/100k task tokens; its last
-reasoning-enabled request returned no source. Do not repeat that route or silently
-fall back to a large Codex rewrite. Read `docs/audit/T03b-proxy-checkpoint.md` for the
-smaller next acceptance packet. Worker/lifecycle/cleanup integration still precedes T05.
-T08.1b.1 parent-only recovery also failed acceptance (five calls79,431 tokens). Read
-`docs/audit/T08.1b.1-parent-supervisor.md` before resuming: no supervisor is installed.
-Start with a minimal verified real-Store fixture, not another whole-suite draft.
+T08.1b.1 parent supervision is now delivered:20 real-Store/subprocess cases and389
+Python checks pass, lint/types clean. Read `docs/audit/T08.1b.1-resumed-supervisor.md`.
+Next T08.1b.2 connects the real proxy/pose child and typed artifact validation; then
+worker entrypoint, lifecycle access and physical cleanup, before T05. The worker is
+still inactive. Earlier failed drafts are historical evidence, not implementation
+baselines. Keep the proven fixture and small groups of tests; do not regenerate the
+whole suite. Same-task usage120,986/200k retains the earlier79,431 failed-run tokens.
 See the latest
 T04 report and `docs/development-usage-2026-10-20.json`; the 19 October audit remains
 historical. T21.1 generic helper drafts failed and are deferred; do not repeat that

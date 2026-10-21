@@ -234,7 +234,26 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   multivariate phase paths, tested band/endpoints, explicit cost normalization, unwarped
   tempo and pinned backend. Report index maps and breakdowns; maintain null/approval gates.
 ## T08 — Jobs & cloud  ·  status: todo  ·  date: 21–22 Oct  ·  FR03, FR12
-### T08.1 — Local durable queue/lifecycle · status: blocked (delegated worker) · FR03, FR12
+### T08.1 — Local durable queue/lifecycle · status: wip (parent delivered; child pending) · FR03, FR12
+- **Resume (21 Oct, user-authorized): T08.1b.1 · done · FR03, FR12.** Raise this
+  task's cumulative ceiling to200k, retaining the prior79,431 tokens. Prove only a
+  real-Store success/timeout fixture first. In parallel, Nebius reviews the small
+  parent draft for concrete defects; one writer integrates. Then add race tests in
+  small accepted groups. Addy debugging/incremental skills authorized for this work.
+  USD70 active ceiling/USD30 protected backup remain unchanged. No runtime paid calls.
+- **Accepted:** `services/api/app/supervisor.py`, three `tests/unit/test_supervisor*.py`
+  modules. Real Store + real subprocesses prove renewal, timeout, cancel/delete/reclaim,
+  final publication fencing, collision preservation, invalid output and exception cleanup.
+  Owned attempts only are cleaned; direct children reaped and surviving group descendants
+  killed. Trusted quick callbacks and a private artifact root are required; no OS sandbox.
+- **Checks:** focused20 cases pass; `./scripts/test.sh python` exit0:389 tests, Ruff
+  clean, mypy46 files clean. Existing AnyIO warning only; provider smokes offline.
+- **Resumed usage:** five calls41,555 tokens, conservative USD0.120724; same-task total
+  120,986/200k includes previous failed usage. Independent Nebius work overlapped,
+  one writer integrated. See `docs/audit/T08.1b.1-resumed-supervisor.md` and linked ledger.
+- **Next:** T08.1b.2 real child adapter/typed pose-only artifacts, then worker entrypoint,
+  authenticated lifecycle/artifact routes and physical retention. Worker remains inactive;
+  no automatic analysis, score or coaching is implied by controlled subprocess tests.
 - **Revised claim (21 Oct): T08.1b.1 parent-only supervisor · blocked · FR03, FR12.**
   Nebius drafts one internal subprocess supervisor and focused tests using the real
   Store. Prove heartbeat, timeout, cancellation/deletion, stale-lease fencing and

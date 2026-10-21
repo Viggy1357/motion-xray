@@ -43,7 +43,9 @@ are implemented and exercised on owned clips (20 October). T08.1a SQLite metadat
 and T03a signed-session private HTTP uploads are implemented (21 October). Original
 files remain private under VIDEO_ROOT. Standalone proxy/actual PTS mapping is implemented
 and verified on owned footage; worker invocation/publication and physical cleanup remain
-pending. The T08.1b delegated implementation is blocked; unreviewed drafts are not active.
+pending. T08.1b.1 parent subprocess supervision is verified with the real Store and
+controlled subprocesses (20 new tests); the real video child and worker entrypoint
+are not connected yet. Unreviewed drafts are not active.
 The API uses pinned FFmpeg tooling for bounded metadata validation, without ML imports.
 Worker job integration, numerical
 processing and comparison/scoring below remain pending. See the T04 feasibility report.

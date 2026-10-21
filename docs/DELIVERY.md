@@ -79,6 +79,14 @@ accepted component. No product source remains from this attempt. Read
 expanding race coverage. Do not repeat the full-suite generation loop or start the
 child/lifecycle consumers before parent acceptance.
 
+**Resumed parent accepted (21 October):** T08.1b.1 now passes20 real-Store/subprocess
+cases and the full389-test Python suite, lint and types. It supersedes the preceding
+blocked parent status; failed usage is retained. The user raised the cumulative task
+ceiling to200k; same-task usage is120,986 including the prior79,431. Five resumed calls
+used41,555 tokens (conservative USD0.120724). See
+`audit/T08.1b.1-resumed-supervisor.md`. Next T08.1b.2 connects real proxy/pose artifacts;
+the worker entrypoint, lifecycle routes and physical retention remain pending.
+
 ## Working rules and agent roles
 
 - **Codex lead:** owns the active task, shared checkout, integration, contract/config

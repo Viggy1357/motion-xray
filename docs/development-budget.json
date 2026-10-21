@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-20",
+  "as_of": "2026-10-21",
   "timezone": "Asia/Kuala_Lumpur",
   "status": "planning_estimate_not_measured_usage",
   "spending_authorization": {
@@ -22,8 +22,8 @@
   },
   "scope": "Remaining personal MVP, four planned exercises through T14; T15 and T17 excluded",
   "task_token_definition": "Cumulative billed input plus completion tokens across drafting, review and repairs. Completion includes reasoning; do not double count it.",
-  "default_task_allowance_tokens": 100000,
-  "heavier_task_policy": "100k is an initial allowance, not a hard token limit. Increase only with demonstrated need and a recorded forecast inside the shared USD70 operating ceiling; keep USD30 protected.",
+  "default_task_allowance_tokens": 200000,
+  "heavier_task_policy": "User raised the bounded task allowance to200k on21 October. It is a ceiling, not a spending target; retain prior same-task usage and justify heavier allocations within USD70 active/USD30 protected backup.",
   "max_concurrent_work_tasks": 3,
   "max_work_tasks_per_batch": 4,
   "sdk_automatic_retries": 0,

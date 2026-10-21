@@ -188,6 +188,9 @@ Specification v2.0 (15 Oct 2026).
   with reasoned increases for heavier tasks. Allocate enough request completion for
   reasoning plus final code, within verified model limits. Stream and preserve accounting
   even on failed drafts. Codex coordinates; Nebius performs substantive coding/review.
+- **21 October update:** User raises the bounded task allowance to200k. Preserve prior
+  same-task usage when resuming, keep USD70 active/USD30 protected backup and no hidden
+  retries. More tokens do not replace smaller executable acceptance increments.
 - **Forecast:** 30 bounded tasks, 2.47M development tokens plus 25% reserve, 3.0875M total.
   Reforecast after three accepted tasks. Estimates are not measured usage or an account
   spend cap. No successful implementation baseline exists yet.

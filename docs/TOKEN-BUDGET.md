@@ -11,7 +11,8 @@ spending targets or verified current balances. The $70 covers Token Factory deve
 and bounded product validation together; it does not authorize new infrastructure.
 
 Keep the earlier token forecast as the initial expected workload rather than inflate
-it to consume the available dollars. Increase a task above 100k cumulative tokens only
+it to consume the available dollars. The21 October user update allows200k cumulative
+tokens per bounded task; retain prior same-task usage. Increase a task above200k only
 when scope or measured progress justifies it. Reallocate within $70 as needed; preserve
 the $30 backup until user activation. Record actual cost, failures and maximum in-flight
 commitments. Historical unknown usage is not zero; reconcile it with the account.
@@ -48,11 +49,11 @@ measurements, viewer, reviewed references, similarity, coaching, exercise expans
 evaluation and personal release. Optional hackathon submission T15, incline press T17,
 new model training and a commercial multi-user service are excluded.
 
-The user authorizes up to 100,000 tokens per bounded task, with larger allocations for
+The user authorizes up to 200,000 tokens per bounded task (21 October update), with larger allocations for
 heavy work where needed. Treat this as cumulative input plus completion across draft,
 review and repair calls. Completion includes reasoning and final output: never count
 reasoning twice. Tool-result/context resends consume input again. This is not a request
-to spend 100,000 on every task, a 100,000-token prompt, or a model output/context limit.
+to spend 200,000 on every task, a 200,000-token prompt, or a model output/context limit.
 
 ## Baseline allocation
 
@@ -77,9 +78,9 @@ listed bounded tasks; a row larger than 100k is not one oversized coding request
 | **Total** | **30** | **1,480** | **990** | **2,470** |
 
 Reserve a further 25% (617,500 tokens) for integration defects and unforeseen complexity:
-the planning envelope is **3,087,500 development tokens**. Per-task 100k allowances
-aggregate to 3M over 30 tasks; reserve expenditure above that requires explicit recorded
-task allocation increases under the user's heavier-task authorization. This is not an
+the planning envelope is **3,087,500 development tokens**. The original per-task100k
+allocation is superseded by the200k ceiling; doubling the ceiling does not double the
+expected workload or justify spending it. Record actual allocation increases. This is not an
 account spend limit or a guarantee that the MVP can be delivered within the estimate.
 Reforecast if actual accepted-task usage suggests roughly double this forecast.
 

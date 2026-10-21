@@ -25,7 +25,7 @@ configured three work tasks). Reserve/account each request and keep ownership di
 dependent edits and integration remain sequential. This does not authorize duplicate
 audits, extra model tournaments or paid product-runtime calls.
 
-Development allocation: the user authorizes up to 100,000 cumulative input+completion
+Development allocation (21 October update): the user authorizes up to 200,000 cumulative input+completion
 tokens per task, with justified increases for heavier work. This is not a per-request
 output/context limit; completion includes reasoning. Follow `docs/TOKEN-BUDGET.md`
 and `docs/development-budget.json`, record actual usage on failures too, and avoid
