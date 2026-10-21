@@ -30,6 +30,9 @@ T08.1b worker is blocked after rejected drafts and99,574/100k task tokens; its l
 reasoning-enabled request returned no source. Do not repeat that route or silently
 fall back to a large Codex rewrite. Read `docs/audit/T03b-proxy-checkpoint.md` for the
 smaller next acceptance packet. Worker/lifecycle/cleanup integration still precedes T05.
+T08.1b.1 parent-only recovery also failed acceptance (five calls79,431 tokens). Read
+`docs/audit/T08.1b.1-parent-supervisor.md` before resuming: no supervisor is installed.
+Start with a minimal verified real-Store fixture, not another whole-suite draft.
 See the latest
 T04 report and `docs/development-usage-2026-10-20.json`; the 19 October audit remains
 historical. T21.1 generic helper drafts failed and are deferred; do not repeat that

@@ -235,6 +235,22 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   tempo and pinned backend. Report index maps and breakdowns; maintain null/approval gates.
 ## T08 — Jobs & cloud  ·  status: todo  ·  date: 21–22 Oct  ·  FR03, FR12
 ### T08.1 — Local durable queue/lifecycle · status: blocked (delegated worker) · FR03, FR12
+- **Revised claim (21 Oct): T08.1b.1 parent-only supervisor · blocked · FR03, FR12.**
+  Nebius drafts one internal subprocess supervisor and focused tests using the real
+  Store. Prove heartbeat, timeout, cancellation/deletion, stale-lease fencing and
+  process reaping with controlled child processes. No ML/HTTP/schema/retention changes.
+  Keep the existing worker entrypoint inactive; accept this component before the child
+  adapter. New bounded scope has a100k cumulative token ceiling; previous failed worker
+  usage stays recorded. Preserve existing attempt directories and validate before finish.
+- **T08.1b.1 outcome:** No source/test component accepted or activated. Reviewed parent
+  draft passed Docker lint/types; private second-draft subprocess suite had10 failures
+  and16 passes. Test-only reasoning request returned no final source; final coding-model
+  test draft failed against real Store with nonexistent `migrate()` API. Stopped the
+  route rather than rewriting the suite in Codex. Existing product sources preserved.
+  Five calls79,431 reported tokens, conservative USD0.309477; three no-spend preflight
+  rejections. No runtime coaching/Tavily/backup. See
+  `docs/audit/T08.1b.1-parent-supervisor.md` and linked ledger. Next remains T08.1b.1
+  acceptance with a minimal verified real-Store fixture, then T08.1b.2 child adapter.
 - **Claim (21 Oct):** T03b/T08.1b queued pose-only vertical slice: private proxy/PTS
   map, fenced subprocess worker, authenticated lifecycle/artifact routes and retention.
   Up to four bounded Nebius work tasks; independent drafts may overlap, one integrator.

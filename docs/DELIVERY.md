@@ -71,6 +71,14 @@ implementation. HTTP/retention drafts remain private and unintegrated. Stop repe
 this generation route and revise the worker approach; no large Codex fallback is implied.
 See `audit/T03b-proxy-checkpoint.md` for evidence and a smaller next acceptance packet.
 
+**Parent-only recovery checkpoint (21 October):** T08.1b.1 also remains blocked.
+The parent draft passed lint/types, but generated subprocess tests failed real Store
+contracts. Five calls79,431 reported tokens (conservative USD0.309477) produced no
+accepted component. No product source remains from this attempt. Read
+`audit/T08.1b.1-parent-supervisor.md`; next prove a minimal real-Store fixture before
+expanding race coverage. Do not repeat the full-suite generation loop or start the
+child/lifecycle consumers before parent acceptance.
+
 ## Working rules and agent roles
 
 - **Codex lead:** owns the active task, shared checkout, integration, contract/config

@@ -1,0 +1,154 @@
+{
+  "as_of": "2026-10-21",
+  "task": "T08.1b.1-parent",
+  "status": "blocked_on_repeated_draft_and_test_quality_failures",
+  "basis": "USD2/M input + USD5/M completion conservative guard rates; not verified invoice pricing/balance.",
+  "prior_commitment_including_history_contingency_usd": 3.39174065,
+  "cumulative_commitment_including_history_contingency_usd": 3.70121765,
+  "unreconciled_historical_calls": 4,
+  "codex_savings_measured": false,
+  "requests": [
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "parent-supervisor",
+      "request_id": "chatcmpl-1ee237da6cef505b61685853e7f0975b",
+      "status": "failed",
+      "maximum_cost_usd": 0.159288,
+      "usage": {
+        "completion_tokens": 6894,
+        "prompt_tokens": 7004,
+        "total_tokens": 13898,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": "stop",
+      "error_type": "AssertionError",
+      "elapsed_s": 22.06,
+      "conservative_cost_usd": 0.048478,
+      "acceptance": "rejected; no application files installed"
+    },
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "parent-repair",
+      "request_id": "chatcmpl-5ee6c6f602134d8206c70edde7b476c3",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.167748,
+      "usage": {
+        "completion_tokens": 6926,
+        "prompt_tokens": 8605,
+        "total_tokens": 15531,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        }
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 20.6,
+      "conservative_cost_usd": 0.05184,
+      "acceptance": "rejected; no application files installed"
+    },
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "parent-checked",
+      "request_id": "chatcmpl-e733820ea5b207ac909268c7b024c6f8",
+      "status": "failed",
+      "maximum_cost_usd": 0.16951,
+      "usage": {
+        "completion_tokens": 7445,
+        "prompt_tokens": 8131,
+        "total_tokens": 15576,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        }
+      },
+      "finish_reason": "stop",
+      "error_type": "AssertionError",
+      "elapsed_s": 28.66,
+      "conservative_cost_usd": 0.053487,
+      "acceptance": "rejected; no application files installed"
+    },
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.6",
+      "request": "parent-tests",
+      "request_id": "chatcmpl-332c67e54e6d6c18971b432a5416c3f0",
+      "status": "failed",
+      "maximum_cost_usd": 0.15623599999999999,
+      "usage": {
+        "completion_tokens": 24576,
+        "prompt_tokens": 2707,
+        "total_tokens": 27283,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        }
+      },
+      "finish_reason": "length",
+      "error_type": "JSONDecodeError",
+      "elapsed_s": 87.74,
+      "conservative_cost_usd": 0.128294,
+      "acceptance": "rejected; no application files installed"
+    },
+    {
+      "task": "T08.1b.1-parent",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "parent-tests-code",
+      "request_id": "chatcmpl-6dfc5d9a3ced74a12b63b8a36622db51",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.085288,
+      "usage": {
+        "completion_tokens": 4364,
+        "prompt_tokens": 2779,
+        "total_tokens": 7143,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2779
+      },
+      "finish_reason": "stop",
+      "error_type": null,
+      "elapsed_s": 26.07,
+      "conservative_cost_usd": 0.027378,
+      "acceptance": "rejected; no application files installed"
+    }
+  ],
+  "summary": {
+    "generations": 5,
+    "reported_tokens": 79431,
+    "task_allowance_tokens": 100000,
+    "conservative_cost_usd": 0.309477,
+    "preflight_rejections_without_provider_call": 3,
+    "accepted_components": [],
+    "backup_activated": false,
+    "runtime_coaching_calls": 0,
+    "tavily_calls": 0,
+    "parallel_nebius_used": false,
+    "reason_for_sequential_work": "Single dependent parent-supervisor acceptance task; parallel work would duplicate or depend on unfinished output."
+  },
+  "checks": {
+    "reviewed_parent_lint": "Docker Ruff exit0",
+    "reviewed_parent_typing": "Docker mypy exit0,13 source files including contracts",
+    "second_private_draft_suite": "Docker pytest exit1,10 failed16 passed in5.69s",
+    "final_test_draft_fail_fast": "Docker pytest exit1: Store.migrate AttributeError before test execution",
+    "full_product_regression": "Not rerun: no product source or contract change was retained."
+  },
+  "limitations": [
+    "Lint and typing do not establish process supervision or analysis acceptance.",
+    "Reasoning-enabled test request exhausted24576 completion tokens with no final content; failed cost retained.",
+    "Non-reasoning drafts invented Store APIs or used invalid fixtures/assertions; rejected, not patched into the product.",
+    "One deliberate coding-model change failed too; no model tournament or further blind retries.",
+    "No application worker, lifecycle endpoint, retention or scoring path enabled.",
+    "Private artifacts and credentials remain ignored; model context contained source only."
+  ]
+}
