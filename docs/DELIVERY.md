@@ -1,6 +1,6 @@
 # Motion X Ray — delivery workflow
 
-Updated 20 October 2026, Malaysia time. Goal confirmed by the product owner:
+Updated 21 October 2026, Malaysia time. Goal confirmed by the product owner:
 **a usable personal training MVP**, with Codex leading implementation and other
 agents, including Kiro, supporting bounded tasks and reviews. Kiro's previous editing
 workflow is paused. This plan does not claim the MVP is built.
@@ -55,6 +55,14 @@ verification and integration concise. This preference does not start another pai
 metadata/claims/fencing/tombstones are implemented; HTTP session ownership, ingestion,
 physical cleanup and real worker integration remain pending. See
 `audit/T08.1a-durable-store.md`. Continue T03, then T08.1b; do not recreate the store.
+
+**21 October checkpoint:** T03a private HTTP uploads/session ownership are delivered.
+Real Squat.MOV passes upload/hash/metadata/restart checks; unauthorized access and
+invalid/over-limit uploads fail clearly. All 341 Python tests and web checks pass.
+See `audit/T03a-private-upload.md`. Next T03b/T08.1b connects proxy/PTS mapping, jobs,
+the real pose worker and authorized artifacts/cleanup. Original media is not served.
+The user permits independent Nebius tasks in parallel, within existing caps, with one
+integrating writer. Preserve existing store and ingestion code rather than redrafting.
 
 ## Working rules and agent roles
 

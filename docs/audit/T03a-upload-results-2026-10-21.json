@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-21",
+  "transport": "real HTTP on isolated container loopback",
+  "source": "Squat.MOV",
+  "bytes": 27808876,
+  "sha256": "9dc83cd2cc0da13748486dbd91856949377a2ef98f1f51a121b17dcfcd2bde5b",
+  "duration_s": 14.248333,
+  "rotation": -90,
+  "upload_status": 201,
+  "cross_owner_status": 404,
+  "bad_csrf_status": 403,
+  "invalid_media_status": 422,
+  "over_30s_status": 422,
+  "restart_metadata_status": 200,
+  "source_mode": "0600",
+  "staging_leaks": 0,
+  "unexpected_source_files": 0,
+  "paid_runtime_calls": 0,
+  "limitations": [
+    "Original stays private; proxy/PTS map and analysis worker remain pending."
+  ]
+}

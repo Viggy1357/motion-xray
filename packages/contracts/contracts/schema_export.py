@@ -21,6 +21,7 @@ from .media import VideoAsset
 from .pose import JointObservation, PoseFrame, PoseSequence
 from .reference import ReferenceProfile, SourceRecord
 from .scoring import ScoreBreakdown
+from .session import SessionInfo
 
 #: All models whose JSON Schema we publish, keyed by their class name.
 _MODELS: tuple[Type[BaseModel], ...] = (
@@ -36,6 +37,7 @@ _MODELS: tuple[Type[BaseModel], ...] = (
     SourceRecord,
     ScoreBreakdown,
     AnalysisJob,
+    SessionInfo,
 )
 
 

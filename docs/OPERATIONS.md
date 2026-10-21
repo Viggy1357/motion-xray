@@ -40,10 +40,20 @@ docker rm -f motion-xray-pose-diagnostic
 This viewer is an inspection artifact, not T11 product completion. Identity/depth
 accuracy, measurements, reference eligibility and scores need their later gates.
 
-**T02.1 status:** container builds, offline checks and local web/API routing are verified.
-Upload/jobs/deletion/retention and actual pose inference are not implemented. The worker
-image imports MediaPipe, but its entrypoint is still a stub. Live evidence refresh is
+**21 October status:** container builds/checks, T04 local pose inference, T08.1a metadata
+store and T03a private HTTP upload/session checks pass. Audio-free proxy/PTS mapping,
+worker integration, job HTTP lifecycle and physical deletion/retention remain pending.
+The worker service entrypoint is still a stub. Live evidence refresh is
 disabled. The dated audit is a historical baseline, not the current test result.
+
+For ingestion, set a persistent random `SESSION_SECRET` (at least32 bytes) in the
+gitignored `.env`; an empty value returns503. `APP_ORIGIN` must match the browser origin.
+See API.md for GET/session, CSRF and binary-upload protocol. API and worker share
+`VIDEO_ROOT=/state/media`; raw files are private0600. The API image reuses FFmpeg
+7:5.1.9-0+deb12u1 for bounded metadata probing and contains no pose ML dependencies.
+Raw metadata expires after24h by default; no physical janitor or original-media route is
+enabled yet. Signed anonymous identities currently expire after24h; recovery/renewal
+needs review before release, independently of the planned seven-day report retention.
 
 This is the runbook for operating Motion X Ray locally. Everything runs in containers so
 nothing installs on the host beyond Docker Desktop (DECISIONS.md D003). It covers the

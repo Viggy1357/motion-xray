@@ -261,6 +261,7 @@ def test_export_json_schema_has_entry_per_model() -> None:
         "SourceRecord",
         "ScoreBreakdown",
         "AnalysisJob",
+        "SessionInfo",
     }
     assert set(schemas) == expected
     for schema in schemas.values():

@@ -39,7 +39,11 @@ assumed. Only stage 7 involves an LLM, downstream of every displayed measurement
 ## Integration boundaries (mixed implementation status)
 
 T04 canonical mapping, immutable artifact read/write and the local MediaPipe adapter
-are implemented and exercised on owned clips (20 October). Job integration, numerical
+are implemented and exercised on owned clips (20 October). T08.1a SQLite metadata/leases
+and T03a signed-session private HTTP uploads are implemented (21 October). Original
+files remain private under VIDEO_ROOT; proxy/PTS mapping and physical cleanup are next.
+The API uses pinned FFmpeg tooling for bounded metadata validation, without ML imports.
+Worker job integration, numerical
 processing and comparison/scoring below remain pending. See the T04 feasibility report.
 
 | Boundary | Owner / planned integration |

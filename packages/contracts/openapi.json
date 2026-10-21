@@ -728,6 +728,27 @@
         "title": "Rep",
         "type": "object"
       },
+      "SessionInfo": {
+        "additionalProperties": false,
+        "description": "Public session contract returned to the client on establishment.\n\nThe CSRF token is returned on establish/reload and remains valid until\nthe session expires.",
+        "properties": {
+          "csrf_token": {
+            "title": "Csrf Token",
+            "type": "string"
+          },
+          "expires_at": {
+            "format": "date-time",
+            "title": "Expires At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "csrf_token",
+          "expires_at"
+        ],
+        "title": "SessionInfo",
+        "type": "object"
+      },
       "SourceRecord": {
         "additionalProperties": false,
         "description": "A single reviewable source backing one or more reference profiles.",
@@ -1344,10 +1365,102 @@
         "summary": "Approve Reference"
       }
     },
+    "/v1/session": {
+      "get": {
+        "operationId": "get_session_v1_session_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionInfo"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get Session"
+      }
+    },
     "/v1/videos": {
       "post": {
-        "description": "Register/upload a source video asset for analysis. FR01, FR02. TODO(T03).",
-        "operationId": "create_video_v1_videos_post",
+        "operationId": "post_video_v1_videos_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-csrf-token",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Csrf-Token"
+            }
+          },
+          {
+            "description": "true",
+            "in": "header",
+            "name": "x-upload-consent",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "true",
+              "title": "X-Upload-Consent"
+            }
+          },
+          {
+            "in": "header",
+            "name": "origin",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Origin"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "video/mp4": {
+              "schema": {
+                "format": "binary",
+                "type": "string"
+              }
+            },
+            "video/quicktime": {
+              "schema": {
+                "format": "binary",
+                "type": "string"
+              }
+            },
+            "video/webm": {
+              "schema": {
+                "format": "binary",
+                "type": "string"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "201": {
             "content": {
@@ -1358,9 +1471,58 @@
               }
             },
             "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
           }
         },
-        "summary": "Create Video"
+        "summary": "Post Video"
+      }
+    },
+    "/v1/videos/{video_id}": {
+      "get": {
+        "operationId": "get_video_v1_videos__video_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "video_id",
+            "required": true,
+            "schema": {
+              "title": "Video Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VideoAsset"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Video"
       }
     }
   }

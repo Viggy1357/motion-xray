@@ -24,13 +24,15 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 ## Resume one task
 
-Current 20 October checkpoint: T04's three local components are delivered and real
-pose artifacts exist for four owned clips. Next is T03/T08.1, then T05. See the latest
+Current 21 October checkpoint: T04's three local components, T08.1a durable store and
+T03a signed-session/private HTTP upload are delivered. Next is T03b/T08.1b proxy,
+worker/lifecycle/artifact integration and cleanup, then T05. See the latest
 T04 report and `docs/development-usage-2026-10-20.json`; the 19 October audit remains
 historical. T21.1 generic helper drafts failed and are deferred; do not repeat that
-loop in place of product delivery. Keep direct workers bounded/sequential, retain
-timeout reservations and integrate one reviewed draft at a time. No automatic parallel
-dispatch or paid runtime coaching is implied by these implementation results.
+loop in place of product delivery. Keep direct workers bounded, retain timeout
+reservations and integrate one reviewed draft at a time. The user authorizes independent
+Nebius workers in parallel, up to the configured three-task cap. One writer integrates;
+avoid duplicate context/reviews. No paid runtime coaching is implied by coding results.
 
 1. Inspect git status and the previous task's evidence. Identify existing unfinished
    changes before editing; do not overwrite or commit another agent's work.

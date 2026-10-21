@@ -1,8 +1,8 @@
 """Motion X Ray HTTP API — the public /v1 surface.
 
-This module constructs the FastAPI application and declares every route the
-product exposes. It is STRUCTURE-ONLY: each /v1 handler is a placeholder that
-returns HTTP 501 (Not Implemented) until its owning task lands. Path shapes and
+This module constructs the FastAPI application and declares the public routes.
+Session and private upload routes are implemented in app.uploads; other product
+handlers return HTTP 501 (Not Implemented) until their owning task lands. Path shapes and
 path-parameter signatures here are the contract the web client and tests build
 against; the real request logic is filled in per the TODO(Txx) markers.
 
@@ -28,9 +28,9 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from app import errors
+from app.uploads import router as uploads_router
 from contracts.analysis import AnalysisResult
 from contracts.jobs import AnalysisJob
-from contracts.media import VideoAsset
 from contracts.reference import ReferenceProfile, SourceRecord
 from providers.search.protocol import SearchProvider
 
@@ -39,6 +39,7 @@ app = FastAPI(
     version="0.1.0",
     description="Turns a short workout video into a rep-by-rep movement report.",
 )
+app.include_router(uploads_router)
 
 
 def _not_implemented() -> HTTPException:
@@ -55,12 +56,6 @@ def healthz() -> dict[str, str]:
 @app.get("/v1/exercises")
 def list_exercises() -> None:
     """List supported exercises and their variants. FR06. TODO(T12)."""
-    raise _not_implemented()
-
-
-@app.post("/v1/videos", response_model=VideoAsset, status_code=201)
-def create_video() -> None:
-    """Register/upload a source video asset for analysis. FR01, FR02. TODO(T03)."""
     raise _not_implemented()
 
 

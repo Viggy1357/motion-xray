@@ -20,6 +20,11 @@ failed-route diagnosis; stop and report a blocked worker rather than silently do
 large Codex rewrite. Record provider usage and reservations; do not claim measured
 Codex savings without evidence. Keep one integrating writer and existing budget caps.
 
+21 October clarification: independent Nebius workers may run in parallel (up to the
+configured three work tasks). Reserve/account each request and keep ownership disjoint;
+dependent edits and integration remain sequential. This does not authorize duplicate
+audits, extra model tournaments or paid product-runtime calls.
+
 Development allocation: the user authorizes up to 100,000 cumulative input+completion
 tokens per task, with justified increases for heavier work. This is not a per-request
 output/context limit; completion includes reasoning. Follow `docs/TOKEN-BUDGET.md`

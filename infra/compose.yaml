@@ -33,6 +33,7 @@ services:
     environment:
       - DATABASE_URL=sqlite:////state/motion_xray.db
       - ARTIFACT_ROOT=/state/artifacts
+      - VIDEO_ROOT=/state/media
     ports:
       - "127.0.0.1:8000:8000"
     volumes:
@@ -49,6 +50,7 @@ services:
     environment:
       - DATABASE_URL=sqlite:////state/motion_xray.db
       - ARTIFACT_ROOT=/state/artifacts
+      - VIDEO_ROOT=/state/media
     volumes:
       - ../services:/app/services
       - ../packages:/app/packages

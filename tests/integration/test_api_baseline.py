@@ -4,10 +4,11 @@ from fastapi.testclient import TestClient
 from app.main import app
 
 
-def test_health_and_unimplemented_ingestion():
+def test_health_and_unconfigured_ingestion_fails_closed(monkeypatch):
+    monkeypatch.delenv("SESSION_SECRET", raising=False)
     with TestClient(app) as client:
         assert client.get("/healthz").json() == {"status": "ok"}
-        assert client.post("/v1/videos").status_code == 501
+        assert client.post("/v1/videos").status_code == 503
 
 
 def test_live_evidence_is_disabled_until_operator_controls_exist(monkeypatch):

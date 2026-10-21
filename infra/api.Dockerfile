@@ -5,6 +5,11 @@
 # the API (DECISIONS.md D002/D003).
 FROM python:3.12.15-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
 
+# Bounded media validation; no ML dependencies in the API image.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ffmpeg=7:5.1.9-0+deb12u1 \
+    && rm -rf /var/lib/apt/lists/*
+
 # uv for fast, reproducible installs (pinned versions in each pyproject.toml).
 RUN pip install --no-cache-dir uv==0.4.18
 

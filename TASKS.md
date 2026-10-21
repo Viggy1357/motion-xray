@@ -115,10 +115,32 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   evidence guards still pending. Private diagnostic scripts remain uncommitted.
 - **Next:** T01/T04 real pose.
 
-## T03 — Ingestion  ·  status: todo  ·  date: 17 Oct  ·  FR01, FR02, FR03
-- **Next batch:** Register/upload private assets with enforced30s duration/size limits,
-  bounded metadata probing, original/proxy timestamp maps and owner-scoped access.
-  Invoke the delivered provider through T08.1; no CLI-only success claims for browser jobs.
+## T03 — Ingestion  ·  status: wip  ·  date: 21 Oct  ·  FR01, FR02, FR03
+- **Claim:** T03a anonymous signed session/CSRF boundary and real bounded private upload,
+  using T08.1a metadata storage. Nebius drafts/tests; Codex verifies/integrates. Proxy
+  creation and worker invocation remain T03b/T08.1b; no analysis success implied here.
+- **T03a done (21 Oct):** HMAC-signed anonymous identity, same-origin CSRF checks,
+  explicit upload consent, bounded streaming and real ffprobe metadata validation.
+  `/v1/session`, POST `/v1/videos` and private GET `/v1/videos/{id}` metadata work.
+  SessionInfo, OpenAPI, JSON Schema and generated TypeScript are migrated together.
+- **Files:** `services/api/app/{session,ingest,uploads,main}.py`, contracts/session and
+  schema exporter/generated artifacts, API Dockerfile, Compose VIDEO_ROOT, env example;
+  session/ingestion/HTTP tests, updated API/operations/architecture/delivery guidance.
+- **Checks:** `./scripts/export-contracts.sh` and `./scripts/test.sh all` exit 0;
+  Ruff/types clean, 341 tests pass after the final identifier guard; frontend checks pass. Existing AnyIO and
+  empty-scaffold Tailwind warnings remain. Provider smoke checks made no paid calls.
+- **Real acceptance:** Isolated HTTP API accepted owned Squat.MOV (27,808,876 bytes,
+  14.248333s, rotation -90), verified stored hash/mode0600; cross-owner404, badCSRF403,
+  invalid media422 and full55s lat rejection422. API restart preserved private metadata.
+  No staging/rejected-file leaks. Evidence: `docs/audit/T03a-private-upload.md`.
+- **Usage:** Eight direct Nebius draft/repair calls, 121,654 reported tokens across
+  three bounded tasks, conservative USD0.440195 (not invoice prices); two independent
+  workers overlapped following user authorization. Usage ledger records failures too.
+- **Remaining/next:** T03b/T08.1b audio-free proxy + original/proxy PTS map, worker loop
+  invoking actual MediaPipe, lifecycle/artifact routes and physical TTL cleanup/race
+  tests. Browser capture/upload UI remains T11.1. Current session expires after24h;
+  anonymous identity recovery/renewal needs review before release. No raw media serving,
+  scoring, coaching or end-to-end analysis claim. Missing SESSION_SECRET fails503.
 ## T04 — Pose adapter  ·  status: done (local adapter)  ·  20 Oct  ·  FR04, FR12
 - Local canonical extraction/artifacts/diagnostic delivered by batch C; the historical
   failed batches below are superseded. Service job integration remains T03/T08.1;
@@ -360,12 +382,15 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   application/schema/runtime change in this update; previous forecasts remain estimates.
 
 ## Immediate next action
-T02.1 and the three local T04 components are complete. Claim **T03/T08.1**: private
-upload metadata/validation and one durable job that invokes the actual provider.
+T02.1, local T04, T08.1a store and T03a private HTTP ingestion are complete. Claim
+**T03b/T08.1b**: audio-free proxy/original PTS map and one durable job invoking the
+actual provider, with authenticated lifecycle/artifact access and physical cleanup.
 Then T05 visible-side measurements, calibration and full-cycle segmentation. Do not
 restart scaffold/source-screening or the failed generic-tooling loop. T21.1 remains
-unfinished; use sequential bounded requests, explicit reservations and the actual usage
+unfinished; use bounded requests, explicit reservations and the actual usage
 ledger while its reusable implementation is deferred. T01 runtime coaching is separate.
+Independent Nebius workers may run in parallel within the three-task concurrency cap;
+keep one integrating writer and avoid duplicate reviews or context resends.
 Every remaining task's steps, files, dependencies and acceptance are in docs/DELIVERY.md.
 Additional user clips are analysis inputs, not approved references. The $70 active/$30
 backup ceiling is recorded; actual account balance/history reconciliation and a reviewed

@@ -1,6 +1,7 @@
 # API
 
-**T02.1 implementation note:** 11 product handlers remain 501 placeholders. Response
+**21 October implementation note:** session, upload and private video metadata routes
+are implemented; 10 other product handlers remain 501 placeholders. Response
 models now expose domain schemas through OpenAPI. Cached evidence discovery is partial;
 selecting live Tavily returns 503 until T10 operator/spend controls exist. The checked-in
 OpenAPI is generated with `scripts/export-contracts.sh`, with a drift check in CI.
@@ -18,8 +19,10 @@ A liveness probe `GET /healthz` exists outside the `/v1` surface for Compose/CI.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
+| GET | `/v1/session` | Establish/reuse an anonymous signed cookie and obtain CSRF token (implemented). |
 | GET | `/v1/exercises` | List supported exercises and their variants (FR06). |
 | POST | `/v1/videos` | Register/upload a source video asset for analysis (FR01, FR02). |
+| GET | `/v1/videos/{video_id}` | Read unexpired video metadata for its session owner (implemented). |
 | GET | `/v1/references` | List approved reference profiles (FR07, FR11). |
 | POST | `/v1/analyses` | Enqueue an analysis job for a video + exercise/variant (FR03). |
 | GET | `/v1/analyses/{analysis_id}` | Fetch an analysis job's state/stage (FR03, FR12). |
@@ -31,7 +34,31 @@ A liveness probe `GET /healthz` exists outside the `/v1` surface for Compose/CI.
 | POST | `/v1/references/{reference_id}/approve` | Approve a reference profile for use in scoring (FR07). |
 | POST | `/v1/evidence/refresh` | Refresh cached evidence sources for references (FR11). |
 
-That is twelve `/v1` endpoints in total.
+That is fourteen `/v1` endpoints in total.
+
+## Implemented private upload protocol (T03a)
+
+Configure a persistent `SESSION_SECRET` of at least 32 bytes and the exact browser
+`APP_ORIGIN`. Missing/invalid session configuration returns503. Production requires
+HTTPS and Secure cookies; development/test allows local HTTP. No accounts are needed.
+
+1. GET `/v1/session` establishes/reuses an HttpOnly, SameSite=Strict cookie and returns
+   `SessionInfo {csrf_token, expires_at}`. The signed identity currently expires after
+   24 hours; reload does not extend it. Keep the secret stable across API restarts.
+2. POST `/v1/videos` sends raw video bytes with `Content-Type: video/mp4`,
+   `video/quicktime` or `video/webm`, `X-Upload-Consent: true`, `X-CSRF-Token`, the cookie
+   and exact `Origin`. This is a binary body, not multipart. Actual stream size is bounded
+   independently of Content-Length. Default maxima:100MiB,30s,1920px per encoded axis,
+   240fps. Settings may reduce the size/duration limits, not silently raise them.
+3. A201 `VideoAsset` records actual bytes/hash and ffprobe duration/dimensions/rotation.
+   GET `/v1/videos/{video_id}` returns the owner's metadata; other owners, expired and
+   missing assets receive404. Every implemented route response has Cache-Control:no-store.
+
+No original bytes are served. `timestamp_map_key` remains null until the worker builds
+an audio-free proxy and original/proxy PTS mapping. Metadata acceptance does not prove
+all frames can decode or an analysis succeeded. Job/lifecycle/artifact routes remain
+their later work package. New route failures use the flat ErrorEnvelope; session/CSRF
+failures403, consent/length400, size413, MIME415, invalid media422, configuration/storage503.
 
 ## Planned integration behaviour (T04–T11; not new routes)
 

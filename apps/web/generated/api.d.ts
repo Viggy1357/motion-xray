@@ -216,6 +216,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/session": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Session */
+        get: operations["get_session_v1_session_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/videos": {
         parameters: {
             query?: never;
@@ -225,11 +242,25 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /**
-         * Create Video
-         * @description Register/upload a source video asset for analysis. FR01, FR02. TODO(T03).
-         */
-        post: operations["create_video_v1_videos_post"];
+        /** Post Video */
+        post: operations["post_video_v1_videos_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/videos/{video_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Video */
+        get: operations["get_video_v1_videos__video_id__get"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -521,6 +552,22 @@ export interface components {
             turnaround_end_s?: number | null;
             /** Turnaround Start S */
             turnaround_start_s?: number | null;
+        };
+        /**
+         * SessionInfo
+         * @description Public session contract returned to the client on establishment.
+         *
+         *     The CSRF token is returned on establish/reload and remains valid until
+         *     the session expires.
+         */
+        SessionInfo: {
+            /** Csrf Token */
+            csrf_token: string;
+            /**
+             * Expires At
+             * Format: date-time
+             */
+            expires_at: string;
         };
         /**
          * SourceRecord
@@ -935,7 +982,7 @@ export interface operations {
             };
         };
     };
-    create_video_v1_videos_post: {
+    get_session_v1_session_get: {
         parameters: {
             query?: never;
             header?: never;
@@ -945,12 +992,83 @@ export interface operations {
         requestBody?: never;
         responses: {
             /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SessionInfo"];
+                };
+            };
+        };
+    };
+    post_video_v1_videos_post: {
+        parameters: {
+            query?: never;
+            header?: {
+                "x-csrf-token"?: string | null;
+                /** @description true */
+                "x-upload-consent"?: string | null;
+                origin?: string | null;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "video/mp4": string;
+                "video/quicktime": string;
+                "video/webm": string;
+            };
+        };
+        responses: {
+            /** @description Successful Response */
             201: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": components["schemas"]["VideoAsset"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_video_v1_videos__video_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                video_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["VideoAsset"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
