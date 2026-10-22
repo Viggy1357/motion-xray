@@ -36,8 +36,35 @@ accepted technique score. Current sequence: existing repo fit assessment -> roug
 five credible sources consolidated into the exercise metric rubric -> two/three
 reference-video calibration -> user component deviations and scoring -> detailed
 timestamped guidance. Reference-derived3D is distant future scope, not user multi-camera
-capture. Next bounded T05.2/T06.1 output is the sourced rubric/measurement matrix;
-see `docs/measurement/POSTURE-BENCHMARK-WORKFLOW.md`. Other work stays held.
+capture. The sourced metric matrix is now delivered as research pending calibration:
+`docs/measurement/LAT-PULLDOWN-RUBRIC-v0.1.md`. Next is reference torso/arm measurement
+and manual calibration using existing artifacts; see
+`docs/measurement/LAT-PULLDOWN-REUSE-AND-CALIBRATION.md`. Other work stays held.
+
+### T05.2/T06.1 sourced posture rubric · status: done (research slice) · 22 Oct
+- **FRs:** FR05/FR07/FR08/FR11/FR12. Codex coordinates; all four model drafting/review
+  requests via direct Nebius. User requests approximately95% substantive work on Nebius;
+  cross-provider token percentage was not measured. No Codex subagent generation.
+- **Delivered:** Five-source consolidated rubric, eight candidate measurement entries,
+  source conflicts, observable/proxy limits, required-component coverage and separate
+  tempo; repo fit/defer assessment and narrow calibration handoff. References: ACE,
+  NASM, Catalyst, QMotion and Jeff Nippard's original automatic caption excerpt.
+- **Files:** docs/measurement/LAT-PULLDOWN-RUBRIC-v0.1.md and
+  LAT-PULLDOWN-REUSE-AND-CALIBRATION.md; docs/audit/T05.2-rubric-qc.md;
+  docs/development-usage-T05.2-rubric-2026-10-22.json; TASKS/DELIVERY.
+- **Checks:** Primary-source retrieval/caption provenance, Nebius QC plus bounded
+  integration corrections, offline document/ledger checks and diff whitespace.
+  No runtime behavior changed or application test suite rerun. Existing scratch probes
+  included in the requested source checkpoint after syntax/secret checks, not executed.
+- **Budget:** 51,787 reported tokens/200,000; conservativeUSD0.206662; aggregate
+  commitment including earlier unknown-history contingencyUSD4.84884565. ProtectedUSD30
+  untouched. No private media sent, live coaching call or Tavily credit used.
+- **Limits:** Research pending calibration, not approved numerical ranges or a score.
+  Automatic captions need audio verification before numerical cue adoption. No new
+  dependency/data adoption, threshold/config/public schema change or claimed video accuracy.
+- **Next:** T05.2 torso-axis/dynamic observations and manual reference measurements from
+  existing immutable artifacts; T06.2 versioned provisional benchmark, then T07 user
+  comparison on at least six eligible reps. Exact ten-rep recovery stays secondary.
 
 ### T05.2/T06.1 workflow clarification · 22 Oct · FR05/FR07/FR08/FR11/FR12
 - **Claim:** Codex; bounded documentation clarification, not a new implementation batch.

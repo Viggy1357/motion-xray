@@ -81,6 +81,16 @@ Read `measurement/POSTURE-BENCHMARK-WORKFLOW.md` for scope and acceptance. This 
 does not approve provisional thresholds or establish dataset redistribution rights.
 Existing production scoring/thresholds remain unchanged.
 
+T05.2/T06.1 research checkpoint: the five-source matrix is now consolidated in
+`measurement/LAT-PULLDOWN-RUBRIC-v0.1.md`, with repo fit/calibration steps in
+`measurement/LAT-PULLDOWN-REUSE-AND-CALIBRATION.md` and corrections in
+`audit/T05.2-rubric-qc.md`. All four generation/review calls used Nebius;51,787
+reported tokens, conservativeUSD0.206662. Keep Codex coordination/QC light per the
+owner's approximately95% Nebius work preference. Next is torso-axis/dynamic measurement
+and manually checked reference observations, not repeated source discovery or T04 setup.
+Tolerances/weights remain unavailable until that calibration. No paid product runtime
+call or private footage transmission is authorized by research-worker use.
+
 The dependency order is:
 
 ```text
