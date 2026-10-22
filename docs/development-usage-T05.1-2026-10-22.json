@@ -1,0 +1,276 @@
+{
+  "as_of": "2026-10-22",
+  "task": "T05.1",
+  "requests": [
+    {
+      "task": "T05.1",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t051-geometry",
+      "status": "failed",
+      "maximum_cost_usd": 0.059120000000000006,
+      "input_token_bound": 12060,
+      "output_token_bound": 7000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2330,
+        "prompt_tokens": 1738,
+        "total_tokens": 4068,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1738
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-46c9555e44bf9d2665944b402e238e5c",
+      "error_type": "AssertionError",
+      "elapsed_s": 27.26,
+      "received_chars": 8532,
+      "conservative_cost_usd": 0.015126
+    },
+    {
+      "task": "T05.1",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t051-tests",
+      "status": "failed",
+      "maximum_cost_usd": 0.065008,
+      "input_token_bound": 12504,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5190,
+        "prompt_tokens": 1814,
+        "total_tokens": 7004,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1814
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-c18f723c59dba6070e310c5e66635fa4",
+      "error_type": "AssertionError",
+      "elapsed_s": 199.03,
+      "received_chars": 16842,
+      "conservative_cost_usd": 0.029578
+    },
+    {
+      "task": "T05.1",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t051-design",
+      "status": "failed",
+      "maximum_cost_usd": 0.097276,
+      "input_token_bound": 26138,
+      "output_token_bound": 9000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2921,
+        "prompt_tokens": 4913,
+        "total_tokens": 7834,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 4881
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-69785976b675ec36032e199cefdf7347",
+      "error_type": "AssertionError",
+      "elapsed_s": 156.18,
+      "received_chars": 11828,
+      "conservative_cost_usd": 0.024431
+    },
+    {
+      "task": "T05.1",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t051-geometry-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.077504,
+      "input_token_bound": 18752,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2633,
+        "prompt_tokens": 3329,
+        "total_tokens": 5962,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 480
+        },
+        "prompt_cache_hit_tokens": 480,
+        "prompt_cache_miss_tokens": 2849
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-4a7d5c02beebbe36aa7d68ba0e723a55",
+      "elapsed_s": 84.48,
+      "received_chars": 9298,
+      "conservative_cost_usd": 0.019823
+    },
+    {
+      "task": "T05.1",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t051-numeric-fix",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.074768,
+      "input_token_bound": 17384,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2652,
+        "prompt_tokens": 3204,
+        "total_tokens": 5856,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 3172
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-518c926f3f0859717fa5f7a43fbabcde",
+      "elapsed_s": 91.65,
+      "received_chars": 9481,
+      "conservative_cost_usd": 0.019667999999999998
+    },
+    {
+      "task": "T05.1",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t051-tests-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.129078,
+      "input_token_bound": 37039,
+      "output_token_bound": 11000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5445,
+        "prompt_tokens": 8707,
+        "total_tokens": 14152,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 8675
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-5ac230f48d94a952c5299e94d5d02c3a",
+      "elapsed_s": 71.85,
+      "received_chars": 17460,
+      "conservative_cost_usd": 0.044639
+    },
+    {
+      "task": "T05.1",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t051-protocol-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.092934,
+      "input_token_bound": 21467,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3249,
+        "prompt_tokens": 3993,
+        "total_tokens": 7242,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 3961
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-0c78cf013c5dcfd196910c8be3d913e6",
+      "elapsed_s": 67.14,
+      "received_chars": 12876,
+      "conservative_cost_usd": 0.024231
+    },
+    {
+      "task": "T05.1",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t051-qc",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.226008,
+      "input_token_bound": 51564,
+      "output_token_bound": 24576,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1538,
+        "prompt_tokens": 12123,
+        "total_tokens": 13661,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 12091
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-4c6ad867882d665696592b766de852ce",
+      "elapsed_s": 8.88,
+      "received_chars": 6893,
+      "conservative_cost_usd": 0.031936
+    }
+  ],
+  "reported_tokens": 65779,
+  "cumulative_task_ceiling": 200000,
+  "conservative_cost_usd": 0.209432,
+  "prior_aggregate_commitment_usd": 4.11683765,
+  "aggregate_commitment_including_historical_contingency_usd": 4.32626965,
+  "historical_unknown_calls": 4,
+  "unknown_history_contingency_usd": 1,
+  "price_basis": "USD2/M input and USD5/M completion guard rates, not invoice or verified balance",
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "backup_activated": false,
+  "paid_product_runtime_calls": 0,
+  "tavily_credits_used": 0,
+  "research_channel": "web search/open; no Tavily or product-runtime calls",
+  "peak_concurrent_calls": 3,
+  "work_streams": [
+    "geometry",
+    "independent tests",
+    "protocol/reference plan",
+    "sequential QC"
+  ],
+  "integration_notes": [
+    "Initial dispatcher omitted exact allowed paths in its prompt; strict validation rejected three received drafts. Known bodies recovered into fixed review paths, not executed from model-supplied paths. Dispatcher corrected for later calls.",
+    "Rejected numerical/test drafts and repairs are included. No automatic retries.",
+    "QC requested thinking=true; provider supplied no reasoning-token breakdown, so no separate reasoning-usage claim.",
+    "Codex bounded corrections: finite integer guard, four wrong test-oracle expectations, analytic/high-precision fixtures, documentation/evidence integration."
+  ]
+}

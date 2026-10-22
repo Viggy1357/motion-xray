@@ -239,12 +239,39 @@ No new coding/provider batch is claimed by this documentation update. See DELIVE
   No Tavily or paid runtime coaching. Ledger: docs/development-usage-2026-10-20.json.
 - **Next:** T03/T08.1 upload/queue integration, then T05 visible-side measurements with
   explicit calibration/eligibility. T01 structured coaching and T21.1 tooling remain open.
-## T05 — First exercise engine (lat pulldown, D005) · status: todo · FR05, FR06, FR07
+## T05 — First exercise engine (lat pulldown, D005) · status: wip · FR05, FR06, FR07
+- **Claim T05.1 (22 October) · done (raw arithmetic/protocol only) · FR05/FR07/FR12:** Raw visible-side geometry
+  extraction, explicit coordinate/side eligibility and independent manual-label protocol.
+  Parallel Nebius implementation/tests/measurement-reference design; sequential review
+  and one integrator. T06.1 candidate guidance research overlaps; no reference approval,
+  rep calibration, score or coaching implied. Per-task ceiling200k, max3 concurrent;
+  active USD70/protected USD30 unchanged, no paid product-runtime/search calls.
+- **Accepted:** `movement/observations.py` extracts elbow and upper-arm/torso angles
+  in aspect-correct projected2D and qualified estimated3D. Explicit side, timestamp,
+  per-metric missing/invalid/interpolated/degenerate reasons. Existing core rep/metric
+  scaffolds, thresholds, public schemas and API reports remain unchanged.
+- **Evidence:**300 immutable lat frames (10.005–19.983333 sourcePTS),2,400 observations,
+  identical repeat hash. Left elbow296/300 valid; left upper-arm/torso300/300;
+  right elbow93/300, right upper-arm/torso94/300. Coverage is not anatomical accuracy.
+- **Checks:**48 focused cases; final full Docker Python476 passed, Ruff clean,
+  mypy53 files clean; existing AnyIO warning only. Analytic versioned fixtures and
+  independent700-digit Decimal checks resolve numerical QC concerns. No web change.
+- **Usage:**8 Nebius calls65,779 tokens, conservative USD0.209432 incl rejected drafts
+  and repairs. Peak3 workers; separate sequential QC. See
+  `docs/audit/T05.1-raw-observations.md` and linked ledger/results/review resolutions.
+- **Next T05.2:** independent rep/angle labels, valid-span filtering and calibrated
+  complete-cycle detection; require originalPTS, retained partials and frozen config.
+  Anatomical accuracy, actual per-rep ROM/timing and technique comparison remain open.
 - **T19 TODOs:** Typed signal/config/side context; contiguous filtering; full-cycle
   state machine adapted from reviewed patterns; separate segmentation calibration;
   observable shoulder_drive definition without activation claims. Tests: gaps, occlusion,
   plateaus, stillness, partials, incomplete excursion and processing-speed invariance.
 ## T06 — References  ·  status: todo  ·  date: 20 Oct  ·  FR07, FR11
+- **T06.1 research checkpoint (22 October):** ACE/NASM guidance checked; Catalyst,
+  QMotion and IMSA demo pages shortlisted with source/reuse/view/reviewer gaps recorded
+  in `docs/measurement/T06.1-reference-plan.md`. User asks us to find demos; their
+  reviewer may assess the links, not supply a trainer recording. Video playback,
+  extraction permission and technique approval remain unverified; no approved reference.
 - **T19 TODOs:** Typed eligibility reasons; authority/rights/reviewer/artifact hashes;
   same-pipeline reference builder and deterministic representative/medoid. No automatic
   restricted-dataset import. Schema migration and generated consumers before exposure.

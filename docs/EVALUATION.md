@@ -19,7 +19,12 @@ identical metrics and scores (AGENTS.md rule 2).
 | Coaching groundedness | Coaching references only validated metrics/claims; no invented numbers, with `status=unavailable` on failure. |
 | Runtime Nemotron call | One real Token Factory Nemotron inference succeeds at Gate A (D001, D004, owed). |
 
-These are targets pending measurement. None has been validated in this scaffold.
+These are targets pending measurement-specific evidence; dated baseline text below
+is historical. T04 pose feasibility and T08 lifecycle checks are recorded separately.
+T05.1 (22 October) tests raw angle arithmetic using analytic/high-precision fixtures
+and repeat-identical extraction on300 real pose frames. It does not validate landmark
+accuracy, rep boundaries, technique standards or scoring. See
+`audit/T05.1-raw-observations.md`; human labels and held-out quality checks remain open.
 
 ## Test layers
 

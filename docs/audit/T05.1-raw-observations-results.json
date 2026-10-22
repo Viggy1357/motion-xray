@@ -1,0 +1,124 @@
+{
+  "status": "raw_observations_not_validated_technique",
+  "observation_version": "raw-angle-v1",
+  "implementation_sha256": "42418f924a40bbfc49e5edf6bf9b52928f3f9a4ca735d267fc5e76d0a241bf0a",
+  "pose_artifact_sha256": "ceb52406971fe89772ed8bd4cd12a9a1a96297d5a0778d195099ea66503d05f9",
+  "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+  "source_size_px": [
+    464,
+    832
+  ],
+  "source_pts_s": [
+    10.005,
+    19.983333
+  ],
+  "frame_count": 300,
+  "observations": 2400,
+  "observations_sha256": "bae57e0e624caa0d51a161e43c263d2be7a6e05e4132cf3063ee3517dc95b64f",
+  "repeat_identical": true,
+  "series": [
+    {
+      "side": "left",
+      "metric": "elbow_angle",
+      "space": "projected_2d",
+      "observations": 300,
+      "valid": 296,
+      "null_reasons": {
+        "invalid_joint": 4
+      },
+      "minimum_degrees": 54.17733412746698,
+      "maximum_degrees": 179.81960994957907
+    },
+    {
+      "side": "left",
+      "metric": "elbow_angle",
+      "space": "estimated_3d",
+      "observations": 300,
+      "valid": 296,
+      "null_reasons": {
+        "invalid_joint": 4
+      },
+      "minimum_degrees": 65.91460795479765,
+      "maximum_degrees": 149.13995192360224
+    },
+    {
+      "side": "left",
+      "metric": "upper_arm_torso_angle",
+      "space": "projected_2d",
+      "observations": 300,
+      "valid": 300,
+      "null_reasons": {},
+      "minimum_degrees": 0.18738472269446657,
+      "maximum_degrees": 171.5530482994276
+    },
+    {
+      "side": "left",
+      "metric": "upper_arm_torso_angle",
+      "space": "estimated_3d",
+      "observations": 300,
+      "valid": 300,
+      "null_reasons": {},
+      "minimum_degrees": 3.015216732187059,
+      "maximum_degrees": 164.80803453880037
+    },
+    {
+      "side": "right",
+      "metric": "elbow_angle",
+      "space": "projected_2d",
+      "observations": 300,
+      "valid": 93,
+      "null_reasons": {
+        "invalid_joint": 207
+      },
+      "minimum_degrees": 164.45107474721144,
+      "maximum_degrees": 179.84218601962874
+    },
+    {
+      "side": "right",
+      "metric": "elbow_angle",
+      "space": "estimated_3d",
+      "observations": 300,
+      "valid": 93,
+      "null_reasons": {
+        "invalid_joint": 207
+      },
+      "minimum_degrees": 137.0745667913503,
+      "maximum_degrees": 153.01908423674078
+    },
+    {
+      "side": "right",
+      "metric": "upper_arm_torso_angle",
+      "space": "projected_2d",
+      "observations": 300,
+      "valid": 94,
+      "null_reasons": {
+        "invalid_joint": 206
+      },
+      "minimum_degrees": 45.665431186703934,
+      "maximum_degrees": 179.99472302096083
+    },
+    {
+      "side": "right",
+      "metric": "upper_arm_torso_angle",
+      "space": "estimated_3d",
+      "observations": 300,
+      "valid": 94,
+      "null_reasons": {
+        "invalid_joint": 206
+      },
+      "minimum_degrees": 64.34482263233093,
+      "maximum_degrees": 154.4479267549207
+    }
+  ],
+  "identity_verified": false,
+  "manual_labels_available": false,
+  "calibration_available": false,
+  "approved_reference_available": false,
+  "score": null,
+  "limitations": [
+    "Coordinate arithmetic is tested; anatomical landmark accuracy is not validated.",
+    "2D projection and estimated3D are separate quantities.",
+    "Raw extrema across a clip are not rep ROM or accepted technique limits.",
+    "Far-side missing measurements remain null; no interpolation."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "verdict": "changes_required",
+  "findings": [
+    {
+      "severity": "major",
+      "path": "packages/movement/movement/observations.py",
+      "line": "_unit_direction (lines 58-82)",
+      "problem": "The overflow-rescue branch in _unit_direction is mathematically incorrect. When raw = a - b overflows to non-finite values, the code rescales a and b by maxabs(a,b) and recomputes raw. However, if the subtraction overflows, the rescaled subtraction is not guaranteed to equal the original difference scaled to a safe magnitude; rescaling both endpoints by the same factor preserves the vector direction only if the overflow happened because the components themselves were huge, but the subtraction of two close large numbers can still lose precision or produce the wrong sign. More importantly, the function then scales raw by maxabs(raw) and divides by the norm of that scaled vector, which is correct, but the overflow branch does not re-validate that the rescaled raw is finite. The docstring says 'Never multiply the norm back by the scale' which is true, but the overall logic is fragile and not independently verified against pathological cases like a=[1e308,1e308], b=[-1e308,-1e308] where a-b overflows to inf. The regression fixture includes such cases but the implementation's correctness relies on a subtle invariant that is not obviously preserved.",
+      "minimal_fix": "Add explicit unit tests for the exact regression cases (including opposite-sign huge endpoints and diagonal cases) directly against _unit_direction and angle_degrees, and document the overflow-rescue invariant. Consider simplifying by always scaling raw by maxabs(raw) before computing the norm, which avoids the overflow branch entirely and is easier to reason about."
+    },
+    {
+      "severity": "major",
+      "path": "packages/movement/movement/observations.py",
+      "line": "_validate_coords (lines 35-45)",
+      "problem": "The integer overflow check 'if isinstance(c, int) and not math.isfinite(float(c))' is redundant because Python ints of arbitrary magnitude are converted to float; for very large ints this raises OverflowError, which is not caught, causing the function to raise OverflowError instead of the promised ValueError. The docstring says inputs must be finite, but the function does not consistently map all non-finite inputs to ValueError.",
+      "minimal_fix": "Wrap the float(c) conversion and math.isfinite check in a try/except OverflowError that raises ValueError."
+    },
+    {
+      "severity": "minor",
+      "path": "packages/movement/movement/observations.py",
+      "line": "_measure_angle (lines 145-190)",
+      "problem": "The precedence logic for 'missing_joint' returns immediately on the first missing joint, which matches the protocol, but for other statuses it accumulates the highest-priority reason. This is correct per the stated precedence. However, the code does not distinguish between a joint that is missing entirely (not in frame.joints) and a joint whose required coordinate field is None; the latter is handled later as missing_coordinates. This is consistent with the protocol. No material defect."
+    },
+    {
+      "severity": "minor",
+      "path": "tests/unit/test_movement_observations.py",
+      "line": "test_measure_frame_degenerate_geometry",
+      "problem": "The test asserts obs[1].reason == 'missing_coordinates' when the 3D coordinate is absent, but the degenerate_geometry reason is only produced for the 2D space. This is correct behavior per the protocol (missing_coordinates precedes degenerate_geometry), but the test name is misleading because it does not actually exercise degenerate_geometry for 3D.",
+      "minimal_fix": "Rename the test or add a separate 3D degenerate_geometry case where xyz coordinates are present and collinear with a zero-length segment."
+    },
+    {
+      "severity": "minor",
+      "path": "tests/unit/test_movement_observations.py",
+      "line": "test_angle_degrees_vector_norm_overflow and test_angle_degrees_opposite_endpoint_subtraction_overflow",
+      "problem": "These tests exercise large-magnitude inputs, but they do not verify the exact regression fixture cases (e.g., diagonal huge numbers, opposite-sign huge endpoints) that are most likely to trigger the overflow-rescue branch. The regression test file does cover them, but the unit tests are sparse.",
+      "minimal_fix": "Add unit tests mirroring the regression fixture cases, including [1e308,1e308] vs [-1e308,-1e308] and the 45-degree diagonal case."
+    },
+    {
+      "severity": "info",
+      "path": "docs/measurement/T05.1-protocol.md",
+      "line": "Section 3 and 7",
+      "problem": "The protocol correctly states that projected 2D is not 3D truth and that estimated 3D is not validated true-3D measurement. It also distinguishes independent human labels from automated candidates and requires reviewer sign-off for thresholds. No material defect."
+    },
+    {
+      "severity": "info",
+      "path": "docs/measurement/T06.1-reference-plan.md",
+      "line": "Section 5",
+      "problem": "The reference plan correctly frames web demos as link shortlists only, with no download, permission, or camera compatibility verified. It does not claim these are approved references. No material defect."
+    }
+  ],
+  "missing_evidence": [
+    "Independent runtime validation of angle_degrees against the full regression fixture under Python 3.12 (no external tools available during this review).",
+    "Independent human labels or authorized reference trajectory for the authorized diagonal-side clip; only schema and plan exist.",
+    "Evidence that the overflow-rescue branch in _unit_direction preserves mathematical correctness for all regression cases, especially opposite-sign huge endpoints and diagonal cases."
+  ],
+  "scope_limits": [
+    "Review limited to the bounded raw-angle slice: packages/movement/movement/observations.py, packages/contracts/contracts/pose.py, tests/unit/test_movement_observations.py, tests/unit/test_movement_regression.py, tests/fixtures/movement/raw-angle-v1.json, docs/measurement/T05.1-protocol.md, docs/measurement/T06.1-reference-plan.md.",
+    "No full repository audit, no source code changes, no invented test executions, no external tool usage, no network access.",
+    "Rep counting, ROM scoring, segmentation thresholds, UI/infrastructure, coaching expansion, and exercise expansion are explicitly out of scope per user hold.",
+    "This review does not validate pose measurement accuracy against anatomical truth; it only checks mathematical correctness of raw angle computation and contract adherence."
+  ]
+}

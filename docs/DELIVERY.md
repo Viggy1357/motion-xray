@@ -53,6 +53,14 @@ demonstrate observable movement comparison; a polished UI or plausible score is
 insufficient. Accurate 3D depth, muscle activation and universal technique correctness
 are outside the evidence available from one ordinary video.
 
+22 October T05.1 checkpoint: raw angle extraction and the label/reference protocols
+are implemented, with476 Python checks passing. The300-frame lat artifact produces
+repeat-identical observations; these are not validated rep measurements or technique
+comparisons. Read `audit/T05.1-raw-observations.md`,
+`measurement/T05.1-protocol.md` and `measurement/T06.1-reference-plan.md`.
+Next T05.2 is independent labels plus calibrated full-cycle segmentation. Reference
+video playback/review/permission checks may proceed in parallel; other work stays held.
+
 The dependency order is:
 
 ```text

@@ -39,8 +39,8 @@ pose-only publication;403 Python checks pass, lint/types clean. Read
 `docs/audit/T08.1b.2-real-pose-child.md`. T08.1b.3/T08.1c.1 now deliver the daemon and
 authenticated lifecycle/report API;428 Python tests plus web checks pass. Real signed
 squat upload -> separate daemon -> report is verified. Read
-`docs/audit/T08.1b.3-lifecycle.md`. Next T08.1c.2 artifact streaming/ranges and T08.1d
-physical cleanup, then browser integration and T05. Earlier failed drafts are historical evidence, not implementation
+`docs/audit/T08.1b.3-lifecycle.md`. Streaming/cleanup/browser work is now held behind
+the22 October measurement/comparison priority. Earlier failed drafts are historical evidence, not implementation
 baselines. Keep the proven fixture and small groups of tests; do not regenerate the
 whole suite. Same-task usage120,986/200k retains the earlier79,431 failed-run tokens.
 See the latest
@@ -50,6 +50,12 @@ loop in place of product delivery. Keep direct workers bounded, retain timeout
 reservations and integrate one reviewed draft at a time. The user authorizes independent
 Nebius workers in parallel, up to the configured three-task cap. One writer integrates;
 avoid duplicate context/reviews. No paid runtime coaching is implied by coding results.
+
+22 October T05.1 delivers raw angle arithmetic, analytic/high-precision regression
+checks and measurement/reference protocols (476 full Python tests). Read
+`docs/audit/T05.1-raw-observations.md`. Next T05.2 independent labels/calibrated reps,
+with reference-demo screening in parallel. No human labels, validated per-rep metric
+or approved reference yet.
 
 1. Inspect git status and the previous task's evidence. Identify existing unfinished
    changes before editing; do not overwrite or commit another agent's work.

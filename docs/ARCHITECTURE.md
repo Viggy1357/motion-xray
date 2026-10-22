@@ -45,11 +45,15 @@ files remain private under VIDEO_ROOT. Standalone proxy/actual PTS mapping is im
 and verified on owned footage. T08.1b.1 supervision and T08.1b.2 real child publication
 now work through the Store on owned lat/squat inputs. Private typed manifests bind
 actual proxy/pose bytes and source timestamps before fenced publication; reports are
-explicitly pose-only, with no metrics or score. The worker daemon, HTTP job/artifact
-consumers and physical cleanup remain pending. Unreviewed drafts are not active.
+explicitly pose-only, with no metrics or score. The worker daemon and authenticated
+HTTP lifecycle/report routes are implemented; artifact streaming and physical cleanup
+remain pending. Unreviewed drafts are not active.
 The API uses pinned FFmpeg tooling for bounded metadata validation, without ML imports.
-Daemon/lifecycle integration, numerical
-processing and comparison/scoring below remain pending. See the T04 feasibility report.
+T05.1 adds pure internal `movement.observations` raw elbow/upper-arm/torso angle
+extraction from canonical PoseFrame objects. It preserves anatomical side and original
+PTS, gates each metric/space independently and keeps projected2D separate from
+estimated3D. It is not wired into public reports; rep segmentation/calibration,
+per-rep metrics and comparison/scoring remain pending. No schema or threshold changed.
 
 | Boundary | Owner / planned integration |
 | --- | --- |
@@ -73,7 +77,7 @@ downstream code depends on the contract, not on a concrete SDK:
   Primary implementation is MediaPipe (`mediapipe_provider.py`), with verified local
   checkpoint, original PTS, rotation-aware decoding and qualified observation masks.
   No/multiple detections produce gaps; identity remains explicitly unverified.
-  GEM-X is a documented stretch (D002). The service job loop is still scaffold-only.
+  GEM-X is a documented stretch (D002). The service job loop now runs pose-only jobs.
 - **`LLMProvider`** (`providers/llm/protocol.py`) — `coach()`. Implemented by the Nebius
   Token Factory provider (`nebius_provider.py`, stub) for the required runtime NVIDIA
   Nemotron call (D001, D004).
