@@ -1,5 +1,9 @@
 # Motion X Ray — submission execution plan
 
+Implementation has since started: current progress and remaining integration boundaries
+are in `audit/HM-first-app-build.md` and the active TASKS checkpoint. The planning
+statements below describe the original planning turn, not the current source status.
+
 Planning checkpoint:22 October2026, Malaysia time. No implementation delegation or
 paid model call is launched by this document. User requests the detailed plan first.
 Use this plan over historical T-stage dates/next pointers. Implementation remains in

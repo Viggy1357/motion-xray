@@ -10,6 +10,28 @@ Read `docs/AUDIT-2026-10-19.md` for the verified baseline and requirement crossw
 `docs/SPECIFICATION-v2.0.md` preserves the full original brief. Current PRODUCT FR
 numbers remain in use; some differ from the archived brief's FR numbers.
 
+## Active build —22 October2026
+
+- **HM00 design/intake accepted; hosting deferred. HM01 additive models done;
+  HM03/HM08 first app slice accepted; HM06 standalone adapter accepted, report wiring
+  pending.** FR01/02/03/04/06/09/10/12. See `docs/audit/HM-first-app-build.md`.
+- Four-screen app connects guest upload, status, cancel, private replay and browser-local
+  logging; four-entry catalogue includes owner-confirmed incline dumbbell press.
+  Full-set60s/100MiB limits and media-recipe version updated coherently. Existing strict
+  pose-only artifact validator and public result semantics unchanged.
+- Checks: **828 Python tests**, Ruff/mypy63 sources; web typecheck/production build.
+  Actual55.11s lat upload through browser/separate CPU worker succeeds;10 manually
+  logged reps persist across fresh-tab load; unavailable detection remains null.
+  Other three full-length clip acceptance: `docs/audit/HM-full-set-acceptance.json`.
+- Twelve Nebius development calls198,624 tokens,$1.339722 conservative guard cost including
+  failed repair; one synthetic Nano adapter call228 tokens,$0.000516 guard cost. Usage:
+  `docs/development-usage-HM-build-2026-10-22.json`; cumulative$9.30149165 including
+  historic unknown-call contingency; actual account balance unverified. No Tavily spend.
+- **Next HM04:** wire actual measurements/coverage/frozen reference output to a typed
+  runtime report and the existing app, then actual set-evidence coaching. HM02 durable
+  server logs/owner continuity, HM05/HM07 movement adapters, HM09 overlay/3D, optional
+  routines, final hosting and submission QA remain. No paid hosting activated.
+
 ## Legend
 - `todo` not started · `wip` in progress · `blocked` waiting · `done` evidence recorded
 
@@ -33,9 +55,9 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 - **Next:** HM00 flow/mockup + HM01 contract proposal + read-only deployment/runtime
   readiness in parallel; one integration gate before dependent source implementation.
 
-## Active priority — measurement and reviewed comparison (22 October)
+## Historical priority — measurement and reviewed comparison (22 October)
 
-**Latest owner override:** benchmark assessment is frozen at its current provisional
+**Superseded by the active build checkpoint above:** benchmark assessment is frozen at its current provisional
 baseline. Tie off this run, then brainstorm a functional Nebius hackathon product.
 Do not spend another batch on calibration/accuracy or build new product features before
 the requested discussion. See `docs/HACKATHON-MVP-DIRECTION.md` and D015. The older

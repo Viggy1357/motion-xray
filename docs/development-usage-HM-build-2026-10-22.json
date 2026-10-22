@@ -1,0 +1,456 @@
+{
+  "as_of": "2026-10-22",
+  "scope": "HM00/HM01/HM03/HM08 first application build + HM06 standalone adapter",
+  "requests": [
+    {
+      "task": "HM00-UX",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-a1",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.27891,
+      "input_token_bound": 42970,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative guard USD3 input/USD15 completion per million; not invoice price",
+      "usage": {
+        "completion_tokens": 6591,
+        "prompt_tokens": 8148,
+        "total_tokens": 14739,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 35
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "0a7d993aaa374237a6563922f16c8f8c",
+      "elapsed_s": 59.73,
+      "received_chars": 22928,
+      "conservative_cost_usd": 0.123309,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM01-proposal",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-a2",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.29495099999999996,
+      "input_token_bound": 48317,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative guard USD3 input/USD15 completion per million; not invoice price",
+      "usage": {
+        "completion_tokens": 3874,
+        "prompt_tokens": 9274,
+        "total_tokens": 13148,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 19
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "ac2be2ef114e45fb8079991f369f3a39",
+      "elapsed_s": 48.86,
+      "received_chars": 14898,
+      "conservative_cost_usd": 0.08593200000000001,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM00-readiness",
+      "model": "nvidia/Nemotron-3_5-Lightning",
+      "request": "hm-a3",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.153086,
+      "input_token_bound": 46543,
+      "output_token_bound": 12000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative guard USD2 input/USD5 completion per million; not invoice price",
+      "usage": {
+        "completion_tokens": 10525,
+        "prompt_tokens": 9392,
+        "total_tokens": 19917,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 9234
+        },
+        "prompt_tokens_details": null,
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 9392
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-9c7607998b57310ffc64fd7b8cbdc54a",
+      "elapsed_s": 74.31,
+      "received_chars": 5120,
+      "conservative_cost_usd": 0.071409,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM01-models",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-b1",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.23372099999999998,
+      "input_token_bound": 17907,
+      "output_token_bound": 12000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million; not invoice price",
+      "usage": {
+        "completion_tokens": 4132,
+        "prompt_tokens": 3108,
+        "total_tokens": 7240,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 39
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "37f0eebb66ed4459bff973d12ab581db",
+      "elapsed_s": 33.2,
+      "received_chars": 16136,
+      "conservative_cost_usd": 0.071304,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM08-initial-ui",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-b2",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.333165,
+      "input_token_bound": 51055,
+      "output_token_bound": 12000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million; not invoice price",
+      "usage": {
+        "completion_tokens": 11843,
+        "prompt_tokens": 8975,
+        "total_tokens": 20818,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 60
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "40e5192b47394a7594681485200d97bb",
+      "elapsed_s": 120.39,
+      "received_chars": 40353,
+      "conservative_cost_usd": 0.20457,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM03-fullset",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-b3",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.5490630000000001,
+      "input_token_bound": 138021,
+      "output_token_bound": 9000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million; not invoice price",
+      "usage": {
+        "completion_tokens": 4265,
+        "prompt_tokens": 30898,
+        "total_tokens": 35163,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 1091
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "f2401fe644a0404d9c591742555ba760",
+      "elapsed_s": 44.03,
+      "received_chars": 11449,
+      "conservative_cost_usd": 0.156669,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM08-initial-ui",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-c1",
+      "status": "failed",
+      "maximum_cost_usd": 0.287172,
+      "input_token_bound": 53224,
+      "output_token_bound": 8500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million; not invoice price",
+      "usage": {
+        "completion_tokens": 8500,
+        "prompt_tokens": 12204,
+        "total_tokens": 20704,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 5232
+      },
+      "finish_reason": "length",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "7f1fdf2713dc4e4f9baf3e078708f072",
+      "error_type": "JSONDecodeError",
+      "elapsed_s": 64.71,
+      "received_chars": 10304,
+      "conservative_cost_usd": 0.164112,
+      "review_outcome": "failed_not_applied"
+    },
+    {
+      "task": "HM08-initial-ui",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-c1b",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.430137,
+      "input_token_bound": 53379,
+      "output_token_bound": 18000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million; not invoice price",
+      "usage": {
+        "completion_tokens": 9600,
+        "prompt_tokens": 12233,
+        "total_tokens": 21833,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 4577
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "14dedc13230140b38d53b7defd29e047",
+      "elapsed_s": 103.08,
+      "received_chars": 18184,
+      "conservative_cost_usd": 0.180699,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM06-catalogue",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-c2",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.234555,
+      "input_token_bound": 35685,
+      "output_token_bound": 8500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million; not invoice price",
+      "usage": {
+        "completion_tokens": 2168,
+        "prompt_tokens": 7084,
+        "total_tokens": 9252,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 243
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "6767250e7a2b41f6ac00a23a15e7c3f6",
+      "elapsed_s": 22.06,
+      "received_chars": 7339,
+      "conservative_cost_usd": 0.053772,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM06-coaching-adapter",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-c3",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.18585000000000002,
+      "input_token_bound": 19450,
+      "output_token_bound": 8500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million; not invoice price",
+      "usage": {
+        "completion_tokens": 6542,
+        "prompt_tokens": 3526,
+        "total_tokens": 10068,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 2040
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "1171fd6068ec48b0913d047cfa8527fe",
+      "elapsed_s": 58.12,
+      "received_chars": 17358,
+      "conservative_cost_usd": 0.108708,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM03-fullset",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-decoder-fix",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.250266,
+      "input_token_bound": 43422,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million; not invoice price",
+      "usage": {
+        "completion_tokens": 1898,
+        "prompt_tokens": 9057,
+        "total_tokens": 10955,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 461
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "4ad6120fadce46568c457717982d17e6",
+      "elapsed_s": 59.79,
+      "received_chars": 5128,
+      "conservative_cost_usd": 0.055640999999999996,
+      "review_outcome": "superseded_unconfirmed_hypothesis_rolled_back"
+    },
+    {
+      "task": "HM03-fullset",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-probe-fix",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.288867,
+      "input_token_bound": 61289,
+      "output_token_bound": 7000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million; not invoice price",
+      "usage": {
+        "completion_tokens": 1603,
+        "prompt_tokens": 13184,
+        "total_tokens": 14787,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 69
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "40fab367b13a418a80ecbe19e4388e49",
+      "elapsed_s": 183.23,
+      "received_chars": 5628,
+      "conservative_cost_usd": 0.063597,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    }
+  ],
+  "reported_development_tokens": 198624,
+  "tokens_by_bounded_task": {
+    "HM00-UX": 14739,
+    "HM01-proposal": 13148,
+    "HM00-readiness": 19917,
+    "HM01-models": 7240,
+    "HM08-initial-ui": 63355,
+    "HM03-fullset": 60905,
+    "HM06-catalogue": 9252,
+    "HM06-coaching-adapter": 10068
+  },
+  "conservative_development_cost_usd": 1.339722,
+  "standalone_runtime_validation": {
+    "scope": "standalone adapter, synthetic measured fixture; not uploaded-video coaching",
+    "maximum_calls": 1,
+    "maximum_input_tokens_guard": 2500,
+    "maximum_completion_tokens": 500,
+    "maximum_cost_usd_guard": 0.0075,
+    "price_basis": "USD2/5 per million conservative guard, not invoice",
+    "status": "ok",
+    "private_media_sent": false,
+    "metadata": {
+      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+      "usage": {
+        "completion_tokens": 20,
+        "prompt_tokens": 208,
+        "total_tokens": 228
+      },
+      "finish_reason": "stop",
+      "latency_s": 1.067,
+      "status": "validated"
+    },
+    "result": {
+      "status": "ok",
+      "summary": "The test repetition lasted three seconds.",
+      "observations": [
+        "The test repetition lasted three seconds."
+      ],
+      "next_set_cue": null,
+      "limitations": [
+        "Synthetic adapter test only; not a posture assessment."
+      ]
+    },
+    "conservative_cost_usd": 0.000516
+  },
+  "prior_aggregate_commitment_usd": 7.96125365,
+  "aggregate_commitment_including_historical_contingency_usd": 9.30149165,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "backup_activated": false,
+  "account_balance_verified": false,
+  "historical_unknown_calls": 4,
+  "unknown_history_contingency_usd": 1,
+  "maximum_concurrent_development_calls": 3,
+  "tavily_credits_used": 0,
+  "private_media_or_pose_arrays_sent": false,
+  "codex_token_savings_measured": false,
+  "notes": [
+    "Twelve direct Nebius development calls include the truncated UI repair; no failed cost discarded.",
+    "NVIDIA Lightning readiness output needed factual corrections; K3 used for substantive source. Nano synthetic adapter test validated once.",
+    "No frontend/provider key exposed. No paid hosting, cloud account or public deployment activated.",
+    "Reported costs use conservative guard rates, not verified invoice rates. Historical unknown calls remain contingent.",
+    "Public uploaded-set reports remain pose-only; typed0.3 contracts and standalone adapter are not full movement/coaching integration."
+  ]
+}

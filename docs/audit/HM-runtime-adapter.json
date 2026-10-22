@@ -1,0 +1,33 @@
+{
+  "scope": "standalone adapter, synthetic measured fixture; not uploaded-video coaching",
+  "maximum_calls": 1,
+  "maximum_input_tokens_guard": 2500,
+  "maximum_completion_tokens": 500,
+  "maximum_cost_usd_guard": 0.0075,
+  "price_basis": "USD2/5 per million conservative guard, not invoice",
+  "status": "ok",
+  "private_media_sent": false,
+  "metadata": {
+    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+    "usage": {
+      "completion_tokens": 20,
+      "prompt_tokens": 208,
+      "total_tokens": 228
+    },
+    "finish_reason": "stop",
+    "latency_s": 1.067,
+    "status": "validated"
+  },
+  "result": {
+    "status": "ok",
+    "summary": "The test repetition lasted three seconds.",
+    "observations": [
+      "The test repetition lasted three seconds."
+    ],
+    "next_set_cue": null,
+    "limitations": [
+      "Synthetic adapter test only; not a posture assessment."
+    ]
+  },
+  "conservative_cost_usd": 0.000516
+}

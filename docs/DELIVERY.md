@@ -7,6 +7,13 @@ workflow is paused. This plan does not claim the MVP is built.
 
 ## Start here
 
+Current code checkpoint: `audit/HM-first-app-build.md` and active TASKS entry.
+HM00 designs, additive HM01 models, HM03 full-set limits and first HM08 app are accepted;
+HM06 adapter has standalone synthetic NVIDIA validation, not uploaded-set integration.
+Resume HM04 runtime measurement/report assembly, then evidence coaching and HM02 durable
+logs. Do not regenerate Batch A or restart the scaffold audit. Hosting selection is
+deferred under owner direction while local product integration proceeds.
+
 Authoritative next plan: `HACKATHON-EXECUTION-PLAN.md` (T23, HM00–HM13) and prepared
 `delegation/HM-BATCH-A.md`. Owner confirms same-browser profile/free-first hosting;
 start with reviewable mockup/contracts/read-only feasibility, then integrate the first

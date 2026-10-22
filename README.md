@@ -4,20 +4,19 @@ Convert a short workout video into a rep-by-rep movement report. Record or uploa
 set, inspect reconstructed movement as a rotatable 3D skeleton, compare it against a
 curated reference trajectory, and read grounded coaching — all with honest limitations.
 
-> This repository implements the intended build described in
+> This repository is building towards the product described in
 > `docs/PRODUCT.md`. It is **not** a validated biomechanics product. Scores express
 > *similarity to a selected reference*, not correctness, safety, or effectiveness.
 
-## What it does (P0)
+## Intended product (P0)
 
 Capture/upload → pose extraction → rep segmentation → exercise metrics → reference
 comparison → deterministic similarity score → grounded Nemotron coaching, shown as
 synchronized video + 2D overlay + rotatable 3D skeleton + a shared rep timeline.
 
-Planned P0 exercises: cable lat pulldown first, then simultaneous standing dumbbell
-curl, bilateral standing lateral raise and bodyweight squat. Each needs its own real
-validation before being advertised as working. Incline bench chest press is a candidate,
-not accepted support (T17).
+Release exercises: cable lat pulldown, standing dumbbell curl, bodyweight squat and
+incline dumbbell press. All four accept pose-processing requests; exercise-specific
+movement reports/scoring are still being integrated. Lateral raise is deferred.
 
 ## Everything runs in containers
 
@@ -29,8 +28,8 @@ needs a container runtime (Docker Desktop).
 # Start the full stack (web + api + worker), nothing touches the host
 docker compose -f infra/compose.yaml up --build
 
-# Tear everything down, leaving no host-level packages behind
-docker compose -f infra/compose.yaml down -v
+# Stop the stack while preserving its state volume
+docker compose -f infra/compose.yaml down
 ```
 
 See `docs/OPERATIONS.md` for the full runbook and `AGENTS.md` for the contract every
@@ -48,11 +47,21 @@ coding agent follows before changing code.
 
 ## Status
 
-Real local pose extraction now runs on all four owned test clips. Canonical mapping,
-immutable artifacts and the timestamped MediaPipe adapter pass 131 container tests,
-Ruff and mypy. A diagnostic provides synchronized video/2D and rotatable estimated 3D.
-The main web app is still a scaffold; upload/jobs, reps, metrics, scores and coaching
-are unfinished. Next: T03/T08.1 private upload + durable jobs, then T05 measurements.
+22 October2026: the main app at `http://localhost:3000` now supports guest video upload,
+real CPU pose processing, status/cancellation, private replay and browser-local workout
+history. Clips can be up to60s/100MiB. Start from `.env.example`, configure a persistent
+`SESSION_SECRET` and provide the verified local pose checkpoint before starting Docker.
+No Google login or cloud account is required for local pose processing.
+
+**828 offline Python tests**, Ruff/mypy and web typecheck/production build pass.
+Main app reports are currently pose-only; detected reps, metrics and scores remain
+unavailable there. A separate diagnostic provides synchronized overlays/estimated3D.
+The new bounded NVIDIA coaching adapter passed one synthetic live test, but is not yet
+connected to uploaded-set reports. Default `ALLOW_LIVE_COACHING=false` keeps it off.
+
+Next: HM04 runtime measurement/quality/report integration, set-evidence coaching and
+HM02 durable logs. [Build evidence](docs/audit/HM-first-app-build.md),
+[remaining delivery plan](docs/HACKATHON-EXECUTION-PLAN.md).
 
 Run a local pose diagnostic with an existing worker image and the pinned local model:
 

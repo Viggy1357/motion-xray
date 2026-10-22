@@ -290,3 +290,37 @@ Specification v2.0 (15 Oct 2026).
 - Actual app use of an NVIDIA model through Nebius remains a submission requirement;
   development coding calls do not satisfy it. No paid hosting/publication implied.
 - See `docs/HACKATHON-MVP-DIRECTION.md` and `docs/audit/T047-checkpoint.md`.
+
+## D016 — Guest application build and bounded candidate-selection coaching
+
+- **Date:**22 October2026. **Status:** accepted build direction; integration partial.
+- Owner authorises building the agreed MVP now, using parallel direct Nebius workers,
+  local functionality before hosting selection. Judges need no login; anonymous signed
+  owner sessions and CSRF still protect uploaded files. Incline press is dumbbells,
+  variant `incline_dumbbell_bilateral`. Existing lateral-raise request compatibility
+  stays intact, but the release catalogue lists the four selected exercises.
+- Full-set maximum becomes60s/100MiB across intake, Store, proxy, provider and job input.
+  The final processing recipe records `full-set-60s-v3`; sampling remains30Hz and all old
+  strict pose-only artifact rules remain. This is a media-limit version change, not a
+  segmentation or technique-threshold change.
+- Full1080p HEVC press revealed an actual timestamp-probe `TimeoutExpired` at30.03s.
+  Timestamp probing now has a finite90s budget, recorded in the recipe. The original
+ 120s decoder wall limit remains; an unconfirmed240s decoder hypothesis was rolled
+  back with its new proposal-specific tests. Existing regression tests were preserved.
+  Worker total deadline remains300s. Final real-clip recovery evidence is separate.
+- Preserve global/legacy0.2 contracts; additive standalone0.3 prototype report types
+  and explicit version dispatch precede report integration. Browser history is a local
+  intermediate implementation, not an implemented durable server profile/workout store.
+- Initial runtime adapter lets NVIDIA choose IDs from locally prepared grounded
+  observations/cues. It cannot invent prose, numbers, scores or claim IDs. Cue candidates
+  need approved claims. Cache/dedup and per-instance quota are implemented; durable
+  deployment-wide spend controls and uploaded-set wiring remain future integration gates.
+- One synthetic adapter call to `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B` validated ID
+  selection:208 input/20 output tokens,1.067s. Thinking is disabled for the verified Nano/
+  Lightning profiles so short requests retain output space; no generic model fallback.
+  This is standalone adapter evidence, not uploaded-video coaching or submission proof.
+- References for reasoning control: NVIDIA's Nemotron voice-agent configuration and
+  Nebius's Token Factory workbench notes support model-specific thinking controls:
+  https://github.com/NVIDIA-AI-Blueprints/nemotron-voice-agent/blob/main/docs/how-to/configure-llm.md
+  https://github.com/nebius/nebius-physical-ai/blob/main/docs/workbench/token-factory.md
+- No paid hosting, public endpoint, sign-in or Google Drive integration activated.

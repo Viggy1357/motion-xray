@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "clips": [
+    {
+      "exercise": "lat_pulldown",
+      "source_duration_s": 55.111678,
+      "source_bytes": 6704838,
+      "verified": true,
+      "pose_samples": 1651,
+      "last_pose_pts_s": 55.078333,
+      "verification": "native_browser_upload_and_replay",
+      "report_scope": "pose_only",
+      "recipe_hash": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977"
+    },
+    {
+      "exercise": "dumbbell_curl",
+      "source_duration_s": 20.653333,
+      "source_bytes": 46008563,
+      "verified": true,
+      "pose_samples": 619,
+      "last_pose_pts_s": 20.635,
+      "verification": "http_real_worker_range_and_owner_checks",
+      "report_scope": "pose_only",
+      "recipe_hash": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977"
+    },
+    {
+      "exercise": "squat",
+      "source_duration_s": 14.248333,
+      "source_bytes": 27808876,
+      "verified": true,
+      "pose_samples": 425,
+      "last_pose_pts_s": 14.201667,
+      "verification": "http_real_worker_range_and_owner_checks",
+      "report_scope": "pose_only",
+      "recipe_hash": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977"
+    },
+    {
+      "exercise": "incline_chest_press",
+      "source_duration_s": 39.923333,
+      "source_bytes": 44702924,
+      "verified": true,
+      "pose_samples": 1197,
+      "last_pose_pts_s": 39.906667,
+      "private_range_replay_status": 206,
+      "foreign_owner_status": 404,
+      "report_scope": "pose_only"
+    }
+  ],
+  "press_recovery_elapsed_s": 169.38,
+  "llm_calls": 0,
+  "scope": "full-length pose intake/private replay only, not exercise-specific measurement or scoring",
+  "regression_history": [
+    "Initial full press failed CHILD_FAILED; unconfirmed decoder240s change did not resolve it.",
+    "Direct actual source probe raised subprocess.TimeoutExpired at30.03s.",
+    "Rolled decoder back to120s; timestamp probe90s in full-set-60s-v3; actual press recovery passed169.38s.",
+    "No pose coordinates, source videos, cookies or owner IDs are exported in this evidence."
+  ]
+}

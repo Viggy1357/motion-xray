@@ -24,6 +24,13 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 ## Resume one task
 
+Latest build: read `docs/audit/HM-first-app-build.md` and active TASKS entry. First
+real guest upload/status/private replay/browser-log app and60s limits are accepted;
+828 offline tests. Additive0.3 models and standalone Nano coaching adapter validated.
+Next HM04 actual runtime measurement/quality report + app integration, then actual
+set-evidence coaching and durable HM02 logs. Public reports remain pose-only. Hosting
+deferred; benchmark research frozen. Do not redispatch the already accepted Batch A.
+
 T23 execution plan is now prepared: read `docs/HACKATHON-EXECUTION-PLAN.md` and
 `docs/delegation/HM-BATCH-A.md`. Owner confirms same-browser profile first/free-first
 hosting. Next delegation is Batch A only, then contract/mockup integration before

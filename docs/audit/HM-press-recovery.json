@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "elapsed_s": 169.38,
+  "clips": [
+    {
+      "exercise": "incline_chest_press",
+      "source_duration_s": 39.923333,
+      "source_bytes": 44702924,
+      "verified": true,
+      "pose_samples": 1197,
+      "last_pose_pts_s": 39.906667,
+      "private_range_replay_status": 206,
+      "foreign_owner_status": 404,
+      "report_scope": "pose_only"
+    }
+  ],
+  "llm_calls": 0,
+  "scope": "real full-length pose intake/replay, not movement reports or scoring"
+}

@@ -10,6 +10,12 @@ artifacts plus identical config/versions must produce identical metrics and scor
 
 ## Processing pipeline
 
+Latest22 October application checkpoint: `audit/HM-first-app-build.md`. Main Next.js
+app now has guest upload/status/replay and browser-local logs. Four catalogue entries
+and60s intake are implemented. Additive0.3 product models and the bounded standalone
+coaching adapter exist; uploaded-set reports still remain strict0.2 pose-only. HM04
+report assembly and actual set-evidence coaching are the next integration boundary.
+
 22 October checkpoint: private owner-scoped artifact streaming now supports proxy
 byte ranges plus pose JSONL/timestamps. Conservative manual retention removes expired
 known completed payloads/reports, with durable cleanup receipts for partial filesystem
