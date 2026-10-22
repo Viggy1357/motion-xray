@@ -10,7 +10,14 @@ artifacts plus identical config/versions must produce identical metrics and scor
 
 ## Processing pipeline
 
-Latest22 October application checkpoint: `audit/HM-first-app-build.md`. Main Next.js
+Latest22 October assessment checkpoint: `audit/HM04.1-experimental-assessment.md`.
+Owner-scoped additive0.3 `/movement-report` derives lat metrics and a partial,
+unreviewed experimental QMotion resemblance estimate from checked pose artifacts.
+No paid calls/writes from GET; access rechecked after calculation. Legacy0.2 `/result`
+stays pose-only; other exercise movement profiles remain unavailable. Main technique
+score stays null. HM06 evidence-bound coaching remains the next integration boundary.
+
+Earlier22 October application checkpoint: `audit/HM-first-app-build.md`. Main Next.js
 app now has guest upload/status/replay and browser-local logs. Four catalogue entries
 and60s intake are implemented. Additive0.3 product models and the bounded standalone
 coaching adapter exist; uploaded-set reports still remain strict0.2 pose-only. HM04

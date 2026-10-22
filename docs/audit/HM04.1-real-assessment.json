@@ -1,0 +1,187 @@
+{
+  "status": "local_real_artifact_acceptance",
+  "reports": [
+    {
+      "exercise": "dumbbell_curl",
+      "frames": 619,
+      "detected_cycles": null,
+      "unavailable_reason": "exercise_profile_unavailable",
+      "assessment": {
+        "status": "unavailable",
+        "policy_version": null,
+        "estimated_match": null,
+        "included_components": [],
+        "omitted_components": [],
+        "missing_reasons": [
+          "exercise_profile_unavailable"
+        ]
+      },
+      "metric_entries": 0,
+      "measured_entries": 0,
+      "quality": {
+        "expected_supporting_samples": 0,
+        "valid_observed_samples": 0,
+        "per_metric_coverage": {},
+        "usable_reps": 0,
+        "total_reps": 0,
+        "missing_reasons": [
+          "exercise_profile_unavailable"
+        ],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "6f57b1faca6265dcb8e495aded57182879beda3614cbde792cb8197373ed282a",
+        "processing_version": "5cdb795b1970bfa97b89973889adeb9909ba4d618fe7db4794f8c3814b94c978",
+        "profile_status": "movement-unavailable-v1"
+      },
+      "repeat_sha256": "3ee5026d8ff3dfc986d81483c3f00bd48d66d1c7fb72998a3a1d36ef46555d4b",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    },
+    {
+      "exercise": "incline_chest_press",
+      "frames": 1197,
+      "detected_cycles": null,
+      "unavailable_reason": "exercise_profile_unavailable",
+      "assessment": {
+        "status": "unavailable",
+        "policy_version": null,
+        "estimated_match": null,
+        "included_components": [],
+        "omitted_components": [],
+        "missing_reasons": [
+          "exercise_profile_unavailable"
+        ]
+      },
+      "metric_entries": 0,
+      "measured_entries": 0,
+      "quality": {
+        "expected_supporting_samples": 0,
+        "valid_observed_samples": 0,
+        "per_metric_coverage": {},
+        "usable_reps": 0,
+        "total_reps": 0,
+        "missing_reasons": [
+          "exercise_profile_unavailable"
+        ],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "a870875fd5f6901aa8a3aa587ae662260c9e61b00702b991e891a54fdd41db93",
+        "processing_version": "5cdb795b1970bfa97b89973889adeb9909ba4d618fe7db4794f8c3814b94c978",
+        "profile_status": "movement-unavailable-v1"
+      },
+      "repeat_sha256": "b1544d443cfeb0e5a356aa7a4af0a53ae7bc0f070825c74a58455fd7f0012055",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    },
+    {
+      "exercise": "squat",
+      "frames": 425,
+      "detected_cycles": null,
+      "unavailable_reason": "exercise_profile_unavailable",
+      "assessment": {
+        "status": "unavailable",
+        "policy_version": null,
+        "estimated_match": null,
+        "included_components": [],
+        "omitted_components": [],
+        "missing_reasons": [
+          "exercise_profile_unavailable"
+        ]
+      },
+      "metric_entries": 0,
+      "measured_entries": 0,
+      "quality": {
+        "expected_supporting_samples": 0,
+        "valid_observed_samples": 0,
+        "per_metric_coverage": {},
+        "usable_reps": 0,
+        "total_reps": 0,
+        "missing_reasons": [
+          "exercise_profile_unavailable"
+        ],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "94620324fd619c258163298c5ee09fb59a09fd2ea732929671ac0a45425d8536",
+        "processing_version": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977",
+        "profile_status": "movement-unavailable-v1"
+      },
+      "repeat_sha256": "63ffa2367524639074f393e078c76e9ab23b75ed10cbcb3ac59adc8864cb8927",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    },
+    {
+      "exercise": "lat_pulldown",
+      "frames": 1651,
+      "detected_cycles": 5,
+      "unavailable_reason": null,
+      "assessment": {
+        "status": "partial",
+        "policy_version": "lat-experimental-match-v1",
+        "estimated_match": 62.10177651794693,
+        "included_components": [
+          "torso_dynamic",
+          "arm_rom",
+          "shoulder_drive"
+        ],
+        "omitted_components": [
+          "torso_start",
+          "bar_endpoint"
+        ],
+        "missing_reasons": [
+          "unreviewed_view",
+          "unreviewed_normalization",
+          "partial_metric_scope"
+        ]
+      },
+      "metric_entries": 160,
+      "measured_entries": 160,
+      "quality": {
+        "expected_supporting_samples": 1651,
+        "valid_observed_samples": 1530,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.9267110841913991,
+          "elbow_angle/estimated_3d": 0.9267110841913991,
+          "upper_arm_torso_angle/projected_2d": 0.9557843731072078,
+          "upper_arm_torso_angle/estimated_3d": 0.9557843731072078,
+          "torso_axis_angle/projected_2d": 0.9890975166565718
+        },
+        "usable_reps": 5,
+        "total_reps": 23,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "ac8055a1767da3fd5e3596bd73fba224dc04b141d181529b2f6180bb8e0880d5",
+        "processing_version": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977",
+        "config_sha256": "d12dbc902afc6ae0bed9b2852ed3eb35a567547649c00a6ab9a5d36f8e79292b",
+        "side": "left",
+        "segment_config_version": "lat-runtime-v1",
+        "pipeline_version": "hm04-lat-v1",
+        "automatic_window_origin": "find_cycles:estimated_3d_elbow_signal",
+        "axis": "image_up_unverified_not_gravity",
+        "count_source": "automatic_segmentation_signal_only",
+        "global_coverage_meaning": "segmentation_signal_visibility_only",
+        "experimental_policy_version": "lat-experimental-match-v1",
+        "experimental_policy_sha256": "3aac3a3939c91b6b52627971601a12982385f7fcfa6af639385c6bba24730222",
+        "reference_id": "qmotion_roi",
+        "reference_view_id": "qmotion_roi_diagonal_unvalidated",
+        "reference_review_status": "unreviewed_algorithm_proposal",
+        "reference_rep_count": "4",
+        "reference_band_basis": "observed_min_max_not_tolerance",
+        "match_formula": "distance=max(L-x,0,x-U);resemblance=100*max(0,1-distance/normalization)",
+        "match_normalization_degrees": "30.0",
+        "match_coverage_threshold": "0.8",
+        "match_aggregation": "arm_rom_metric_mean_then_equal_family_mean_per_cycle_then_cycle_mean",
+        "matched_cycles": "5",
+        "omitted_cycle_count": "0",
+        "calibration_status": "uncalibrated_engineering_hypothesis_not_validated"
+      },
+      "repeat_sha256": "d4fed4057a87b63dd2ed54ca073c00e663b2e723feb2bdd0ed1a23a71bd8bf0a",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    }
+  ]
+}

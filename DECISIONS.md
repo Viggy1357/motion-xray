@@ -324,3 +324,25 @@ Specification v2.0 (15 Oct 2026).
   https://github.com/NVIDIA-AI-Blueprints/nemotron-voice-agent/blob/main/docs/how-to/configure-llm.md
   https://github.com/nebius/nebius-physical-ai/blob/main/docs/workbench/token-factory.md
 - No paid hosting, public endpoint, sign-in or Google Drive integration activated.
+
+## D017 — Experimental reference resemblance in the personal prototype
+
+- 22 October2026: owner authorizes app assessment integration with parallel Nebius
+  workers. Historic comparison has descriptive bands/deltas, not a scored approved
+  baseline. Preserve `lat-component-policy-v1` and trusted scoring gates unchanged.
+- Separate `lat-experimental-match-v1` may populate the existing0.3
+  `prototype_assessment.estimated_match`, always partial and non-authoritative;
+  top-level technique `score` remains null. No fabricated reviewer or view approval.
+- Reuse QMotion measured reference bands as primary (owner preference); other two
+  sources remain separate. Band min/max is observed footage variation, not safe or
+  acceptable technique limits. A30degree linear normalization is an explicit engineering
+  proposal requiring future review, never claimed as calibrated tolerance.
+- Equal torso-dynamic, arm-ROM and shoulder-drive families; arm-ROM averages excursion
+  and return extension. Score only complete cycles with all four supported metrics and
+  at least80% observed support each; aggregate eligible cycles equally. Missing inputs
+  produce null, not zero or reweighted higher scores. Omit uncalibrated absolute torso
+  start and undetected bar endpoint. No camera/view compatibility claim.
+- UI must show formula, version, primary source, missing families, eligible cycle count,
+  and unreviewed calibration. This prototype resemblance is not technique accuracy,
+  injury risk, muscle activation or a qualified coaching judgment. No new research or
+  paid calls from the read endpoint; source-only Nebius development prompts.

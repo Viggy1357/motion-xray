@@ -12,6 +12,26 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM04.1 — app experimental reference assessment · done (lat slice)
+
+- FR07/08/10/12. Owner asks to connect provisional reference assessment now and use
+  multiple direct Nebius workers. Engine, UI and independent method review delegated;
+  existing trusted scoring gates/pending policy remain unchanged. No new calibration research.
+- New versioned experimental policy preserves per-source historical measured bands,
+  QMotion primary preference. Engineering normalization30degrees is explicitly an
+  unreviewed proposal, not an owner-reviewed tolerance or validated technique score.
+  Contract0.3 already separates `prototype_assessment.estimated_match` from null `score`.
+- Delivered engine/config/API/UI with formula, reference bands and signed deviations.
+  Real lat yields62.1/100 experimental resemblance over five eligible cycles; other
+  exercise profiles stay unavailable. Main technique score stays null. Browser verified
+  saved10-rep log, actual estimate and phone-width layout. No pose reinference.
+- Checks: Ruff/mypy66 sources,897 Python tests, web typecheck/production build pass;
+  repeated real reports identical, existing security/legacy checks retained.
+- Six direct Nebius calls79,195 tokens/$0.611601 guard; aggregate$10.98804365, balance
+  unverified. Evidence: `docs/audit/HM04.1-experimental-assessment.md`, associated JSON
+  and `docs/development-usage-HM04.1-2026-10-22.json`. Independent method and UI/API QC.
+- Next HM06 grounded coaching/cache/quota, HM02 durable logs, HM05/HM07 other profiles.
+
 ### HM03.1 — repair same-origin large uploads · done
 
 - FR01/02/12. User-reported upload failure reproduced: Next15.5.28 rewrite buffered

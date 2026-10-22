@@ -23,6 +23,7 @@ from app.store import NotFound
 from contracts.pose import PoseFrame
 from contracts.product import PrototypeAnalysisResult
 from movement.runtime_lat import build_movement_report
+from movement.experimental_match import apply_experimental_match
 
 router = APIRouter(prefix="/v1")
 
@@ -137,6 +138,7 @@ def get_movement_report(request: Request, response: Response, analysis_id: str):
             pose_sha256=expected_sha,
             processing_version=manifest.provenance.get("version_hash", ""),
         )
+        report = apply_experimental_match(report)
     except ValueError:
         _no_store(response)
         return _error_response(503, "REPORT_UNAVAILABLE", "Derived report configuration is invalid", retryable=True)

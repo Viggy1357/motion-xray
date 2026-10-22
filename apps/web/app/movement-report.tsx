@@ -36,6 +36,19 @@ function fmtValue(m: Metric): string | null {
   return `${m.value.toFixed(digits)} ${m.unit}`;
 }
 
+function fmtDeviation(m: Metric): string | null {
+  if (m.deviation == null) return null;
+  const d = m.deviation;
+  const sign = d > 0 ? "+" : "";
+  return `${sign}${d.toFixed(1)} ${m.unit}`;
+}
+
+function fmtInterval(m: Metric): string | null {
+  if (!m.reference_interval) return null;
+  const [lo, hi] = m.reference_interval;
+  return `${lo.toFixed(1)} – ${hi.toFixed(1)} ${m.unit}`;
+}
+
 function isReport(data: unknown): data is Report {
   if (typeof data !== "object" || data === null) return false;
   const d = data as { schema_version?: unknown; quality?: unknown; reps?: unknown; metrics?: unknown };
@@ -54,22 +67,35 @@ function seekTo(seconds: number): void {
   void v.play().catch(() => undefined);
 }
 
-function MetricLine({ m }: { m: Metric }) {
+function MetricLine({ m, showReference }: { m: Metric; showReference: boolean }) {
   const v = fmtValue(m);
+  const interval = showReference ? fmtInterval(m) : null;
+  const deviation = showReference ? fmtDeviation(m) : null;
   return (
     <tr>
       <td>{humanize(m.id)}</td>
       <td>
         {v !== null ? v : <span className="muted">Unavailable{m.reason ? ` — ${m.reason.replaceAll("_", " ")}` : ""}</span>}
       </td>
+      {showReference && (
+        <>
+          <td>{interval !== null ? <span className="muted">{interval}</span> : <span className="muted">—</span>}</td>
+          <td>{deviation !== null ? <span className="muted">{deviation}</span> : <span className="muted">—</span>}</td>
+        </>
+      )}
     </tr>
   );
 }
 
-function RepMetrics({ rep, metrics }: { rep: Rep; metrics: Metric[] }) {
+function RepMetrics({ rep, metrics, showReference }: { rep: Rep; metrics: Metric[]; showReference: boolean }) {
   const top = metrics.filter((m) => TOP_METRIC_IDS.includes(m.id));
   const rest = metrics.filter((m) => !TOP_METRIC_IDS.includes(m.id));
   const shown = top.length > 0 ? top : metrics.slice(0, 4);
+  const header = showReference ? (
+    <thead>
+      <tr><th>Metric</th><th>Measured</th><th>Reference band</th><th>Signed deviation</th></tr>
+    </thead>
+  ) : null;
   return (
     <div style={{ marginBottom: ".9rem" }}>
       <h4 style={{ margin: "0 0 .3rem", fontSize: ".95rem" }}>
@@ -83,17 +109,77 @@ function RepMetrics({ rep, metrics }: { rep: Rep; metrics: Metric[] }) {
       ) : (
         <>
           <table>
-            <tbody>{shown.map((m, i) => <MetricLine key={`${m.id}-${i}`} m={m} />)}</tbody>
+            {header}
+            <tbody>{shown.map((m, i) => <MetricLine key={`${m.id}-${i}`} m={m} showReference={showReference} />)}</tbody>
           </table>
           {rest.length > 0 && (
             <details style={{ marginTop: ".3rem" }}>
               <summary className="muted" style={{ cursor: "pointer" }}>All measurements for this rep ({metrics.length})</summary>
               <table>
-                <tbody>{metrics.map((m, i) => <MetricLine key={`${m.id}-all-${i}`} m={m} />)}</tbody>
+                {header}
+                <tbody>{metrics.map((m, i) => <MetricLine key={`${m.id}-all-${i}`} m={m} showReference={showReference} />)}</tbody>
               </table>
             </details>
           )}
         </>
+      )}
+    </div>
+  );
+}
+
+function ExperimentalMatch({ report }: { report: Report }) {
+  const pa = report.prototype_assessment;
+  const prov = report.provenance;
+  if (pa.estimated_match == null) return null;
+  const policyVersion = prov.experimental_policy_version ?? pa.policy_version ?? "unknown";
+  const referenceId = prov.reference_id;
+  const referenceName = referenceId === "qmotion_roi" ? "QMotion" : (referenceId ?? "not reported");
+  const referenceView = prov.reference_view_id;
+  const reviewStatus = prov.reference_review_status;
+  const matchedCycles = prov.matched_cycles;
+  const omittedCycles = prov.omitted_cycle_count;
+  const normDeg = prov.match_normalization_degrees != null ? String(prov.match_normalization_degrees) : "not reported";
+  const coverageThreshold = prov.match_coverage_threshold != null
+    ? `${Math.round(Number(prov.match_coverage_threshold) * 100)}%`
+    : null;
+  const calibration = prov.calibration_status;
+  const referenceRepCount = prov.reference_rep_count;
+  return (
+    <div className="card" style={{ marginBottom: "1rem" }} aria-label="Experimental reference match">
+      <div className="row" style={{ justifyContent: "space-between", alignItems: "baseline" }}>
+        <h3 style={{ margin: 0 }}>Experimental reference match</h3>
+        <span className="pill warn">Partial comparison · unreviewed calibration</span>
+      </div>
+      <p className="big" style={{ margin: ".3rem 0" }}>{pa.estimated_match.toFixed(1)}<span className="muted" style={{ fontSize: "1rem" }}> / 100</span></p>
+      <p className="muted" style={{ margin: ".2rem 0" }}>
+        Experimental resemblance index: a low-confidence resemblance to the {referenceName} reference{referenceView ? ` (view: ${referenceView})` : ""}, the primary reference source for this profile.
+        This is not a technique score, not a numerical accuracy percentage, and it has not been owner-reviewed or validated.
+      </p>
+      <p className="muted" style={{ margin: ".2rem 0" }}>
+        The main technique score is not available for this report. This limited resemblance does not measure bar/chest endpoint position or calibrated torso lean, and the camera view is unreviewed.
+      </p>
+      <details style={{ marginTop: ".4rem" }}>
+        <summary className="muted" style={{ cursor: "pointer" }}>How this estimate is computed</summary>
+        <ul className="muted" style={{ margin: ".4rem 0 0", paddingLeft: "1.2rem" }}>
+          <li>For each measured value x and reference band [L, U]: distance = max(L − x, 0, x − U) — the distance outside the band (0 when inside).</li>
+          <li>Resemblance per metric = 100 × max(0, 1 − distance / {normDeg}). The {normDeg}-degree normalization is an explicit, unreviewed engineering hypothesis — not a validated threshold.</li>
+          <li>Three families weighted equally per cycle: torso dynamic, arm range of motion (two components averaged), shoulder drive; then averaged across complete eligible cycles.</li>
+          {coverageThreshold !== null ? (
+            <li>Each cycle needs all four metrics observed with ≥ {coverageThreshold} supporting coverage. This is a data-completeness requirement — it does not mean {coverageThreshold} accuracy.</li>
+          ) : (
+            <li>Each cycle needs all four metrics observed with sufficient supporting coverage. This is a data-completeness requirement — it does not describe accuracy.</li>
+          )}
+          {matchedCycles !== undefined && <li>Matched cycles: {matchedCycles}{omittedCycles !== undefined && omittedCycles !== "0" ? ` · omitted cycles: ${omittedCycles}` : ""}.</li>}
+          <li>Policy: {policyVersion}{calibration ? ` · calibration: ${calibration.replaceAll("_", " ")}` : ""}{reviewStatus ? ` · reference review: ${reviewStatus.replaceAll("_", " ")}` : ""}.</li>
+        </ul>
+      </details>
+      {pa.omitted_components.length > 0 && (
+        <p className="muted" style={{ margin: ".4rem 0 0" }}>
+          Omitted from comparison: {pa.omitted_components.map((c) => c.replaceAll("_", " ")).join(", ")}.
+        </p>
+      )}
+      {pa.missing_reasons.length > 0 && (
+        <p className="muted" style={{ margin: ".2rem 0 0" }}>{pa.missing_reasons.join("; ").replaceAll("_", " ")}</p>
       )}
     </div>
   );
@@ -173,6 +259,12 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
     byRep.set(m.rep_id, list);
   }
   const pa = report.prototype_assessment;
+  const prov = report.provenance;
+  const hasEstimate = pa.estimated_match != null;
+  const showReference = report.metrics.some((m) => m.reference_interval != null || m.deviation != null);
+  const profileUnavailable = pa.missing_reasons.some((r) => r.includes("exercise_profile_unavailable"));
+  const noEligibleCycles = pa.missing_reasons.some((r) => r.includes("no_eligible_cycles"));
+  const referenceRepCount = prov.reference_rep_count;
 
   return (
     <section aria-labelledby="movement-h" style={{ marginBottom: "1.25rem" }}>
@@ -234,12 +326,18 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
         </div>
       )}
 
+      {hasEstimate && <ExperimentalMatch report={report} />}
+
       {pa.status === "unavailable" && (
         <div className="state warn" role="status">
           <strong>Reference match unavailable.</strong>{" "}
-          {pa.policy_version
-            ? `The reference comparison policy (${pa.policy_version}) is pending and not yet approved, so no match estimate or technique grade is shown.`
-            : "No approved reference comparison policy is available for this exercise profile, so no match estimate or technique grade is shown."}{" "}
+          {profileUnavailable
+            ? "The exercise profile for this movement is still pending, so no reference comparison can run yet — this is not a segmentation failure."
+            : noEligibleCycles
+              ? "There are insufficient compatible observed measurements to compare against the reference, so no match estimate is shown."
+              : pa.policy_version
+                ? `The reference comparison policy (${pa.policy_version}) is pending and not yet approved, so no match estimate is shown.`
+                : "No approved reference comparison policy is available for this exercise profile, so no match estimate is shown."}{" "}
           Your measured values below are still reported as-is.
           {pa.missing_reasons.length > 0 && (
             <p className="muted" style={{ margin: ".3rem 0 0" }}>{pa.missing_reasons.join("; ").replaceAll("_", " ")}</p>
@@ -293,10 +391,19 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
 
       <div className="card" style={{ marginBottom: "1rem" }}>
         <h3>Measured values</h3>
+        {showReference && (
+          <p className="muted" style={{ margin: ".2rem 0 .6rem" }}>
+            Reference bands are observed min/max ranges from {referenceRepCount != null ? `n=${referenceRepCount} reference cycles` : "the reference cycles"} (unreviewed camera) — not acceptable technique tolerances. Signed deviation is negative below the band, positive above it, and 0 inside. Labels indicate camera-plane (projected 2D) or estimated-3D measurements; these are descriptive only.
+          </p>
+        )}
         {completed.length === 0 ? (
-          <p className="muted">No completed cycles were segmented, so no per-rep measurements are available.</p>
+          <p className="muted">
+            {profileUnavailable
+              ? "No completed cycles are shown because the exercise profile is still pending — this is not a segmentation failure."
+              : "No completed cycles were segmented, so no per-rep measurements are available."}
+          </p>
         ) : (
-          completed.map((r) => <RepMetrics key={r.id} rep={r} metrics={byRep.get(r.id) ?? []} />)
+          completed.map((r) => <RepMetrics key={r.id} rep={r} metrics={byRep.get(r.id) ?? []} showReference={showReference} />)
         )}
       </div>
 

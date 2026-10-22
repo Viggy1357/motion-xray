@@ -177,6 +177,9 @@ def test_valid_lat_report(client: TestClient, lat_succeeded):
     assert body["analysis_id"] == lat_succeeded.job.id
     assert body["exercise"] == "lat_pulldown"
     assert body["score"] is None
+    assert body["prototype_assessment"]["status"] == "partial"
+    assert body["prototype_assessment"]["estimated_match"] is not None
+    assert body["provenance"]["reference_id"] == "qmotion_roi"
     assert r.headers["cache-control"] == "no-store"
     assert r.headers["x-content-type-options"] == "nosniff"
     assert body["detected_rep_count"] == 2

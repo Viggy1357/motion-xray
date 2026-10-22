@@ -1,0 +1,138 @@
+{
+  "version": "lat-experimental-match-v1",
+  "authoritative": false,
+  "review_status": "unreviewed_algorithm_proposal",
+  "primary_reference_id": "qmotion_roi",
+  "normalization_degrees": 30.0,
+  "normalization_basis": "engineering_proposal_not_calibrated_tolerance",
+  "coverage_threshold": 0.8,
+  "family_groups": {
+    "torso_dynamic": [
+      "torso_axis_angle/projected_2d/excursion"
+    ],
+    "arm_rom": [
+      "elbow_angle/estimated_3d/excursion",
+      "elbow_angle/estimated_3d/end"
+    ],
+    "shoulder_drive": [
+      "upper_arm_torso_angle/estimated_3d/bottom"
+    ]
+  },
+  "omitted_components": [
+    "torso_start",
+    "bar_endpoint"
+  ],
+  "references": [
+    {
+      "id": "qmotion_roi",
+      "view_id": "qmotion_roi_diagonal_unvalidated",
+      "rep_count": 4,
+      "source_sha256": "c5ce13c951e7aa13a4db748442b8675ab3dd0d9e961306f04761170e0f6385e1",
+      "pose_sha256": "7783173cef3cc36ab4267fc3f5db5aa85314825199e0d6b709f02e463d04bff2",
+      "bands": {
+        "torso_axis_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 26.84034327316766,
+          "value_min": 22.175893967891938
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 76.12246048671858,
+          "value_min": 67.80057239455766
+        },
+        "elbow_angle/estimated_3d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 159.09039212657623,
+          "value_min": 156.96433349874334
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 53.81956352706624,
+          "value_min": 49.32936462864003
+        }
+      }
+    },
+    {
+      "id": "catalyst_roi",
+      "view_id": "catalyst_roi_diagonal_unvalidated",
+      "rep_count": 3,
+      "source_sha256": "7bc70c82e778449c4ead185a7c11e65125d9ead76421b7eb26880fd063e21ff0",
+      "pose_sha256": "f3676f443b0dc7b876431d9abd1f4fa3d81ef0283a9791cdac5e3ff999fe5947",
+      "bands": {
+        "torso_axis_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 13.036010884902396,
+          "value_min": 9.145628970969028
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 85.77951762848711,
+          "value_min": 82.17118268534301
+        },
+        "elbow_angle/estimated_3d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 157.30343425577985,
+          "value_min": 150.01638786803042
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 24.251653410098402,
+          "value_min": 20.305817422160434
+        }
+      }
+    },
+    {
+      "id": "imsa_right",
+      "view_id": "imsa_side_crop",
+      "rep_count": 3,
+      "source_sha256": "cf3fc103ff4f653477f5bd828eec9c1374304dd1e49ee70f89b0302e18b41d6a",
+      "pose_sha256": "bc660b30473ee7a5fc820072b8206438be4dbbb7bfcd614e6098db0e09891f9a",
+      "bands": {
+        "torso_axis_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 6.755093782306517,
+          "value_min": 5.376447226236394
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 1,
+          "value_max": 93.76519649929557,
+          "value_min": 93.76519649929557
+        },
+        "elbow_angle/estimated_3d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 148.20501973582677,
+          "value_min": 144.38731330285404
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 42.116423175359685,
+          "value_min": 25.201357946145496
+        }
+      }
+    }
+  ]
+}

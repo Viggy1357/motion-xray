@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-22",
+  "task": "HM04.1 experimental reference assessment",
+  "requests": [
+    {
+      "task": "HM04.1-engine",
+      "model": "moonshotai/Kimi-K3",
+      "request": "assessment-engine",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.305199,
+      "input_token_bound": 41733,
+      "output_token_bound": 12000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million, not invoice price",
+      "usage": {
+        "completion_tokens": 7781,
+        "prompt_tokens": 8975,
+        "total_tokens": 16756,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 2834
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "4e7a5ad7514a4d35aa49f7a9e14607c4",
+      "elapsed_s": 65.74,
+      "received_chars": 18518,
+      "conservative_cost_usd": 0.14364,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM04.1-ui",
+      "model": "moonshotai/Kimi-K3",
+      "request": "assessment-ui",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.283401,
+      "input_token_bound": 34467,
+      "output_token_bound": 12000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5507,
+        "prompt_tokens": 7311,
+        "total_tokens": 12818,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 71
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "85af4173ed594780aa8b857ae0849fa8",
+      "elapsed_s": 36.7,
+      "received_chars": 19790,
+      "conservative_cost_usd": 0.10453799999999999,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM04.1-QC-plan",
+      "model": "moonshotai/Kimi-K3",
+      "request": "assessment-plan-qc",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.166203,
+      "input_token_bound": 35401,
+      "output_token_bound": 4000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2513,
+        "prompt_tokens": 7403,
+        "total_tokens": 9916,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 213
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "bde11ea9faed456dacb3c48bdb41056e",
+      "elapsed_s": 35.85,
+      "received_chars": 10603,
+      "conservative_cost_usd": 0.059904,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM04.1-engine",
+      "model": "moonshotai/Kimi-K3",
+      "request": "assessment-engine-r1",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.350775,
+      "input_token_bound": 46925,
+      "output_token_bound": 14000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million, not invoice price",
+      "usage": {
+        "completion_tokens": 7538,
+        "prompt_tokens": 10405,
+        "total_tokens": 17943,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 177
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "97ed5883780e4ba9a6bf40581dd6f02d",
+      "elapsed_s": 44.9,
+      "received_chars": 26657,
+      "conservative_cost_usd": 0.144285,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM04.1-QC-UI",
+      "model": "moonshotai/Kimi-K3",
+      "request": "assessment-ui-qc",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.17933100000000002,
+      "input_token_bound": 39777,
+      "output_token_bound": 4000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2147,
+        "prompt_tokens": 8595,
+        "total_tokens": 10742,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 806
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "0f2617fa1c7547678fc1da4a7f11a316",
+      "elapsed_s": 24.23,
+      "received_chars": 6132,
+      "conservative_cost_usd": 0.05799,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    },
+    {
+      "task": "HM04.1-ui",
+      "model": "moonshotai/Kimi-K3",
+      "request": "assessment-ui-r1",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.196623,
+      "input_token_bound": 25541,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative K3 guard USD3/15 per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5682,
+        "prompt_tokens": 5338,
+        "total_tokens": 11020,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 8
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "28503e2051564989b67794a3e03bc813",
+      "elapsed_s": 28.47,
+      "received_chars": 20880,
+      "conservative_cost_usd": 0.101244,
+      "review_outcome": "accepted_with_documented_integration_corrections"
+    }
+  ],
+  "total_tokens": 79195,
+  "task_tokens": {
+    "HM04.1-engine": 34699,
+    "HM04.1-ui": 23838,
+    "HM04.1-QC-plan": 9916,
+    "HM04.1-QC-UI": 10742
+  },
+  "conservative_cost_usd": 0.611601,
+  "prior_aggregate_commitment_usd": 10.37644265,
+  "aggregate_commitment_usd": 10.98804365,
+  "balance_verified": false,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "historic_unknown_call_contingency_included_once_usd": 1,
+  "product_runtime_paid_calls": 0,
+  "tavily_calls": 0,
+  "notes": [
+    "All worker prompts contained source/config/reference-only aggregate bands; no private user media/pose arrays.",
+    "Three parallel initial workers, then scoped repair and independent UI/API review.",
+    "USD3 input/15 completion per million conservative guard, not invoice rates.",
+    "Versioned30degree normalization is unreviewed engineering hypothesis; no benchmark approval fabricated."
+  ]
+}

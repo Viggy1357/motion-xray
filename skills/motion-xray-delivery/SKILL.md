@@ -26,10 +26,11 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 Latest build: read `docs/audit/HM-first-app-build.md` and active TASKS entry. First
 real guest upload/status/private replay/browser-log app and60s limits are accepted;
-858 offline tests. HM04 lat movement report/API/UI accepted: read
-`docs/audit/HM04-runtime-report.md`. Existing0.2 result stays pose-only; additive0.3
-derived endpoint supplies measured lat metrics/coverage and provisional cycles with
-scores null. Other three exercise profiles unavailable. Next HM06 actual set-evidence
+897 offline tests. HM04/HM04.1 lat movement and experimental assessment/API/UI accepted:
+read `docs/audit/HM04.1-experimental-assessment.md`. Existing0.2 result stays pose-only;
+additive0.3 derived endpoint supplies lat metrics/coverage/cycles and partial experimental
+reference resemblance under a separate unreviewed engineering policy. Main technique
+score null; other three exercise profiles unavailable. Next HM06 actual set-evidence
 coaching with durable cache/global quota, then durable HM02 logs. Hosting
 deferred; benchmark research frozen. Do not redispatch the already accepted Batch A.
 
