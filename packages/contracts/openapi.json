@@ -1149,7 +1149,7 @@
     },
     "/v1/analyses/{analysis_id}/artifacts/{kind}": {
       "get": {
-        "description": "Fetch a private artifact (e.g. pose frames) for the X Ray UI. FR10. TODO(T11).",
+        "description": "Serve proxy, pose or timestamps to the signed owner; never original media.\n\nProxy supports one Range header (bytes=start-end, bytes=start-, or bytes=-suffix).\nPose/timestamp requests ignore Range and return the complete bounded artifact.",
         "operationId": "get_analysis_artifact_v1_analyses__analysis_id__artifacts__kind__get",
         "parameters": [
           {
@@ -1176,12 +1176,36 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "title": "Response Get Analysis Artifact V1 Analyses  Analysis Id  Artifacts  Kind  Get",
-                  "type": "null"
+                  "type": "object"
+                }
+              },
+              "application/x-ndjson": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "video/mp4": {
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
                 }
               }
             },
-            "description": "Successful Response"
+            "description": "Private proxy, pose JSONL, or timestamp map; raw retention applies."
+          },
+          "206": {
+            "content": {
+              "video/mp4": {
+                "schema": {
+                  "format": "binary",
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Single byte range of the private proxy video."
+          },
+          "416": {
+            "description": "Malformed or unsatisfiable proxy byte range."
           },
           "422": {
             "content": {
@@ -1194,7 +1218,7 @@
             "description": "Validation Error"
           }
         },
-        "summary": "Get Analysis Artifact"
+        "summary": "Get Artifact"
       }
     },
     "/v1/analyses/{analysis_id}/cancel": {

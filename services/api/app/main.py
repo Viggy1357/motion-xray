@@ -30,6 +30,7 @@ from pydantic import BaseModel
 from app import errors
 from app.uploads import router as uploads_router
 from app.analyses import router as analyses_router
+from app.artifact_streams import router as artifact_streams_router
 from contracts.reference import ReferenceProfile, SourceRecord
 from providers.search.protocol import SearchProvider
 
@@ -40,6 +41,7 @@ app = FastAPI(
 )
 app.include_router(uploads_router)
 app.include_router(analyses_router)
+app.include_router(artifact_streams_router)
 
 
 @app.middleware("http")
@@ -71,12 +73,6 @@ def list_exercises() -> None:
 @app.get("/v1/references", response_model=list[ReferenceProfile])
 def list_references() -> None:
     """List approved reference profiles. FR07, FR11. TODO(T06)."""
-    raise _not_implemented()
-
-
-@app.get("/v1/analyses/{analysis_id}/artifacts/{kind}")
-def get_analysis_artifact(analysis_id: str, kind: str) -> None:
-    """Fetch a private artifact (e.g. pose frames) for the X Ray UI. FR10. TODO(T11)."""
     raise _not_implemented()
 
 

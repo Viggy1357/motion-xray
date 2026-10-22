@@ -268,3 +268,25 @@ Specification v2.0 (15 Oct 2026).
 | Exact Nemotron ID, JSON behavior, endpoint, credits | Implementer | Gate A (T01) |
 | Budget cap + retention implementation | Product owner + implementer | Before paid deployment |
 | Score weights and experimental claims | Product owner / reviewer | Before config freeze |
+
+## D015 — Freeze benchmark research; prioritise a functional hackathon prototype
+
+- **Date:**22 October2026; **Status:** accepted owner scope direction; feature list
+  and UI interaction choices remain discussion proposals.
+- The owner asks to tie off steps4–7, leave benchmark assessment as-is, defer improved
+  accuracy/additional measurements, and prioritise a functional Nebius hackathon app.
+- The personal prototype may use transparent estimated reference comparisons and an
+  observation-quality indicator. Coverage is not a calibrated probability of correct
+  technique. Choosing an owner reviewer does not turn the baseline into clinical or
+  qualified ground truth. This decision alone implements no confidence formula, score
+  weight, threshold or tolerance; numeric configuration changes still need versions and
+  fixtures. Preserve unavailable quantities rather than fill them with fake evidence.
+- Existing descriptive baseline/conditional comparison engine is the checkpoint;
+  deeper benchmark assessment no longer blocks product-flow work. Current public API
+  remains pose-only until a coordinated product integration slice is implemented.
+- Brainstorm rep counting, logs, routines, avatar/muscle visualisation and video
+  library before implementing those features. Tiny external-camera capture is future
+  scope, feeding the same clip/analysis boundary; no hardware build is started.
+- Actual app use of an NVIDIA model through Nebius remains a submission requirement;
+  development coding calls do not satisfy it. No paid hosting/publication implied.
+- See `docs/HACKATHON-MVP-DIRECTION.md` and `docs/audit/T047-checkpoint.md`.

@@ -24,6 +24,12 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 ## Resume one task
 
+Latest22 October owner override: benchmark assessment is frozen. Read D015 and
+`docs/HACKATHON-MVP-DIRECTION.md` before resuming; brainstorm the hackathon product
+slice before implementing new UI/features. Earlier measurement-first downstream holds
+below are historical and superseded. Preserve explicit prototype/coverage labels and
+prioritise real runtime NVIDIA/Nebius integration and a usable app after scope agreement.
+
 22 October user priority overrides older next-task pointers: prove T05 measurements,
 T06 reviewed references and T07 comparison before streaming/cleanup/UI/coaching/hosting
 or exercise expansion. Read DELIVERY's priority override. Reference candidate research

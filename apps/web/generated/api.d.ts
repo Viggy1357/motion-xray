@@ -67,8 +67,11 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get Analysis Artifact
-         * @description Fetch a private artifact (e.g. pose frames) for the X Ray UI. FR10. TODO(T11).
+         * Get Artifact
+         * @description Serve proxy, pose or timestamps to the signed owner; never original media.
+         *
+         *     Proxy supports one Range header (bytes=start-end, bytes=start-, or bytes=-suffix).
+         *     Pose/timestamp requests ignore Range and return the complete bounded artifact.
          */
         get: operations["get_analysis_artifact_v1_analyses__analysis_id__artifacts__kind__get"];
         put?: never;
@@ -796,14 +799,32 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description Successful Response */
+            /** @description Private proxy, pose JSONL, or timestamp map; raw retention applies. */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": null;
+                    "application/json": Record<string, never>;
+                    "application/x-ndjson": string;
+                    "video/mp4": string;
                 };
+            };
+            /** @description Single byte range of the private proxy video. */
+            206: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "video/mp4": string;
+                };
+            };
+            /** @description Malformed or unsatisfiable proxy byte range. */
+            416: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {

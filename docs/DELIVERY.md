@@ -7,6 +7,12 @@ workflow is paused. This plan does not claim the MVP is built.
 
 ## Start here
 
+Latest22 October owner direction supersedes the measurement-first hold: freeze the
+current benchmark assessment, checkpoint the current implementation, then discuss the
+hackathon product slice before a UI/features build. See D015 and
+`HACKATHON-MVP-DIRECTION.md`. Functional product integration and runtime NVIDIA/Nebius
+evidence are now the next delivery priority; deeper accuracy work is deferred.
+
 Read `AUDIT-2026-10-19.md` for the evidence baseline and `../TASKS.md` for current task
 status. Read the archived full `SPECIFICATION-v2.0.md` for detailed formulas and UI
 behavior; accepted decisions D001–D014 override or clarify its earlier choices.

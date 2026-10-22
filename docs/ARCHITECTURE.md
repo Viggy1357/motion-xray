@@ -10,6 +10,14 @@ artifacts plus identical config/versions must produce identical metrics and scor
 
 ## Processing pipeline
 
+22 October checkpoint: private owner-scoped artifact streaming now supports proxy
+byte ranges plus pose JSONL/timestamps. Conservative manual retention removes expired
+known completed payloads/reports, with durable cleanup receipts for partial filesystem
+failures. Cancelled/ambiguous attempts remain deferred until process reaping is known.
+Internal event-level comparison and manual endpoint geometry are implemented; public
+reports remain pose-only. Benchmark assessment is frozen per D015 while the owner
+discusses the hackathon product flow (`HACKATHON-MVP-DIRECTION.md`).
+
 ```
 capture/upload → pose → segment → metrics → compare → score → coach
 ```

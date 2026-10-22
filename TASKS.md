@@ -15,6 +15,38 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active priority — measurement and reviewed comparison (22 October)
 
+**Latest owner override:** benchmark assessment is frozen at its current provisional
+baseline. Tie off this run, then brainstorm a functional Nebius hackathon product.
+Do not spend another batch on calibration/accuracy or build new product features before
+the requested discussion. See `docs/HACKATHON-MVP-DIRECTION.md` and D015. The older
+measurement-first hold below is superseded by this explicit scope change.
+
+### Active run — steps4–7 (22 October, owner-authorized)
+- Claim T08.1c.2 private artifact ranges, T08.1d conservative physical retention,
+  T06.2 benchmark/endpoint calibration and T07.1 component comparison in order.
+- Nebius drafts independent bounded packets (maximum3 concurrent); one integrator.
+  Each task retains200k cumulative tokens, USD70 active/USD30 protected resource gates.
+- Public pose-only reports stay honest; experimental references cannot produce a
+  valid technique score. Unsupported calibration/endpoint automation stays explicit.
+- Checks/results/remaining blockers recorded in the T047 checkpoint below.
+
+### T047 — steps4–7 checkpoint · accepted bounded slices; benchmark frozen
+- **FRs:** FR02/03/04/07/08/10/12. T08.1c.2 owner-scoped artifact ranges accepted;
+  T08.1d manual completed-artifact cleanup accepted with retry receipts; ambiguous/
+  cancelled cleanup still deferred. T06.2 manual endpoint geometry and pending policy;
+  T07.1 event-level comparison/conditional score engine, no public aggregate or DTW.
+- **Evidence:** `docs/audit/T047-checkpoint.md`; real10.01s lat upload->separate worker
+  ->300 pose samples->private ranges and separate TTL cleanup. Public reports pose-only.
+- **Checks:**767 offline Python tests; Ruff clean; mypy61 sources; frontend types/build
+  pass; generated OpenAPI/TS consistent.19 Nebius requests298,021 tokens across bounded
+  tasks, conservativeUSD2.192830 including failed/rejected drafts; no task exceeds200k.
+- **Limits:**120 descriptive comparisons over8 user reps/3 sources; no current numeric
+  scores because the frozen policy remains pending.12 local endpoint point proposals
+  are not automatic detection or ground truth. No confidence index implemented yet.
+- **Next:** owner-directed hackathon feature discussion, then proposed T11 product-flow
+  slice and T09 real runtime NVIDIA/Nebius call. Further benchmark assessment held per
+  D015. See `docs/HACKATHON-MVP-DIRECTION.md`; new UI/features are not yet approved.
+
 User-directed order: T05 -> T06 -> T07 comparison validation. Hold new work on
 artifact streaming, physical cleanup, browser UI, hosting, coaching and exercise
 expansion until this core is demonstrated. Preserve the accepted local infrastructure.

@@ -1,0 +1,30 @@
+{
+  "source": "lat-10-20.mp4",
+  "duration_s": 10.01,
+  "source_sha256": "80365e9b6d1059111cea0c072fd86ca95d71b43de66ac101c87b9a5d3e1e7000",
+  "proxy_sha256": "9b9e7271e97af9e86a13c0b0d34de47721e1de8cf3e2935fb4d5f63148bf94dc",
+  "pose_samples": 300,
+  "range_verified": true,
+  "foreign_owner_denied": true,
+  "raw_expiry_report_preserved": true,
+  "raw_cleanup": {
+    "raw_removed": 1,
+    "payloads_removed": 3,
+    "attempts_removed": 0,
+    "reports_deleted": 0,
+    "deferred": 0,
+    "errors": 0
+  },
+  "report_cleanup": {
+    "raw_removed": 0,
+    "payloads_removed": 0,
+    "attempts_removed": 1,
+    "reports_deleted": 1,
+    "deferred": 0,
+    "errors": 0
+  },
+  "report_scope": "pose_only",
+  "score": null,
+  "elapsed_s": 19.774,
+  "transport": "ASGI TestClient with separate local Docker pose worker; no TCP/browser or technique validation claim"
+}

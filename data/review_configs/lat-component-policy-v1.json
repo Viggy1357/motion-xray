@@ -1,0 +1,51 @@
+{
+  "version": "lat-component-policy-v1",
+  "authoritative": false,
+  "review_status": "pending",
+  "reference_ids": ["qmotion_roi", "catalyst_roi", "imsa_right"],
+  "primary_reference_id": "qmotion_roi",
+  "per_reference": {
+    "qmotion_roi": {
+      "compatibility": "unknown",
+      "compatibility_reviewer": null,
+      "compatibility_version": "view-review-pending"
+    },
+    "catalyst_roi": {
+      "compatibility": "unknown",
+      "compatibility_reviewer": null,
+      "compatibility_version": "view-review-pending"
+    },
+    "imsa_right": {
+      "compatibility": "unknown",
+      "compatibility_reviewer": null,
+      "compatibility_version": "view-review-pending"
+    }
+  },
+  "metrics": {
+    "torso_axis_angle/projected_2d/excursion": {
+      "tolerance": null,
+      "reviewer": null,
+      "review_status": "pending"
+    },
+    "torso_axis_angle/projected_2d/pull_change": {
+      "tolerance": null,
+      "reviewer": null,
+      "review_status": "pending"
+    },
+    "elbow_angle/estimated_3d/excursion": {
+      "tolerance": null,
+      "reviewer": null,
+      "review_status": "pending"
+    },
+    "elbow_angle/estimated_3d/end": {
+      "tolerance": null,
+      "reviewer": null,
+      "review_status": "pending"
+    },
+    "upper_arm_torso_angle/estimated_3d/bottom": {
+      "tolerance": null,
+      "reviewer": null,
+      "review_status": "pending"
+    }
+  }
+}
