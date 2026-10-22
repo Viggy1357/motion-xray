@@ -64,9 +64,13 @@ video playback/review/permission checks may proceed in parallel; other work stay
 T06.1b (22 October) now provides a local experimental review packet at
 http://localhost:8865/ with all3 downloaded demos, a labelled IMSA crop, trial cycle
 timestamps and explicit angle-agreement arithmetic. See `audit/T06.1b-review.md`.
-Known missed/merged candidates mean actual counting accuracy is unvalidated. Await
-the user's requested review before treating any demo or provisional thresholds as
-approved. Existing production scoring/thresholds remain unchanged.
+Known missed/merged candidates mean actual counting accuracy is unvalidated.
+Owner review now prefers QMotion's corrected section, accepts IMSA/Catalyst and
+reports ten reps in the full owner set. The92-point trial omits the torso movement
+they want assessed. Next: T05.2 whole-set labels and torso/component comparison;
+read `measurement/T05.2-owner-feedback.md` for scope and acceptance. This feedback
+does not approve provisional thresholds or establish dataset redistribution rights.
+Existing production scoring/thresholds remain unchanged.
 
 The dependency order is:
 

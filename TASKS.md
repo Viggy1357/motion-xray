@@ -28,9 +28,13 @@ config held-out validation. Score aggregation follows validated comparison, not 
 other way round. Missing reference approval blocks a valid technique score, while
 measurement implementation and candidate research can proceed independently.
 
-Next bounded task: T05.1 measurement definitions, clip eligibility and manual-label
-protocol. In parallel, T06.1 may research suitable reference sources and reviewer needs.
-No new coding/provider batch is claimed by this documentation update. See DELIVERY.
+Latest review: T05.1 raw observations and T06.1b experimental review packet exist.
+The owner reports ten reps in the full lat set and prefers QMotion's corrected form.
+The trial compared only one excerpt candidate and omitted torso lean/sway; its92-point
+angle agreement is not an accepted technique score. Next bounded task is T05.2:
+whole-set independent rep labels, torso measurement definitions and a timestamped
+component comparison. See `docs/measurement/T05.2-owner-feedback.md`. No new
+coding/provider batch is claimed by this feedback intake. Other work stays held.
 
 ## T16 — Recovery audit and delivery workflow · status: done · 19 Oct
 - **FRs:** FR01–FR12 (traceability and delivery gates).
