@@ -1,0 +1,250 @@
+{
+  "as_of": "2026-10-22",
+  "task": "T05.2b",
+  "requests": [
+    {
+      "task": "T05.2b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t052b-posture",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.089142,
+      "input_token_bound": 18321,
+      "output_token_bound": 10500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3536,
+        "prompt_tokens": 3359,
+        "total_tokens": 6895,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 3327
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-8b9aa36a749153c83a9127f672807a96",
+      "elapsed_s": 11.99,
+      "received_chars": 13540,
+      "conservative_cost_usd": 0.024398000000000003
+    },
+    {
+      "task": "T05.2b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t052b-tests",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.112582,
+      "input_token_bound": 28791,
+      "output_token_bound": 11000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 9335,
+        "prompt_tokens": 6536,
+        "total_tokens": 15871,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 6536
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-4a9586c6606a84228df9c9dd7784e5cf",
+      "elapsed_s": 31.47,
+      "received_chars": 30020,
+      "conservative_cost_usd": 0.059747
+    },
+    {
+      "task": "T05.2b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t052b-runner",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.091348,
+      "input_token_bound": 21924,
+      "output_token_bound": 9500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2866,
+        "prompt_tokens": 3924,
+        "total_tokens": 6790,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3924
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-6622007e621d506560ae6c1e8932e8d4",
+      "elapsed_s": 21.53,
+      "received_chars": 10818,
+      "conservative_cost_usd": 0.022178000000000003
+    },
+    {
+      "task": "T05.2b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t052b-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.256264,
+      "input_token_bound": 73132,
+      "output_token_bound": 22000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 14765,
+        "prompt_tokens": 17187,
+        "total_tokens": 31952,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 17155
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-d1afe3dabd696c2a2ff79cf445ec5661",
+      "elapsed_s": 41.11,
+      "received_chars": 50289,
+      "conservative_cost_usd": 0.108199
+    },
+    {
+      "task": "T05.2b",
+      "model": "moonshotai/Kimi-K3",
+      "request": "t052b-core-qc",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.192198,
+      "input_token_bound": 21566,
+      "output_token_bound": 8500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Provider catalog previously verified KimiK3 USD3/M input USD15/M completion; no cache discount",
+      "usage": {
+        "completion_tokens": 3671,
+        "prompt_tokens": 4170,
+        "total_tokens": 7841,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 243
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "ba666a5841fd44b394857a7951a556aa",
+      "elapsed_s": 41.61,
+      "received_chars": 12949,
+      "conservative_cost_usd": 0.067575
+    },
+    {
+      "task": "T05.2b",
+      "model": "moonshotai/Kimi-K3",
+      "request": "t052b-runner-qc",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.301827,
+      "input_token_bound": 35609,
+      "output_token_bound": 13000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Provider catalog previously verified KimiK3 USD3/M input USD15/M completion; no cache discount",
+      "usage": {
+        "completion_tokens": 8821,
+        "prompt_tokens": 7315,
+        "total_tokens": 16136,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 2896
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "b47e71d3d7124df092b58a177c3d2daf",
+      "elapsed_s": 73.59,
+      "received_chars": 21667,
+      "conservative_cost_usd": 0.15425999999999998
+    },
+    {
+      "task": "T05.2b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t052b-report",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.104828,
+      "input_token_bound": 33664,
+      "output_token_bound": 7500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3429,
+        "prompt_tokens": 7124,
+        "total_tokens": 10553,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 7124
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-a2ba8e3b1361384433e318ba9ae2cb88",
+      "elapsed_s": 16.27,
+      "received_chars": 12259,
+      "conservative_cost_usd": 0.031393000000000004
+    }
+  ],
+  "reported_tokens": 96038,
+  "cumulative_task_ceiling": 200000,
+  "conservative_cost_usd": 0.46775,
+  "aggregate_commitment_including_historical_contingency_usd": 5.316595649999999,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "backup_activated": false,
+  "historical_unknown_calls": 4,
+  "unknown_history_contingency_usd": 1,
+  "paid_product_runtime_calls": 0,
+  "tavily_credits_used": 0,
+  "private_media_sent": false,
+  "peak_concurrent_calls": 3,
+  "automatic_retries": 0,
+  "scope": "Raw posture observations, reference quality/crop diagnostic, not approved scoring or six-user-rep acceptance",
+  "notes": [
+    "All seven drafting/review/report calls used Nebius. Initial broad repair left defects; focused K3 repairs accepted after tests.",
+    "Four requests in first batch; three in focused repair/report batch. All unsuccessful draft work remains in usage.",
+    "Codex limited integration: two invalid test-fixture setups, explicit two-coordinate type narrowing, per-window raw extrema bookkeeping, rubric endpoint correction and protocol documentation corrections; no large product implementation fallback.",
+    "No new dependency, pose model, production upload limit, public schema, old scoring weights or threshold config changed.",
+    "Provider guard rates are conservative estimates, not invoices/account balance. Local CPU inference/crop checks are not paid provider calls."
+  ]
+}

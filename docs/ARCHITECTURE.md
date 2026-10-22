@@ -55,6 +55,14 @@ PTS, gates each metric/space independently and keeps projected2D separate from
 estimated3D. It is not wired into public reports; rep segmentation/calibration,
 per-rep metrics and comparison/scoring remain pending. No schema or threshold changed.
 
+T05.2b adds internal `movement.posture` for signed projected shoulder/hip axis angles
+and strict timestamped window statistics. `scripts/reference_posture_review.py` runs
+offline hash-verified diagnostics; it is not the job/report pipeline. Raw ranges stay
+per metric/space/window. Public-reference ROI experiments exposed and partly reduced
+gross landmark errors; confidence masks alone do not establish geometric accuracy.
+Per-rep calibration, bar/chest measurement and valid scoring remain pending. See
+`audit/T05.2b-posture-observations.md`; no public schema or existing threshold changed.
+
 | Boundary | Owner / planned integration |
 | --- | --- |
 | Decode → canonical pose | T04 `mediapipe_provider.py`; preserve PTS and actual observations. Conditional `subject_tracking.py` associates detections; conditional `rtmlib_provider.py` implements the same protocol. |

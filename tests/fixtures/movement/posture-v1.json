@@ -1,0 +1,139 @@
+{
+  "version": "posture-observation-v1",
+  "cases": [
+    {
+      "name": "perpendicular_right",
+      "description": "Torso points horizontally to the right; image up is (0,-1) with sign +1, yielding +90 degrees.",
+      "hip": [0.5, 0.7],
+      "shoulder": [0.7, 0.7],
+      "width": 100,
+      "height": 100,
+      "axis": {
+        "version": "posture-observation-v1",
+        "axis_id": "image_up",
+        "up_xy": [0.0, -1.0],
+        "positive_cross_sign": 1
+      },
+      "expected_degrees": 90.0
+    },
+    {
+      "name": "perpendicular_left",
+      "description": "Torso points horizontally to the left; image up is (0,-1) with sign +1, yielding -90 degrees.",
+      "hip": [0.5, 0.7],
+      "shoulder": [0.3, 0.7],
+      "width": 100,
+      "height": 100,
+      "axis": {
+        "version": "posture-observation-v1",
+        "axis_id": "image_up",
+        "up_xy": [0.0, -1.0],
+        "positive_cross_sign": 1
+      },
+      "expected_degrees": -90.0
+    },
+    {
+      "name": "tilted_30_degrees",
+      "description": "Regression fixture: hip at (0.5,0.7), shoulder offset 0.2 at 30 degrees from vertical toward image right.",
+      "hip": [0.5, 0.7],
+      "shoulder": [0.6, 0.5267949192431122],
+      "width": 100,
+      "height": 100,
+      "axis": {
+        "version": "posture-observation-v1",
+        "axis_id": "image_up",
+        "up_xy": [0.0, -1.0],
+        "positive_cross_sign": 1
+      },
+      "expected_degrees": 30.0
+    },
+    {
+      "name": "sign_mirroring",
+      "description": "Same geometry as perpendicular_right but with opposite cross sign; expected value is negated.",
+      "hip": [0.5, 0.7],
+      "shoulder": [0.7, 0.7],
+      "width": 100,
+      "height": 100,
+      "axis": {
+        "version": "posture-observation-v1",
+        "axis_id": "image_up_mirrored",
+        "up_xy": [0.0, -1.0],
+        "positive_cross_sign": -1
+      },
+      "expected_degrees": -90.0
+    },
+    {
+      "name": "tilted_axis_aligned",
+      "description": "Axis up tilted 45 degrees; torso aligned with that axis yields 0 degrees.",
+      "hip": [0.5, 0.7],
+      "shoulder": [0.6414213562373095, 0.8414213562373095],
+      "width": 100,
+      "height": 100,
+      "axis": {
+        "version": "posture-observation-v1",
+        "axis_id": "tilted_45",
+        "up_xy": [0.7071067811865475, 0.7071067811865475],
+        "positive_cross_sign": 1
+      },
+      "expected_degrees": 0.0
+    },
+    {
+      "name": "aspect_ratio_wide",
+      "description": "Normalized shoulder (0.6,0.6) on a 200x100 image; expected angle from image up is atan2(2,1).",
+      "hip": [0.5, 0.7],
+      "shoulder": [0.6, 0.6],
+      "width": 200,
+      "height": 100,
+      "axis": {
+        "version": "posture-observation-v1",
+        "axis_id": "image_up",
+        "up_xy": [0.0, -1.0],
+        "positive_cross_sign": 1
+      },
+      "expected_degrees": 63.43494882292201
+    },
+    {
+      "name": "huge_coordinates",
+      "description": "Huge finite coordinates should not overflow and should yield 90 degrees.",
+      "hip": [1e150, 1e150],
+      "shoulder": [1.1e150, 1e150],
+      "width": 100,
+      "height": 100,
+      "axis": {
+        "version": "posture-observation-v1",
+        "axis_id": "image_up",
+        "up_xy": [0.0, -1.0],
+        "positive_cross_sign": 1
+      },
+      "expected_degrees": 90.0
+    },
+    {
+      "name": "tiny_coordinates",
+      "description": "Tiny finite coordinates should not underflow and should yield 90 degrees.",
+      "hip": [1e-150, 1e-150],
+      "shoulder": [1.1e-150, 1e-150],
+      "width": 100,
+      "height": 100,
+      "axis": {
+        "version": "posture-observation-v1",
+        "axis_id": "image_up",
+        "up_xy": [0.0, -1.0],
+        "positive_cross_sign": 1
+      },
+      "expected_degrees": 90.0
+    },
+    {
+      "name": "wrap_179_to_minus_179",
+      "description": "Circular summary across the +180/-180 boundary should report a 2-degree excursion.",
+      "plus_degrees": 179.0,
+      "minus_degrees": -179.0,
+      "window_start_s": 0.0,
+      "window_end_s": 1.0,
+      "max_gap_s": 1.0,
+      "circular": true,
+      "expected_minimum": 179.0,
+      "expected_maximum": 181.0,
+      "expected_excursion": 2.0,
+      "expected_end_change": 2.0
+    }
+  ]
+}

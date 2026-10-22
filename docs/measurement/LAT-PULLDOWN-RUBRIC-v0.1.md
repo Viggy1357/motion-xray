@@ -80,7 +80,9 @@ Core components required before any aggregate score is reported for a rep:
 1. **Torso:** both `torso_start_lean` (M1) **and** `torso_dynamic_excursion` (M2) must be available; they are distinct observables, not either/or.
 2. **Arm ROM:** `elbow_interior_rom` (M3) and `return_extension` (M6) must both be available. These are reported as one ROM component family; elbow ROM and return extent must not be double-counted as independent weighted features.
 3. **Shoulder drive:** `upper_arm_torso_angle` (M4) must be available.
-4. **Endpoint:** `chest_bar_endpoint` (M5) must be available as a wrist proxy, labeled as proxy.
+4. **Endpoint:** `chest_bar_endpoint` (M5) requires validated bar/chest localization.
+   An unvalidated wrist proxy cannot satisfy this requirement; its presence alone
+   leaves the aggregate unavailable.
 
 If any required core metric is missing, the aggregate is **unavailable**. Merely marking a reason for a missing metric does not permit an aggregate. If all core components cannot yet be measured, report components only. `head_shoulder_setup` (M8) is conditional and unscored. `tempo_control` (M7) is reported separately and is not required for the posture score.
 

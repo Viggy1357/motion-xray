@@ -91,6 +91,16 @@ and manually checked reference observations, not repeated source discovery or T0
 Tolerances/weights remain unavailable until that calibration. No paid product runtime
 call or private footage transmission is authorized by research-worker use.
 
+T05.2b measurement checkpoint: raw projected torso angles/window summaries and the
+offline reference runner are implemented;599 full Python checks pass. Read
+`audit/T05.2b-posture-observations.md` and
+`measurement/T05.2b-projected-posture-protocol.md`. Public reference crops partly reduce
+misplaced landmarks; they are diagnostic transforms, not an automatic production fix.
+Next T05.2c checks reference landmarks and labels actual rep phases, then measures
+source-wise per-rep components before T06.2 ranges/scoring. Do not promote whole-window
+min/max, high confidence, or a plausible cropped angle to technique approval. The
+six-user-rep proof and bar endpoint remain pending; preserve the posture-first order.
+
 The dependency order is:
 
 ```text

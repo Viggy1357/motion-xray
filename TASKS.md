@@ -37,9 +37,38 @@ five credible sources consolidated into the exercise metric rubric -> two/three
 reference-video calibration -> user component deviations and scoring -> detailed
 timestamped guidance. Reference-derived3D is distant future scope, not user multi-camera
 capture. The sourced metric matrix is now delivered as research pending calibration:
-`docs/measurement/LAT-PULLDOWN-RUBRIC-v0.1.md`. Next is reference torso/arm measurement
-and manual calibration using existing artifacts; see
+`docs/measurement/LAT-PULLDOWN-RUBRIC-v0.1.md`. T05.2b now delivers raw torso/window
+measurements and a reference crop-quality experiment. Next is manually checked,
+phase-labelled reference repetitions and per-rep calibration; see
 `docs/measurement/LAT-PULLDOWN-REUSE-AND-CALIBRATION.md`. Other work stays held.
+
+### T05.2b — projected torso and reference observations · status: done (bounded slice)
+- **Date/FRs:**22 Oct; FR05/FR07/FR08/FR12. Codex one integrating writer; seven direct
+  Nebius drafting/independent-test/repair/report calls, first batch4 and second batch3.
+- **Delivered:** movement.posture signed aspect-correct shoulder/hip angle and strict
+  original-PTS window summaries; offline hash-verified reference runner; analytic
+  fixture/tests; two explicit experimental diagnostic configs. Rubric no longer permits
+  an unvalidated wrist proxy to satisfy required bar-endpoint coverage.
+- **Evidence:** docs/audit/T05.2b-posture-observations.md and
+  T05.2b-reference-observations.json; docs/measurement/T05.2b-projected-posture-protocol.md.
+  Original3 demos inspected plus QMotion's bad example and two recorded crop derivatives.
+- **Finding:** High-confidence landmarks sometimes place shoulder/hip on wrong regions.
+  Fixed ROI experiment reduces Catalyst projected shoulder-below-hip frames44->3 and
+  90->0 in separate windows; does not establish accurate landmarks. Corrected/bad
+  QMotion angle ranges overlap. Do not turn these ranges into scoring thresholds.
+- **Checks:** ./scripts/test.sh python:599 passed, Ruff clean, mypy56 sources;83 focused
+  tests. Existing AnyIO warning. Repeat real diagnostic artifacts checked separately.
+  Failed drafts were repaired without skipping/deleting tests; two test setups and
+  small typing/statistics integration corrections recorded. No new dependency.
+- **Budget:**96,038 reported Nebius tokens/200k; conservativeUSD0.467750; aggregate
+  commitment incl unknown-history contingencyUSD5.31659565. ProtectedUSD30 untouched;
+  no private media in prompts, paid runtime coaching or Tavily spending.
+- **Limits:** No approved ranges/reference profile, physical gravity calibration,
+  per-rep phase labels, validated bar measurement or technique score. This is not the
+  six-user-rep posture proof. Existing public reports, old thresholds and UI untouched.
+- **Next:** T05.2c checked reference phase/landmark annotations, then source-wise per-rep
+  components and T06.2 provisional benchmark. Compare at least six eligible user reps
+  after compatible measurements exist; exact ten remains secondary.
 
 ### T05.2/T06.1 sourced posture rubric · status: done (research slice) · 22 Oct
 - **FRs:** FR05/FR07/FR08/FR11/FR12. Codex coordinates; all four model drafting/review

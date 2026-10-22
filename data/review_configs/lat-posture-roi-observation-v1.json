@@ -1,0 +1,212 @@
+{
+  "version": "lat-posture-roi-observation-v1",
+  "status": "experimental_unreviewed",
+  "authoritative": false,
+  "max_gap_s": 0.1,
+  "purpose": "Diagnostic comparison of fixed manual subject crops against original reference inference; no scoring thresholds or reference approval",
+  "scoring_tolerances": null,
+  "scoring_weights": null,
+  "clips": [
+    {
+      "id": "qmotion_corrected",
+      "pose_root": "artifacts/reference-analysis/qmotion",
+      "side": "left",
+      "width": 360,
+      "height": 640,
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_unverified_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "windows_s": [
+        [
+          25,
+          36.966667
+        ]
+      ],
+      "sample_times_s": [
+        25,
+        26,
+        28,
+        30
+      ],
+      "view_note": "Corrected section only. Positive image-right, not certified backward lean. Camera/anatomical plane uncalibrated; do not pool across sources."
+    },
+    {
+      "id": "qmotion_bad_example",
+      "pose_root": "artifacts/reference-analysis/qmotion",
+      "side": "left",
+      "width": 360,
+      "height": 640,
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_unverified_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "windows_s": [
+        [
+          20,
+          23
+        ]
+      ],
+      "sample_times_s": [
+        21,
+        22
+      ],
+      "view_note": "Deliberately exaggerated-lean red-X section for diagnostic sensitivity only, never part of good-form benchmark."
+    },
+    {
+      "id": "catalyst",
+      "pose_root": "artifacts/reference-analysis/catalyst",
+      "side": "left",
+      "width": 1280,
+      "height": 720,
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_unverified_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "windows_s": [
+        [
+          8,
+          14
+        ],
+        [
+          16,
+          23.966667
+        ]
+      ],
+      "sample_times_s": [
+        10,
+        18
+      ],
+      "view_note": "Two separate camera windows; do not pool planes even within this source. Image-up axis is uncalibrated, no physical world-angle claim."
+    },
+    {
+      "id": "imsa_right",
+      "pose_root": "artifacts/reference-analysis/imsa-right",
+      "side": "right",
+      "width": 640,
+      "height": 720,
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_unverified_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "windows_s": [
+        [
+          2.002,
+          29.996633
+        ]
+      ],
+      "sample_times_s": [
+        5.005,
+        8.008
+      ],
+      "view_note": "Right-panel derivative; cropped source timing preserved. Right anatomical side, no assumed equivalence to left user arm or calibrated cross-view3D."
+    },
+    {
+      "id": "qmotion_corrected_roi",
+      "pose_root": "artifacts/reference-analysis/qmotion-roi",
+      "side": "left",
+      "width": 180,
+      "height": 340,
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_unverified_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "windows_s": [
+        [
+          25,
+          36.966667
+        ]
+      ],
+      "sample_times_s": [
+        25,
+        26,
+        28,
+        30
+      ],
+      "view_note": "Corrected section only. Positive image-right, not certified backward lean. Camera/anatomical plane uncalibrated; do not pool across sources. Fixed subject crop diagnostic only; see crop provenance. Pixel axes same orientation, no new physical calibration."
+    },
+    {
+      "id": "qmotion_bad_example_roi",
+      "pose_root": "artifacts/reference-analysis/qmotion-roi",
+      "side": "left",
+      "width": 180,
+      "height": 340,
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_unverified_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "windows_s": [
+        [
+          20,
+          23
+        ]
+      ],
+      "sample_times_s": [
+        21,
+        22
+      ],
+      "view_note": "Deliberately exaggerated-lean red-X section for diagnostic sensitivity only, never part of good-form benchmark. Fixed subject crop diagnostic only; see crop provenance. Pixel axes same orientation, no new physical calibration."
+    },
+    {
+      "id": "catalyst_roi",
+      "pose_root": "artifacts/reference-analysis/catalyst-roi",
+      "side": "left",
+      "width": 300,
+      "height": 530,
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_unverified_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "windows_s": [
+        [
+          8,
+          14
+        ],
+        [
+          16,
+          23.966667
+        ]
+      ],
+      "sample_times_s": [
+        10,
+        18
+      ],
+      "view_note": "Two separate camera windows; do not pool planes even within this source. Image-up axis is uncalibrated, no physical world-angle claim. Fixed subject crop diagnostic only; see crop provenance. Pixel axes same orientation, no new physical calibration."
+    }
+  ]
+}

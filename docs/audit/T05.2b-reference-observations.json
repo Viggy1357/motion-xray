@@ -1,0 +1,1659 @@
+{
+  "authoritative": false,
+  "clips": [
+    {
+      "axis": {
+        "axis_id": "image_up_unverified_not_gravity",
+        "positive_cross_sign": 1,
+        "up_xy": [
+          0.0,
+          -1.0
+        ],
+        "version": "camera-plane-axis-v1"
+      },
+      "height": 640,
+      "id": "qmotion_corrected",
+      "joint_mapping_version": "mp33-camera-v1",
+      "pose_artifact_hash": "0893d6fac81ca41342fdd7a34ee7989fcbfd62e5257b811fed9bf9d13eefe8a3",
+      "sample_values": {
+        "25.0": {
+          "actual_pts_s": 25.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 158.2091768527007
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 172.5390527011242
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 16.538556876670178
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 150.2947434590875
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 167.88496036412457
+            }
+          },
+          "reason": null,
+          "requested_s": 25.0,
+          "within_any_window": true
+        },
+        "26.0": {
+          "actual_pts_s": 26.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 97.59263014624327
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 2.3467045106816413
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 29.660481269497023
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 52.76289738564424
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 37.33432260684397
+            }
+          },
+          "reason": null,
+          "requested_s": 26.0,
+          "within_any_window": true
+        },
+        "28.0": {
+          "actual_pts_s": 28.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 159.26884181190778
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 167.96920973242044
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 7.2649862020185765
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 148.03468144224212
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 176.5244238653492
+            }
+          },
+          "reason": null,
+          "requested_s": 28.0,
+          "within_any_window": true
+        },
+        "30.0": {
+          "actual_pts_s": 30.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 156.418735561353
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 166.24894897152768
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 10.154258344680303
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 150.13083069440995
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 179.87799851603776
+            }
+          },
+          "reason": null,
+          "requested_s": 30.0,
+          "within_any_window": true
+        }
+      },
+      "source_pose_provenance": "artifacts/reference-analysis/qmotion",
+      "summary_metadata": {
+        "diagnostic_description": "raw valid observed samples only; not a full window/rep/benchmark/tolerance range; no pooled cross-metric range"
+      },
+      "view_note": "Corrected section only. Positive image-right, not certified backward lean. Camera/anatomical plane uncalibrated; do not pool across sources.",
+      "width": 360,
+      "windows": [
+        {
+          "end_s": 36.966667,
+          "metrics": {
+            "elbow_angle/estimated_3d": {
+              "end_change": -38.33565454451232,
+              "end_value": 119.87352230818837,
+              "excursion": 70.39286462895203,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 160.89516582545974,
+              "minimum": 90.50230119650772,
+              "observed_valid_max": 160.89516582545974,
+              "observed_valid_min": 90.50230119650772,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 158.2091768527007,
+              "total_samples": 360,
+              "valid_samples": 360
+            },
+            "elbow_angle/projected_2d": {
+              "end_change": -135.69155034921837,
+              "end_value": 36.847502351905824,
+              "excursion": 179.82679891985103,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 179.9375586811401,
+              "minimum": 0.11075976128906267,
+              "observed_valid_max": 179.9375586811401,
+              "observed_valid_min": 0.11075976128906267,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 172.5390527011242,
+              "total_samples": 360,
+              "valid_samples": 360
+            },
+            "torso_axis_angle/projected_2d": {
+              "end_change": 4.912505418346768,
+              "end_value": 21.451062295016946,
+              "excursion": 30.14665661903294,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 30.978413259496072,
+              "minimum": 0.8317566404631336,
+              "observed_valid_max": 30.978413259496087,
+              "observed_valid_min": 0.8317566404631419,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 16.538556876670178,
+              "total_samples": 360,
+              "valid_samples": 360
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "end_change": -66.47302125154452,
+              "end_value": 83.82172220754298,
+              "excursion": 121.09074327238713,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 163.9172200687856,
+              "minimum": 42.82647679639848,
+              "observed_valid_max": 163.9172200687856,
+              "observed_valid_min": 42.82647679639848,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 150.2947434590875,
+              "total_samples": 360,
+              "valid_samples": 360
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "end_change": -102.61183607522544,
+              "end_value": 65.27312428889913,
+              "excursion": 165.0786247836008,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 179.9911088166519,
+              "minimum": 14.912484033051092,
+              "observed_valid_max": 179.9911088166519,
+              "observed_valid_min": 14.912484033051092,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 167.88496036412457,
+              "total_samples": 360,
+              "valid_samples": 360
+            }
+          },
+          "start_s": 25.0,
+          "projected_shoulder_below_hip_samples": 0
+        }
+      ]
+    },
+    {
+      "axis": {
+        "axis_id": "image_up_unverified_not_gravity",
+        "positive_cross_sign": 1,
+        "up_xy": [
+          0.0,
+          -1.0
+        ],
+        "version": "camera-plane-axis-v1"
+      },
+      "height": 640,
+      "id": "qmotion_bad_example",
+      "joint_mapping_version": "mp33-camera-v1",
+      "pose_artifact_hash": "0893d6fac81ca41342fdd7a34ee7989fcbfd62e5257b811fed9bf9d13eefe8a3",
+      "sample_values": {
+        "21.0": {
+          "actual_pts_s": 21.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 157.99292400492422
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 179.6733086386474
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 22.194136140660166
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 140.57800882377077
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 152.91957948099997
+            }
+          },
+          "reason": null,
+          "requested_s": 21.0,
+          "within_any_window": true
+        },
+        "22.0": {
+          "actual_pts_s": 22.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 90.4927254445818
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 1.7405688626308111
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 50.64561373127554
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 71.58541630285418
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 57.0005338174817
+            }
+          },
+          "reason": null,
+          "requested_s": 22.0,
+          "within_any_window": true
+        }
+      },
+      "source_pose_provenance": "artifacts/reference-analysis/qmotion",
+      "summary_metadata": {
+        "diagnostic_description": "raw valid observed samples only; not a full window/rep/benchmark/tolerance range; no pooled cross-metric range"
+      },
+      "view_note": "Deliberately exaggerated-lean red-X section for diagnostic sensitivity only, never part of good-form benchmark.",
+      "width": 360,
+      "windows": [
+        {
+          "end_s": 23.0,
+          "metrics": {
+            "elbow_angle/estimated_3d": {
+              "end_change": 43.78203243876729,
+              "end_value": 152.9638974436993,
+              "excursion": 106.42609075418254,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 165.54423319830724,
+              "minimum": 59.1181424441247,
+              "observed_valid_max": 165.54423319830724,
+              "observed_valid_min": 59.1181424441247,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 109.181865004932,
+              "total_samples": 91,
+              "valid_samples": 91
+            },
+            "elbow_angle/projected_2d": {
+              "end_change": 156.83227757934245,
+              "end_value": 173.20695496254936,
+              "excursion": 179.50161556028226,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 179.72208329485792,
+              "minimum": 0.22046773457567245,
+              "observed_valid_max": 179.72208329485792,
+              "observed_valid_min": 0.22046773457567245,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 16.37467738320692,
+              "total_samples": 91,
+              "valid_samples": 91
+            },
+            "torso_axis_angle/projected_2d": {
+              "end_change": -31.43133688833982,
+              "end_value": 19.854049355776908,
+              "excursion": 160.83261785167213,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 54.77351113358208,
+              "minimum": -106.05910671809005,
+              "observed_valid_max": 54.77351113358209,
+              "observed_valid_min": -106.05910671809004,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 51.28538624411673,
+              "total_samples": 91,
+              "valid_samples": 91
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "end_change": 74.62151923057182,
+              "end_value": 134.8317038719179,
+              "excursion": 105.96027662439067,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 155.3895928853551,
+              "minimum": 49.42931626096444,
+              "observed_valid_max": 155.3895928853551,
+              "observed_valid_min": 49.42931626096444,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 60.21018464134609,
+              "total_samples": 91,
+              "valid_samples": 91
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "end_change": 119.05610015189498,
+              "end_value": 156.80845082239898,
+              "excursion": 155.80166998710033,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 161.39274127335315,
+              "minimum": 5.591071286252832,
+              "observed_valid_max": 161.39274127335315,
+              "observed_valid_min": 5.591071286252832,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 37.75235067050399,
+              "total_samples": 91,
+              "valid_samples": 91
+            }
+          },
+          "start_s": 20.0,
+          "projected_shoulder_below_hip_samples": 1
+        }
+      ]
+    },
+    {
+      "axis": {
+        "axis_id": "image_up_unverified_not_gravity",
+        "positive_cross_sign": 1,
+        "up_xy": [
+          0.0,
+          -1.0
+        ],
+        "version": "camera-plane-axis-v1"
+      },
+      "height": 720,
+      "id": "catalyst",
+      "joint_mapping_version": "mp33-camera-v1",
+      "pose_artifact_hash": "0fa854f4a616a1d3efdd907c62ea9ca746c1765b7f61acee5e5d197fbc1feb55",
+      "sample_values": {
+        "10.0": {
+          "actual_pts_s": 10.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 137.66628442140836
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 150.8783921820248
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 3.766617472693951
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 138.97539956134395
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 139.56469270925248
+            }
+          },
+          "reason": null,
+          "requested_s": 10.0,
+          "within_any_window": true
+        },
+        "18.0": {
+          "actual_pts_s": 18.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": "invalid_joint",
+              "value": null
+            },
+            "elbow_angle/projected_2d": {
+              "reason": "invalid_joint",
+              "value": null
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 177.6029760176561
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": "invalid_joint",
+              "value": null
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": "invalid_joint",
+              "value": null
+            }
+          },
+          "reason": null,
+          "requested_s": 18.0,
+          "within_any_window": true
+        }
+      },
+      "source_pose_provenance": "artifacts/reference-analysis/catalyst",
+      "summary_metadata": {
+        "diagnostic_description": "raw valid observed samples only; not a full window/rep/benchmark/tolerance range; no pooled cross-metric range"
+      },
+      "view_note": "Two separate camera windows; do not pool planes even within this source. Image-up axis is uncalibrated, no physical world-angle claim.",
+      "width": 1280,
+      "windows": [
+        {
+          "end_s": 14.0,
+          "metrics": {
+            "elbow_angle/estimated_3d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 165.26498011365902,
+              "observed_valid_min": 73.26468780722942,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": null,
+              "total_samples": 181,
+              "valid_samples": 152
+            },
+            "elbow_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 178.8564208884275,
+              "observed_valid_min": 0.29771815141308183,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": null,
+              "total_samples": 181,
+              "valid_samples": 152
+            },
+            "torso_axis_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 179.95349477949426,
+              "observed_valid_min": -179.8389020703283,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": null,
+              "total_samples": 181,
+              "valid_samples": 179
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 149.41967136851682,
+              "observed_valid_min": 16.635083634028604,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": null,
+              "total_samples": 181,
+              "valid_samples": 158
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 171.079996950168,
+              "observed_valid_min": 3.3161038530464446,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": null,
+              "total_samples": 181,
+              "valid_samples": 158
+            }
+          },
+          "start_s": 8.0,
+          "projected_shoulder_below_hip_samples": 44
+        },
+        {
+          "end_s": 23.966667,
+          "metrics": {
+            "elbow_angle/estimated_3d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 163.65228735883935,
+              "observed_valid_min": 57.6820598343369,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": null,
+              "total_samples": 240,
+              "valid_samples": 185
+            },
+            "elbow_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 176.1416223603127,
+              "observed_valid_min": 2.7867907786131783,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": null,
+              "total_samples": 240,
+              "valid_samples": 185
+            },
+            "torso_axis_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 179.9803368184629,
+              "observed_valid_min": -179.9133053129541,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": null,
+              "total_samples": 240,
+              "valid_samples": 239
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 148.5491648672147,
+              "observed_valid_min": 19.43201985141002,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": null,
+              "total_samples": 240,
+              "valid_samples": 188
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 153.53994911412417,
+              "observed_valid_min": 11.237112023900476,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": null,
+              "total_samples": 240,
+              "valid_samples": 188
+            }
+          },
+          "start_s": 16.0,
+          "projected_shoulder_below_hip_samples": 90
+        }
+      ]
+    },
+    {
+      "axis": {
+        "axis_id": "image_up_unverified_not_gravity",
+        "positive_cross_sign": 1,
+        "up_xy": [
+          0.0,
+          -1.0
+        ],
+        "version": "camera-plane-axis-v1"
+      },
+      "height": 720,
+      "id": "imsa_right",
+      "joint_mapping_version": "mp33-camera-v1",
+      "pose_artifact_hash": "bc660b30473ee7a5fc820072b8206438be4dbbb7bfcd614e6098db0e09891f9a",
+      "sample_values": {
+        "5.005": {
+          "actual_pts_s": 5.005,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 147.52939237897087
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 172.49549626214807
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": -6.483997685414866
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 158.19561916460566
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 160.35508662926168
+            }
+          },
+          "reason": null,
+          "requested_s": 5.005,
+          "within_any_window": true
+        },
+        "8.008": {
+          "actual_pts_s": 8.008,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 148.38681388212308
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 172.42490194346374
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": -6.82952082547938
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 158.43674149644892
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 158.92660941467918
+            }
+          },
+          "reason": null,
+          "requested_s": 8.008,
+          "within_any_window": true
+        }
+      },
+      "source_pose_provenance": "artifacts/reference-analysis/imsa-right",
+      "summary_metadata": {
+        "diagnostic_description": "raw valid observed samples only; not a full window/rep/benchmark/tolerance range; no pooled cross-metric range"
+      },
+      "view_note": "Right-panel derivative; cropped source timing preserved. Right anatomical side, no assumed equivalence to left user arm or calibrated cross-view3D.",
+      "width": 640,
+      "windows": [
+        {
+          "end_s": 29.996633,
+          "metrics": {
+            "elbow_angle/estimated_3d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 2.002,
+              "last_pts_s": 29.996633,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 151.94183619278215,
+              "observed_valid_min": 41.140748698338136,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 29.996633,
+              "requested_start_s": 2.002,
+              "start_value": null,
+              "total_samples": 840,
+              "valid_samples": 830
+            },
+            "elbow_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 2.002,
+              "last_pts_s": 29.996633,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 178.30160526569804,
+              "observed_valid_min": 28.567308891181003,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 29.996633,
+              "requested_start_s": 2.002,
+              "start_value": null,
+              "total_samples": 840,
+              "valid_samples": 830
+            },
+            "torso_axis_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 2.002,
+              "last_pts_s": 29.996633,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": -2.2359507159700596,
+              "observed_valid_min": -10.755340384469418,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 29.996633,
+              "requested_start_s": 2.002,
+              "start_value": null,
+              "total_samples": 840,
+              "valid_samples": 835
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 2.002,
+              "last_pts_s": 29.996633,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 159.70147097869278,
+              "observed_valid_min": 25.201357946145496,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 29.996633,
+              "requested_start_s": 2.002,
+              "start_value": null,
+              "total_samples": 840,
+              "valid_samples": 835
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 2.002,
+              "last_pts_s": 29.996633,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 163.63571493527743,
+              "observed_valid_min": 0.052489072044184154,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 29.996633,
+              "requested_start_s": 2.002,
+              "start_value": null,
+              "total_samples": 840,
+              "valid_samples": 835
+            }
+          },
+          "start_s": 2.002,
+          "projected_shoulder_below_hip_samples": 0
+        }
+      ]
+    },
+    {
+      "axis": {
+        "axis_id": "image_up_unverified_not_gravity",
+        "positive_cross_sign": 1,
+        "up_xy": [
+          0.0,
+          -1.0
+        ],
+        "version": "camera-plane-axis-v1"
+      },
+      "height": 340,
+      "id": "qmotion_corrected_roi",
+      "joint_mapping_version": "mp33-camera-v1",
+      "pose_artifact_hash": "7783173cef3cc36ab4267fc3f5db5aa85314825199e0d6b709f02e463d04bff2",
+      "sample_values": {
+        "25.0": {
+          "actual_pts_s": 25.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 154.10331352288364
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 168.34084552938725
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 14.628699440118757
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 150.24142697175043
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 172.22791454766036
+            }
+          },
+          "reason": null,
+          "requested_s": 25.0,
+          "within_any_window": true
+        },
+        "26.0": {
+          "actual_pts_s": 26.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 90.12534023885821
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 3.0230566822410703
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 30.504648895944893
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 49.06166629501299
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 37.61125743071467
+            }
+          },
+          "reason": null,
+          "requested_s": 26.0,
+          "within_any_window": true
+        },
+        "28.0": {
+          "actual_pts_s": 28.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 155.70135153449652
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 164.81270933370098
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 6.51664657283447
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 157.60139967162573
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 173.43013625983698
+            }
+          },
+          "reason": null,
+          "requested_s": 28.0,
+          "within_any_window": true
+        },
+        "30.0": {
+          "actual_pts_s": 30.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 155.23414718329684
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 162.82795517254036
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 9.375892970909245
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 139.80397062751146
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 175.9345966419516
+            }
+          },
+          "reason": null,
+          "requested_s": 30.0,
+          "within_any_window": true
+        }
+      },
+      "source_pose_provenance": "artifacts/reference-analysis/qmotion-roi",
+      "summary_metadata": {
+        "diagnostic_description": "raw valid observed samples only; not a full window/rep/benchmark/tolerance range; no pooled cross-metric range"
+      },
+      "view_note": "Corrected section only. Positive image-right, not certified backward lean. Camera/anatomical plane uncalibrated; do not pool across sources. Fixed subject crop diagnostic only; see crop provenance. Pixel axes same orientation, no new physical calibration.",
+      "width": 180,
+      "windows": [
+        {
+          "end_s": 36.966667,
+          "metrics": {
+            "elbow_angle/estimated_3d": {
+              "end_change": -32.19984363994827,
+              "end_value": 121.90346988293537,
+              "excursion": 77.98187244900114,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 160.60669402498908,
+              "minimum": 82.62482157598794,
+              "observed_valid_max": 160.60669402498908,
+              "observed_valid_min": 82.62482157598794,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 154.10331352288364,
+              "total_samples": 360,
+              "valid_samples": 360
+            },
+            "elbow_angle/projected_2d": {
+              "end_change": -126.6132247567655,
+              "end_value": 41.727620772621755,
+              "excursion": 178.65465201003238,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 178.6637968269147,
+              "minimum": 0.0091448168823158,
+              "observed_valid_max": 178.6637968269147,
+              "observed_valid_min": 0.0091448168823158,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 168.34084552938725,
+              "total_samples": 360,
+              "valid_samples": 360
+            },
+            "torso_axis_angle/projected_2d": {
+              "end_change": 6.9893606182116645,
+              "end_value": 21.61806005833042,
+              "excursion": 31.36211827058733,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 31.612866251247333,
+              "minimum": 0.2507479806600017,
+              "observed_valid_max": 31.612866251247333,
+              "observed_valid_min": 0.25074798066001025,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 14.628699440118757,
+              "total_samples": 360,
+              "valid_samples": 360
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "end_change": -65.44858301916355,
+              "end_value": 84.79284395258688,
+              "excursion": 127.86404728114422,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 165.711961795566,
+              "minimum": 37.847914514421774,
+              "observed_valid_max": 165.711961795566,
+              "observed_valid_min": 37.847914514421774,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 150.24142697175043,
+              "total_samples": 360,
+              "valid_samples": 360
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "end_change": -100.52731322305513,
+              "end_value": 71.70060132460523,
+              "excursion": 157.99448089908807,
+              "first_pts_s": 25.0,
+              "last_pts_s": 36.966667,
+              "maximum": 179.88048657942656,
+              "minimum": 21.886005680338485,
+              "observed_valid_max": 179.88048657942656,
+              "observed_valid_min": 21.886005680338485,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 36.966667,
+              "requested_start_s": 25.0,
+              "start_value": 172.22791454766036,
+              "total_samples": 360,
+              "valid_samples": 360
+            }
+          },
+          "start_s": 25.0,
+          "projected_shoulder_below_hip_samples": 0
+        }
+      ]
+    },
+    {
+      "axis": {
+        "axis_id": "image_up_unverified_not_gravity",
+        "positive_cross_sign": 1,
+        "up_xy": [
+          0.0,
+          -1.0
+        ],
+        "version": "camera-plane-axis-v1"
+      },
+      "height": 340,
+      "id": "qmotion_bad_example_roi",
+      "joint_mapping_version": "mp33-camera-v1",
+      "pose_artifact_hash": "7783173cef3cc36ab4267fc3f5db5aa85314825199e0d6b709f02e463d04bff2",
+      "sample_values": {
+        "21.0": {
+          "actual_pts_s": 21.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 156.72266179592108
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 179.64564215332368
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 19.32328711207595
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 143.99791404496446
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 154.92496372018158
+            }
+          },
+          "reason": null,
+          "requested_s": 21.0,
+          "within_any_window": true
+        },
+        "22.0": {
+          "actual_pts_s": 22.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 74.06813584168864
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 5.590323688349674
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 48.94868498943606
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 67.2142186259834
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 59.543043813763155
+            }
+          },
+          "reason": null,
+          "requested_s": 22.0,
+          "within_any_window": true
+        }
+      },
+      "source_pose_provenance": "artifacts/reference-analysis/qmotion-roi",
+      "summary_metadata": {
+        "diagnostic_description": "raw valid observed samples only; not a full window/rep/benchmark/tolerance range; no pooled cross-metric range"
+      },
+      "view_note": "Deliberately exaggerated-lean red-X section for diagnostic sensitivity only, never part of good-form benchmark. Fixed subject crop diagnostic only; see crop provenance. Pixel axes same orientation, no new physical calibration.",
+      "width": 180,
+      "windows": [
+        {
+          "end_s": 23.0,
+          "metrics": {
+            "elbow_angle/estimated_3d": {
+              "end_change": 41.489210681761776,
+              "end_value": 154.9902427920096,
+              "excursion": 104.96007003817567,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 158.5087164293067,
+              "minimum": 53.54864639113104,
+              "observed_valid_max": 158.5087164293067,
+              "observed_valid_min": 53.54864639113104,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 113.50103211024783,
+              "total_samples": 91,
+              "valid_samples": 91
+            },
+            "elbow_angle/projected_2d": {
+              "end_change": 157.47117329934997,
+              "end_value": 178.36503233321216,
+              "excursion": 179.33786585660937,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 179.75892719472532,
+              "minimum": 0.4210613381159483,
+              "observed_valid_max": 179.75892719472532,
+              "observed_valid_min": 0.4210613381159483,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 20.8938590338622,
+              "total_samples": 91,
+              "valid_samples": 91
+            },
+            "torso_axis_angle/projected_2d": {
+              "end_change": -27.532668827060633,
+              "end_value": 20.989432461917183,
+              "excursion": 39.75425307832586,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 52.83458260288939,
+              "minimum": 13.080329524563531,
+              "observed_valid_max": 52.8345826028894,
+              "observed_valid_min": 13.08032952456352,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 48.522101288977815,
+              "total_samples": 91,
+              "valid_samples": 91
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "end_change": 81.16017095675244,
+              "end_value": 135.76717300455562,
+              "excursion": 103.26253585467401,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 153.56432376404388,
+              "minimum": 50.30178790936986,
+              "observed_valid_max": 153.56432376404388,
+              "observed_valid_min": 50.30178790936986,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 54.607002047803185,
+              "total_samples": 91,
+              "valid_samples": 91
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "end_change": 120.54537246693883,
+              "end_value": 153.1205636743052,
+              "excursion": 159.55820562998295,
+              "first_pts_s": 20.0,
+              "last_pts_s": 23.0,
+              "maximum": 160.66057443193515,
+              "minimum": 1.1023688019521842,
+              "observed_valid_max": 160.66057443193515,
+              "observed_valid_min": 1.1023688019521842,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.0,
+              "requested_start_s": 20.0,
+              "start_value": 32.575191207366366,
+              "total_samples": 91,
+              "valid_samples": 91
+            }
+          },
+          "start_s": 20.0,
+          "projected_shoulder_below_hip_samples": 0
+        }
+      ]
+    },
+    {
+      "axis": {
+        "axis_id": "image_up_unverified_not_gravity",
+        "positive_cross_sign": 1,
+        "up_xy": [
+          0.0,
+          -1.0
+        ],
+        "version": "camera-plane-axis-v1"
+      },
+      "height": 530,
+      "id": "catalyst_roi",
+      "joint_mapping_version": "mp33-camera-v1",
+      "pose_artifact_hash": "f3676f443b0dc7b876431d9abd1f4fa3d81ef0283a9791cdac5e3ff999fe5947",
+      "sample_values": {
+        "10.0": {
+          "actual_pts_s": 10.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 142.92357572064205
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 145.2968692925692
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": 4.517269003466883
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 142.13847565222045
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 132.05757731463495
+            }
+          },
+          "reason": null,
+          "requested_s": 10.0,
+          "within_any_window": true
+        },
+        "18.0": {
+          "actual_pts_s": 18.0,
+          "observations": {
+            "elbow_angle/estimated_3d": {
+              "reason": null,
+              "value": 149.31388803988247
+            },
+            "elbow_angle/projected_2d": {
+              "reason": null,
+              "value": 159.40859834781105
+            },
+            "torso_axis_angle/projected_2d": {
+              "reason": null,
+              "value": -0.6893410901777292
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "reason": null,
+              "value": 148.94006222417102
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "reason": null,
+              "value": 148.8605870376548
+            }
+          },
+          "reason": null,
+          "requested_s": 18.0,
+          "within_any_window": true
+        }
+      },
+      "source_pose_provenance": "artifacts/reference-analysis/catalyst-roi",
+      "summary_metadata": {
+        "diagnostic_description": "raw valid observed samples only; not a full window/rep/benchmark/tolerance range; no pooled cross-metric range"
+      },
+      "view_note": "Two separate camera windows; do not pool planes even within this source. Image-up axis is uncalibrated, no physical world-angle claim. Fixed subject crop diagnostic only; see crop provenance. Pixel axes same orientation, no new physical calibration.",
+      "width": 300,
+      "windows": [
+        {
+          "end_s": 14.0,
+          "metrics": {
+            "elbow_angle/estimated_3d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 159.28657764977737,
+              "observed_valid_min": 72.58758126083629,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": null,
+              "total_samples": 181,
+              "valid_samples": 178
+            },
+            "elbow_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 176.36827404090602,
+              "observed_valid_min": 45.595093923061114,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": null,
+              "total_samples": 181,
+              "valid_samples": 178
+            },
+            "torso_axis_angle/projected_2d": {
+              "end_change": -8.098826146540874,
+              "end_value": -0.8647888830333272,
+              "excursion": 189.58351299566783,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": 9.802746456582781,
+              "minimum": -179.78076653908505,
+              "observed_valid_max": 9.802746456582794,
+              "observed_valid_min": -179.78076653908505,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": 7.234037263507547,
+              "total_samples": 181,
+              "valid_samples": 181
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 165.8210493609708,
+              "observed_valid_min": 18.81684670014438,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": null,
+              "total_samples": 181,
+              "valid_samples": 178
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "end_change": null,
+              "end_value": null,
+              "excursion": null,
+              "first_pts_s": 8.0,
+              "last_pts_s": 14.0,
+              "maximum": null,
+              "minimum": null,
+              "observed_valid_max": 162.78510341690023,
+              "observed_valid_min": 11.745688155249324,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": "missing_observation",
+              "requested_end_s": 14.0,
+              "requested_start_s": 8.0,
+              "start_value": null,
+              "total_samples": 181,
+              "valid_samples": 178
+            }
+          },
+          "start_s": 8.0,
+          "projected_shoulder_below_hip_samples": 3
+        },
+        {
+          "end_s": 23.966667,
+          "metrics": {
+            "elbow_angle/estimated_3d": {
+              "end_change": -46.22986108984563,
+              "end_value": 102.76279147599212,
+              "excursion": 85.77951762848711,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": 157.30343425577985,
+              "minimum": 71.52391662729273,
+              "observed_valid_max": 157.30343425577985,
+              "observed_valid_min": 71.52391662729273,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": 148.99265256583774,
+              "total_samples": 240,
+              "valid_samples": 240
+            },
+            "elbow_angle/projected_2d": {
+              "end_change": -79.1673395438978,
+              "end_value": 87.02542903333402,
+              "excursion": 132.84005055786668,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": 179.09835961260322,
+              "minimum": 46.25830905473655,
+              "observed_valid_max": 179.09835961260322,
+              "observed_valid_min": 46.25830905473655,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": 166.19276857723182,
+              "total_samples": 240,
+              "valid_samples": 240
+            },
+            "torso_axis_angle/projected_2d": {
+              "end_change": 4.980440656702484,
+              "end_value": 5.490414512308014,
+              "excursion": 13.036010884902396,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": 10.133400452758117,
+              "minimum": -2.9026104321442787,
+              "observed_valid_max": 10.133400452758126,
+              "observed_valid_min": -2.902610432144271,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": 0.5099738556055299,
+              "total_samples": 240,
+              "valid_samples": 240
+            },
+            "upper_arm_torso_angle/estimated_3d": {
+              "end_change": -60.23253428618672,
+              "end_value": 90.96801317974406,
+              "excursion": 140.32819123279407,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": 159.93814307987859,
+              "minimum": 19.60995184708451,
+              "observed_valid_max": 159.93814307987859,
+              "observed_valid_min": 19.60995184708451,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": 151.20054746593078,
+              "total_samples": 240,
+              "valid_samples": 240
+            },
+            "upper_arm_torso_angle/projected_2d": {
+              "end_change": -69.24342729709078,
+              "end_value": 81.08274520202316,
+              "excursion": 150.58154231762518,
+              "first_pts_s": 16.0,
+              "last_pts_s": 23.966667,
+              "maximum": 161.29780563346213,
+              "minimum": 10.716263315836954,
+              "observed_valid_max": 161.29780563346213,
+              "observed_valid_min": 10.716263315836954,
+              "range_note": "raw valid samples in this window only; descriptive, not a full-span/rep/score range (gapped or circular data)",
+              "reason": null,
+              "requested_end_s": 23.966667,
+              "requested_start_s": 16.0,
+              "start_value": 150.32617249911394,
+              "total_samples": 240,
+              "valid_samples": 240
+            }
+          },
+          "start_s": 16.0,
+          "projected_shoulder_below_hip_samples": 0
+        }
+      ]
+    }
+  ],
+  "config_sha256": "22e21f6b18415e6548fd00c8a22fc65568078fbd70e7559601ed5e9e16676b8e",
+  "endpoint": null,
+  "endpoint_reason": "not_implemented",
+  "experimental": true,
+  "valid_technique_score": null,
+  "version": "lat-posture-roi-observation-v1",
+  "visual_checks": [
+    {
+      "id": "qmotion_corrected",
+      "source_pts_s": 26.0,
+      "pose_pts_s": 26.0,
+      "rough_visual_angle_degrees": 36.86989764584402,
+      "pose_angle_degrees": 29.660481269497023,
+      "pose_minus_rough_degrees": -7.209416376347008,
+      "pose_reason": null,
+      "method": "Codex rough surface pixel estimate, unreviewed; uncertainty unquantified",
+      "limitation": "Hip center concealed by clothing/pad; diagonal camera. Points approximate, anatomical side not independently verified."
+    },
+    {
+      "id": "catalyst",
+      "source_pts_s": 10.0,
+      "pose_pts_s": 10.0,
+      "rough_visual_angle_degrees": 6.34019174590991,
+      "pose_angle_degrees": 3.766617472693951,
+      "pose_minus_rough_degrees": -2.573574273215968,
+      "pose_reason": null,
+      "method": "Codex rough surface pixel estimate, unreviewed; uncertainty unquantified",
+      "limitation": "Three-quarter rear camera; shoulder and hip joint centers hidden by clothing. No true sagittal lean claim."
+    },
+    {
+      "id": "imsa_right",
+      "source_pts_s": 5.005,
+      "pose_pts_s": 5.005,
+      "rough_visual_angle_degrees": -8.458912400170556,
+      "pose_angle_degrees": -6.483997685414866,
+      "pose_minus_rough_degrees": 1.9749147147556982,
+      "pose_reason": null,
+      "method": "Codex rough surface pixel estimate, unreviewed; uncertainty unquantified",
+      "limitation": "Side-panel crop; clothing obscures joint center. Approximate visible right side, not independently verified anatomical labels."
+    }
+  ],
+  "crop_provenance": [
+    {
+      "id": "qmotion-roi",
+      "parent_source_sha256": "5d15330e40acd091daa86ec1ce3f5454730ccedce1073214135fccf5194532cc",
+      "derived_sha256": "c5ce13c951e7aa13a4db748442b8675ab3dd0d9e961306f04761170e0f6385e1",
+      "crop_xywh": [
+        120,
+        130,
+        180,
+        340
+      ],
+      "timing": "No trim/speed/fps conversion. Original PTS retained; verify diagnostic sample times.",
+      "purpose": "Diagnostic perception comparison only, not an approved reference or measured world3D."
+    },
+    {
+      "id": "catalyst-roi",
+      "parent_source_sha256": "a20cd2060e9f3edbb92008738ae6fabe455ab736fcc10f5362fb904dbba23b39",
+      "derived_sha256": "7bc70c82e778449c4ead185a7c11e65125d9ead76421b7eb26880fd063e21ff0",
+      "crop_xywh": [
+        470,
+        140,
+        300,
+        530
+      ],
+      "timing": "No trim/speed/fps conversion. Original PTS retained; verify diagnostic sample times.",
+      "purpose": "Diagnostic perception comparison only, not an approved reference or measured world3D."
+    }
+  ],
+  "note": "Raw diagnostics, not reviewed reference ranges. Inverted projected-axis observations are reported, not silently excluded. Cropping is an offline perception experiment, not a production transform.",
+  "outlier_comparison": [
+    {
+      "requested_pts_s": 21.633333,
+      "original_vs_crop": {
+        "qmotion_bad_example": {
+          "actual_pts_s": 21.633333,
+          "angle_degrees": -106.05910671809004,
+          "reason": null
+        },
+        "qmotion_bad_example_roi": {
+          "actual_pts_s": 21.633333,
+          "angle_degrees": 33.88241629108836,
+          "reason": null
+        }
+      }
+    },
+    {
+      "requested_pts_s": 17.866667,
+      "original_vs_crop": {
+        "catalyst": {
+          "actual_pts_s": 17.866667,
+          "angle_degrees": 179.9803368184629,
+          "reason": null
+        },
+        "catalyst_roi": {
+          "actual_pts_s": 17.866667,
+          "angle_degrees": 0.08504952357729538,
+          "reason": null
+        }
+      }
+    }
+  ]
+}

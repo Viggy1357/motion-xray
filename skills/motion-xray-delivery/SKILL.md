@@ -63,6 +63,16 @@ authorization. Trial review lives at http://localhost:8865/ ; read
 misses/merges; do not promote thresholds, rank or demos to approved references.
 Next is the user's review and T05.2 label/calibration work, not more UI/hosting.
 
+Latest22 October checkpoint: read `docs/audit/T05.2b-posture-observations.md` and
+`docs/measurement/T05.2b-projected-posture-protocol.md`. Raw torso/window geometry and
+reference diagnostics pass599 full Python tests. Public-reference ROI experiments
+partly reduce misplaced joints; camera-plane ranges are not technique tolerances.
+Current next T05.2c: checked reference landmarks and phase labels -> per-rep metric
+calibration -> at least six usable user-rep comparisons. Exact ten-rep counting is
+secondary. Five-source rubric exists; do not repeat discovery or T04 setup. Bar
+endpoint and an approved aggregate remain unavailable. Keep Nebius substantive work
+dominant and Codex coordination/integration light per the owner's preference.
+
 1. Inspect git status and the previous task's evidence. Identify existing unfinished
    changes before editing; do not overwrite or commit another agent's work.
 2. Claim one bounded TASKS work package. State its FRs, concrete output and check.
