@@ -16,7 +16,7 @@ from .base import MXRModel
 from .jobs import AnalysisJob
 
 VideoId = Annotated[str, StringConstraints(pattern=r"^[0-9a-f]{32}$")]
-ExerciseId = Literal["lat_pulldown", "squat", "dumbbell_curl", "lateral_raise"]
+ExerciseId = Literal["lat_pulldown", "squat", "dumbbell_curl", "lateral_raise", "incline_chest_press"]
 RequestKey = Annotated[str, StringConstraints(pattern=r"^[A-Za-z0-9._:-]+$", min_length=1, max_length=128)]
 Variant = Annotated[str, StringConstraints(min_length=1, max_length=64)]
 

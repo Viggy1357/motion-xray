@@ -206,8 +206,8 @@ class Store:
             raise ValueError("expires_at must be in the future")
         if video.bytes <= 0:
             raise ValueError("bytes must be positive")
-        if not (0 < video.duration_s <= 30):
-            raise ValueError("duration_s must be in (0, 30]")
+        if not (0 < video.duration_s <= 60):
+            raise ValueError("duration_s must be in (0, 60]")
         if video.width <= 0 or video.height <= 0:
             raise ValueError("dimensions must be positive")
         if not re.fullmatch(r"[0-9a-f]{64}", video.sha256):

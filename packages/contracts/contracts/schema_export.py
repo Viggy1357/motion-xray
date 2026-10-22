@@ -25,6 +25,11 @@ from .proxy import ProxyTimestampMap, TimestampPair
 from .reference import ReferenceProfile, SourceRecord
 from .scoring import ScoreBreakdown
 from .session import SessionInfo
+from .product import (
+    ExerciseInfo, PersonalProfile, ProfilePatch, PrototypeAnalysisResult,
+    PrototypeAssessment, ReportQuality, RoutineExercise, RoutineTemplate,
+    SetCreate, SetPatch, Workout, WorkoutCreate, WorkoutSet,
+)
 
 #: All models whose JSON Schema we publish, keyed by their class name.
 _MODELS: tuple[Type[BaseModel], ...] = (
@@ -47,6 +52,9 @@ _MODELS: tuple[Type[BaseModel], ...] = (
     ProxyTimestampMap,
     PoseJobInput,
     PoseJobArtifacts,
+    ExerciseInfo, PersonalProfile, ProfilePatch, PrototypeAnalysisResult,
+    PrototypeAssessment, ReportQuality, RoutineExercise, RoutineTemplate,
+    SetCreate, SetPatch, Workout, WorkoutCreate, WorkoutSet,
 )
 
 

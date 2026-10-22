@@ -159,7 +159,7 @@ class TestConstructorValidation:
         ("start_s", -1),
         ("start_s", float("inf")),
         ("duration_s", 0),
-        ("duration_s", 31),
+        ("duration_s", 61),
         ("duration_s", float("nan")),
         ("sample_rate_hz", 0),
         ("sample_rate_hz", 31),

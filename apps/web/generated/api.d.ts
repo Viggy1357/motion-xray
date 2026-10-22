@@ -149,7 +149,7 @@ export interface paths {
         };
         /**
          * List Exercises
-         * @description List supported exercises and their variants. FR06. TODO(T12).
+         * @description List supported exercises and their default variants. FR06.
          */
         get: operations["list_exercises_v1_exercises_get"];
         put?: never;
@@ -268,7 +268,7 @@ export interface components {
              * Exercise Id
              * @enum {string}
              */
-            exercise_id: "lat_pulldown" | "squat" | "dumbbell_curl" | "lateral_raise";
+            exercise_id: "lat_pulldown" | "squat" | "dumbbell_curl" | "lateral_raise" | "incline_chest_press";
             /** Request Key */
             request_key: string;
             /** Variant */
@@ -432,6 +432,40 @@ export interface components {
             drafts: components["schemas"]["SourceRecord"][];
             /** Provider */
             provider: string;
+        };
+        /** ExerciseInfo */
+        ExerciseInfo: {
+            /**
+             * Capabilities
+             * @default []
+             */
+            capabilities: string[];
+            /** Display Name */
+            display_name: string;
+            /**
+             * Id
+             * @enum {string}
+             */
+            id: "lat_pulldown" | "dumbbell_curl" | "squat" | "incline_chest_press";
+            /** Profile Version */
+            profile_version?: string | null;
+            /**
+             * Reference Status
+             * @enum {string}
+             */
+            reference_status: "provisional" | "unavailable";
+            /**
+             * Supported Views
+             * @default []
+             */
+            supported_views: string[];
+            /**
+             * Target Muscles
+             * @default []
+             */
+            target_muscles: string[];
+            /** Variant */
+            variant: string;
         };
         /** HTTPValidationError */
         HTTPValidationError: {
@@ -947,7 +981,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": null;
+                    "application/json": components["schemas"]["ExerciseInfo"][];
                 };
             };
         };

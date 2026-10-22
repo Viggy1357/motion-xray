@@ -38,11 +38,11 @@ def _parse_config() -> tuple[int, float, float, str, str]:
         errors.append(f"MAX_UPLOAD_MB invalid: {exc}")
         max_mb = 0
 
-    raw_max_dur = _env("MAX_VIDEO_SECONDS", "30")
+    raw_max_dur = _env("MAX_VIDEO_SECONDS", "60")
     try:
         max_dur = float(raw_max_dur or "")
-        if not (0 < max_dur <= 30):
-            raise ValueError("MAX_VIDEO_SECONDS must be in (0,30]")
+        if not (0 < max_dur <= 60):
+            raise ValueError("MAX_VIDEO_SECONDS must be in (0,60]")
     except (ValueError, TypeError) as exc:
         errors.append(f"MAX_VIDEO_SECONDS invalid: {exc}")
         max_dur = 0.0

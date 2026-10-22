@@ -27,6 +27,7 @@ _VARIANT_DEFAULTS = {
     "squat": "bodyweight",
     "dumbbell_curl": "standing_both_arms",
     "lateral_raise": "standing_both_arms",
+    "incline_chest_press": "incline_dumbbell_bilateral",
 }
 
 _RESULT_KEY_RE = re.compile(r"^attempts/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/[0-9a-f]{32}/manifest\.json$")

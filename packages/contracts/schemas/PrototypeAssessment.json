@@ -1,0 +1,76 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "estimated_match": {
+      "anyOf": [
+        {
+          "ge": 0,
+          "le": 100,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Estimated Match"
+    },
+    "included_components": {
+      "default": [],
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Included Components",
+      "type": "array"
+    },
+    "missing_reasons": {
+      "default": [],
+      "items": {
+        "maxLength": 256,
+        "type": "string"
+      },
+      "title": "Missing Reasons",
+      "type": "array"
+    },
+    "omitted_components": {
+      "default": [],
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Omitted Components",
+      "type": "array"
+    },
+    "policy_version": {
+      "anyOf": [
+        {
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Policy Version"
+    },
+    "status": {
+      "enum": [
+        "matched",
+        "partial",
+        "unavailable"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "title": "PrototypeAssessment",
+  "type": "object"
+}

@@ -1,0 +1,126 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "analysis_id": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Analysis Id"
+    },
+    "exercise_id": {
+      "enum": [
+        "lat_pulldown",
+        "dumbbell_curl",
+        "squat",
+        "incline_chest_press"
+      ],
+      "title": "Exercise Id",
+      "type": "string"
+    },
+    "load_basis": {
+      "anyOf": [
+        {
+          "enum": [
+            "total",
+            "per_hand",
+            "bodyweight"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Load Basis"
+    },
+    "load_unit": {
+      "anyOf": [
+        {
+          "enum": [
+            "kg",
+            "lb"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Load Unit"
+    },
+    "load_value": {
+      "anyOf": [
+        {
+          "ge": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Load Value"
+    },
+    "logged_rep_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Logged Rep Count"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "maxLength": 2000,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    },
+    "performed_at": {
+      "format": "date-time",
+      "title": "Performed At",
+      "type": "string"
+    },
+    "request_key": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Request Key",
+      "type": "string"
+    },
+    "variant": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Variant",
+      "type": "string"
+    }
+  },
+  "required": [
+    "request_key",
+    "exercise_id",
+    "variant",
+    "performed_at"
+  ],
+  "title": "SetCreate",
+  "type": "object"
+}

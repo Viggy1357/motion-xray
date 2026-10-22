@@ -30,6 +30,7 @@ from pydantic import BaseModel
 from app import errors
 from app.uploads import router as uploads_router
 from app.analyses import router as analyses_router
+from app.catalogue import router as catalogue_router
 from app.artifact_streams import router as artifact_streams_router
 from contracts.reference import ReferenceProfile, SourceRecord
 from providers.search.protocol import SearchProvider
@@ -41,6 +42,7 @@ app = FastAPI(
 )
 app.include_router(uploads_router)
 app.include_router(analyses_router)
+app.include_router(catalogue_router)
 app.include_router(artifact_streams_router)
 
 
@@ -62,12 +64,6 @@ def _not_implemented() -> HTTPException:
 def healthz() -> dict[str, str]:
     """Liveness probe used by Compose/CI; returns a static ok with no I/O."""
     return {"status": "ok"}
-
-
-@app.get("/v1/exercises")
-def list_exercises() -> None:
-    """List supported exercises and their variants. FR06. TODO(T12)."""
-    raise _not_implemented()
 
 
 @app.get("/v1/references", response_model=list[ReferenceProfile])

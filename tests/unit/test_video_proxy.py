@@ -246,8 +246,8 @@ def test_symlink_outside_root(source_file: Path, asset: VideoAsset, output_dir: 
 
 
 def test_source_too_long(source_file: Path, asset: VideoAsset, output_dir: Path) -> None:
-    asset = asset.model_copy(update={"duration_s": 31.0})
-    with pytest.raises(ValueError, match="exceeds 30s"):
+    asset = asset.model_copy(update={"duration_s": 61.0})
+    with pytest.raises(ValueError, match="exceeds 60s"):
         build_proxy(asset, source_file.parent.parent, output_dir)
 
 

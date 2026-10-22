@@ -10,7 +10,8 @@
               "lat_pulldown",
               "squat",
               "dumbbell_curl",
-              "lateral_raise"
+              "lateral_raise",
+              "incline_chest_press"
             ],
             "title": "Exercise Id",
             "type": "string"
@@ -397,6 +398,92 @@
           "drafts"
         ],
         "title": "EvidenceRefreshResponse",
+        "type": "object"
+      },
+      "ExerciseInfo": {
+        "additionalProperties": false,
+        "properties": {
+          "capabilities": {
+            "default": [],
+            "items": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string"
+            },
+            "title": "Capabilities",
+            "type": "array"
+          },
+          "display_name": {
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Display Name",
+            "type": "string"
+          },
+          "id": {
+            "enum": [
+              "lat_pulldown",
+              "dumbbell_curl",
+              "squat",
+              "incline_chest_press"
+            ],
+            "title": "Id",
+            "type": "string"
+          },
+          "profile_version": {
+            "anyOf": [
+              {
+                "maxLength": 64,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Profile Version"
+          },
+          "reference_status": {
+            "enum": [
+              "provisional",
+              "unavailable"
+            ],
+            "title": "Reference Status",
+            "type": "string"
+          },
+          "supported_views": {
+            "default": [],
+            "items": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string"
+            },
+            "title": "Supported Views",
+            "type": "array"
+          },
+          "target_muscles": {
+            "default": [],
+            "items": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string"
+            },
+            "title": "Target Muscles",
+            "type": "array"
+          },
+          "variant": {
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Variant",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "display_name",
+          "variant",
+          "reference_status"
+        ],
+        "title": "ExerciseInfo",
         "type": "object"
       },
       "HTTPValidationError": {
@@ -1340,15 +1427,18 @@
     },
     "/v1/exercises": {
       "get": {
-        "description": "List supported exercises and their variants. FR06. TODO(T12).",
+        "description": "List supported exercises and their default variants. FR06.",
         "operationId": "list_exercises_v1_exercises_get",
         "responses": {
           "200": {
             "content": {
               "application/json": {
                 "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ExerciseInfo"
+                  },
                   "title": "Response List Exercises V1 Exercises Get",
-                  "type": "null"
+                  "type": "array"
                 }
               }
             },

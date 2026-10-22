@@ -38,8 +38,8 @@ class PoseJobInput(MXRModel):
             raise ValueError("job.owner must match video.owner_session_id")
         if self.job.input_hash != self.video.sha256:
             raise ValueError("job.input_hash must match video.sha256")
-        if not (0 < self.video.duration_s <= 30):
-            raise ValueError("video.duration_s must be in (0, 30]")
+        if not (0 < self.video.duration_s <= 60):
+            raise ValueError("video.duration_s must be in (0, 60]")
         return self
 
 

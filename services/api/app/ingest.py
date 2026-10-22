@@ -65,12 +65,12 @@ def _parse_rotation(val: Any) -> int:
     raise UploadRejected(422, "INVALID_MEDIA", "invalid rotation")
 
 
-def probe_media(path: Path, declared_mime: str, *, max_duration_s: float = 30) -> MediaInfo:
+def probe_media(path: Path, declared_mime: str, *, max_duration_s: float = 60) -> MediaInfo:
     if declared_mime not in _MIME_TO_FORMATS:
         raise UploadRejected(415, "INVALID_MEDIA", "unsupported mime type")
 
     if not (isinstance(max_duration_s, (int, float)) and not isinstance(max_duration_s, bool)
-            and max_duration_s > 0 and max_duration_s <= 30
+            and max_duration_s > 0 and max_duration_s <= 60
             and max_duration_s == max_duration_s and max_duration_s != float("inf")):
         raise UploadRejected(503, "CONFIG_INVALID", "invalid max_duration_s")
 
@@ -222,14 +222,14 @@ async def ingest_video(
     *,
     now: float | None = None,
     max_bytes: int = 104857600,
-    max_duration_s: float = 30,
+    max_duration_s: float = 60,
     ttl_s: float = 86400,
 ) -> VideoAsset:
     _check_duplicate_headers(request)
 
     if not isinstance(max_bytes, int) or isinstance(max_bytes, bool) or max_bytes <= 0 or max_bytes > 104857600:
         raise UploadRejected(503, "CONFIG_INVALID", "invalid max_bytes")
-    if not isinstance(max_duration_s, (int, float)) or isinstance(max_duration_s, bool) or max_duration_s <= 0 or max_duration_s > 30 or max_duration_s != max_duration_s or max_duration_s == float("inf"):
+    if not isinstance(max_duration_s, (int, float)) or isinstance(max_duration_s, bool) or max_duration_s <= 0 or max_duration_s > 60 or max_duration_s != max_duration_s or max_duration_s == float("inf"):
         raise UploadRejected(503, "CONFIG_INVALID", "invalid max_duration_s")
     if not isinstance(ttl_s, (int, float)) or isinstance(ttl_s, bool) or ttl_s <= 0 or ttl_s > 86400 or ttl_s != ttl_s or ttl_s == float("inf"):
         raise UploadRejected(503, "CONFIG_INVALID", "invalid ttl_s")

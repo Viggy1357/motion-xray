@@ -98,7 +98,7 @@ class TestRegisterAsset:
     def test_requires_duration_in_range(self, tmp_path: Path) -> None:
         s = Store(tmp_path / "s.db")
         v = _video(now=1000.0)
-        v.duration_s = 31.0
+        v.duration_s = 61.0
         with pytest.raises(ValueError):
             s.register_asset(v, now=1000.0)
         v.duration_s = 0.0

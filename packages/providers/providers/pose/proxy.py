@@ -17,7 +17,7 @@ from providers.pose.mediapipe_provider import VideoProbe, probe_video
 _PROXY_NAME: str = "proxy.mp4"
 _MAP_NAME: str = "timestamp_map.json"
 _MAX_SIZE: int = 100 * 1024 * 1024
-_MAX_DURATION: float = 30.0
+_MAX_DURATION: float = 60.0
 _MAX_FRAMES: int = 7200
 _MIN_FRAMES: int = 2
 _TOLERANCE_DURATION: float = 0.1
@@ -78,7 +78,7 @@ def _verify_source_metadata(source: Path, asset: VideoAsset) -> VideoProbe:
     if probe.width != asset.width or probe.height != asset.height or probe.rotation != asset.rotation:
         raise ValueError("Video metadata mismatch")
     if probe.duration_s > _MAX_DURATION + 1e-6:
-        raise ValueError("Source duration exceeds 30s")
+        raise ValueError("Source duration exceeds 60s")
     if len(probe.timestamps) < _MIN_FRAMES or len(probe.timestamps) > _MAX_FRAMES:
         raise ValueError(f"Source frame count out of range: {len(probe.timestamps)}")
     return probe
@@ -262,7 +262,7 @@ def build_proxy(video: VideoAsset, source_root: Path, output_dir: Path) -> Proxy
     failure. Cleans up only files written by this call on failure.
     """
     if not 0 < video.duration_s <= _MAX_DURATION:
-        raise ValueError("Source duration exceeds 30s")
+        raise ValueError("Source duration exceeds 60s")
     out = _ensure_private_dir(output_dir)
     _reject_existing_outputs(out)
     source = _verify_source_path(source_root, video.storage_key)

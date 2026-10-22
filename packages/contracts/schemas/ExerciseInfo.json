@@ -1,0 +1,87 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "default": [],
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Capabilities",
+      "type": "array"
+    },
+    "display_name": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Display Name",
+      "type": "string"
+    },
+    "id": {
+      "enum": [
+        "lat_pulldown",
+        "dumbbell_curl",
+        "squat",
+        "incline_chest_press"
+      ],
+      "title": "Id",
+      "type": "string"
+    },
+    "profile_version": {
+      "anyOf": [
+        {
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Profile Version"
+    },
+    "reference_status": {
+      "enum": [
+        "provisional",
+        "unavailable"
+      ],
+      "title": "Reference Status",
+      "type": "string"
+    },
+    "supported_views": {
+      "default": [],
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Supported Views",
+      "type": "array"
+    },
+    "target_muscles": {
+      "default": [],
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Target Muscles",
+      "type": "array"
+    },
+    "variant": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Variant",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "display_name",
+    "variant",
+    "reference_status"
+  ],
+  "title": "ExerciseInfo",
+  "type": "object"
+}

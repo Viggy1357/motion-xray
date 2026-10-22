@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "exercise_id": {
+      "enum": [
+        "lat_pulldown",
+        "dumbbell_curl",
+        "squat",
+        "incline_chest_press"
+      ],
+      "title": "Exercise Id",
+      "type": "string"
+    },
+    "planned_reps": {
+      "anyOf": [
+        {
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Planned Reps"
+    },
+    "planned_sets": {
+      "maximum": 20,
+      "minimum": 1,
+      "title": "Planned Sets",
+      "type": "integer"
+    },
+    "variant": {
+      "maxLength": 64,
+      "minLength": 1,
+      "title": "Variant",
+      "type": "string"
+    }
+  },
+  "required": [
+    "exercise_id",
+    "variant",
+    "planned_sets"
+  ],
+  "title": "RoutineExercise",
+  "type": "object"
+}

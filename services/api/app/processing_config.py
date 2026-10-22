@@ -30,6 +30,10 @@ def processing_version(checkpoint_sha256: str) -> str:
         "mapping": "mp33-camera-v1",
         "sample_rate_hz": 30,
         "visibility_threshold": 0.6,
+        "media_limits_version": "full-set-60s-v3",
+        "max_duration_s": 60,
+        "decoder_wall_budget_s": 120,
+        "timestamp_probe_budget_s": 90,
     }
     return hashlib_canonical_json(recipe)
 

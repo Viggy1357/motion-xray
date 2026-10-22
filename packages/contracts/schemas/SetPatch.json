@@ -1,0 +1,79 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "load_basis": {
+      "anyOf": [
+        {
+          "enum": [
+            "total",
+            "per_hand",
+            "bodyweight"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Load Basis"
+    },
+    "load_unit": {
+      "anyOf": [
+        {
+          "enum": [
+            "kg",
+            "lb"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Load Unit"
+    },
+    "load_value": {
+      "anyOf": [
+        {
+          "ge": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Load Value"
+    },
+    "logged_rep_count": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Logged Rep Count"
+    },
+    "notes": {
+      "anyOf": [
+        {
+          "maxLength": 2000,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notes"
+    }
+  },
+  "title": "SetPatch",
+  "type": "object"
+}

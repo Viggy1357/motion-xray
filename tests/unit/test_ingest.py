@@ -142,10 +142,10 @@ def test_probe_media_format_mismatch():
 
 
 def test_probe_media_duration_out_of_range():
-    stdout = _make_probe_result(duration="31.0")
+    stdout = _make_probe_result(duration="61.0")
     with patch("subprocess.run", return_value=MagicMock(stdout=stdout, returncode=0)):
         with pytest.raises(UploadRejected) as exc:
-            probe_media(Path("/tmp/fake.mp4"), "video/mp4", max_duration_s=30)
+            probe_media(Path("/tmp/fake.mp4"), "video/mp4", max_duration_s=60)
     assert exc.value.status_code == 422
 
 
@@ -705,7 +705,7 @@ def test_ingest_invalid_config_max_duration():
         chunks=[b"x"],
     )
     with pytest.raises(UploadRejected) as exc:
-        _run(ingest_video(req, MagicMock(), Path("/tmp/root"), "a" * 32, max_duration_s=31))
+        _run(ingest_video(req, MagicMock(), Path("/tmp/root"), "a" * 32, max_duration_s=61))
     assert exc.value.status_code == 503
 
 

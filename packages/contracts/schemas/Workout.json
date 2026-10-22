@@ -1,0 +1,233 @@
+{
+  "$defs": {
+    "WorkoutSet": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis_id": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Analysis Id"
+        },
+        "count_source": {
+          "enum": [
+            "detected",
+            "user",
+            "manual"
+          ],
+          "title": "Count Source",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "detected_rep_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Detected Rep Count"
+        },
+        "exercise_id": {
+          "enum": [
+            "lat_pulldown",
+            "dumbbell_curl",
+            "squat",
+            "incline_chest_press"
+          ],
+          "title": "Exercise Id",
+          "type": "string"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "load_basis": {
+          "anyOf": [
+            {
+              "enum": [
+                "total",
+                "per_hand",
+                "bodyweight"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Load Basis"
+        },
+        "load_unit": {
+          "anyOf": [
+            {
+              "enum": [
+                "kg",
+                "lb"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Load Unit"
+        },
+        "load_value": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Load Value"
+        },
+        "logged_rep_count": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Logged Rep Count"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        },
+        "owner_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Owner Id",
+          "type": "string"
+        },
+        "performed_at": {
+          "format": "date-time",
+          "title": "Performed At",
+          "type": "string"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "title": "Updated At",
+          "type": "string"
+        },
+        "variant": {
+          "maxLength": 64,
+          "minLength": 1,
+          "title": "Variant",
+          "type": "string"
+        },
+        "workout_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Workout Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "workout_id",
+        "owner_id",
+        "exercise_id",
+        "variant",
+        "count_source",
+        "performed_at",
+        "created_at",
+        "updated_at"
+      ],
+      "title": "WorkoutSet",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Name",
+      "type": "string"
+    },
+    "owner_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Owner Id",
+      "type": "string"
+    },
+    "sets": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/WorkoutSet"
+      },
+      "title": "Sets",
+      "type": "array"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    },
+    "updated_at": {
+      "format": "date-time",
+      "title": "Updated At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "owner_id",
+    "name",
+    "started_at",
+    "created_at",
+    "updated_at"
+  ],
+  "title": "Workout",
+  "type": "object"
+}

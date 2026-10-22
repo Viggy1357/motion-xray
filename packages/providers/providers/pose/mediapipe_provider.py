@@ -22,6 +22,9 @@ from providers.pose.artifacts import write_pose_frames
 from providers.pose.canonical import JOINT_INDICES, map_pose_frame
 
 
+_TIMESTAMP_PROBE_TIMEOUT_S = 90.0
+
+
 @dataclass
 class VideoProbe:
     timestamps: list[float]
@@ -52,7 +55,7 @@ def probe_video(path: Path) -> VideoProbe:
         "-print_format", "json",
         str(path),
     ]
-    result = subprocess.run(cmd, capture_output=True, check=True, timeout=30)
+    result = subprocess.run(cmd, capture_output=True, check=True, timeout=_TIMESTAMP_PROBE_TIMEOUT_S)
     data = json.loads(result.stdout)
 
     frames = data.get("frames", [])
@@ -189,8 +192,8 @@ class MediaPipePoseProvider:
 
         if not _is_valid_number(duration_s):
             raise ValueError("duration_s must be a finite number")
-        if not (0 < duration_s <= 30):
-            raise ValueError("duration_s must be in (0, 30]")
+        if not (0 < duration_s <= 60):
+            raise ValueError("duration_s must be in (0, 60]")
 
         if not _is_valid_number(sample_rate_hz):
             raise ValueError("sample_rate_hz must be a finite number")

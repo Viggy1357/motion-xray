@@ -269,6 +269,11 @@ def test_export_json_schema_has_entry_per_model() -> None:
         "PoseJobInput",
         "PoseJobArtifacts",
     }
+    expected.update({
+        "ExerciseInfo", "PersonalProfile", "ProfilePatch", "PrototypeAnalysisResult",
+        "PrototypeAssessment", "ReportQuality", "RoutineExercise", "RoutineTemplate",
+        "SetCreate", "SetPatch", "Workout", "WorkoutCreate", "WorkoutSet",
+    })
     assert set(schemas) == expected
     for schema in schemas.values():
         assert isinstance(schema, dict)

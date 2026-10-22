@@ -1,0 +1,62 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "expected_supporting_samples": {
+      "minimum": 0,
+      "title": "Expected Supporting Samples",
+      "type": "integer"
+    },
+    "missing_reasons": {
+      "default": [],
+      "items": {
+        "maxLength": 256,
+        "type": "string"
+      },
+      "title": "Missing Reasons",
+      "type": "array"
+    },
+    "per_metric_coverage": {
+      "additionalProperties": {
+        "ge": 0,
+        "le": 1,
+        "type": "number"
+      },
+      "default": {},
+      "title": "Per Metric Coverage",
+      "type": "object"
+    },
+    "total_reps": {
+      "minimum": 0,
+      "title": "Total Reps",
+      "type": "integer"
+    },
+    "usable_reps": {
+      "minimum": 0,
+      "title": "Usable Reps",
+      "type": "integer"
+    },
+    "valid_observed_samples": {
+      "minimum": 0,
+      "title": "Valid Observed Samples",
+      "type": "integer"
+    },
+    "view_review": {
+      "default": "unreviewed",
+      "enum": [
+        "reviewed",
+        "unreviewed",
+        "incompatible"
+      ],
+      "title": "View Review",
+      "type": "string"
+    }
+  },
+  "required": [
+    "expected_supporting_samples",
+    "valid_observed_samples",
+    "usable_reps",
+    "total_reps"
+  ],
+  "title": "ReportQuality",
+  "type": "object"
+}
