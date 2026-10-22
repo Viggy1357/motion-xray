@@ -1623,6 +1623,45 @@
         "summary": "Cancel Analysis"
       }
     },
+    "/v1/analyses/{analysis_id}/coaching": {
+      "post": {
+        "operationId": "post_coaching_v1_analyses__analysis_id__coaching_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "analysis_id",
+            "required": true,
+            "schema": {
+              "title": "Analysis Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoachingResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Post Coaching"
+      }
+    },
     "/v1/analyses/{analysis_id}/movement-report": {
       "get": {
         "operationId": "get_movement_report_v1_analyses__analysis_id__movement_report_get",

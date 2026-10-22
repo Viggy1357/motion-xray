@@ -346,3 +346,29 @@ Specification v2.0 (15 Oct 2026).
   and unreviewed calibration. This prototype resemblance is not technique accuracy,
   injury risk, muscle activation or a qualified coaching judgment. No new research or
   paid calls from the read endpoint; source-only Nebius development prompts.
+
+## D018 — Reference-video exercise rollout and explicit grounded coaching
+
+- 22–23 October2026: owner requests grounded coaching and curl/squat/press assessment
+  in parallel, explicitly choosing actual reference-video work over invented target
+  ranges. Direct Nebius workers draft/review; Codex integrates/checks. Earlier holds
+  do not block this authorized three-exercise rollout; lat trusted scoring gates stay frozen.
+- Six actual publisher videos measured. Primary reference windows: curl2 unreviewed
+  visual proposals checked against pose, press5 automatic, squat2 automatic. Three
+  secondary clips fail the two-usable-window minimum and are excluded from scoring.
+  No user set used as a reference. Original PTS/side/origin/hash/source metadata retained.
+- New exercises use generic knee/hip or arm geometry, common reference/user arithmetic,
+  explicit primary observed bands and partial resemblance. Thirty-degree normalization
+  remains an engineering proposal; camera/variant compatibility unreviewed, top-level
+  technique score null. Sparse user cycles must be exposed, especially squat's one.
+- Coaching is explicit POST, owner/CSRF-gated. NVIDIA selects immutable local observation
+  and allowlisted sourced cue IDs only; actual segment times power replay. No free-text
+  invented numbers, raw media or pose arrays to the model. GET never spends model credits.
+- Final `coaching-quota-v1` prototype controls:20 reservations per UTC day globally,
+  4 per owner/day,100 lifetime in the shared SQLite ledger. Reservations/failures count;
+  expired cache rows fail closed rather than erase quota history. Model pinned Nano,
+  500 output tokens/35s/zero retries. Runtime and coding-agent credentials stay separate.
+  Local ignored live-coaching flag enabled; no paid hosting or automated recurring task.
+- One actual uploaded-set runtime call plus cached repeat after restart accepted.
+  Derived reports/coaching access still require retained raw pose. Durable workout logs,
+  pose overlays, public-hosting ingress/quotas and submission acceptance remain future work.

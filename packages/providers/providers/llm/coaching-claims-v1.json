@@ -1,0 +1,29 @@
+{
+  "version": "coaching-claims-v1",
+  "claims": [
+    {
+      "id": "lat_control",
+      "exercise": "lat_pulldown",
+      "text": "Keep the upper body controlled while pulling, and return the arms overhead under control.",
+      "url": "https://www.ifafitness.com/wttrain/latpulldown.htm"
+    },
+    {
+      "id": "curl_control",
+      "exercise": "dumbbell_curl",
+      "text": "Use a controlled curl and lowering phase; review body movement rather than swinging to lift the weights.",
+      "url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html"
+    },
+    {
+      "id": "squat_control",
+      "exercise": "squat",
+      "text": "Use controlled lowering and standing phases; review depth in the replay rather than relying on the rep count.",
+      "url": "https://contentcdn.eacefitness.com/assets/certification/ace-answers/forms/pt/37_Bodyweight_Squat_Assessment_Protocol.pdf"
+    },
+    {
+      "id": "press_control",
+      "exercise": "incline_chest_press",
+      "text": "Lower and press the dumbbells under control while maintaining your points of contact with the bench and floor.",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/25/incline-chest-press/"
+    }
+  ]
+}

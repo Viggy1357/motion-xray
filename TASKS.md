@@ -12,6 +12,33 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM05/HM07 + HM06 — three-exercise video calibration and grounded coaching · done (prototype slice,23 Oct)
+
+- FR05/07/08/09/10/12. Owner explicitly requests parallel Nebius work for curl, squat
+  and incline dumbbell press: sourced metric rubric, actual reference video measurement
+  and provisional calibration, plus grounded coaching. Do not replace video baselines
+  with invented target ranges or use owned set videos as references.
+- Three scoped Nebius exercise specialists drafted separate feature modules/configs,
+  analytic fixtures and candidate source packets. Runtime/calibration, durable coaching
+  and UI workers follow, maximum3 concurrent. Codex integrates/checks only.
+- Six actual reference videos downloaded/pose-measured. Primary usable windows: curl2
+  unreviewed visual proposals, press5 automatic, squat2 automatic. Secondaries1/0/1
+  excluded from numeric bands. Public Vimeo embed retrieved with publisher Referer;
+  no credentials/cookies. Media ignored. Source/hash/PTS manifest committed.
+- Actual owned clips now yield provisional estimates curl81.6 (2 cycles), squat43.0
+  (1 cycle), press53.5 (4 cycles), lat62.1 (5 cycles). Same-origin private API and
+  deterministic repeats pass. Scores are partial/unreviewed; technique `score` null.
+- Grounded coaching POST/UI with replay, sourced cue and durable SQLite cache/quotas:
+  20 global/day,4 owner/day,100 lifetime; pinned Nano500 output/35s/zero retries.
+  Actual lat runtime call1465 tokens/1.103s; cached repeat after restart adds no call.
+- Checks:971 Python tests, Ruff/mypy71 sources, web types/production build; generated
+  OpenAPI/TS. Evidence `docs/audit/HM057-HM06-delivery.md` and three associated JSONs.
+- 14 Nebius calls315,349 tokens across bounded tasks (largest129,506), guard$2.459055;
+  runtime$0.003044 guard. Aggregate$13.45014265 incl historic contingency, balance
+  unverified. Ledger `docs/development-usage-HM057-HM06-2026-10-23.json`. No paid hosting.
+- Next HM02 durable logs/owner continuity, HM09 overlay, hosting/judge QA/submission.
+  Calibration accuracy/additional metrics remain future review; do not restart research.
+
 ### HM04.1 — app experimental reference assessment · done (lat slice)
 
 - FR07/08/10/12. Owner asks to connect provisional reference assessment now and use

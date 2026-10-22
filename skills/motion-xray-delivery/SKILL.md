@@ -24,15 +24,15 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 ## Resume one task
 
-Latest build: read `docs/audit/HM-first-app-build.md` and active TASKS entry. First
-real guest upload/status/private replay/browser-log app and60s limits are accepted;
-897 offline tests. HM04/HM04.1 lat movement and experimental assessment/API/UI accepted:
-read `docs/audit/HM04.1-experimental-assessment.md`. Existing0.2 result stays pose-only;
-additive0.3 derived endpoint supplies lat metrics/coverage/cycles and partial experimental
-reference resemblance under a separate unreviewed engineering policy. Main technique
-score null; other three exercise profiles unavailable. Next HM06 actual set-evidence
-coaching with durable cache/global quota, then durable HM02 logs. Hosting
-deferred; benchmark research frozen. Do not redispatch the already accepted Batch A.
+Latest23 Oct build: read `docs/audit/HM057-HM06-delivery.md` and active TASKS entry.
+971 offline tests. All four exercise profiles supply actual measurements and partial,
+unreviewed video-reference resemblance. Old0.2 pose reports unchanged, technique score
+null. Grounded coaching now works on an actual owned set via explicitPOST/NVIDIA ID
+selection, source-backed cues, replay and durable cache/quotas (20 global/day,4 owner/day,
+100 lifetime). Source-only Nebius development; raw private media never sent to workers.
+Next HM02 durable logs/owner continuity, HM09 overlay, then hosting/judge QA/submission.
+Current calibration accuracy/additional metrics stay future work. Hosting deferred;
+do not redispatch accepted Batch A or repeat completed exercise calibration.
 
 Historical T23 planning context (superseded by latest build above): read `docs/HACKATHON-EXECUTION-PLAN.md` and
 `docs/delegation/HM-BATCH-A.md`. Owner confirms same-browser profile first/free-first

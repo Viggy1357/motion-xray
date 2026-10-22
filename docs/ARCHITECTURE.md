@@ -10,7 +10,15 @@ artifacts plus identical config/versions must produce identical metrics and scor
 
 ## Processing pipeline
 
-Latest22 October assessment checkpoint: `audit/HM04.1-experimental-assessment.md`.
+Latest23 October checkpoint: `audit/HM057-HM06-delivery.md`. Four exercise movement
+profiles now run on checked retained pose, with partial unreviewed reference resemblance.
+New curl/squat/press baselines derive from actual reference videos, not invented target
+ranges. An explicit owner/CSRF-gated coaching POST uses NVIDIA candidate-ID selection,
+durable SQLite reservations/cache and fixed daily/lifetime quotas. No paid calls from
+GET/render; old0.2 pose manifests and `/result` remain unchanged. Top-level technique
+scores stay null. HM02 durable workout/profile logs and HM09 overlay/hosting QA follow.
+
+Earlier22 October assessment checkpoint: `audit/HM04.1-experimental-assessment.md`.
 Owner-scoped additive0.3 `/movement-report` derives lat metrics and a partial,
 unreviewed experimental QMotion resemblance estimate from checked pose artifacts.
 No paid calls/writes from GET; access rechecked after calculation. Legacy0.2 `/result`

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { components } from "../generated/api";
+import GroundedCoaching from "./grounded-coaching";
 
 type Report = components["schemas"]["PrototypeAnalysisResult"];
 type Metric = components["schemas"]["Metric"];
@@ -17,6 +18,14 @@ const METRIC_LABELS: Record<string, string> = {
   "upper_arm_torso_angle/projected_2d": "Upper-arm to torso angle (camera plane)",
   "upper_arm_torso_angle/estimated_3d": "Upper-arm to torso angle (estimated 3D)",
   "torso_axis_angle/projected_2d": "Torso axis angle (camera plane)",
+  "knee_angle/estimated_3d/bottom": "Knee angle at bottom (estimated 3D)",
+  "knee_angle/estimated_3d/excursion": "Knee range of motion (estimated 3D)",
+  "knee_angle/projected_2d/bottom": "Knee angle at bottom (camera plane)",
+  "knee_angle/projected_2d/excursion": "Knee range of motion (camera plane)",
+  "hip_angle/estimated_3d/bottom": "Hip angle at bottom (estimated 3D)",
+  "hip_angle/estimated_3d/excursion": "Hip range of motion (estimated 3D)",
+  "hip_angle/projected_2d/bottom": "Hip angle at bottom (camera plane)",
+  "hip_angle/projected_2d/excursion": "Hip range of motion (camera plane)",
 };
 const TOP_METRIC_IDS = [
   "elbow_angle/estimated_3d/excursion",
@@ -88,9 +97,14 @@ function MetricLine({ m, showReference }: { m: Metric; showReference: boolean })
 }
 
 function RepMetrics({ rep, metrics, showReference }: { rep: Rep; metrics: Metric[]; showReference: boolean }) {
-  const top = metrics.filter((m) => TOP_METRIC_IDS.includes(m.id));
-  const rest = metrics.filter((m) => !TOP_METRIC_IDS.includes(m.id));
+  const preferred = metrics.some((m) => m.id.startsWith("knee_angle/"))
+    ? ["knee_angle/estimated_3d/bottom", "knee_angle/estimated_3d/excursion", "hip_angle/estimated_3d/bottom", "torso_axis_angle/projected_2d/excursion"]
+    : TOP_METRIC_IDS;
+  const top = metrics.filter((m) => preferred.includes(m.id));
+  const rest = metrics.filter((m) => !preferred.includes(m.id));
   const shown = top.length > 0 ? top : metrics.slice(0, 4);
+  // TOP_METRIC_IDS is lat-pulldown-specific; other exercises fall back to the
+  // first four metrics with generic humanized labels (no big rewrite).
   const header = showReference ? (
     <thead>
       <tr><th>Metric</th><th>Measured</th><th>Reference band</th><th>Signed deviation</th></tr>
@@ -133,7 +147,7 @@ function ExperimentalMatch({ report }: { report: Report }) {
   if (pa.estimated_match == null) return null;
   const policyVersion = prov.experimental_policy_version ?? pa.policy_version ?? "unknown";
   const referenceId = prov.reference_id;
-  const referenceName = referenceId === "qmotion_roi" ? "QMotion" : (referenceId ?? "not reported");
+  const referenceName = prov.reference_name ?? (referenceId === "qmotion_roi" ? "QMotion" : (referenceId ?? "not reported"));
   const referenceView = prov.reference_view_id;
   const reviewStatus = prov.reference_review_status;
   const matchedCycles = prov.matched_cycles;
@@ -156,14 +170,18 @@ function ExperimentalMatch({ report }: { report: Report }) {
         This is not a technique score, not a numerical accuracy percentage, and it has not been owner-reviewed or validated.
       </p>
       <p className="muted" style={{ margin: ".2rem 0" }}>
-        The main technique score is not available for this report. This limited resemblance does not measure bar/chest endpoint position or calibrated torso lean, and the camera view is unreviewed.
+        This compares only the listed measured features, not overall technique quality. The camera geometry and normalization remain unreviewed; omitted features are listed below.
       </p>
       <details style={{ marginTop: ".4rem" }}>
         <summary className="muted" style={{ cursor: "pointer" }}>How this estimate is computed</summary>
         <ul className="muted" style={{ margin: ".4rem 0 0", paddingLeft: "1.2rem" }}>
           <li>For each measured value x and reference band [L, U]: distance = max(L − x, 0, x − U) — the distance outside the band (0 when inside).</li>
           <li>Resemblance per metric = 100 × max(0, 1 − distance / {normDeg}). The {normDeg}-degree normalization is an explicit, unreviewed engineering hypothesis — not a validated threshold.</li>
-          <li>Three families weighted equally per cycle: torso dynamic, arm range of motion (two components averaged), shoulder drive; then averaged across complete eligible cycles.</li>
+          {prov.match_aggregation === "equal_metric_mean_per_cycle_then_cycle_mean" ? (
+            <li>Each of the four compared metrics contributes equally: per cycle the mean of the four per-metric resemblance values is taken, then averaged across complete eligible cycles.</li>
+          ) : (
+            <li>Three families weighted equally per cycle: torso dynamic, arm range of motion (two components averaged), shoulder drive; then averaged across complete eligible cycles.</li>
+          )}
           {coverageThreshold !== null ? (
             <li>Each cycle needs all four metrics observed with ≥ {coverageThreshold} supporting coverage. This is a data-completeness requirement — it does not mean {coverageThreshold} accuracy.</li>
           ) : (
@@ -263,6 +281,7 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
   const hasEstimate = pa.estimated_match != null;
   const showReference = report.metrics.some((m) => m.reference_interval != null || m.deviation != null);
   const profileUnavailable = pa.missing_reasons.some((r) => r.includes("exercise_profile_unavailable"));
+  const referenceCalibrationPending = pa.missing_reasons.some((r) => r.includes("reference_calibration_pending"));
   const noEligibleCycles = pa.missing_reasons.some((r) => r.includes("no_eligible_cycles"));
   const referenceRepCount = prov.reference_rep_count;
 
@@ -328,12 +347,18 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
 
       {hasEstimate && <ExperimentalMatch report={report} />}
 
+      {completed.length > 0 && report.metrics.some((m) => m.value != null) && (
+        <GroundedCoaching analysisId={analysisId} reps={completed} />
+      )}
+
       {pa.status === "unavailable" && (
         <div className="state warn" role="status">
           <strong>Reference match unavailable.</strong>{" "}
           {profileUnavailable
             ? "The exercise profile for this movement is still pending, so no reference comparison can run yet — this is not a segmentation failure."
-            : noEligibleCycles
+            : referenceCalibrationPending
+              ? "The reference videos for this exercise have not been calibrated yet, so no reference comparison can run — this is a pending-calibration state, not a measurement failure and not an unsupported profile."
+              : noEligibleCycles
               ? "There are insufficient compatible observed measurements to compare against the reference, so no match estimate is shown."
               : pa.policy_version
                 ? `The reference comparison policy (${pa.policy_version}) is pending and not yet approved, so no match estimate is shown.`
@@ -393,7 +418,7 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
         <h3>Measured values</h3>
         {showReference && (
           <p className="muted" style={{ margin: ".2rem 0 .6rem" }}>
-            Reference bands are observed min/max ranges from {referenceRepCount != null ? `n=${referenceRepCount} reference cycles` : "the reference cycles"} (unreviewed camera) — not acceptable technique tolerances. Signed deviation is negative below the band, positive above it, and 0 inside. Labels indicate camera-plane (projected 2D) or estimated-3D measurements; these are descriptive only.
+            Reference bands are observed min/max ranges from {referenceRepCount != null ? `n=${referenceRepCount} reference windows` : "the reference windows"} (unreviewed camera) — not acceptable technique tolerances. Signed deviation is negative below the band, positive above it, and 0 inside. Labels indicate camera-plane (projected 2D) or estimated-3D measurements; these are descriptive only.
           </p>
         )}
         {completed.length === 0 ? (

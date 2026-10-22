@@ -1,0 +1,39 @@
+{
+  "status": "real_same_origin_http_acceptance",
+  "reports": [
+    {
+      "exercise": "dumbbell_curl",
+      "status": 200,
+      "estimated_match": 81.64965714727133,
+      "cycles": 2,
+      "cache_control": "no-store"
+    },
+    {
+      "exercise": "incline_chest_press",
+      "status": 200,
+      "estimated_match": 53.4859047376674,
+      "cycles": 4,
+      "cache_control": "no-store"
+    },
+    {
+      "exercise": "squat",
+      "status": 200,
+      "estimated_match": 43.01617088015028,
+      "cycles": 1,
+      "cache_control": "no-store"
+    },
+    {
+      "exercise": "lat_pulldown",
+      "status": 200,
+      "estimated_match": 62.10177651794693,
+      "cycles": 5,
+      "cache_control": "no-store"
+    }
+  ],
+  "coaching_cache_after_restart": {
+    "status": 200,
+    "reservations_before": 1,
+    "reservations_after": 1,
+    "no_new_reservation": true
+  }
+}

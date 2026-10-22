@@ -181,7 +181,10 @@ class NebiusLLMProvider:
         usage = getattr(resp, "usage", None)
         self.last_usage = {
             "model": self._model_id,
-            "usage": {k: int(v) for k, v in vars(usage).items() if isinstance(v, int)} if usage else {},
+            "usage": {
+                k: v for k in ("prompt_tokens", "completion_tokens", "total_tokens")
+                if isinstance(v := getattr(usage, k, None), int) and not isinstance(v, bool)
+            },
             "finish_reason": choice.finish_reason,
             "latency_s": round(latency, 3),
             "status": "unvalidated",
