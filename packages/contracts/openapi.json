@@ -648,6 +648,220 @@
         "title": "Metric",
         "type": "object"
       },
+      "PrototypeAnalysisResult": {
+        "additionalProperties": false,
+        "description": "0.3 prototype report; standalone, not a subclass of AnalysisResult.",
+        "properties": {
+          "analysis_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Analysis Id",
+            "type": "string"
+          },
+          "analysis_scope": {
+            "const": "prototype_report",
+            "default": "prototype_report",
+            "enum": [
+              "prototype_report"
+            ],
+            "title": "Analysis Scope",
+            "type": "string"
+          },
+          "coaching": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CoachingResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "detected_rep_count": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detected Rep Count"
+          },
+          "detected_rep_count_unavailable_reason": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detected Rep Count Unavailable Reason"
+          },
+          "exercise": {
+            "enum": [
+              "lat_pulldown",
+              "dumbbell_curl",
+              "squat",
+              "incline_chest_press"
+            ],
+            "title": "Exercise",
+            "type": "string"
+          },
+          "metrics": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/Metric"
+            },
+            "title": "Metrics",
+            "type": "array"
+          },
+          "prototype_assessment": {
+            "$ref": "#/components/schemas/PrototypeAssessment"
+          },
+          "provenance": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "title": "Provenance",
+            "type": "object"
+          },
+          "quality": {
+            "$ref": "#/components/schemas/ReportQuality"
+          },
+          "recipe_version": {
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Recipe Version",
+            "type": "string"
+          },
+          "reps": {
+            "default": [],
+            "items": {
+              "$ref": "#/components/schemas/Rep"
+            },
+            "title": "Reps",
+            "type": "array"
+          },
+          "schema_version": {
+            "const": "0.3.0",
+            "default": "0.3.0",
+            "enum": [
+              "0.3.0"
+            ],
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "score": {
+            "title": "Score",
+            "type": "null"
+          },
+          "variant": {
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Variant",
+            "type": "string"
+          },
+          "warnings": {
+            "default": [],
+            "items": {
+              "maxLength": 256,
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "analysis_id",
+          "exercise",
+          "variant",
+          "recipe_version",
+          "quality",
+          "prototype_assessment"
+        ],
+        "title": "PrototypeAnalysisResult",
+        "type": "object"
+      },
+      "PrototypeAssessment": {
+        "additionalProperties": false,
+        "properties": {
+          "estimated_match": {
+            "anyOf": [
+              {
+                "ge": 0,
+                "le": 100,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimated Match"
+          },
+          "included_components": {
+            "default": [],
+            "items": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string"
+            },
+            "title": "Included Components",
+            "type": "array"
+          },
+          "missing_reasons": {
+            "default": [],
+            "items": {
+              "maxLength": 256,
+              "type": "string"
+            },
+            "title": "Missing Reasons",
+            "type": "array"
+          },
+          "omitted_components": {
+            "default": [],
+            "items": {
+              "maxLength": 64,
+              "minLength": 1,
+              "type": "string"
+            },
+            "title": "Omitted Components",
+            "type": "array"
+          },
+          "policy_version": {
+            "anyOf": [
+              {
+                "maxLength": 64,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Policy Version"
+          },
+          "status": {
+            "enum": [
+              "matched",
+              "partial",
+              "unavailable"
+            ],
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "title": "PrototypeAssessment",
+        "type": "object"
+      },
       "ReferenceProfile": {
         "additionalProperties": false,
         "description": "A versioned, approved reference for one exercise/variant/view.",
@@ -856,6 +1070,68 @@
           "scorable"
         ],
         "title": "Rep",
+        "type": "object"
+      },
+      "ReportQuality": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_supporting_samples": {
+            "minimum": 0.0,
+            "title": "Expected Supporting Samples",
+            "type": "integer"
+          },
+          "missing_reasons": {
+            "default": [],
+            "items": {
+              "maxLength": 256,
+              "type": "string"
+            },
+            "title": "Missing Reasons",
+            "type": "array"
+          },
+          "per_metric_coverage": {
+            "additionalProperties": {
+              "ge": 0,
+              "le": 1,
+              "type": "number"
+            },
+            "default": {},
+            "title": "Per Metric Coverage",
+            "type": "object"
+          },
+          "total_reps": {
+            "minimum": 0.0,
+            "title": "Total Reps",
+            "type": "integer"
+          },
+          "usable_reps": {
+            "minimum": 0.0,
+            "title": "Usable Reps",
+            "type": "integer"
+          },
+          "valid_observed_samples": {
+            "minimum": 0.0,
+            "title": "Valid Observed Samples",
+            "type": "integer"
+          },
+          "view_review": {
+            "default": "unreviewed",
+            "enum": [
+              "reviewed",
+              "unreviewed",
+              "incompatible"
+            ],
+            "title": "View Review",
+            "type": "string"
+          }
+        },
+        "required": [
+          "expected_supporting_samples",
+          "valid_observed_samples",
+          "usable_reps",
+          "total_reps"
+        ],
+        "title": "ReportQuality",
         "type": "object"
       },
       "SessionInfo": {
@@ -1345,6 +1621,45 @@
           }
         },
         "summary": "Cancel Analysis"
+      }
+    },
+    "/v1/analyses/{analysis_id}/movement-report": {
+      "get": {
+        "operationId": "get_movement_report_v1_analyses__analysis_id__movement_report_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "analysis_id",
+            "required": true,
+            "schema": {
+              "title": "Analysis Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrototypeAnalysisResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Movement Report"
       }
     },
     "/v1/analyses/{analysis_id}/result": {

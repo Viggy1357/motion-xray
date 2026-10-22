@@ -32,6 +32,7 @@ from app.uploads import router as uploads_router
 from app.analyses import router as analyses_router
 from app.catalogue import router as catalogue_router
 from app.artifact_streams import router as artifact_streams_router
+from app.movement_reports import router as movement_reports_router
 from contracts.reference import ReferenceProfile, SourceRecord
 from providers.search.protocol import SearchProvider
 
@@ -44,6 +45,7 @@ app.include_router(uploads_router)
 app.include_router(analyses_router)
 app.include_router(catalogue_router)
 app.include_router(artifact_streams_router)
+app.include_router(movement_reports_router)
 
 
 @app.middleware("http")

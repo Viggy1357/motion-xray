@@ -12,6 +12,30 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM04 — runtime lat movement report · done (lat slice)
+
+- FR05/07/08/10/12: bounded direct Nebius engine/API/UI drafts, one integrator.
+  Add a typed derived `/movement-report` surface; keep `/result` and strict0.2 pose
+  publication compatible. No paid model call from a read endpoint. Derived measurements
+  initially require unexpired pose artifacts; durable report/log caching remains HM02/HM06.
+- Reuse existing geometry and100/135-degree trial cycle config. Frozen benchmark policy
+  stays pending, scores null. Preflight on the full owned lat artifact:1651 samples,
+  left1530 valid elbow3D samples/five cycle candidates; right595/zero. No ground-truth
+  count claim or threshold tuning to the owner's ten logged reps.
+- Delivered: versioned runtime/config, owner-scoped read-only API, generated OpenAPI/TS,
+  results component and analytic/security regression fixtures. Evidence and limitations:
+  `docs/audit/HM04-runtime-report.md`, `docs/audit/HM04-real-acceptance.json`.
+- Checks: Ruff/mypy65 sources; 858 offline tests; web types/production build. Browser
+  displays five provisional cycles/18 excluded fragments/160 component entries/93%
+  rounded signal visibility on the real lat set. Logged10 remains independent.
+  Other three real artifacts correctly yield profile unavailable; deterministic repeats pass.
+- Seven Nebius calls152,419 tokens/$1.008801 guard cost. Ledger
+  `docs/development-usage-HM04-2026-10-22.json`; aggregate$10.31029265, balance unverified.
+  Two failed envelopes recovered only exact allowlisted sources. No runtime paid calls.
+- Next HM06 evidence-bound coaching with durable cache/global quota, then HM02 durable
+  logs/owner continuity and HM05/HM07 additional exercise profiles. Scores stay null;
+  raw-pose retention bounds derived report availability. Hosting/research remain held.
+
 - **HM00 design/intake accepted; hosting deferred. HM01 additive models done;
   HM03/HM08 first app slice accepted; HM06 standalone adapter accepted, report wiring
   pending.** FR01/02/03/04/06/09/10/12. See `docs/audit/HM-first-app-build.md`.
@@ -27,8 +51,7 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   failed repair; one synthetic Nano adapter call228 tokens,$0.000516 guard cost. Usage:
   `docs/development-usage-HM-build-2026-10-22.json`; cumulative$9.30149165 including
   historic unknown-call contingency; actual account balance unverified. No Tavily spend.
-- **Next HM04:** wire actual measurements/coverage/frozen reference output to a typed
-  runtime report and the existing app, then actual set-evidence coaching. HM02 durable
+- **HM04 accepted above; next HM06:** actual set-evidence coaching. HM02 durable
   server logs/owner continuity, HM05/HM07 movement adapters, HM09 overlay/3D, optional
   routines, final hosting and submission QA remain. No paid hosting activated.
 

@@ -1,0 +1,18 @@
+{
+  "version": "lat-runtime-v1",
+  "pipeline_version": "hm04-lat-v1",
+  "low_degrees": 100.0,
+  "high_degrees": 135.0,
+  "dwell_s": 0.1,
+  "max_gap_s": 0.1,
+  "minimum_signal_samples": 2,
+  "reference_policy_version": "lat-component-policy-v1",
+  "reference_status": "pending",
+  "omitted_score_families": [
+    "torso_start",
+    "torso_dynamic",
+    "arm_rom",
+    "shoulder_drive",
+    "bar_endpoint"
+  ]
+}

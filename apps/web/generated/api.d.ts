@@ -99,6 +99,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/analyses/{analysis_id}/movement-report": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Movement Report */
+        get: operations["get_movement_report_v1_analyses__analysis_id__movement_report_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/analyses/{analysis_id}/result": {
         parameters: {
             query?: never;
@@ -522,6 +539,95 @@ export interface components {
             value?: number | null;
         };
         /**
+         * PrototypeAnalysisResult
+         * @description 0.3 prototype report; standalone, not a subclass of AnalysisResult.
+         */
+        PrototypeAnalysisResult: {
+            /** Analysis Id */
+            analysis_id: string;
+            /**
+             * Analysis Scope
+             * @default prototype_report
+             * @constant
+             * @enum {string}
+             */
+            analysis_scope: "prototype_report";
+            coaching?: components["schemas"]["CoachingResult"] | null;
+            /** Detected Rep Count */
+            detected_rep_count?: number | null;
+            /** Detected Rep Count Unavailable Reason */
+            detected_rep_count_unavailable_reason?: string | null;
+            /**
+             * Exercise
+             * @enum {string}
+             */
+            exercise: "lat_pulldown" | "dumbbell_curl" | "squat" | "incline_chest_press";
+            /**
+             * Metrics
+             * @default []
+             */
+            metrics: components["schemas"]["Metric"][];
+            prototype_assessment: components["schemas"]["PrototypeAssessment"];
+            /**
+             * Provenance
+             * @default {}
+             */
+            provenance: {
+                [key: string]: string;
+            };
+            quality: components["schemas"]["ReportQuality"];
+            /** Recipe Version */
+            recipe_version: string;
+            /**
+             * Reps
+             * @default []
+             */
+            reps: components["schemas"]["Rep"][];
+            /**
+             * Schema Version
+             * @default 0.3.0
+             * @constant
+             * @enum {string}
+             */
+            schema_version: "0.3.0";
+            /** Score */
+            score?: null;
+            /** Variant */
+            variant: string;
+            /**
+             * Warnings
+             * @default []
+             */
+            warnings: string[];
+        };
+        /** PrototypeAssessment */
+        PrototypeAssessment: {
+            /** Estimated Match */
+            estimated_match?: number | null;
+            /**
+             * Included Components
+             * @default []
+             */
+            included_components: string[];
+            /**
+             * Missing Reasons
+             * @default []
+             */
+            missing_reasons: string[];
+            /**
+             * Omitted Components
+             * @default []
+             */
+            omitted_components: string[];
+            /** Policy Version */
+            policy_version?: string | null;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "matched" | "partial" | "unavailable";
+        };
+        /**
          * ReferenceProfile
          * @description A versioned, approved reference for one exercise/variant/view.
          */
@@ -598,6 +704,35 @@ export interface components {
             turnaround_end_s?: number | null;
             /** Turnaround Start S */
             turnaround_start_s?: number | null;
+        };
+        /** ReportQuality */
+        ReportQuality: {
+            /** Expected Supporting Samples */
+            expected_supporting_samples: number;
+            /**
+             * Missing Reasons
+             * @default []
+             */
+            missing_reasons: string[];
+            /**
+             * Per Metric Coverage
+             * @default {}
+             */
+            per_metric_coverage: {
+                [key: string]: number;
+            };
+            /** Total Reps */
+            total_reps: number;
+            /** Usable Reps */
+            usable_reps: number;
+            /** Valid Observed Samples */
+            valid_observed_samples: number;
+            /**
+             * View Review
+             * @default unreviewed
+             * @enum {string}
+             */
+            view_review: "reviewed" | "unreviewed" | "incompatible";
         };
         /**
          * SessionInfo
@@ -889,6 +1024,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AnalysisStatus"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_movement_report_v1_analyses__analysis_id__movement_report_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                analysis_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PrototypeAnalysisResult"];
                 };
             };
             /** @description Validation Error */

@@ -30,7 +30,7 @@ RUN uv pip install --system --no-deps --no-build-isolation \
     /app/services/api
 
 # Mounted source is imported directly during development; dependencies remain locked.
-ENV PYTHONPATH=/app/packages/contracts:/app/packages/providers:/app/packages/benchmarks:/app/services/api
+ENV PYTHONPATH=/app/packages/contracts:/app/packages/providers:/app/packages/benchmarks:/app/packages/movement:/app/services/api
 
 EXPOSE 8000
 

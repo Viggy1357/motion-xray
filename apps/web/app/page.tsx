@@ -2,6 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { components } from "../generated/api";
+import MovementReport from "./movement-report";
+
+type PrototypeReport = components["schemas"]["PrototypeAnalysisResult"];
 
 type SessionInfo = components["schemas"]["SessionInfo"];
 type VideoAsset = components["schemas"]["VideoAsset"];
@@ -169,6 +172,7 @@ export default function Page() {
   const [status, setStatus] = useState<AnalysisStatus | null>(null);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [resultErr, setResultErr] = useState<string | null>(null);
+  const [movement, setMovement] = useState<PrototypeReport | null>(null);
 
   // New-set form state
   const [exercise, setExercise] = useState<ExerciseId>("lat_pulldown");
@@ -238,6 +242,8 @@ export default function Page() {
     setName(v);
     try { localStorage.setItem(NAME_KEY, v); } catch { /* ignore */ }
   };
+
+  useEffect(() => { setMovement(null); }, [job?.analysisId]);
 
   // Poll active job every 2s; stop on terminal state.
   useEffect(() => {
@@ -353,11 +359,12 @@ export default function Page() {
       setResultErr("Enter a whole rep count between 0 and 10000.");
       return;
     }
-    const detected = result
+    const legacyDetected = result
       ? result.warnings.includes("POSE_ONLY")
         ? null
         : result.reps.filter((r) => r.completion_status === "completed").length
       : null;
+    const detected = movement !== null ? (movement.detected_rep_count ?? null) : legacyDetected;
     const entry: LogEntry = {
       logId: crypto.randomUUID(),
       analysisId: job?.analysisId ?? result?.analysis_id ?? null,
@@ -423,7 +430,7 @@ export default function Page() {
           {navBtn("history", "History", "≡")}
         </nav>
         <p className="sidefoot">
-          Video and pose preview · personal prototype
+          Movement insights · personal prototype
         </p>
       </aside>
 
@@ -549,7 +556,7 @@ export default function Page() {
             )}
             {result && (
               <>
-                {result.warnings.length > 0 && (
+                {movement === null && result.warnings.length > 0 && (
                   <div className="state warn" role="status">
                     {result.warnings.map((w) => (
                       <p key={w} style={{ margin: ".2rem 0" }}>
@@ -560,11 +567,13 @@ export default function Page() {
                     ))}
                   </div>
                 )}
+                {movement === null && (
                 <div className="grid" style={{ marginBottom: "1.25rem" }}>
                   <div className="card"><p className="muted">Detected reps</p><p className="big">{result.warnings.includes("POSE_ONLY") ? "—" : result.reps.filter((r) => r.completion_status === "completed").length}</p>{result.warnings.includes("POSE_ONLY") && <p className="muted">Unavailable for this report</p>}</div>
                   <div className="card"><p className="muted">Score</p><p className="big">{result.score ?? "—"}</p>{result.score == null && <p className="muted">Unavailable for this report</p>}</div>
                   <div className="card"><p className="muted">Coaching</p><p>{result.coaching?.status === "ok" ? result.coaching.summary : "Coaching is unavailable for this report."}</p></div>
                 </div>
+                )}
                 {videoErr && <div className="state warn" role="status">The video for this report is unavailable — it may have expired or been removed from the server. The report data above is still valid.</div>}
                 <video ref={videoRef} controls src={`/api/analyses/${result.analysis_id}/artifacts/proxy`} aria-label="Analysed set video" onError={() => setVideoErr(true)} />
                 <div className="row" style={{ margin: ".6rem 0 1.25rem" }}>
@@ -573,7 +582,8 @@ export default function Page() {
                     {[0.25, 0.5, 1, 1.5, 2].map((r) => <option key={r} value={r}>{r}×</option>)}
                   </select>
                 </div>
-                {result.reps.length > 0 && (
+                <MovementReport analysisId={result.analysis_id} onReport={setMovement} />
+                {movement === null && result.reps.length > 0 && (
                   <div className="card" style={{ overflowX: "auto", marginBottom: "1.25rem" }}>
                     <h3>Repetitions</h3>
                     <table>
@@ -590,6 +600,7 @@ export default function Page() {
                     </table>
                   </div>
                 )}
+                {movement === null && (
                 <div className="card" style={{ overflowX: "auto", marginBottom: "1.25rem" }}>
                   <h3>Metrics</h3>
                   {result.metrics.length === 0 ? <p className="muted">No metrics were produced for this report.</p> : (
@@ -608,13 +619,14 @@ export default function Page() {
                     </table>
                   )}
                 </div>
+                )}
                 <div className="card">
                   <h3>Save this set to your history</h3>
                   <p className="muted">Saved only in this browser. Enter the reps you actually count — it can differ from what was detected.</p>
                   <div className="row" style={{ marginTop: ".6rem" }}>
                     <div className="field" style={{ margin: 0, width: 140 }}>
                       <label htmlFor="reps">Your rep count</label>
-                      <input id="reps" inputMode="numeric" value={editReps} onChange={(e) => setEditReps(e.target.value)} placeholder={result.warnings.includes("POSE_ONLY") ? "" : String(result.reps.filter((r) => r.completion_status === "completed").length)} />
+                      <input id="reps" inputMode="numeric" value={editReps} onChange={(e) => setEditReps(e.target.value)} placeholder={movement !== null ? (movement.detected_rep_count !== null && movement.detected_rep_count !== undefined ? String(movement.detected_rep_count) : "") : result.warnings.includes("POSE_ONLY") ? "" : String(result.reps.filter((r) => r.completion_status === "completed").length)} />
                     </div>
                     <button className="btn" disabled={editReps.trim() === ""} onClick={saveLog}>Save set</button>
                   </div>

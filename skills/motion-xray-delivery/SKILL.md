@@ -26,12 +26,14 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 Latest build: read `docs/audit/HM-first-app-build.md` and active TASKS entry. First
 real guest upload/status/private replay/browser-log app and60s limits are accepted;
-828 offline tests. Additive0.3 models and standalone Nano coaching adapter validated.
-Next HM04 actual runtime measurement/quality report + app integration, then actual
-set-evidence coaching and durable HM02 logs. Public reports remain pose-only. Hosting
+858 offline tests. HM04 lat movement report/API/UI accepted: read
+`docs/audit/HM04-runtime-report.md`. Existing0.2 result stays pose-only; additive0.3
+derived endpoint supplies measured lat metrics/coverage and provisional cycles with
+scores null. Other three exercise profiles unavailable. Next HM06 actual set-evidence
+coaching with durable cache/global quota, then durable HM02 logs. Hosting
 deferred; benchmark research frozen. Do not redispatch the already accepted Batch A.
 
-T23 execution plan is now prepared: read `docs/HACKATHON-EXECUTION-PLAN.md` and
+Historical T23 planning context (superseded by latest build above): read `docs/HACKATHON-EXECUTION-PLAN.md` and
 `docs/delegation/HM-BATCH-A.md`. Owner confirms same-browser profile first/free-first
 hosting. Next delegation is Batch A only, then contract/mockup integration before
 dependent source work. Current web page/runtime Nemotron are still scaffolded; full

@@ -1,0 +1,124 @@
+{
+  "status": "local_real_artifact_acceptance",
+  "reports": [
+    {
+      "exercise": "incline_chest_press",
+      "frames": 1197,
+      "detected_cycles": null,
+      "unavailable_reason": "exercise_profile_unavailable",
+      "metric_entries": 0,
+      "measured_entries": 0,
+      "quality": {
+        "expected_supporting_samples": 0,
+        "valid_observed_samples": 0,
+        "per_metric_coverage": {},
+        "usable_reps": 0,
+        "total_reps": 0,
+        "missing_reasons": [
+          "exercise_profile_unavailable"
+        ],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "a870875fd5f6901aa8a3aa587ae662260c9e61b00702b991e891a54fdd41db93",
+        "processing_version": "5cdb795b1970bfa97b89973889adeb9909ba4d618fe7db4794f8c3814b94c978",
+        "profile_status": "movement-unavailable-v1"
+      },
+      "repeat_sha256": "b1544d443cfeb0e5a356aa7a4af0a53ae7bc0f070825c74a58455fd7f0012055",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    },
+    {
+      "exercise": "squat",
+      "frames": 425,
+      "detected_cycles": null,
+      "unavailable_reason": "exercise_profile_unavailable",
+      "metric_entries": 0,
+      "measured_entries": 0,
+      "quality": {
+        "expected_supporting_samples": 0,
+        "valid_observed_samples": 0,
+        "per_metric_coverage": {},
+        "usable_reps": 0,
+        "total_reps": 0,
+        "missing_reasons": [
+          "exercise_profile_unavailable"
+        ],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "94620324fd619c258163298c5ee09fb59a09fd2ea732929671ac0a45425d8536",
+        "processing_version": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977",
+        "profile_status": "movement-unavailable-v1"
+      },
+      "repeat_sha256": "63ffa2367524639074f393e078c76e9ab23b75ed10cbcb3ac59adc8864cb8927",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    },
+    {
+      "exercise": "dumbbell_curl",
+      "frames": 619,
+      "detected_cycles": null,
+      "unavailable_reason": "exercise_profile_unavailable",
+      "metric_entries": 0,
+      "measured_entries": 0,
+      "quality": {
+        "expected_supporting_samples": 0,
+        "valid_observed_samples": 0,
+        "per_metric_coverage": {},
+        "usable_reps": 0,
+        "total_reps": 0,
+        "missing_reasons": [
+          "exercise_profile_unavailable"
+        ],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "6f57b1faca6265dcb8e495aded57182879beda3614cbde792cb8197373ed282a",
+        "processing_version": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977",
+        "profile_status": "movement-unavailable-v1"
+      },
+      "repeat_sha256": "7d375386c063658a55bbd4103616f42fd14d79e1dc0331e1e310cc5663df160b",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    },
+    {
+      "exercise": "lat_pulldown",
+      "frames": 1651,
+      "detected_cycles": 5,
+      "unavailable_reason": null,
+      "metric_entries": 160,
+      "measured_entries": 160,
+      "quality": {
+        "expected_supporting_samples": 1651,
+        "valid_observed_samples": 1530,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.9267110841913991,
+          "elbow_angle/estimated_3d": 0.9267110841913991,
+          "upper_arm_torso_angle/projected_2d": 0.9557843731072078,
+          "upper_arm_torso_angle/estimated_3d": 0.9557843731072078,
+          "torso_axis_angle/projected_2d": 0.9890975166565718
+        },
+        "usable_reps": 5,
+        "total_reps": 23,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "ac8055a1767da3fd5e3596bd73fba224dc04b141d181529b2f6180bb8e0880d5",
+        "processing_version": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977",
+        "config_sha256": "d12dbc902afc6ae0bed9b2852ed3eb35a567547649c00a6ab9a5d36f8e79292b",
+        "side": "left",
+        "segment_config_version": "lat-runtime-v1",
+        "pipeline_version": "hm04-lat-v1",
+        "automatic_window_origin": "find_cycles:estimated_3d_elbow_signal",
+        "axis": "image_up_unverified_not_gravity",
+        "count_source": "automatic_segmentation_signal_only",
+        "global_coverage_meaning": "segmentation_signal_visibility_only"
+      },
+      "repeat_sha256": "dbdc643defa9efbf5b145d1714de122f868a56259c5fb3be3c7198a675f4aa13",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    }
+  ]
+}
