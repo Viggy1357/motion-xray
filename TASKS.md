@@ -12,6 +12,21 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM03.1 — repair same-origin large uploads · done
+
+- FR01/02/12. User-reported upload failure reproduced: Next15.5.28 rewrite buffered
+  only10MB, then API returned408. Nebius diagnosed/provided the config correction;
+  `apps/web/next.config.js` now sets supported `experimental.middlewareClientMaxBodySize`
+  to104857600 bytes, matching existing100MiB API limit. No API/security limit changed.
+- Actual browser retry of selected Bicep Curls.MOV through `/api/videos` succeeded201
+  and entered pose processing. Stored46,008,563 bytes and SHA256 exactly match source.
+  Web typecheck/production build pass with modified config mounted; installed Next
+  config schema confirms the15.5 option. This catches the proxy boundary that previous
+  direct API checks and the smaller6.7MB lat browser test did not cover.
+- One direct Nebius K3 call14,774 tokens/$0.06615 conservative guard; aggregate
+  $10.37644265, balance unverified. See `docs/audit/HM03-upload-repair.json`.
+- Next remains HM06 evidence-bound coaching; curl movement profile is still unavailable.
+
 ### HM04 — runtime lat movement report · done (lat slice)
 
 - FR05/07/08/10/12: bounded direct Nebius engine/API/UI drafts, one integrator.

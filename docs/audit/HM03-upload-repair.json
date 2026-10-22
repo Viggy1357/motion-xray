@@ -1,0 +1,65 @@
+{
+  "task": "HM03.1",
+  "date": "2026-10-22",
+  "diagnosis": "Next15.5 rewrite default 10MB body buffer truncated >10MB video requests; API returned408",
+  "changed_files": [
+    "apps/web/next.config.js"
+  ],
+  "fix": "experimental.middlewareClientMaxBodySize=104857600; API remains authoritative100MiB",
+  "official_reference": "https://nextjs.org/docs/app/api-reference/config/next-config-js/middlewareClientMaxBodySize",
+  "installed_schema_verified": "Next15.5.28 config-shared.d.ts and config-schema.js support middlewareClientMaxBodySize",
+  "acceptance": {
+    "status": "same_origin_browser_upload_pass",
+    "bytes": 46008563,
+    "sha256_matches_source": true,
+    "stored_hash_matches": true,
+    "exercise": "dumbbell_curl"
+  },
+  "checks": [
+    "web typecheck pass",
+    "web production build pass with modified config",
+    "real same-origin browser upload201 then pose processing",
+    "stored byte size and SHA256 equal source"
+  ],
+  "usage": {
+    "task": "HM03-upload-repair",
+    "model": "moonshotai/Kimi-K3",
+    "request": "upload-fix",
+    "status": "draft_pending_review",
+    "maximum_cost_usd": 0.255267,
+    "input_token_bound": 55089,
+    "output_token_bound": 6000,
+    "historical_known_cost_usd": 0.02093765,
+    "historical_unknown_calls": 4,
+    "unknown_history_contingency_usd": 1,
+    "price_basis": "Conservative K3 guard USD3/15 per million, not invoice price",
+    "usage": {
+      "completion_tokens": 1819,
+      "prompt_tokens": 12955,
+      "total_tokens": 14774,
+      "completion_tokens_details": null,
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 128
+      },
+      "reasoning_tokens": 28
+    },
+    "finish_reason": "stop",
+    "input_rate_usd_per_million": 3,
+    "output_rate_usd_per_million": 15,
+    "request_id": "bc15ea0da11b465ba2b2e09433c1d098",
+    "elapsed_s": 19.51,
+    "received_chars": 6557,
+    "conservative_cost_usd": 0.06615,
+    "review_outcome": "accepted_after_installed_schema_check_and_real_browser_upload"
+  },
+  "aggregate_commitment_usd": 10.37644265,
+  "balance_verified": false,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "paid_runtime_calls": 0,
+  "limitations": [
+    "Curl exercise movement profile remains unavailable; upload repair does not add measurements.",
+    "Next buffers upload bodies in memory; cloud-host ingress limits still need deployment acceptance."
+  ]
+}
