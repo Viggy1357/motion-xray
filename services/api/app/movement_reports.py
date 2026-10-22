@@ -24,6 +24,7 @@ from contracts.pose import PoseFrame
 from contracts.product import PrototypeAnalysisResult
 from movement.runtime_lat import build_movement_report
 from movement.experimental_match import apply_experimental_match
+from movement.runtime_exercises import apply_reference_assessment, build_exercise_report
 
 router = APIRouter(prefix="/v1")
 
@@ -32,7 +33,13 @@ _MAX_FRAMES = 10000
 _MAX_LINE = 128 * 1024
 _FRAME_KEY_RE = re.compile(r"^pose/([0-9a-f]{64})[.]jsonl$")
 _SUPPORTED = {"lat_pulldown", "dumbbell_curl", "squat", "incline_chest_press"}
-_REQUIRES_ESTIMATED_3D = {"lat_pulldown"}
+_REQUIRES_ESTIMATED_3D = _SUPPORTED
+_VARIANTS = {
+    "lat_pulldown": "cable_seated_bilateral",
+    "dumbbell_curl": "standing_both_arms",
+    "squat": "bodyweight",
+    "incline_chest_press": "incline_dumbbell_bilateral",
+}
 
 
 def _parse_frames(data: bytes) -> list[PoseFrame]:
@@ -95,7 +102,7 @@ def get_movement_report(request: Request, response: Response, analysis_id: str):
     if exercise_id not in _SUPPORTED:
         _no_store(response)
         return _error_response(422, "UNSUPPORTED_EXERCISE", "No movement profile is available for this exercise")
-    if exercise_id == "lat_pulldown" and variant != "cable_seated_bilateral":
+    if variant != _VARIANTS[exercise_id]:
         _no_store(response)
         return _error_response(422, "UNSUPPORTED_VARIANT", "No movement profile is available for this variant")
     if exercise_id in _REQUIRES_ESTIMATED_3D and not pose.capabilities.get("supports_estimated_3d", False):
@@ -128,7 +135,8 @@ def get_movement_report(request: Request, response: Response, analysis_id: str):
     f.close()
 
     try:
-        report = build_movement_report(
+        builder = build_movement_report if exercise_id == "lat_pulldown" else build_exercise_report
+        report = builder(
             frames,
             analysis_id=job_id,
             exercise_id=exercise_id,
@@ -138,7 +146,7 @@ def get_movement_report(request: Request, response: Response, analysis_id: str):
             pose_sha256=expected_sha,
             processing_version=manifest.provenance.get("version_hash", ""),
         )
-        report = apply_experimental_match(report)
+        report = apply_experimental_match(report) if exercise_id == "lat_pulldown" else apply_reference_assessment(report)
     except ValueError:
         _no_store(response)
         return _error_response(503, "REPORT_UNAVAILABLE", "Derived report configuration is invalid", retryable=True)

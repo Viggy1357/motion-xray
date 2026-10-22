@@ -1,0 +1,143 @@
+{
+  "version": "reference-inputs-v1",
+  "references": [
+    {
+      "id": "curl-ms-demo",
+      "exercise_id": "dumbbell_curl",
+      "variant": "standing_both_arms",
+      "primary": true,
+      "name": "Muscle & Strength standing curl",
+      "pose_root": "artifacts/hm057-pose/curl-ms-demo",
+      "frames_artifact_key": "pose/7eef8637e80bb0bbeaebf5d30a8b1fd1da7494896472f96cbbacf4ca17c45115.jsonl",
+      "pose_sha256": "7eef8637e80bb0bbeaebf5d30a8b1fd1da7494896472f96cbbacf4ca17c45115",
+      "width": 640,
+      "height": 360,
+      "processing_version": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1:mp33-camera-v1",
+      "source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html",
+      "source_sha256": "0b16f5c1569fdfdfa86eac4683a74a6d157ff583726e99a7ce53503bb92f9439",
+      "view_id": "curl-ms-demo-camera-unreviewed",
+      "window_s": [
+        14,
+        29
+      ],
+      "rep_windows": [
+        {
+          "start_s": 15,
+          "bottom_s": 18,
+          "end_s": 21,
+          "side": "left",
+          "origin": "visually_proposed_reference_window",
+          "review_status": "unreviewed"
+        },
+        {
+          "start_s": 21,
+          "bottom_s": 24,
+          "end_s": 27,
+          "side": "left",
+          "origin": "visually_proposed_reference_window",
+          "review_status": "unreviewed"
+        }
+      ]
+    },
+    {
+      "id": "curl-catalyst",
+      "exercise_id": "dumbbell_curl",
+      "variant": "standing_both_arms",
+      "primary": false,
+      "name": "Catalyst standing curl",
+      "pose_root": "artifacts/hm057-pose/curl-catalyst",
+      "frames_artifact_key": "pose/b326417130317a9996d9a64ec728b62b93887738bda08395cad1593ea9dfecc6.jsonl",
+      "pose_sha256": "b326417130317a9996d9a64ec728b62b93887738bda08395cad1593ea9dfecc6",
+      "width": 854,
+      "height": 480,
+      "processing_version": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1:mp33-camera-v1",
+      "source_url": "https://www.catalystathletics.com/exercise/821/Dumbbell-Curl/",
+      "source_sha256": "e70c0719219f72eb1f032e8b84183bad38acc3d7d49855b0058ea4061af9ec38",
+      "view_id": "curl-catalyst-camera-unreviewed",
+      "window_s": [
+        7,
+        18
+      ]
+    },
+    {
+      "id": "press-catalyst",
+      "exercise_id": "incline_chest_press",
+      "variant": "incline_dumbbell_bilateral",
+      "primary": true,
+      "name": "Catalyst incline dumbbell press",
+      "pose_root": "artifacts/hm057-pose/press-catalyst",
+      "frames_artifact_key": "pose/431c97bf5962121f62553f80199fdc36c5c9ce69f84db82355c92030793f3431.jsonl",
+      "pose_sha256": "431c97bf5962121f62553f80199fdc36c5c9ce69f84db82355c92030793f3431",
+      "width": 854,
+      "height": 480,
+      "processing_version": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1:mp33-camera-v1",
+      "source_url": "https://www.catalystathletics.com/exercise/819/Dumbbell-Incline-Bench-Press/",
+      "source_sha256": "2efe572d6394f7e13015623f9fd1c64ec23754a64aa6c9eb5104e40e4422eedd",
+      "view_id": "press-catalyst-camera-unreviewed",
+      "window_s": [
+        8,
+        23
+      ]
+    },
+    {
+      "id": "press-ms",
+      "exercise_id": "incline_chest_press",
+      "variant": "incline_dumbbell_bilateral",
+      "primary": false,
+      "name": "Muscle & Strength incline press",
+      "pose_root": "artifacts/hm057-pose/press-ms",
+      "frames_artifact_key": "pose/1ecf1cbb07061fd6344632cea22a26dd7dd1e06c107afa6e4cbb9265b254a8f5.jsonl",
+      "pose_sha256": "1ecf1cbb07061fd6344632cea22a26dd7dd1e06c107afa6e4cbb9265b254a8f5",
+      "width": 854,
+      "height": 480,
+      "processing_version": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1:mp33-camera-v1",
+      "source_url": "https://www.muscleandstrength.com/exercises/incline-dumbbell-bench-press.html",
+      "source_sha256": "ffbabb3bc10b91320737e42cbf4467705cbedc581c0ed0237b9c0e3e14b3a280",
+      "view_id": "press-ms-camera-unreviewed",
+      "window_s": [
+        24,
+        35
+      ]
+    },
+    {
+      "id": "squat-ms",
+      "exercise_id": "squat",
+      "variant": "bodyweight",
+      "primary": true,
+      "name": "Muscle & Strength prisoner squat",
+      "pose_root": "artifacts/hm057-pose/squat-ms",
+      "frames_artifact_key": "pose/793ff8b732ef13d85fd37220ac7414b40ba7d0647f9c4e76957def07d1a39da0.jsonl",
+      "pose_sha256": "793ff8b732ef13d85fd37220ac7414b40ba7d0647f9c4e76957def07d1a39da0",
+      "width": 640,
+      "height": 360,
+      "processing_version": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1:mp33-camera-v1",
+      "source_url": "https://www.muscleandstrength.com/exercises/bodyweight-squat.html",
+      "source_sha256": "e5f1536bdc99a5848bf7bf94bf76d3c227a92cff0f08b5ebc23a75164644c61a",
+      "view_id": "squat-ms-camera-unreviewed",
+      "window_s": [
+        10,
+        35
+      ]
+    },
+    {
+      "id": "squat-crossfit",
+      "exercise_id": "squat",
+      "variant": "bodyweight",
+      "primary": false,
+      "name": "CrossFit air squat",
+      "pose_root": "artifacts/hm057-pose/squat-crossfit",
+      "frames_artifact_key": "pose/a98ac2a8e5d7c2c569e286beac373e14a045047c61ce96538d3f7843198810cf.jsonl",
+      "pose_sha256": "a98ac2a8e5d7c2c569e286beac373e14a045047c61ce96538d3f7843198810cf",
+      "width": 854,
+      "height": 480,
+      "processing_version": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1:mp33-camera-v1",
+      "source_url": "https://www.crossfit.com/essentials/the-air-squat",
+      "source_sha256": "4c5ad53d812bcf6116fcff83480b94fbff278d09b927e1f5192692389c0abee4",
+      "view_id": "squat-crossfit-camera-unreviewed",
+      "window_s": [
+        18,
+        25
+      ]
+    }
+  ]
+}

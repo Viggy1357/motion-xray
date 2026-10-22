@@ -189,14 +189,13 @@ def test_valid_lat_report(client: TestClient, lat_succeeded):
     assert torso and all(m["value"] == 0.0 for m in torso)
 
 
-def test_unsupported_exercise_profile_200(client: TestClient, env_setup):
+def test_legacy_squat_variant_rejected_without_changing_legacy_result(client: TestClient, env_setup):
     from tests.integration.test_artifact_streams import _succeeded
-    f = _succeeded(client, env_setup)  # squat artifacts, valid but no profile
+    f = _succeeded(client, env_setup)  # old squat variant=v1, not bodyweight
     r = client.get(f"/v1/analyses/{f.job.id}/movement-report", headers=_headers(f.csrf))
-    assert r.status_code == 200
+    assert r.status_code == 422
     body = r.json()
-    assert body["detected_rep_count"] is None
-    assert body["detected_rep_count_unavailable_reason"] == "exercise_profile_unavailable"
+    assert body["code"] == "UNSUPPORTED_VARIANT"
     legacy = client.get(f"/v1/analyses/{f.job.id}/result", headers=_headers(f.csrf))
     assert legacy.status_code == 200
     assert legacy.json()["schema_version"] == "0.2.0"

@@ -1,0 +1,217 @@
+{
+  "status": "provisional_unreviewed",
+  "sources": [
+    {
+      "id": "curl-ms-demo",
+      "exercise": "dumbbell_curl",
+      "primary": true,
+      "source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html",
+      "source_sha256": "0b16f5c1569fdfdfa86eac4683a74a6d157ff583726e99a7ce53503bb92f9439",
+      "pose_sha256": "7eef8637e80bb0bbeaebf5d30a8b1fd1da7494896472f96cbbacf4ca17c45115",
+      "window_s": [
+        14,
+        29
+      ],
+      "window_origin": "visually_proposed_reference_window",
+      "review_status": "unreviewed",
+      "usable_reference_windows": 2,
+      "eligible_for_numeric_baseline": true,
+      "observed_ranges": {
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 2.739333375477085,
+          "upper": 24.148830161539603,
+          "valid_count": 2
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "lower": 61.788499275422055,
+          "upper": 102.20151303460234,
+          "valid_count": 2
+        },
+        "elbow_angle/estimated_3d/end": {
+          "lower": 135.64734953374597,
+          "upper": 136.95743394729877,
+          "valid_count": 2
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "lower": 32.46886951298261,
+          "upper": 36.32786220558257,
+          "valid_count": 2
+        }
+      }
+    },
+    {
+      "id": "curl-catalyst",
+      "exercise": "dumbbell_curl",
+      "primary": false,
+      "source_url": "https://www.catalystathletics.com/exercise/821/Dumbbell-Curl/",
+      "source_sha256": "e70c0719219f72eb1f032e8b84183bad38acc3d7d49855b0058ea4061af9ec38",
+      "pose_sha256": "b326417130317a9996d9a64ec728b62b93887738bda08395cad1593ea9dfecc6",
+      "window_s": [
+        7,
+        18
+      ],
+      "window_origin": "automatic_segmentation_signal_only",
+      "review_status": "unreviewed",
+      "usable_reference_windows": 1,
+      "eligible_for_numeric_baseline": false,
+      "observed_ranges": {
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 9.842420406639434,
+          "upper": 9.842420406639434,
+          "valid_count": 1
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "lower": 90.76325377029819,
+          "upper": 90.76325377029819,
+          "valid_count": 1
+        },
+        "elbow_angle/estimated_3d/end": {
+          "lower": 141.21441635913246,
+          "upper": 141.21441635913246,
+          "valid_count": 1
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "lower": 49.27121379115828,
+          "upper": 49.27121379115828,
+          "valid_count": 1
+        }
+      }
+    },
+    {
+      "id": "press-catalyst",
+      "exercise": "incline_chest_press",
+      "primary": true,
+      "source_url": "https://www.catalystathletics.com/exercise/819/Dumbbell-Incline-Bench-Press/",
+      "source_sha256": "2efe572d6394f7e13015623f9fd1c64ec23754a64aa6c9eb5104e40e4422eedd",
+      "pose_sha256": "431c97bf5962121f62553f80199fdc36c5c9ce69f84db82355c92030793f3431",
+      "window_s": [
+        8,
+        23
+      ],
+      "window_origin": "automatic_segmentation_signal_only",
+      "review_status": "unreviewed",
+      "usable_reference_windows": 5,
+      "eligible_for_numeric_baseline": true,
+      "observed_ranges": {
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 4.805977178872702,
+          "upper": 7.508237961231885,
+          "valid_count": 5
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "lower": 83.16568282471334,
+          "upper": 95.48829711574862,
+          "valid_count": 5
+        },
+        "elbow_angle/estimated_3d/end": {
+          "lower": 151.0736707792679,
+          "upper": 152.81392923002335,
+          "valid_count": 5
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "lower": 110.85973833293657,
+          "upper": 128.51880897576558,
+          "valid_count": 5
+        }
+      }
+    },
+    {
+      "id": "press-ms",
+      "exercise": "incline_chest_press",
+      "primary": false,
+      "source_url": "https://www.muscleandstrength.com/exercises/incline-dumbbell-bench-press.html",
+      "source_sha256": "ffbabb3bc10b91320737e42cbf4467705cbedc581c0ed0237b9c0e3e14b3a280",
+      "pose_sha256": "1ecf1cbb07061fd6344632cea22a26dd7dd1e06c107afa6e4cbb9265b254a8f5",
+      "window_s": [
+        24,
+        35
+      ],
+      "window_origin": "automatic_segmentation_signal_only",
+      "review_status": "unreviewed",
+      "usable_reference_windows": 0,
+      "eligible_for_numeric_baseline": false,
+      "observed_ranges": {}
+    },
+    {
+      "id": "squat-ms",
+      "exercise": "squat",
+      "primary": true,
+      "source_url": "https://www.muscleandstrength.com/exercises/bodyweight-squat.html",
+      "source_sha256": "e5f1536bdc99a5848bf7bf94bf76d3c227a92cff0f08b5ebc23a75164644c61a",
+      "pose_sha256": "793ff8b732ef13d85fd37220ac7414b40ba7d0647f9c4e76957def07d1a39da0",
+      "window_s": [
+        10,
+        35
+      ],
+      "window_origin": "automatic_segmentation_signal_only",
+      "review_status": "unreviewed",
+      "usable_reference_windows": 2,
+      "eligible_for_numeric_baseline": true,
+      "observed_ranges": {
+        "knee_angle/estimated_3d/bottom": {
+          "lower": 97.35548844911804,
+          "upper": 99.94202872237449,
+          "valid_count": 2
+        },
+        "knee_angle/estimated_3d/excursion": {
+          "lower": 90.19963016039507,
+          "upper": 92.13169248226696,
+          "valid_count": 2
+        },
+        "hip_angle/estimated_3d/bottom": {
+          "lower": 114.83280427198389,
+          "upper": 121.60972569037592,
+          "valid_count": 2
+        },
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 10.453227243837373,
+          "upper": 14.907704856960159,
+          "valid_count": 2
+        }
+      }
+    },
+    {
+      "id": "squat-crossfit",
+      "exercise": "squat",
+      "primary": false,
+      "source_url": "https://www.crossfit.com/essentials/the-air-squat",
+      "source_sha256": "4c5ad53d812bcf6116fcff83480b94fbff278d09b927e1f5192692389c0abee4",
+      "pose_sha256": "a98ac2a8e5d7c2c569e286beac373e14a045047c61ce96538d3f7843198810cf",
+      "window_s": [
+        18,
+        25
+      ],
+      "window_origin": "automatic_segmentation_signal_only",
+      "review_status": "unreviewed",
+      "usable_reference_windows": 1,
+      "eligible_for_numeric_baseline": false,
+      "observed_ranges": {
+        "knee_angle/estimated_3d/bottom": {
+          "lower": 96.61773985117532,
+          "upper": 96.61773985117532,
+          "valid_count": 1
+        },
+        "knee_angle/estimated_3d/excursion": {
+          "lower": 115.84114266374407,
+          "upper": 115.84114266374407,
+          "valid_count": 1
+        },
+        "hip_angle/estimated_3d/bottom": {
+          "lower": 112.49228752393438,
+          "upper": 112.49228752393438,
+          "valid_count": 1
+        },
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 18.185002135741914,
+          "upper": 18.185002135741914,
+          "valid_count": 1
+        }
+      }
+    }
+  ],
+  "notes": [
+    "All ranges derived from actual local pose artifacts, never user sets.",
+    "Only explicit primaries with at least2 usable windows contribute; secondaries remain descriptive.",
+    "Curl primary uses two coarse visually proposed windows, not independent ground truth."
+  ]
+}

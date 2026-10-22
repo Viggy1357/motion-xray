@@ -1,0 +1,171 @@
+{
+  "exercise_id": "dumbbell_curl",
+  "variant": "standing_both_arms",
+  "profile_version": "curl-measure-v1",
+  "status": "provisional_calibration_integrated",
+  "calibration_completed": true,
+  "vital_metric_matrix": [
+    {
+      "metric": "elbow_angle",
+      "space": "estimated_3d",
+      "role": "signal",
+      "unit": "degrees",
+      "reference_value": null,
+      "status": "pending_actual_measurement"
+    },
+    {
+      "metric": "elbow_angle",
+      "space": "projected_2d",
+      "role": "secondary",
+      "unit": "degrees",
+      "reference_value": null,
+      "status": "pending_actual_measurement"
+    },
+    {
+      "metric": "upper_arm_torso_angle",
+      "space": "estimated_3d",
+      "role": "context",
+      "unit": "degrees",
+      "reference_value": null,
+      "status": "pending_actual_measurement",
+      "note": "Upper-arm motion is not automatically a fault; variation is allowed and must be reviewed, not thresholded, until measured"
+    },
+    {
+      "metric": "upper_arm_torso_angle",
+      "space": "projected_2d",
+      "role": "context",
+      "unit": "degrees",
+      "reference_value": null,
+      "status": "pending_actual_measurement"
+    },
+    {
+      "metric": "torso_axis_angle",
+      "space": "projected_2d",
+      "role": "context",
+      "unit": "degrees",
+      "reference_value": null,
+      "status": "pending_actual_measurement",
+      "note": "Image-up axis unverified; camera-angle context provisional"
+    }
+  ],
+  "suggested_video_windows": "requires_viewing",
+  "unobservable_components": [
+    "grip_and_wrist_position",
+    "dumbbell_load_and_path",
+    "scapular_position",
+    "lumbar_spine_position",
+    "muscle_activation",
+    "tempo_and_external_cueing"
+  ],
+  "review_checklist": [
+    "Retrieve candidate videos and confirm standing bilateral execution",
+    "Run local pose inference and record per-frame AngleObservation streams",
+    "Select rep windows only after viewing; document actual timestamps from the footage",
+    "Derive elbow-angle excursion statistics from measured reference poses before proposing any calibration bands",
+    "Record camera-angle context as provisional for every measured clip"
+  ],
+  "draft_candidate_sources": [
+    {
+      "url": "https://www.catalystathletics.com/exercise/821/Dumbbell-Curl/",
+      "publisher": "Catalyst Athletics",
+      "variant_fit": "standing dumbbell curl; closest candidate match to standing_both_arms variant, pending confirmation of bilateral execution on viewing",
+      "whyuse": "Candidate primary reference for the standing variant; exercise-library demonstration video suitable for controlled-motion pose measurement once retrieved",
+      "limits": "Not yet viewed or measured; camera angle, tempo, and range unverified; single demonstrator; no load or anthropometric context"
+    },
+    {
+      "url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html",
+      "publisher": "Muscle & Strength",
+      "variant_fit": "standing dumbbell curl; explicit standing variant match, bilateral execution to be confirmed on viewing",
+      "whyuse": "Secondary candidate for cross-checking elbow-angle excursion and upper-arm behavior against the primary candidate",
+      "limits": "Not yet viewed or measured; editorial demonstration, camera angle unverified; may include alternating-arm execution requiring window selection"
+    },
+    {
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/44/seated-biceps-curl/",
+      "publisher": "American Council on Exercise (ACE)",
+      "variant_fit": "seated biceps curl; NOT a standing-variant benchmark",
+      "whyuse": "Use only as generic controlled-motion context (smooth elbow flexion/extension without momentum); must not be used to calibrate standing-variant angle bands",
+      "limits": "Seated posture changes torso axis and hip geometry; excluded from standing calibration set; not yet viewed or measured"
+    }
+  ],
+  "draft_notes": "No reference video has been retrieved, viewed, or pose-measured. All values below are candidate-review metadata only. Suggested video windows require viewing by the integrator; no timestamps or angle bands are asserted. Camera-angle context for any future measurement is provisional. Config low/high degrees are segmentation trial bounds, not technique tolerances.",
+  "calibration_review_status": "unreviewed",
+  "sources": [
+    {
+      "id": "curl-ms-demo",
+      "exercise": "dumbbell_curl",
+      "primary": true,
+      "source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html",
+      "source_sha256": "0b16f5c1569fdfdfa86eac4683a74a6d157ff583726e99a7ce53503bb92f9439",
+      "pose_sha256": "7eef8637e80bb0bbeaebf5d30a8b1fd1da7494896472f96cbbacf4ca17c45115",
+      "window_s": [
+        14,
+        29
+      ],
+      "window_origin": "visually_proposed_reference_window",
+      "review_status": "unreviewed",
+      "usable_reference_windows": 2,
+      "eligible_for_numeric_baseline": true,
+      "observed_ranges": {
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 2.739333375477085,
+          "upper": 24.148830161539603,
+          "valid_count": 2
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "lower": 61.788499275422055,
+          "upper": 102.20151303460234,
+          "valid_count": 2
+        },
+        "elbow_angle/estimated_3d/end": {
+          "lower": 135.64734953374597,
+          "upper": 136.95743394729877,
+          "valid_count": 2
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "lower": 32.46886951298261,
+          "upper": 36.32786220558257,
+          "valid_count": 2
+        }
+      }
+    },
+    {
+      "id": "curl-catalyst",
+      "exercise": "dumbbell_curl",
+      "primary": false,
+      "source_url": "https://www.catalystathletics.com/exercise/821/Dumbbell-Curl/",
+      "source_sha256": "e70c0719219f72eb1f032e8b84183bad38acc3d7d49855b0058ea4061af9ec38",
+      "pose_sha256": "b326417130317a9996d9a64ec728b62b93887738bda08395cad1593ea9dfecc6",
+      "window_s": [
+        7,
+        18
+      ],
+      "window_origin": "automatic_segmentation_signal_only",
+      "review_status": "unreviewed",
+      "usable_reference_windows": 1,
+      "eligible_for_numeric_baseline": false,
+      "observed_ranges": {
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 9.842420406639434,
+          "upper": 9.842420406639434,
+          "valid_count": 1
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "lower": 90.76325377029819,
+          "upper": 90.76325377029819,
+          "valid_count": 1
+        },
+        "elbow_angle/estimated_3d/end": {
+          "lower": 141.21441635913246,
+          "upper": 141.21441635913246,
+          "valid_count": 1
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "lower": 49.27121379115828,
+          "upper": 49.27121379115828,
+          "valid_count": 1
+        }
+      }
+    }
+  ],
+  "notes": "Local reference videos downloaded and pose-measured. Numeric bands use the explicit primary only; no technique approval or ground-truth claim. See docs/audit/HM057-reference-calibration.json."
+}

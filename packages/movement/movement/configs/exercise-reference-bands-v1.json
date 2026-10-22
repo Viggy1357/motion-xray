@@ -1,0 +1,164 @@
+{
+  "aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+  "author": false,
+  "min_coverage": 0.8,
+  "min_reference_cycles": 2,
+  "normalization_degrees": 30,
+  "normalization_status": "proposal_experimental",
+  "references": {
+    "dumbbell_curl": {
+      "automatic_cycle_count": 0,
+      "bands": {
+        "elbow_angle/estimated_3d/end": {
+          "lower": 135.64734953374597,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 136.95743394729877,
+          "valid_count": 2
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "lower": 61.788499275422055,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 102.20151303460234,
+          "valid_count": 2
+        },
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 2.739333375477085,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 24.148830161539603,
+          "valid_count": 2
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "lower": 32.46886951298261,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 36.32786220558257,
+          "valid_count": 2
+        }
+      },
+      "pose_sha256": "7eef8637e80bb0bbeaebf5d30a8b1fd1da7494896472f96cbbacf4ca17c45115",
+      "primary": true,
+      "processing_version": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1:mp33-camera-v1",
+      "reference_id": "curl-ms-demo",
+      "reference_name": "Muscle & Strength standing curl",
+      "rep_count": 2,
+      "review_status": "unreviewed",
+      "source_sha256": "0b16f5c1569fdfdfa86eac4683a74a6d157ff583726e99a7ce53503bb92f9439",
+      "source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html",
+      "valid_reference_cycles": 2,
+      "view_id": "curl-ms-demo-camera-unreviewed",
+      "window_origin": "visually_proposed_reference_window"
+    },
+    "incline_chest_press": {
+      "automatic_cycle_count": 5,
+      "bands": {
+        "elbow_angle/estimated_3d/end": {
+          "lower": 151.0736707792679,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 152.81392923002335,
+          "valid_count": 5
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "lower": 83.16568282471334,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 95.48829711574862,
+          "valid_count": 5
+        },
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 4.805977178872702,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 7.508237961231885,
+          "valid_count": 5
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "lower": 110.85973833293657,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 128.51880897576558,
+          "valid_count": 5
+        }
+      },
+      "pose_sha256": "431c97bf5962121f62553f80199fdc36c5c9ce69f84db82355c92030793f3431",
+      "primary": true,
+      "processing_version": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1:mp33-camera-v1",
+      "reference_id": "press-catalyst",
+      "reference_name": "Catalyst incline dumbbell press",
+      "rep_count": 5,
+      "review_status": "unreviewed",
+      "source_sha256": "2efe572d6394f7e13015623f9fd1c64ec23754a64aa6c9eb5104e40e4422eedd",
+      "source_url": "https://www.catalystathletics.com/exercise/819/Dumbbell-Incline-Bench-Press/",
+      "valid_reference_cycles": 5,
+      "view_id": "press-catalyst-camera-unreviewed",
+      "window_origin": "automatic_segmentation_signal_only"
+    },
+    "squat": {
+      "automatic_cycle_count": 2,
+      "bands": {
+        "hip_angle/estimated_3d/bottom": {
+          "lower": 114.83280427198389,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 121.60972569037592,
+          "valid_count": 2
+        },
+        "knee_angle/estimated_3d/bottom": {
+          "lower": 97.35548844911804,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 99.94202872237449,
+          "valid_count": 2
+        },
+        "knee_angle/estimated_3d/excursion": {
+          "lower": 90.19963016039507,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 92.13169248226696,
+          "valid_count": 2
+        },
+        "torso_axis_angle/projected_2d/excursion": {
+          "lower": 10.453227243837373,
+          "source": "measured_reference_cycles",
+          "unit": "degrees",
+          "upper": 14.907704856960159,
+          "valid_count": 2
+        }
+      },
+      "pose_sha256": "793ff8b732ef13d85fd37220ac7414b40ba7d0647f9c4e76957def07d1a39da0",
+      "primary": true,
+      "processing_version": "sha256:5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1:mp33-camera-v1",
+      "reference_id": "squat-ms",
+      "reference_name": "Muscle & Strength prisoner squat",
+      "rep_count": 2,
+      "review_status": "unreviewed",
+      "source_sha256": "e5f1536bdc99a5848bf7bf94bf76d3c227a92cff0f08b5ebc23a75164644c61a",
+      "source_url": "https://www.muscleandstrength.com/exercises/bodyweight-squat.html",
+      "valid_reference_cycles": 2,
+      "view_id": "squat-ms-camera-unreviewed",
+      "window_origin": "automatic_segmentation_signal_only"
+    }
+  },
+  "rejected_references": [
+    {
+      "exercise_id": "dumbbell_curl",
+      "id": "curl-catalyst",
+      "reason": "insufficient_valid_reference_cycles:1"
+    },
+    {
+      "exercise_id": "incline_chest_press",
+      "id": "press-ms",
+      "reason": "insufficient_valid_reference_cycles:0"
+    },
+    {
+      "exercise_id": "squat",
+      "id": "squat-crossfit",
+      "reason": "insufficient_valid_reference_cycles:1"
+    }
+  ],
+  "review": "unreviewed",
+  "version": "exercise-reference-bands-v1"
+}

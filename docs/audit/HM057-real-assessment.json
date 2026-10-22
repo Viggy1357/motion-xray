@@ -1,0 +1,300 @@
+{
+  "status": "local_real_artifact_acceptance",
+  "reports": [
+    {
+      "exercise": "dumbbell_curl",
+      "frames": 619,
+      "detected_cycles": 2,
+      "unavailable_reason": null,
+      "assessment": {
+        "status": "partial",
+        "policy_version": "exercise-reference-bands-v1",
+        "estimated_match": 81.64965714727133,
+        "included_components": [
+          "torso_axis_angle/projected_2d/excursion",
+          "elbow_angle/estimated_3d/excursion",
+          "elbow_angle/estimated_3d/end",
+          "upper_arm_torso_angle/estimated_3d/bottom"
+        ],
+        "omitted_components": [
+          "grip_and_wrist_position",
+          "dumbbell_load_and_path",
+          "scapular_position",
+          "lumbar_spine_position",
+          "muscle_activation",
+          "tempo_and_external_cueing",
+          "view_unreviewed",
+          "experimental_normalization_30deg_unreviewed"
+        ],
+        "missing_reasons": [
+          "view_unreviewed",
+          "experimental_normalization"
+        ]
+      },
+      "metric_entries": 64,
+      "measured_entries": 64,
+      "quality": {
+        "expected_supporting_samples": 619,
+        "valid_observed_samples": 604,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.975767366720517,
+          "elbow_angle/estimated_3d": 0.975767366720517,
+          "upper_arm_torso_angle/projected_2d": 0.9870759289176091,
+          "upper_arm_torso_angle/estimated_3d": 0.9870759289176091,
+          "torso_axis_angle/projected_2d": 0.9919224555735057
+        },
+        "usable_reps": 2,
+        "total_reps": 14,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "6f57b1faca6265dcb8e495aded57182879beda3614cbde792cb8197373ed282a",
+        "processing_version": "5cdb795b1970bfa97b89973889adeb9909ba4d618fe7db4794f8c3814b94c978",
+        "config_sha256": "dbb9bee136688bd2fc5c7a571545784256737e80cb828249e60197433dfed854",
+        "side": "right",
+        "segment_config_version": "curl-measure-v1",
+        "pipeline_version": "curl-measure-v1",
+        "automatic_window_origin": "find_cycles:estimated_3d_elbow_angle_signal",
+        "count_source": "automatic_segmentation_signal_only",
+        "match_normalization_degrees": "30",
+        "match_coverage_threshold": "0.8",
+        "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+        "matched_cycles": "2",
+        "omitted_cycle_count": "0",
+        "reference_name": "Muscle & Strength standing curl",
+        "reference_id": "curl-ms-demo",
+        "reference_view_id": "curl-ms-demo-camera-unreviewed",
+        "reference_rep_count": "2",
+        "calibration_status": "unreviewed",
+        "reference_band_basis": "observed_min_max_not_tolerance",
+        "experimental_policy_version": "exercise-reference-bands-v1",
+        "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+        "reference_source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html"
+      },
+      "repeat_sha256": "0685e9d6977994a413c6af31bdbba20b471903db00ae858dde1527db02f90653",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    },
+    {
+      "exercise": "incline_chest_press",
+      "frames": 1197,
+      "detected_cycles": 4,
+      "unavailable_reason": null,
+      "assessment": {
+        "status": "partial",
+        "policy_version": "exercise-reference-bands-v1",
+        "estimated_match": 53.4859047376674,
+        "included_components": [
+          "torso_axis_angle/projected_2d/excursion",
+          "elbow_angle/estimated_3d/excursion",
+          "elbow_angle/estimated_3d/end",
+          "upper_arm_torso_angle/estimated_3d/bottom"
+        ],
+        "omitted_components": [
+          "bench_contact",
+          "wrist_rotation",
+          "dumbbell_path",
+          "lumbar_arch",
+          "bench_inclination",
+          "view_unreviewed",
+          "experimental_normalization_30deg_unreviewed"
+        ],
+        "missing_reasons": [
+          "view_unreviewed",
+          "experimental_normalization"
+        ]
+      },
+      "metric_entries": 128,
+      "measured_entries": 128,
+      "quality": {
+        "expected_supporting_samples": 1197,
+        "valid_observed_samples": 1180,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.985797827903091,
+          "elbow_angle/estimated_3d": 0.985797827903091,
+          "upper_arm_torso_angle/projected_2d": 0.9933166248955723,
+          "upper_arm_torso_angle/estimated_3d": 0.9933166248955723,
+          "torso_axis_angle/projected_2d": 0.9933166248955723
+        },
+        "usable_reps": 4,
+        "total_reps": 20,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "a870875fd5f6901aa8a3aa587ae662260c9e61b00702b991e891a54fdd41db93",
+        "processing_version": "5cdb795b1970bfa97b89973889adeb9909ba4d618fe7db4794f8c3814b94c978",
+        "config_sha256": "671615a25e0191ed722dd18c4e050b403ba4a82578af084e39ae32761548169b",
+        "side": "right",
+        "segment_config_version": "press-measure-v1",
+        "pipeline_version": "press-measure-v1",
+        "automatic_window_origin": "find_cycles:estimated_3d_elbow_angle_signal",
+        "count_source": "automatic_segmentation_signal_only",
+        "match_normalization_degrees": "30",
+        "match_coverage_threshold": "0.8",
+        "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+        "matched_cycles": "4",
+        "omitted_cycle_count": "0",
+        "reference_name": "Catalyst incline dumbbell press",
+        "reference_id": "press-catalyst",
+        "reference_view_id": "press-catalyst-camera-unreviewed",
+        "reference_rep_count": "5",
+        "calibration_status": "unreviewed",
+        "reference_band_basis": "observed_min_max_not_tolerance",
+        "experimental_policy_version": "exercise-reference-bands-v1",
+        "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+        "reference_source_url": "https://www.catalystathletics.com/exercise/819/Dumbbell-Incline-Bench-Press/"
+      },
+      "repeat_sha256": "e4bf28422194de2723790d26c696abdbad24a0ae7f285c490418374e966bd069",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    },
+    {
+      "exercise": "squat",
+      "frames": 425,
+      "detected_cycles": 1,
+      "unavailable_reason": null,
+      "assessment": {
+        "status": "partial",
+        "policy_version": "exercise-reference-bands-v1",
+        "estimated_match": 43.01617088015028,
+        "included_components": [
+          "knee_angle/estimated_3d/bottom",
+          "knee_angle/estimated_3d/excursion",
+          "hip_angle/estimated_3d/bottom",
+          "torso_axis_angle/projected_2d/excursion"
+        ],
+        "omitted_components": [
+          "squat_depth_or_floor_parallel",
+          "bar_position_or_contact",
+          "lumbar_spine_flexion",
+          "scapular_position",
+          "muscle_activation",
+          "foot_pressure_and_ankle_strategy",
+          "view_unreviewed",
+          "experimental_normalization_30deg_unreviewed"
+        ],
+        "missing_reasons": [
+          "view_unreviewed",
+          "experimental_normalization"
+        ]
+      },
+      "metric_entries": 32,
+      "measured_entries": 32,
+      "quality": {
+        "expected_supporting_samples": 425,
+        "valid_observed_samples": 388,
+        "per_metric_coverage": {
+          "knee_angle/projected_2d": 0.9129411764705883,
+          "knee_angle/estimated_3d": 0.9129411764705883,
+          "hip_angle/projected_2d": 0.9129411764705883,
+          "hip_angle/estimated_3d": 0.9129411764705883,
+          "torso_axis_angle/projected_2d": 0.9176470588235294
+        },
+        "usable_reps": 1,
+        "total_reps": 19,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "94620324fd619c258163298c5ee09fb59a09fd2ea732929671ac0a45425d8536",
+        "processing_version": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977",
+        "config_sha256": "407a42a283124239a1ee3cc45bbabf848454093514f75aa86a57fdf26380d22c",
+        "side": "right",
+        "segment_config_version": "squat-measure-v1",
+        "pipeline_version": "squat-measure-v1",
+        "automatic_window_origin": "find_cycles:estimated_3d_knee_angle_signal",
+        "count_source": "automatic_segmentation_signal_only",
+        "match_normalization_degrees": "30",
+        "match_coverage_threshold": "0.8",
+        "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+        "matched_cycles": "1",
+        "omitted_cycle_count": "0",
+        "reference_name": "Muscle & Strength prisoner squat",
+        "reference_id": "squat-ms",
+        "reference_view_id": "squat-ms-camera-unreviewed",
+        "reference_rep_count": "2",
+        "calibration_status": "unreviewed",
+        "reference_band_basis": "observed_min_max_not_tolerance",
+        "experimental_policy_version": "exercise-reference-bands-v1",
+        "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+        "reference_source_url": "https://www.muscleandstrength.com/exercises/bodyweight-squat.html"
+      },
+      "repeat_sha256": "c389f198e765196d387861f7f608952f813ca022c57c9aca50319b08bdae2fef",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    },
+    {
+      "exercise": "lat_pulldown",
+      "frames": 1651,
+      "detected_cycles": 5,
+      "unavailable_reason": null,
+      "assessment": {
+        "status": "partial",
+        "policy_version": "lat-experimental-match-v1",
+        "estimated_match": 62.10177651794693,
+        "included_components": [
+          "torso_dynamic",
+          "arm_rom",
+          "shoulder_drive"
+        ],
+        "omitted_components": [
+          "torso_start",
+          "bar_endpoint"
+        ],
+        "missing_reasons": [
+          "unreviewed_view",
+          "unreviewed_normalization",
+          "partial_metric_scope"
+        ]
+      },
+      "metric_entries": 160,
+      "measured_entries": 160,
+      "quality": {
+        "expected_supporting_samples": 1651,
+        "valid_observed_samples": 1530,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.9267110841913991,
+          "elbow_angle/estimated_3d": 0.9267110841913991,
+          "upper_arm_torso_angle/projected_2d": 0.9557843731072078,
+          "upper_arm_torso_angle/estimated_3d": 0.9557843731072078,
+          "torso_axis_angle/projected_2d": 0.9890975166565718
+        },
+        "usable_reps": 5,
+        "total_reps": 23,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "provenance": {
+        "pose_sha256": "ac8055a1767da3fd5e3596bd73fba224dc04b141d181529b2f6180bb8e0880d5",
+        "processing_version": "3bdd5ac496363551201c16a47c29a48e7dd2697427782e6c109e0ce720b9e977",
+        "config_sha256": "d12dbc902afc6ae0bed9b2852ed3eb35a567547649c00a6ab9a5d36f8e79292b",
+        "side": "left",
+        "segment_config_version": "lat-runtime-v1",
+        "pipeline_version": "hm04-lat-v1",
+        "automatic_window_origin": "find_cycles:estimated_3d_elbow_signal",
+        "axis": "image_up_unverified_not_gravity",
+        "count_source": "automatic_segmentation_signal_only",
+        "global_coverage_meaning": "segmentation_signal_visibility_only",
+        "experimental_policy_version": "lat-experimental-match-v1",
+        "experimental_policy_sha256": "3aac3a3939c91b6b52627971601a12982385f7fcfa6af639385c6bba24730222",
+        "reference_id": "qmotion_roi",
+        "reference_view_id": "qmotion_roi_diagonal_unvalidated",
+        "reference_review_status": "unreviewed_algorithm_proposal",
+        "reference_rep_count": "4",
+        "reference_band_basis": "observed_min_max_not_tolerance",
+        "match_formula": "distance=max(L-x,0,x-U);resemblance=100*max(0,1-distance/normalization)",
+        "match_normalization_degrees": "30.0",
+        "match_coverage_threshold": "0.8",
+        "match_aggregation": "arm_rom_metric_mean_then_equal_family_mean_per_cycle_then_cycle_mean",
+        "matched_cycles": "5",
+        "omitted_cycle_count": "0",
+        "calibration_status": "uncalibrated_engineering_hypothesis_not_validated"
+      },
+      "repeat_sha256": "d4fed4057a87b63dd2ed54ca073c00e663b2e723feb2bdd0ed1a23a71bd8bf0a",
+      "deterministic_repeat": true,
+      "legacy_schema": "0.2.0"
+    }
+  ]
+}

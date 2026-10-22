@@ -1,0 +1,40 @@
+{
+  "exercise_id": "incline_chest_press",
+  "variant": "incline_dumbbell_bilateral",
+  "version": "press-measure-v1",
+  "signal_metric": "elbow_angle",
+  "signal_space": "estimated_3d",
+  "low_degrees": 100,
+  "high_degrees": 150,
+  "dwell_s": 0.1,
+  "max_gap_s": 0.1,
+  "metrics": {
+    "elbow_angle/projected_2d": {
+      "unit": "degrees",
+      "label": "Elbow angle (camera plane)"
+    },
+    "elbow_angle/estimated_3d": {
+      "unit": "degrees",
+      "label": "Elbow angle (estimated 3D)"
+    },
+    "upper_arm_torso_angle/projected_2d": {
+      "unit": "degrees",
+      "label": "Upper arm to torso angle (camera plane)"
+    },
+    "upper_arm_torso_angle/estimated_3d": {
+      "unit": "degrees",
+      "label": "Upper arm to torso angle (estimated 3D)"
+    },
+    "torso_axis_angle/projected_2d": {
+      "unit": "degrees",
+      "label": "Torso axis angle relative to image up (camera plane, descriptive only; bench inclined)"
+    }
+  },
+  "omitted_components": [
+    "bench_contact",
+    "wrist_rotation",
+    "dumbbell_path",
+    "lumbar_arch",
+    "bench_inclination"
+  ]
+}

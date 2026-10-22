@@ -1,0 +1,47 @@
+{
+  "exercise_id": "squat",
+  "variant": "bodyweight",
+  "version": "squat-measure-v1",
+  "signal_metric": "knee_angle",
+  "signal_space": "estimated_3d",
+  "low_degrees": 100.0,
+  "high_degrees": 150.0,
+  "dwell_s": 0.1,
+  "max_gap_s": 0.1,
+  "metrics": {
+    "knee_angle": {
+      "projected_2d": {
+        "unit": "degrees",
+        "label": "Knee angle (hip-knee-ankle), projected 2D"
+      },
+      "estimated_3d": {
+        "unit": "degrees",
+        "label": "Knee angle (hip-knee-ankle), estimated 3D"
+      }
+    },
+    "hip_angle": {
+      "projected_2d": {
+        "unit": "degrees",
+        "label": "Hip angle (shoulder-hip-knee), projected 2D"
+      },
+      "estimated_3d": {
+        "unit": "degrees",
+        "label": "Hip angle (shoulder-hip-knee), estimated 3D"
+      }
+    },
+    "torso_axis_angle": {
+      "projected_2d": {
+        "unit": "degrees",
+        "label": "Torso axis angle from image up, projected 2D"
+      }
+    }
+  },
+  "omitted_components": [
+    "squat_depth_or_floor_parallel",
+    "bar_position_or_contact",
+    "lumbar_spine_flexion",
+    "scapular_position",
+    "muscle_activation",
+    "foot_pressure_and_ankle_strategy"
+  ]
+}
