@@ -267,6 +267,29 @@ No new coding/provider batch is claimed by this documentation update. See DELIVE
   observable shoulder_drive definition without activation claims. Tests: gaps, occlusion,
   plateaus, stillness, partials, incomplete excursion and processing-speed invariance.
 ## T06 — References  ·  status: todo  ·  date: 20 Oct  ·  FR07, FR11
+- **Claim T06.1b (22 October) · done as experimental review packet · FR05/FR07/FR11/FR12:** User requests local
+  retrieval of Catalyst/QMotion/IMSA demos as needed, diagnostic comparison, rep counts
+  and a provisional reference ranking for their review. This authorizes local
+  experimental retrieval/inspection, not a claim of redistribution rights, approved
+  technique or a production-valid score. Record actual retrieval failures honestly.
+- **Delivered:** All3 public demos retrieved locally, hashed and analysed with the
+  accepted pipeline. IMSA full-frame824/840 entirely invalid; explicit right-panel
+  crop reduces that to5/840. QMotion setup/red-X example excluded; Catalyst camera
+  windows separated. Videos/pose data/per-pair mappings remain ignored.
+- **Trial library:** `movement/review_cycles.py`, `scoring/review_comparison.py`,
+  explicit `data/review_configs/lat-reference-v1.json` and40 focused tests. No production
+  threshold/schema/score/API changes. Full Python516 passed; Ruff/mypy55 files clean.
+- **User review:** http://localhost:8865/ ; pipeline-usability rank QMotion, cropped
+  IMSA, Catalyst. Selected-window trial counts3/6/0 respectively; user excerpt1.
+  Unvalidated angle-pattern agreement92.47/92.68/unavailable. This is NOT technique
+  correctness, an approved reference or whole-video rep counts. Known misses/merges
+  are explicit: Catalyst0 is a detector failure, not absence of repetitions.
+- **Usage/QC:**68,982 reported development tokens; conservative USD0.315914 including
+  rejected drafts/vision review and KimiK3 escalation. One local SDK failure before
+  HTTP; no paid runtime coaching/Tavily/backup. See `docs/audit/T06.1b-review.md`.
+- **Next:** User reviews videos/counts/ranking/formula; T05.2 independent event labels,
+  calibrated segmentation and true-turnaround timing must fix observed misses before
+  any comparison/score accuracy claim. Reference approval and held-out proof remain open.
 - **T06.1 research checkpoint (22 October):** ACE/NASM guidance checked; Catalyst,
   QMotion and IMSA demo pages shortlisted with source/reuse/view/reviewer gaps recorded
   in `docs/measurement/T06.1-reference-plan.md`. User asks us to find demos; their

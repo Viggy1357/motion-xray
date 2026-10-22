@@ -1,0 +1,258 @@
+{
+  "as_of": "2026-10-22",
+  "task": "T06.1b",
+  "requests": [
+    {
+      "task": "T06.1b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t061-cycles",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.045796,
+      "input_token_bound": 6648,
+      "output_token_bound": 6500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2756,
+        "prompt_tokens": 539,
+        "total_tokens": 3295,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 539
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-2d693a961949643330843044326bf429",
+      "elapsed_s": 9.95,
+      "received_chars": 9836,
+      "conservative_cost_usd": 0.014858
+    },
+    {
+      "task": "T06.1b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t061-cycle-tests",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.046454,
+      "input_token_bound": 6977,
+      "output_token_bound": 6500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3042,
+        "prompt_tokens": 629,
+        "total_tokens": 3671,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 629
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-01c914ccad70855a1ddff59b8a471c9e",
+      "elapsed_s": 9.67,
+      "received_chars": 8191,
+      "conservative_cost_usd": 0.016468
+    },
+    {
+      "task": "T06.1b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t061-comparison",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.064402,
+      "input_token_bound": 7201,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5285,
+        "prompt_tokens": 704,
+        "total_tokens": 5989,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 672
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-574870067544e00b06a8eeb1c8fc98cb",
+      "elapsed_s": 15.71,
+      "received_chars": 16211,
+      "conservative_cost_usd": 0.027833
+    },
+    {
+      "task": "T06.1b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t061-cycles-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.095908,
+      "input_token_bound": 24204,
+      "output_token_bound": 9500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5901,
+        "prompt_tokens": 5790,
+        "total_tokens": 11691,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 5758
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-959317220a24568c433e81f6388e6209",
+      "elapsed_s": 22.42,
+      "received_chars": 19637,
+      "conservative_cost_usd": 0.041084999999999997
+    },
+    {
+      "task": "T06.1b",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t061-comparison-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.09782199999999999,
+      "input_token_bound": 22661,
+      "output_token_bound": 10500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 6782,
+        "prompt_tokens": 5352,
+        "total_tokens": 12134,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 5320
+      },
+      "finish_reason": "stop",
+      "request_id": "chatcmpl-c44c4bc043f7821553377684df01796f",
+      "elapsed_s": 36.16,
+      "received_chars": 20515,
+      "conservative_cost_usd": 0.044614
+    },
+    {
+      "task": "T06.1b",
+      "model": "moonshotai/Kimi-K3",
+      "request": "t061-k3-repair",
+      "status": "failed",
+      "maximum_cost_usd": 0.26682,
+      "input_token_bound": 47980,
+      "output_token_bound": 8192,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Provider public catalog https://tokenfactory.nebius.com/api/public/models_info checked2026-10-22; USD3/M uncachedinput and USD15/M output, caches ignored conservatively",
+      "usage": null,
+      "finish_reason": null,
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "error_type": "TypeError",
+      "elapsed_s": 0.01,
+      "received_chars": 0
+    },
+    {
+      "task": "T06.1b",
+      "model": "moonshotai/Kimi-K3",
+      "request": "t061-k3-repair-v2",
+      "status": "failed",
+      "maximum_cost_usd": 0.26682,
+      "input_token_bound": 47980,
+      "output_token_bound": 8192,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Provider public catalog https://tokenfactory.nebius.com/api/public/models_info checked2026-10-22; USD3/M uncachedinput and USD15/M output, caches ignored conservatively",
+      "usage": {
+        "completion_tokens": 6102,
+        "prompt_tokens": 12626,
+        "total_tokens": 18728,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 1959
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "dfbd9248a78341159d39dea4c6cf519d",
+      "error_type": "AssertionError",
+      "elapsed_s": 22.15,
+      "received_chars": 15786,
+      "conservative_cost_usd": 0.129408
+    },
+    {
+      "task": "T06.1b",
+      "model": "nvidia/Nemotron-3.5-Super-VL",
+      "purpose": "development QC of public demonstration frames, not product runtime coaching",
+      "maximum_cost_usd": 0.15,
+      "status": "received_unverified_review",
+      "usage": {
+        "completion_tokens": 4900,
+        "prompt_tokens": 8574,
+        "total_tokens": 13474,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 4456
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 4352,
+          "multimodal_tokens": {
+            "image": 8306
+          }
+        }
+      },
+      "private_media_sent": false,
+      "request_id": "chatcmpl-9da84b7c09f56fe28f7f51a10cfbdfd9",
+      "finish_reason": "stop",
+      "elapsed_s": 14.47,
+      "conservative_cost_usd": 0.041648000000000004
+    }
+  ],
+  "reported_tokens": 68982,
+  "cumulative_task_ceiling": 200000,
+  "conservative_cost_usd": 0.315914,
+  "aggregate_commitment_including_historical_contingency_usd": 4.64218365,
+  "historical_unknown_calls": 4,
+  "unknown_history_contingency_usd": 1,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "backup_activated": false,
+  "paid_product_runtime_calls": 0,
+  "development_visual_review_calls": 1,
+  "tavily_credits_used": 0,
+  "peak_concurrent_coding_calls": 3,
+  "local_no_network_sdk_failures": 1,
+  "notes": [
+    "Unverified vision review rejected: missed split screen, bad-example cues and camera changes. No counts/scores taken from it.",
+    "Kimi K3 used only after repeated concrete code defects. Official provider catalog verified USD3/M input andUSD15/M output; cached input ignored conservatively. Other calls use priorUSD2/M input andUSD5/M output guard rates, notinvoicepricing.",
+    "One K3 call failed locally before HTTP because the older SDK rejected reasoning_effort; moved it toextra_body. No usage/no request id.",
+    "K3 response envelope malformed despite complete bodies; two known source bodies recovered to fixed review paths and checked. No model paths executed.",
+    "Codex bounded integration corrections: phase anchor/partial-span bookkeeping, numericvalidation, incorrect testoracles, frozen config regressions and local review glue. No silentlarge implementation fallback."
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "as_of": "2026-10-22",
+  "status": "experimental_for_user_review_not_validated",
+  "config_version": "lat-reference-review-v1",
+  "implementation_hashes": {
+    "packages/movement/movement/review_cycles.py": "752630c408a44a86a1ba8adcacf2efc2fea3cb0a41aec8b93acbe1030ff47b87",
+    "packages/scoring/scoring/review_comparison.py": "7f26a06770798790dde49641e751013b57f1560b61dde14d13e1faaebd5db943"
+  },
+  "clips": [
+    {
+      "id": "user_lat",
+      "side": "left",
+      "windows_s": [
+        [
+          10.005,
+          19.983333
+        ]
+      ],
+      "candidate_count": 1,
+      "whole_video_count": false,
+      "approved_reference": false
+    },
+    {
+      "id": "catalyst",
+      "side": "left",
+      "windows_s": [
+        [
+          8,
+          14
+        ],
+        [
+          16,
+          23.966667
+        ]
+      ],
+      "candidate_count": 0,
+      "whole_video_count": false,
+      "approved_reference": false
+    },
+    {
+      "id": "qmotion",
+      "side": "left",
+      "windows_s": [
+        [
+          25,
+          36.966667
+        ]
+      ],
+      "candidate_count": 3,
+      "whole_video_count": false,
+      "approved_reference": false
+    },
+    {
+      "id": "imsa-right",
+      "side": "right",
+      "windows_s": [
+        [
+          2.002,
+          29.996633
+        ]
+      ],
+      "candidate_count": 6,
+      "whole_video_count": false,
+      "approved_reference": false
+    }
+  ],
+  "comparisons": [
+    {
+      "reference": "catalyst",
+      "user_side": "left",
+      "reference_side": "left",
+      "contralateral_warning": false,
+      "attempted_pairs": 0,
+      "available_pairs": 0,
+      "median_experimental_agreement": null,
+      "valid_technique_score": null
+    },
+    {
+      "reference": "qmotion",
+      "user_side": "left",
+      "reference_side": "left",
+      "contralateral_warning": false,
+      "attempted_pairs": 3,
+      "available_pairs": 3,
+      "median_experimental_agreement": 92.47358409884646,
+      "valid_technique_score": null
+    },
+    {
+      "reference": "imsa-right",
+      "user_side": "left",
+      "reference_side": "right",
+      "contralateral_warning": true,
+      "attempted_pairs": 6,
+      "available_pairs": 6,
+      "median_experimental_agreement": 92.6827676587879,
+      "valid_technique_score": null
+    }
+  ],
+  "ranking": [
+    {
+      "rank": 1,
+      "id": "qmotion",
+      "reason": "Single-person input with complete measured comparison pairs after excluding the red-X example. Low-resolution footage and landmark accuracy still need review."
+    },
+    {
+      "rank": 2,
+      "id": "imsa-right",
+      "reason": "Usable only after explicit single-panel crop. Original split screen fails the single-person pipeline. Opposite visible arm; equivalence unvalidated."
+    },
+    {
+      "rank": 3,
+      "id": "catalyst",
+      "reason": "No confirmed cycle under frozen trial settings. Camera edits and measurement gaps prevent a comparison. This is not a finding that the athlete performed zero reps."
+    }
+  ],
+  "ranking_meaning": "Ease of using this footage with our current pipeline, not best technique, best authority, or approval.",
+  "known_accuracy_failures": [
+    "Catalyst visibly contains repetitions but the frozen detector returns zero candidates.",
+    "QMotion candidate intervals may merge visible movements. Counts are not independently verified.",
+    "Agreement scale is arbitrary and can remain high despite meaningful movement differences."
+  ],
+  "all_three_downloaded": true,
+  "full_python_checks": 516,
+  "local_review_url": "http://localhost:8865/",
+  "private_outputs": "Raw videos, cropped video, frame sheets, pose artifacts, per-pair source mappings and viewer stay ignored; no reference assets redistributed."
+}

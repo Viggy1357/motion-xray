@@ -57,6 +57,12 @@ checks and measurement/reference protocols (476 full Python tests). Read
 with reference-demo screening in parallel. No human labels, validated per-rep metric
 or approved reference yet.
 
+T06.1b now has all3 public demos downloaded under the user's explicit local-experiment
+authorization. Trial review lives at http://localhost:8865/ ; read
+`docs/audit/T06.1b-review.md`. Counts/score arithmetic are experimental and expose
+misses/merges; do not promote thresholds, rank or demos to approved references.
+Next is the user's review and T05.2 label/calibration work, not more UI/hosting.
+
 1. Inspect git status and the previous task's evidence. Identify existing unfinished
    changes before editing; do not overwrite or commit another agent's work.
 2. Claim one bounded TASKS work package. State its FRs, concrete output and check.

@@ -1,0 +1,117 @@
+{
+  "as_of": "2026-10-22",
+  "purpose": "local experimental analysis only",
+  "downloader": {
+    "yt_dlp": "2026.10.21",
+    "yt_dlp_ejs": "0.8.0"
+  },
+  "sources": [
+    {
+      "id": "catalyst",
+      "video_id": "c2e_j4IdPBs",
+      "page_url": "https://www.catalystathletics.com/exercise/725/Lat-Pulldown/",
+      "video_url": "https://www.youtube.com/watch?v=c2e_j4IdPBs",
+      "title": "Lat Pulldown | Olympic Weightlifting Exercise Library",
+      "uploader": "Catalyst Athletics",
+      "declared_license": null,
+      "reuse_permission": "unverified",
+      "technique_approval": false,
+      "downloaded": true,
+      "sha256": "a20cd2060e9f3edbb92008738ae6fabe455ab736fcc10f5362fb904dbba23b39",
+      "bytes": 3483193,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "av1",
+            "width": 1280,
+            "height": 720,
+            "start_time": "0.000000",
+            "duration": "39.616667",
+            "nb_frames": "2377"
+          }
+        ],
+        "format": {
+          "duration": "39.683000"
+        }
+      }
+    },
+    {
+      "id": "qmotion",
+      "video_id": "D8b3OVbRfwE",
+      "page_url": "https://www.qmsu.org/qmotion/guides/video/21286/Lat-Pulldown/",
+      "video_url": "https://www.youtube.com/watch?v=D8b3OVbRfwE",
+      "title": "How to Lat pulldown",
+      "uploader": "Qmotion",
+      "declared_license": null,
+      "reuse_permission": "unverified",
+      "technique_approval": false,
+      "downloaded": true,
+      "sha256": "5d15330e40acd091daa86ec1ce3f5454730ccedce1073214135fccf5194532cc",
+      "bytes": 1168788,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "av1",
+            "width": 360,
+            "height": 640,
+            "start_time": "0.000000",
+            "duration": "38.033333",
+            "nb_frames": "1141"
+          }
+        ],
+        "format": {
+          "duration": "38.081000"
+        }
+      }
+    },
+    {
+      "id": "imsa",
+      "video_id": "R15L5nO3a94",
+      "page_url": "https://digitalcommons.imsa.edu/well_tv/1/",
+      "video_url": "https://www.youtube.com/watch?v=R15L5nO3a94",
+      "title": "Lateral Pull Down",
+      "uploader": "Illinois Mathematics and Science Academy (IMSA)",
+      "declared_license": null,
+      "reuse_permission": "unverified",
+      "technique_approval": false,
+      "downloaded": true,
+      "sha256": "d49b76fa2175e9da7424e3616a56fca08ccc020d7ea009a64a538581704867a8",
+      "bytes": 8562116,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1280,
+            "height": 720,
+            "start_time": "0.000000",
+            "duration": "46.546500",
+            "nb_frames": "1395"
+          }
+        ],
+        "format": {
+          "duration": "46.626000"
+        }
+      }
+    }
+  ],
+  "imsa_transform": {
+    "original_sha256": "d49b76fa2175e9da7424e3616a56fca08ccc020d7ea009a64a538581704867a8",
+    "derived_sha256": "cf3fc103ff4f653477f5bd828eec9c1374304dd1e49ee70f89b0302e18b41d6a",
+    "crop_px": {
+      "x": 640,
+      "y": 0,
+      "width": 640,
+      "height": 720
+    },
+    "source_px": [
+      1280,
+      720
+    ],
+    "ffmpeg_filter": "crop=640:720:640:0",
+    "reencode": "libx264 crf18 fps_mode passthrough; audio removed",
+    "note": "Explicit right-panel derivative, not multi-person tracking. Original retained."
+  }
+}

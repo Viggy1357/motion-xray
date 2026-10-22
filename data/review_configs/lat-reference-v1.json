@@ -1,0 +1,27 @@
+{
+  "version": "lat-reference-review-v1",
+  "status": "experimental_unreviewed",
+  "authoritative": false,
+  "purpose": "Local user review only; not product calibration or technique correctness",
+  "space": "estimated_3d",
+  "low_degrees": 100,
+  "high_degrees": 135,
+  "dwell_s": 0.1,
+  "max_gap_s": 0.1,
+  "threshold_basis": "Provisional engineering trial settings frozen before counting these clips, not independently labelled or technique-approved excursion limits. Do not self-normalize candidate repetitions.",
+  "comparison": {
+    "algorithm_version": "lat-review-angle-agreement-v1",
+    "points_per_phase": 21,
+    "features": ["elbow_angle", "upper_arm_torso_angle"],
+    "per_feature_weights": [0.5, 0.5],
+    "normalization_degrees": 180,
+    "formula": "100 * (1 - mean absolute angular difference / 180)",
+    "meaning": "Unvalidated angle-pattern agreement, not technique correctness. Phase timing is reported separately. No DTW or calibrated score claim."
+  },
+  "clips": [
+    {"id": "user_lat", "side": "left", "windows_s": [[10.005, 19.983333]], "note": "Existing private ten-second diagnostic excerpt, not the whole 55-second set"},
+    {"id": "catalyst", "side": "left", "windows_s": [[8, 14], [16, 23.966667]], "note": "Conservative separate camera windows; intro/outro and cut interval excluded"},
+    {"id": "qmotion", "side": "left", "windows_s": [[25, 36.966667]], "note": "Setup and red-X exaggerated-lean example excluded. Endpoint is end of extracted diagnostic, not entire source."},
+    {"id": "imsa-right", "side": "right", "windows_s": [[2.002, 29.996633]], "note": "Derived right panel only, crop640x720 at x640,y0 from1280x720; contralateral visible-side diagnostic, not validated bilateral equivalence. Count covers only this window."}
+  ]
+}

@@ -101,6 +101,13 @@ Specification v2.0 (15 Oct 2026).
 
 - **Date:** 2026-10-18
 - **Status:** Accepted (guarded)
+- **22 October user override:** The owner explicitly asks Codex to retrieve the three
+  shortlisted demos as needed and prepare a diagnostic ranking/rep/score review.
+  Automated retrieval in isolated local development containers is authorized for
+  this experiment; the older owner-only manual-download restriction below is
+  superseded for these clips. No downloader enters the product or CI. This grants
+  task authorization, not third-party redistribution rights or technique approval.
+  Record unavailable sources and retain experimental/non-authoritative status.
 - **Context:** Product owner wants to test the full pipeline using reference clips
   sourced from public technique videos. Tavily extracts TEXT/pages, not video files,
   and cannot certify a video or grant platform access. Public social clips carry reuse

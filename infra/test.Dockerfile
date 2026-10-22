@@ -11,6 +11,7 @@ RUN uv pip install --system --no-deps --no-build-isolation \
 COPY pyproject.toml ./
 COPY tests/ tests/
 COPY data/exercise_specs/ data/exercise_specs/
+COPY data/review_configs/ data/review_configs/
 COPY scripts/ scripts/
 ENV PYTHONDONTWRITEBYTECODE=1
 CMD ["sh", "scripts/check-python.sh"]

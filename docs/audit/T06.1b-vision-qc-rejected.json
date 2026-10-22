@@ -1,0 +1,39 @@
+{
+  "candidates": [
+    {
+      "name": "catalyst",
+      "visible_camera_sections": [
+        "intro graphics (0s-4s)",
+        "side view exercise demonstration (5s-24s)",
+        "outro app interface screenshots (25s-39s)"
+      ],
+      "deliberately_bad_examples": [],
+      "rough_cycle_count_or_range": "approx 8-12 reps (visible 5s-24s)",
+      "uncertainty": "low",
+      "measurement_suitability": "high - single subject, clear side profile, unobstructed view of torso and arms"
+    },
+    {
+      "name": "qmotion",
+      "visible_camera_sections": [
+        "setup and instruction (standing, adjusting pad, 0s-14s)",
+        "side view exercise demonstration (15s-37s)"
+      ],
+      "deliberately_bad_examples": [],
+      "rough_cycle_count_or_range": "approx 8-12 reps (visible 15s-37s)",
+      "uncertainty": "medium - contact sheet contains black placeholder frames indicating sparse or missing samples",
+      "measurement_suitability": "high - single subject, clear view, minimal occlusion"
+    },
+    {
+      "name": "imsa",
+      "visible_camera_sections": [
+        "title card (0s-1s)",
+        "side view exercise demonstration (2s-46s)"
+      ],
+      "deliberately_bad_examples": [],
+      "rough_cycle_count_or_range": "approx 15-20 reps (visible 2s-46s)",
+      "uncertainty": "low",
+      "measurement_suitability": "high - single subject, clear side profile, consistent framing"
+    }
+  ],
+  "cross_view_warning": "None detected; all three candidates appear to utilize a single static camera angle for the exercise demonstration without split-screen or multi-view footage."
+}

@@ -61,6 +61,13 @@ comparisons. Read `audit/T05.1-raw-observations.md`,
 Next T05.2 is independent labels plus calibrated full-cycle segmentation. Reference
 video playback/review/permission checks may proceed in parallel; other work stays held.
 
+T06.1b (22 October) now provides a local experimental review packet at
+http://localhost:8865/ with all3 downloaded demos, a labelled IMSA crop, trial cycle
+timestamps and explicit angle-agreement arithmetic. See `audit/T06.1b-review.md`.
+Known missed/merged candidates mean actual counting accuracy is unvalidated. Await
+the user's requested review before treating any demo or provisional thresholds as
+approved. Existing production scoring/thresholds remain unchanged.
+
 The dependency order is:
 
 ```text
