@@ -101,6 +101,15 @@ source-wise per-rep components before T06.2 ranges/scoring. Do not promote whole
 min/max, high confidence, or a plausible cropped angle to technique approval. The
 six-user-rep proof and bar endpoint remain pending; preserve the posture-first order.
 
+T05.2c now delivers a provisional per-rep measurement proof:10 reference reps,8 selected
+user reps,7 with all current generated torso/arm components after a fixed crop. Read
+`audit/T05.2c-rep-review.md` and `measurement/T05.2c-rep-protocol.md`; live local review
+http://localhost:8865/t052c.html .625 full Python checks pass. Labels are model-assisted
+and checked at3 source frames, not independent expert labels. Component coverage does
+not include bar endpoint or establish accurate angles. Next T06.2: compatible-view
+reference policy, checked provisional component tolerances and bar-endpoint evidence;
+then T07 scoring fixtures. No new counting-first work or infrastructure expansion.
+
 The dependency order is:
 
 ```text

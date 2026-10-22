@@ -38,9 +38,38 @@ reference-video calibration -> user component deviations and scoring -> detailed
 timestamped guidance. Reference-derived3D is distant future scope, not user multi-camera
 capture. The sourced metric matrix is now delivered as research pending calibration:
 `docs/measurement/LAT-PULLDOWN-RUBRIC-v0.1.md`. T05.2b now delivers raw torso/window
-measurements and a reference crop-quality experiment. Next is manually checked,
-phase-labelled reference repetitions and per-rep calibration; see
+measurements and a reference crop-quality experiment. T05.2c now measures ten selected
+reference reps and eight selected user reps; seven user reps have all current torso/arm
+components after a fixed-crop experiment. Next is compatible source/view calibration,
+provisional component policy and bar-endpoint measurement; see
 `docs/measurement/LAT-PULLDOWN-REUSE-AND-CALIBRATION.md`. Other work stays held.
+
+### T05.2c — labelled rep measurement proof · status: done (bounded measurement slice)
+- **Date/FRs:**22 Oct; FR05/FR07/FR08/FR12. Seven direct Nebius generation/QC calls,
+  first batch4 and second batch3; Codex coordinates/integrates and checks local frames.
+- **Delivered:** movement.rep_observations, analytic fixture and independent tests;
+  offline rep runner and reusable diagnostic renderer; versioned provisional labels;
+  source-wise observed profiles for4QMotion/3Catalyst/3IMSA reps and8 user rep intervals.
+- **Result:** Same labels before/after local user crop;4/8 ->7/8 have all32 current
+  generated components, preserving the remaining arm-gap reasons. Bar endpoint is not
+  one of those32. No new aggregate score, approved tolerance, public schema or old
+  segmentation/scoring threshold change. Eight physical reps are not counted twice.
+- **Review:** http://localhost:8865/t052c.html ; docs/audit/T05.2c-rep-review.md and JSON;
+  docs/measurement/T05.2c-rep-protocol.md. Tables retain original PTS, missing reasons,
+  camera/view and source-hash provenance; private videos/images/pose arrays stay local.
+- **Checks:**625 full offline Python tests pass;26 focused checks; Ruff clean/mypy57
+  source files. Browser8user/10reference rows, source switching/seek verified; repeated
+  numeric/render output hashes checked. Existing AnyIO warning. Contract-invalid test
+  fixtures and renderer field mappings corrected without skipped tests/relaxed masks.
+- **Usage:**82,641 reported Nebius tokens/200k; conservativeUSD0.451828; aggregate
+  commitment incl historic unknown contingencyUSD5.76842365. ProtectedUSD30 untouched;
+  no private footage/pose arrays/user measurement values in prompts, runtime coaching
+  call or Tavily spend. Initial rejected drafts/repairs remain in the ledger.
+- **Limits:** Labels are model-assisted and visually checked at3 event frames, not
+  independent human/expert ground truth. Timing allowances are provisional. Projected
+  torso differences across cameras are descriptive, not validated physical deviations.
+- **Next:**T06.2 reviewable compatible-reference/component policy and bar-endpoint proof;
+  then T07 partial component scoring with versioned fixtures before any aggregate.
 
 ### T05.2b — projected torso and reference observations · status: done (bounded slice)
 - **Date/FRs:**22 Oct; FR05/FR07/FR08/FR12. Codex one integrating writer; seven direct

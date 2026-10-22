@@ -1,0 +1,393 @@
+{
+  "version": "lat-rep-labels-user-roi-v1",
+  "authoritative": false,
+  "status": "visual_provisional_not_ground_truth",
+  "max_gap_s": 0.1,
+  "clips": [
+    {
+      "id": "qmotion_roi",
+      "role": "reference",
+      "pose_root": "artifacts/reference-analysis/qmotion-roi",
+      "video_path": "artifacts/development/reference-retrieval/qmotion-roi.mp4",
+      "side": "left",
+      "width": 180,
+      "height": 340,
+      "window_s": [
+        25,
+        36.966667
+      ],
+      "view_id": "qmotion_roi_diagonal_unvalidated",
+      "variant": "bilateral_seated_front_lat_pulldown",
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_direction_provisional_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "review_status": "visual_provisional",
+      "annotation_origin": "Model-assisted proposals checked by Codex at start/bottom/end source frames. Not independent human labels or qualified technique approval. Bottom labels are posture samples and may lie within a dwell; phase durations are provisional. Source timestamps copied exactly, not inferred from rounded captions.",
+      "uncertainty_s": 0.25,
+      "reps": [
+        {
+          "rep_id": "Q1",
+          "start_s": 25.0,
+          "bottom_s": 25.866667,
+          "end_s": 27.333333
+        },
+        {
+          "rep_id": "Q2",
+          "start_s": 27.333333,
+          "bottom_s": 28.8,
+          "end_s": 30.666667
+        },
+        {
+          "rep_id": "Q3",
+          "start_s": 30.666667,
+          "bottom_s": 31.833333,
+          "end_s": 33.333333
+        },
+        {
+          "rep_id": "Q4",
+          "start_s": 33.333333,
+          "bottom_s": 34.166667,
+          "end_s": 35.366667
+        }
+      ],
+      "source_sha256": "c5ce13c951e7aa13a4db748442b8675ab3dd0d9e961306f04761170e0f6385e1"
+    },
+    {
+      "id": "catalyst_roi",
+      "role": "reference",
+      "pose_root": "artifacts/reference-analysis/catalyst-roi",
+      "video_path": "artifacts/development/reference-retrieval/catalyst-roi.mp4",
+      "side": "left",
+      "width": 300,
+      "height": 530,
+      "window_s": [
+        16,
+        23.966667
+      ],
+      "view_id": "catalyst_roi_diagonal_unvalidated",
+      "variant": "bilateral_seated_front_lat_pulldown",
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_direction_provisional_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "review_status": "visual_provisional",
+      "annotation_origin": "Model-assisted proposals checked by Codex at start/bottom/end source frames. Not independent human labels or qualified technique approval. Bottom labels are posture samples and may lie within a dwell; phase durations are provisional. Source timestamps copied exactly, not inferred from rounded captions.",
+      "uncertainty_s": 0.25,
+      "reps": [
+        {
+          "rep_id": "C1",
+          "start_s": 16.166667,
+          "bottom_s": 17.1,
+          "end_s": 18.2
+        },
+        {
+          "rep_id": "C2",
+          "start_s": 18.2,
+          "bottom_s": 19.266667,
+          "end_s": 20.433333
+        },
+        {
+          "rep_id": "C3",
+          "start_s": 20.433333,
+          "bottom_s": 21.4,
+          "end_s": 22.5
+        }
+      ],
+      "source_sha256": "7bc70c82e778449c4ead185a7c11e65125d9ead76421b7eb26880fd063e21ff0"
+    },
+    {
+      "id": "imsa_right",
+      "role": "reference",
+      "pose_root": "artifacts/reference-analysis/imsa-right",
+      "video_path": "artifacts/development/reference-retrieval/imsa-right.mp4",
+      "side": "right",
+      "width": 640,
+      "height": 720,
+      "window_s": [
+        2.002,
+        29.996633
+      ],
+      "view_id": "imsa_side_crop",
+      "variant": "bilateral_seated_front_lat_pulldown",
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_direction_provisional_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": -1
+      },
+      "review_status": "visual_provisional",
+      "annotation_origin": "Model-assisted proposals checked by Codex at start/bottom/end source frames. Not independent human labels or qualified technique approval. Bottom labels are posture samples and may lie within a dwell; phase durations are provisional. Source timestamps copied exactly, not inferred from rounded captions.",
+      "uncertainty_s": 0.25,
+      "reps": [
+        {
+          "rep_id": "I1",
+          "start_s": 4.971633,
+          "bottom_s": 6.539867,
+          "end_s": 8.074733
+        },
+        {
+          "rep_id": "I2",
+          "start_s": 8.074733,
+          "bottom_s": 9.242567,
+          "end_s": 10.7107
+        },
+        {
+          "rep_id": "I3",
+          "start_s": 10.7107,
+          "bottom_s": 12.1121,
+          "end_s": 13.380033
+        }
+      ],
+      "source_sha256": "cf3fc103ff4f653477f5bd828eec9c1374304dd1e49ee70f89b0302e18b41d6a"
+    },
+    {
+      "id": "user_a",
+      "role": "user",
+      "pose_root": "artifacts/pose-smoke/lat-full-a",
+      "video_path": "data/demo/lat_pulldown.mp4",
+      "side": "left",
+      "width": 464,
+      "height": 832,
+      "window_s": [
+        0,
+        29.98
+      ],
+      "view_id": "user_diagonal_unvalidated",
+      "variant": "bilateral_seated_front_lat_pulldown",
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_direction_provisional_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "review_status": "visual_provisional",
+      "annotation_origin": "Model-assisted proposals checked by Codex at start/bottom/end source frames. Not independent human labels or qualified technique approval. Bottom labels are posture samples and may lie within a dwell; phase durations are provisional. Source timestamps copied exactly, not inferred from rounded captions.",
+      "uncertainty_s": 0.5,
+      "reps": [
+        {
+          "rep_id": "U1",
+          "start_s": 3.846667,
+          "bottom_s": 5.683333,
+          "end_s": 9.253333
+        },
+        {
+          "rep_id": "U2",
+          "start_s": 9.253333,
+          "bottom_s": 10.455,
+          "end_s": 13.358333
+        },
+        {
+          "rep_id": "U3",
+          "start_s": 13.358333,
+          "bottom_s": 15.228333,
+          "end_s": 18.131667
+        },
+        {
+          "rep_id": "U4",
+          "start_s": 18.131667,
+          "bottom_s": 20.201667,
+          "end_s": 22.603333
+        },
+        {
+          "rep_id": "U5",
+          "start_s": 22.603333,
+          "bottom_s": 24.44,
+          "end_s": 27.576667
+        }
+      ],
+      "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772"
+    },
+    {
+      "id": "user_b",
+      "role": "user",
+      "pose_root": "artifacts/pose-smoke/lat-full-b",
+      "video_path": "data/demo/lat_pulldown.mp4",
+      "side": "left",
+      "width": 464,
+      "height": 832,
+      "window_s": [
+        30,
+        54.98
+      ],
+      "view_id": "user_diagonal_unvalidated",
+      "variant": "bilateral_seated_front_lat_pulldown",
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_direction_provisional_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "review_status": "visual_provisional",
+      "annotation_origin": "Model-assisted proposals checked by Codex at start/bottom/end source frames. Not independent human labels or qualified technique approval. Bottom labels are posture samples and may lie within a dwell; phase durations are provisional. Source timestamps copied exactly, not inferred from rounded captions.",
+      "uncertainty_s": 0.5,
+      "reps": [
+        {
+          "rep_id": "U6",
+          "start_s": 32.55,
+          "bottom_s": 33.651667,
+          "end_s": 36.021667
+        },
+        {
+          "rep_id": "U7",
+          "start_s": 38.223333,
+          "bottom_s": 39.558333,
+          "end_s": 41.695
+        },
+        {
+          "rep_id": "U8",
+          "start_s": 43.13,
+          "bottom_s": 44.631667,
+          "end_s": 46.468333
+        }
+      ],
+      "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772"
+    },
+    {
+      "id": "user_roi_a",
+      "role": "user",
+      "pose_root": "artifacts/pose-smoke/lat-user-roi-a",
+      "video_path": "artifacts/development/lat-pulldown-subject-roi.mp4",
+      "side": "left",
+      "width": 320,
+      "height": 600,
+      "window_s": [
+        0,
+        29.98
+      ],
+      "view_id": "user_diagonal_unvalidated",
+      "variant": "bilateral_seated_front_lat_pulldown",
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_direction_provisional_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "review_status": "visual_provisional",
+      "annotation_origin": "Model-assisted proposals checked by Codex at start/bottom/end source frames. Not independent human labels or qualified technique approval. Bottom labels are posture samples and may lie within a dwell; phase durations are provisional. Source timestamps copied exactly, not inferred from rounded captions. Same labels locked before crop experiment; duplicate physical reps must not be counted twice.",
+      "uncertainty_s": 0.5,
+      "reps": [
+        {
+          "rep_id": "U1",
+          "start_s": 3.846667,
+          "bottom_s": 5.683333,
+          "end_s": 9.253333
+        },
+        {
+          "rep_id": "U2",
+          "start_s": 9.253333,
+          "bottom_s": 10.455,
+          "end_s": 13.358333
+        },
+        {
+          "rep_id": "U3",
+          "start_s": 13.358333,
+          "bottom_s": 15.228333,
+          "end_s": 18.131667
+        },
+        {
+          "rep_id": "U4",
+          "start_s": 18.131667,
+          "bottom_s": 20.201667,
+          "end_s": 22.603333
+        },
+        {
+          "rep_id": "U5",
+          "start_s": 22.603333,
+          "bottom_s": 24.44,
+          "end_s": 27.576667
+        }
+      ],
+      "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f"
+    },
+    {
+      "id": "user_roi_b",
+      "role": "user",
+      "pose_root": "artifacts/pose-smoke/lat-user-roi-b",
+      "video_path": "artifacts/development/lat-pulldown-subject-roi.mp4",
+      "side": "left",
+      "width": 320,
+      "height": 600,
+      "window_s": [
+        30,
+        54.98
+      ],
+      "view_id": "user_diagonal_unvalidated",
+      "variant": "bilateral_seated_front_lat_pulldown",
+      "axis": {
+        "version": "camera-plane-axis-v1",
+        "axis_id": "image_up_direction_provisional_not_gravity",
+        "up_xy": [
+          0,
+          -1
+        ],
+        "positive_cross_sign": 1
+      },
+      "review_status": "visual_provisional",
+      "annotation_origin": "Model-assisted proposals checked by Codex at start/bottom/end source frames. Not independent human labels or qualified technique approval. Bottom labels are posture samples and may lie within a dwell; phase durations are provisional. Source timestamps copied exactly, not inferred from rounded captions. Same labels locked before crop experiment; duplicate physical reps must not be counted twice.",
+      "uncertainty_s": 0.5,
+      "reps": [
+        {
+          "rep_id": "U6",
+          "start_s": 32.55,
+          "bottom_s": 33.651667,
+          "end_s": 36.021667
+        },
+        {
+          "rep_id": "U7",
+          "start_s": 38.223333,
+          "bottom_s": 39.558333,
+          "end_s": 41.695
+        },
+        {
+          "rep_id": "U8",
+          "start_s": 43.13,
+          "bottom_s": 44.631667,
+          "end_s": 46.468333
+        }
+      ],
+      "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f"
+    }
+  ],
+  "selection_notes": [
+    "QMotion final proposal excluded: no full return before extraction end.",
+    "Catalyst final proposal excluded: return clipped at extraction end.",
+    "IMSA intro-fade proposal excluded; first three following visually checked cycles selected.",
+    "User setup/initial partial, top-plateau false cycles, post-set standing and one cross-chunk cycle excluded. Split low-arm proposal fragments merged after source-frame review. No selection by agreement/score.",
+    "Temporal uncertainty is a declared provisional annotation allowance, not measured label accuracy or a validated motion phase boundary."
+  ],
+  "crop_provenance": {
+    "original_source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+    "derived_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f",
+    "crop_xywh": [
+      40,
+      180,
+      320,
+      600
+    ],
+    "no_trim_or_speed_change": true,
+    "purpose": "One fixed local diagnostic crop; original rep labels unchanged; not a production transform."
+  }
+}

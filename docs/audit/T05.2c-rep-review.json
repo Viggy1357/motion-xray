@@ -1,0 +1,4328 @@
+{
+  "authoritative": false,
+  "counts": {
+    "reference_clips": 3,
+    "reference_reps": 10,
+    "user_physical_reps": 8
+  },
+  "references": [
+    {
+      "profile_observed_ranges": {
+        "elbow_angle/estimated_3d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 95.34895097607053,
+          "value_min": 85.68730087417592
+        },
+        "elbow_angle/estimated_3d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 159.09039212657623,
+          "value_min": 156.96433349874334
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 76.12246048671858,
+          "value_min": 67.80057239455766
+        },
+        "elbow_angle/estimated_3d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 160.13603488858752,
+          "value_min": 158.74728206270652
+        },
+        "elbow_angle/estimated_3d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 92.33546249402985,
+          "value_min": 82.62482157598794
+        },
+        "elbow_angle/estimated_3d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 158.74728206270652,
+          "value_min": 154.10331352288364
+        },
+        "elbow_angle/projected_2d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 3.9171239733422927,
+          "value_min": 0.9426622372451164
+        },
+        "elbow_angle/projected_2d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 178.6637968269147,
+          "value_min": 163.9372926715441
+        },
+        "elbow_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 178.47782116763622,
+          "value_min": 174.40104256917127
+        },
+        "elbow_angle/projected_2d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 178.6637968269147,
+          "value_min": 174.97834424439694
+        },
+        "elbow_angle/projected_2d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 0.5773016752256782,
+          "value_min": 0.0091448168823158
+        },
+        "elbow_angle/projected_2d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 178.6637968269147,
+          "value_min": 163.9372926715441
+        },
+        "pull_duration_s": {
+          "provisional": true,
+          "unit": "seconds",
+          "valid_count": 4,
+          "value_max": 1.466667000000001,
+          "value_min": 0.8333339999999936
+        },
+        "return_duration_s": {
+          "provisional": true,
+          "unit": "seconds",
+          "valid_count": 4,
+          "value_max": 1.8666669999999996,
+          "value_min": 1.2000000000000028
+        },
+        "torso_axis_angle/projected_2d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 31.418216000809146,
+          "value_min": 23.30073249413566
+        },
+        "torso_axis_angle/projected_2d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 6.91545104974336,
+          "value_min": 0.7601301414350747
+        },
+        "torso_axis_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 26.84034327316766,
+          "value_min": 22.175893967891938
+        },
+        "torso_axis_angle/projected_2d/pull_change": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 25.687960878148857,
+          "value_min": 16.7895165606904
+        },
+        "torso_axis_angle/projected_2d/pull_excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 26.3309611123926,
+          "value_min": 16.984166811128574
+        },
+        "torso_axis_angle/projected_2d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 14.628699440118757,
+          "value_min": 0.7601301414350747
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 53.81956352706624,
+          "value_min": 49.32936462864003
+        },
+        "upper_arm_torso_angle/estimated_3d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 163.10245846580187,
+          "value_min": 156.30097387906815
+        },
+        "upper_arm_torso_angle/estimated_3d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 127.86404728114422,
+          "value_min": 110.11323421583941
+        },
+        "upper_arm_torso_angle/estimated_3d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 165.711961795566,
+          "value_min": 156.30097387906815
+        },
+        "upper_arm_torso_angle/estimated_3d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 51.11014994368597,
+          "value_min": 37.847914514421774
+        },
+        "upper_arm_torso_angle/estimated_3d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 163.10245846580187,
+          "value_min": 150.24142697175043
+        },
+        "upper_arm_torso_angle/projected_2d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 40.60108070465652,
+          "value_min": 30.412332596609613
+        },
+        "upper_arm_torso_angle/projected_2d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 177.38513509493612,
+          "value_min": 175.43322599459765
+        },
+        "upper_arm_torso_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 157.7975960499928,
+          "value_min": 148.4139077781999
+        },
+        "upper_arm_torso_angle/projected_2d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 179.88048657942656,
+          "value_min": 178.75593315609558
+        },
+        "upper_arm_torso_angle/projected_2d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 30.40441998716297,
+          "value_min": 21.886005680338485
+        },
+        "upper_arm_torso_angle/projected_2d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 4,
+          "value_max": 177.38513509493612,
+          "value_min": 172.22791454766036
+        }
+      },
+      "provenance": {
+        "axis": {
+          "axis_id": "image_up_direction_provisional_not_gravity",
+          "positive_cross_sign": 1,
+          "up_xy": [
+            0.0,
+            -1.0
+          ],
+          "version": "camera-plane-axis-v1"
+        },
+        "clip_id": "qmotion_roi",
+        "pose_artifact_hash": "7783173cef3cc36ab4267fc3f5db5aa85314825199e0d6b709f02e463d04bff2",
+        "source_pose_provenance": "artifacts/reference-analysis/qmotion-roi",
+        "source_sha256": "c5ce13c951e7aa13a4db748442b8675ab3dd0d9e961306f04761170e0f6385e1",
+        "variant": "bilateral_seated_front_lat_pulldown",
+        "view_id": "qmotion_roi_diagonal_unvalidated"
+      },
+      "rep_count": 4
+    },
+    {
+      "profile_observed_ranges": {
+        "elbow_angle/estimated_3d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 76.44084412427044,
+          "value_min": 71.52391662729273
+        },
+        "elbow_angle/estimated_3d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 157.30343425577985,
+          "value_min": 150.01638786803042
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 85.77951762848711,
+          "value_min": 82.17118268534301
+        },
+        "elbow_angle/estimated_3d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 157.30343425577985,
+          "value_min": 157.08406241026282
+        },
+        "elbow_angle/estimated_3d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 75.13225157043684,
+          "value_min": 71.52391662729273
+        },
+        "elbow_angle/estimated_3d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 157.30343425577985,
+          "value_min": 150.2108436449397
+        },
+        "elbow_angle/projected_2d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 51.59455117225208,
+          "value_min": 46.25830905473655
+        },
+        "elbow_angle/projected_2d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 170.39853006888538,
+          "value_min": 166.4463178423615
+        },
+        "elbow_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 132.78261724361667,
+          "value_min": 123.64965012263391
+        },
+        "elbow_angle/projected_2d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 179.09835961260322,
+          "value_min": 172.18629567401942
+        },
+        "elbow_angle/projected_2d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 48.5366455513855,
+          "value_min": 46.25830905473655
+        },
+        "elbow_angle/projected_2d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 169.74482387011932,
+          "value_min": 166.4463178423615
+        },
+        "pull_duration_s": {
+          "provisional": true,
+          "unit": "seconds",
+          "valid_count": 3,
+          "value_max": 1.0666670000000025,
+          "value_min": 0.9333330000000011
+        },
+        "return_duration_s": {
+          "provisional": true,
+          "unit": "seconds",
+          "valid_count": 3,
+          "value_max": 1.1666659999999993,
+          "value_min": 1.0999999999999979
+        },
+        "torso_axis_angle/projected_2d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 5.330768340907194,
+          "value_min": 3.9978016537619294
+        },
+        "torso_axis_angle/projected_2d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 0.9256002518243643,
+          "value_min": -1.13299448249341
+        },
+        "torso_axis_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 13.036010884902396,
+          "value_min": 9.145628970969028
+        },
+        "torso_axis_angle/projected_2d/pull_change": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 6.2121459401674315,
+          "value_min": 4.405168089082821
+        },
+        "torso_axis_angle/projected_2d/pull_excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 11.864038465312888,
+          "value_min": 8.597707650405368
+        },
+        "torso_axis_angle/projected_2d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 0.9256002518243643,
+          "value_min": -1.5878009213343636
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 24.251653410098402,
+          "value_min": 20.305817422160434
+        },
+        "upper_arm_torso_angle/estimated_3d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 158.8363266284185,
+          "value_min": 153.41207977348813
+        },
+        "upper_arm_torso_angle/estimated_3d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 138.05016198358476,
+          "value_min": 137.80217723530757
+        },
+        "upper_arm_torso_angle/estimated_3d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 158.86262427034052,
+          "value_min": 158.3559794057452
+        },
+        "upper_arm_torso_angle/estimated_3d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 21.06044703503295,
+          "value_min": 20.305817422160434
+        },
+        "upper_arm_torso_angle/estimated_3d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 158.8363266284185,
+          "value_min": 155.537848689298
+        },
+        "upper_arm_torso_angle/projected_2d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 16.598870373531373,
+          "value_min": 12.931854944375207
+        },
+        "upper_arm_torso_angle/projected_2d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 160.093706997577,
+          "value_min": 155.76617213763328
+        },
+        "upper_arm_torso_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 146.9189847807718,
+          "value_min": 145.84485668765615
+        },
+        "upper_arm_torso_angle/projected_2d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 161.29780563346213,
+          "value_min": 159.850839725147
+        },
+        "upper_arm_torso_angle/projected_2d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 15.452948945805987,
+          "value_min": 12.931854944375207
+        },
+        "upper_arm_torso_angle/projected_2d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 160.093706997577,
+          "value_min": 155.5514917176785
+        }
+      },
+      "provenance": {
+        "axis": {
+          "axis_id": "image_up_direction_provisional_not_gravity",
+          "positive_cross_sign": 1,
+          "up_xy": [
+            0.0,
+            -1.0
+          ],
+          "version": "camera-plane-axis-v1"
+        },
+        "clip_id": "catalyst_roi",
+        "pose_artifact_hash": "f3676f443b0dc7b876431d9abd1f4fa3d81ef0283a9791cdac5e3ff999fe5947",
+        "source_pose_provenance": "artifacts/reference-analysis/catalyst-roi",
+        "source_sha256": "7bc70c82e778449c4ead185a7c11e65125d9ead76421b7eb26880fd063e21ff0",
+        "variant": "bilateral_seated_front_lat_pulldown",
+        "view_id": "catalyst_roi_diagonal_unvalidated"
+      },
+      "rep_count": 3
+    },
+    {
+      "profile_observed_ranges": {
+        "elbow_angle/estimated_3d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 56.75838832970751,
+          "value_min": 46.61743544812073
+        },
+        "elbow_angle/estimated_3d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 148.20501973582677,
+          "value_min": 144.38731330285404
+        },
+        "elbow_angle/estimated_3d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 1,
+          "value_max": 93.76519649929557,
+          "value_min": 93.76519649929557
+        },
+        "elbow_angle/estimated_3d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 1,
+          "value_max": 148.72507787187345,
+          "value_min": 148.72507787187345
+        },
+        "elbow_angle/estimated_3d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 1,
+          "value_max": 54.959881372577875,
+          "value_min": 54.959881372577875
+        },
+        "elbow_angle/estimated_3d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 148.20501973582677,
+          "value_min": 146.14356099904415
+        },
+        "elbow_angle/projected_2d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 37.063702081443786,
+          "value_min": 29.89110888953271
+        },
+        "elbow_angle/projected_2d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 173.65572115477434,
+          "value_min": 165.90942176613368
+        },
+        "elbow_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 1,
+          "value_max": 143.85927291290136,
+          "value_min": 143.85927291290136
+        },
+        "elbow_angle/projected_2d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 1,
+          "value_max": 174.34469243548116,
+          "value_min": 174.34469243548116
+        },
+        "elbow_angle/projected_2d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 1,
+          "value_max": 30.48541952257981,
+          "value_min": 30.48541952257981
+        },
+        "elbow_angle/projected_2d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 173.65572115477434,
+          "value_min": 171.19247935550692
+        },
+        "pull_duration_s": {
+          "provisional": true,
+          "unit": "seconds",
+          "valid_count": 3,
+          "value_max": 1.5682340000000003,
+          "value_min": 1.1678339999999992
+        },
+        "return_duration_s": {
+          "provisional": true,
+          "unit": "seconds",
+          "valid_count": 3,
+          "value_max": 1.534866,
+          "value_min": 1.2679329999999993
+        },
+        "torso_axis_angle/projected_2d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 10.283419144009692,
+          "value_min": 9.159352991884587
+        },
+        "torso_axis_angle/projected_2d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 8.101351525481782,
+          "value_min": 5.559872500571093
+        },
+        "torso_axis_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 6.755093782306517,
+          "value_min": 5.376447226236394
+        },
+        "torso_axis_angle/projected_2d/pull_change": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 3.7096159357198246,
+          "value_min": 2.7528153108640367
+        },
+        "torso_axis_angle/projected_2d/pull_excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 6.741594445754856,
+          "value_min": 4.4597566692361
+        },
+        "torso_axis_angle/projected_2d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 6.770332244055169,
+          "value_min": 5.559872500571093
+        },
+        "upper_arm_torso_angle/estimated_3d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 42.116423175359685,
+          "value_min": 25.201357946145496
+        },
+        "upper_arm_torso_angle/estimated_3d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 156.26938594114475,
+          "value_min": 149.18962795449562
+        },
+        "upper_arm_torso_angle/estimated_3d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 134.32308790148286,
+          "value_min": 120.41571688751586
+        },
+        "upper_arm_torso_angle/estimated_3d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 159.52444584762836,
+          "value_min": 156.8039627042015
+        },
+        "upper_arm_torso_angle/estimated_3d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 38.536064551040056,
+          "value_min": 25.201357946145496
+        },
+        "upper_arm_torso_angle/estimated_3d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 157.17920464096102,
+          "value_min": 155.24401529426177
+        },
+        "upper_arm_torso_angle/projected_2d/bottom": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 11.103630988849588,
+          "value_min": 10.386884407958215
+        },
+        "upper_arm_torso_angle/projected_2d/end": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 159.8890924603256,
+          "value_min": 154.354911989184
+        },
+        "upper_arm_torso_angle/projected_2d/excursion": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 162.45263569306064,
+          "value_min": 159.8380800580367
+        },
+        "upper_arm_torso_angle/projected_2d/maximum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 163.63571493527743,
+          "value_min": 160.45265515845125
+        },
+        "upper_arm_torso_angle/projected_2d/minimum": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 1.1830792422167886,
+          "value_min": 0.5322340961417902
+        },
+        "upper_arm_torso_angle/projected_2d/start": {
+          "provisional": true,
+          "unit": "degrees",
+          "valid_count": 3,
+          "value_max": 159.9376939612081,
+          "value_min": 158.41782280129513
+        }
+      },
+      "provenance": {
+        "axis": {
+          "axis_id": "image_up_direction_provisional_not_gravity",
+          "positive_cross_sign": -1,
+          "up_xy": [
+            0.0,
+            -1.0
+          ],
+          "version": "camera-plane-axis-v1"
+        },
+        "clip_id": "imsa_right",
+        "pose_artifact_hash": "bc660b30473ee7a5fc820072b8206438be4dbbb7bfcd614e6098db0e09891f9a",
+        "source_pose_provenance": "artifacts/reference-analysis/imsa-right",
+        "source_sha256": "cf3fc103ff4f653477f5bd828eec9c1374304dd1e49ee70f89b0302e18b41d6a",
+        "variant": "bilateral_seated_front_lat_pulldown",
+        "view_id": "imsa_side_crop"
+      },
+      "rep_count": 3
+    }
+  ],
+  "user_pairs": [
+    {
+      "crop": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_roi_a",
+          "pose_artifact_hash": "100d10c1c55a59c9ae9c8966112779a42e7be9b54f2a277f18ab3354f5904d0d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-user-roi-a",
+          "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 5.689017,
+              "reason": null,
+              "unit": "degrees",
+              "value": 88.48284817412201
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.49015301579973
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 70.30067666751575
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 149.14027394030416
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 78.83959727278841
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 3.85385,
+              "reason": null,
+              "unit": "degrees",
+              "value": 146.34119873255614
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 5.689017,
+              "reason": null,
+              "unit": "degrees",
+              "value": 69.72608571206364
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 171.85574382178515
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 121.12842388852263
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 179.05565781606165
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 57.92723392753903
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 3.85385,
+              "reason": null,
+              "unit": "degrees",
+              "value": 168.75799465741622
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.8366660000000001
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 3.5699999999999994
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 5.689017,
+              "reason": null,
+              "unit": "degrees",
+              "value": 29.2281857832469
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 1.2530165991719582
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 38.09024370997392
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 27.024910025569767
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 32.55040779080244
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 3.85385,
+              "reason": null,
+              "unit": "degrees",
+              "value": 2.2032757576771425
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 5.689017,
+              "reason": null,
+              "unit": "degrees",
+              "value": 19.120923868468637
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.27096149267618
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.49659319638195
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 154.80358297146347
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 9.30698977508151
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 3.85385,
+              "reason": null,
+              "unit": "degrees",
+              "value": 137.5091567053393
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 5.689017,
+              "reason": null,
+              "unit": "degrees",
+              "value": 7.131643768332568
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.21681681496625
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 162.7140206372963
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 162.9785916875224
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.26457105022609984
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 3.85385,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.9571381667858
+            }
+          },
+          "label": {
+            "bottom_s": 5.683333,
+            "end_s": 9.253333,
+            "start_s": 3.846667
+          },
+          "rep_id": "U1"
+        }
+      },
+      "original": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_a",
+          "pose_artifact_hash": "d64e85131a466967b19758084e06520237fa2d0e78d9fbab295740a8fede793d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-full-a",
+          "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 5.683333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 85.03230646424757
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.23723487092792
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 70.2940871604803
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.4759606209068
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 80.18187346042649
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 3.846667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 149.26939100501704
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 5.683333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 66.96857202307348
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 175.29291510175577
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 119.42179654435054
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 179.4118526659699
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 59.99005612161935
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 3.846667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 167.21452648186008
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.8366660000000001
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 3.5699999999999994
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 5.683333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 25.286906889385477
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.5591579598959189
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 38.324876620837415
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 21.700099471710303
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 32.42988214663754
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 3.846667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 3.58680741767516
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 5.683333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 15.292546980996807
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 144.2008529301504
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 151.84797141414927
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 155.664625692127
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 3.8166542779777277
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 3.846667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 138.09913551642697
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 5.683333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 9.006266655405184
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 151.53314390554422
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 164.30005158695184
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 164.7884576219415
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.4884060349896607
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 3.846667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.36518002180753
+            }
+          },
+          "label": {
+            "bottom_s": 5.683333,
+            "end_s": 9.253333,
+            "start_s": 3.846667
+          },
+          "rep_id": "U1"
+        }
+      },
+      "rep_id": "U1"
+    },
+    {
+      "crop": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_roi_a",
+          "pose_artifact_hash": "100d10c1c55a59c9ae9c8966112779a42e7be9b54f2a277f18ab3354f5904d0d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-user-roi-a",
+          "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 10.46045,
+              "reason": null,
+              "unit": "degrees",
+              "value": 85.63762654056099
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.69731485231074
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 73.8038291785119
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.96986452961474
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 75.16603535110283
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.49015301579973
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 10.46045,
+              "reason": null,
+              "unit": "degrees",
+              "value": 57.92894343556563
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": 174.08497306884811
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 120.73578268460267
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 175.48274693151487
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 54.7469642469122
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 171.85574382178515
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.2016670000000005
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.903333
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 10.46045,
+              "reason": null,
+              "unit": "degrees",
+              "value": 30.34724174401109
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": -11.307136760570268
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 44.04967616811459
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 29.09422514483913
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 29.83597025698583
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 1.2530165991719582
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 10.46045,
+              "reason": null,
+              "unit": "degrees",
+              "value": 7.855998848541123
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": 158.7295799015692
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 156.7476780723251
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 160.82550285750287
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 4.07782478517778
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.27096149267618
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 10.46045,
+              "reason": null,
+              "unit": "degrees",
+              "value": 8.060154782874223
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": 169.41909727142874
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 169.9177045900453
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 171.6522293635211
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 1.7345247734757892
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 9.25925,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.21681681496625
+            }
+          },
+          "label": {
+            "bottom_s": 10.455,
+            "end_s": 13.358333,
+            "start_s": 9.253333
+          },
+          "rep_id": "U2"
+        }
+      },
+      "original": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_a",
+          "pose_artifact_hash": "d64e85131a466967b19758084e06520237fa2d0e78d9fbab295740a8fede793d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-full-a",
+          "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 26,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 10.455,
+              "reason": null,
+              "unit": "degrees",
+              "value": 65.59547529596662
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.43202414765574
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.23723487092792
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 10.455,
+              "reason": null,
+              "unit": "degrees",
+              "value": 58.92464459514472
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 178.2612102534519
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 175.29291510175577
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.2016670000000005
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.903333
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 10.455,
+              "reason": null,
+              "unit": "degrees",
+              "value": 28.727018777687867
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": -11.105088432562301
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 41.229833885115056
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 28.16786081779196
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 28.16786081779196
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.5591579598959189
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 10.455,
+              "reason": null,
+              "unit": "degrees",
+              "value": 20.327158137975715
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 164.70640261146096
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 162.02182481574678
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 165.84859958015727
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 3.8267747644104873
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 144.2008529301504
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 10.455,
+              "reason": null,
+              "unit": "degrees",
+              "value": 13.307503941510173
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 173.42262002405153
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 172.21258159278995
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 173.42262002405153
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 1.2100384312615908
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 9.253333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 151.53314390554422
+            }
+          },
+          "label": {
+            "bottom_s": 10.455,
+            "end_s": 13.358333,
+            "start_s": 9.253333
+          },
+          "rep_id": "U2"
+        }
+      },
+      "rep_id": "U2"
+    },
+    {
+      "crop": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_roi_a",
+          "pose_artifact_hash": "100d10c1c55a59c9ae9c8966112779a42e7be9b54f2a277f18ab3354f5904d0d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-user-roi-a",
+          "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 15.231883,
+              "reason": null,
+              "unit": "degrees",
+              "value": 84.49040076389664
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": 146.9388532868952
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 76.74518696343867
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 149.5237420480909
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 72.77855508465223
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.69731485231074
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 15.231883,
+              "reason": null,
+              "unit": "degrees",
+              "value": 63.341331070738626
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": 170.13294991193132
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 123.63333308893735
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 179.482645435909
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 55.84931234697165
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": 174.08497306884811
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.8699999999999992
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.903334000000001
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 15.231883,
+              "reason": null,
+              "unit": "degrees",
+              "value": 27.783121722774535
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": -3.952418771898242
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 43.84401592536952
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 39.0902584833448
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 41.025782462774
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": -11.307136760570268
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 15.231883,
+              "reason": null,
+              "unit": "degrees",
+              "value": 10.897359882340478
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.5788770327065
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.91760520261784
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 160.10686318659293
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 9.18925798397511
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": 158.7295799015692
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 15.231883,
+              "reason": null,
+              "unit": "degrees",
+              "value": 19.508200587022078
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": 156.40635832906844
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 168.65368689996967
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 169.77087303985078
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 1.1171861398811205
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 13.36335,
+              "reason": null,
+              "unit": "degrees",
+              "value": 169.41909727142874
+            }
+          },
+          "label": {
+            "bottom_s": 15.228333,
+            "end_s": 18.131667,
+            "start_s": 13.358333
+          },
+          "rep_id": "U3"
+        }
+      },
+      "original": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_a",
+          "pose_artifact_hash": "d64e85131a466967b19758084e06520237fa2d0e78d9fbab295740a8fede793d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-full-a",
+          "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 15.228333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 82.39860402396197
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.4478867412314
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 76.22870244726914
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.9925790536535
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 72.76387660638434
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.43202414765574
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 15.228333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 55.21564397830352
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 171.14368372649693
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 125.85975731697177
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 179.9244762504194
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 54.06471893344762
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 178.2612102534519
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.8699999999999992
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.903334000000001
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 15.228333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 25.258605333818167
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": -4.296235698954311
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 42.19600109695193
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 36.363693766380464
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 39.60404662809401
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": -11.105088432562301
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 15.228333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 8.70146908060167
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.50660843224182
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 162.16981508305264
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 164.84171982634336
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 2.671904743290737
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 164.70640261146096
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 15.228333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 20.960954318203058
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 157.71945207410891
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 174.75671241452056
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 175.19622458798392
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.43951217346336313
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 13.358333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 173.42262002405153
+            }
+          },
+          "label": {
+            "bottom_s": 15.228333,
+            "end_s": 18.131667,
+            "start_s": 13.358333
+          },
+          "rep_id": "U3"
+        }
+      },
+      "rep_id": "U3"
+    },
+    {
+      "crop": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_roi_a",
+          "pose_artifact_hash": "100d10c1c55a59c9ae9c8966112779a42e7be9b54f2a277f18ab3354f5904d0d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-user-roi-a",
+          "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 20.203517,
+              "reason": null,
+              "unit": "degrees",
+              "value": 87.34649943422717
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.32977517992785
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 66.25517993824604
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.4001999335843
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 82.14501999533826
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": 146.9388532868952
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 20.203517,
+              "reason": null,
+              "unit": "degrees",
+              "value": 61.995735847299706
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 166.98697812393507
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 118.90431480088805
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 177.64123207489834
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 58.73691727401029
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": 170.13294991193132
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.0700000000000003
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.4016659999999987
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 20.203517,
+              "reason": null,
+              "unit": "degrees",
+              "value": 27.637663233759675
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": -0.730598583499044
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 38.37912036357585
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 31.590082005657905
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 36.61217173282935
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": -3.952418771898242
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 20.203517,
+              "reason": null,
+              "unit": "degrees",
+              "value": 8.043259496720133
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 143.70615296039833
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 152.07303574943913
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 154.65250515198733
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 2.5794694025482037
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.5788770327065
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 20.203517,
+              "reason": null,
+              "unit": "degrees",
+              "value": 11.771450554933077
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.56623066995314
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 163.83729549995525
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 164.8427111200943
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 1.0054156201390327
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 18.134783,
+              "reason": null,
+              "unit": "degrees",
+              "value": 156.40635832906844
+            }
+          },
+          "label": {
+            "bottom_s": 20.201667,
+            "end_s": 22.603333,
+            "start_s": 18.131667
+          },
+          "rep_id": "U4"
+        }
+      },
+      "original": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_a",
+          "pose_artifact_hash": "d64e85131a466967b19758084e06520237fa2d0e78d9fbab295740a8fede793d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-full-a",
+          "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 26,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 20.201667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 80.82112144703258
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 146.68198614708064
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.4478867412314
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 20.201667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 60.51660074642329
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 165.33566573665698
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 171.14368372649693
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.0700000000000003
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.4016659999999987
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 20.201667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 27.421994597891437
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": -1.9641745819191017
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 38.87934372995406
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 31.718230296845746
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 36.96971291112325
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": -4.296235698954311
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 20.201667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 5.466343657117443
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.66569252906476
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 152.72398797859032
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 155.10912889868305
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 2.3851409200927316
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.50660843224182
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 20.201667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 14.767039448249417
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.9088312115946
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 167.27046181508334
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 167.28036926038013
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.009907445296793273
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 18.131667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 157.71945207410891
+            }
+          },
+          "label": {
+            "bottom_s": 20.201667,
+            "end_s": 22.603333,
+            "start_s": 18.131667
+          },
+          "rep_id": "U4"
+        }
+      },
+      "rep_id": "U4"
+    },
+    {
+      "crop": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_roi_a",
+          "pose_artifact_hash": "100d10c1c55a59c9ae9c8966112779a42e7be9b54f2a277f18ab3354f5904d0d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-user-roi-a",
+          "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 26,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 24.441083,
+              "reason": null,
+              "unit": "degrees",
+              "value": 82.81898288948761
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 27.57755,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.7009888395685
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.32977517992785
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 24.441083,
+              "reason": null,
+              "unit": "degrees",
+              "value": 67.10804602772818
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 27.57755,
+              "reason": null,
+              "unit": "degrees",
+              "value": 177.0338842144514
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 166.98697812393507
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.836667000000002
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 3.136666999999999
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 24.441083,
+              "reason": null,
+              "unit": "degrees",
+              "value": 27.01240335138985
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 27.57755,
+              "reason": null,
+              "unit": "degrees",
+              "value": -10.53014008663559
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 42.10531510970114
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 27.743001934888895
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 33.17476122518153
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": -0.730598583499044
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 24.441083,
+              "reason": null,
+              "unit": "degrees",
+              "value": 19.564472229801012
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 27.57755,
+              "reason": null,
+              "unit": "degrees",
+              "value": 155.00262850861472
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 153.66533382641373
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 155.62341717873588
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 1.9580833523221444
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 143.70615296039833
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 24.441083,
+              "reason": null,
+              "unit": "degrees",
+              "value": 14.718376033155982
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 27.57755,
+              "reason": null,
+              "unit": "degrees",
+              "value": 166.9636896198824
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 167.0617599537734
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 167.28366148338011
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.2219015296067241
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 22.605917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.56623066995314
+            }
+          },
+          "label": {
+            "bottom_s": 24.44,
+            "end_s": 27.576667,
+            "start_s": 22.603333
+          },
+          "rep_id": "U5"
+        }
+      },
+      "original": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_a",
+          "pose_artifact_hash": "d64e85131a466967b19758084e06520237fa2d0e78d9fbab295740a8fede793d",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-full-a",
+          "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 26,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 24.44,
+              "reason": null,
+              "unit": "degrees",
+              "value": 80.16787967820609
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 27.576667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 144.21283296241077
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 146.68198614708064
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 24.44,
+              "reason": null,
+              "unit": "degrees",
+              "value": 63.20257472774464
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 27.576667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 174.5689463882719
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 165.33566573665698
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.836667000000002
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 3.136666999999999
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 24.44,
+              "reason": null,
+              "unit": "degrees",
+              "value": 22.86608259966649
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 27.576667,
+              "reason": null,
+              "unit": "degrees",
+              "value": -12.118789330734312
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 44.406916728379144
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 24.83025718158558
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 32.74719479727648
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": -1.9641745819191017
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 24.44,
+              "reason": null,
+              "unit": "degrees",
+              "value": 21.570966347191412
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 27.576667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 161.75059303866576
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 158.1715869663355
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 162.30759959569826
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 4.136012629362755
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.66569252906476
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 24.44,
+              "reason": null,
+              "unit": "degrees",
+              "value": 13.51943732866684
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 27.576667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 169.12199291613726
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 168.90990120478634
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 169.12199291613726
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.21209171135092517
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 22.603333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.9088312115946
+            }
+          },
+          "label": {
+            "bottom_s": 24.44,
+            "end_s": 27.576667,
+            "start_s": 22.603333
+          },
+          "rep_id": "U5"
+        }
+      },
+      "rep_id": "U5"
+    },
+    {
+      "crop": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_roi_b",
+          "pose_artifact_hash": "8750a1dd37b4c1cb4ec17ff907d772c5d55acf4e515e480f8e4258d2bdbada61",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-user-roi-b",
+          "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 33.650283,
+              "reason": null,
+              "unit": "degrees",
+              "value": 82.9259922958005
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 36.019317,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.2186613640141
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 83.89627727998928
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.6786483106787
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 66.78237103068943
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 32.549183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.50794065749452
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 33.650283,
+              "reason": null,
+              "unit": "degrees",
+              "value": 56.446735388702
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 36.019317,
+              "reason": null,
+              "unit": "degrees",
+              "value": 173.7529201625526
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 121.86132659422125
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 173.7529201625526
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 51.891593568331366
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 32.549183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 171.46563969382666
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.1016670000000062
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.3699999999999974
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 33.650283,
+              "reason": null,
+              "unit": "degrees",
+              "value": 32.72636326394272
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 36.019317,
+              "reason": null,
+              "unit": "degrees",
+              "value": -3.003770740021444
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 41.22151373054413
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 32.51321594652532
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 33.0526745574349
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 32.549183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.21314731741741133
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 33.650283,
+              "reason": null,
+              "unit": "degrees",
+              "value": 7.395663241017479
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 36.019317,
+              "reason": null,
+              "unit": "degrees",
+              "value": 156.23386362702476
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.8382003860073
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 156.23386362702476
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 7.395663241017479
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 32.549183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.54453783981577
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 33.650283,
+              "reason": null,
+              "unit": "degrees",
+              "value": 10.033248204703888
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 36.019317,
+              "reason": null,
+              "unit": "degrees",
+              "value": 159.72212698619043
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 159.94613428606044
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 160.620502237465
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.674367951404557
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 32.549183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.4272648352615
+            }
+          },
+          "label": {
+            "bottom_s": 33.651667,
+            "end_s": 36.021667,
+            "start_s": 32.55
+          },
+          "rep_id": "U6"
+        }
+      },
+      "original": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_b",
+          "pose_artifact_hash": "6921510a53eae71a70c7ba2ac36bf35416762efb2e0aae17f2ff0541b99392b5",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-full-b",
+          "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 33.651667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 77.6587706218269
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 36.021667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 149.6173558152529
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 75.56215577095278
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 151.31782732955088
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 75.7556715585981
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 32.55,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.4462649278128
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 33.651667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 53.33625565082897
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 36.021667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 176.76157904321926
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 125.06373574152704
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 176.76157904321926
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 51.69784330169222
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 32.55,
+              "reason": null,
+              "unit": "degrees",
+              "value": 171.56482767269287
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.1016670000000062
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.3699999999999974
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 33.651667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 31.926701179930717
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 36.021667,
+              "reason": null,
+              "unit": "degrees",
+              "value": -6.404748979445102
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 40.57325698003925
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 32.91843548284214
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 34.006305454768125
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 32.55,
+              "reason": null,
+              "unit": "degrees",
+              "value": -0.9917343029114254
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 33.651667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 2.7592059226922965
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 36.021667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 158.21420055517183
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 157.09065738349804
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 158.21420055517183
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 1.1235431716737854
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 32.55,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.9734986081205
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 33.651667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 12.172756270744808
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 36.021667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 165.95327413337904
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 165.01250462051473
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 165.95327413337904
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.9407695128642969
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 32.55,
+              "reason": null,
+              "unit": "degrees",
+              "value": 151.46778630380933
+            }
+          },
+          "label": {
+            "bottom_s": 33.651667,
+            "end_s": 36.021667,
+            "start_s": 32.55
+          },
+          "rep_id": "U6"
+        }
+      },
+      "rep_id": "U6"
+    },
+    {
+      "crop": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_roi_b",
+          "pose_artifact_hash": "8750a1dd37b4c1cb4ec17ff907d772c5d55acf4e515e480f8e4258d2bdbada61",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-user-roi-b",
+          "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 39.556183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 77.53620997817733
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 41.69165,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.79963334705297
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 81.31988013592469
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.79963334705297
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 69.47975321112828
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 38.221517,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.9314711095544
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 39.556183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 51.20363231458454
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 41.69165,
+              "reason": null,
+              "unit": "degrees",
+              "value": 164.95972488014738
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 124.10968338290864
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 175.31331569749318
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 51.20363231458454
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 38.221517,
+              "reason": null,
+              "unit": "degrees",
+              "value": 173.2585582232765
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.3350000000000009
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.1366670000000028
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 39.556183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 25.415437419482597
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 41.69165,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.517618614974955
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 29.890273088781726
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 27.93107890018109
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 29.604761529790153
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 38.221517,
+              "reason": null,
+              "unit": "degrees",
+              "value": -2.5156414806984917
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 39.556183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 9.163338948700105
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 41.69165,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.34365979426573
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.64695196929728
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 151.1011957485586
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 2.4542437792613283
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 38.221517,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.5591010517208
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 39.556183,
+              "reason": null,
+              "unit": "degrees",
+              "value": 10.246037408580298
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 41.69165,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.57513860596328
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 157.1901863582374
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 157.96581038592825
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.7756240276908448
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 38.221517,
+              "reason": null,
+              "unit": "degrees",
+              "value": 157.28257030255355
+            }
+          },
+          "label": {
+            "bottom_s": 39.558333,
+            "end_s": 41.695,
+            "start_s": 38.223333
+          },
+          "rep_id": "U7"
+        }
+      },
+      "original": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_b",
+          "pose_artifact_hash": "6921510a53eae71a70c7ba2ac36bf35416762efb2e0aae17f2ff0541b99392b5",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-full-b",
+          "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 26,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 39.558333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 84.07467615113688
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 41.695,
+              "reason": null,
+              "unit": "degrees",
+              "value": 149.65123348908762
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 38.223333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 149.22051224183048
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 39.558333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 53.51401323380434
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 41.695,
+              "reason": null,
+              "unit": "degrees",
+              "value": 167.8736836591227
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": "missing_observation",
+              "unit": "degrees",
+              "value": null
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 38.223333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 175.94856906228043
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.3350000000000009
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 2.1366670000000028
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 39.558333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 26.534142680185777
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 41.695,
+              "reason": null,
+              "unit": "degrees",
+              "value": -2.0271089984315673
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 32.86625972760302
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 31.42153601018029
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 32.03026566614352
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 38.223333,
+              "reason": null,
+              "unit": "degrees",
+              "value": -4.8873933299945085
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 39.558333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.8128622665528874
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 41.695,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.74412191442872
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 154.68301229801168
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 155.49587456456456
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.8128622665528874
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 38.223333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 154.1909369393935
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 39.558333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 9.879299645980506
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 41.695,
+              "reason": null,
+              "unit": "degrees",
+              "value": 154.78707974939974
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 162.60292151737133
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 163.07551286959156
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.4725913522202321
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 38.223333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 160.90550818404603
+            }
+          },
+          "label": {
+            "bottom_s": 39.558333,
+            "end_s": 41.695,
+            "start_s": 38.223333
+          },
+          "rep_id": "U7"
+        }
+      },
+      "rep_id": "U7"
+    },
+    {
+      "crop": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_roi_b",
+          "pose_artifact_hash": "8750a1dd37b4c1cb4ec17ff907d772c5d55acf4e515e480f8e4258d2bdbada61",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-user-roi-b",
+          "source_sha256": "d6014ef2ba01c4c1416177dcac6203f3c77e59a7e5d360fd94165280a7c3503f",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 44.627917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 86.51644873941984
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 46.463083,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.23806667063252
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 74.78766953681536
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 149.33922773652284
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 74.55155819970749
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 43.126417,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.16379796943932
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 44.627917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 66.42362740473854
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 46.463083,
+              "reason": null,
+              "unit": "degrees",
+              "value": 168.9344252256585
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 118.42234030771174
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 170.71716053582267
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 52.294820228110936
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 43.126417,
+              "reason": null,
+              "unit": "degrees",
+              "value": 169.1201363497278
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.5016669999999976
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.836666000000001
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 44.627917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 29.342512546229006
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 46.463083,
+              "reason": null,
+              "unit": "degrees",
+              "value": -2.781527656761521
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 38.007556819745986
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 25.782784703730044
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 30.12669365133183
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 43.126417,
+              "reason": null,
+              "unit": "degrees",
+              "value": 3.5597278424989613
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 44.627917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 25.270760245688415
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 46.463083,
+              "reason": null,
+              "unit": "degrees",
+              "value": 152.83433268181454
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 147.05987840342732
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 153.05940355794877
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 5.999525154521442
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 43.126417,
+              "reason": null,
+              "unit": "degrees",
+              "value": 143.02217760114735
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 44.627917,
+              "reason": null,
+              "unit": "degrees",
+              "value": 16.21195775748346
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 46.463083,
+              "reason": null,
+              "unit": "degrees",
+              "value": 155.75849799481153
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 155.3491754450886
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 155.75849799481153
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.40932254972293614
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 43.126417,
+              "reason": null,
+              "unit": "degrees",
+              "value": 145.9885836064779
+            }
+          },
+          "label": {
+            "bottom_s": 44.631667,
+            "end_s": 46.468333,
+            "start_s": 43.13
+          },
+          "rep_id": "U8"
+        }
+      },
+      "original": {
+        "provenance": {
+          "axis": {
+            "axis_id": "image_up_direction_provisional_not_gravity",
+            "positive_cross_sign": 1,
+            "up_xy": [
+              0.0,
+              -1.0
+            ],
+            "version": "camera-plane-axis-v1"
+          },
+          "clip_id": "user_b",
+          "pose_artifact_hash": "6921510a53eae71a70c7ba2ac36bf35416762efb2e0aae17f2ff0541b99392b5",
+          "source_pose_provenance": "artifacts/pose-smoke/lat-full-b",
+          "source_sha256": "840086a767bbaa4a7f12c2c94f0ba95a7379b231b85dd72cfb61fdda7f49f772",
+          "variant": "bilateral_seated_front_lat_pulldown",
+          "view_id": "user_diagonal_unvalidated"
+        },
+        "rep": {
+          "available_count": 32,
+          "components": {
+            "elbow_angle/estimated_3d/bottom": {
+              "actual_pts_s": 44.631667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 82.46926910772207
+            },
+            "elbow_angle/estimated_3d/end": {
+              "actual_pts_s": 46.468333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.1159542406258
+            },
+            "elbow_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 68.50940737937869
+            },
+            "elbow_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 150.5773397145484
+            },
+            "elbow_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 82.06793233516971
+            },
+            "elbow_angle/estimated_3d/start": {
+              "actual_pts_s": 43.13,
+              "reason": null,
+              "unit": "degrees",
+              "value": 148.73754351433237
+            },
+            "elbow_angle/projected_2d/bottom": {
+              "actual_pts_s": 44.631667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 63.14139848084449
+            },
+            "elbow_angle/projected_2d/end": {
+              "actual_pts_s": 46.468333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 171.53919071488482
+            },
+            "elbow_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 117.00161584103489
+            },
+            "elbow_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 171.53919071488482
+            },
+            "elbow_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 54.53757487384994
+            },
+            "elbow_angle/projected_2d/start": {
+              "actual_pts_s": 43.13,
+              "reason": null,
+              "unit": "degrees",
+              "value": 170.94419719113662
+            },
+            "pull_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.5016669999999976
+            },
+            "return_duration_s": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "seconds",
+              "value": 1.836666000000001
+            },
+            "torso_axis_angle/projected_2d/bottom": {
+              "actual_pts_s": 44.631667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 25.2738620397368
+            },
+            "torso_axis_angle/projected_2d/end": {
+              "actual_pts_s": 46.468333,
+              "reason": null,
+              "unit": "degrees",
+              "value": -5.512471923314153
+            },
+            "torso_axis_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 39.40964532658032
+            },
+            "torso_axis_angle/projected_2d/pull_change": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 20.668525835456222
+            },
+            "torso_axis_angle/projected_2d/pull_excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 29.29183719898558
+            },
+            "torso_axis_angle/projected_2d/start": {
+              "actual_pts_s": 43.13,
+              "reason": null,
+              "unit": "degrees",
+              "value": 4.605336204280587
+            },
+            "upper_arm_torso_angle/estimated_3d/bottom": {
+              "actual_pts_s": 44.631667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 24.259180170379683
+            },
+            "upper_arm_torso_angle/estimated_3d/end": {
+              "actual_pts_s": 46.468333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 154.77114713503252
+            },
+            "upper_arm_torso_angle/estimated_3d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 149.53361519723182
+            },
+            "upper_arm_torso_angle/estimated_3d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 154.77114713503252
+            },
+            "upper_arm_torso_angle/estimated_3d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 5.237531937800706
+            },
+            "upper_arm_torso_angle/estimated_3d/start": {
+              "actual_pts_s": 43.13,
+              "reason": null,
+              "unit": "degrees",
+              "value": 142.1714507078307
+            },
+            "upper_arm_torso_angle/projected_2d/bottom": {
+              "actual_pts_s": 44.631667,
+              "reason": null,
+              "unit": "degrees",
+              "value": 17.74592207844453
+            },
+            "upper_arm_torso_angle/projected_2d/end": {
+              "actual_pts_s": 46.468333,
+              "reason": null,
+              "unit": "degrees",
+              "value": 160.67076974273328
+            },
+            "upper_arm_torso_angle/projected_2d/excursion": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 160.29417684164574
+            },
+            "upper_arm_torso_angle/projected_2d/maximum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 160.67076974273328
+            },
+            "upper_arm_torso_angle/projected_2d/minimum": {
+              "actual_pts_s": null,
+              "reason": null,
+              "unit": "degrees",
+              "value": 0.37659290108756016
+            },
+            "upper_arm_torso_angle/projected_2d/start": {
+              "actual_pts_s": 43.13,
+              "reason": null,
+              "unit": "degrees",
+              "value": 146.2446950280475
+            }
+          },
+          "label": {
+            "bottom_s": 44.631667,
+            "end_s": 46.468333,
+            "start_s": 43.13
+          },
+          "rep_id": "U8"
+        }
+      },
+      "rep_id": "U8"
+    }
+  ],
+  "valid_technique_score": null,
+  "version": "lat-rep-labels-user-roi-v1"
+}

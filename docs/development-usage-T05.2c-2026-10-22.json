@@ -1,0 +1,253 @@
+{
+  "as_of": "2026-10-22",
+  "task": "T05.2c",
+  "requests": [
+    {
+      "task": "T05.2c",
+      "model": "moonshotai/Kimi-K3",
+      "request": "t052c-metrics",
+      "status": "accepted_after_local_checks",
+      "maximum_cost_usd": 0.235713,
+      "input_token_bound": 31071,
+      "output_token_bound": 9500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Kimi K3 provider catalog previously verified USD3/15 per million; no cache discount",
+      "usage": {
+        "completion_tokens": 2613,
+        "prompt_tokens": 6613,
+        "total_tokens": 9226,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 239
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "605ccf8060f24f95a0aee262d0b01474",
+      "elapsed_s": 15.79,
+      "received_chars": 9206,
+      "conservative_cost_usd": 0.059034
+    },
+    {
+      "task": "T05.2c",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t052c-tests",
+      "status": "accepted_after_local_checks",
+      "maximum_cost_usd": 0.13174,
+      "input_token_bound": 44620,
+      "output_token_bound": 8500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 4551,
+        "prompt_tokens": 11061,
+        "total_tokens": 15612,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 11061
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-df6b7058677e79cc15a3a77db309d7c1",
+      "elapsed_s": 13.75,
+      "received_chars": 14349,
+      "conservative_cost_usd": 0.044877
+    },
+    {
+      "task": "T05.2c",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t052c-runner",
+      "status": "rejected_superseded_by_qc",
+      "maximum_cost_usd": 0.11268,
+      "input_token_bound": 30090,
+      "output_token_bound": 10500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5291,
+        "prompt_tokens": 5960,
+        "total_tokens": 11251,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 5960
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-c2be737a201bd35739b2c694dba78da3",
+      "elapsed_s": 16.29,
+      "received_chars": 19364,
+      "conservative_cost_usd": 0.038375
+    },
+    {
+      "task": "T05.2c",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t052c-prepare",
+      "status": "accepted_after_local_checks",
+      "maximum_cost_usd": 0.09017800000000001,
+      "input_token_bound": 23839,
+      "output_token_bound": 8500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 4437,
+        "prompt_tokens": 4553,
+        "total_tokens": 8990,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 4521
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-fcb09333ed84a9e5b80fdca544a45ce8",
+      "elapsed_s": 15.88,
+      "received_chars": 15957,
+      "conservative_cost_usd": 0.031291
+    },
+    {
+      "task": "T05.2c",
+      "model": "moonshotai/Kimi-K3",
+      "request": "t052c-runner-qc",
+      "status": "accepted_after_local_checks",
+      "maximum_cost_usd": 0.308955,
+      "input_token_bound": 45485,
+      "output_token_bound": 11500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Kimi K3 USD3/15 per million guard, no cache discount",
+      "usage": {
+        "completion_tokens": 7862,
+        "prompt_tokens": 10070,
+        "total_tokens": 17932,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 1797
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "052e9e3bf3cb4ed0840efd867c36e665",
+      "elapsed_s": 85.45,
+      "received_chars": 22011,
+      "conservative_cost_usd": 0.14814
+    },
+    {
+      "task": "T05.2c",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "t052c-render",
+      "status": "rejected_superseded_by_qc",
+      "maximum_cost_usd": 0.097834,
+      "input_token_bound": 21417,
+      "output_token_bound": 11000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5779,
+        "prompt_tokens": 4045,
+        "total_tokens": 9824,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 32
+        },
+        "prompt_cache_hit_tokens": 32,
+        "prompt_cache_miss_tokens": 4013
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 2,
+      "output_rate_usd_per_million": 5,
+      "request_id": "chatcmpl-e199c293fee84501ff671aabf85180c0",
+      "elapsed_s": 21.2,
+      "received_chars": 21000,
+      "conservative_cost_usd": 0.036985000000000004
+    },
+    {
+      "task": "T05.2c",
+      "model": "moonshotai/Kimi-K3",
+      "request": "t052c-render-qc",
+      "status": "accepted_after_local_checks",
+      "maximum_cost_usd": 0.232929,
+      "input_token_bound": 22643,
+      "output_token_bound": 11000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Kimi K3 USD3/15 per million guard, no cache discount",
+      "usage": {
+        "completion_tokens": 5309,
+        "prompt_tokens": 4497,
+        "total_tokens": 9806,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 288
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "91f674dcde5d4bd08953d811b3d83ce0",
+      "elapsed_s": 25.55,
+      "received_chars": 17481,
+      "conservative_cost_usd": 0.093126
+    }
+  ],
+  "reported_tokens": 82641,
+  "cumulative_task_ceiling": 200000,
+  "conservative_cost_usd": 0.451828,
+  "aggregate_commitment_including_historical_contingency_usd": 5.768423649999999,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "backup_activated": false,
+  "historical_unknown_calls": 4,
+  "unknown_history_contingency_usd": 1,
+  "private_media_sent": false,
+  "paid_product_runtime_calls": 0,
+  "tavily_credits_used": 0,
+  "automatic_retries": 0,
+  "peak_concurrent_calls": 3,
+  "batch_sizes": [
+    4,
+    3
+  ],
+  "notes": [
+    "All seven model generation/review calls were direct Nebius. Rejected runner and renderer drafts remain accounted; focused K3 repairs accepted after checks.",
+    "No private footage, pose arrays or user measurement values sent to any development worker. Renderer loads measurements locally.",
+    "Codex bounded integration: unused imports, pose test-writer/manifest contract fixes, one boundary-test setup, two strict-validation test resets, private helper artifact/timestamp-cache corrections, renderer count/units/format validation. No large product implementation fallback.",
+    "One sandbox approval review timed out before Docker execution; narrowed-mount retry succeeded. This was not a Nebius model call or billing event.",
+    "Local CPU inference extended original/cropped user footage; same labels locked across representations; no masking/scoring threshold changed.",
+    "Seven of eight selected user reps have all current generated components after crop; bar endpoint is outside these32 and remains unavailable. Counts do not imply pose accuracy or technique correctness."
+  ]
+}

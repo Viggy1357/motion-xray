@@ -1,0 +1,94 @@
+{
+  "version": "rep-observations-v1",
+  "label": {
+    "rep_id": "synthetic-001",
+    "side": "left",
+    "start_s": 0.0,
+    "bottom_s": 0.5,
+    "end_s": 1.0
+  },
+  "max_gap_s": 0.5,
+  "observations": [
+    {
+      "frame_index": 0,
+      "timestamp_s": 0.0,
+      "side": "left",
+      "metric": "torso_axis_angle",
+      "space": "projected_2d",
+      "value": 10.0,
+      "reason": null
+    },
+    {
+      "frame_index": 1,
+      "timestamp_s": 0.5,
+      "side": "left",
+      "metric": "torso_axis_angle",
+      "space": "projected_2d",
+      "value": 30.0,
+      "reason": null
+    },
+    {
+      "frame_index": 2,
+      "timestamp_s": 1.0,
+      "side": "left",
+      "metric": "torso_axis_angle",
+      "space": "projected_2d",
+      "value": 10.0,
+      "reason": null
+    },
+    {
+      "frame_index": 0,
+      "timestamp_s": 0.0,
+      "side": "left",
+      "metric": "elbow_angle",
+      "space": "projected_2d",
+      "value": 160.0,
+      "reason": null
+    },
+    {
+      "frame_index": 1,
+      "timestamp_s": 0.5,
+      "side": "left",
+      "metric": "elbow_angle",
+      "space": "projected_2d",
+      "value": 70.0,
+      "reason": null
+    },
+    {
+      "frame_index": 2,
+      "timestamp_s": 1.0,
+      "side": "left",
+      "metric": "elbow_angle",
+      "space": "projected_2d",
+      "value": 160.0,
+      "reason": null
+    },
+    {
+      "frame_index": 0,
+      "timestamp_s": 0.0,
+      "side": "left",
+      "metric": "upper_arm_torso_angle",
+      "space": "projected_2d",
+      "value": 150.0,
+      "reason": null
+    },
+    {
+      "frame_index": 1,
+      "timestamp_s": 0.5,
+      "side": "left",
+      "metric": "upper_arm_torso_angle",
+      "space": "projected_2d",
+      "value": 30.0,
+      "reason": null
+    },
+    {
+      "frame_index": 2,
+      "timestamp_s": 1.0,
+      "side": "left",
+      "metric": "upper_arm_torso_angle",
+      "space": "projected_2d",
+      "value": 150.0,
+      "reason": null
+    }
+  ]
+}

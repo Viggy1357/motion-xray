@@ -63,6 +63,14 @@ gross landmark errors; confidence masks alone do not establish geometric accurac
 Per-rep calibration, bar/chest measurement and valid scoring remain pending. See
 `audit/T05.2b-posture-observations.md`; no public schema or existing threshold changed.
 
+T05.2c adds internal explicit-label per-rep observations and an offline review runner.
+Measured event angles remain separate from complete-span ROM; invalid spans stay null.
+Reference observed ranges stay per source, not pooled across camera views. A controlled
+user-crop diagnostic raises all-current-component coverage from4/8 to7/8 selected reps,
+with no new score or public-report integration. See `audit/T05.2c-rep-review.md` and
+`measurement/T05.2c-rep-protocol.md`; reference compatibility, scoring calibration and
+bar/chest localization remain pending. Production HTTP reports remain pose-only.
+
 | Boundary | Owner / planned integration |
 | --- | --- |
 | Decode → canonical pose | T04 `mediapipe_provider.py`; preserve PTS and actual observations. Conditional `subject_tracking.py` associates detections; conditional `rtmlib_provider.py` implements the same protocol. |

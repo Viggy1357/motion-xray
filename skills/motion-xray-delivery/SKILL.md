@@ -73,6 +73,14 @@ secondary. Five-source rubric exists; do not repeat discovery or T04 setup. Bar
 endpoint and an approved aggregate remain unavailable. Keep Nebius substantive work
 dominant and Codex coordination/integration light per the owner's preference.
 
+T05.2c latest: `docs/audit/T05.2c-rep-review.md` and
+`docs/measurement/T05.2c-rep-protocol.md`. Explicit-label measurement proof now covers
+10reference/8user reps,7 user reps with all current generated torso/arm components
+after one fixed crop;625 full Python tests. No bar endpoint or aggregate score.
+Local review http://localhost:8865/t052c.html . Next T06.2 compatible source/view policy,
+checked component calibration and bar-endpoint evidence before T07 scoring. Do not
+re-label these provisional model-assisted samples as independent human ground truth.
+
 1. Inspect git status and the previous task's evidence. Identify existing unfinished
    changes before editing; do not overwrite or commit another agent's work.
 2. Claim one bounded TASKS work package. State its FRs, concrete output and check.
