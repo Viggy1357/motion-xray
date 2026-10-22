@@ -13,6 +13,26 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 ## Legend
 - `todo` not started · `wip` in progress · `blocked` waiting · `done` evidence recorded
 
+## T23 — Hackathon MVP execution plan · status: done (planning only) ·22 October
+
+- Owner accepts the analysis-first direction, asks for exact work/delegation steps,
+  confirms same-browser profile first and free-first hosting. No implementation agents
+  or paid model requests launched in this planning turn.
+- **FRs:** FR01–FR12 plus explicit personal workout/profile product scope.
+- **Plan:** `docs/HACKATHON-EXECUTION-PLAN.md`: HM00–HM13, dependencies, file boundaries,
+  acceptance gates, screen states, contract/ownership/media/report/quality/LLM paths,
+  four-clip exercise rollout, free hosting feasibility, release/submission checklist.
+- **Ready packets:** `docs/delegation/HM-BATCH-A.md`; next delegation starts onlyBatch A.
+  All HM packages remain todo. Existing accepted code checkpoint1548920 is preserved.
+- **Current gap verified:** main web page and runtime Nemotron provider are still
+  scaffolds; published reports remain pose-only. Current30s caps reject55.11s lat and
+ 39.92s press originals; plan includes coordinated60s limit and full-set acceptance.
+- **Checks:** current sources/clip metadata inspected read-only in Docker; official
+  hackathon/FAQ/3D docs checked; plan/links/whitespace checked. No application behavior
+  changed, no new dependency, tests not rerun for documentation-only work.
+- **Next:** HM00 flow/mockup + HM01 contract proposal + read-only deployment/runtime
+  readiness in parallel; one integration gate before dependent source implementation.
+
 ## Active priority — measurement and reviewed comparison (22 October)
 
 **Latest owner override:** benchmark assessment is frozen at its current provisional

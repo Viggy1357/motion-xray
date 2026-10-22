@@ -7,6 +7,11 @@ workflow is paused. This plan does not claim the MVP is built.
 
 ## Start here
 
+Authoritative next plan: `HACKATHON-EXECUTION-PLAN.md` (T23, HM00–HM13) and prepared
+`delegation/HM-BATCH-A.md`. Owner confirms same-browser profile/free-first hosting;
+start with reviewable mockup/contracts/read-only feasibility, then integrate the first
+working lat product loop. Do not dispatch implementation during the planning turn.
+
 Latest22 October owner direction supersedes the measurement-first hold: freeze the
 current benchmark assessment, checkpoint the current implementation, then discuss the
 hackathon product slice before a UI/features build. See D015 and

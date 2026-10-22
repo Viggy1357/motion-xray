@@ -24,6 +24,12 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 ## Resume one task
 
+T23 execution plan is now prepared: read `docs/HACKATHON-EXECUTION-PLAN.md` and
+`docs/delegation/HM-BATCH-A.md`. Owner confirms same-browser profile first/free-first
+hosting. Next delegation is Batch A only, then contract/mockup integration before
+dependent source work. Current web page/runtime Nemotron are still scaffolded; full
+lat/press inputs need coordinated duration-limit work. Benchmark research stays held.
+
 Latest22 October owner override: benchmark assessment is frozen. Read D015 and
 `docs/HACKATHON-MVP-DIRECTION.md` before resuming; brainstorm the hackathon product
 slice before implementing new UI/features. Earlier measurement-first downstream holds

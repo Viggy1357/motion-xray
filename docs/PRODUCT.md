@@ -10,6 +10,23 @@ not correctness, safety, or effectiveness.
 
 ## Scope (P0)
 
+### Active hackathon release profile (22 October2026)
+
+The owner accepts an analysis-first gym companion and requests the execution plan in
+`HACKATHON-EXECUTION-PLAN.md` before delegation. Target exercises are lat pulldown,
+dumbbell curl, bodyweight squat and incline chest press (actual press variant checked
+at intake); lateral raise is deferred for this release. This overrides the historical
+exercise list below without claiming that all four are implemented.
+
+Same-browser profile/workout log first; no cross-device sign-in. Free-first hosting,
+with unavoidable cost flagged before activation. Current baseline comparison stays
+provisional; deeper calibration is held. Report estimates, observation coverage and
+missing components separately. Rep corrections, simple routines and the illustrative
+muscle view support the main upload->analysis->coaching->log flow, with the optional
+feature cut line in the execution plan. External camera hardware remains later scope.
+
+### Original P0 specification (retained for traceability)
+
 The P0 pipeline is: capture/upload → pose extraction → rep segmentation → exercise
 metrics → reference comparison → deterministic similarity score → grounded coaching.
 Results are shown as synchronized video + 2D overlay + rotatable 3D skeleton + a shared

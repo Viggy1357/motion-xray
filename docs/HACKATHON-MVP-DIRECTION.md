@@ -1,8 +1,9 @@
-# Hackathon product direction — discussion draft
+# Hackathon product direction — accepted planning basis
 
-22 October2026. The owner explicitly freezes further benchmark assessment and
-prioritizes a functional Nebius global hackathon application. Feature choices below
-are proposals for discussion, not an approved UI build or completed functionality.
+22 October2026. The owner accepts the analysis-first direction and requests a detailed
+execution plan before delegations. Same-browser profile first; aim for free hosting
+and flag unavoidable cost. Feature delivery/cut lines and acceptance now live in
+`HACKATHON-EXECUTION-PLAN.md`; no feature is complete merely because it is planned.
 
 ## Confirmed direction
 
@@ -59,7 +60,8 @@ and [official rules](https://nebiusglobalaihackathon.devpost.com/rules).
 
 ## Next discussion
 
-Agree on analysis-first vs character-first presentation; prioritise the small feature
-set; then prepare a screen-flow mockup before implementation. Keep Nebius-led bounded
-drafting and light Codex integration/QC. Submission integration, not further benchmark
-assessment, becomes the next implementation priority once this product slice is agreed.
+Analysis-first is the accepted planning basis. Next delegation prepares a screen-flow
+mockup, contract proposal and hosting/runtime feasibility, then an integration gate
+before implementation. See `delegation/HM-BATCH-A.md`. Keep Nebius-led bounded drafts
+and light Codex integration/QC. Submission integration, not further benchmark research,
+is the next implementation priority.
