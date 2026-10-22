@@ -29,12 +29,25 @@ other way round. Missing reference approval blocks a valid technique score, whil
 measurement implementation and candidate research can proceed independently.
 
 Latest review: T05.1 raw observations and T06.1b experimental review packet exist.
-The owner reports ten reps in the full lat set and prefers QMotion's corrected form.
-The trial compared only one excerpt candidate and omitted torso lean/sway; its92-point
-angle agreement is not an accepted technique score. Next bounded task is T05.2:
-whole-set independent rep labels, torso measurement definitions and a timestamped
-component comparison. See `docs/measurement/T05.2-owner-feedback.md`. No new
-coding/provider batch is claimed by this feedback intake. Other work stays held.
+The owner reports ten reps but **more than five usable reps suffice** for the first
+posture/scoring proof; exact counting is not the acceptance target. QMotion's corrected
+form is preferred. The trial omitted torso lean/sway; its92-point agreement is not an
+accepted technique score. Current sequence: existing repo fit assessment -> roughly
+five credible sources consolidated into the exercise metric rubric -> two/three
+reference-video calibration -> user component deviations and scoring -> detailed
+timestamped guidance. Reference-derived3D is distant future scope, not user multi-camera
+capture. Next bounded T05.2/T06.1 output is the sourced rubric/measurement matrix;
+see `docs/measurement/POSTURE-BENCHMARK-WORKFLOW.md`. Other work stays held.
+
+### T05.2/T06.1 workflow clarification · 22 Oct · FR05/FR07/FR08/FR11/FR12
+- **Claim:** Codex; bounded documentation clarification, not a new implementation batch.
+- **Changed:** Current posture benchmark workflow, feedback note, TASKS and DELIVERY.
+- **Checks:** Existing reuse/integration reviews inspected for fit and gaps; documentation
+  whitespace checks. No new dependency, threshold, runtime code or paid provider call.
+- **Limits:** The five-source synthesis and reference calibration remain to be completed;
+  no benchmark range or validated score was established by this documentation update.
+- **Next:** T05.2/T06.1 sourced metric matrix first, using existing resources before
+  targeted web research. Preserve independent quality gates without an all-ten-rep gate.
 
 ## T16 — Recovery audit and delivery workflow · status: done · 19 Oct
 - **FRs:** FR01–FR12 (traceability and delivery gates).

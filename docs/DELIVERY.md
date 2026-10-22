@@ -17,6 +17,14 @@ report API. See `audit/T08.1b.3-lifecycle.md`. Results remain pose-only.
 ## Priority override — 22 October 2026
 
 User prioritizes the core measurement and reviewed-technique comparison first.
+Latest clarification: posture/scoring proof on more than five usable repetitions is
+sufficient; exact recovery of the ten reported reps is not a gate. Follow
+`measurement/POSTURE-BENCHMARK-WORKFLOW.md` over older segmentation-first instructions:
+inspect existing resources for fit -> consolidate roughly five credible technique
+sources into an exercise metric rubric -> calibrate against two/three reference
+videos -> score measured user deviations -> detailed timestamped improvement guidance.
+Reference-derived multi-angle3D is distant future scope; user multi-camera capture is
+not requested. No source/video min/max automatically becomes a valid scoring tolerance.
 Run T05 -> T06 -> T07 comparison validation before more infrastructure/UI work.
 Hold artifact streaming, physical cleanup, browser integration, hosting, coaching
 and exercise expansion. Retain existing infrastructure. This order supersedes older
@@ -67,8 +75,9 @@ timestamps and explicit angle-agreement arithmetic. See `audit/T06.1b-review.md`
 Known missed/merged candidates mean actual counting accuracy is unvalidated.
 Owner review now prefers QMotion's corrected section, accepts IMSA/Catalyst and
 reports ten reps in the full owner set. The92-point trial omits the torso movement
-they want assessed. Next: T05.2 whole-set labels and torso/component comparison;
-read `measurement/T05.2-owner-feedback.md` for scope and acceptance. This feedback
+they want assessed. Next: T05.2/T06.1 sourced exercise metric rubric, reference
+calibration and posture proof on at least six usable reps; exact counting is secondary.
+Read `measurement/POSTURE-BENCHMARK-WORKFLOW.md` for scope and acceptance. This feedback
 does not approve provisional thresholds or establish dataset redistribution rights.
 Existing production scoring/thresholds remain unchanged.
 
