@@ -12,6 +12,22 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-PERF02 — resize-only30Hz and lost-cycle trace · done (23 Oct)
+
+- FR04/05/07/08/12. Same existing720x1280 analysis copy,30Hz, unchanged model and
+  thresholds. Existing diagnostic reused, no new implementation/provider call.
+- Pose33.6981s vs original57.1115s;1 complete cycle vs2, provisional score90.75.
+  Earlier720p15Hz20.0565s/1cycle/87.42. Preparation excluded, single runs only.
+- Missing right-arm observations at18.6s reset the second cycle in both720p recipes;
+  original has valid joints there. Low and return-high dwell pass later, but initial
+  high was discarded. Earlier missing samples at16.9/17.0 also reset resize30.
+- Original-angle sampling-only15Hz diagnostic retains that cycle (3 total), so
+  dropping samples alone does not explain the loss; no claim about general15Hz safety.
+- No production change/recalibration. Next: versioned gap-aware segmentation proposal
+  using observed anchors/partial support, not invented joints, if owner requests.
+- Evidence/reproduction `docs/audit/HM-PERF02-resize-only.md` + comparisonJSON.
+  Container diagnostic/comparison exited0; no additional Nebius/Tavily/runtime spend.
+
 ### HM-PERF01 — one-video processing-speed experiment · done (23 Oct)
 
 - FR04/05/07/08/12. Original curl30Hz vs aspect-preserving720x1280/15Hz copy,

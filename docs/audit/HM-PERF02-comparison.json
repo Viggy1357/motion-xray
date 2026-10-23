@@ -1,0 +1,684 @@
+{
+  "task": "HM-PERF02",
+  "config": {
+    "version": "curl-measure-v1",
+    "low_degrees": 80.0,
+    "high_degrees": 140.0,
+    "dwell_s": 0.1,
+    "max_gap_s": 0.1
+  },
+  "results": {
+    "original": {
+      "elapsed_s": 57.1115,
+      "frames": 619,
+      "cycles": [
+        {
+          "start_s": 8.466667,
+          "bottom_s": 10.1,
+          "end_s": 11.033333
+        },
+        {
+          "start_s": 16.435,
+          "bottom_s": 19.201667,
+          "end_s": 20.068333
+        }
+      ],
+      "score": 81.64965714727133,
+      "side": "right",
+      "coverage": {
+        "elbow_angle/projected_2d": 0.975767366720517,
+        "elbow_angle/estimated_3d": 0.975767366720517,
+        "upper_arm_torso_angle/projected_2d": 0.9870759289176091,
+        "upper_arm_torso_angle/estimated_3d": 0.9870759289176091,
+        "torso_axis_angle/projected_2d": 0.9919224555735057
+      }
+    },
+    "resize30": {
+      "elapsed_s": 33.6981,
+      "frames": 620,
+      "cycles": [
+        {
+          "start_s": 8.5,
+          "bottom_s": 10.1,
+          "end_s": 11.033333
+        }
+      ],
+      "score": 90.74997140565503,
+      "side": "right",
+      "coverage": {
+        "elbow_angle/projected_2d": 0.9612903225806452,
+        "elbow_angle/estimated_3d": 0.9612903225806452,
+        "upper_arm_torso_angle/projected_2d": 0.9693548387096774,
+        "upper_arm_torso_angle/estimated_3d": 0.9693548387096774,
+        "torso_axis_angle/projected_2d": 0.9774193548387097
+      }
+    },
+    "optimized": {
+      "elapsed_s": 20.0565,
+      "frames": 310,
+      "cycles": [
+        {
+          "start_s": 8.533333,
+          "bottom_s": 10.133333,
+          "end_s": 11.066667
+        }
+      ],
+      "score": 87.41605529170911,
+      "side": "right",
+      "coverage": {
+        "elbow_angle/projected_2d": 0.9612903225806452,
+        "elbow_angle/estimated_3d": 0.9612903225806452,
+        "upper_arm_torso_angle/projected_2d": 0.967741935483871,
+        "upper_arm_torso_angle/estimated_3d": 0.967741935483871,
+        "torso_axis_angle/projected_2d": 0.9806451612903225
+      }
+    },
+    "original_angles_sampled15": {
+      "cycles": [
+        {
+          "start_s": 6.066667,
+          "bottom_s": 7.666667,
+          "end_s": 8.466667
+        },
+        {
+          "start_s": 8.466667,
+          "bottom_s": 10.133333,
+          "end_s": 11.066667
+        },
+        {
+          "start_s": 16.468333,
+          "bottom_s": 19.201667,
+          "end_s": 20.068333
+        }
+      ]
+    }
+  },
+  "threshold_traces": [
+    {
+      "original_cycle": {
+        "start_s": 8.466667,
+        "bottom_s": 10.1,
+        "end_s": 11.033333
+      },
+      "recipes": {
+        "original": [
+          {
+            "state": "middle",
+            "start": 8.266667,
+            "end": 8.433333,
+            "n": 6,
+            "duration": 0.166666
+          },
+          {
+            "state": "high",
+            "start": 8.466667,
+            "end": 9.5,
+            "n": 32,
+            "duration": 1.033333
+          },
+          {
+            "state": "middle",
+            "start": 9.533333,
+            "end": 10.066667,
+            "n": 17,
+            "duration": 0.533334
+          },
+          {
+            "state": "low",
+            "start": 10.1,
+            "end": 10.366667,
+            "n": 9,
+            "duration": 0.266667
+          },
+          {
+            "state": "middle",
+            "start": 10.4,
+            "end": 10.466667,
+            "n": 3,
+            "duration": 0.066667
+          },
+          {
+            "state": "low",
+            "start": 10.5,
+            "end": 10.533333,
+            "n": 2,
+            "duration": 0.033333
+          },
+          {
+            "state": "middle",
+            "start": 10.566667,
+            "end": 11.0,
+            "n": 14,
+            "duration": 0.433333
+          },
+          {
+            "state": "high",
+            "start": 11.033333,
+            "end": 11.268333,
+            "n": 7,
+            "duration": 0.235
+          }
+        ],
+        "resize30": [
+          {
+            "state": "middle",
+            "start": 8.266667,
+            "end": 8.466667,
+            "n": 7,
+            "duration": 0.2
+          },
+          {
+            "state": "high",
+            "start": 8.5,
+            "end": 9.5,
+            "n": 31,
+            "duration": 1.0
+          },
+          {
+            "state": "middle",
+            "start": 9.533333,
+            "end": 9.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 9.566667,
+            "end": 9.566667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 9.6,
+            "end": 10.066667,
+            "n": 15,
+            "duration": 0.466667
+          },
+          {
+            "state": "low",
+            "start": 10.1,
+            "end": 10.4,
+            "n": 10,
+            "duration": 0.3
+          },
+          {
+            "state": "middle",
+            "start": 10.433333,
+            "end": 10.5,
+            "n": 3,
+            "duration": 0.066667
+          },
+          {
+            "state": "low",
+            "start": 10.533333,
+            "end": 10.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 10.566667,
+            "end": 11.0,
+            "n": 14,
+            "duration": 0.433333
+          },
+          {
+            "state": "high",
+            "start": 11.033333,
+            "end": 11.266667,
+            "n": 8,
+            "duration": 0.233334
+          }
+        ],
+        "optimized": [
+          {
+            "state": "middle",
+            "start": 8.266667,
+            "end": 8.466667,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "high",
+            "start": 8.533333,
+            "end": 9.466667,
+            "n": 15,
+            "duration": 0.933334
+          },
+          {
+            "state": "middle",
+            "start": 9.533333,
+            "end": 10.066667,
+            "n": 9,
+            "duration": 0.533334
+          },
+          {
+            "state": "low",
+            "start": 10.133333,
+            "end": 10.4,
+            "n": 5,
+            "duration": 0.266667
+          },
+          {
+            "state": "middle",
+            "start": 10.466667,
+            "end": 10.466667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "low",
+            "start": 10.533333,
+            "end": 10.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 10.6,
+            "end": 11.0,
+            "n": 7,
+            "duration": 0.4
+          },
+          {
+            "state": "high",
+            "start": 11.066667,
+            "end": 11.266667,
+            "n": 4,
+            "duration": 0.2
+          }
+        ],
+        "original_angles_sampled15": [
+          {
+            "state": "middle",
+            "start": 8.266667,
+            "end": 8.4,
+            "n": 3,
+            "duration": 0.133333
+          },
+          {
+            "state": "high",
+            "start": 8.466667,
+            "end": 9.466667,
+            "n": 16,
+            "duration": 1.0
+          },
+          {
+            "state": "middle",
+            "start": 9.533333,
+            "end": 10.066667,
+            "n": 9,
+            "duration": 0.533334
+          },
+          {
+            "state": "low",
+            "start": 10.133333,
+            "end": 10.333333,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "middle",
+            "start": 10.4,
+            "end": 10.466667,
+            "n": 2,
+            "duration": 0.066667
+          },
+          {
+            "state": "low",
+            "start": 10.533333,
+            "end": 10.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 10.6,
+            "end": 11.0,
+            "n": 7,
+            "duration": 0.4
+          },
+          {
+            "state": "high",
+            "start": 11.066667,
+            "end": 11.268333,
+            "n": 4,
+            "duration": 0.201666
+          }
+        ]
+      }
+    },
+    {
+      "original_cycle": {
+        "start_s": 16.435,
+        "bottom_s": 19.201667,
+        "end_s": 20.068333
+      },
+      "recipes": {
+        "original": [
+          {
+            "state": "missing",
+            "start": 16.235,
+            "end": 16.235,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.268333,
+            "end": 16.301667,
+            "n": 2,
+            "duration": 0.033334
+          },
+          {
+            "state": "high",
+            "start": 16.335,
+            "end": 16.335,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.368333,
+            "end": 16.401667,
+            "n": 2,
+            "duration": 0.033334
+          },
+          {
+            "state": "high",
+            "start": 16.435,
+            "end": 18.535,
+            "n": 64,
+            "duration": 2.1
+          },
+          {
+            "state": "middle",
+            "start": 18.568333,
+            "end": 19.168333,
+            "n": 19,
+            "duration": 0.6
+          },
+          {
+            "state": "low",
+            "start": 19.201667,
+            "end": 19.368333,
+            "n": 6,
+            "duration": 0.166666
+          },
+          {
+            "state": "middle",
+            "start": 19.401667,
+            "end": 19.401667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "low",
+            "start": 19.435,
+            "end": 19.435,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 19.468333,
+            "end": 20.035,
+            "n": 18,
+            "duration": 0.566667
+          },
+          {
+            "state": "high",
+            "start": 20.068333,
+            "end": 20.301667,
+            "n": 8,
+            "duration": 0.233334
+          }
+        ],
+        "resize30": [
+          {
+            "state": "missing",
+            "start": 16.266667,
+            "end": 16.266667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.3,
+            "end": 16.4,
+            "n": 4,
+            "duration": 0.1
+          },
+          {
+            "state": "high",
+            "start": 16.433333,
+            "end": 16.866667,
+            "n": 14,
+            "duration": 0.433334
+          },
+          {
+            "state": "missing",
+            "start": 16.9,
+            "end": 16.9,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 16.933333,
+            "end": 16.966667,
+            "n": 2,
+            "duration": 0.033334
+          },
+          {
+            "state": "missing",
+            "start": 17.0,
+            "end": 17.0,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 17.033333,
+            "end": 18.5,
+            "n": 45,
+            "duration": 1.466667
+          },
+          {
+            "state": "middle",
+            "start": 18.533333,
+            "end": 18.566667,
+            "n": 2,
+            "duration": 0.033334
+          },
+          {
+            "state": "missing",
+            "start": 18.6,
+            "end": 18.6,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 18.633333,
+            "end": 19.133333,
+            "n": 16,
+            "duration": 0.5
+          },
+          {
+            "state": "low",
+            "start": 19.166667,
+            "end": 19.433333,
+            "n": 9,
+            "duration": 0.266666
+          },
+          {
+            "state": "middle",
+            "start": 19.466667,
+            "end": 20.0,
+            "n": 17,
+            "duration": 0.533333
+          },
+          {
+            "state": "high",
+            "start": 20.033333,
+            "end": 20.3,
+            "n": 9,
+            "duration": 0.266667
+          }
+        ],
+        "optimized": [
+          {
+            "state": "missing",
+            "start": 16.266667,
+            "end": 16.266667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.333333,
+            "end": 16.4,
+            "n": 2,
+            "duration": 0.066667
+          },
+          {
+            "state": "high",
+            "start": 16.466667,
+            "end": 16.933333,
+            "n": 8,
+            "duration": 0.466666
+          },
+          {
+            "state": "missing",
+            "start": 17.0,
+            "end": 17.0,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 17.066667,
+            "end": 18.466667,
+            "n": 22,
+            "duration": 1.4
+          },
+          {
+            "state": "middle",
+            "start": 18.533333,
+            "end": 18.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "missing",
+            "start": 18.6,
+            "end": 18.6,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 18.666667,
+            "end": 19.133333,
+            "n": 8,
+            "duration": 0.466666
+          },
+          {
+            "state": "low",
+            "start": 19.2,
+            "end": 19.4,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "middle",
+            "start": 19.466667,
+            "end": 20.0,
+            "n": 9,
+            "duration": 0.533333
+          },
+          {
+            "state": "high",
+            "start": 20.066667,
+            "end": 20.266667,
+            "n": 4,
+            "duration": 0.2
+          }
+        ],
+        "original_angles_sampled15": [
+          {
+            "state": "middle",
+            "start": 16.268333,
+            "end": 16.268333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 16.335,
+            "end": 16.335,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.401667,
+            "end": 16.401667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 16.468333,
+            "end": 18.535,
+            "n": 32,
+            "duration": 2.066667
+          },
+          {
+            "state": "middle",
+            "start": 18.601667,
+            "end": 19.135,
+            "n": 9,
+            "duration": 0.533333
+          },
+          {
+            "state": "low",
+            "start": 19.201667,
+            "end": 19.335,
+            "n": 3,
+            "duration": 0.133333
+          },
+          {
+            "state": "middle",
+            "start": 19.401667,
+            "end": 20.001667,
+            "n": 10,
+            "duration": 0.6
+          },
+          {
+            "state": "high",
+            "start": 20.068333,
+            "end": 20.268333,
+            "n": 4,
+            "duration": 0.2
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Single run per recipe; prior30/15 measurements reused.",
+    "Scores use unchanged unreviewed reference bands.",
+    "Resizing includes reencoding; not separately isolated.",
+    "Original-angle15 subset tests sample deletion only, not MediaPipe tracking changes."
+  ],
+  "joint_dropout_at_18_6s": {
+    "original_nearest_s": 18.601667,
+    "original_right_shoulder_elbow_wrist_valid": true,
+    "resize30_right_shoulder_elbow_wrist_valid": false,
+    "optimized15_right_shoulder_elbow_wrist_valid": false,
+    "cause": "Missing elbow-angle observation resets find_cycles state; perception reason for missing joints not determined."
+  }
+}
