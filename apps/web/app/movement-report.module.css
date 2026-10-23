@@ -71,9 +71,45 @@
   color: #ffffff;
 }
 
+/* Excluded / partial fragment chip: amber-tinted, still an actual segment. */
+.chipExcluded {
+  background: #fdf6e7;
+  border-color: #ecd9a8;
+}
+
+.chipExcluded:hover {
+  border-color: #c9962e;
+}
+
+.chipExcluded[data-active] {
+  background: #c9962e;
+  border-color: #c9962e;
+  color: #ffffff;
+}
+
 .chipLabel {
   font-weight: 600;
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.chipBadge {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.05rem 0.4rem;
+  border-radius: 9999px;
+  background: #f3e2b8;
+  color: #7a5b12;
+  border: 1px solid #e4cd93;
+}
+
+.chip[data-active] .chipBadge {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #ffffff;
 }
 
 .chipTime {

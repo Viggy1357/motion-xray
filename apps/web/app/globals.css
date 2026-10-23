@@ -28,10 +28,14 @@ summary::-webkit-details-marker{color:var(--cobalt)}
 .navbtn[aria-current="page"]{background:var(--tint);color:var(--cobalt)}
 .navicon{display:inline-flex;align-items:center;justify-content:center}
 .railfoot{margin-top:auto;font-size:.75rem;color:var(--muted);line-height:1.6}
+.railsettings{display:flex}
 .main{flex:1;min-width:0;padding:2.5rem clamp(1rem,4vw,3.5rem) 6rem}
 .view{max-width:1020px;margin:0 auto;min-width:0}
 .brandbar{display:none}
 .artfallback{padding:2rem;color:var(--muted)}
+.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:0}
+.iconbtn:hover{background:var(--paper2);color:var(--cobalt)}
+.iconbtn[aria-current="page"]{background:var(--tint);color:var(--cobalt);border-color:transparent}
 
 /* ---------- typography ---------- */
 .kicker{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cobalt);font-weight:700;margin:0 0 .5rem}
@@ -48,14 +52,25 @@ summary::-webkit-details-marker{color:var(--cobalt)}
 .herocopy{position:relative;z-index:2;width:min(78%,270px);padding:1.25rem 0 0 1.25rem;align-self:flex-start}
 .h-hero{font-size:clamp(1.75rem,4.6vw,2.6rem);line-height:1.08;letter-spacing:-.02em;outline:none}
 .herosub{color:var(--muted);margin:.7rem 0 0;font-size:.95rem;max-width:150px}
-.homeactivity{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--card);border-radius:18px;padding:1rem 1.1rem}
+.homeactivity{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--card);border-radius:18px;padding:1rem 1.1rem;margin-bottom:1rem}
 .homeactivity p{margin:0}
 .homeactivity strong{font-size:1.15rem}
 .homeactivity .textlink{min-height:44px}
-.heroart{position:absolute;right:0;bottom:0;z-index:1;display:flex;justify-content:flex-end;pointer-events:none}
-.athimg{display:block;width:300px;height:430px;object-fit:contain;object-position:bottom right}
+.heroart{position:absolute;right:0;bottom:0;top:0;z-index:1;display:flex;align-items:flex-end;justify-content:flex-end}
+.athwrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;max-height:100%}
+.athstage{position:relative;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;max-height:100%;padding-bottom:48px}
+.athimg{display:block;width:280px;height:382px;object-fit:contain;object-position:bottom right}
 .athimg.compact{width:220px;height:260px}
-.illabel{font-size:.72rem;color:var(--muted);margin:.35rem 0 1rem;letter-spacing:.02em}
+.regiondot{position:absolute;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,rgba(49,88,232,.4) 0%,rgba(49,88,232,.12) 55%,transparent 72%);pointer-events:none}
+/* Segmented Front/Back control: dedicated space at bottom-right of the stage,
+   clear of the athlete's face and the hero copy, never clipped at the top */
+.viewtoggle{position:absolute;bottom:.5rem;right:.5rem;top:auto;z-index:3;display:flex;gap:.25rem;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.25rem;box-shadow:0 2px 10px rgba(20,32,57,.16)}
+.viewtoggle button{border:1px solid transparent;background:transparent;color:var(--ink);font-size:.78rem;font-weight:700;border-radius:999px;padding:.35rem .9rem;min-height:36px;min-width:56px}
+.viewtoggle button:hover{background:var(--paper2)}
+.viewtoggle button[aria-pressed="true"]{background:var(--cobalt);color:#fff}
+.viewtoggle button:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+/* Redundant inside the hero scene; the screen-reader summary remains */
+.illabel{display:none;font-size:.72rem;color:var(--muted);margin:.35rem .6rem 0 0;letter-spacing:.02em;align-self:flex-end}
 .herocta{width:100%;margin-bottom:1.25rem}
 .lastreview{margin:.9rem 0 0}
 @media(min-width:900px){
@@ -63,7 +78,7 @@ summary::-webkit-details-marker{color:var(--cobalt)}
   .herocopy{width:52%;max-width:52%;padding:2.5rem}
   .herosub{max-width:26ch}
   .h-hero{font-size:2.9rem}
-  .athimg{width:300px;height:440px}
+  .athimg{width:300px;height:412px}
   .athimg.compact{height:300px}
   .herocta{width:auto;min-width:280px}
 }
@@ -72,7 +87,7 @@ summary::-webkit-details-marker{color:var(--cobalt)}
   .herocopy{width:min(78%,270px);padding:1.25rem 0 0 1.25rem}
   .h-hero{font-size:1.75rem}
   .heroart{right:-30px}
-  .athimg{width:300px;height:430px}
+  .athimg{width:280px;height:382px}
 }
 
 /* ---------- companion map panel ---------- */
@@ -145,7 +160,7 @@ select{width:auto}
 .consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.9rem;margin:1rem 0}
 .consent input{margin-top:.25rem;width:1.15rem;height:1.15rem;accent-color:var(--cobalt);flex-shrink:0}
 .fileactions{margin-top:.25rem}
-.filebtn{position:relative;overflow:hidden;width:100%}
+.filebtn{position:relative;overflow:hidden}
 .filebtn:focus-within{outline:3px solid var(--cobalt);outline-offset:2px}
 .filemeta{margin:.5rem 0 0;font-size:.8rem}
 
@@ -159,6 +174,9 @@ video.preview{max-height:300px;margin-top:0}
 .drop input[type=file]{max-width:100%;font-size:.9rem}
 .progress{height:10px;background:var(--paper2);border-radius:999px;overflow:hidden;margin:.6rem 0}
 .progress>div{height:100%;background:var(--cobalt);transition:width .2s}
+/* Camera overlay: fixed above the mobile bottom nav (z-index 50), opaque panel inside */
+.recorderoverlay{position:fixed;inset:0;z-index:70;background:rgba(11,18,32,.6);display:flex;align-items:center;justify-content:center;padding:1rem;padding-top:calc(1rem + env(safe-area-inset-top));padding-bottom:calc(1rem + env(safe-area-inset-bottom));overflow:auto;overscroll-behavior:contain}
+.recorderoverlay>*{width:min(560px,100%);max-height:100%;overflow:auto;background:var(--card);color:var(--ink)}
 
 /* ---------- pills / states ---------- */
 .pill{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:.2rem .65rem;white-space:nowrap}
@@ -202,6 +220,18 @@ th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mu
 .manage[open] summary{background:var(--paper2)}
 .managebody{display:flex;flex-direction:column;gap:.5rem;padding:.75rem;margin-top:.5rem;background:var(--card);border-radius:var(--r-md);box-shadow:0 4px 16px rgba(20,32,57,.12);align-items:stretch}
 
+/* ---------- recents / thumbnails / goal / milestone ---------- */
+.recents{margin-top:1rem}
+.recentrow{display:flex;align-items:center;gap:.8rem;padding:.65rem 0;border-top:1px solid var(--line)}
+.recentrow:first-of-type{border-top:0}
+.recentmain{min-width:0;flex:1}
+.recentthumb{width:56px;height:56px;border-radius:12px;overflow:hidden;background:var(--paper2);display:inline-flex;align-items:center;justify-content:center;color:var(--muted);flex-shrink:0}
+.recentthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.goalwidget{margin:0 0 1rem}
+.goaltrack{height:10px;background:var(--paper2);border-radius:999px;overflow:hidden;margin-top:.6rem}
+.goalfill{display:block;height:100%;background:var(--cobalt);border-radius:999px}
+.milestone{display:flex;gap:.8rem;align-items:flex-start;background:var(--tint);border-radius:var(--r-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+
 /* ---------- misc ---------- */
 .row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
 .spread{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-start}
@@ -217,7 +247,7 @@ th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mu
 .mobilebrand{display:none}
 @media (max-width:720px){
   .rail{display:none}
-  .brandbar{display:flex;align-items:center;padding:1.15rem 0 1.5rem}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;padding:1.15rem 0 1.5rem}
   .brandbar .brand{font-size:.9rem;gap:.45rem}
   .mobilebrand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1rem;color:var(--ink);padding:.9rem 1rem .25rem;text-decoration:none;letter-spacing:-.01em}
   .main{padding:0 1rem 7rem}

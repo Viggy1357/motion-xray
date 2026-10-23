@@ -21,12 +21,31 @@ const REGION_LABEL: Record<string, string> = {
   chest: 'Chest focus',
 };
 
+type ViewSide = 'front' | 'back';
+
+// Approximate illustrative overlay anchor points (percent of the poster box)
+// per region and rendered view. Purely decorative target hints — never
+// measured activation or growth claims.
+const REGION_DOT: Record<string, Record<ViewSide, { top: string; left: string } | null>> = {
+  back: { front: { top: '30%', left: '58%' }, back: { top: '30%', left: '42%' } },
+  arms: { front: { top: '38%', left: '30%' }, back: { top: '38%', left: '62%' } },
+  legs: { front: { top: '66%', left: '48%' }, back: { top: '66%', left: '50%' } },
+  chest: { front: { top: '28%', left: '46%' }, back: null },
+};
+
+const VIEW_SRC: Record<ViewSide, string> = {
+  front: '/companion/athlete.png',
+  back: '/companion/athlete-back.png',
+};
+
 /**
  * Illustrative athlete companion. Purely visual — no activation, growth,
  * or health claims.
  *
- * variant="poster": borderless transparent PNG artwork for the hero scene.
- *   Sizing is controlled by CSS; a text fallback handles image-load failure.
+ * variant="poster": borderless transparent PNG artwork for the hero scene,
+ *   with an explicit Front / Back rendered-view toggle of the same character.
+ *   These are two static rendered views, not a 360° or rotatable model.
+ *   Asset failures degrade gracefully to the available view or text.
  * variant="map": secondary disclosure with an on-demand interactive body map.
  *   This separate object is not the model depicted in the poster.
  */
@@ -34,19 +53,59 @@ export default function AthleteCompanion({ exercise, variant = 'map' }: AthleteC
   const region = EXERCISE_REGION[exercise] ?? 'back';
   const src = useMemo(() => `/companion/index.html?region=${encodeURIComponent(region)}`, [region]);
   const [exploreOpen, setExploreOpen] = useState(false);
-  const [imageFailed, setImageFailed] = useState(false);
+  const [view, setView] = useState<ViewSide>('front');
+  const [failed, setFailed] = useState<Partial<Record<ViewSide, boolean>>>({});
 
   if (variant === 'poster') {
-    if (imageFailed) return <p className="artfallback">Your next set starts here.</p>;
+    const markFailed = (v: ViewSide) => setFailed((f) => ({ ...f, [v]: true }));
+    // Effective view: fall back to whichever asset still loads.
+    const effective: ViewSide | null = !failed[view]
+      ? view
+      : !failed.front
+        ? 'front'
+        : !failed.back
+          ? 'back'
+          : null;
+    const dot = effective ? REGION_DOT[region]?.[effective] ?? null : null;
     return (
-      <img
-        src="/companion/athlete.png"
-        alt={`Illustrative athlete artwork, ${REGION_LABEL[region].toLowerCase()}`}
-        className="athimg"
-        loading="eager"
-        decoding="async"
-        onError={() => setImageFailed(true)}
-      />
+      <div className="athwrap">
+        {effective === null ? (
+          <p className="artfallback">Your next set starts here.</p>
+        ) : (
+          <div className="athstage">
+            <div className="viewtoggle" role="group" aria-label="Artwork view">
+              <button type="button" aria-pressed={view === 'front'} onClick={() => setView('front')}>
+                Front
+              </button>
+              <button type="button" aria-pressed={view === 'back'} onClick={() => setView('back')}>
+                Back
+              </button>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              key={effective}
+              src={VIEW_SRC[effective]}
+              alt={`Illustrative athlete artwork, ${effective} view, ${REGION_LABEL[region].toLowerCase()}`}
+              className="athimg"
+              loading="eager"
+              decoding="async"
+              onError={() => markFailed(effective)}
+            />
+            {dot && (
+              <span
+                className="regiondot"
+                style={{ top: dot.top, left: dot.left }}
+                aria-hidden="true"
+              />
+            )}
+            <p className="illabel">Illustrative targets.</p>
+          </div>
+        )}
+        <span className="visuallyhidden">
+          Rendered front and back views of the same illustrated athlete. Target highlights are
+          illustrative only, not measured muscle activation.
+        </span>
+      </div>
     );
   }
 

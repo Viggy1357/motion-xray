@@ -12,6 +12,34 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-UX05 — Nebius-led mockup implementation · candidate delivered (23 Oct)
+
+- FR01/02/03/05/06/09/10/12 presentation. Owner authorizes HM-UX04 implementation;
+  baseline c395ecf. All substantive application drafts/repairs/integration and review
+  produced through Nebius APIs; Codex dispatched, applied, checked and synced files.
+- NVIDIA Super VL orchestration, component referee and integration gate; Kimi-K3
+  camera/results/metadata/integration and targeted repairs. Two NVIDIA implementation
+  attempts exhausted reasoning without files; retained usage, bounded Kimi recovery.
+- Added real camera component/controller, settings route, single-write local profile
+  and optional goals, recent-three/all-history, viewed metadata, region counts,
+  eligible-set milestone, actual-media thumbnails, playback-follow segment chips,
+  sourced coaching highlight and matching rendered front/back artwork. No new backend
+  schema/scoring/thresholds or automatic runtime provider calls.
+- Docker: typecheck, production build/lint, capture controller regression checks,
+  13 metadata tests and 12 pose-overlay tests pass. Browser: Home/front/back,
+  Settings Cancel, Progress/history, camera education/Cancel and expired report verified.
+- Candidate, not full device acceptance: actual permission/record/retake/use and a
+  fresh end-to-end result still need device testing. First-use intro, small Progress
+  companion and session cue caching remain parity follow-ups. True rotating mesh
+  remains future work; current character is explicitly two rendered views.
+- Evidence: docs/delegation/HM-UX05-nebius-team.md, HM-UX05-usage.json,
+  docs/audit/HM-UX05-component-review.md, HM-UX05-integration-gate.md and
+  docs/design/HM-UX05-delivery.md. Sixteen paid development calls,456,597 reported
+  tokens including failures,USD3.767127 conservative guard (not invoice); under500k
+  one-off andUSD70 active ceiling. Backup untouched; balance unverified.
+- Next HM-UX06: real-device/fresh-analysis acceptance and remaining parity items.
+  Push candidate branch/draft PR; do not merge while runtime gates remain open.
+
 ### HM-UX04 — mockup parity and screen/state specification · planning delivered (23 Oct)
 
 - Owner requests detailed missing-screen/state specification before handover;

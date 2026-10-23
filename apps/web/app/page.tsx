@@ -7,6 +7,18 @@ import type { components } from "../generated/api";
 import MovementReport from "./movement-report";
 import AthleteCompanion from "./athlete-companion";
 import PoseReplay from "./pose-replay";
+import CameraRecorder from "./components/CameraRecorder";
+import SettingsPanel from "./components/SettingsPanel";
+import RegionActivity from "./components/RegionActivity";
+import SessionThumbnail from "./components/SessionThumbnail";
+import {
+  applyUxSettings,
+  defaultUxMetadata,
+  loadUxMetadata,
+  persistUxMetadata,
+  withViewed,
+} from "./lib/ux-metadata";
+import type { UxMetadata, UxSettings } from "./lib/ux-metadata";
 
 type PrototypeReport = components["schemas"]["PrototypeAnalysisResult"];
 type SessionInfo = components["schemas"]["SessionInfo"];
@@ -15,8 +27,8 @@ type AnalysisStatus = components["schemas"]["AnalysisStatus"];
 type AnalysisResult = components["schemas"]["AnalysisResult"];
 type ExerciseId = components["schemas"]["AnalysisCreateRequest"]["exercise_id"];
 
-type RouteName = "home" | "analyse" | "results" | "progress";
-type Route = { name: RouteName; analysis?: string | null; exercise?: string | null };
+type RouteName = "home" | "analyse" | "results" | "progress" | "settings";
+type Route = { name: RouteName; analysis?: string | null; exercise?: string | null; view?: string | null };
 
 type LogEntry = {
   logId: string;
@@ -38,7 +50,7 @@ const MAX_BYTES = 100 * 1024 * 1024;
 const MAX_SECONDS = 60;
 const LOG_KEY = "mxr.logs.v1";
 const JOB_KEY = "mxr.activeJob.v1";
-const NAME_KEY = "mxr.displayName.v1";
+const NAME_KEY = "mxr.displayName.v1"; // legacy read-only fallback; new writes go into mxr.ux.v1
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 const EXERCISES: {
@@ -60,6 +72,15 @@ function Logo() {
       <rect x="1" y="1" width="24" height="24" rx="7" fill="#3158e8" />
       <path d="M6 17 C9 9 11 15 13 12 C15 9 17 14 20 8" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" />
       <circle cx="20" cy="8" r="2" fill="#fff" />
+    </svg>
+  );
+}
+
+function SettingsIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+      <circle cx="10" cy="7" r="3.2" fill="none" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M3.5 17 C4.5 13.5 7 12 10 12 C13 12 15.5 13.5 16.5 17" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
   );
 }
@@ -184,14 +205,16 @@ function parseRoute(): Route {
   const q = new URLSearchParams(window.location.search);
   if (p.startsWith("/analyse/results")) return { name: "results", analysis: q.get("analysis"), exercise: q.get("exercise") };
   if (p.startsWith("/analyse")) return { name: "analyse" };
-  if (p.startsWith("/progress")) return { name: "progress" };
+  if (p.startsWith("/progress")) return { name: "progress", view: q.get("view") };
+  if (p.startsWith("/settings")) return { name: "settings" };
   if (q.get("analysis") && q.get("exercise")) return { name: "results", analysis: q.get("analysis"), exercise: q.get("exercise") };
   return { name: "home" };
 }
 
 function routeUrl(r: Route): string {
   if (r.name === "analyse") return "/analyse";
-  if (r.name === "progress") return "/progress";
+  if (r.name === "progress") return r.view === "all" ? "/progress?view=all" : "/progress";
+  if (r.name === "settings") return "/settings";
   if (r.name === "results") {
     const q = new URLSearchParams();
     if (r.analysis) q.set("analysis", r.analysis);
@@ -223,6 +246,10 @@ export default function Page() {
   const [cancelBusy, setCancelBusy] = useState(false);
   const [now, setNow] = useState(() => Date.now());
 
+  // UX metadata (mxr.ux.v1): goal settings, week mode, display name, Viewed markers.
+  const [uxMeta, setUxMeta] = useState<UxMetadata>(() => defaultUxMetadata());
+  const [uxMetaErr, setUxMetaErr] = useState<string | null>(null);
+
   // Analyse form
   const [exercise, setExercise] = useState<ExerciseId>("lat_pulldown");
   const [file, setFile] = useState<File | null>(null);
@@ -236,12 +263,17 @@ export default function Page() {
   const [busy, setBusy] = useState(false);
   const [pendingCreate, setPendingCreate] = useState<PendingCreate | null>(null);
   const [exercisePickerOpen, setExercisePickerOpen] = useState(false); // presentation only: exercise selector disclosure
+  const [recorderOpen, setRecorderOpen] = useState(false);
 
   // Save form
   const [rate, setRate] = useState(1);
   const [editReps, setEditReps] = useState("");
   const [toast, setToast] = useState<string | null>(null);
   const [storageErr, setStorageErr] = useState<string | null>(null);
+
+  // Bumped on visibilitychange so the Viewed effect re-evaluates when the
+  // user returns to a report that finished loading in the background.
+  const [visibilityTick, setVisibilityTick] = useState(0);
 
   const xhrRef = useRef<XMLHttpRequest | null>(null);
   const uploadingRef = useRef(false);
@@ -277,8 +309,14 @@ export default function Page() {
   // derived from the URL by the sync effect below (single source of truth).
   useEffect(() => {
     setLogs(loadLogs());
+    const { metadata, error } = loadUxMetadata();
+    setUxMeta(metadata);
+    setUxMetaErr(error);
+    // Display name: prefer a valid name persisted inside mxr.ux.v1; fall
+    // back to the legacy standalone key for back-compat. No writes here.
+    let legacyName = "";
     try {
-      setName(localStorage.getItem(NAME_KEY) ?? "");
+      legacyName = localStorage.getItem(NAME_KEY) ?? "";
       const raw = localStorage.getItem(JOB_KEY);
       if (raw) {
         const j: unknown = JSON.parse(raw);
@@ -293,15 +331,12 @@ export default function Page() {
         }
       }
     } catch { /* ignore corrupt local data */ }
+    const metaName = metadata.displayName;
+    setName(typeof metaName === "string" && metaName.length <= 60 ? metaName : legacyName);
     initSession();
   }, [initSession]);
 
   // URL -> route sync, the single source of truth for navigation.
-  // usePathname tracks the Next.js router (including its interception of
-  // native history.pushState); the query string is read from
-  // window.location so no useSearchParams / Suspense boundary is needed
-  // (avoids the CSR-bailout build failure). popstate covers back/forward
-  // and any query-only change where the pathname itself is unchanged.
   useEffect(() => {
     const sync = () => {
       const r = parseRoute();
@@ -335,14 +370,10 @@ export default function Page() {
     setMovementSettled(false);
     setResult(null);
     setStatus(null);
-    // Preserve the "analysis expired" message across the job reset that
-    // triggered it (setJob(null) runs in the same batch as setResultErr);
-    // clear resultErr only for genuine job switches.
     if (expiredRef.current) expiredRef.current = false;
     else setResultErr(null);
     setVideoErr(false);
     setEditReps("");
-    // Restore a previously saved set's form values when reopening it.
     const p = prefillRef.current;
     if (p) {
       prefillRef.current = null;
@@ -375,11 +406,7 @@ export default function Page() {
         const r = await fetch(`/api/analyses/${jobId}`, { credentials: "include", signal: ctrl.signal });
         if (!r.ok) {
           if (r.status === 404) {
-            // Expired or revoked analysis: forget local job metadata only
-            // (no server delete) so a dead job can never lock out new uploads.
             try { localStorage.removeItem(JOB_KEY); } catch { /* ignore */ }
-            // Flag before clearing the job so the job-identity effect
-            // above does not wipe the message we are about to set.
             expiredRef.current = true;
             setJob(null);
             setResultErr("This analysis is no longer available on the server (expired or revoked). You can start a new upload; your local history is unchanged.");
@@ -390,8 +417,6 @@ export default function Page() {
         const s = (await r.json()) as AnalysisStatus;
         if (ctrl.signal.aborted) return;
         setStatus(s);
-        // Restored/reconciled job metadata may carry a locally invented
-        // createdAt; the server's created_at is the source of truth.
         if (typeof s.created_at === "string" && s.created_at !== job.createdAt) {
           setJob({ ...job, createdAt: s.created_at });
         }
@@ -400,9 +425,6 @@ export default function Page() {
           if (ctrl.signal.aborted) return;
           if (rr.ok) {
             const parsed = (await rr.json()) as AnalysisResult;
-            // Await boundary: the active job may have changed (or this
-            // poll been superseded) while the body was parsed — never
-            // store a result for a stale analysis id.
             if (ctrl.signal.aborted || parsed.analysis_id !== jobId) return;
             setResult(parsed);
           } else if (!ctrl.signal.aborted) {
@@ -455,10 +477,54 @@ export default function Page() {
     return () => URL.revokeObjectURL(url);
   }, [file]);
 
+  // Track tab visibility so a report that finished loading in the
+  // background is only marked Viewed once the user actually returns to it.
+  useEffect(() => {
+    const onVis = () => setVisibilityTick((t) => t + 1);
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, []);
+
+  // Viewed marker: recorded only when the owned report has settled with an
+  // actual non-null movement report matching this analysis (a failed or
+  // missing movement report never counts) and the Results view is actually
+  // visible. Persisted atomically to mxr.ux.v1 BEFORE state updates; a
+  // storage failure records nothing. "Viewed" means the report finished
+  // loading while visible — never watched/reviewed.
+  useEffect(() => {
+    if (route.name !== "results" || !result || !movementSettled || !movement) return;
+    const moveId = (movement as unknown as { analysis_id?: unknown }).analysis_id;
+    if (typeof moveId !== "string" || moveId !== result.analysis_id) return;
+    if (typeof document !== "undefined" && document.visibilityState !== "visible") return;
+    const id = result.analysis_id;
+    if (uxMeta.viewed[id]) return;
+    const next = withViewed(uxMeta, id, new Date().toISOString());
+    if (persistUxMetadata(next)) {
+      setUxMeta(next);
+    }
+  }, [route.name, result, movement, movementSettled, uxMeta, visibilityTick]);
+
+  // Name state updates only; storage is committed atomically with settings
+  // in saveSettings (single mxr.ux.v1 write). No second store write here.
   const saveName = (v: string) => {
     setName(v);
-    try { localStorage.setItem(NAME_KEY, v); } catch { /* ignore */ }
   };
+
+  // Settings save: atomic. The full merged mxr.ux.v1 record — settings plus
+  // the display name carried in the preserved extra metadata field — is
+  // serialized and written once. On failure nothing is committed (name
+  // included — the panel only calls onNameChange after this returns true).
+  const saveSettings = useCallback((s: UxSettings, displayName?: string): boolean => {
+    const next = applyUxSettings(uxMeta, s);
+    if (typeof displayName === "string") next.displayName = displayName;
+    if (!persistUxMetadata(next)) {
+      setUxMetaErr("Could not write to this browser's storage — settings were not saved. Previous values are unchanged.");
+      return false;
+    }
+    setUxMeta(next);
+    setUxMetaErr(null);
+    return true;
+  }, [uxMeta]);
 
   const onPick = async (f: File | null) => {
     const token = ++pickTokenRef.current;
@@ -478,7 +544,6 @@ export default function Page() {
   };
 
   // Clear the chosen file and its local preview without uploading.
-  // Disabled while busy so an in-flight upload is never disturbed.
   const clearFile = () => {
     if (busy) return;
     pickTokenRef.current++; // invalidate any in-flight async validation
@@ -504,8 +569,6 @@ export default function Page() {
   }, [session, navigate]);
 
   const startUpload = () => {
-    // Guard here, not only via the disabled button: a stale job must never
-    // allow a second concurrent upload regardless of how this is invoked.
     if (jobActive) {
       setUploadErr("An analysis is already in progress — wait for it to finish or cancel it before uploading again.");
       return;
@@ -575,7 +638,6 @@ export default function Page() {
         method: "POST", credentials: "include", headers: { "X-CSRF-Token": session.csrf_token },
       });
       if (!r.ok) setResultErr(`Cancel failed: ${await readError(r)}`);
-      // Cancellation is only confirmed when the next poll reports a terminal state.
     } catch (e) {
       setResultErr(`Cancel request failed: ${(e as Error).message}`);
     }
@@ -592,11 +654,6 @@ export default function Page() {
           : result.reps.filter((r) => r.completion_status === "completed").length
         : null;
 
-  // Recognition requires the actual measured movement report: exact
-  // analysis_id match (no fallback substitute), same exercise, at least one
-  // completed detected rep, and at least one measured (non-null) metric.
-  // The legacy pose-only /result metrics are never consulted, and a
-  // user-corrected rep count can never mint recognition.
   const movementProof = movement as unknown as {
     analysis_id?: string;
     exercise?: string;
@@ -614,9 +671,6 @@ export default function Page() {
     movementProof.metrics.some((m) => m.value !== null);
 
   const saveLog = () => {
-    // Function-level guard (not only the disabled button): never persist
-    // while the movement report fetch is unsettled — a save here would
-    // strip detection/recognition from an existing analysed record.
     if (result && !movementSettled) {
       setResultErr("The movement report is still loading — wait for it to finish (or fail) before saving, so detected reps and analysis recognition are not lost.");
       return;
@@ -632,12 +686,6 @@ export default function Page() {
     }
     const analysisId = job?.analysisId ?? result?.analysis_id ?? null;
     const ex = result?.exercise ?? job?.exercise ?? exercise;
-    // Movement fetch settled but failed/unavailable: preserve the previously
-    // saved detected count and recognition ONLY for the exact same analysis
-    // (validated by loadLogs' recognition shape: recognition.analysisId must
-    // equal analysisId and exercise must match). Never mint recognition for a
-    // new or unreadable analysis; a fresh save with no report stays an honest
-    // unrecognised null-detection entry.
     const prior = analysisId ? logs.find((l) => l.analysisId === analysisId) : undefined;
     const preservePrior =
       !!prior &&
@@ -704,9 +752,6 @@ export default function Page() {
 
   const resume = (l: LogEntry) => {
     if (!l.analysisId) return;
-    // Bounded restore of the saved form values for this set. If the job
-    // identity changes, the job-identity effect applies the prefill after
-    // its reset; if it is unchanged, apply directly.
     const prefill = { reps: String(l.loggedReps), load: l.load, notes: l.notes };
     if (job?.analysisId === l.analysisId) {
       setEditReps(prefill.reps);
@@ -721,14 +766,33 @@ export default function Page() {
     navigate({ name: "results", analysis: l.analysisId, exercise: l.exercise });
   };
 
-  const weekStart = new Date();
-  weekStart.setDate(weekStart.getDate() - 6);
-  const weekLogs = logs.filter((l) => Date.parse(l.createdAt) >= weekStart.getTime());
+  // Week window: rolling 7 days by default; opt-in local calendar week (Mon–Sun).
+  const inWeek = (iso: string): boolean => {
+    const t = Date.parse(iso);
+    if (Number.isNaN(t)) return false;
+    if (uxMeta.weekMode === "calendar") {
+      const start = new Date();
+      start.setHours(0, 0, 0, 0);
+      start.setDate(start.getDate() - ((start.getDay() + 6) % 7)); // Monday
+      return t >= start.getTime();
+    }
+    const start = new Date();
+    start.setDate(start.getDate() - 6);
+    return t >= start.getTime();
+  };
+  const weekLogs = logs.filter((l) => inWeek(l.createdAt));
   const lastLog = logs.length > 0 ? logs[logs.length - 1] : null;
   const recognised = logs.filter((l) => l.recognitionVersion === "analysed-set-v1" && l.recognition);
   const recognisedDedup = new Map<string, LogEntry>();
   for (const l of recognised) if (l.recognition) recognisedDedup.set(l.recognition.analysisId, l);
   const analysedSets = [...recognisedDedup.values()];
+  const weekAnalysed = analysedSets.filter((l) => inWeek(l.createdAt)).length;
+  const recentLogs = [...logs].reverse();
+  const recent3 = recentLogs.slice(0, 3);
+  const progressLogs = route.view === "all" ? recentLogs : recent3;
+
+  const viewedPill = (l: LogEntry) =>
+    l.analysisId && uxMeta.viewed[l.analysisId] ? <span className="pill dim">Viewed</span> : null;
 
   const navItems: { name: RouteName; label: string; icon: ReactElement }[] = [
     {
@@ -758,6 +822,18 @@ export default function Page() {
     </button>
   );
 
+  const settingsBtn = (
+    <button
+      type="button"
+      className="iconbtn"
+      aria-label="Settings and profile"
+      aria-current={route.name === "settings" ? "page" : undefined}
+      onClick={() => navigate({ name: "settings" })}
+    >
+      <SettingsIcon />
+    </button>
+  );
+
   const activeBanner = jobActive && job && (
     <div className="state" role="status">
       <div className="spread">
@@ -774,6 +850,8 @@ export default function Page() {
     </div>
   );
 
+  const currentExercise = EXERCISES.find((e) => e.id === exercise);
+
   return (
     <div className="shell">
       <a className="skip" href="#main">Skip to content</a>
@@ -786,6 +864,7 @@ export default function Page() {
         <nav className="railnav" aria-label="Primary">
           {navItems.map((n) => navBtn(n.name, n.label, n.icon, false))}
         </nav>
+        <div className="railsettings">{settingsBtn}</div>
         <p className="railfoot">Movement insights · personal prototype</p>
       </aside>
 
@@ -795,6 +874,7 @@ export default function Page() {
             <Logo />
             <span>Motion X-Ray</span>
           </a>
+          {settingsBtn}
         </header>
         {sessionErr && (
           <div className="state bad" role="alert">
@@ -815,9 +895,21 @@ export default function Page() {
                 <AthleteCompanion exercise={exercise} variant="poster" />
               </div>
             </div>
-            <p className="illabel">Illustration — generic athlete artwork</p>
+            <p className="illabel">Illustration — generic athlete artwork, rendered front and back views (not a 360° model)</p>
             <button className="btn herocta" onClick={() => navigate({ name: "analyse" })}>Analyse a set</button>
             {activeBanner}
+            {uxMeta.goalEnabled && uxMeta.goalTarget !== null && (
+              <div className="card goalwidget" aria-label="Weekly analysed-set target">
+                <div className="spread">
+                  <p style={{ margin: 0 }}><strong>{weekAnalysed}</strong> of <strong>{uxMeta.goalTarget}</strong> analysed sets this week</p>
+                  <button className="textlink" onClick={() => navigate({ name: "settings" })}>Adjust</button>
+                </div>
+                <div className="goaltrack" role="progressbar" aria-valuenow={Math.min(weekAnalysed, uxMeta.goalTarget)} aria-valuemin={0} aria-valuemax={uxMeta.goalTarget} aria-label="Weekly analysed-set target progress">
+                  <span className="goalfill" style={{ width: `${Math.min(100, (weekAnalysed / uxMeta.goalTarget) * 100)}%` }} />
+                </div>
+                <p className="muted" style={{ margin: ".5rem 0 0" }}>A local consistency target you set — not a measure of muscle growth or strength.</p>
+              </div>
+            )}
             {logs.length > 0 && (
               <div className="homeactivity">
                 <div>
@@ -827,17 +919,35 @@ export default function Page() {
                 <button className="textlink" onClick={() => navigate({ name: "progress" })}>View progress →</button>
               </div>
             )}
+            {recent3.length > 0 && (
+              <div className="card recents" aria-label="Recent sessions">
+                <div className="spread" style={{ alignItems: "baseline" }}>
+                  <h3 style={{ margin: 0 }}>Recent sessions</h3>
+                  <button className="textlink" onClick={() => navigate({ name: "progress", view: "all" })}>View all</button>
+                </div>
+                {recent3.map((l) => (
+                  <div className="recentrow" key={l.logId}>
+                    <span className="recentthumb">
+                      {l.analysisId ? (
+                        <SessionThumbnail analysisId={l.analysisId} label={`${EXERCISES.find((e) => e.id === l.exercise)?.name ?? l.exercise} video frame`} />
+                      ) : (
+                        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>
+                      )}
+                    </span>
+                    <div className="recentmain">
+                      <strong>{EXERCISES.find((e) => e.id === l.exercise)?.name ?? l.exercise}</strong>
+                      <p className="muted" style={{ margin: 0 }}>{new Date(l.createdAt).toLocaleDateString()}</p>
+                    </div>
+                    {viewedPill(l)}
+                    {l.analysisId && <button className="textlink" onClick={() => resume(l)}>Reopen</button>}
+                  </div>
+                ))}
+              </div>
+            )}
             {lastLog && lastLog.analysisId && (
               <p className="muted lastreview">Last review: {EXERCISES.find((e) => e.id === lastLog.exercise)?.name ?? lastLog.exercise} · <button type="button" className="textlink" onClick={() => resume(lastLog)}>Reopen report</button></p>
             )}
             <AthleteCompanion exercise={exercise} variant="map" />
-            <details className="details">
-              <summary>Your details (optional)</summary>
-              <div className="field" style={{ maxWidth: 320, marginTop: ".8rem" }}>
-                <label htmlFor="name">Display name (stored only in this browser)</label>
-                <input id="name" value={name} onChange={(e) => saveName(e.target.value)} placeholder="e.g. Alex" autoComplete="off" maxLength={80} />
-              </div>
-            </details>
             {logs.length === 0 && (
               <div className="empty">
                 <h2 style={{ fontSize: "1.3rem", marginBottom: ".5rem" }}>No sets yet</h2>
@@ -851,7 +961,7 @@ export default function Page() {
         {route.name === "analyse" && (
           <section className="view" aria-labelledby="an-h">
             <h1 className="h-page" id="an-h" tabIndex={-1} ref={h1Ref}>Let’s get a clear view.</h1>
-            <p className="lede">One set per clip, up to {MAX_SECONDS} seconds and 100 MiB. MP4, MOV or WebM.</p>
+            <p className="lede">Record a set or choose a video. One set per clip, up to {MAX_SECONDS} seconds and 100 MiB. MP4, MOV or WebM.</p>
             {activeBanner}
             {jobActive ? (
               <div className="state warn" role="status">
@@ -862,7 +972,7 @@ export default function Page() {
                 <div className="exrow">
                   <div className="excurrent">
                     <span className="exlabel">Exercise</span>
-                    <span className="exname">{EXERCISES.find((e) => e.id === exercise)?.name}</span>
+                    <span className="exname">{currentExercise?.name}</span>
                   </div>
                   <button type="button" className="btn ghost sm" aria-expanded={exercisePickerOpen} aria-controls="exercise-picker" onClick={() => setExercisePickerOpen((v) => !v)} disabled={busy}>
                     {exercisePickerOpen ? "Done" : "Change"}
@@ -878,7 +988,7 @@ export default function Page() {
                     ))}
                   </div>
                 )}
-                <p className="framing">{EXERCISES.find((e) => e.id === exercise)?.guidance}.<br />Keep your whole body in frame with steady lighting.</p>
+                <p className="framing">{currentExercise?.guidance}.<br />Keep your whole body in frame with steady lighting.</p>
                 {previewUrl ? (
                   <div className="previewwrap">
                     <video className="preview" controls preload="metadata" src={previewUrl} aria-label="Local preview — not uploaded yet" />
@@ -887,11 +997,15 @@ export default function Page() {
                 ) : (
                   <div className="pickarea">
                     <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="4" y="9" width="19" height="17" rx="4" fill="none" stroke="currentColor" strokeWidth="2" /><path d="M23 15 L30 10.5 V24.5 L23 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /></svg>
-                    <p>Choose a video.</p>
+                    <p>Record a set or choose a video.</p>
                   </div>
                 )}
                 <div className="row fileactions">
-                  <label className="btn filebtn">
+                  <button type="button" className="btn" onClick={() => setRecorderOpen(true)} disabled={busy}>
+                    <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><rect x="2" y="5" width="12" height="11" rx="2.5" /><path d="M14 9 L18 6.8 V14.2 L14 12" strokeLinejoin="round" /></svg>
+                    Record a set
+                  </button>
+                  <label className="btn ghost filebtn">
                     <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m3 14 4-4 4 4 3-3 4 4"/><circle cx="13" cy="7" r="1"/></svg>
                     Choose video
                     <input
@@ -939,6 +1053,17 @@ export default function Page() {
                   {busy && uploadPct !== null && <button className="btn ghost" onClick={() => xhrRef.current?.abort()}>Cancel upload</button>}
                 </div>
               </>
+            )}
+            {recorderOpen && (
+              <div className="recorderoverlay">
+                <CameraRecorder
+                  exerciseLabel={currentExercise?.name ?? exercise}
+                  guidance={currentExercise?.guidance ?? ""}
+                  disabled={busy}
+                  onUse={(f) => { setRecorderOpen(false); void onPick(f); }}
+                  onClose={() => setRecorderOpen(false)}
+                />
+              </div>
             )}
           </section>
         )}
@@ -1061,13 +1186,29 @@ export default function Page() {
               </div>
             ) : (
               <>
+                {analysedSets.length >= 3 && (
+                  <div className="milestone" role="status">
+                    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" style={{ flexShrink: 0 }}>
+                      <circle cx="13" cy="13" r="12" fill="#3158e8" />
+                      <path d="M8 13.5 L11.5 17 L18 9.5" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <div>
+                      <strong>3 analysed sets saved</strong>
+                      <p className="muted" style={{ margin: ".2rem 0 0" }}>A great start — keep it up. Companion progress is illustrative; this reflects your current browser history only and updates if entries are removed.</p>
+                    </div>
+                  </div>
+                )}
                 <div className="card weekstrip" aria-label="Saved sets over the last seven days">
-                  <h3>Last 7 days</h3>
+                  <h3>{uxMeta.weekMode === "calendar" ? "This week (Mon–Sun)" : "Last 7 days"}</h3>
                   <div className="weekdays">
                     {Array.from({ length: 7 }, (_, i) => {
                       const day = new Date();
                       day.setHours(0, 0, 0, 0);
-                      day.setDate(day.getDate() - (6 - i));
+                      if (uxMeta.weekMode === "calendar") {
+                        day.setDate(day.getDate() - ((day.getDay() + 6) % 7) + i); // Monday + i
+                      } else {
+                        day.setDate(day.getDate() - (6 - i));
+                      }
                       const nextDay = new Date(day);
                       nextDay.setDate(nextDay.getDate() + 1);
                       const next = nextDay.getTime();
@@ -1086,6 +1227,7 @@ export default function Page() {
                     })}
                   </div>
                 </div>
+                <RegionActivity sets={logs} />
                 {analysedSets.length > 0 && (
                   <div className="card exbars">
                     <h3>Analysed sets by exercise</h3>
@@ -1105,9 +1247,23 @@ export default function Page() {
                   </div>
                 )}
                 <div className="card sessions">
-                  <h3>Recent sessions</h3>
-                  {[...logs].reverse().map((l) => (
+                  <div className="spread" style={{ alignItems: "baseline" }}>
+                    <h3>{route.view === "all" ? "All sessions" : "Recent sessions"}</h3>
+                    {route.view === "all" ? (
+                      <button className="textlink" onClick={() => navigate({ name: "progress" })}>Show recent</button>
+                    ) : recentLogs.length > 3 ? (
+                      <button className="textlink" onClick={() => navigate({ name: "progress", view: "all" })}>View all</button>
+                    ) : null}
+                  </div>
+                  {progressLogs.map((l) => (
                     <div className="session" key={l.logId}>
+                      <span className="recentthumb">
+                        {l.analysisId ? (
+                          <SessionThumbnail analysisId={l.analysisId} label={`${EXERCISES.find((e) => e.id === l.exercise)?.name ?? l.exercise} video frame`} />
+                        ) : (
+                          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" /></svg>
+                        )}
+                      </span>
                       <div className="sessionmain">
                         <div className="sessionhead">
                           <strong>{EXERCISES.find((e) => e.id === l.exercise)?.name ?? l.exercise}</strong>
@@ -1116,6 +1272,7 @@ export default function Page() {
                             : l.analysisId
                               ? <span className="pill dim">Linked analysis</span>
                               : <span className="pill dim">Manual entry</span>}
+                          {viewedPill(l)}
                         </div>
                         <p className="muted">{new Date(l.createdAt).toLocaleString()}</p>
                         <p className="sessionmeta">
@@ -1142,8 +1299,23 @@ export default function Page() {
             )}
             <p className="muted" style={{ marginTop: "1.25rem" }}>
               History stays in this browser. Clearing site data or changing browsers loses it.
-              {' '}Removing a log keeps its server analysis; revoke server access separately under Manage.
+              {" "}Removing a log keeps its server analysis; revoke server access separately under Manage.
             </p>
+          </section>
+        )}
+
+        {route.name === "settings" && (
+          <section className="view" aria-labelledby="set-h">
+            <h1 className="h-page" id="set-h" tabIndex={-1} ref={h1Ref}>Settings</h1>
+            <p className="lede">Guest profile and local preferences. No account — everything stays in this browser.</p>
+            <SettingsPanel
+              displayName={name}
+              onNameChange={saveName}
+              metadata={uxMeta}
+              onSave={saveSettings}
+              onBack={() => navigate({ name: "home" })}
+              error={uxMetaErr}
+            />
           </section>
         )}
       </main>

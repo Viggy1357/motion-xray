@@ -217,6 +217,7 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
     setReport(null);
     setError(null);
     setLoading(true);
+    setActiveSeg(null);
     onReport(null, false); // fetch in flight: parent must not treat null as 'no report'
     void (async () => {
       try {
@@ -251,6 +252,29 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
     return () => ctrl.abort();
   }, [analysisId, retry, onReport]);
 
+  // Active segment follows ACTUAL playback: the player broadcasts the
+  // original source PTS (mxr:source-time). A completed interval wins; an
+  // excluded fragment is the fallback; outside every interval select none.
+  // Never fabricate boundaries or rep events.
+  useEffect(() => {
+    if (!report) return;
+    const completed = report.reps.filter((r) => r.completion_status === "completed");
+    const excluded = report.reps.filter((r) => r.completion_status !== "completed");
+    const onSourceTime = (ev: Event) => {
+      const detail = (ev as CustomEvent<unknown>).detail as
+        | { analysisId?: unknown; sourceS?: unknown }
+        | null;
+      if (!detail || detail.analysisId !== analysisId) return;
+      const sourceS = detail.sourceS;
+      if (typeof sourceS !== "number" || !Number.isFinite(sourceS)) return;
+      const inInterval = (r: Rep) => sourceS >= r.start_s && sourceS <= r.end_s;
+      const hit = completed.find(inInterval) ?? excluded.find(inInterval) ?? null;
+      setActiveSeg(hit ? hit.id : null);
+    };
+    window.addEventListener("mxr:source-time", onSourceTime);
+    return () => window.removeEventListener("mxr:source-time", onSourceTime);
+  }, [report, analysisId]);
+
   if (loading) {
     return (
       <div className="state" role="status" aria-live="polite">
@@ -275,6 +299,9 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
     : null;
   const completed = report.reps.filter((r) => r.completion_status === "completed");
   const fragments = report.reps.filter((r) => r.completion_status !== "completed");
+  // Combined strip: actual completed cycles AND actual excluded fragments,
+  // ordered by real start time. Excluded ≠ partial visibility.
+  const allSegments = [...report.reps].sort((a, b) => a.start_s - b.start_s || a.ordinal - b.ordinal);
   const coverageEntries = Object.entries(q.per_metric_coverage);
   const byRep = new Map<string, Metric[]>();
   for (const m of report.metrics) {
@@ -298,23 +325,29 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
         <span className="pill dim">Experimental</span>
       </div>
 
-      {completed.length > 0 && (
-        <nav className={styles.chipStrip} aria-label="Completed segments">
-          {completed.map((r) => (
-            <button
-              key={r.id}
-              type="button"
-              className={styles.chip}
-              data-active={activeSeg === r.id || undefined}
-              aria-pressed={activeSeg === r.id}
-              title={`Segment ${r.ordinal} · ${r.start_s.toFixed(2)}s – ${r.end_s.toFixed(2)}s`}
-              aria-label={`Play video from segment ${r.ordinal}`}
-              onClick={() => { setActiveSeg(r.id); seekTo(r.start_s); }}
-            >
-              <span className={styles.chipLabel}>Segment {r.ordinal}</span>
-              <span className={styles.chipTime}>{r.start_s.toFixed(2)}s – {r.end_s.toFixed(2)}s</span>
-            </button>
-          ))}
+      {allSegments.length > 0 && (
+        <nav className={styles.chipStrip} aria-label="Detected segments">
+          {allSegments.map((r) => {
+            const isCompleted = r.completion_status === "completed";
+            return (
+              <button
+                key={r.id}
+                type="button"
+                className={isCompleted ? styles.chip : `${styles.chip} ${styles.chipExcluded}`}
+                data-active={activeSeg === r.id || undefined}
+                aria-pressed={activeSeg === r.id}
+                title={`Segment ${r.ordinal} · ${r.start_s.toFixed(2)}s – ${r.end_s.toFixed(2)}s${isCompleted ? "" : ` · ${r.completion_status.replaceAll("_", " ")}`}`}
+                aria-label={`Play video from segment ${r.ordinal}${isCompleted ? "" : ` (${r.completion_status.replaceAll("_", " ")})`}`}
+                onClick={() => { setActiveSeg(r.id); seekTo(r.start_s); }}
+              >
+                <span className={styles.chipLabel}>
+                  Segment {r.ordinal}
+                  {!isCompleted && <span className={styles.chipBadge}>Partial</span>}
+                </span>
+                <span className={styles.chipTime}>{r.start_s.toFixed(2)}s – {r.end_s.toFixed(2)}s</span>
+              </button>
+            );
+          })}
         </nav>
       )}
 
