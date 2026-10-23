@@ -1,0 +1,165 @@
+{
+  "task": "HM-PERF01",
+  "runs": {
+    "original": {
+      "source_bytes": 46008563,
+      "display_dimensions": [
+        1080,
+        1920
+      ],
+      "model_sha256": "5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+      "elapsed_s": 57.1115,
+      "artifact_key": "pose/6f57b1faca6265dcb8e495aded57182879beda3614cbde792cb8197373ed282a.jsonl",
+      "artifact_bytes": 3202452,
+      "artifact_sha256": "6f57b1faca6265dcb8e495aded57182879beda3614cbde792cb8197373ed282a",
+      "frame_count": 619,
+      "first_pts": 0.0,
+      "last_pts": 20.635,
+      "actual_rate_hz": 29.95,
+      "all_invalid_frames": 5,
+      "joint_coverage": {
+        "left_ankle": 0.0291,
+        "left_elbow": 0.1373,
+        "left_foot_index": 0.0323,
+        "left_heel": 0.0162,
+        "left_hip": 0.9919,
+        "left_knee": 0.0759,
+        "left_shoulder": 0.9919,
+        "left_wrist": 0.1405,
+        "pelvis": 0.9919,
+        "right_ankle": 0.2375,
+        "right_elbow": 0.9871,
+        "right_foot_index": 0.273,
+        "right_heel": 0.2197,
+        "right_hip": 0.9919,
+        "right_knee": 0.2456,
+        "right_shoulder": 0.9919,
+        "right_wrist": 0.9758,
+        "shoulder_midpoint": 0.9919
+      },
+      "cycles": 2,
+      "quality": {
+        "expected_supporting_samples": 619,
+        "valid_observed_samples": 604,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.975767366720517,
+          "elbow_angle/estimated_3d": 0.975767366720517,
+          "upper_arm_torso_angle/projected_2d": 0.9870759289176091,
+          "upper_arm_torso_angle/estimated_3d": 0.9870759289176091,
+          "torso_axis_angle/projected_2d": 0.9919224555735057
+        },
+        "usable_reps": 2,
+        "total_reps": 14,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "estimated_match": 81.64965714727133,
+      "metric_entries": 64,
+      "measured_entries": 64
+    },
+    "optimized": {
+      "source_bytes": 8889760,
+      "display_dimensions": [
+        720,
+        1280
+      ],
+      "model_sha256": "5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+      "elapsed_s": 20.0565,
+      "artifact_key": "pose/5353690bdeaa231c9471bbce1a6dee7fe4abdd4e6260ebac5598fc55281835bc.jsonl",
+      "artifact_bytes": 1596436,
+      "artifact_sha256": "5353690bdeaa231c9471bbce1a6dee7fe4abdd4e6260ebac5598fc55281835bc",
+      "frame_count": 310,
+      "first_pts": 0.0,
+      "last_pts": 20.6,
+      "actual_rate_hz": 15.0,
+      "all_invalid_frames": 6,
+      "joint_coverage": {
+        "left_ankle": 0.0387,
+        "left_elbow": 0.1387,
+        "left_foot_index": 0.0548,
+        "left_heel": 0.0226,
+        "left_hip": 0.9806,
+        "left_knee": 0.0871,
+        "left_shoulder": 0.9806,
+        "left_wrist": 0.1387,
+        "pelvis": 0.9806,
+        "right_ankle": 0.2581,
+        "right_elbow": 0.9677,
+        "right_foot_index": 0.2774,
+        "right_heel": 0.2323,
+        "right_hip": 0.9806,
+        "right_knee": 0.2742,
+        "right_shoulder": 0.9806,
+        "right_wrist": 0.9613,
+        "shoulder_midpoint": 0.9806
+      },
+      "cycles": 1,
+      "quality": {
+        "expected_supporting_samples": 310,
+        "valid_observed_samples": 298,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.9612903225806452,
+          "elbow_angle/estimated_3d": 0.9612903225806452,
+          "upper_arm_torso_angle/projected_2d": 0.967741935483871,
+          "upper_arm_torso_angle/estimated_3d": 0.967741935483871,
+          "torso_axis_angle/projected_2d": 0.9806451612903225
+        },
+        "usable_reps": 1,
+        "total_reps": 15,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "estimated_match": 87.41605529170911,
+      "metric_entries": 32,
+      "measured_entries": 32
+    }
+  },
+  "max_source_pts_delta_s": 0.0016670000000011953,
+  "source_frame_count": 620,
+  "speedup_inference_only": 2.847530725699898,
+  "angle_deltas_right_same_timestamp": {
+    "elbow_angle/projected_2d": {
+      "pairs": 296,
+      "mean_deg": 2.18621945975468,
+      "median_deg": 1.6382098651331738,
+      "p95_deg": 4.9359894296372815,
+      "max_deg": 43.228154740086026
+    },
+    "elbow_angle/estimated_3d": {
+      "pairs": 296,
+      "mean_deg": 2.5347907770619402,
+      "median_deg": 1.9026180882525523,
+      "p95_deg": 7.127480908013283,
+      "max_deg": 20.955663911093126
+    },
+    "upper_arm_torso_angle/projected_2d": {
+      "pairs": 299,
+      "mean_deg": 1.1640415641800335,
+      "median_deg": 0.8489446674544263,
+      "p95_deg": 3.342837618742024,
+      "max_deg": 5.399509303248134
+    },
+    "upper_arm_torso_angle/estimated_3d": {
+      "pairs": 299,
+      "mean_deg": 1.9256246302139672,
+      "median_deg": 1.4456724029495653,
+      "p95_deg": 5.337763205308995,
+      "max_deg": 10.285539008011185
+    },
+    "torso_axis_angle/projected_2d": {
+      "pairs": 303,
+      "mean_deg": 0.6650521773120107,
+      "median_deg": 0.49605881773880833,
+      "p95_deg": 1.8501499998878501,
+      "max_deg": 4.199840605609702
+    }
+  },
+  "limitations": [
+    "One video one sequential run per recipe; not general latency/accuracy proof.",
+    "Preparation time and playback proxy creation excluded from inference timing.",
+    "Scores use unchanged original references, diagnostic only; not recalibrated.",
+    "Both perception resolution and sampling changed together; effects not isolated.",
+    "Original model observations are comparator, not ground truth.",
+    "Segment0..20.65seconds of20.653333seconds; no private media sent to Nebius."
+  ]
+}

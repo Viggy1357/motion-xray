@@ -1,0 +1,48 @@
+{
+  "task": "HM-PERF01",
+  "date": "2026-10-23",
+  "calls": [
+    {
+      "task": "HM-PERF01",
+      "model": "moonshotai/Kimi-K2.7-Code",
+      "request": "hm-perf01",
+      "status": "failed",
+      "maximum_cost_usd": 0.45941699999999996,
+      "input_token_bound": 53139,
+      "output_token_bound": 20000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 11468,
+        "prompt_tokens": 10868,
+        "total_tokens": 22336,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "finish_reason": null,
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-0b06e88ee34a36f16af649dbed59c141",
+      "error_type": "ReadTimeout",
+      "elapsed_s": 600.01,
+      "received_chars": 0,
+      "conservative_cost_usd": 0.204624
+    }
+  ],
+  "total_tokens": 22336,
+  "guard_cost_usd": 0.204624,
+  "prior_aggregate_commitment_usd": 13.45014265,
+  "aggregate_commitment_usd": 13.654766650000001,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "balance_verified": false,
+  "notes": [
+    "Single source-only Nebius draft timed out without final content; no retry, draft or product runtime call.",
+    "Usage on timeout is last streamed usage; final billing may differ. Maximum request reservation USD0.459417 retained as conservative unresolved commitment.",
+    "To avoid a large Codex fallback, reused existing pose_smoke diagnostic with one temporary sample-rate substitution. Comparison glue local only.",
+    "No credentials/private footage/pose sent to coding model; no web/Tavily/hosting charges."
+  ],
+  "aggregate_maximum_commitment_usd": 13.90955965
+}

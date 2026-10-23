@@ -12,6 +12,22 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-PERF01 — one-video processing-speed experiment · done (23 Oct)
+
+- FR04/05/07/08/12. Original curl30Hz vs aspect-preserving720x1280/15Hz copy,
+  same model/visibility/measurement thresholds, original timestamps within1.667ms.
+- Pose-processing57.11s ->20.06s (2.85x), file46.01MB ->8.89MB. Conversion/proxy
+  time excluded. Usable cycles2 ->1, resemblance81.65 ->87.42 against unchanged
+  references. Right elbow3D mean absolute delta2.53deg, p957.13deg/max20.96deg.
+- Decision: do not adopt combined recipe; first isolate resizing at30Hz on this clip.
+  No production changes. One-run diagnostic, not accuracy validation or total latency.
+- Nebius source-only draft timed out600s with no code; no retry. Reused existing
+  diagnostic CLI plus temporary rate edit, local comparison glue. Last streamed usage
+  22,336 tokens/$0.204624 guard; unresolved max reservation$0.459417 retained.
+- Evidence/reproduction `docs/audit/HM-PERF01-speed-experiment.md`, comparisonJSON;
+  usage `docs/development-usage-HM-PERF01-2026-10-23.json`. Docker runs exited0,
+  frame-count/PTS/model/actual-rate checks passed. Next HM-PERF02 resize-only if requested.
+
 ### HM05/HM07 + HM06 — three-exercise video calibration and grounded coaching · done (prototype slice,23 Oct)
 
 - FR05/07/08/09/10/12. Owner explicitly requests parallel Nebius work for curl, squat
