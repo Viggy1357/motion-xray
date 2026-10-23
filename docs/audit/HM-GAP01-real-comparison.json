@@ -1,0 +1,1471 @@
+{
+  "task": "HM-GAP01",
+  "config": {
+    "version": "curl-measure-v2",
+    "low_degrees": 80.0,
+    "high_degrees": 140.0,
+    "dwell_s": 0.1,
+    "max_gap_s": 0.1,
+    "missing_gap_s": 0.1
+  },
+  "results": {
+    "original": {
+      "elapsed_s": 57.1115,
+      "frames": 619,
+      "cycles": [
+        {
+          "start_s": 6.066667,
+          "bottom_s": 7.666667,
+          "end_s": 8.466667
+        },
+        {
+          "start_s": 8.466667,
+          "bottom_s": 10.1,
+          "end_s": 11.033333
+        },
+        {
+          "start_s": 11.033333,
+          "bottom_s": 12.968333,
+          "end_s": 13.968333
+        },
+        {
+          "start_s": 16.435,
+          "bottom_s": 19.201667,
+          "end_s": 20.068333
+        }
+      ],
+      "score": 83.33470356558864,
+      "side": "right",
+      "warnings": [
+        "PROVISIONAL_CYCLE_CANDIDATES: automatic windows are provisional, not ground truth",
+        "IMAGE_AXIS_NOT_GRAVITY: torso axis is uncalibrated image-up, not gravity",
+        "MISSING_OBSERVATIONS_RETAINED: 2 cycle(s) contain unmeasured gap(s); max_bracketing_gap_s=0.100000",
+        "PARTIAL_MOTION: 5 incomplete motion span(s) excluded from count"
+      ],
+      "provenance": {
+        "pose_sha256": "6f57b1faca6265dcb8e495aded57182879beda3614cbde792cb8197373ed282a",
+        "processing_version": "perf02-diagnostic",
+        "config_sha256": "825fb1e2a6f64ed9ebce0c4aec439c1588c3eba9b1115685b74a2488f10b6ff6",
+        "side": "right",
+        "segment_config_version": "curl-measure-v2",
+        "pipeline_version": "curl-measure-v2",
+        "automatic_window_origin": "find_cycles:estimated_3d_elbow_angle_signal",
+        "count_source": "automatic_segmentation_signal_only",
+        "missing_observations_policy": "curl-measure-v2:bridge_same_band_endpoints_only;missing_never_counts_dwell;spans_aggregate_only",
+        "missing_spans_trace": "[[8.2, 8.266667], [12.268333, 12.335], [13.501667, 13.601667]]",
+        "match_normalization_degrees": "30",
+        "match_coverage_threshold": "0.8",
+        "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+        "matched_cycles": "4",
+        "omitted_cycle_count": "0",
+        "reference_name": "Muscle & Strength standing curl",
+        "reference_id": "curl-ms-demo",
+        "reference_view_id": "curl-ms-demo-camera-unreviewed",
+        "reference_rep_count": "2",
+        "calibration_status": "unreviewed",
+        "reference_band_basis": "observed_min_max_not_tolerance",
+        "experimental_policy_version": "exercise-reference-bands-v1",
+        "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+        "reference_source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html"
+      },
+      "gap_metadata": [
+        [
+          [
+            8.2,
+            8.266667
+          ]
+        ],
+        [],
+        [
+          [
+            12.268333,
+            12.335
+          ],
+          [
+            13.501667,
+            13.601667
+          ]
+        ],
+        []
+      ],
+      "coverage": {
+        "elbow_angle/projected_2d": 0.975767366720517,
+        "elbow_angle/estimated_3d": 0.975767366720517,
+        "upper_arm_torso_angle/projected_2d": 0.9870759289176091,
+        "upper_arm_torso_angle/estimated_3d": 0.9870759289176091,
+        "torso_axis_angle/projected_2d": 0.9919224555735057
+      }
+    },
+    "resize30": {
+      "elapsed_s": 33.6981,
+      "frames": 620,
+      "cycles": [
+        {
+          "start_s": 0.0,
+          "bottom_s": 0.933333,
+          "end_s": 2.4
+        },
+        {
+          "start_s": 6.2,
+          "bottom_s": 7.666667,
+          "end_s": 8.5
+        },
+        {
+          "start_s": 8.5,
+          "bottom_s": 10.1,
+          "end_s": 11.033333
+        },
+        {
+          "start_s": 16.433333,
+          "bottom_s": 19.166667,
+          "end_s": 20.033333
+        }
+      ],
+      "score": 88.28087303086241,
+      "side": "right",
+      "warnings": [
+        "PROVISIONAL_CYCLE_CANDIDATES: automatic windows are provisional, not ground truth",
+        "IMAGE_AXIS_NOT_GRAVITY: torso axis is uncalibrated image-up, not gravity",
+        "MISSING_OBSERVATIONS_RETAINED: 3 cycle(s) contain unmeasured gap(s); max_bracketing_gap_s=0.100000",
+        "PARTIAL_MOTION: 9 incomplete motion span(s) excluded from count"
+      ],
+      "provenance": {
+        "pose_sha256": "ba3ab4b625f3ab63b244de9663caa525d9934d50f72c9b4ea7634ab529a1c835",
+        "processing_version": "perf02-diagnostic",
+        "config_sha256": "825fb1e2a6f64ed9ebce0c4aec439c1588c3eba9b1115685b74a2488f10b6ff6",
+        "side": "right",
+        "segment_config_version": "curl-measure-v2",
+        "pipeline_version": "curl-measure-v2",
+        "automatic_window_origin": "find_cycles:estimated_3d_elbow_angle_signal",
+        "count_source": "automatic_segmentation_signal_only",
+        "missing_observations_policy": "curl-measure-v2:bridge_same_band_endpoints_only;missing_never_counts_dwell;spans_aggregate_only",
+        "missing_spans_trace": "[[2.3, 2.4], [7.0, 7.1], [16.866667, 16.933333], [16.966667, 17.033333], [18.566667, 18.633333]]",
+        "match_normalization_degrees": "30",
+        "match_coverage_threshold": "0.8",
+        "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+        "matched_cycles": "4",
+        "omitted_cycle_count": "0",
+        "reference_name": "Muscle & Strength standing curl",
+        "reference_id": "curl-ms-demo",
+        "reference_view_id": "curl-ms-demo-camera-unreviewed",
+        "reference_rep_count": "2",
+        "calibration_status": "unreviewed",
+        "reference_band_basis": "observed_min_max_not_tolerance",
+        "experimental_policy_version": "exercise-reference-bands-v1",
+        "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+        "reference_source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html"
+      },
+      "gap_metadata": [
+        [
+          [
+            2.3,
+            2.4
+          ]
+        ],
+        [
+          [
+            7.0,
+            7.1
+          ]
+        ],
+        [],
+        [
+          [
+            16.866667,
+            16.933333
+          ],
+          [
+            16.966667,
+            17.033333
+          ],
+          [
+            18.566667,
+            18.633333
+          ]
+        ]
+      ],
+      "coverage": {
+        "elbow_angle/projected_2d": 0.9612903225806452,
+        "elbow_angle/estimated_3d": 0.9612903225806452,
+        "upper_arm_torso_angle/projected_2d": 0.9693548387096774,
+        "upper_arm_torso_angle/estimated_3d": 0.9693548387096774,
+        "torso_axis_angle/projected_2d": 0.9774193548387097
+      }
+    },
+    "optimized": {
+      "elapsed_s": 20.0565,
+      "frames": 310,
+      "cycles": [
+        {
+          "start_s": 8.533333,
+          "bottom_s": 10.133333,
+          "end_s": 11.066667
+        }
+      ],
+      "score": 87.41605529170911,
+      "side": "right",
+      "warnings": [
+        "PROVISIONAL_CYCLE_CANDIDATES: automatic windows are provisional, not ground truth",
+        "IMAGE_AXIS_NOT_GRAVITY: torso axis is uncalibrated image-up, not gravity",
+        "PARTIAL_MOTION: 14 incomplete motion span(s) excluded from count"
+      ],
+      "provenance": {
+        "pose_sha256": "5353690bdeaa231c9471bbce1a6dee7fe4abdd4e6260ebac5598fc55281835bc",
+        "processing_version": "perf02-diagnostic",
+        "config_sha256": "825fb1e2a6f64ed9ebce0c4aec439c1588c3eba9b1115685b74a2488f10b6ff6",
+        "side": "right",
+        "segment_config_version": "curl-measure-v2",
+        "pipeline_version": "curl-measure-v2",
+        "automatic_window_origin": "find_cycles:estimated_3d_elbow_angle_signal",
+        "count_source": "automatic_segmentation_signal_only",
+        "match_normalization_degrees": "30",
+        "match_coverage_threshold": "0.8",
+        "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+        "matched_cycles": "1",
+        "omitted_cycle_count": "0",
+        "reference_name": "Muscle & Strength standing curl",
+        "reference_id": "curl-ms-demo",
+        "reference_view_id": "curl-ms-demo-camera-unreviewed",
+        "reference_rep_count": "2",
+        "calibration_status": "unreviewed",
+        "reference_band_basis": "observed_min_max_not_tolerance",
+        "experimental_policy_version": "exercise-reference-bands-v1",
+        "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+        "reference_source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html"
+      },
+      "gap_metadata": [
+        []
+      ],
+      "coverage": {
+        "elbow_angle/projected_2d": 0.9612903225806452,
+        "elbow_angle/estimated_3d": 0.9612903225806452,
+        "upper_arm_torso_angle/projected_2d": 0.967741935483871,
+        "upper_arm_torso_angle/estimated_3d": 0.967741935483871,
+        "torso_axis_angle/projected_2d": 0.9806451612903225
+      }
+    },
+    "original_angles_sampled15": {
+      "cycles": [
+        {
+          "start_s": 6.066667,
+          "bottom_s": 7.666667,
+          "end_s": 8.466667
+        },
+        {
+          "start_s": 8.466667,
+          "bottom_s": 10.133333,
+          "end_s": 11.066667
+        },
+        {
+          "start_s": 16.468333,
+          "bottom_s": 19.201667,
+          "end_s": 20.068333
+        }
+      ]
+    }
+  },
+  "threshold_traces": [
+    {
+      "original_cycle": {
+        "start_s": 6.066667,
+        "bottom_s": 7.666667,
+        "end_s": 8.466667
+      },
+      "recipes": {
+        "original": [
+          {
+            "state": "middle",
+            "start": 5.866667,
+            "end": 6.0,
+            "n": 5,
+            "duration": 0.133333
+          },
+          {
+            "state": "missing",
+            "start": 6.033333,
+            "end": 6.033333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 6.066667,
+            "end": 6.933333,
+            "n": 27,
+            "duration": 0.866666
+          },
+          {
+            "state": "middle",
+            "start": 6.966667,
+            "end": 7.633333,
+            "n": 21,
+            "duration": 0.666666
+          },
+          {
+            "state": "low",
+            "start": 7.666667,
+            "end": 7.833333,
+            "n": 6,
+            "duration": 0.166666
+          },
+          {
+            "state": "middle",
+            "start": 7.866667,
+            "end": 8.2,
+            "n": 11,
+            "duration": 0.333333
+          },
+          {
+            "state": "missing",
+            "start": 8.233333,
+            "end": 8.233333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 8.266667,
+            "end": 8.433333,
+            "n": 6,
+            "duration": 0.166666
+          },
+          {
+            "state": "high",
+            "start": 8.466667,
+            "end": 8.7,
+            "n": 8,
+            "duration": 0.233333
+          }
+        ],
+        "resize30": [
+          {
+            "state": "middle",
+            "start": 5.866667,
+            "end": 5.933333,
+            "n": 3,
+            "duration": 0.066666
+          },
+          {
+            "state": "missing",
+            "start": 5.966667,
+            "end": 6.0,
+            "n": 2,
+            "duration": 0.033333
+          },
+          {
+            "state": "high",
+            "start": 6.033333,
+            "end": 6.033333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "missing",
+            "start": 6.066667,
+            "end": 6.066667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 6.1,
+            "end": 6.133333,
+            "n": 2,
+            "duration": 0.033333
+          },
+          {
+            "state": "missing",
+            "start": 6.166667,
+            "end": 6.166667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 6.2,
+            "end": 6.933333,
+            "n": 23,
+            "duration": 0.733333
+          },
+          {
+            "state": "middle",
+            "start": 6.966667,
+            "end": 7.0,
+            "n": 2,
+            "duration": 0.033333
+          },
+          {
+            "state": "missing",
+            "start": 7.033333,
+            "end": 7.066667,
+            "n": 2,
+            "duration": 0.033334
+          },
+          {
+            "state": "middle",
+            "start": 7.1,
+            "end": 7.633333,
+            "n": 17,
+            "duration": 0.533333
+          },
+          {
+            "state": "low",
+            "start": 7.666667,
+            "end": 7.833333,
+            "n": 6,
+            "duration": 0.166666
+          },
+          {
+            "state": "middle",
+            "start": 7.866667,
+            "end": 8.466667,
+            "n": 19,
+            "duration": 0.6
+          },
+          {
+            "state": "high",
+            "start": 8.5,
+            "end": 8.7,
+            "n": 7,
+            "duration": 0.2
+          }
+        ],
+        "optimized": [
+          {
+            "state": "middle",
+            "start": 5.866667,
+            "end": 5.933333,
+            "n": 2,
+            "duration": 0.066666
+          },
+          {
+            "state": "missing",
+            "start": 6.0,
+            "end": 6.066667,
+            "n": 2,
+            "duration": 0.066667
+          },
+          {
+            "state": "high",
+            "start": 6.133333,
+            "end": 6.933333,
+            "n": 13,
+            "duration": 0.8
+          },
+          {
+            "state": "middle",
+            "start": 7.0,
+            "end": 7.0,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "missing",
+            "start": 7.066667,
+            "end": 7.066667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 7.133333,
+            "end": 7.6,
+            "n": 8,
+            "duration": 0.466667
+          },
+          {
+            "state": "low",
+            "start": 7.666667,
+            "end": 7.8,
+            "n": 3,
+            "duration": 0.133333
+          },
+          {
+            "state": "middle",
+            "start": 7.866667,
+            "end": 8.466667,
+            "n": 10,
+            "duration": 0.6
+          },
+          {
+            "state": "high",
+            "start": 8.533333,
+            "end": 8.666667,
+            "n": 3,
+            "duration": 0.133334
+          }
+        ],
+        "original_angles_sampled15": [
+          {
+            "state": "middle",
+            "start": 5.866667,
+            "end": 6.0,
+            "n": 3,
+            "duration": 0.133333
+          },
+          {
+            "state": "high",
+            "start": 6.066667,
+            "end": 6.933333,
+            "n": 14,
+            "duration": 0.866666
+          },
+          {
+            "state": "middle",
+            "start": 7.0,
+            "end": 7.6,
+            "n": 10,
+            "duration": 0.6
+          },
+          {
+            "state": "low",
+            "start": 7.666667,
+            "end": 7.8,
+            "n": 3,
+            "duration": 0.133333
+          },
+          {
+            "state": "middle",
+            "start": 7.866667,
+            "end": 8.4,
+            "n": 9,
+            "duration": 0.533333
+          },
+          {
+            "state": "high",
+            "start": 8.466667,
+            "end": 8.666667,
+            "n": 4,
+            "duration": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "original_cycle": {
+        "start_s": 8.466667,
+        "bottom_s": 10.1,
+        "end_s": 11.033333
+      },
+      "recipes": {
+        "original": [
+          {
+            "state": "middle",
+            "start": 8.266667,
+            "end": 8.433333,
+            "n": 6,
+            "duration": 0.166666
+          },
+          {
+            "state": "high",
+            "start": 8.466667,
+            "end": 9.5,
+            "n": 32,
+            "duration": 1.033333
+          },
+          {
+            "state": "middle",
+            "start": 9.533333,
+            "end": 10.066667,
+            "n": 17,
+            "duration": 0.533334
+          },
+          {
+            "state": "low",
+            "start": 10.1,
+            "end": 10.366667,
+            "n": 9,
+            "duration": 0.266667
+          },
+          {
+            "state": "middle",
+            "start": 10.4,
+            "end": 10.466667,
+            "n": 3,
+            "duration": 0.066667
+          },
+          {
+            "state": "low",
+            "start": 10.5,
+            "end": 10.533333,
+            "n": 2,
+            "duration": 0.033333
+          },
+          {
+            "state": "middle",
+            "start": 10.566667,
+            "end": 11.0,
+            "n": 14,
+            "duration": 0.433333
+          },
+          {
+            "state": "high",
+            "start": 11.033333,
+            "end": 11.268333,
+            "n": 7,
+            "duration": 0.235
+          }
+        ],
+        "resize30": [
+          {
+            "state": "middle",
+            "start": 8.266667,
+            "end": 8.466667,
+            "n": 7,
+            "duration": 0.2
+          },
+          {
+            "state": "high",
+            "start": 8.5,
+            "end": 9.5,
+            "n": 31,
+            "duration": 1.0
+          },
+          {
+            "state": "middle",
+            "start": 9.533333,
+            "end": 9.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 9.566667,
+            "end": 9.566667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 9.6,
+            "end": 10.066667,
+            "n": 15,
+            "duration": 0.466667
+          },
+          {
+            "state": "low",
+            "start": 10.1,
+            "end": 10.4,
+            "n": 10,
+            "duration": 0.3
+          },
+          {
+            "state": "middle",
+            "start": 10.433333,
+            "end": 10.5,
+            "n": 3,
+            "duration": 0.066667
+          },
+          {
+            "state": "low",
+            "start": 10.533333,
+            "end": 10.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 10.566667,
+            "end": 11.0,
+            "n": 14,
+            "duration": 0.433333
+          },
+          {
+            "state": "high",
+            "start": 11.033333,
+            "end": 11.266667,
+            "n": 8,
+            "duration": 0.233334
+          }
+        ],
+        "optimized": [
+          {
+            "state": "middle",
+            "start": 8.266667,
+            "end": 8.466667,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "high",
+            "start": 8.533333,
+            "end": 9.466667,
+            "n": 15,
+            "duration": 0.933334
+          },
+          {
+            "state": "middle",
+            "start": 9.533333,
+            "end": 10.066667,
+            "n": 9,
+            "duration": 0.533334
+          },
+          {
+            "state": "low",
+            "start": 10.133333,
+            "end": 10.4,
+            "n": 5,
+            "duration": 0.266667
+          },
+          {
+            "state": "middle",
+            "start": 10.466667,
+            "end": 10.466667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "low",
+            "start": 10.533333,
+            "end": 10.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 10.6,
+            "end": 11.0,
+            "n": 7,
+            "duration": 0.4
+          },
+          {
+            "state": "high",
+            "start": 11.066667,
+            "end": 11.266667,
+            "n": 4,
+            "duration": 0.2
+          }
+        ],
+        "original_angles_sampled15": [
+          {
+            "state": "middle",
+            "start": 8.266667,
+            "end": 8.4,
+            "n": 3,
+            "duration": 0.133333
+          },
+          {
+            "state": "high",
+            "start": 8.466667,
+            "end": 9.466667,
+            "n": 16,
+            "duration": 1.0
+          },
+          {
+            "state": "middle",
+            "start": 9.533333,
+            "end": 10.066667,
+            "n": 9,
+            "duration": 0.533334
+          },
+          {
+            "state": "low",
+            "start": 10.133333,
+            "end": 10.333333,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "middle",
+            "start": 10.4,
+            "end": 10.466667,
+            "n": 2,
+            "duration": 0.066667
+          },
+          {
+            "state": "low",
+            "start": 10.533333,
+            "end": 10.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 10.6,
+            "end": 11.0,
+            "n": 7,
+            "duration": 0.4
+          },
+          {
+            "state": "high",
+            "start": 11.066667,
+            "end": 11.268333,
+            "n": 4,
+            "duration": 0.201666
+          }
+        ]
+      }
+    },
+    {
+      "original_cycle": {
+        "start_s": 11.033333,
+        "bottom_s": 12.968333,
+        "end_s": 13.968333
+      },
+      "recipes": {
+        "original": [
+          {
+            "state": "middle",
+            "start": 10.866667,
+            "end": 11.0,
+            "n": 5,
+            "duration": 0.133333
+          },
+          {
+            "state": "high",
+            "start": 11.033333,
+            "end": 12.235,
+            "n": 36,
+            "duration": 1.201667
+          },
+          {
+            "state": "middle",
+            "start": 12.268333,
+            "end": 12.268333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "missing",
+            "start": 12.301667,
+            "end": 12.301667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 12.335,
+            "end": 12.935,
+            "n": 19,
+            "duration": 0.6
+          },
+          {
+            "state": "low",
+            "start": 12.968333,
+            "end": 13.235,
+            "n": 9,
+            "duration": 0.266667
+          },
+          {
+            "state": "middle",
+            "start": 13.268333,
+            "end": 13.335,
+            "n": 3,
+            "duration": 0.066667
+          },
+          {
+            "state": "low",
+            "start": 13.368333,
+            "end": 13.368333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 13.401667,
+            "end": 13.501667,
+            "n": 4,
+            "duration": 0.1
+          },
+          {
+            "state": "missing",
+            "start": 13.535,
+            "end": 13.568333,
+            "n": 2,
+            "duration": 0.033333
+          },
+          {
+            "state": "middle",
+            "start": 13.601667,
+            "end": 13.801667,
+            "n": 7,
+            "duration": 0.2
+          },
+          {
+            "state": "high",
+            "start": 13.835,
+            "end": 13.901667,
+            "n": 3,
+            "duration": 0.066667
+          },
+          {
+            "state": "middle",
+            "start": 13.935,
+            "end": 13.935,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 13.968333,
+            "end": 14.201667,
+            "n": 8,
+            "duration": 0.233334
+          }
+        ],
+        "resize30": [
+          {
+            "state": "middle",
+            "start": 10.866667,
+            "end": 11.0,
+            "n": 5,
+            "duration": 0.133333
+          },
+          {
+            "state": "high",
+            "start": 11.033333,
+            "end": 12.133333,
+            "n": 34,
+            "duration": 1.1
+          },
+          {
+            "state": "middle",
+            "start": 12.166667,
+            "end": 12.2,
+            "n": 2,
+            "duration": 0.033333
+          },
+          {
+            "state": "missing",
+            "start": 12.233333,
+            "end": 12.3,
+            "n": 3,
+            "duration": 0.066667
+          },
+          {
+            "state": "middle",
+            "start": 12.333333,
+            "end": 12.933333,
+            "n": 19,
+            "duration": 0.6
+          },
+          {
+            "state": "low",
+            "start": 12.966667,
+            "end": 13.233333,
+            "n": 9,
+            "duration": 0.266666
+          },
+          {
+            "state": "middle",
+            "start": 13.266667,
+            "end": 13.4,
+            "n": 5,
+            "duration": 0.133333
+          },
+          {
+            "state": "missing",
+            "start": 13.433333,
+            "end": 13.433333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 13.466667,
+            "end": 13.5,
+            "n": 2,
+            "duration": 0.033333
+          },
+          {
+            "state": "missing",
+            "start": 13.533333,
+            "end": 13.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 13.566667,
+            "end": 13.8,
+            "n": 8,
+            "duration": 0.233333
+          },
+          {
+            "state": "missing",
+            "start": 13.833333,
+            "end": 13.833333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 13.866667,
+            "end": 14.2,
+            "n": 11,
+            "duration": 0.333333
+          }
+        ],
+        "optimized": [
+          {
+            "state": "middle",
+            "start": 10.866667,
+            "end": 11.0,
+            "n": 3,
+            "duration": 0.133333
+          },
+          {
+            "state": "high",
+            "start": 11.066667,
+            "end": 12.133333,
+            "n": 17,
+            "duration": 1.066666
+          },
+          {
+            "state": "middle",
+            "start": 12.2,
+            "end": 12.2,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "missing",
+            "start": 12.266667,
+            "end": 12.266667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 12.333333,
+            "end": 12.933333,
+            "n": 10,
+            "duration": 0.6
+          },
+          {
+            "state": "low",
+            "start": 13.0,
+            "end": 13.2,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "middle",
+            "start": 13.266667,
+            "end": 13.466667,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "missing",
+            "start": 13.533333,
+            "end": 13.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 13.6,
+            "end": 13.8,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "high",
+            "start": 13.866667,
+            "end": 14.2,
+            "n": 6,
+            "duration": 0.333333
+          }
+        ],
+        "original_angles_sampled15": [
+          {
+            "state": "middle",
+            "start": 10.866667,
+            "end": 11.0,
+            "n": 3,
+            "duration": 0.133333
+          },
+          {
+            "state": "high",
+            "start": 11.066667,
+            "end": 12.201667,
+            "n": 18,
+            "duration": 1.135
+          },
+          {
+            "state": "middle",
+            "start": 12.268333,
+            "end": 12.935,
+            "n": 11,
+            "duration": 0.666667
+          },
+          {
+            "state": "low",
+            "start": 13.001667,
+            "end": 13.201667,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "middle",
+            "start": 13.268333,
+            "end": 13.468333,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "missing",
+            "start": 13.535,
+            "end": 13.535,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 13.601667,
+            "end": 13.801667,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "high",
+            "start": 13.868333,
+            "end": 13.868333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 13.935,
+            "end": 13.935,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 14.001667,
+            "end": 14.201667,
+            "n": 4,
+            "duration": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "original_cycle": {
+        "start_s": 16.435,
+        "bottom_s": 19.201667,
+        "end_s": 20.068333
+      },
+      "recipes": {
+        "original": [
+          {
+            "state": "missing",
+            "start": 16.235,
+            "end": 16.235,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.268333,
+            "end": 16.301667,
+            "n": 2,
+            "duration": 0.033334
+          },
+          {
+            "state": "high",
+            "start": 16.335,
+            "end": 16.335,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.368333,
+            "end": 16.401667,
+            "n": 2,
+            "duration": 0.033334
+          },
+          {
+            "state": "high",
+            "start": 16.435,
+            "end": 18.535,
+            "n": 64,
+            "duration": 2.1
+          },
+          {
+            "state": "middle",
+            "start": 18.568333,
+            "end": 19.168333,
+            "n": 19,
+            "duration": 0.6
+          },
+          {
+            "state": "low",
+            "start": 19.201667,
+            "end": 19.368333,
+            "n": 6,
+            "duration": 0.166666
+          },
+          {
+            "state": "middle",
+            "start": 19.401667,
+            "end": 19.401667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "low",
+            "start": 19.435,
+            "end": 19.435,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 19.468333,
+            "end": 20.035,
+            "n": 18,
+            "duration": 0.566667
+          },
+          {
+            "state": "high",
+            "start": 20.068333,
+            "end": 20.301667,
+            "n": 8,
+            "duration": 0.233334
+          }
+        ],
+        "resize30": [
+          {
+            "state": "missing",
+            "start": 16.266667,
+            "end": 16.266667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.3,
+            "end": 16.4,
+            "n": 4,
+            "duration": 0.1
+          },
+          {
+            "state": "high",
+            "start": 16.433333,
+            "end": 16.866667,
+            "n": 14,
+            "duration": 0.433334
+          },
+          {
+            "state": "missing",
+            "start": 16.9,
+            "end": 16.9,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 16.933333,
+            "end": 16.966667,
+            "n": 2,
+            "duration": 0.033334
+          },
+          {
+            "state": "missing",
+            "start": 17.0,
+            "end": 17.0,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 17.033333,
+            "end": 18.5,
+            "n": 45,
+            "duration": 1.466667
+          },
+          {
+            "state": "middle",
+            "start": 18.533333,
+            "end": 18.566667,
+            "n": 2,
+            "duration": 0.033334
+          },
+          {
+            "state": "missing",
+            "start": 18.6,
+            "end": 18.6,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 18.633333,
+            "end": 19.133333,
+            "n": 16,
+            "duration": 0.5
+          },
+          {
+            "state": "low",
+            "start": 19.166667,
+            "end": 19.433333,
+            "n": 9,
+            "duration": 0.266666
+          },
+          {
+            "state": "middle",
+            "start": 19.466667,
+            "end": 20.0,
+            "n": 17,
+            "duration": 0.533333
+          },
+          {
+            "state": "high",
+            "start": 20.033333,
+            "end": 20.3,
+            "n": 9,
+            "duration": 0.266667
+          }
+        ],
+        "optimized": [
+          {
+            "state": "missing",
+            "start": 16.266667,
+            "end": 16.266667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.333333,
+            "end": 16.4,
+            "n": 2,
+            "duration": 0.066667
+          },
+          {
+            "state": "high",
+            "start": 16.466667,
+            "end": 16.933333,
+            "n": 8,
+            "duration": 0.466666
+          },
+          {
+            "state": "missing",
+            "start": 17.0,
+            "end": 17.0,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 17.066667,
+            "end": 18.466667,
+            "n": 22,
+            "duration": 1.4
+          },
+          {
+            "state": "middle",
+            "start": 18.533333,
+            "end": 18.533333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "missing",
+            "start": 18.6,
+            "end": 18.6,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 18.666667,
+            "end": 19.133333,
+            "n": 8,
+            "duration": 0.466666
+          },
+          {
+            "state": "low",
+            "start": 19.2,
+            "end": 19.4,
+            "n": 4,
+            "duration": 0.2
+          },
+          {
+            "state": "middle",
+            "start": 19.466667,
+            "end": 20.0,
+            "n": 9,
+            "duration": 0.533333
+          },
+          {
+            "state": "high",
+            "start": 20.066667,
+            "end": 20.266667,
+            "n": 4,
+            "duration": 0.2
+          }
+        ],
+        "original_angles_sampled15": [
+          {
+            "state": "middle",
+            "start": 16.268333,
+            "end": 16.268333,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 16.335,
+            "end": 16.335,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "middle",
+            "start": 16.401667,
+            "end": 16.401667,
+            "n": 1,
+            "duration": 0.0
+          },
+          {
+            "state": "high",
+            "start": 16.468333,
+            "end": 18.535,
+            "n": 32,
+            "duration": 2.066667
+          },
+          {
+            "state": "middle",
+            "start": 18.601667,
+            "end": 19.135,
+            "n": 9,
+            "duration": 0.533333
+          },
+          {
+            "state": "low",
+            "start": 19.201667,
+            "end": 19.335,
+            "n": 3,
+            "duration": 0.133333
+          },
+          {
+            "state": "middle",
+            "start": 19.401667,
+            "end": 20.001667,
+            "n": 10,
+            "duration": 0.6
+          },
+          {
+            "state": "high",
+            "start": 20.068333,
+            "end": 20.268333,
+            "n": 4,
+            "duration": 0.2
+          }
+        ]
+      }
+    }
+  ],
+  "deterministic_repeat_equal": true,
+  "limitations": [
+    "Existing retained pose only; no reinference, no independent human labels.",
+    "Cycle candidates not actual rep counts or validated technique.",
+    "Unchanged original reference bands: estimates unreviewed; gap recovery changes contributing subset.",
+    "15Hz endpoint spacing exceeds conservative0.1s missing limit, so dropout remains rejected."
+  ]
+}

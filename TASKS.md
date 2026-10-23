@@ -12,6 +12,22 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-GAP01 — conservative short-gap curl segmentation · done (23 Oct)
+
+- FR04/05/07/08/12. Nebius draft + repair implements curl-measure-v2 opt-in:
+  explicit missing gaps<=0.1s between valid same-band observations; dwell restarts,
+  no inferred joints or phase anchors. Strict default preserved for all other profiles.
+- Recovered cycles retain missing spans, rep reason/warning and observed coverage.
+  Original curl2->4 candidates;720p30Hz1->4;15Hz stays1 (gaps too long).
+  Estimates83.33/88.28/87.42 unreviewed and based on changed subsets, not accuracy.
+- Checks:991 Python tests, Ruff/mypy71 sources, deterministic real repeat identical.
+  Existing strict cycle tests unchanged; curl version/config fixture updated for v2.
+- Three source-only Nebius calls68,974tokens/$0.546570 guard; extra finalQC
+  truncated and rejected, no retry. No private inputs/runtime/Tavily spend.
+- Evidence `docs/audit/HM-GAP01-delivery.md`, real-comparisonJSON, usage ledger.
+  App30Hz/resolution unchanged. Next: user review; broader segmentation validation
+  before expanding the policy to other exercises or adopting resized input defaults.
+
 ### HM-PERF02 — resize-only30Hz and lost-cycle trace · done (23 Oct)
 
 - FR04/05/07/08/12. Same existing720x1280 analysis copy,30Hz, unchanged model and

@@ -372,3 +372,24 @@ Specification v2.0 (15 Oct 2026).
 - One actual uploaded-set runtime call plus cached repeat after restart accepted.
   Derived reports/coaching access still require retained raw pose. Durable workout logs,
   pose overlays, public-hosting ingress/quotas and submission acceptance remain future work.
+
+## D019 — Curl-only conservative observation-gap retention
+
+- 23 October2026: owner authorizes short-gap segmentation improvements with Nebius
+  substantive drafting/repair, Codex orchestration/integration/checks.
+- `curl-measure-v2` enables missing_gap_s0.1. An explicit missing-angle run may retain
+  confirmed phase anchors only if bracketing observed samples are in the same angle
+  band and at most0.1s apart (+1e-9 numeric comparison tolerance). Dwell restarts after
+  missing samples. Different-band/long/implicit-over-budget/trailing gaps do not bridge.
+- No missing joints, angles, phase anchors or metrics are filled. Completed candidates
+  record accepted missing spans internally; public reps expose contains_unmeasured_gap
+  plus report warnings/provenance and unchanged measured coverage. Insufficient metrics
+  stay null. Public schemas unchanged; top-level technique score remains null.
+- Other exercise profiles retain missing_gap_s0 strict behaviour. Original v1 config
+  preserved; v2 config and regression fixtures are versioned. Existing reference bands
+  remain unreviewed and unchanged, so changed estimates are sensitivity results rather
+  than validated technique accuracy. No reduction of video resolution or sampling adopted.
+- Real retained-artifact comparison recovers original/720p30Hz candidates to4 each;
+  720p15Hz remains1 because endpoint spacing exceeds the0.1s missing limit. No exact
+  rep count or general gap-policy accuracy claim. Broader/human-labelled validation
+  required before applying to other exercises or adopting optimised input defaults.

@@ -62,7 +62,7 @@ def _analytic_frame(side: str) -> PoseFrame:
 def test_profile_fields():
     assert PROFILE["exercise_id"] == "dumbbell_curl"
     assert PROFILE["variant"] == "standing_both_arms"
-    assert PROFILE["version"] == "curl-measure-v1"
+    assert PROFILE["version"] == "curl-measure-v2"
     assert PROFILE["signal_metric"] == "elbow_angle"
     assert PROFILE["signal_space"] == "estimated_3d"
     assert PROFILE["low_degrees"] == 80.0
@@ -75,7 +75,7 @@ def test_profile_fields():
 
 def test_config_json_matches_profile():
     cfg_path = (
-        Path(profile_curl.__file__).parent / "configs" / "curl-measure-v1.json"
+        Path(profile_curl.__file__).parent / "configs" / "curl-measure-v2.json"
     )
     cfg = json.loads(cfg_path.read_text())
     assert cfg == PROFILE

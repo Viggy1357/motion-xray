@@ -1,0 +1,112 @@
+{
+  "task": "HM-GAP01",
+  "date": "2026-10-23",
+  "calls": [
+    {
+      "task": "HM-GAP01",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-gap01",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.517368,
+      "input_token_bound": 52456,
+      "output_token_bound": 24000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 10915,
+        "prompt_tokens": 12218,
+        "total_tokens": 23133,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 5085
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "1d77ade72d3c4a649a84257566ade035",
+      "elapsed_s": 258.73,
+      "received_chars": 20601,
+      "conservative_cost_usd": 0.200379
+    },
+    {
+      "task": "HM-GAP01",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-gap01-r1",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.523107,
+      "input_token_bound": 54369,
+      "output_token_bound": 24000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 7389,
+        "prompt_tokens": 12688,
+        "total_tokens": 20077,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 1697
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "3c119e15b4ef4db08f61d2887afa726f",
+      "elapsed_s": 218.96,
+      "received_chars": 20173,
+      "conservative_cost_usd": 0.148899
+    },
+    {
+      "task": "HM-GAP01",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-gap01-qc",
+      "status": "failed",
+      "maximum_cost_usd": 0.354051,
+      "input_token_bound": 68017,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 10000,
+        "prompt_tokens": 15764,
+        "total_tokens": 25764,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 2197
+      },
+      "finish_reason": "length",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "4a260dde81e849daa2c42b83b5a9f91c",
+      "error_type": "JSONDecodeError",
+      "elapsed_s": 253.1,
+      "received_chars": 166211,
+      "conservative_cost_usd": 0.197292
+    }
+  ],
+  "total_tokens": 68974,
+  "guard_cost_usd": 0.54657,
+  "prior_aggregate_guard_usd": 13.65476665,
+  "aggregate_guard_usd": 14.201336649999998,
+  "aggregate_maximum_commitment_usd": 14.456129650000001,
+  "prior_timeout_uncertainty_usd": 0.254793,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "balance_verified": false,
+  "notes": [
+    "Source-only direct Nebius K3 implementation and targeted repair; final extra review truncated and rejected, usage retained.",
+    "No private media/pose arrays sent; real-artifact checks local and no paid product runtime calls.",
+    "Existing strict cycle tests unchanged; curl version fixture mechanically moved to v2.",
+    "Last earlier timeout max reservation retained above estimated usage; not a billing statement."
+  ]
+}

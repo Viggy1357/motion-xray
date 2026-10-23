@@ -1,0 +1,48 @@
+{
+  "exercise_id": "dumbbell_curl",
+  "variant": "standing_both_arms",
+  "version": "curl-measure-v2",
+  "signal_metric": "elbow_angle",
+  "signal_space": "estimated_3d",
+  "low_degrees": 80.0,
+  "high_degrees": 140.0,
+  "dwell_s": 0.1,
+  "max_gap_s": 0.1,
+  "missing_gap_s": 0.1,
+  "metrics": {
+    "elbow_angle": {
+      "projected_2d": {
+        "unit": "degrees",
+        "label": "Elbow flexion angle (projected 2D)"
+      },
+      "estimated_3d": {
+        "unit": "degrees",
+        "label": "Elbow flexion angle (estimated 3D)"
+      }
+    },
+    "upper_arm_torso_angle": {
+      "projected_2d": {
+        "unit": "degrees",
+        "label": "Upper arm to torso angle (projected 2D)"
+      },
+      "estimated_3d": {
+        "unit": "degrees",
+        "label": "Upper arm to torso angle (estimated 3D)"
+      }
+    },
+    "torso_axis_angle": {
+      "projected_2d": {
+        "unit": "degrees",
+        "label": "Torso axis angle vs image-up (projected 2D, unverified)"
+      }
+    }
+  },
+  "omitted_components": [
+    "grip_and_wrist_position",
+    "dumbbell_load_and_path",
+    "scapular_position",
+    "lumbar_spine_position",
+    "muscle_activation",
+    "tempo_and_external_cueing"
+  ]
+}

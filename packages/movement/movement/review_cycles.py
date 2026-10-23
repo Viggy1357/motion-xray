@@ -1,10 +1,25 @@
-"""Explicitly configured local-review cycle candidates; not validated rep counts."""
+"""Explicitly configured local-review cycle candidates; not validated rep counts.
+
+Reviewer notes (hm-gap01 repair): ``Cycle`` keeps exactly its original three
+fields (start_s, bottom_s, end_s) so strict ``astuple`` comparisons stay
+stable. Accepted missing-observation spans are additive diagnostics metadata
+stored on ``CandidateResult.cycle_missing_spans``, aligned one entry per
+cycle (empty tuple when none); this field is not public API. Gap bridging is
+endpoint-capped: a run of None samples is bridged only when both bracketing
+observed samples share one threshold band and their elapsed time fits within
+missing_gap_s (+1e-9). Missing frames never count toward dwell: the plateau
+candidate is cleared at the first None and dwell restarts at the next valid
+sample. Failed bridges, implicit timestep jumps, and trailing gaps reset the
+attempt; recorded spans always lie within their cycle's [start_s, end_s].
+"""
 
 from __future__ import annotations
 
 import math
 from dataclasses import dataclass
 from typing import Sequence
+
+_EPS = 1e-9
 
 
 @dataclass(frozen=True)
@@ -14,6 +29,7 @@ class ReviewConfig:
     high_degrees: float
     dwell_s: float
     max_gap_s: float
+    missing_gap_s: float = 0.0
 
     def __post_init__(self) -> None:
         if not isinstance(self.version, str) or not self.version:
@@ -23,6 +39,7 @@ class ReviewConfig:
             ("high_degrees", self.high_degrees),
             ("dwell_s", self.dwell_s),
             ("max_gap_s", self.max_gap_s),
+            ("missing_gap_s", self.missing_gap_s),
         ):
             if isinstance(value, bool) or not isinstance(value, (int, float)):
                 raise ValueError(f"{name} must be a finite number, got {value!r}")
@@ -32,6 +49,8 @@ class ReviewConfig:
             raise ValueError("thresholds must satisfy 0 <= low < high <= 180")
         if self.dwell_s <= 0.0 or self.max_gap_s <= 0.0:
             raise ValueError("dwell_s and max_gap_s must be positive")
+        if not 0.0 <= self.missing_gap_s <= self.max_gap_s:
+            raise ValueError("missing_gap_s must satisfy 0 <= missing_gap_s <= max_gap_s")
 
 
 @dataclass(frozen=True)
@@ -47,6 +66,9 @@ class CandidateResult:
     partial_spans: tuple[tuple[float, float], ...]
     status: str = "experimental"
     reason: str | None = None
+    # Additive diagnostics metadata (not public API): one entry per cycle,
+    # each a tuple of accepted missing-observation spans within that cycle.
+    cycle_missing_spans: tuple[tuple[tuple[float, float], ...], ...] = ()
 
 
 def _validate_samples(samples: Sequence[tuple[float, float | None]]) -> None:
@@ -83,12 +105,25 @@ def find_cycles(
 
     ``bottom_s`` is the LOW-threshold plateau entry time, not the kinematic
     extremum. Missing angles or gaps > max_gap_s reset the active attempt and
-    preserve only observed nonzero partial spans; missing intervals are never
-    bridged.
+    preserve only observed nonzero partial spans.
+
+    Opt-in gap bridging (``missing_gap_s > 0``): once the initial HIGH is
+    confirmed, a run of None samples is held pending instead of resetting.
+    It is bridged only when the prior and next observed samples fall in the
+    SAME threshold band (high >= high_degrees, low <= low_degrees, middle
+    strictly between) and the elapsed time between those valid endpoints is
+    <= missing_gap_s (+1e-9 epsilon). Missing observations never count toward
+    dwell: the current plateau candidate is cleared at the first None and
+    dwell restarts at the next valid sample. Accepted spans are recorded on
+    ``CandidateResult.cycle_missing_spans`` (aligned one entry per cycle) and
+    reset per cycle. Different bands, overlong spans, implicit timestep jumps
+    > max_gap_s, trailing gaps, and gaps before the first confirmed HIGH are
+    never bridged. Missing frames remain None; nothing is interpolated.
     """
     _validate_samples(samples)
 
     cycles: list[Cycle] = []
+    cycle_spans: list[tuple[tuple[float, float], ...]] = []
     partials: list[tuple[float, float]] = []
 
     state = "waiting_initial_high"
@@ -97,6 +132,17 @@ def find_cycles(
     bottom: float | None = None  # confirmed LOW plateau start
     plateau_start: float | None = None  # current qualifying plateau candidate
     last_t: float | None = None
+    last_band: str | None = None  # threshold band of last observed sample
+    pending_gap_start: float | None = None  # last valid time before a None run
+    pending_gap_band: str | None = None  # band of that last valid sample
+    attempt_spans: list[tuple[float, float]] = []  # accepted gaps, this cycle
+
+    def _band(a: float) -> str:
+        if a >= config.high_degrees:
+            return "high"
+        if a <= config.low_degrees:
+            return "low"
+        return "mid"
 
     def _record_partial(end: float) -> None:
         if attempt_start is not None and end > attempt_start:
@@ -104,21 +150,51 @@ def find_cycles(
 
     def _reset(end: float) -> None:
         nonlocal state, attempt_start, first_high, bottom, plateau_start
+        nonlocal pending_gap_start, pending_gap_band, attempt_spans
         _record_partial(end)
         state = "waiting_initial_high"
         attempt_start = None
         first_high = None
         bottom = None
         plateau_start = None
+        pending_gap_start = None
+        pending_gap_band = None
+        attempt_spans = []
 
     for t, a in samples:
         if last_t is not None and (t - last_t) > config.max_gap_s:
             _reset(last_t)
         if a is None:
-            _reset(t if last_t is None else last_t)
+            # Missing samples never count dwell: clear the plateau candidate
+            # immediately, not only on resume.
+            plateau_start = None
+            if (
+                config.missing_gap_s > 0.0
+                and first_high is not None
+                and pending_gap_start is None
+                and last_t is not None
+            ):
+                pending_gap_start = last_t
+                pending_gap_band = last_band
+            elif pending_gap_start is None:
+                _reset(t if last_t is None else last_t)
             last_t = t
             continue
+
+        if pending_gap_start is not None:
+            elapsed = t - pending_gap_start
+            band = _band(a)
+            if band == pending_gap_band and elapsed <= config.missing_gap_s + _EPS:
+                attempt_spans.append((pending_gap_start, t))
+                # Dwell restarts at this valid sample (plateau already cleared).
+                plateau_start = None
+            else:
+                _reset(pending_gap_start)
+            pending_gap_start = None
+            pending_gap_band = None
+
         last_t = t
+        last_band = _band(a)
         if attempt_start is None:
             attempt_start = t
 
@@ -162,17 +238,22 @@ def find_cycles(
                     end = plateau_start
                     assert first_high is not None and bottom is not None
                     cycles.append(Cycle(start_s=first_high, bottom_s=bottom, end_s=end))
+                    cycle_spans.append(tuple(attempt_spans))
                     # Reuse confirmed return HIGH as next cycle's first HIGH.
                     first_high = end
                     attempt_start = end
                     bottom = None
                     plateau_start = None
+                    attempt_spans = []
                     state = "waiting_low"
             else:
                 # Low or intermediate: reset only the return dwell candidate.
                 plateau_start = None
 
-    if last_t is not None:
+    if pending_gap_start is not None:
+        # Trailing gap: never bridged; partial ends at the last valid sample.
+        _reset(pending_gap_start)
+    elif last_t is not None:
         _record_partial(last_t)
 
     return CandidateResult(
@@ -180,4 +261,5 @@ def find_cycles(
         partial_spans=tuple(partials),
         status="experimental",
         reason=None,
+        cycle_missing_spans=tuple(cycle_spans),
     )

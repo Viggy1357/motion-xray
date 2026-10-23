@@ -1,6 +1,6 @@
 """Standing dumbbell curl (both arms) frame feature module.
 
-Versioned profile ``curl-measure-v1``. This module only measures per-frame
+Versioned profile ``curl-measure-v2``. This module only measures per-frame
 geometry; it does not segment reps, calibrate against reference video, or
 judge technique. ``low_degrees``/``high_degrees`` are segmentation trial
 bounds only, not technique tolerances. No reference-video calibration has
@@ -23,7 +23,7 @@ from movement.posture import ProjectionAxis, measure_torso_frame
 # Image-up axis for projected torso angle. The image vertical direction is
 # unverified against any camera calibration; sign convention is provisional.
 CURL_TORSO_AXIS_IMAGE_UP_UNVERIFIED = ProjectionAxis(
-    version="curl-measure-v1",
+    version="curl-measure-v2",
     axis_id="image_up_unverified",
     up_xy=(0.0, -1.0),
     positive_cross_sign=1,
@@ -32,13 +32,14 @@ CURL_TORSO_AXIS_IMAGE_UP_UNVERIFIED = ProjectionAxis(
 PROFILE: dict = {
     "exercise_id": "dumbbell_curl",
     "variant": "standing_both_arms",
-    "version": "curl-measure-v1",
+    "version": "curl-measure-v2",
     "signal_metric": "elbow_angle",
     "signal_space": "estimated_3d",
     "low_degrees": 80.0,
     "high_degrees": 140.0,
     "dwell_s": 0.1,
     "max_gap_s": 0.1,
+    "missing_gap_s": 0.1,
     "metrics": {
         "elbow_angle": {
             "projected_2d": {

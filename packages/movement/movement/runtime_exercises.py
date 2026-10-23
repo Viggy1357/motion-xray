@@ -245,6 +245,7 @@ def build_exercise_report(
         high_degrees=profile["high_degrees"],
         dwell_s=profile["dwell_s"],
         max_gap_s=profile["max_gap_s"],
+        missing_gap_s=profile.get("missing_gap_s", 0.0),
     )
     sig_metric, sig_space = profile["signal_metric"], profile["signal_space"]
 
@@ -299,17 +300,20 @@ def build_exercise_report(
         (a, b) for a, b in result.partial_spans
         if b > a and not any(a < ce and b > cs for cs, ce in completed)
     ]
-    entries: list[tuple[float, float, bool, float | None]] = [
-        (c.start_s, c.end_s, True, c.bottom_s) for c in result.cycles
+    entries: list[tuple[float, float, bool, float | None, tuple]] = [
+        (c.start_s, c.end_s, True, c.bottom_s, spans)
+        for c, spans in zip(result.cycles, result.cycle_missing_spans)
     ]
-    entries.extend((a, b, False, None) for a, b in partials)
+    entries.extend((a, b, False, None, ()) for a, b in partials)
     entries.sort(key=lambda e: (e[0], e[1]))
 
     reps: list[Rep] = []
     metrics: list[Metric] = []
     usable = 0
     comp_keys = COMPARISON_KEYS[exercise_id]
-    for ordinal, (start, end, is_complete, bottom) in enumerate(entries, 1):
+    gap_cycles = 0
+    max_gap = 0.0
+    for ordinal, (start, end, is_complete, bottom, spans) in enumerate(entries, 1):
         rep_id = f"rep-{ordinal:03d}"
         if not is_complete:
             reps.append(Rep(
@@ -319,11 +323,16 @@ def build_exercise_report(
             ))
             continue
         assert bottom is not None
+        reasons = ["benchmark_pending"]
+        if spans:
+            reasons.append("contains_unmeasured_gap")
+            gap_cycles += 1
+            max_gap = max(max_gap, max(b - a for a, b in spans))
         reps.append(Rep(
             id=rep_id, ordinal=ordinal, side=side, start_s=start,
             turnaround_start_s=bottom, turnaround_end_s=bottom, end_s=end,
             completion_status=CompletionStatus.COMPLETED, scorable=False,
-            excluded_reasons=["benchmark_pending"],
+            excluded_reasons=reasons,
         ))
         window_frames = sum(1 for f in frames if start <= f.timestamp_s <= end)
         comps = summarize_profile_window(
@@ -357,6 +366,22 @@ def build_exercise_report(
             usable += 1
 
     warnings = list(base_warnings)
+    if gap_cycles:
+        warnings.append(
+            f"MISSING_OBSERVATIONS_RETAINED: {gap_cycles} cycle(s) contain "
+            f"unmeasured gap(s); max_bracketing_gap_s={max_gap:.6f}"
+        )
+        provenance["missing_observations_policy"] = (
+            f"{profile['version']}:bridge_same_band_endpoints_only;"
+            "missing_never_counts_dwell;spans_aggregate_only"
+        )
+        provenance["missing_spans_trace"] = json.dumps(
+            [
+                [round(a, 9), round(b, 9)]
+                for spans in result.cycle_missing_spans
+                for a, b in spans
+            ]
+        )
     if partials:
         warnings.append(f"PARTIAL_MOTION: {len(partials)} incomplete motion span(s) excluded from count")
     return PrototypeAnalysisResult(
