@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { components } from "../generated/api";
 import GroundedCoaching from "./grounded-coaching";
+import styles from "./movement-report.module.css";
 
 type Report = components["schemas"]["PrototypeAnalysisResult"];
 type Metric = components["schemas"]["Metric"];
@@ -70,10 +71,7 @@ function isReport(data: unknown): data is Report {
 }
 
 function seekTo(seconds: number): void {
-  const v = document.querySelector("video");
-  if (!v) return;
-  v.currentTime = seconds;
-  void v.play().catch(() => undefined);
+  window.dispatchEvent(new CustomEvent("mxr:seek-source", { detail: { seconds } }));
 }
 
 function MetricLine({ m, showReference }: { m: Metric; showReference: boolean }) {
@@ -111,28 +109,32 @@ function RepMetrics({ rep, metrics, showReference }: { rep: Rep; metrics: Metric
     </thead>
   ) : null;
   return (
-    <div style={{ marginBottom: ".9rem" }}>
-      <h4 style={{ margin: "0 0 .3rem", fontSize: ".95rem" }}>
-        Segment {rep.ordinal} <span className="muted" style={{ fontWeight: 400 }}>· {rep.start_s.toFixed(2)}s – {rep.end_s.toFixed(2)}s</span>{" "}
-        <button type="button" className="btn ghost sm" style={{ marginLeft: ".4rem" }} onClick={() => seekTo(rep.start_s)} aria-label={`Play video from segment ${rep.ordinal} start`}>
-          ▶ Play
+    <div className={styles.repBlock}>
+      <h4 className={styles.repHeading}>
+        Segment {rep.ordinal} <span className={styles.repTimes}>· {rep.start_s.toFixed(2)}s – {rep.end_s.toFixed(2)}s</span>{" "}
+        <button type="button" className={styles.playButton} onClick={() => seekTo(rep.start_s)} aria-label={`Play video from segment ${rep.ordinal} start`}>
+          Play
         </button>
       </h4>
       {metrics.length === 0 ? (
         <p className="muted" style={{ margin: ".2rem 0" }}>No measurements for this rep.</p>
       ) : (
         <>
-          <table>
-            {header}
-            <tbody>{shown.map((m, i) => <MetricLine key={`${m.id}-${i}`} m={m} showReference={showReference} />)}</tbody>
-          </table>
+          <div className={styles.tableWrap}>
+            <table>
+              {header}
+              <tbody>{shown.map((m, i) => <MetricLine key={`${m.id}-${i}`} m={m} showReference={showReference} />)}</tbody>
+            </table>
+          </div>
           {rest.length > 0 && (
-            <details style={{ marginTop: ".3rem" }}>
-              <summary className="muted" style={{ cursor: "pointer" }}>All measurements for this rep ({metrics.length})</summary>
-              <table>
-                {header}
-                <tbody>{metrics.map((m, i) => <MetricLine key={`${m.id}-all-${i}`} m={m} showReference={showReference} />)}</tbody>
-              </table>
+            <details className={styles.inlineDetails}>
+              <summary className="muted">All measurements for this rep ({metrics.length})</summary>
+              <div className={styles.tableWrap}>
+                <table>
+                  {header}
+                  <tbody>{metrics.map((m, i) => <MetricLine key={`${m.id}-all-${i}`} m={m} showReference={showReference} />)}</tbody>
+                </table>
+              </div>
             </details>
           )}
         </>
@@ -159,7 +161,7 @@ function ExperimentalMatch({ report }: { report: Report }) {
   const calibration = prov.calibration_status;
   const referenceRepCount = prov.reference_rep_count;
   return (
-    <div className="card" style={{ marginBottom: "1rem" }} aria-label="Experimental reference match">
+    <div className={styles.innerPanel} aria-label="Experimental reference match">
       <div className="row" style={{ justifyContent: "space-between", alignItems: "baseline" }}>
         <h3 style={{ margin: 0 }}>Experimental reference match</h3>
         <span className="pill warn">Partial comparison · unreviewed calibration</span>
@@ -203,18 +205,19 @@ function ExperimentalMatch({ report }: { report: Report }) {
   );
 }
 
-export default function MovementReport({ analysisId, onReport }: { analysisId: string; onReport: (report: Report | null) => void }) {
+export default function MovementReport({ analysisId, onReport }: { analysisId: string; onReport: (report: Report | null, settled: boolean) => void }) {
   const [report, setReport] = useState<Report | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [retry, setRetry] = useState(0);
+  const [activeSeg, setActiveSeg] = useState<string | null>(null);
 
   useEffect(() => {
     const ctrl = new AbortController();
     setReport(null);
     setError(null);
     setLoading(true);
-    onReport(null);
+    onReport(null, false); // fetch in flight: parent must not treat null as 'no report'
     void (async () => {
       try {
         const res = await fetch(`/api/analyses/${analysisId}/movement-report`, {
@@ -233,11 +236,14 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
         }
         const data: unknown = await res.json();
         if (!isReport(data)) throw new Error("The server returned an unexpected movement report format.");
+        if (ctrl.signal.aborted) return; // never leak a settled callback into a superseded job
         setReport(data);
-        onReport(data);
+        onReport(data, true);
       } catch (e) {
         if ((e as Error).name === "AbortError") return;
+        if (ctrl.signal.aborted) return;
         setError((e as Error).message);
+        onReport(null, true); // settled with failure: honest null, no pending state
       } finally {
         if (!ctrl.signal.aborted) setLoading(false);
       }
@@ -286,48 +292,59 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
   const referenceRepCount = prov.reference_rep_count;
 
   return (
-    <section aria-labelledby="movement-h" style={{ marginBottom: "1.25rem" }}>
-      <div className="row" style={{ justifyContent: "space-between", marginBottom: ".6rem" }}>
-        <h2 id="movement-h" style={{ fontSize: "1.5rem", margin: 0 }}>Movement insights</h2>
+    <section aria-labelledby="movement-h" className={styles.report}>
+      <div className={styles.headingRow}>
+        <h2 id="movement-h" className={styles.heading}>Movement insights</h2>
         <span className="pill dim">Experimental</span>
       </div>
 
-      <div className="grid" style={{ marginBottom: "1rem" }}>
-        <div className="card">
-          <p className="muted">Estimated completed cycles</p>
-          {report.detected_rep_count !== null && report.detected_rep_count !== undefined ? (
-            <p className="big">{report.detected_rep_count}</p>
-          ) : (
-            <>
-              <p className="big">—</p>
-              <p className="muted">Unavailable{report.detected_rep_count_unavailable_reason ? ` — ${report.detected_rep_count_unavailable_reason.replaceAll("_", " ")}` : ""}</p>
-            </>
-          )}
-        </div>
-        <div className="card">
-          <p className="muted">Partial / excluded motion fragments</p>
-          <p className="big">{fragments.length}</p>
-          {fragments.length > 0 && <p className="muted">Not counted as completed cycles.</p>}
-        </div>
-        <div className="card">
-          <p className="muted">Signal visibility</p>
-          {visibility !== null ? (
-            <>
-              <p className="big">{visibility}%</p>
-              <p className="muted">{q.valid_observed_samples} of {q.expected_supporting_samples} supporting samples observed. This describes pose-signal visibility, not accuracy.</p>
-            </>
-          ) : (
-            <>
-              <p className="big">—</p>
-              <p className="muted">No supporting samples expected for this profile.</p>
-            </>
-          )}
-        </div>
-      </div>
+      {completed.length > 0 && (
+        <nav className={styles.chipStrip} aria-label="Completed segments">
+          {completed.map((r) => (
+            <button
+              key={r.id}
+              type="button"
+              className={styles.chip}
+              data-active={activeSeg === r.id || undefined}
+              aria-pressed={activeSeg === r.id}
+              title={`Segment ${r.ordinal} · ${r.start_s.toFixed(2)}s – ${r.end_s.toFixed(2)}s`}
+              aria-label={`Play video from segment ${r.ordinal}`}
+              onClick={() => { setActiveSeg(r.id); seekTo(r.start_s); }}
+            >
+              <span className={styles.chipLabel}>Segment {r.ordinal}</span>
+              <span className={styles.chipTime}>{r.start_s.toFixed(2)}s – {r.end_s.toFixed(2)}s</span>
+            </button>
+          ))}
+        </nav>
+      )}
 
-      {coverageEntries.length > 0 && (
-        <div className="card" style={{ marginBottom: "1rem" }}>
-          <h3>Per-metric signal visibility</h3>
+      <div className={styles.panel} aria-label="Session summary">
+        <div className={styles.summaryGrid}>
+          <div className={styles.summaryCell}>
+            <p className={styles.summaryLabel}>Completed cycles</p>
+            <p className={styles.summaryValue}>{report.detected_rep_count ?? "—"}</p>
+          </div>
+          <div className={styles.summaryCell}>
+            <p className={styles.summaryLabel}>Partial fragments</p>
+            <p className={styles.summaryValue}>{fragments.length}</p>
+          </div>
+          <div className={styles.summaryCell}>
+            <p className={styles.summaryLabel}>Signal visibility</p>
+            <p className={styles.summaryValue}>{visibility !== null ? `${visibility}%` : "—"}</p>
+          </div>
+        </div>
+        {report.detected_rep_count == null && (
+          <p className={styles.note}>Completed cycles unavailable{report.detected_rep_count_unavailable_reason ? ` — ${report.detected_rep_count_unavailable_reason.replaceAll("_", " ")}` : ""}.</p>
+        )}
+        <p className={styles.note}>Visibility reflects pose-signal visibility, not accuracy.</p>
+        <details className={styles.inlineDetails}>
+          <summary className={styles.noteSummary}>Visibility details</summary>
+          <p className={styles.note}>
+            {visibility !== null
+              ? `${q.valid_observed_samples} of ${q.expected_supporting_samples} supporting samples observed.`
+              : "No supporting samples expected for this profile."}
+            {fragments.length > 0 ? " Partial fragments are not counted as completed cycles." : ""}
+          </p>
           {coverageEntries.map(([id, cov]) => {
             const pct = Math.round(cov * 100);
             return (
@@ -342,13 +359,18 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
               </div>
             );
           })}
-        </div>
-      )}
-
-      {hasEstimate && <ExperimentalMatch report={report} />}
+        </details>
+      </div>
 
       {completed.length > 0 && report.metrics.some((m) => m.value != null) && (
         <GroundedCoaching analysisId={analysisId} reps={completed} />
+      )}
+
+      {hasEstimate && (
+        <details className={styles.disclosure}>
+          <summary><strong>Reference comparison · experimental</strong>{" "}<span className="pill warn">always partial</span></summary>
+          <ExperimentalMatch report={report} />
+        </details>
       )}
 
       {pa.status === "unavailable" && (
@@ -370,52 +392,36 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
         </div>
       )}
 
-      {completed.length > 0 && (
-        <div className="card" style={{ marginBottom: "1rem" }}>
-          <h3>Rep times</h3>
-          <p className="muted">Detected segments from the pose signal — completed cycles, not manually confirmed reps.</p>
-          <table>
-            <thead><tr><th>#</th><th>Start</th><th>End</th><th>Status</th><th></th></tr></thead>
-            <tbody>
-              {completed.map((r) => (
-                <tr key={r.id}>
-                  <td>{r.ordinal}</td>
-                  <td>{r.start_s.toFixed(2)}s</td>
-                  <td>{r.end_s.toFixed(2)}s</td>
-                  <td><span className="pill ok">completed</span></td>
-                  <td><button type="button" className="btn ghost sm" onClick={() => seekTo(r.start_s)} aria-label={`Play video from segment ${r.ordinal}`}>▶</button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-
       {fragments.length > 0 && (
-        <details className="card" style={{ marginBottom: "1rem" }}>
-          <summary style={{ cursor: "pointer" }}>
+        <details className={styles.disclosure}>
+          <summary>
             <strong>Partial / excluded fragments ({fragments.length})</strong>{" "}
             <span className="muted">— not counted as completed cycles</span>
           </summary>
-          <table style={{ marginTop: ".5rem" }}>
-            <thead><tr><th>Segment</th><th>Start</th><th>End</th><th>Status</th><th></th></tr></thead>
-            <tbody>
-              {fragments.map((r) => (
-                <tr key={r.id}>
-                  <td>{r.ordinal}</td>
-                  <td>{r.start_s.toFixed(2)}s</td>
-                  <td>{r.end_s.toFixed(2)}s</td>
-                  <td><span className="pill warn">{r.completion_status.replaceAll("_", " ")}</span></td>
-                  <td><button type="button" className="btn ghost sm" onClick={() => seekTo(r.start_s)} aria-label={`Play video from segment ${r.ordinal}`}>▶</button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className={styles.tableWrap}>
+            <table>
+              <thead><tr><th>Segment</th><th>Start</th><th>End</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                {fragments.map((r) => (
+                  <tr key={r.id}>
+                    <td>{r.ordinal}</td>
+                    <td>{r.start_s.toFixed(2)}s</td>
+                    <td>{r.end_s.toFixed(2)}s</td>
+                    <td><span className="pill warn">{r.completion_status.replaceAll("_", " ")}</span></td>
+                    <td><button type="button" className={styles.playButton} onClick={() => seekTo(r.start_s)} aria-label={`Play video from segment ${r.ordinal}`}>Play</button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </details>
       )}
 
-      <div className="card" style={{ marginBottom: "1rem" }}>
-        <h3>Measured values</h3>
+      <details className={styles.disclosure}>
+        <summary><strong>Measurements and reference details</strong>{" "}<span className="muted">— full measured values, provenance and missing reasons</span></summary>
+        <p className="muted" style={{ maxWidth: "68ch" }}>
+          Angles are in degrees, times in seconds. 3D values come from an uncalibrated estimated-3D pose model; the torso axis is measured in the camera plane (image-up), not against gravity. Coverage reflects how much of the supporting pose signal was visible — it is not an accuracy score, and no technique judgement is made without an approved reference.
+        </p>
         {showReference && (
           <p className="muted" style={{ margin: ".2rem 0 .6rem" }}>
             Reference bands are observed min/max ranges from {referenceRepCount != null ? `n=${referenceRepCount} reference windows` : "the reference windows"} (unreviewed camera) — not acceptable technique tolerances. Signed deviation is negative below the band, positive above it, and 0 inside. Labels indicate camera-plane (projected 2D) or estimated-3D measurements; these are descriptive only.
@@ -430,10 +436,10 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
         ) : (
           completed.map((r) => <RepMetrics key={r.id} rep={r} metrics={byRep.get(r.id) ?? []} showReference={showReference} />)
         )}
-      </div>
+      </details>
 
-      <p className="muted" style={{ maxWidth: "68ch" }}>
-        Angles are in degrees, times in seconds. 3D values come from an uncalibrated estimated-3D pose model; the torso axis is measured in the camera plane (image-up), not against gravity. Coverage reflects how much of the supporting pose signal was visible — it is not an accuracy score, and no technique judgement is made without an approved reference.
+      <p className={styles.note}>
+        3D values come from an uncalibrated estimated-3D pose model; the torso axis is measured in the camera plane, not against gravity. Full measurement notes are in “Measurements and reference details”.
       </p>
     </section>
   );

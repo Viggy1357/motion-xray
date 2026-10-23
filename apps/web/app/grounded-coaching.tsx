@@ -32,10 +32,7 @@ function isCoaching(data: unknown): data is CoachingResult {
 }
 
 function seekTo(seconds: number): void {
-  const v = document.querySelector("video");
-  if (!v) return;
-  v.currentTime = seconds;
-  void v.play().catch(() => undefined);
+  window.dispatchEvent(new CustomEvent("mxr:seek-source", { detail: { seconds } }));
 }
 
 const SEGMENT_PREFIX = /^Segment (\d+) \(/;

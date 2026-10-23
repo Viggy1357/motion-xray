@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Illustrative athlete body map</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #eaf2fb;
+    color: #0f1c2e;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  #stage { position: relative; flex: 1 1 auto; min-height: 0; touch-action: pan-y; }
+  #stage canvas { display: block; width: 100%; height: 100%; outline: none; }
+  #fallback[hidden] { display: none !important; }
+  #fallback {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; background: #eaf2fb; text-align: center; padding: 16px;
+  }
+  #fallback p { margin: 0; font-size: 13px; color: #33475f; }
+  footer {
+    flex: 0 0 auto;
+    background: #ffffff;
+    border-top: 1px solid #dbe4f0;
+    padding: 8px 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; flex-wrap: wrap;
+  }
+  footer .label { font-size: 12px; color: #33475f; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+  .controls button {
+    min-width: 44px; min-height: 44px;
+    padding: 8px 14px;
+    font: inherit; font-size: 13px; font-weight: 600;
+    color: #1d4ed8;
+    background: #eef4ff;
+    border: 1px solid #c7dbff;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .controls button:hover { background: #e0ebff; }
+  .controls button:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 2px; }
+  .controls button[aria-pressed="true"] { background: #1d4ed8; color: #ffffff; border-color: #1d4ed8; }
+</style>
+</head>
+<body>
+  <div id="stage">
+    <div id="fallback" hidden>
+      <svg width="120" height="220" viewBox="0 0 120 220" role="img" aria-label="Illustrated athlete figure">
+        <ellipse cx="60" cy="212" rx="34" ry="6" fill="#c9d9ec"/>
+        <circle cx="60" cy="26" r="13" fill="#e8c39e"/>
+        <path d="M47 22 q13 -16 26 0 q-4 -12 -13 -12 q-9 0 -13 12z" fill="#3a3f4a"/>
+        <path d="M44 44 q16 -8 32 0 l6 44 q-22 10 -44 0 z" fill="#2f3644"/>
+        <path d="M44 46 q-10 6 -12 30 l6 4 q6 -20 10 -26z" fill="#2f3644"/>
+        <path d="M76 46 q10 6 12 30 l-6 4 q-6 -20 -10 -26z" fill="#2f3644"/>
+        <circle cx="35" cy="84" r="5" fill="#e8c39e"/>
+        <circle cx="85" cy="84" r="5" fill="#e8c39e"/>
+        <path d="M46 92 q14 8 28 0 l4 52 q-9 5 -14 5 l-4 -40 -4 40 q-5 0 -14 -5z" fill="#3a4152"/>
+        <path d="M50 148 l-3 52 8 2 4 -50z" fill="#2b3140"/>
+        <path d="M70 148 l3 52 -8 2 -4 -50z" fill="#2b3140"/>
+        <ellipse cx="50" cy="205" rx="9" ry="4" fill="#f2f5fa" stroke="#c7d3e4"/>
+        <ellipse cx="70" cy="205" rx="9" ry="4" fill="#f2f5fa" stroke="#c7d3e4"/>
+      </svg>
+      <p>Illustrated view — interactive 3D unavailable on this device.</p>
+    </div>
+  </div>
+  <footer>
+    <span class="label">Exercise targets · illustration</span>
+    <div class="controls" role="group" aria-label="View controls">
+      <button type="button" id="btn-front">Front</button>
+      <button type="button" id="btn-back">Back</button>
+      <button type="button" id="btn-left" aria-label="Rotate left">⟲ Left</button>
+      <button type="button" id="btn-right" aria-label="Rotate right">Right ⟳</button>
+    </div>
+  </footer>
+  <script type="module" src="./athlete.js"></script>
+</body>
+</html>

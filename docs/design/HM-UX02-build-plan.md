@@ -1,6 +1,11 @@
-# HM-UX02 — New Cobalt Concept: Implementation TODO Plan (Planning Only)
+# HM-UX02 — New Cobalt Concept: Implementation TODO Plan
 
-**Status:** Proposed execution plan. **No implementation is approved or installed by this document.** The user explicitly paused coding: this file contains todos and the whole-flow plan only. Nothing below is a claim of completed work; every task has an unchecked gate that must be evidenced before it is marked done.
+**Execution update23 October:** the owner subsequently authorized implementation and
+a mockup-fidelity design pass. HM-UX03 now delivers the connected UI; current scope,
+checks, deviations and remaining gates are in [HM-UX03 delivery](../audit/HM-UX03-delivery.md).
+The original planning checklist below is retained as the proposed acceptance baseline,
+not a current assertion that nothing is built or that every planned failure injection
+was executed. Future features remain proposals.
 
 **Parent mapping:** this refines the HM-UX02 shell and HM-UX03 integration proposals in the earlier blueprint. The `UX2-*` items below are planning subtask IDs, not completed implementation. HM-UX01 and the earlier HM09 brief remain historical visual references.
 
@@ -312,10 +317,13 @@ the usable upload → actual feedback → save loop. Never cut privacy or missin
 
 ---
 
-## Next action on approval
-When the user asks to start implementation, run **UX2-01 then UX2-02** first: baseline evidence snapshot, then cobalt tokens and URL-driven navigation with a demonstrated rollback. Execution is paused while this plan is discussed.
+## Current next action
+HM-UX03 implements the connected slice and records the actual scope/checks in its
+delivery audit. Next is owner visual feedback, optional targeted device/failure-state
+hardening, and the independent technical reference/evaluation work. The future
+roadmap above remains gated; it is not an automatic instruction to build every item.
 
-## Owner tour (2 minutes)
+## Original planning tour (historical)
 1. §1–2: what's new (cobalt, companion, 3 nav) vs preserved (old prototype as reference only); MVP cuts.
 2. §4: the whole flow, including the no-blind-reupload recovery.
 3. §5 + §8: the honesty rules — null vs 0, save-after-write, provenance-based recognition.

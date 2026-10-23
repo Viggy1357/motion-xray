@@ -5,6 +5,13 @@ Machine-readable allocations: [development-budget.json](development-budget.json)
 
 ## Approved resources and efficiency policy
 
+23 October owner update: justified one-off tasks may use up to **500,000 cumulative
+input + completion tokens**. The normal 200,000-token allowance remains the default.
+Record the reason for an increase; this is not a target, a per-request output limit,
+or an increase to the USD70 active / USD30 protected spending boundaries. HM-UX03's
+additional mockup-fidelity design pass is covered by this authorization; provider
+failures without returned usage retain their maximum cost reservation.
+
 The user reports **$100 Nebius allowance: up to $70 for planned work and $30 backup**,
 plus **8,000 Tavily credits tracked separately**. These are available ceilings, not
 spending targets or verified current balances. The $70 covers Token Factory development

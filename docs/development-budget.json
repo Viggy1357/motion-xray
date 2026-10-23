@@ -23,6 +23,8 @@
   "scope": "Remaining personal MVP, four planned exercises through T14; T15 and T17 excluded",
   "task_token_definition": "Cumulative billed input plus completion tokens across drafting, review and repairs. Completion includes reasoning; do not double count it.",
   "default_task_allowance_tokens": 200000,
+  "one_off_task_allowance_tokens": 500000,
+  "one_off_authorization": "Owner update23 October: increase as needed for justified one-offs; not a target, retain cumulative usage, USD70 active ceiling and USD30 protected backup.",
   "heavier_task_policy": "User raised the bounded task allowance to200k on21 October. It is a ceiling, not a spending target; retain prior same-task usage and justify heavier allocations within USD70 active/USD30 protected backup.",
   "max_concurrent_work_tasks": 3,
   "max_work_tasks_per_batch": 4,

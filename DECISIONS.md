@@ -433,3 +433,24 @@ Specification v2.0 (15 Oct 2026).
 - Current paired full-path speed evidence remains curl3–6% only. Owner chooses a shared
   MVP policy despite these limits; no universal efficiency or validity claim. Runtime
   coaching stays explicit/budgeted and no paid calls triggered by this rollout.
+
+## D022 — Mockup-led connected cobalt experience
+
+- Owner authorizes continuous HM-UX03 implementation and a separate visual design
+  review against `docs/design/previews/HM-UX02-concept.png`. Analysis remains primary;
+  beginner-friendly progress is gentle, local and non-competitive.
+- Home/Analyse/Progress have real URLs; Results is nested under Analyse. Preserve
+  the existing owned upload, deterministic processing, contracts and explicit
+  coaching request. Static `/ui-draft` remains historical simulation only.
+- Review overlays observed, valid canonical 2D joints on the user's actual private
+  video. Original source timestamps map to proxy playback; gaps stay empty. Neither
+  overlay presentation nor an illustrative companion changes measurement validity.
+- The approved concept is an art-direction target, not evidence of implemented
+  features. This slice uses original static athlete artwork and a separate optional
+  procedural rotatable map. Photorealistic rotatable mesh, recording, estimated 3D
+  motion replay, accounts and durable cross-device history remain future gates.
+- Recognition requires an eligible live movement report and a successful browser
+  save, deduplicated by analysis ID. Manual corrections and legacy records cannot
+  mint recognition. Counts describe activity, not strength, muscle growth or safety.
+- Additional one-off development tasks may use up to500k cumulative tokens under
+  the23 October owner update; USD70 active/USD30 protected boundaries remain.

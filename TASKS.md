@@ -12,7 +12,42 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
-### HM-UX02 — cobalt experience implementation plan · plan delivered; build paused (23 Oct)
+### HM-UX03 — connected cobalt app build · delivered (23 Oct)
+
+- Owner authorizes continuous implementation of the mockup-led experience, using
+  heavier Nebius delegation. FR02/03/06/07/08/09/10/12; UX2-01..09 execution.
+- Baseline `f47e09d`; preserve old static draft. Three disjoint source-only workers:
+  live page/theme, actual pose replay, and illustrative companion. Codex integrates.
+- Real server pipeline/ownership/CSRF/quota/scoring remain unchanged. No fixtures in
+  live results; partial/expired/null states preserved. Runtime coaching stays explicit.
+- Delivered actual Home/Analyse/nested Results/Progress, mobile/desktop shell,
+  source-time-aligned observed2D overlay, actual segment seeking, private reports,
+  atomic local save/dedupe/corrections, eligible recognition and real weekly history.
+  Original static athlete + separate optional3D target map; recording/3D movement
+  replay/accounts remain future. Preserve old static prototype as simulation only.
+- Separate visual reviewer compared concept/375px renders; Nebius drafted and
+  refined source. Final composition follows the mockup, including mobile branding,
+  athlete-first Home, compact exercise row, segment strip and quieter management.
+- Checks: Docker typecheck/production build,12 overlay checks, companion JS syntax;
+  real lat upload/report/overlay/seek/save, corrected6 vs detected5 (restored5),
+  idempotent recognition/date, refresh/back/forward,404 recovery; synthetic actual
+  cancellation and single-job guard;360/375/1365 layouts. Baseline client rollback
+  dry-run typecheck/build passed without changing live history.
+- Key fixes: status enum/React19 types, expired lock/message, stale result gate,
+  source/proxy seek mapping, bounded pose reads, save-before-report-settled race.
+- Files: `apps/web/app/` shell/routes/styles/companion/replay/helper/report/coaching;
+  `apps/web/public/companion/`, focused scripts; design/decision/budget/audit docs.
+- Evidence/limits: `docs/audit/HM-UX03-delivery.md`. Storage-write and upload/create
+  failure branches source-reviewed, not failure-injected; original-file read later
+  denied by macOS, so cancellation used synthetic footage. No backend suite rerun
+  or clinical/device-wide validation inferred. Runtime coaching stays explicit.
+- Usage:12 Nebius calls,229,998 reported tokens; known guard USD1.933422 plus one
+  unknown-use reservation; aggregate max USD18.19174165. Owner500k one-off update
+  recorded; protected reserve untouched. No runtime coaching/Tavily calls.
+- Next: owner visual feedback; optional HM-UX04 device/failure-injection hardening;
+  technical reference/evaluation work continues separately.
+
+### HM-UX02 — cobalt experience implementation plan · delivered; executed by HM-UX03 (23 Oct)
 
 - FR01/02/03/06/07/08/09/10/12 and proposed companion/history experience.
 - Owner prefers the new white/cobalt four-screen concept, then explicitly requests
@@ -30,7 +65,8 @@ numbers remain in use; some differ from the archived brief's FR numbers.
   initial permission-review timeout occurred before dispatch and spent zero tokens.
 - Checks: checklist/required sections/reference path and whitespace checked;
   implementation checkboxes remain unchecked. No app tests claimed for documentation.
-- Next after owner review: first small shell/navigation slice, not a whole-app rewrite.
+- Owner subsequently authorized continuous build and further visual review; see
+  HM-UX03 above for actual implementation and evidence rather than this historical plan.
 
 ### HM-UX01 — analysis-first experience draft and MVP blueprint · draft delivered (23 Oct)
 

@@ -4,6 +4,7 @@
 - Copied file: `build/three.module.min.js`; retained MIT licence: `THREE-LICENSE.txt`.
 - Downloaded from the pinned jsDelivr npm distribution on 23 October 2026.
 - Source: https://github.com/mrdoob/three.js/tree/r170
-- Used only by the separate design draft. No project runtime dependency changed.
+- Used by the preserved design draft and the live optional illustrative body map
+  under `/companion/`. No npm runtime dependency changed; both use this local copy.
 - The athlete is original procedural geometry, not a downloaded character/checkpoint.
 - No raw media, tracking service, remote font or runtime CDN request is required.

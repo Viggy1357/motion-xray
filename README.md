@@ -1,8 +1,8 @@
 # Motion X Ray
 
-Convert a short workout video into a rep-by-rep movement report. Record or upload a
-set, inspect reconstructed movement as a rotatable 3D skeleton, compare it against a
-curated reference trajectory, and read grounded coaching — all with honest limitations.
+Upload a short workout video, review its pose overlay and measured movement report,
+compare available reference measurements, and request grounded coaching. Recording
+and estimated 3D motion replay remain roadmap features.
 
 > This repository is building towards the product described in
 > `docs/PRODUCT.md`. It is **not** a validated biomechanics product. Scores express
@@ -51,6 +51,23 @@ coding agent follows before changing code.
   caching — never per analysis.
 
 ## Status
+
+23 October2026: the connected cobalt app has Home, Analyse, nested Results and
+Progress routes, following the [approved visual concept](docs/design/previews/HM-UX02-concept.png).
+It uses the existing guest upload/CPU pipeline and actual private video/report data.
+The review screen now includes a source-time-aligned 2D pose overlay and playable
+detected segments. Save/history remain browser-local, with corrected counts separate
+from detections. The Home athlete is static original artwork; its optional rotatable
+body map is a separate illustration, not a reconstruction or muscle-growth measure.
+
+Frontend Docker typecheck, production build and12 overlay checks pass. Actual lat
+upload/review/save, cancellation, one-active-job guard, expiry recovery and responsive
+layouts were checked in the browser. See [delivery evidence and limits](docs/audit/HM-UX03-delivery.md)
+and the [MVP/future plan](docs/design/HM-UX02-build-plan.md). Backend thresholds and
+measurement services were unchanged in this UI slice; prior backend checks are in
+`docs/audit/HM-FAST02-delivery.md`.
+
+### Earlier22 October checkpoint (superseded by the reports/UI above)
 
 22 October2026: the main app at `http://localhost:3000` now supports guest video upload,
 real CPU pose processing, status/cancellation, private replay and browser-local workout
