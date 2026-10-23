@@ -1,0 +1,102 @@
+{
+  "task": "HM-UX04",
+  "date": "2026-10-23",
+  "scope": "Planning documents only, generated mockup vision draft and focused repair",
+  "calls": [
+    {
+      "task": "HM-UX04-spec",
+      "model": "nvidia/Nemotron-3.5-Super-VL",
+      "request": "ux4-spec",
+      "status": "failed",
+      "maximum_cost_usd": 0.506286,
+      "input_token_bound": 45882,
+      "output_token_bound": 24576,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative guard USD3 input/USD15 completion per million, not invoice price; maximum reservation retained on unknown usage.",
+      "usage": {
+        "completion_tokens": 11097,
+        "prompt_tokens": 3881,
+        "total_tokens": 14978,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 8367
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 0,
+          "multimodal_tokens": {
+            "image": 1562
+          }
+        }
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-25ec7034d7256e10c22b4cea2bf6a84c",
+      "error_type": "AssertionError",
+      "elapsed_s": 28.42,
+      "received_chars": 10926,
+      "conservative_cost_usd": 0.17809799999999998
+    },
+    {
+      "task": "HM-UX04-spec-repair",
+      "model": "nvidia/Nemotron-3.5-Super-VL",
+      "request": "ux4-repair",
+      "status": "failed",
+      "maximum_cost_usd": 0.44463600000000003,
+      "input_token_bound": 25332,
+      "output_token_bound": 24576,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "Conservative guard USD3 input/USD15 completion per million; not invoice price.",
+      "usage": {
+        "completion_tokens": 22333,
+        "prompt_tokens": 5130,
+        "total_tokens": 27463,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 14385
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 2176
+        }
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-eaa51ad67f853014fbc0bc5ca04c4382",
+      "error_type": "AssertionError",
+      "error_status_code": null,
+      "error_code": null,
+      "elapsed_s": 47.52,
+      "received_chars": 30358,
+      "conservative_cost_usd": 0.350385
+    }
+  ],
+  "total_reported_tokens": 42441,
+  "guard_cost_usd": 0.528483,
+  "aggregate_guard_usd": 17.83949965,
+  "aggregate_maximum_commitment_usd": 18.72022465,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "protected_reserve_used_usd": 0,
+  "balance_verified": false,
+  "runtime_coaching_calls": 0,
+  "tavily_calls": 0,
+  "application_changes": false,
+  "notes": [
+    "Account catalog verified NVIDIA Super VL ID; catalog response alone was not treated as inference proof.",
+    "Vision call reported1562 image-input tokens for generated concept board; no private footage or user screenshots provided.",
+    "Both calls finished stop with complete allowed documents, but second Markdown key was top-level outside files. Exact allowed files recovered; original failed-envelope statuses/usage preserved.",
+    "First draft had incomplete and inaccurate requirements; one targeted repair, then integrator source/transition/status corrections. No model tournament or claim of best design model.",
+    "Rates USD3/15 per million are conservative guards, not invoice/account balance. Prior unknown reservations retained; no new unknown-use calls.",
+    "UI UX Pro Max error recovery/announcement guidance consulted. No Addy skills; all runtimes in Docker.",
+    "42,441 reported tokens is within normal200k task allowance; owner500k one-off limit remains available, not consumed or increased spend authorization."
+  ]
+}

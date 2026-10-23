@@ -12,6 +12,30 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-UX04 — mockup parity and screen/state specification · planning delivered (23 Oct)
+
+- Owner requests detailed missing-screen/state specification before handover;
+  FR01/02/03/05/06/09/10/12 presentation. Application edits remain paused.
+- Baseline80a3978. One bounded NVIDIA Super VL planning worker receives the generated
+  concept board and a source-verified inventory only; no private footage or credentials.
+- Delivered `docs/design/HM-UX04-screen-state-spec.md` and
+  `docs/delegation/HM-UX04-handover.md`:35-row parity matrix, full recording journey,
+  interruption/error recovery,26 acceptance cases, proposed data boundaries and six
+  work packages. Camera is required for the proposed next MVP, not silently deferred.
+- Two bounded NVIDIA Super VL calls: generated-board vision draft then targeted
+  specification repair;42,441 reported tokens, USD0.528483 conservative guard.
+  Both returned complete documents with a malformed two-file envelope; allowed paths
+  recovered, original failures/usage retained. Integrator corrected current-status
+  claims, transitions, source-ID assumptions, paths and metadata/goal semantics.
+- Checks: local references/requirements/acceptance IDs, current CoachingResult fields,
+  source-status consistency, whitespace and unchanged application tree. No new
+  application, camera/device tests or model-superiority benchmark claimed.
+- Open decisions: coherent companion asset/control approach, evidence-link contract,
+  week convention; camera/audio have recommended technical defaults. No paid product
+  runtime calls, private provider media or Addy skill use.
+- Next: hand over these documents; obtain explicit implementation-slice authorization
+  before UX4-01..06 dispatch. No work package is marked implemented by this plan.
+
 ### HM-UX03 — connected cobalt app build · delivered (23 Oct)
 
 - Owner authorizes continuous implementation of the mockup-led experience, using

@@ -52,6 +52,10 @@ coding agent follows before changing code.
 
 ## Status
 
+Next-pass specification (planning only): [screen/state parity](docs/design/HM-UX04-screen-state-spec.md)
+and [development handover](docs/delegation/HM-UX04-handover.md). These specify the
+missing camera flow and mockup details; they do not claim those features are built.
+
 23 October2026: the connected cobalt app has Home, Analyse, nested Results and
 Progress routes, following the [approved visual concept](docs/design/previews/HM-UX02-concept.png).
 It uses the existing guest upload/CPU pipeline and actual private video/report data.
