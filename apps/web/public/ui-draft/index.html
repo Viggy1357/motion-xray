@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Motion X-Ray — UI draft</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="banner" role="note">
+  <span>Interactive draft · example data · no uploads</span>
+  <details class="banner-details">
+    <summary>Preview states</summary>
+    <label>Scenario
+      <select id="banner-scenario">
+        <option value="example">Example with measurements</option>
+        <option value="limited">Limited visibility</option>
+        <option value="coach-down">Coaching unavailable</option>
+        <option value="expired">Video expired</option>
+        <option value="failed">Analysis failed</option>
+        <option value="empty">First visit (empty)</option>
+      </select>
+    </label>
+    <button id="banner-reset" class="btn ghost" type="button">Reset draft</button>
+  </details>
+</div>
+
+<div class="shell">
+  <aside class="rail">
+    <a class="brand" href="#home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 9v6m0-4.5L7 12m5-1.5L17 12M12 15l-3 6m3-6 3 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>Motion X-Ray</span>
+    </a>
+    <nav class="rail-nav" aria-label="Primary">
+      <a class="navlink" href="#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Home</a>
+      <a class="navlink" href="#analyse"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Analyse</a>
+      <a class="navlink" href="#results"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9m7 10V5m7 14v-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Results</a>
+      <a class="navlink" href="#progress"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18c3-1 4-8 8-8s5 4 8 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="18" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Progress</a>
+    </nav>
+    <div class="rail-foot">
+      <span class="badge">Draft</span>
+      <a class="backlink" href="/">Back to working app</a>
+    </div>
+  </aside>
+
+  <main id="main" tabindex="-1">
+    <!-- HOME -->
+    <section id="view-home" class="view">
+      <p class="eyebrow">Your next set, a little clearer</p>
+      <h1>Move with more confidence.</h1>
+      <p class="sub">Useful movement analysis for the four lifts you already do — explained in plain words.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#analyse">Analyse a set <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn secondary" href="#analyse" data-demo>Explore an example</a>
+      </div>
+
+      <div class="home-grid">
+        <div class="stage-wrap">
+          <div class="stage" id="stage">
+            <canvas id="athlete-canvas" aria-label="Rotatable illustrated athlete figure"></canvas>
+            <div id="athlete-fallback" hidden>
+              <svg id="fallback-figure" viewBox="0 0 200 340" role="img" aria-label="Illustrated athlete figure">
+                <ellipse cx="100" cy="326" rx="70" ry="8" class="fb-floor"/>
+                <circle cx="100" cy="42" r="20" class="fb-body"/>
+                <path d="M100 66c-22 0-30 14-30 34v46c0 10 8 16 14 16h32c6 0 14-6 14-16v-46c0-20-8-34-30-34z" class="fb-body"/>
+                <path d="M66 78c-10 6-14 20-14 38v34c0 6 4 10 9 10s9-4 9-10v-32c0-12 2-22 6-28z" class="fb-body fb-arms"/>
+                <path d="M134 78c10 6 14 20 14 38v34c0 6-4 10-9 10s-9-4-9-10v-32c0-12-2-22-6-28z" class="fb-body fb-arms"/>
+                <path d="M82 162c-4 30-6 70-6 108v44c0 6 4 10 9 10s9-4 9-10v-42c0-34 2-66 6-96z" class="fb-body fb-legs"/>
+                <path d="M118 162c4 30 6 70 6 108v44c0 6-4 10-9 10s-9-4-9-10v-42c0-34-2-66-6-96z" class="fb-body fb-legs"/>
+                <ellipse cx="100" cy="112" rx="26" ry="20" class="fb-region fb-chest"/>
+                <ellipse cx="100" cy="112" rx="26" ry="20" class="fb-region fb-back"/>
+                <ellipse cx="60" cy="120" rx="12" ry="42" class="fb-region fb-arms"/>
+                <ellipse cx="140" cy="120" rx="12" ry="42" class="fb-region fb-arms"/>
+                <ellipse cx="100" cy="240" rx="34" ry="70" class="fb-region fb-legs"/>
+              </svg>
+              <p class="stage-status">Illustrated view — interactive 3D isn’t available in this browser.</p>
+            </div>
+            <div class="stage-label">
+              <strong>Your training companion</strong>
+              <span>Illustrative exercise targets</span>
+            </div>
+          </div>
+          <div class="region-btns" role="group" aria-label="Highlight a target region">
+            <button type="button" class="chip" data-region="arms">Arms · curl</button>
+            <button type="button" class="chip" data-region="back">Back · pulldown</button>
+            <button type="button" class="chip" data-region="legs">Legs · squat</button>
+            <button type="button" class="chip" data-region="chest">Chest · press</button>
+          </div>
+          <div class="stage-controls" id="stage-controls">
+            <button type="button" class="btn ghost" data-turn="front">Front</button>
+            <button type="button" class="btn ghost" data-turn="back">Back</button>
+            <button type="button" class="btn ghost" data-turn="left">Turn left</button>
+            <button type="button" class="btn ghost" data-turn="right">Turn right</button>
+            <button type="button" class="btn ghost" data-turn="reset">Reset</button>
+            <label class="autorotate"><input type="checkbox" id="autorotate"> Auto-rotate</label>
+            <button type="button" class="btn ghost" id="appearance-open">Appearance</button>
+          </div>
+          <p class="fineprint">This is a fun picture of your effort, not a measurement of your body.</p>
+        </div>
+
+        <aside class="focus-card" aria-label="Next focus">
+          <p class="eyebrow">Next focus</p>
+          <h2 id="focus-name">Dumbbell bicep curl</h2>
+          <p id="focus-guidance" class="meta">Stand side-on to the camera, full body in frame.</p>
+          <a class="btn primary small" href="#analyse" id="focus-cta">Analyse this movement</a>
+          <p class="meta last-cue" id="focus-cue">Example cue: keep your upper arms still; move only your forearms.</p>
+        </aside>
+      </div>
+
+      <div class="home-meta">
+        <div class="panel">
+          <h2 class="panel-title">This week</h2>
+          <p id="week-summary" class="meta">No analysed sets yet this week.</p>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">Latest result</h2>
+          <p id="latest-result" class="meta">Nothing yet — <a href="#analyse">analyse a set</a> or explore the example.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALYSE -->
+    <section id="view-analyse" class="view" hidden>
+      <p class="eyebrow">Analyse</p>
+      <h1>Pick a movement.</h1>
+      <p class="sub">Four exercises are covered in this draft. Choose one, then preview the example analysis.</p>
+
+      <div class="ex-grid" id="ex-grid" role="radiogroup" aria-label="Exercise"></div>
+
+      <div class="panel guidance-panel">
+        <h2 class="panel-title">Camera guidance</h2>
+        <p id="ex-guidance" class="meta">Stand side-on to the camera, full body in frame.</p>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel-title">Optional local preview</h2>
+        <p class="meta">Choose a video from this device to check framing. It stays on this device — nothing is uploaded or processed. Clips up to 60 seconds work best.</p>
+        <button class="btn secondary file-btn" id="choose-file" type="button">Choose a video</button>
+        <input type="file" id="file-input" aria-label="Local video preview" accept="video/mp4,video/webm,video/quicktime,video/*" hidden>
+        <div id="file-preview" hidden>
+          <video id="file-video" controls playsinline></video>
+          <p class="meta" id="file-note"></p>
+          <button class="btn ghost" type="button" id="file-clear">Remove video</button>
+        </div>
+      </div>
+
+      <div class="panel example-panel">
+        <h2 class="panel-title">Example analysis</h2>
+        <p class="meta">The example uses a fixed simulated fixture. It is independent of any video you choose above — your video is never processed.</p>
+        <label class="meta">Review scenario
+          <select id="scenario-select">
+            <option value="example">Example with measurements</option>
+            <option value="limited">Limited visibility</option>
+            <option value="coach-down">Coaching unavailable</option>
+            <option value="expired">Video expired</option>
+            <option value="failed">Analysis failed</option>
+            <option value="empty">First visit (empty)</option>
+          </select>
+        </label>
+        <button class="btn primary" type="button" id="preview-example">Preview example analysis</button>
+        <div id="processing" hidden>
+          <p class="meta"><span class="spinner" aria-hidden="true"></span> Simulating example processing… <span id="elapsed">0.0s</span> elapsed. This is a simulation — no analysis is running.</p>
+          <button class="btn primary" type="button" id="show-result" hidden>Show example result</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="view-results" class="view" hidden>
+      <div id="results-empty">
+        <p class="eyebrow">Results</p>
+        <h1>No result yet.</h1>
+        <p class="sub">Analyse a set or open the example to see what a result looks like here.</p>
+        <a class="btn primary" href="#analyse">Go to Analyse</a>
+      </div>
+      <div id="results-body" hidden>
+        <p class="eyebrow">Example result · simulated measurements</p>
+        <h1>Your set, understood.</h1>
+        <p class="sub" id="results-exercise">Dumbbell bicep curl</p>
+
+        <div class="results-grid">
+          <div class="panel replay-panel">
+            <h2 class="panel-title">Replay</h2>
+            <p class="meta">Illustrative replay · not your video</p>
+            <div id="replay-wrap">
+              <svg id="replay-svg" viewBox="0 0 200 280" role="img" aria-label="Illustrated movement replay">
+                <ellipse cx="100" cy="262" rx="70" ry="7" class="fb-floor"/>
+                <circle id="rj-head" cx="100" cy="60" r="14" class="sk"/>
+                <line id="rj-torso" class="sk-line"/>
+                <line id="rj-uarm" class="sk-line"/>
+                <line id="rj-farm" class="sk-line"/>
+                <line id="rj-thigh" class="sk-line"/>
+                <line id="rj-calf" class="sk-line"/>
+              </svg>
+            </div>
+            <p class="meta" id="replay-unavailable" hidden>Replay unavailable — video expired in this example. Your measurements below are still kept.</p>
+            <div class="replay-controls" id="replay-controls">
+              <button class="btn secondary small" type="button" id="replay-play">Play</button>
+              <input type="range" id="replay-range" min="0" max="5.4" step="0.05" value="0" aria-label="Replay position">
+              <span class="meta" id="replay-time">0.0s / 5.4s</span>
+            </div>
+            <div class="rep-btns" id="rep-btns" role="group" aria-label="Jump to rep"></div>
+          </div>
+
+          <div class="panel obs-panel">
+            <h2 class="panel-title">What stood out</h2>
+            <div id="obs-content">
+              <p id="obs-text">—</p>
+              <p class="meta"><strong>Try this:</strong> <span id="cue-text">—</span></p>
+              <p class="meta" id="why-text"></p>
+              <button class="btn secondary small" type="button" id="replay-moment">Replay this moment</button>
+            </div>
+            <p class="meta" id="obs-unavailable" hidden>Coaching cues aren’t available for this analysis. Your measurements above are still valid.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel-title">Measurements</h2>
+          <p class="meta" id="visibility-note">Measurement visibility: 92% of frames usable.</p>
+          <ul class="metrics" id="metrics-list"></ul>
+          <p class="meta" id="no-cycles" hidden>We couldn’t measure a full rep this time — no penalty. Rest up and try again when you’re ready.</p>
+        </div>
+
+        <details class="panel details-panel">
+          <summary>Detail &amp; provenance</summary>
+          <div id="details-content">
+            <p class="meta">Experimental reference comparison: <strong id="ref-score">79 / 100</strong> — provisional resemblance to an example reference, not a technique score.</p>
+            <ul class="meta provenance">
+              <li>Source: Example reference — unreviewed</li>
+              <li>Method: mock 30° joint-angle placeholder — provisional, not validated</li>
+              <li>Fixture version: recognition.v0.1 · draft fixture 1</li>
+              <li>Eligible cycles: <span id="prov-cycles">4 completed movements · 1 partial</span></li>
+              <li>Missing components: <span id="prov-missing">Muscle activation and technique safety are not assessed</span></li>
+            </ul>
+          </div>
+        </details>
+
+        <div class="panel" id="save-panel">
+          <h2 class="panel-title">Save this example</h2>
+          <p class="meta">Explicitly add this fixed example set to your draft recognition history. Reopening the result never saves automatically.</p>
+          <button class="btn primary" type="button" id="save-example">Save example set</button>
+          <span class="meta" id="save-status" role="status"></span>
+        </div>
+
+        <div class="panel" id="failed-panel" hidden>
+          <h2 class="panel-title">Analysis didn’t complete</h2>
+          <p class="meta">Something went wrong on our side — no measurements were produced and nothing was added to your progress. This isn’t about how you moved.</p>
+          <a class="btn primary" href="#analyse">Try again</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="view-progress" class="view" hidden>
+      <p class="eyebrow">Progress</p>
+      <h1>Your effort, over time.</h1>
+      <p class="sub">Virtual progress from analysed sets. Illustrative only — not a measurement of your body or health.</p>
+
+      <div class="region-grid" id="region-grid"></div>
+
+      <div class="panel">
+        <h2 class="panel-title">History</h2>
+        <ul class="history" id="history-list"></ul>
+        <p class="meta" id="history-empty">Nothing here yet — analyse a set to begin.</p>
+        <button class="btn ghost" type="button" id="clear-history">Clear example history &amp; reset draft</button>
+      </div>
+
+      <div class="panel roadmap">
+        <h2 class="panel-title">Where this is heading</h2>
+        <ol class="phases">
+          <li><strong>Now:</strong> useful set feedback — plain-language observations on four exercises.</li>
+          <li><strong>Next:</strong> comparable set trends and optional professional evaluation.</li>
+          <li><strong>Later:</strong> optional personalisation and effort-based challenges.</li>
+        </ol>
+        <p class="meta">Proposed, not built. Each later step needs explicit sign-off.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<nav class="bottomnav" aria-label="Primary">
+  <a class="navlink" href="#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Home</span></a>
+  <a class="navlink" href="#analyse"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Analyse</span></a>
+  <a class="navlink" href="#results"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9m7 10V5m7 14v-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Results</span></a>
+  <a class="navlink" href="#progress"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18c3-1 4-8 8-8s5 4 8 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="18" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span>Progress</span></a>
+</nav>
+
+<dialog id="appearance-dialog" aria-labelledby="appearance-title">
+  <h2 id="appearance-title">Companion appearance</h2>
+  <p class="meta">Pick an accent for the illustrated figure. Cosmetic only.</p>
+  <div class="accent-options" role="radiogroup" aria-label="Accent colour">
+    <label class="accent-opt"><input type="radio" name="accent" value="terracotta" checked><span class="swatch" style="--sw:#C2571B"></span>Terracotta</label>
+    <label class="accent-opt"><input type="radio" name="accent" value="sage"><span class="swatch" style="--sw:#6B7F5E"></span>Sage</label>
+    <label class="accent-opt"><input type="radio" name="accent" value="blue"><span class="swatch" style="--sw:#4A6B8A"></span>Blue</label>
+  </div>
+  <form method="dialog"><button class="btn secondary" type="submit">Done</button></form>
+</dialog>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

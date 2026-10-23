@@ -12,6 +12,26 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-UX01 — analysis-first experience draft and MVP blueprint · draft delivered (23 Oct)
+
+- FR01/02/03/06/07/08/09/10/12 plus proposed companion/log experience.
+- Owner requests a separate interactive light UI draft and detailed MVP/future plan.
+  Latest steering: movement/posture analysis leads; the experience is lightly gamified.
+  Casual/beginner audience; one rotatable athlete, illustrative regional progress,
+  video-analysed recognition only. Economy/social/penalties remain later proposals.
+- Bounded source-only Nebius design then prototype drafts; Codex integrates and
+  verifies. No production API/analysis changes, private media or runtime coaching calls.
+- Delivered `apps/web/public/ui-draft/`, experience blueprint/review guide in
+  `docs/design/`, screenshots, attribution and retained earlier visual explorations.
+- Checks: Docker JS syntax and draft/working-app HTTP200; browser home/intake/results,
+  replay seeking, one-time save, refresh persistence, partial/failure/expired/coaching
+  states;375px phone and1365px desktop review. No console errors during checked paths.
+- Evidence/limits: `docs/audit/HM-UX01-ui-draft.md`. Static example only; no backend
+  integration, new accuracy claim or production test-suite pass inferred.
+- Three sequential Nebius calls56,240tokens/$0.587676 conservative guard; full usage
+  ledger `docs/development-usage-HM-UX01-2026-10-23.json`. No runtime/Tavily calls.
+- Next: owner visual review, then HM-UX02 shell and HM-UX03 real results bridge.
+
 ### HM-FAST02 — four-exercise resize rollout · done (23 Oct)
 
 - FR02/03/04/07/08/12. Owner broadens bounded720p-equivalent30Hz to curl, lat,

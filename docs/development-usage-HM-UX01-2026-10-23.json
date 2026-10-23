@@ -1,0 +1,118 @@
+{
+  "task": "HM-UX01",
+  "date": "2026-10-23",
+  "calls": [
+    {
+      "task": "HM-UX01-plan",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-ux01-plan",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.131469,
+      "input_token_bound": 8823,
+      "output_token_bound": 7000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3829,
+        "prompt_tokens": 1001,
+        "total_tokens": 4830,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 10
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "3a8596bf1037469193d7eb075c7e4b5c",
+      "elapsed_s": 94.57,
+      "received_chars": 14991,
+      "conservative_cost_usd": 0.060438
+    },
+    {
+      "task": "HM-UX01-prototype",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-ux01-prototype",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.41111400000000003,
+      "input_token_bound": 27038,
+      "output_token_bound": 22000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 19065,
+        "prompt_tokens": 5227,
+        "total_tokens": 24292,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 4224
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "f8e660d60c704218acc286c60f6ff09f",
+      "elapsed_s": 260.82,
+      "received_chars": 49299,
+      "conservative_cost_usd": 0.301656
+    },
+    {
+      "task": "HM-UX01-repair",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-ux01-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.391422,
+      "input_token_bound": 57974,
+      "output_token_bound": 14500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 12019,
+        "prompt_tokens": 15099,
+        "total_tokens": 27118,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 5529
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "e7f351f235cc4bafbe8fe2c2485d4b40",
+      "elapsed_s": 87.2,
+      "received_chars": 23747,
+      "conservative_cost_usd": 0.225582
+    }
+  ],
+  "total_tokens": 56240,
+  "guard_cost_usd": 0.587676,
+  "aggregate_guard_usd": 15.29459065,
+  "aggregate_maximum_commitment_usd": 15.54938365,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "balance_verified": false,
+  "sdk_automatic_retries": 0,
+  "runtime_coaching_calls": 0,
+  "tavily_calls": 0,
+  "review_outcome": "Plan and prototype accepted with documented scoped repair and integration corrections",
+  "notes": [
+    "One integrating writer; three sequential source-only Nebius Kimi-K3 calls: blueprint, prototype, focused repair.",
+    "Guard rates USD3 input/15 completion per million; guards are not invoice costs. Bootstrap default price_basis string is historical; explicit record rates above control arithmetic.",
+    "Earlier unknown-call contingency and unresolved maximum commitments retained from prior ledger; protected backup unused.",
+    "No private clips, pose arrays or credentials sent as model context. Key used only for authentication.",
+    "One local orchestration JavaScript parse error preceded implementation dispatch and incurred no provider usage.",
+    "No measured Codex savings claim. No production application or measurement change."
+  ]
+}
