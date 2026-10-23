@@ -12,6 +12,26 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-UX02 — cobalt experience implementation plan · plan delivered; build paused (23 Oct)
+
+- FR01/02/03/06/07/08/09/10/12 and proposed companion/history experience.
+- Owner prefers the new white/cobalt four-screen concept, then explicitly requests
+  to-dos and the whole flow first. **No application implementation in this task.**
+- Scope: source-inspected existing upload/results/log boundaries, screen journeys,
+  dependencies, file ownership, MVP cuts, meaningful acceptance checks and future gates.
+- Preserve existing working app and historical `/ui-draft/` mockups; no fixture data
+  promoted into real results. Actual overlay/3D replay remain separately planned work.
+- Delivered `docs/design/HM-UX02-build-plan.md`: full journey/state map, nine unchecked
+  implementation tasks, file ownership/FRs/effort bands, release cuts and future gates.
+  Concept reference retained as `docs/design/previews/HM-UX02-concept.png`.
+- Source-checked actual timestamps, cancellation lifecycle, partial-report states,
+  browser persistence and existing private-artifact consumers. No API/schema/app edits.
+- One source-only Nebius planning call6,780tokens/$0.083004 conservative guard;
+  initial permission-review timeout occurred before dispatch and spent zero tokens.
+- Checks: checklist/required sections/reference path and whitespace checked;
+  implementation checkboxes remain unchecked. No app tests claimed for documentation.
+- Next after owner review: first small shell/navigation slice, not a whole-app rewrite.
+
 ### HM-UX01 — analysis-first experience draft and MVP blueprint · draft delivered (23 Oct)
 
 - FR01/02/03/06/07/08/09/10/12 plus proposed companion/log experience.

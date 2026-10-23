@@ -1,0 +1,54 @@
+{
+  "task": "HM-UX02-plan",
+  "date": "2026-10-23",
+  "scope": "Documentation and to-dos only; application build paused by owner",
+  "calls": [
+    {
+      "task": "HM-UX02-plan",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-ux02-plan",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.16817400000000002,
+      "input_token_bound": 11058,
+      "output_token_bound": 9000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5222,
+        "prompt_tokens": 1558,
+        "total_tokens": 6780,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 9
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "e51a038e6d3a46f4a01920cba06560df",
+      "elapsed_s": 74.6,
+      "received_chars": 21769,
+      "conservative_cost_usd": 0.083004
+    }
+  ],
+  "total_tokens": 6780,
+  "guard_cost_usd": 0.083004,
+  "aggregate_guard_usd": 15.37759465,
+  "aggregate_maximum_commitment_usd": 15.63238765,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "balance_verified": false,
+  "runtime_coaching_calls": 0,
+  "tavily_calls": 0,
+  "notes": [
+    "Permission-review timeout before first process creation; one permitted retry, zero provider usage from timeout.",
+    "One bounded source-only Nebius planning request. No private footage/pose or credentials in model context.",
+    "Integrator corrected lifecycle/elapsed semantics, optional recognition priority, ownership/effort and source-grounded capabilities.",
+    "Guard rates3/15 USD per million, not invoice cost; prior unknown maximum commitments retained.",
+    "UI UX Pro Max guidance retained from prior authorised use; no Addy skill loaded. No production source changed."
+  ]
+}
