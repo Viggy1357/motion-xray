@@ -1,0 +1,175 @@
+{
+  "task": "HM-FAST01",
+  "date": "2026-10-23",
+  "calls": [
+    {
+      "task": "HM-FAST01",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-fast01",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.453657,
+      "input_token_bound": 61219,
+      "output_token_bound": 18000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 8777,
+        "prompt_tokens": 12897,
+        "total_tokens": 21674,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 5194
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "7e885506b96047ba89081c8f78491e5f",
+      "elapsed_s": 193.27,
+      "received_chars": 13035,
+      "conservative_cost_usd": 0.170346
+    },
+    {
+      "task": "HM-FAST01-acceptance",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-fast01-runner",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.383985,
+      "input_token_bound": 67995,
+      "output_token_bound": 12000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2303,
+        "prompt_tokens": 15557,
+        "total_tokens": 17860,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 110
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "df4624b330194f53bb50777c48c2cd3a",
+      "elapsed_s": 70.35,
+      "received_chars": 8698,
+      "conservative_cost_usd": 0.081216
+    },
+    {
+      "task": "HM-FAST01-acceptance",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-fast01-runner-fix",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.169815,
+      "input_token_bound": 26605,
+      "output_token_bound": 6000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1004,
+        "prompt_tokens": 5236,
+        "total_tokens": 6240,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 15
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "5e36a7ffaac1469da4a42be6f6ea9730",
+      "elapsed_s": 27.03,
+      "received_chars": 3733,
+      "conservative_cost_usd": 0.030768
+    },
+    {
+      "task": "HM-FAST01",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-fast01-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.289173,
+      "input_token_bound": 46391,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1819,
+        "prompt_tokens": 10577,
+        "total_tokens": 12396,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 194
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "84373e92ee694f48a2c0fd9d6282deb1",
+      "elapsed_s": 92.06,
+      "received_chars": 5852,
+      "conservative_cost_usd": 0.059016
+    },
+    {
+      "task": "HM-FAST01-scope",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-fast01-scope",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.23916300000000001,
+      "input_token_bound": 39721,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2925,
+        "prompt_tokens": 8665,
+        "total_tokens": 11590,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 1236
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "6e1fd5bff7584abf9108da6a8f704f18",
+      "elapsed_s": 116.72,
+      "received_chars": 6138,
+      "conservative_cost_usd": 0.06987
+    }
+  ],
+  "total_tokens": 69760,
+  "guard_cost_usd": 0.411216,
+  "aggregate_guard_usd": 14.61255265,
+  "aggregate_maximum_commitment_usd": 14.867345649999999,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "balance_verified": false,
+  "notes": [
+    "BatchA four calls: implementation, independent HTTP runner, focused runner repair and fixture/QC repair. BatchB one scope repair following squat rollout rejection.",
+    "Nebius produced substantive code and fixes; integrator applied exact reviewed manifests, changed test exercise name to actual incline_chest_press, ran Docker checks and documented rollout.",
+    "Source-only contexts; private media/pose/credentials never sent to coding models. No paid product coaching/Tavily/hosting.",
+    "One nested edit manifest contained literal control newlines; parsed with strict=False after path/unique-substring validation, no execution of model commands.",
+    "Previous timeout uncertainty remains included in aggregate maximum commitment; guards not invoices."
+  ]
+}

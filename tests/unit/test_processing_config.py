@@ -12,7 +12,8 @@ from app.processing_config import (
 )
 
 
-def test_processing_version_deterministic():
+def test_processing_version_deterministic(monkeypatch):
+    monkeypatch.setenv("POSE_ANALYSIS_RESIZE", "0")
     v1 = processing_version(DEFAULT_CHECKPOINT_SHA256)
     v2 = processing_version(DEFAULT_CHECKPOINT_SHA256)
     assert v1 == v2
@@ -26,6 +27,11 @@ def test_processing_version_deterministic():
         "max_duration_s": 60,
         "decoder_wall_budget_s": 120,
         "timestamp_probe_budget_s": 90,
+        "analysis_decode_recipe": "analysis-decode-720-v1",
+        "analysis_resize_enabled": False,
+        "analysis_resize_exercises": ["dumbbell_curl"],
+        "analysis_short_edge": 720,
+        "analysis_long_edge": 1280,
     }
     expected = hashlib.sha256(json.dumps(recipe, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     assert v1 == expected

@@ -1,0 +1,346 @@
+{
+  "task": "HM-FAST01",
+  "baseline": {
+    "label": "original30",
+    "job_id": "b1316bb3-4f0b-4404-b9a8-465febc52939",
+    "exercise": "dumbbell_curl",
+    "variant": "standing_both_arms",
+    "status": "succeeded",
+    "transitions": [
+      {
+        "state": "queued",
+        "stage": "validate",
+        "at_s": 0.0
+      },
+      {
+        "state": "running",
+        "stage": "pose",
+        "at_s": 1.012
+      },
+      {
+        "state": "succeeded",
+        "stage": "pose",
+        "at_s": 95.408
+      }
+    ],
+    "timing_s": {
+      "upload": 0.349,
+      "create": 0.011,
+      "queue_and_worker": 95.408,
+      "report": 0.251,
+      "total": 96.071
+    },
+    "report": {
+      "recipe_version": "curl-measure-v2",
+      "detected_rep_count": 4,
+      "quality": {
+        "expected_supporting_samples": 619,
+        "valid_observed_samples": 604,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.975767366720517,
+          "elbow_angle/estimated_3d": 0.975767366720517,
+          "upper_arm_torso_angle/projected_2d": 0.9870759289176091,
+          "upper_arm_torso_angle/estimated_3d": 0.9870759289176091,
+          "torso_axis_angle/projected_2d": 0.9919224555735057
+        },
+        "usable_reps": 4,
+        "total_reps": 9,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "prototype_assessment": {
+        "status": "partial",
+        "policy_version": "exercise-reference-bands-v1",
+        "estimated_match": 83.33470356558864
+      }
+    },
+    "result": {
+      "score": null,
+      "metric_count": 128,
+      "warnings": [
+        "POSE_ONLY",
+        "MEASUREMENTS_UNAVAILABLE",
+        "REFERENCE_UNAVAILABLE",
+        "COACHING_UNAVAILABLE",
+        "ESTIMATED_3D",
+        "IDENTITY_UNVERIFIED"
+      ]
+    },
+    "provenance": {
+      "pose_sha256": "6f57b1faca6265dcb8e495aded57182879beda3614cbde792cb8197373ed282a",
+      "processing_version": "7746302ca3e1ccd47886215a6962228337c4d1db8fd690429845595aad3d84ba",
+      "config_sha256": "825fb1e2a6f64ed9ebce0c4aec439c1588c3eba9b1115685b74a2488f10b6ff6",
+      "side": "right",
+      "segment_config_version": "curl-measure-v2",
+      "pipeline_version": "curl-measure-v2",
+      "automatic_window_origin": "find_cycles:estimated_3d_elbow_angle_signal",
+      "count_source": "automatic_segmentation_signal_only",
+      "missing_observations_policy": "curl-measure-v2:bridge_same_band_endpoints_only;missing_never_counts_dwell;spans_aggregate_only",
+      "missing_spans_trace": "[[8.2, 8.266667], [12.268333, 12.335], [13.501667, 13.601667]]",
+      "match_normalization_degrees": "30",
+      "match_coverage_threshold": "0.8",
+      "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+      "matched_cycles": "4",
+      "omitted_cycle_count": "0",
+      "reference_name": "Muscle & Strength standing curl",
+      "reference_id": "curl-ms-demo",
+      "reference_view_id": "curl-ms-demo-camera-unreviewed",
+      "reference_rep_count": "2",
+      "calibration_status": "unreviewed",
+      "reference_band_basis": "observed_min_max_not_tolerance",
+      "experimental_policy_version": "exercise-reference-bands-v1",
+      "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+      "reference_source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html",
+      "legacy_version_hash": "7746302ca3e1ccd47886215a6962228337c4d1db8fd690429845595aad3d84ba"
+    }
+  },
+  "initial_resized": {
+    "label": "decode720-30",
+    "job_id": "87d4cf75-f31e-46a2-b9c0-98d444539ab4",
+    "exercise": "dumbbell_curl",
+    "variant": "standing_both_arms",
+    "status": "succeeded",
+    "transitions": [
+      {
+        "state": "queued",
+        "stage": "validate",
+        "at_s": 0.0
+      },
+      {
+        "state": "running",
+        "stage": "pose",
+        "at_s": 1.008
+      },
+      {
+        "state": "succeeded",
+        "stage": "pose",
+        "at_s": 90.181
+      }
+    ],
+    "timing_s": {
+      "upload": 0.245,
+      "create": 0.011,
+      "queue_and_worker": 90.181,
+      "report": 0.229,
+      "total": 90.74
+    },
+    "report": {
+      "recipe_version": "curl-measure-v2",
+      "detected_rep_count": 4,
+      "quality": {
+        "expected_supporting_samples": 619,
+        "valid_observed_samples": 602,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.9725363489499192,
+          "elbow_angle/estimated_3d": 0.9725363489499192,
+          "upper_arm_torso_angle/projected_2d": 0.9806138933764136,
+          "upper_arm_torso_angle/estimated_3d": 0.9806138933764136,
+          "torso_axis_angle/projected_2d": 0.9903069466882067
+        },
+        "usable_reps": 4,
+        "total_reps": 11,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "prototype_assessment": {
+        "status": "partial",
+        "policy_version": "exercise-reference-bands-v1",
+        "estimated_match": 83.38796978443061
+      }
+    },
+    "result": {
+      "score": null,
+      "metric_count": 128,
+      "warnings": [
+        "POSE_ONLY",
+        "MEASUREMENTS_UNAVAILABLE",
+        "REFERENCE_UNAVAILABLE",
+        "COACHING_UNAVAILABLE",
+        "ESTIMATED_3D",
+        "IDENTITY_UNVERIFIED"
+      ]
+    },
+    "provenance": {
+      "pose_sha256": "246e5592289c46401a6ee89d8c780a8a1b5ce89b372f0b51d3e0eda02146cead",
+      "processing_version": "8663246c5840aa5a929aae94ba6e28b5ac8a3f90e29dea26af2eceb1ad3f536c",
+      "config_sha256": "825fb1e2a6f64ed9ebce0c4aec439c1588c3eba9b1115685b74a2488f10b6ff6",
+      "side": "right",
+      "segment_config_version": "curl-measure-v2",
+      "pipeline_version": "curl-measure-v2",
+      "automatic_window_origin": "find_cycles:estimated_3d_elbow_angle_signal",
+      "count_source": "automatic_segmentation_signal_only",
+      "missing_observations_policy": "curl-measure-v2:bridge_same_band_endpoints_only;missing_never_counts_dwell;spans_aggregate_only",
+      "missing_spans_trace": "[[2.2, 2.266667], [2.3, 2.4], [6.966667, 7.033333], [11.033333, 11.1], [18.568333, 18.635]]",
+      "match_normalization_degrees": "30",
+      "match_coverage_threshold": "0.8",
+      "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+      "matched_cycles": "4",
+      "omitted_cycle_count": "0",
+      "reference_name": "Muscle & Strength standing curl",
+      "reference_id": "curl-ms-demo",
+      "reference_view_id": "curl-ms-demo-camera-unreviewed",
+      "reference_rep_count": "2",
+      "calibration_status": "unreviewed",
+      "reference_band_basis": "observed_min_max_not_tolerance",
+      "experimental_policy_version": "exercise-reference-bands-v1",
+      "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+      "reference_source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html",
+      "legacy_version_hash": "8663246c5840aa5a929aae94ba6e28b5ac8a3f90e29dea26af2eceb1ad3f536c"
+    }
+  },
+  "final_scoped_resized": {
+    "label": "final-curl-only",
+    "job_id": "86798189-d594-4434-bb77-714a0526fdc9",
+    "exercise": "dumbbell_curl",
+    "variant": "standing_both_arms",
+    "status": "succeeded",
+    "transitions": [
+      {
+        "state": "queued",
+        "stage": "validate",
+        "at_s": 0.0
+      },
+      {
+        "state": "running",
+        "stage": "pose",
+        "at_s": 1.014
+      },
+      {
+        "state": "succeeded",
+        "stage": "pose",
+        "at_s": 92.281
+      }
+    ],
+    "timing_s": {
+      "upload": 0.287,
+      "create": 0.011,
+      "queue_and_worker": 92.281,
+      "report": 0.229,
+      "total": 92.882
+    },
+    "report": {
+      "recipe_version": "curl-measure-v2",
+      "detected_rep_count": 4,
+      "quality": {
+        "expected_supporting_samples": 619,
+        "valid_observed_samples": 602,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.9725363489499192,
+          "elbow_angle/estimated_3d": 0.9725363489499192,
+          "upper_arm_torso_angle/projected_2d": 0.9806138933764136,
+          "upper_arm_torso_angle/estimated_3d": 0.9806138933764136,
+          "torso_axis_angle/projected_2d": 0.9903069466882067
+        },
+        "usable_reps": 4,
+        "total_reps": 11,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "prototype_assessment": {
+        "status": "partial",
+        "policy_version": "exercise-reference-bands-v1",
+        "estimated_match": 83.38796978443061
+      }
+    },
+    "result": {
+      "score": null,
+      "metric_count": 128,
+      "warnings": [
+        "POSE_ONLY",
+        "MEASUREMENTS_UNAVAILABLE",
+        "REFERENCE_UNAVAILABLE",
+        "COACHING_UNAVAILABLE",
+        "ESTIMATED_3D",
+        "IDENTITY_UNVERIFIED"
+      ]
+    },
+    "provenance": {
+      "pose_sha256": "246e5592289c46401a6ee89d8c780a8a1b5ce89b372f0b51d3e0eda02146cead",
+      "processing_version": "d0247732710052690c493ad1d5e802779b21af0b428064c328b9754a8c0c5141",
+      "config_sha256": "825fb1e2a6f64ed9ebce0c4aec439c1588c3eba9b1115685b74a2488f10b6ff6",
+      "side": "right",
+      "segment_config_version": "curl-measure-v2",
+      "pipeline_version": "curl-measure-v2",
+      "automatic_window_origin": "find_cycles:estimated_3d_elbow_angle_signal",
+      "count_source": "automatic_segmentation_signal_only",
+      "missing_observations_policy": "curl-measure-v2:bridge_same_band_endpoints_only;missing_never_counts_dwell;spans_aggregate_only",
+      "missing_spans_trace": "[[2.2, 2.266667], [2.3, 2.4], [6.966667, 7.033333], [11.033333, 11.1], [18.568333, 18.635]]",
+      "match_normalization_degrees": "30",
+      "match_coverage_threshold": "0.8",
+      "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+      "matched_cycles": "4",
+      "omitted_cycle_count": "0",
+      "reference_name": "Muscle & Strength standing curl",
+      "reference_id": "curl-ms-demo",
+      "reference_view_id": "curl-ms-demo-camera-unreviewed",
+      "reference_rep_count": "2",
+      "calibration_status": "unreviewed",
+      "reference_band_basis": "observed_min_max_not_tolerance",
+      "experimental_policy_version": "exercise-reference-bands-v1",
+      "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+      "reference_source_url": "https://www.muscleandstrength.com/exercises/standing-dumbbell-curl.html",
+      "legacy_version_hash": "d0247732710052690c493ad1d5e802779b21af0b428064c328b9754a8c0c5141"
+    }
+  },
+  "squat_global_rollout_rejected": {
+    "exercise": "squat",
+    "frames": 425,
+    "detected_cycles": 0,
+    "unavailable_reason": null,
+    "assessment": {
+      "status": "unavailable",
+      "policy_version": null,
+      "estimated_match": null,
+      "included_components": [],
+      "omitted_components": [],
+      "missing_reasons": [
+        "insufficient_eligible_cycles"
+      ]
+    },
+    "metric_entries": 0,
+    "measured_entries": 0,
+    "quality": {
+      "expected_supporting_samples": 425,
+      "valid_observed_samples": 395,
+      "per_metric_coverage": {
+        "knee_angle/projected_2d": 0.9294117647058824,
+        "knee_angle/estimated_3d": 0.9294117647058824,
+        "hip_angle/projected_2d": 0.9317647058823529,
+        "hip_angle/estimated_3d": 0.9317647058823529,
+        "torso_axis_angle/projected_2d": 0.9364705882352942
+      },
+      "usable_reps": 0,
+      "total_reps": 21,
+      "missing_reasons": [],
+      "view_review": "unreviewed"
+    },
+    "provenance": {
+      "pose_sha256": "1879d750fc6e271260b8a931e6798f9c083aff3b587d875ca3c5cc5da2377013",
+      "processing_version": "8663246c5840aa5a929aae94ba6e28b5ac8a3f90e29dea26af2eceb1ad3f536c",
+      "config_sha256": "407a42a283124239a1ee3cc45bbabf848454093514f75aa86a57fdf26380d22c",
+      "side": "right",
+      "segment_config_version": "squat-measure-v1",
+      "pipeline_version": "squat-measure-v1",
+      "automatic_window_origin": "find_cycles:estimated_3d_knee_angle_signal",
+      "count_source": "automatic_segmentation_signal_only"
+    },
+    "repeat_sha256": "c96f9f7a2518eae912d420fd4fae477a1da87bece51df651a4aea9a4c465343c",
+    "deterministic_repeat": true,
+    "legacy_schema": "0.2.0"
+  },
+  "local_flag_enabled": true,
+  "enabled_exercises": [
+    "dumbbell_curl"
+  ],
+  "first_total_reduction_percent": 5.549021036525071,
+  "final_total_reduction_percent": 3.31942001228257,
+  "resized_repeat_pose_hash_equal": true,
+  "limits": [
+    "One baseline/two resized local runs, no statistical latency claim.",
+    "Baseline and first candidate overlapped brief offline test activity; final candidate did not.",
+    "Different recipe from earlier reencoded-copy pose-only test; no2.8x upload latency claim.",
+    "Local Docker network upload timings exclude real WAN conditions; original upload bytes unchanged.",
+    "Squat0cycles/partial excluded global default rollout; other exercises original resolution.",
+    "Scores unreviewed and not accuracy proof; reference bands unchanged."
+  ]
+}

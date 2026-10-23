@@ -21,6 +21,20 @@ def checkpoint_sha_from_env() -> str:
     return sha
 
 
+ANALYSIS_RESIZE_EXERCISES = ("dumbbell_curl",)
+
+
+def analysis_resize_enabled() -> bool:
+    raw = os.environ.get("POSE_ANALYSIS_RESIZE", "0")
+    if raw not in ("0", "1"):
+        raise ValueError("POSE_ANALYSIS_RESIZE must be '0' or '1'")
+    return raw == "1"
+
+
+def analysis_resize_enabled_for(exercise_id: str) -> bool:
+    return analysis_resize_enabled() and exercise_id in ANALYSIS_RESIZE_EXERCISES
+
+
 def processing_version(checkpoint_sha256: str) -> str:
     if not _SHA_RE.fullmatch(checkpoint_sha256):
         raise ValueError("checkpoint_sha256 must be 64 lowercase hex chars")
@@ -34,6 +48,11 @@ def processing_version(checkpoint_sha256: str) -> str:
         "max_duration_s": 60,
         "decoder_wall_budget_s": 120,
         "timestamp_probe_budget_s": 90,
+        "analysis_decode_recipe": "analysis-decode-720-v1",
+        "analysis_resize_enabled": analysis_resize_enabled(),
+        "analysis_resize_exercises": list(ANALYSIS_RESIZE_EXERCISES),
+        "analysis_short_edge": 720,
+        "analysis_long_edge": 1280,
     }
     return hashlib_canonical_json(recipe)
 

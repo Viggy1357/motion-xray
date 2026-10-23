@@ -393,3 +393,24 @@ Specification v2.0 (15 Oct 2026).
   720p15Hz remains1 because endpoint spacing exceeds the0.1s missing limit. No exact
   rep count or general gap-policy accuracy claim. Broader/human-labelled validation
   required before applying to other exercises or adopting optimised input defaults.
+
+## D020 — Curl-only bounded decode resizing for new uploads
+
+- 23 October2026 owner authorizes connecting faster analysis to uploads, Nebius drafts
+  and repairs implementation/benchmark. Preserve original source/private replay and30Hz.
+- Decode RGB analysis frames at maxshort720/maxlong1280, no upscaling, rotation-aware
+  nearest-integer dimensions. FFmpeg scales in the decode pipe; no extra encodedvideo
+  or frame interpolation/fps/setpts filter. Source PTS/frame indices retained. This is
+  a distinct recipe from HM-PERF01's separately reencoded copy and must be measured.
+- `analysis-decode-720-v1` and enabledflag/scope/bounds enter processing version hash.
+  Default flag0; local flag1 only for dumbbell_curl. Scope is code/versioned; squat,
+  lat and incline press remain original resolution. API/worker must share settings;
+  operational changes require empty queue then synchronized recreation.
+- Real curl guest upload passes with4 complete candidates both paths and partial
+  estimates83.3347vs83.3880. End-to-end timings are recorded in HM-FAST01 audit;
+  do not substitute historical pose-only speedup for full upload latency.
+- Global candidate rejected: resized squat completed pose but yielded0 cycles/no
+  measured assessment versus original1cycle. Do not bypass missing-metric checks or
+  expand rollout until exercise-specific quality passes. Original upload bytes/network
+  transfer and source/playback proxy unchanged. No higher score or cycle count implies
+  improved technique accuracy; reference bands remain unreviewed.

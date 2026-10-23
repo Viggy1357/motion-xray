@@ -10,6 +10,12 @@ artifacts plus identical config/versions must produce identical metrics and scor
 
 ## Processing pipeline
 
+23 October upload optimization: `audit/HM-FAST01-delivery.md`. Local curl uploads
+use bounded720p decoded RGB frames at30Hz with original PTS; source/replay unchanged.
+Other exercises retain original resolution after squat resize failed assessment.
+Scope/flag/bounds version-hashed; template default0, local flag1. Measured full-path
+curl gain only3–6%, not the earlier isolated pose-only speedup.
+
 Latest23 October checkpoint: `audit/HM057-HM06-delivery.md`. Four exercise movement
 profiles now run on checked retained pose, with partial unreviewed reference resemblance.
 New curl/squat/press baselines derive from actual reference videos, not invented target

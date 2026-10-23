@@ -14,6 +14,7 @@ from contracts.enums import CoachingStatus
 from contracts.pose import PoseFrame
 from contracts.pose_job import PoseJobArtifacts, PoseJobInput
 from providers.pose.artifacts import read_pose_frames
+from app.processing_config import analysis_resize_enabled_for
 from providers.pose.mediapipe_provider import MediaPipePoseProvider
 from providers.pose.proxy import build_proxy
 
@@ -87,6 +88,7 @@ def run_child(
         duration_s=video.duration_s,
         sample_rate_hz=30,
         visibility_threshold=0.6,
+        resize_for_analysis=analysis_resize_enabled_for(request.exercise_id),
     )
     pose = provider.infer(video)
 

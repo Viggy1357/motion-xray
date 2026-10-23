@@ -12,6 +12,23 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-FAST01 — faster decoded-frame curl uploads · done (23 Oct, scoped)
+
+- FR02/03/04/07/08/12. Nebius implements decode-time720p-equivalent scaling,
+  original upload/private replay preserved,30Hz/source PTS/frameindices unchanged.
+- Real guest Next->API->worker->report curl timings96.071s baseline vs90.740s
+  candidate and92.882s finalscoped.3.3–5.5% observed reduction, not historicalpose-only2.8x.
+  4usablecycles each, score83.3347->83.3880, coverage97.58%->97.25% elbow signal.
+- Global rollout rejected: resized squat0cycles/no metrics vs prior1. Final versioned
+  flag/scope enablescurlonly; otherexercisesoriginal. Localflag1/defaulttemplate0.
+  Emptyqueue then synchronized API/worker recreation. Existingjobs not recomputed.
+- Checks1032tests/Ruff/mypy71sources; real guest uploads pass; resized repeatsameposehash.
+- Five Nebius calls69,760tokens/$0.411216 guard across two reported batches;
+  no rawmedia/pose sent, no product/Tavily/hosting spend. Evidence
+  `docs/audit/HM-FAST01-delivery.md`, upload-comparisonJSON and usageledger.
+- Next profile full worker stages before claiming substantial latency gain; validate
+  exercise-specific observation/assessment quality before widening resize scope.
+
 ### HM-GAP01 — conservative short-gap curl segmentation · done (23 Oct)
 
 - FR04/05/07/08/12. Nebius draft + repair implements curl-measure-v2 opt-in:

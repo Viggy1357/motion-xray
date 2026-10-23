@@ -157,6 +157,25 @@ def select_samples(
     return samples
 
 
+_ANALYSIS_SHORT_EDGE = 720
+_ANALYSIS_LONG_EDGE = 1280
+
+
+def _analysis_dimensions(probe: VideoProbe, enabled: bool) -> tuple[int, int]:
+    """Display-orientation (height, width), optionally scaled to 720/1280 bounds."""
+    h, w = probe.height, probe.width
+    if abs(probe.rotation) == 90:
+        h, w = w, h
+    if not enabled:
+        return h, w
+    long_edge = max(h, w)
+    short_edge = min(h, w)
+    if long_edge <= _ANALYSIS_LONG_EDGE and short_edge <= _ANALYSIS_SHORT_EDGE:
+        return h, w
+    scale = min(_ANALYSIS_LONG_EDGE / long_edge, _ANALYSIS_SHORT_EDGE / short_edge)
+    return max(1, int(round(h * scale))), max(1, int(round(w * scale)))
+
+
 def _load_runtime() -> tuple[Any, Any, Any, Any]:
     """Keep the API import ML-free and permit offline decoder/runtime fixtures."""
     return (
@@ -178,6 +197,7 @@ class MediaPipePoseProvider:
         duration_s: float = 10,
         sample_rate_hz: float = 30,
         visibility_threshold: float = 0.6,
+        resize_for_analysis: bool = False,
     ):
         configured_checkpoint = checkpoint_path or os.environ.get("POSE_CHECKPOINT_PATH")
         self._checkpoint_path = Path(configured_checkpoint or "/app/models/pose_landmarker.task")
@@ -205,6 +225,10 @@ class MediaPipePoseProvider:
         if not (0 <= visibility_threshold <= 1):
             raise ValueError("visibility_threshold must be in [0, 1]")
 
+        if not isinstance(resize_for_analysis, bool):
+            raise ValueError("resize_for_analysis must be a bool")
+
+        self._resize_for_analysis = resize_for_analysis
         self._start_s = float(start_s)
         self._duration_s = float(duration_s)
         self._sample_rate_hz = float(sample_rate_hz)
@@ -286,15 +310,17 @@ class MediaPipePoseProvider:
         frames = []
         last_timestamp_ms = -1
 
-        with contextlib.closing(_decode_frames(source_file, probe)) as decoder:
+        if self._resize_for_analysis:
+            decoder_cm = _decode_frames(source_file, probe, resize_for_analysis=True)
+        else:
+            decoder_cm = _decode_frames(source_file, probe)
+        with contextlib.closing(decoder_cm) as decoder:
             with vision.PoseLandmarker.create_from_options(options) as landmarker:
                 for raw_frame, source_index, ts in decoder:
                     if source_index not in sample_set:
                         continue
 
-                    h, w = probe.height, probe.width
-                    if abs(probe.rotation) == 90:
-                        h, w = w, h
+                    h, w = _analysis_dimensions(probe, self._resize_for_analysis)
                     frame_size = h * w * 3
                     if len(raw_frame) != frame_size:
                         raise ValueError(f"Frame size mismatch: expected {frame_size}, got {len(raw_frame)}")
@@ -398,6 +424,7 @@ class MediaPipePoseProvider:
 def _decode_frames(
     source_file: Path,
     probe: VideoProbe,
+    resize_for_analysis: bool = False,
 ) -> Generator[tuple[bytes, int, float], None, None]:
     cmd = [
         "ffmpeg",
@@ -406,6 +433,15 @@ def _decode_frames(
         "-map", "0:v:0",
         "-an", "-sn",
         "-fps_mode", "passthrough",
+    ]
+    if resize_for_analysis:
+        h, w = _analysis_dimensions(probe, True)
+        src_h, src_w = probe.height, probe.width
+        if abs(probe.rotation) == 90:
+            src_h, src_w = src_w, src_h
+        if (h, w) != (src_h, src_w):
+            cmd += ["-vf", f"scale={w}:{h}"]
+    cmd += [
         "-f", "rawvideo",
         "-pix_fmt", "rgb24",
         "pipe:1",
@@ -418,9 +454,7 @@ def _decode_frames(
         if proc.stdout is None:
             raise RuntimeError("Failed to open decoder stdout")
 
-        h, w = probe.height, probe.width
-        if abs(probe.rotation) == 90:
-            h, w = w, h
+        h, w = _analysis_dimensions(probe, resize_for_analysis)
         frame_size = h * w * 3
 
         for source_index, ts in enumerate(probe.timestamps):
