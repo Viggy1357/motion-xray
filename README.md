@@ -15,8 +15,13 @@ comparison → deterministic similarity score → grounded Nemotron coaching, sh
 synchronized video + 2D overlay + rotatable 3D skeleton + a shared rep timeline.
 
 Release exercises: cable lat pulldown, standing dumbbell curl, bodyweight squat and
-incline dumbbell press. All four accept pose-processing requests; exercise-specific
-movement reports/scoring are still being integrated. Lateral raise is deferred.
+incline dumbbell press. Per `docs/audit/HM057-HM06-delivery.md`, all four now have
+implemented measurement profiles plus unreviewed reference-resemblance estimates and
+grounded coaching; top-level technique scores stay null. Lateral raise is deferred.
+
+> Latest processing checkpoint: `docs/audit/HM-FAST02-delivery.md` — local env
+> `POSE_ANALYSIS_RESIZE=1` enables bounded 720p/1280 resize for all four exercises.
+> Canonical policy: `docs/ANALYSIS-PROCESSING.md`.
 
 ## Everything runs in containers
 

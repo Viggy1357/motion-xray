@@ -12,6 +12,23 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-FAST02 — four-exercise resize rollout · done (23 Oct)
+
+- FR02/03/04/07/08/12. Owner broadens bounded720p-equivalent30Hz to curl, lat,
+  squat and inclinepress, retaining known squat0cycle/partial result. No threshold,
+  score/reference/model changes. Source/replay and actual PTS retained; no upscaling.
+- Shared config scope/versionhash and templateflag1 updated; codefallback0/rollback
+  preserved. Emptyqueue then API/worker synchronized; live flag/scope/hash equal.
+- Checks1034tests/Ruff/mypy71sources. Fresh press guestupload122.406s,4usablecycles,
+  estimate59.9962 (earlier original53.4859), not accuracy/speedup validation. Latclip
+  alreadybelowcap; no fresh reinference. Prior curlpairedgain3–6%; no universalclaim.
+- README, canonical processingguide, product/architecture/delivery/operations/worker
+  notes and project skill updated; dated audits preserved. Original currentreports
+  unchanged; newjobs applyscope. No new workout routine/exercise support added.
+- Two direct Nebius workers15,874tokens/$0.094362 guard. Evidence
+  `docs/audit/HM-FAST02-delivery.md`, rolloutJSON and usageledger. No paid runtimecalls.
+- Next: continue MVP workflow; deeper measurement/latency validation remains futurework.
+
 ### HM-FAST01 — faster decoded-frame curl uploads · done (23 Oct, scoped)
 
 - FR02/03/04/07/08/12. Nebius implements decode-time720p-equivalent scaling,

@@ -1,5 +1,10 @@
 # OPERATIONS
 
+> Current processing policy: `docs/ANALYSIS-PROCESSING.md` (checkpoint
+> `docs/audit/HM-FAST02-delivery.md`). Local `POSE_ANALYSIS_RESIZE=1` enables all-four
+> bounded resize; apply config changes with an empty queue and recreate API+worker
+> together. Standalone diagnostics default resize off unless explicitly enabled.
+
 ## Local pose diagnostic (T04, 20 October)
 
 With the existing worker image, owned footage in `data/demo/` and the exact local

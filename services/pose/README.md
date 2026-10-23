@@ -25,8 +25,13 @@ Per `infra/compose.yaml`, the `worker` service mounts `../services`, `../package
 `models` volume (downloaded pose checkpoints). It reads config from `.env` and
 `DATABASE_URL` / `ARTIFACT_ROOT` env vars — no secrets are baked into the image.
 
-The entry point `worker.py` is still startup-only; its daemon loop and shutdown
-integration are T08.1b.3 work. The internal `app.pose_jobs.run_pose_once` bridge now
+> Current checkpoint: the worker daemon and shutdown integration are delivered
+> (T08.1b.3); see `docs/audit/HM-FAST02-delivery.md` and `docs/ANALYSIS-PROCESSING.md`
+> for the current all-four resize policy (`POSE_ANALYSIS_RESIZE=1`, bounded
+> 720p/1280, rotation-aware, original PTS, originals unchanged).
+
+The entry point `worker.py` runs the durable pose job daemon.
+The internal `app.pose_jobs.run_pose_once` bridge now
 uses the real Store and supervisor to launch `child.py`, run proxy/original-video
 MediaPipe processing and publish validated pose-only artifacts. It needs
 `services/api` alongside the first-party packages on `PYTHONPATH` inside the worker

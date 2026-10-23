@@ -194,12 +194,13 @@ def _run_child_capture(monkeypatch, tmp_path, exercise="dumbbell_curl"):
 
 
 class TestChildWiring:
-    def test_flag_on_curl_true(self, monkeypatch, tmp_path):
+    @pytest.mark.parametrize("exercise", ["dumbbell_curl", "lat_pulldown", "squat", "incline_chest_press"])
+    def test_flag_on_all_supported_true(self, monkeypatch, tmp_path, exercise):
         monkeypatch.setenv("POSE_ANALYSIS_RESIZE", "1")
-        assert _run_child_capture(monkeypatch, tmp_path)["resize_for_analysis"] is True
+        assert _run_child_capture(monkeypatch, tmp_path, exercise)["resize_for_analysis"] is True
 
-    @pytest.mark.parametrize("exercise", ["lat_pulldown", "squat", "incline_chest_press", "unknown"])
-    def test_flag_on_others_false(self, monkeypatch, tmp_path, exercise):
+    @pytest.mark.parametrize("exercise", ["lateral_raise", "unknown"])
+    def test_flag_on_unsupported_false(self, monkeypatch, tmp_path, exercise):
         monkeypatch.setenv("POSE_ANALYSIS_RESIZE", "1")
         assert _run_child_capture(monkeypatch, tmp_path, exercise)["resize_for_analysis"] is False
 
@@ -220,15 +221,26 @@ class TestScopedResizeConfig:
         base = processing_version(DEFAULT_CHECKPOINT_SHA256)
         monkeypatch.setattr(
             "app.processing_config.ANALYSIS_RESIZE_EXERCISES",
-            ("dumbbell_curl", "squat"),
+            ("dumbbell_curl",),
         )
-        widened = processing_version(DEFAULT_CHECKPOINT_SHA256)
-        assert widened != base
-        assert widened == processing_version(DEFAULT_CHECKPOINT_SHA256)
+        narrowed = processing_version(DEFAULT_CHECKPOINT_SHA256)
+        assert narrowed != base
+        assert narrowed == processing_version(DEFAULT_CHECKPOINT_SHA256)
+
+    def test_scope_is_stable_exact_four_no_duplicates(self):
+        from app.processing_config import ANALYSIS_RESIZE_EXERCISES
+        assert ANALYSIS_RESIZE_EXERCISES == (
+            "dumbbell_curl",
+            "lat_pulldown",
+            "squat",
+            "incline_chest_press",
+        )
+        assert len(set(ANALYSIS_RESIZE_EXERCISES)) == 4
 
     def test_returns_strict_bool(self, monkeypatch):
         monkeypatch.setenv("POSE_ANALYSIS_RESIZE", "1")
         assert analysis_resize_enabled_for("dumbbell_curl") is True
-        assert analysis_resize_enabled_for("squat") is False
+        assert analysis_resize_enabled_for("squat") is True
+        assert analysis_resize_enabled_for("lateral_raise") is False
         monkeypatch.setenv("POSE_ANALYSIS_RESIZE", "0")
         assert analysis_resize_enabled_for("dumbbell_curl") is False

@@ -21,7 +21,7 @@ def checkpoint_sha_from_env() -> str:
     return sha
 
 
-ANALYSIS_RESIZE_EXERCISES = ("dumbbell_curl",)
+ANALYSIS_RESIZE_EXERCISES = ("dumbbell_curl", "lat_pulldown", "squat", "incline_chest_press")
 
 
 def analysis_resize_enabled() -> bool:

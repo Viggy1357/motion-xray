@@ -166,7 +166,7 @@ def test_processing_recipe_includes_media_limits(monkeypatch):
         "timestamp_probe_budget_s": 90,
         "analysis_decode_recipe": "analysis-decode-720-v1",
         "analysis_resize_enabled": False,
-        "analysis_resize_exercises": ["dumbbell_curl"],
+        "analysis_resize_exercises": ["dumbbell_curl", "lat_pulldown", "squat", "incline_chest_press"],
         "analysis_short_edge": 720,
         "analysis_long_edge": 1280,
     }

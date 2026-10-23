@@ -7,6 +7,11 @@ workflow is paused. This plan does not claim the MVP is built.
 
 ## Start here
 
+Latest processing checkpoint: `docs/audit/HM-FAST02-delivery.md` — local env
+`POSE_ANALYSIS_RESIZE=1` enables bounded 720p/1280 resize for all four exercises;
+owner accepts the known resized-squat partial (0 complete cycles vs 1 original).
+Canonical policy: `docs/ANALYSIS-PROCESSING.md`. Checks:1,034 tests/lint/types passed; see TASKS/audit.
+
 Current code checkpoint: `audit/HM-first-app-build.md` and active TASKS entry.
 HM00 designs, additive HM01 models, HM03 full-set limits and first HM08 app are accepted;
 HM06 adapter has standalone synthetic NVIDIA validation, not uploaded-set integration.

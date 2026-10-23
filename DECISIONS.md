@@ -414,3 +414,22 @@ Specification v2.0 (15 Oct 2026).
   expand rollout until exercise-specific quality passes. Original upload bytes/network
   transfer and source/playback proxy unchanged. No higher score or cycle count implies
   improved technique accuracy; reference bands remain unreviewed.
+
+## D021 — Owner-authorized shared four-exercise analysis resizing
+
+- 23 October2026: owner explicitly broadens HM-FAST01 resizing to all release exercise
+  analysis after curl results and the known squat regression were disclosed. Supersedes
+  D020's curl-only scope, not the historical evidence or measurement honesty rules.
+- Shared stable scope: dumbbell_curl,lat_pulldown,squat,incline_chest_press. Template1,
+  local1, unset-codefallback0; explicit0 rolls back. Scope/flag/bounds version-hashed.
+  Empty queue and synchronized API/worker activation; live settings/hashes confirmed equal.
+- Bound decoded RGB frames to720short/1280long, rotation-aware/no upscaling,30Hz
+  originalPTS/frameindices retained. Original video/private replay unchanged. Existing
+  reports not regenerated. No15fps, threshold, reference, scoring or model changes.
+- Known resized squat has0completecycles vs original1; missing assessment stays null.
+  Fresh resized press has4usablecandidates and59.9962 provisional estimate vs original
+  53.4859. This is a perception/measurement change, not evidence of better accuracy.
+  Fresh press upload122.406s; no new paired press speedup claim. Latclip belowcap.
+- Current paired full-path speed evidence remains curl3–6% only. Owner chooses a shared
+  MVP policy despite these limits; no universal efficiency or validity claim. Runtime
+  coaching stays explicit/budgeted and no paid calls triggered by this rollout.

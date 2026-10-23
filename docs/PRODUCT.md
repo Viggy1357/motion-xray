@@ -8,6 +8,10 @@ functional requirements. It is a statement of intent for the build, not a claim 
 validated biomechanics product: scores express *similarity to a selected reference*,
 not correctness, safety, or effectiveness.
 
+> Latest processing checkpoint: `docs/audit/HM-FAST02-delivery.md` — all-four bounded
+> resize under local `POSE_ANALYSIS_RESIZE=1`; canonical policy in
+> `docs/ANALYSIS-PROCESSING.md`. Historical sections below are retained unchanged.
+
 ## Scope (P0)
 
 ### Active hackathon release profile (22 October2026)

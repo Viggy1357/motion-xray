@@ -10,11 +10,15 @@ artifacts plus identical config/versions must produce identical metrics and scor
 
 ## Processing pipeline
 
-23 October upload optimization: `audit/HM-FAST01-delivery.md`. Local curl uploads
-use bounded720p decoded RGB frames at30Hz with original PTS; source/replay unchanged.
-Other exercises retain original resolution after squat resize failed assessment.
-Scope/flag/bounds version-hashed; template default0, local flag1. Measured full-path
-curl gain only3–6%, not the earlier isolated pose-only speedup.
+Latest upload optimization: `audit/HM-FAST02-delivery.md`. Local env
+`POSE_ANALYSIS_RESIZE=1` enables bounded resize for all four exercises (curl, lat,
+squat, incline press): <=720 short / 1280 long, rotation-aware, aspect kept, no
+upscaling, 30 Hz with original PTS, RGB decode only — originals/upload bytes/replay
+unchanged. Scope/flag/bounds are recipe-hashed, so new uploads/jobs only; old reports
+are not regenerated. Template default1, code fallback0. Known accepted limit: resized
+squat gives 0 complete cycles vs 1 original on the supplied clip. Measured full-path
+curl gain only 3–6% (96.071s vs 90.740/92.882s); press now passes4 usable candidates at122.4s; lat not separately rerun. Canonical
+policy: `docs/ANALYSIS-PROCESSING.md`.
 
 Latest23 October checkpoint: `audit/HM057-HM06-delivery.md`. Four exercise movement
 profiles now run on checked retained pose, with partial unreviewed reference resemblance.

@@ -1,0 +1,81 @@
+{
+  "task": "HM-FAST02",
+  "date": "2026-10-23",
+  "calls": [
+    {
+      "task": "HM-FAST02",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-fast02",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.21852,
+      "input_token_bound": 37840,
+      "output_token_bound": 7000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1730,
+        "prompt_tokens": 8347,
+        "total_tokens": 10077,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 131
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "398e8b4bd3e84687864d3633e724d294",
+      "elapsed_s": 66.53,
+      "received_chars": 5786,
+      "conservative_cost_usd": 0.050991
+    },
+    {
+      "task": "HM-FAST02-docs",
+      "model": "moonshotai/Kimi-K3",
+      "request": "hm-fast02-docs",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.179991,
+      "input_token_bound": 19997,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2165,
+        "prompt_tokens": 3632,
+        "total_tokens": 5797,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 131
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "702dee23a11644b4b9d7921f0d609c21",
+      "elapsed_s": 136.61,
+      "received_chars": 8153,
+      "conservative_cost_usd": 0.04337099999999999
+    }
+  ],
+  "total_tokens": 15874,
+  "guard_cost_usd": 0.094362,
+  "aggregate_guard_usd": 14.70691465,
+  "aggregate_maximum_commitment_usd": 14.961707650000001,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "balance_verified": false,
+  "notes": [
+    "Two disjoint source-only Nebius workers: shared config/tests and active documentation.",
+    "No private media/pose/credentials sent to coding models. Actual upload check local Docker only; no paid product/Tavily/hosting calls.",
+    "Initial local orchestration JS parse error preceded dispatch and spent zero provider tokens.",
+    "Previous timeout uncertainty remains included in aggregate maximum; guards not invoices."
+  ]
+}

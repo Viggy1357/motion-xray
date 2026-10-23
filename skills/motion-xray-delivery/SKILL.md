@@ -24,6 +24,11 @@ Do not repeat the historical tiny caps. Runtime coaching has separate controls.
 
 ## Resume one task
 
+Latest processing checkpoint: read `docs/audit/HM-FAST02-delivery.md` and canonical
+`docs/ANALYSIS-PROCESSING.md`. All-four bounded resize under local
+`POSE_ANALYSIS_RESIZE=1`; resized-squat partial accepted by owner; curl full-path gain
+only 3–6%; press smoke passes4 candidates; lat not separately rerun; 1,034 tests/lint/types passed; runtime limits in TASKS/audit.
+
 Latest23 Oct build: read `docs/audit/HM057-HM06-delivery.md` and active TASKS entry.
 971 offline tests. All four exercise profiles supply actual measurements and partial,
 unreviewed video-reference resemblance. Old0.2 pose reports unchanged, technique score

@@ -1,0 +1,120 @@
+{
+  "task": "HM-FAST02",
+  "api_worker_config_equal": true,
+  "live_config": {
+    "scope": {
+      "dumbbell_curl": true,
+      "lat_pulldown": true,
+      "squat": true,
+      "incline_chest_press": true,
+      "lateral_raise": false
+    },
+    "processing_version": "c172a1082db719ff142e5d451dc96ae0026e30fae1fb51866a12987be871d063"
+  },
+  "press_guest_upload": {
+    "label": "all-four-press",
+    "job_id": "84e65c96-2260-4393-b2ed-bacbf477db36",
+    "exercise": "incline_chest_press",
+    "variant": "incline_dumbbell_bilateral",
+    "status": "succeeded",
+    "transitions": [
+      {
+        "state": "queued",
+        "stage": "validate",
+        "at_s": 0.0
+      },
+      {
+        "state": "running",
+        "stage": "pose",
+        "at_s": 1.013
+      },
+      {
+        "state": "succeeded",
+        "stage": "pose",
+        "at_s": 121.64
+      }
+    ],
+    "timing_s": {
+      "upload": 0.337,
+      "create": 0.014,
+      "queue_and_worker": 121.64,
+      "report": 0.36,
+      "total": 122.406
+    },
+    "report": {
+      "recipe_version": "press-measure-v1",
+      "detected_rep_count": 4,
+      "quality": {
+        "expected_supporting_samples": 1197,
+        "valid_observed_samples": 1182,
+        "per_metric_coverage": {
+          "elbow_angle/projected_2d": 0.9874686716791979,
+          "elbow_angle/estimated_3d": 0.9874686716791979,
+          "upper_arm_torso_angle/projected_2d": 0.9966583124477861,
+          "upper_arm_torso_angle/estimated_3d": 0.9966583124477861,
+          "torso_axis_angle/projected_2d": 0.9966583124477861
+        },
+        "usable_reps": 4,
+        "total_reps": 15,
+        "missing_reasons": [],
+        "view_review": "unreviewed"
+      },
+      "prototype_assessment": {
+        "status": "partial",
+        "policy_version": "exercise-reference-bands-v1",
+        "estimated_match": 59.99616637329087
+      }
+    },
+    "result": {
+      "score": null,
+      "metric_count": 128,
+      "warnings": [
+        "POSE_ONLY",
+        "MEASUREMENTS_UNAVAILABLE",
+        "REFERENCE_UNAVAILABLE",
+        "COACHING_UNAVAILABLE",
+        "ESTIMATED_3D",
+        "IDENTITY_UNVERIFIED"
+      ]
+    },
+    "provenance": {
+      "pose_sha256": "7ea42c4696fb297a31ff307ef50c40cb9c3c48922ace650aa58d01834cc4fa91",
+      "processing_version": "c172a1082db719ff142e5d451dc96ae0026e30fae1fb51866a12987be871d063",
+      "config_sha256": "671615a25e0191ed722dd18c4e050b403ba4a82578af084e39ae32761548169b",
+      "side": "right",
+      "segment_config_version": "press-measure-v1",
+      "pipeline_version": "press-measure-v1",
+      "automatic_window_origin": "find_cycles:estimated_3d_elbow_angle_signal",
+      "count_source": "automatic_segmentation_signal_only",
+      "match_normalization_degrees": "30",
+      "match_coverage_threshold": "0.8",
+      "match_aggregation": "equal_metric_mean_per_cycle_then_cycle_mean",
+      "matched_cycles": "4",
+      "omitted_cycle_count": "0",
+      "reference_name": "Catalyst incline dumbbell press",
+      "reference_id": "press-catalyst",
+      "reference_view_id": "press-catalyst-camera-unreviewed",
+      "reference_rep_count": "5",
+      "calibration_status": "unreviewed",
+      "reference_band_basis": "observed_min_max_not_tolerance",
+      "experimental_policy_version": "exercise-reference-bands-v1",
+      "experimental_policy_hash": "b410792d3553b74576a082ff33271a7d05aa0f03608c9c720eadc015f7313e24",
+      "reference_source_url": "https://www.catalystathletics.com/exercise/819/Dumbbell-Incline-Bench-Press/",
+      "legacy_version_hash": "c172a1082db719ff142e5d451dc96ae0026e30fae1fb51866a12987be871d063"
+    }
+  },
+  "previous_curl_evidence": "docs/audit/HM-FAST01-upload-comparison.json",
+  "known_squat": "Prior resized real upload0cycles/nullestimate retained; owner broadens scope explicitly.",
+  "lat_check": "Scope wiring and no-upscale tests; supplied464x832 clip belowcap, no fresh inference claimed.",
+  "checks": {
+    "python_tests": 1034,
+    "ruff": "passed",
+    "mypy_sources": 71
+  },
+  "limitations": [
+    "Single new press run122.406s, no fresh original press baseline speedup claim.",
+    "Press estimate59.9962 vs earlier original53.4859; this is changed perception, not improved accuracy.",
+    "Only curl has measured paired full-path improvement3\u20136%.",
+    "All scores remain provisional reference resemblance; technique score null."
+  ]
+}
