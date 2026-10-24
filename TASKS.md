@@ -12,6 +12,34 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-SQ01 — squat cycle recovery · delivered (24 Oct)
+
+- FR04/05/07/08/12. Nebius Kimi source diagnosis, local diagnostic CLI, versioned
+  squat policy/tests and separate timeline cleanup; NVIDIA source review accepted.
+  Codex applied outputs, ran container/local checks and synced the draft PR.
+- squat-measure-v2 opts into the existing same-band, endpoint-capped0.1s missing-gap
+  policy. Thresholds/dwell/max-gap, observed geometry and reference bands unchanged;
+  v1 JSON preserved. Missing frames never count as observed joints or dwell.
+- Completed candidates expose gap warnings/provenance; score remains null and any
+  reference estimate stays partial/unreviewed. Curl/press/lat policies unchanged.
+- Docker scripts/check-python.sh:1,045 tests pass, Ruff clean, mypy71 sources clean;
+  provider smokes dry-run only. Web typecheck/build passes. Synthetic regressions
+  cover accepted short gaps, rejected cross-band/long/trailing gaps, no fake dwell,
+  deterministic repeat, unchanged other profiles and immutable v1 geometry.
+- Local retained affected artifact recovers candidates; repeated full derived reports
+  byte-identical. Two retained public samples keep their strict candidate counts.
+  API restarted with queue empty; real browser report and replay-follow verified.
+  No re-upload, new pose inference, private data/provider sharing or paid coaching.
+- UI shows completed cycles in main strip; all actual partial/excluded fragments
+  remain replayable in one collapsed disclosure. No fabricated or hidden counts.
+- Evidence: docs/audit/HM-SQ01-delivery.md, HM-SQ01-diagnosis.md,
+  HM-SQ01-source-review.md and docs/delegation/HM-SQ01-usage.json.
+- Five development calls:127,932 reported tokens,USD0.840144 conservative guard,
+  within200k task allowance. Account balance unverified; backup untouched.
+- Next HM-SQ02: broader independently labelled squat validation; HM-UX06 device
+  recording/fresh-flow acceptance remains open. This is candidate recovery, not
+  proof of exact rep-count accuracy or clinically validated technique assessment.
+
 ### HM-UX05 — Nebius-led mockup implementation · candidate delivered (23 Oct)
 
 - FR01/02/03/05/06/09/10/12 presentation. Owner authorizes HM-UX04 implementation;

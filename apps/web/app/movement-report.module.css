@@ -71,45 +71,12 @@
   color: #ffffff;
 }
 
-/* Excluded / partial fragment chip: amber-tinted, still an actual segment. */
-.chipExcluded {
-  background: #fdf6e7;
-  border-color: #ecd9a8;
-}
-
-.chipExcluded:hover {
-  border-color: #c9962e;
-}
-
-.chipExcluded[data-active] {
-  background: #c9962e;
-  border-color: #c9962e;
-  color: #ffffff;
-}
-
 .chipLabel {
   font-weight: 600;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-}
-
-.chipBadge {
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  padding: 0.05rem 0.4rem;
-  border-radius: 9999px;
-  background: #f3e2b8;
-  color: #7a5b12;
-  border: 1px solid #e4cd93;
-}
-
-.chip[data-active] .chipBadge {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.45);
-  color: #ffffff;
 }
 
 .chipTime {
@@ -121,6 +88,20 @@
 
 .chip[data-active] .chipTime {
   color: rgba(255, 255, 255, 0.85);
+}
+
+/* --- Calm empty state when no completed cycles were identified --- */
+
+.emptyNote {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #e2e8f4;
+  border-radius: 12px;
+  background: #f7f9fd;
+  color: #5b657d;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  max-width: 68ch;
 }
 
 /* --- Summary panel: 3-col compact grid --- */
@@ -327,6 +308,11 @@
 
 .tableWrap tbody tr:last-child td {
   border-bottom: 0;
+}
+
+/* Active playback follow inside the excluded-fragments table */
+.tableWrap tr[data-active] td {
+  background: #eef2fd;
 }
 
 /* First column labels wrap; numeric/status cells stay on one line */

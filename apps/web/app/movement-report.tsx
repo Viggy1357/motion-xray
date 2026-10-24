@@ -297,11 +297,15 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
   const visibility = q.expected_supporting_samples > 0
     ? Math.round((q.valid_observed_samples / q.expected_supporting_samples) * 100)
     : null;
-  const completed = report.reps.filter((r) => r.completion_status === "completed");
-  const fragments = report.reps.filter((r) => r.completion_status !== "completed");
-  // Combined strip: actual completed cycles AND actual excluded fragments,
-  // ordered by real start time. Excluded ≠ partial visibility.
-  const allSegments = [...report.reps].sort((a, b) => a.start_s - b.start_s || a.ordinal - b.ordinal);
+  const completed = [...report.reps]
+    .filter((r) => r.completion_status === "completed")
+    .sort((a, b) => a.start_s - b.start_s || a.ordinal - b.ordinal);
+  const fragments = [...report.reps]
+    .filter((r) => r.completion_status !== "completed")
+    .sort((a, b) => a.start_s - b.start_s || a.ordinal - b.ordinal);
+  // Primary timeline shows ONLY actual completed cycles. Excluded/partial
+  // fragments live exclusively in the disclosure below (single list, no
+  // duplicates) so a zero-completed result does not flood the timeline.
   const coverageEntries = Object.entries(q.per_metric_coverage);
   const byRep = new Map<string, Metric[]>();
   for (const m of report.metrics) {
@@ -325,30 +329,32 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
         <span className="pill dim">Experimental</span>
       </div>
 
-      {allSegments.length > 0 && (
-        <nav className={styles.chipStrip} aria-label="Detected segments">
-          {allSegments.map((r) => {
-            const isCompleted = r.completion_status === "completed";
-            return (
-              <button
-                key={r.id}
-                type="button"
-                className={isCompleted ? styles.chip : `${styles.chip} ${styles.chipExcluded}`}
-                data-active={activeSeg === r.id || undefined}
-                aria-pressed={activeSeg === r.id}
-                title={`Segment ${r.ordinal} · ${r.start_s.toFixed(2)}s – ${r.end_s.toFixed(2)}s${isCompleted ? "" : ` · ${r.completion_status.replaceAll("_", " ")}`}`}
-                aria-label={`Play video from segment ${r.ordinal}${isCompleted ? "" : ` (${r.completion_status.replaceAll("_", " ")})`}`}
-                onClick={() => { setActiveSeg(r.id); seekTo(r.start_s); }}
-              >
-                <span className={styles.chipLabel}>
-                  Segment {r.ordinal}
-                  {!isCompleted && <span className={styles.chipBadge}>Partial</span>}
-                </span>
-                <span className={styles.chipTime}>{r.start_s.toFixed(2)}s – {r.end_s.toFixed(2)}s</span>
-              </button>
-            );
-          })}
+      {completed.length > 0 ? (
+        <nav className={styles.chipStrip} aria-label="Completed cycles">
+          {completed.map((r) => (
+            <button
+              key={r.id}
+              type="button"
+              className={styles.chip}
+              data-active={activeSeg === r.id || undefined}
+              aria-pressed={activeSeg === r.id}
+              title={`Segment ${r.ordinal} · ${r.start_s.toFixed(2)}s – ${r.end_s.toFixed(2)}s`}
+              aria-label={`Play video from segment ${r.ordinal}`}
+              onClick={() => { setActiveSeg(r.id); seekTo(r.start_s); }}
+            >
+              <span className={styles.chipLabel}>Segment {r.ordinal}</span>
+              <span className={styles.chipTime}>{r.start_s.toFixed(2)}s – {r.end_s.toFixed(2)}s</span>
+            </button>
+          ))}
         </nav>
+      ) : (
+        <p className={styles.emptyNote} role="status">
+          Analysis finished, but no full repetitions were identified in this video.
+          {fragments.length > 0
+            ? ` ${fragments.length} partial or excluded fragment${fragments.length === 1 ? " was" : "s were"} detected — see “Partial / excluded fragments” below for exact timestamps and playback.`
+            : ""}{" "}
+          Signal visibility below reflects pose-signal visibility, not accuracy.
+        </p>
       )}
 
       <div className={styles.panel} aria-label="Session summary">
@@ -436,12 +442,12 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
               <thead><tr><th>Segment</th><th>Start</th><th>End</th><th>Status</th><th></th></tr></thead>
               <tbody>
                 {fragments.map((r) => (
-                  <tr key={r.id}>
+                  <tr key={r.id} data-active={activeSeg === r.id || undefined}>
                     <td>{r.ordinal}</td>
                     <td>{r.start_s.toFixed(2)}s</td>
                     <td>{r.end_s.toFixed(2)}s</td>
                     <td><span className="pill warn">{r.completion_status.replaceAll("_", " ")}</span></td>
-                    <td><button type="button" className={styles.playButton} onClick={() => seekTo(r.start_s)} aria-label={`Play video from segment ${r.ordinal}`}>Play</button></td>
+                    <td><button type="button" className={styles.playButton} onClick={() => { setActiveSeg(r.id); seekTo(r.start_s); }} aria-label={`Play video from segment ${r.ordinal}`}>Play</button></td>
                   </tr>
                 ))}
               </tbody>

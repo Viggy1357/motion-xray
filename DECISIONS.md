@@ -454,3 +454,22 @@ Specification v2.0 (15 Oct 2026).
   mint recognition. Counts describe activity, not strength, muscle growth or safety.
 - Additional one-off development tasks may use up to500k cumulative tokens under
   the23 October owner update; USD70 active/USD30 protected boundaries remain.
+
+
+## D023 — Squat-only conservative observation-gap retention
+
+- 24 October2026: owner authorizes Nebius-led repair of squat fragmentation.
+- squat-measure-v2 opts into the existing D019 same-band gap policy at0.1s.
+  Only confirmed phase anchors survive a missing run bracketed by observed samples
+  in the same high, low or middle band within0.1s (+1e-9 numerical tolerance).
+  Missing samples clear dwell and remain missing; long/cross-band/trailing gaps
+  do not bridge. No interpolation or per-frame side switching.
+- Squat geometry/low100/high150/dwell0.1/max-gap0.1 unchanged; original v1 JSON
+  preserved. Version/hash and gap reasons/warnings remain visible in derived reports.
+  Other exercise policies, resize recipe, reference bands and public schemas unchanged.
+- Existing retained pose can produce a new derived movement report after API restart;
+  original uploaded bytes, stored pose and legacy pose-only result remain unchanged.
+  Top-level technique score stays null; unreviewed comparison stays partial.
+- Synthetic regressions and local retained comparisons support candidate recovery,
+  not independently validated physical rep counts. Broader labelled validation is next.
+- Evidence: audit/HM-SQ01-delivery.md and HM-SQ01-source-review.md under docs/.
