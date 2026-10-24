@@ -473,3 +473,12 @@ Specification v2.0 (15 Oct 2026).
 - Synthetic regressions and local retained comparisons support candidate recovery,
   not independently validated physical rep counts. Broader labelled validation is next.
 - Evidence: audit/HM-SQ01-delivery.md and HM-SQ01-source-review.md under docs/.
+
+## D024 — Narrow UI finish before hackathon submission (24 October)
+
+Owner prioritises real segment thumbnails and smooth navigation, retaining the current
+Home athlete. Rigged3D/exercise animation and broader avatar flow are deferred.
+Ask your set/Show me why are excluded from MVP. Move/Fuel/Recover remains an
+unvalidated ecosystem direction, not shipped capability. User accepts their Mac
+camera test for MVP; broad physical-device/fault checks remain deferred rather than
+passed. Existing measurement/scoring/coaching contracts remain unchanged.

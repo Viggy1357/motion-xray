@@ -65,3 +65,14 @@ Prefer this command and a compact failure summary before interactive computer us
 A small final visual/device check is still useful. Test execution needs no model
 decision per click, but orchestration and reviewing results still use allowance;
 no percentage of Codex savings has been measured.
+
+## HM-UX09 extension (24 October)
+
+The suite now includes tests/browser/results.spec.ts: source-segment cards, actual
+synthetic WebM thumbnail decoding, aspect preservation, source-time seek, missing
+map fallback, narrow results layout, reduced motion and transition-throw fallback.
+The full run is54 Chromium viewport cases; original30 are retained. Exact per-page
+fixture GET overrides serve only local synthetic results/artifacts. Unexpected API
+requests and external traffic remain blocked. Synthetic visual evidence is written
+to ignored artifacts/browser-qc/ux9-segments-*.png. These are not physical-device
+or full release-matrix certification. See docs/audit/HM-UX09-delivery.md.

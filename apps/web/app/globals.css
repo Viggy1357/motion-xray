@@ -287,3 +287,127 @@ th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mu
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important}
 }
+
+/* ---------- UX09: restrained transition polish ---------- */
+/* Scope: buttons, chips, cards, nav, icon buttons, exercise options, manage summary.
+   Avatar artwork (.athimg, .athstage, .heroart, .regiondot, .viewtoggle) is
+   intentionally excluded so the existing illustration never moves or changes. */
+.btn,
+.chip,
+.card,
+.navbtn,
+.iconbtn,
+.exoption,
+.excard,
+.introPrimary,
+.introGhost,
+.focusPrimary,
+.manage summary,
+.textlink{
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+  will-change: auto;
+}
+.btn:hover,
+.chip:hover,
+.navbtn:hover,
+.iconbtn:hover,
+.exoption:hover,
+.excard:hover,
+.introPrimary:hover,
+.introGhost:hover,
+.focusPrimary:hover,
+.manage summary:hover,
+.textlink:hover{
+  transform: translateY(-1px);
+}
+.btn:active,
+.chip:active,
+.navbtn:active,
+.iconbtn:active,
+.exoption:active,
+.excard:active,
+.introPrimary:active,
+.introGhost:active,
+.focusPrimary:active,
+.manage summary:active,
+.textlink:active{
+  transform: translateY(0) scale(.985);
+}
+.btn:focus-visible,
+.chip:focus-visible,
+.navbtn:focus-visible,
+.iconbtn:focus-visible,
+.exoption:focus-visible,
+.excard:focus-visible,
+.introPrimary:focus-visible,
+.introGhost:focus-visible,
+.focusPrimary:focus-visible,
+.manage summary:focus-visible,
+.textlink:focus-visible{
+  box-shadow: 0 0 0 3px rgba(49,88,232,.28);
+}
+.card:hover{
+  box-shadow: 0 4px 14px rgba(20,32,57,.08);
+}
+
+/* View entry: no animation on .view. The avatar artwork must stay
+   stationary, so the only motion is the named main-view cross-fade
+   declared further below. */
+.heroart,
+.athstage,
+.athwrap,
+.athimg,
+.regiondot,
+.viewtoggle{
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Native same-document View Transitions (progressive enhancement only).
+   Activated only when the API is supported AND reduced motion is not set.
+   The JS layer (page.tsx navigate) is responsible for calling
+   document.startViewTransition; this CSS only styles the resulting pseudo
+   elements. No blanket root screenshot animation is used — only the main
+   view node cross-fades, so the camera/avatar DOM is never frozen. */
+@supports (view-transition-name: a){
+  .main{
+    view-transition-name: main-view;
+  }
+  /* Disable the root pseudo animation. The root grouping still
+     captures the rest of the page, but no animation runs on it,
+     so the avatar artwork never moves. */
+  ::view-transition-group,
+  ::view-transition-old(root),
+  ::view-transition-new(root){
+    animation: none !important;
+  }
+  ::view-transition-old(main-view),
+  ::view-transition-new(main-view){
+    animation-duration: 220ms;
+    animation-timing-function: ease;
+  }
+  ::view-transition-old(main-view){animation-name: ux09-fade-out}
+  ::view-transition-new(main-view){animation-name: ux09-fade-in}
+  /* Fade only — no vertical avatar motion. */
+  @keyframes ux09-fade-out{from{opacity:1}to{opacity:0}}
+  @keyframes ux09-fade-in{from{opacity:0}to{opacity:1}}
+}
+
+/* Reduced motion: disable every transition polish and any view-transition
+   pseudo animations. Existing reduced-motion rule above already nulls
+   transitions/animations; this block additionally suppresses the
+   view-transition pseudo animations introduced by UX09. */
+@media (prefers-reduced-motion:reduce){
+  ::view-transition-group,
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(main-view),
+  ::view-transition-new(main-view){
+    animation: none !important;
+  }
+}

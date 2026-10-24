@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import { usePathname } from "next/navigation";
 import type { ReactElement } from "react";
 import type { components } from "../generated/api";
@@ -308,9 +309,87 @@ export default function Page() {
   // is no independent React-side route that can drift or be reverted.
   const pathname = usePathname();
 
+  // Local TS intersection so startViewTransition is callable on Document
+  // without polluting global declarations. Types are erased at build
+  // time, so this is safe to keep at module scope (no SSR touch).
+  type DocWithViewTransition = Document & {
+    startViewTransition?: (cb: () => void | Promise<void>) => {
+      ready: Promise<void>;
+      finished: Promise<void>;
+      updateCallbackDone: Promise<void>;
+      skipTransition: () => void;
+    };
+  };
   const navigate = useCallback((r: Route) => {
-    window.history.pushState(null, "", routeUrl(r));
-    setRoute(parseRoute()); // Also reconcile query-only pushes on the same pathname.
+    // Existing synchronous navigation: pushState + setRoute.
+    // Kept identical so the fallback path is byte-equivalent to the
+    // pre-patch behaviour.
+    let applied = false;
+    const apply = () => {
+      if (applied) return;
+      applied = true;
+      window.history.pushState(null, "", routeUrl(r));
+      setRoute(parseRoute()); // Also reconcile query-only pushes on the same pathname.
+    };
+    // Reference ``document`` lazily so this callback is SSR-safe.
+    if (typeof document === "undefined") {
+      apply();
+      return;
+    }
+    const docWithVT = document as DocWithViewTransition;
+    // Progressive enhancement only.
+    const reduced =
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const vt = typeof docWithVT.startViewTransition === "function" ? docWithVT.startViewTransition : null;
+    // Skip the transition when a camera/video is actively recording or
+    // playing so the camera DOM is never frozen by a screenshot-style
+    // animation. We inspect DOM <video> elements with a live
+    // srcObject (camera capture) regardless of paused state, or that
+    // are currently playing.
+    const mediaBusy = (() => {
+      const vids = document.getElementsByTagName("video");
+      for (let i = 0; i < vids.length; i++) {
+        const v = vids[i] as HTMLVideoElement;
+        if (v.srcObject) return true;
+        if (!v.paused && v.currentTime > 0 && !v.ended) return true;
+      }
+      return false;
+    })();
+    if (!vt || reduced || mediaBusy) {
+      apply();
+      return;
+    }
+    // Wrap the existing pushState + setRoute inside flushSync so the
+    // DOM update the View Transition captures is the actual route DOM,
+    // not a stale snapshot. flushSync is imported from react-dom.
+    let transition: {
+      ready: Promise<void>;
+      finished: Promise<void>;
+      updateCallbackDone: Promise<void>;
+    } | null = null;
+    try {
+      transition = vt.call(document, () => {
+        flushSync(() => {
+          apply();
+        });
+      });
+    } catch {
+      // startViewTransition threw (e.g. callback rejected): fall back
+      // to the existing synchronous navigation. No double navigation.
+      apply();
+      return;
+    }
+    // Swallow transition errors so a rejected promise never causes a
+    // second navigation or an unhandled rejection.
+    transition.ready.catch(() => {
+      apply();
+    });
+    transition.updateCallbackDone.catch(() => {
+      apply();
+    });
+    transition.finished.catch(() => {});
   }, []);
 
   const initSession = useCallback(() => {

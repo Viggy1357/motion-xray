@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { components } from "../generated/api";
 import GroundedCoaching from "./grounded-coaching";
+import SessionThumbnail from "./components/SessionThumbnail";
 import styles from "./movement-report.module.css";
 
 type Report = components["schemas"]["PrototypeAnalysisResult"];
@@ -205,6 +206,34 @@ function ExperimentalMatch({ report }: { report: Report }) {
   );
 }
 
+// Segment selector card: thumbnail + label + interval. Reuses SessionThumbnail
+// (which already handles missing/expired map/media fallback and cache
+// invalidation). The thumbnail is the visual anchor; the button itself stays
+// the click target so keyboard activation and aria-pressed semantics are
+// preserved exactly as before.
+function SegmentChip({ r, analysisId, active, onActivate }: { r: Rep; analysisId: string; active: boolean; onActivate: () => void }) {
+  const label = `Segment ${r.ordinal} preview`;
+  return (
+    <button
+      type="button"
+      className={styles.chip}
+      data-active={active || undefined}
+      aria-pressed={active}
+      title={`Segment ${r.ordinal} · ${r.start_s.toFixed(2)}s – ${r.end_s.toFixed(2)}s`}
+      aria-label={`Play video from segment ${r.ordinal}`}
+      onClick={onActivate}
+    >
+      <span className={styles.chipThumb} aria-hidden="true">
+        <SessionThumbnail analysisId={analysisId} sourceS={r.start_s} label={label} />
+      </span>
+      <span className={styles.chipText}>
+        <span className={styles.chipLabel}>Segment {r.ordinal}</span>
+        <span className={styles.chipTime}>{r.start_s.toFixed(2)}s – {r.end_s.toFixed(2)}s</span>
+      </span>
+    </button>
+  );
+}
+
 export default function MovementReport({ analysisId, exercise, onReport }: { analysisId: string; exercise?: string; onReport: (report: Report | null, settled: boolean) => void }) {
   const [report, setReport] = useState<Report | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -332,19 +361,13 @@ export default function MovementReport({ analysisId, exercise, onReport }: { ana
       {completed.length > 0 ? (
         <nav className={styles.chipStrip} aria-label="Completed cycles">
           {completed.map((r) => (
-            <button
+            <SegmentChip
               key={r.id}
-              type="button"
-              className={styles.chip}
-              data-active={activeSeg === r.id || undefined}
-              aria-pressed={activeSeg === r.id}
-              title={`Segment ${r.ordinal} · ${r.start_s.toFixed(2)}s – ${r.end_s.toFixed(2)}s`}
-              aria-label={`Play video from segment ${r.ordinal}`}
-              onClick={() => { setActiveSeg(r.id); seekTo(r.start_s); }}
-            >
-              <span className={styles.chipLabel}>Segment {r.ordinal}</span>
-              <span className={styles.chipTime}>{r.start_s.toFixed(2)}s – {r.end_s.toFixed(2)}s</span>
-            </button>
+              r={r}
+              analysisId={analysisId}
+              active={activeSeg === r.id}
+              onActivate={() => { setActiveSeg(r.id); seekTo(r.start_s); }}
+            />
           ))}
         </nav>
       ) : (

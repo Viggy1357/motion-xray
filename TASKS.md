@@ -12,6 +12,34 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-UX09 — segment previews and restrained transitions · delivered (24 Oct)
+
+- FR01/02/03/10/12. Owner requests real source-video segment thumbnails,
+  smoother UI, unchanged Home athlete, final focused QC and GitHub push.
+- Completed-cycle selector cards now reuse SessionThumbnail with parent analysis ID
+  and measured source start time. Existing timestamp map resolves proxy frame;
+  full-frame previews retain aspect ratio; missing/expired media uses fallback.
+  Segment selection keeps existing source-time seek and active-state semantics.
+- Native same-document main-content cross-fade plus restrained control feedback;
+  unchanged routes, consent, recording, analysis and static avatar. Unsupported,
+  reduced-motion and active-media paths navigate without transition; failures do
+  not duplicate history entries. No dependencies or contracts changed.
+- Docker scripts/test.sh web passes typecheck/build (including framework lint).
+  scripts/check-browser.sh:54/54 cases pass across360/375/1365 Chromium viewports.
+  Includes actual synthetic WebM decode into full-aspect thumbnail, missing map,
+  source seek, responsive layout, transition-throw fallback and existing camera QC.
+- User personally accepts Mac camera->record->upload->processing for MVP.
+  Broad physical-device/browser, network/storage/quota and result-edge testing
+  remains deferred, not passed. No new paid product calls/private media contexts.
+- Seven Nebius calls, including truncated repair, accounted in
+  docs/delegation/HM-UX09-usage.json; justified300k one-off within authorized500k
+  and USD70 ceiling. Evidence docs/audit/HM-UX09-delivery.md.
+- Roadmap docs/design/HM-UX09-roadmap.md records deferred3D, loading content,
+  future Move/Fuel/Recover concepts; Ask your set/Show me why excluded from MVP.
+- Next HM-RELEASE01: hosting/judge-access and submission readiness; deferred
+  robustness matrix remains backlog. Existing PR stays draft; push is not merge.
+
+
 ### HM-UX07A — reusable Docker browser QC harness · delivered (24 Oct)
 
 - FR01/02/03/09/10/12 verification. Owner-approved alternative to repeated
