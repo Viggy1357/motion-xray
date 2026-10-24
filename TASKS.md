@@ -12,6 +12,28 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-RELEASE01 — submission preparation · drafts prepared, release blocked (25 Oct)
+
+- FR01/02/03/09/10/12 release evidence. Official rules/homepage rechecked24Oct;
+  owner reports no Devpost draft/demo/account link. Best Apps and Agents recommended.
+- Prepared docs/submission/{READINESS,DEVPOST-DRAFT,DEMO-SCRIPT}.md and refreshed
+  README recording/status/setup claims. Proposed form mapping only: authenticated
+  Devpost form not inspected, no registration/submission/publication performed.
+- GitHub live check: PRIVATE, default main at olderc395ecf; latest tested branch
+ 64b7bc3. Local MIT file present but GitHub detectsOther. Resolve public-release
+  history/secret/asset audit, default release branch and licence detection.
+- Public demo/test-build and public YouTube video missing. Real local NVIDIA Nano
+  runtime proof documented23Oct; hosted validation still missing. Judge access
+  must last through15Dec12:00PST (16Dec04:00MYT). Current coaching lifetime/day
+  quotas require an approved access/budget plan; do not weaken controls silently.
+- Fresh-clone setup/model download/private sample independence not verified.
+  Existing model manifest supplied; setup does not automatically download it.
+- Documentation-only: diff whitespace and local link/path checks; no new app tests
+  or paid runtime calls. One Nebius drafting call14,009 tokens, USD0.118719 guard.
+- Next: HM-RELEASE01B hosting proposal/reproducible sanitized public release, then
+  actual demo capture using owner-approved footage, Devpost entry and final review.
+
+
 ### HM-UX09 — segment previews and restrained transitions · delivered (24 Oct)
 
 - FR01/02/03/10/12. Owner requests real source-video segment thumbnails,
