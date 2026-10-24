@@ -175,3 +175,16 @@ concrete provider/uptime/cost proposal; Sites alone cannot run the Python worker
 -Through16Dec04:00MYT: retain free judge access and an operator monitoring plan.
 
 Dates are planning targets, not evidence that these steps are complete.
+
+## 25 October local onboarding update
+
+HM-RELEASE02 now supplies scripts/quickstart.sh, docs/QUICKSTART.md and docs/INDEX.md.
+A tracked-files-only clean export with fresh config/model/state passed Docker startup
+and worker initialization; alternate ports isolated it from the existing app.
+1,071 offline Python regressions pass. Source cues load in installed-package mode.
+No private demo footage is needed for setup; judges can record/upload their own clip.
+A synthetic no-person upload failed honestly; successful human-clip processing in
+this fresh export and other host architectures remain unverified. See
+docs/audit/HM-RELEASE02-delivery.md. This supersedes the earlier “fresh-clone setup
+not rerun” note for the bounded tracked-export test only. Public visibility, default
+release branch, video, actual form and judge-access/quota planning remain open.

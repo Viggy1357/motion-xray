@@ -12,6 +12,30 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-RELEASE02 — judge-local quickstart and repository navigation · delivered (25 Oct)
+
+- FR01/02/03/04/09/10/12. Added canonical ./scripts/quickstart.sh and container-only
+  env/model bootstrap; README/QUICKSTART/INDEX now form judge-facing navigation.
+  Auto-generates persistent secret and verifies pinned model; never overwrites
+  configured env or corrupt existing model. Live coaching remains explicit/off.
+- Clean tracked export with spaces, fresh env/model/state and isolated ports passes
+  actual download, build/start, API/web/session/worker and MediaPipe initialization.
+  Repeat prepare preserves env/model bytes. Synthetic blank clip consumes worker job
+  and fails honestly; not a successful human-pose or accuracy demonstration.
+- Installed-package coaching claims lookup fixed with bundled resource fallback.
+  Added19 bootstrap +7 packaging regressions; unchanged existing assertions retained.
+  ./scripts/test.sh python exit0: Ruff/mypy71,1,071 tests; provider smokes dry runs.
+- MIT text normalized by moving third-party note to THIRD_PARTY_NOTICES.md; history
+  credential-pattern scan0 (not exhaustive certification). No private media/model
+  redistribution, new runtime spend, public visibility change or release merge.
+- Evidence docs/audit/HM-RELEASE02-delivery.md; six Nebius calls90,507 tokens,
+  USD0.744717 guard in docs/delegation/HM-RELEASE02-usage.json. Existing200k cap;
+  aggregateUSD32.37368365<70, protected30 untouched.
+- Next HM-RELEASE03: release branch/public visibility, platform matrix, judge access.
+  MacDocker verified; Windows/WSL2/LinuxAMD64 remain unverified. Old main persists;
+  quickstart pins current implementation branch until reviewed release.
+
+
 ### HM-RELEASE01 — submission preparation · drafts prepared, release blocked (25 Oct)
 
 - FR01/02/03/09/10/12 release evidence. Official rules/homepage rechecked24Oct;
