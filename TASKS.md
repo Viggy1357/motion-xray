@@ -12,6 +12,27 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-UX07A — reusable Docker browser QC harness · delivered (24 Oct)
+
+- FR01/02/03/09/10/12 verification. Owner-approved alternative to repeated
+  interactive computer use; baseline87d3af4. One integrating writer; PR stays draft.
+- Added pinned/digest-bound Playwright image, isolated test package/lock, host
+  scripts/check-browser.sh wrapper, typechecked fixtures and ten real-frontend
+  tests across360/375/1365 Chromium CSS viewports. No production app edits.
+- Docker build/typecheck pass;30 browser cases pass,0 skipped/flaky/unexpected.
+  Native MediaRecorder uses a synthetic camera; fresh contexts never touch user
+  history. API interception plus runtime network:none prevents paid runtime calls.
+- Intentional negative POST control aborted and failed with exit1 as expected;
+  failure screenshot/trace retained. Passing cases retain neither. Results stay
+  ignored under artifacts/browser-qc; one command reruns the suite without model
+  decisions per click. No measured Codex credit saving claimed.
+- Five Nebius calls88,489 reported tokens /100k task allowance; USD0.929919
+  conservative cost including rejected and reasoning-only failed drafts.
+  Prior aggregate maximum+taskUSD29.95235665<70; protected30 untouched.
+- Evidence docs/BROWSER-QC.md, docs/audit/HM-UX07A-delivery.md and
+  docs/delegation/HM-UX07A-usage.json. Next HM-UX07B: open original release gates.
+  Thirty fixture-browser cases are not full26-case/physical-device certification.
+
 ### HM-UX06 — recording and UI candidate delivered; device acceptance open (24 Oct)
 
 - FR01/02/03/05/06/09/10/12. Owner authorizes ordered Nebius recording repairs,

@@ -178,3 +178,12 @@ specific unresolved browser defect. No new Playwright dependency or CI browser s
 was installed in UX06. Running tests does not itself establish measured credit savings;
 Codex orchestration/context still consumes allowance. Do not conflate Nebius development
 spend with Codex allowance or paid product coaching.
+
+
+## 24 October follow-up: HM-UX07A
+
+The reusable Docker browser suite is now implemented; the earlier lower-overhead
+section described the plan at UX06 delivery time. See HM-UX07A-delivery.md and
+../BROWSER-QC.md. Thirty Chromium fixture-browser cases cover selected onboarding,
+settings, camera fallback/countdown/short-review/consent and layout behavior.
+They do not mean the original26 gates or actual device tests all passed.

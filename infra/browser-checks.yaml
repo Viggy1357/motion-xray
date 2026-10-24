@@ -1,0 +1,29 @@
+# Ephemeral, isolated browser-QC service. The web server and the headless
+# Chromium browser run inside the same container so the test runner can
+# reach the app on 127.0.0.1:3000 without any external network. No ports,
+# env_file, secrets, bind mounts of source, or shared volumes are exposed
+# to the host. Artifacts are written to a bind mount that is git-ignored.
+name: motion-xray-browser-qc
+
+x-browser-qc-base: &browser-qc-base
+  build:
+    context: ..
+    dockerfile: infra/browser.Dockerfile
+  image: motion-xray/browser-qc:local
+  init: true
+  shm_size: "1gb"
+  network_mode: none
+  # Playwright sets a300s global timeout; allow5s for container stop cleanup.
+  stop_grace_period: 5s
+  restart: "no"
+  working_dir: /app/tests/browser
+  # No env_file, no secrets, no host bind mounts of source. Only the
+  # artifacts directory is bind-mounted so reports survive the container.
+  volumes:
+    - ../artifacts/browser-qc:/results
+
+services:
+  browser-qc:
+    <<: *browser-qc-base
+    # No fixed container_name: each `docker compose run --rm` invocation
+    # gets a unique throwaway name so concurrent runs do not collide.
