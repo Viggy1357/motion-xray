@@ -82,7 +82,7 @@ function fakeClock() {
   return clock;
 }
 
-function fakeRecorder(mime) {
+function fakeRecorder(mime, opts = {}) {
   const rec = {
     mimeType: mime,
     onChunk: null,
@@ -93,29 +93,38 @@ function fakeRecorder(mime) {
     start() {
       this.started = true;
     },
+    // Default: synchronous flush (legacy behavior). When opts.deferredStop is
+    // true, stop() only marks the flag; the test must call emitFinalFlush()
+    // to deliver the late final chunk + onStop, mirroring real MediaRecorder
+    // behavior where the final chunk arrives after stop() returns.
     stop() {
       this.stopped = true;
-      if (this.onStop) this.onStop();
+      if (!opts.deferredStop && this.onStop) this.onStop();
     },
     push(bytes) {
       if (this.onChunk) this.onChunk({ data: new Uint8Array(bytes), mimeType: mime });
+    },
+    emitFinalFlush(bytes) {
+      if (this.onChunk) this.onChunk({ data: new Uint8Array(bytes), mimeType: mime });
+      if (this.onStop) this.onStop();
     },
   };
   return rec;
 }
 
-function setup(mime = 'video/webm') {
+function setup(mime = 'video/webm', opts = {}) {
   const clock = fakeClock();
-  const events = { states: [], errors: [], finalized: [], ticks: [] };
+  const events = { states: [], errors: [], finalized: [], ticks: [], elapsed: [] };
   const c = new CaptureController(clock, {
     onState: (s) => events.states.push(s),
     onError: (code, msg) => events.errors.push([code, msg]),
     onFinalized: (clip) => events.finalized.push(clip),
     onCountdownTick: (n) => events.ticks.push(n),
+    onElapsed: (ms, b) => events.elapsed.push([ms, b]),
   });
   let lastRecorder = null;
   c.recorderFactory = () => {
-    lastRecorder = fakeRecorder(mime);
+    lastRecorder = fakeRecorder(mime, opts);
     return lastRecorder;
   };
   return { clock, c, events, rec: () => lastRecorder };
@@ -171,6 +180,46 @@ check('unknown rejected', extensionForMime('video/avi') === null);
   check('no bytes after cancel', c.recordedBytes === 0);
 }
 
+// --- Countdown uses single deadline, not chained decrement ---
+{
+  const { clock, c, events } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  // Countdown schedules the deadline timer plus the display interval.
+  check('countdown schedules deadline + display timers', clock.pending() === 2);
+  clock.advance(COUNTDOWN_SECONDS * 1000);
+  check('countdown fires once', c.state === 'recording');
+  check('no extra countdown ticks', events.ticks.length === 3);
+}
+
+// --- Countdown emits 3/2/1 based on ceil((deadline-now)/1000) ---
+{
+  const { clock, c, events } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  // Initial tick is 3.
+  check('countdown tick 3 at start', events.ticks[0] === 3);
+  // Advance 500ms: ceil((3000-500)/1000) = 3, no new tick.
+  clock.advance(500);
+  check('countdown no tick at 500ms', events.ticks.length === 1);
+  // Advance to 1001ms total: ceil((3000-1001)/1000) = 2.
+  clock.advance(501);
+  check('countdown tick 2 at ~1s', events.ticks[events.ticks.length - 1] === 2);
+  // Advance to 2001ms total: ceil((3000-2001)/1000) = 1.
+  clock.advance(1000);
+  check('countdown tick 1 at ~2s', events.ticks[events.ticks.length - 1] === 1);
+  // Advance to deadline: recording begins.
+  clock.advance(999);
+  check('countdown fires at deadline', c.state === 'recording');
+  // Total ticks: 3, 2, 1 (no duplicates, no zero at deadline).
+  check('countdown ticks bounded', JSON.stringify(events.ticks) === '[3,2,1]');
+  check('countdown never emits zero', !events.ticks.includes(0));
+}
+
 // --- Full countdown -> recording -> stop -> review ---
 {
   const { clock, c, events, rec } = setup('video/mp4');
@@ -194,7 +243,7 @@ check('unknown rejected', extensionForMime('video/avi') === null);
   check('not interrupted', clip.interrupted === false);
 }
 
-// --- 60s hard bound (gate 4) ---
+// --- 60s hard bound via deadline timer (gate 4) ---
 {
   const { clock, c, events, rec } = setup();
   c.requestRecord();
@@ -203,10 +252,30 @@ check('unknown rejected', extensionForMime('video/avi') === null);
   c.startCountdown();
   clock.advance(3000);
   rec().push(100);
-  clock.advance(MAX_DURATION_MS + 500);
+  // Advance exactly to MAX_DURATION_MS: deadline timer fires.
+  clock.advance(MAX_DURATION_MS);
   check('auto-stopped at 60s', c.state === 'review');
   check('finalized at limit', events.finalized.length === 1);
+  // Duration is measured at finalize (stop request time), which is the
+  // deadline instant. Must be <= MAX_DURATION_MS + 2000 flush slack.
   check('duration <= bound+slack', events.finalized[0].durationMs <= MAX_DURATION_MS + 2000);
+  // Exact bound: duration must not exceed 60s + 2s slack.
+  check('duration not 62s slack', events.finalized[0].durationMs <= MAX_DURATION_MS + 2000);
+}
+
+// --- 60s bound: deadline timer fires exactly once, no double-stop ---
+{
+  const { clock, c, events, rec } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  // Advance well past the deadline.
+  clock.advance(MAX_DURATION_MS + 5000);
+  check('finalized exactly once at deadline', events.finalized.length === 1);
+  check('state review after deadline', c.state === 'review');
 }
 
 // --- 100MiB hard bound ---
@@ -306,6 +375,232 @@ check('unknown rejected', extensionForMime('video/avi') === null);
   c.stopRecording('user'); // no-op, not recording
   rec().stop(); // stray second onStop
   check('finalize race guarded', events.finalized.length === 1);
+}
+
+// --- Duration uses stop request time, not conversion delay ---
+{
+  const { clock, c, events, rec } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  clock.advance(2000);
+  c.stopRecording('user');
+  // Duration is measured at finalize (stop request time), not at conversion.
+  check('duration reflects stop time', events.finalized[0].durationMs === 2000);
+}
+
+// --- Late flush: duration uses stop-requested time even if finalize is late ---
+{
+  const { clock, c, events, rec } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  clock.advance(2000);
+  c.stopRecording('user');
+  // Simulate a late flush: advance the clock further before checking.
+  clock.advance(10000);
+  // Duration must still reflect the stop-requested time, not the late flush.
+  check('late flush duration uses stop time', events.finalized[0].durationMs === 2000);
+}
+
+// --- Repeated stopRecording calls are idempotent ---
+{
+  const { clock, c, events, rec } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  c.stopRecording('user');
+  c.stopRecording('user');
+  c.stopRecording('limit');
+  c.stopRecording('interrupted');
+  check('repeated stopRecording idempotent', events.finalized.length === 1);
+  check('repeated stopRecording state review', c.state === 'review');
+}
+
+// --- Teardown after stop clears all timers ---
+{
+  const { clock, c, rec } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  c.stopRecording('user');
+  c.destroy();
+  check('teardown after stop clears timers', clock.pending() === 0);
+  check('teardown after stop -> idle', c.state === 'idle');
+}
+
+// --- Shortened tick does not drift countdown ---
+{
+  const { clock, c, events } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  // Advance in small irregular steps; ticks must still be 3, 2, 1.
+  clock.advance(100);
+  clock.advance(400);
+  clock.advance(500);
+  clock.advance(1);
+  clock.advance(999);
+  clock.advance(500);
+  clock.advance(500);
+  check('shortened tick no drift', JSON.stringify(events.ticks) === '[3,2,1]');
+  check('shortened tick fires at deadline', c.state === 'recording');
+}
+
+// --- Deadline timer is independent of 250ms poll ---
+{
+  const { clock, c, events, rec } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  // Advance in steps that skip the 250ms poll entirely.
+  clock.advance(MAX_DURATION_MS);
+  check('deadline fires without poll', c.state === 'review');
+  check('deadline fires without poll finalized', events.finalized.length === 1);
+}
+
+// --- Deadline is scheduled at CAPTURE_STOP_MS (59000), not MAX_DURATION_MS ---
+{
+  const { clock, c, events, rec } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  // At exactly CAPTURE_STOP_MS the deadline timer fires; the controller is
+  // in 'finishing' (not yet 'review') because the synchronous fake recorder
+  // calls onStop immediately, which finalizes.
+  clock.advance(MAX_DURATION_MS - 1000);
+  check('deadline scheduled at CAPTURE_STOP_MS', c.state === 'review');
+  check('deadline scheduled at CAPTURE_STOP_MS finalized', events.finalized.length === 1);
+  // Duration must reflect the stop-request time (CAPTURE_STOP_MS), not a
+  // fabricated 60s.
+  check('deadline duration uses stop time', events.finalized[0].durationMs === MAX_DURATION_MS - 1000);
+}
+
+// --- Late flush: final chunk arrives AFTER finishing; must be preserved ---
+{
+  // Use a deferred-stop fake recorder so stop() does NOT call onStop. The
+  // test manually advances the clock past the stop-request instant, then
+  // emits the late final chunk + onStop. This mirrors real MediaRecorder
+  // behavior where the final chunk arrives after stop() returns.
+  const { clock, c, events, rec } = setup('video/webm', { deferredStop: true });
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(2048);
+  rec().push(1024);
+  clock.advance(2000);
+  c.stopRecording('user');
+  // Controller is now in 'finishing'; recorder.stop() ran but did NOT call
+  // onStop. Advance the clock well past the stop-request instant to
+  // simulate encoder/mux flush latency.
+  check('finishing after stop', c.state === 'finishing');
+  check('not finalized before flush', events.finalized.length === 0);
+  clock.advance(10000);
+  // Late final chunk + onStop arrive now.
+  rec().emitFinalFlush(4096);
+  check('finalized after late flush', events.finalized.length === 1);
+  const clip = events.finalized[0];
+  // All three chunks must be retained (no truncation, no silent drop).
+  check('late flush retains all chunks', clip.chunks.length === 3);
+  check('late flush retains all bytes', clip.bytes === 2048 + 1024 + 4096);
+  // Duration must reflect the original stop-request time (2000ms), NOT the
+  // late flush instant.
+  check('late flush duration uses stop time', clip.durationMs === 2000);
+  check('late flush state review', c.state === 'review');
+}
+
+// --- Late flush: finalize runs exactly once even with late onStop ---
+{
+  const { clock, c, events, rec } = setup('video/webm', { deferredStop: true });
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  clock.advance(2000);
+  c.stopRecording('user');
+  clock.advance(10000);
+  rec().emitFinalFlush(100);
+  // A stray second onStop must not double-finalize.
+  rec().emitFinalFlush(100);
+  check('late flush finalize exactly once', events.finalized.length === 1);
+}
+
+// --- Oversize final chunk during finishing rejects safely (no truncation) ---
+{
+  const { clock, c, events, rec } = setup('video/webm', { deferredStop: true });
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(50 * 1024 * 1024);
+  clock.advance(2000);
+  c.stopRecording('user');
+  // Late final chunk pushes total over MAX_BYTES; must reject, not truncate.
+  rec().emitFinalFlush(60 * 1024 * 1024);
+  check('oversize final chunk rejected', events.errors.some(([code]) => code === 'E05_VALIDATION'));
+  check('oversize final chunk not finalized', events.finalized.length === 0);
+}
+
+// --- Conversion delay past 60s does not extend an earlier stop request ---
+{
+  const { clock, c, events, rec } = setup('video/webm', { deferredStop: true });
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  // Stop requested at 2000ms (well under 60s).
+  clock.advance(2000);
+  c.stopRecording('user');
+  // But the late flush arrives after the clock has advanced past 60s.
+  clock.advance(MAX_DURATION_MS);
+  rec().emitFinalFlush(100);
+  // Duration is still 2000ms (stop-request time), so this should finalize.
+  check('late flush within bound finalizes', events.finalized.length === 1);
+  check('late flush within bound duration', events.finalized[0].durationMs === 2000);
+}
+
+// --- Deadline timer fires at CAPTURE_STOP_MS, not MAX_DURATION_MS ---
+{
+  const { clock, c, events, rec } = setup();
+  c.requestRecord();
+  c.beginPermission();
+  c.permissionResult(true);
+  c.startCountdown();
+  clock.advance(3000);
+  rec().push(100);
+  // At CAPTURE_STOP_MS - 1ms the deadline has not fired.
+  clock.advance(MAX_DURATION_MS - 1001);
+  check('before CAPTURE_STOP_MS still recording', c.state === 'recording');
+  // Advance the last 1ms to hit CAPTURE_STOP_MS exactly.
+  clock.advance(1);
+  check('at CAPTURE_STOP_MS deadline fires', c.state === 'review');
+  check('at CAPTURE_STOP_MS finalized', events.finalized.length === 1);
 }
 
 if (failures > 0) {

@@ -11,6 +11,9 @@ import CameraRecorder from "./components/CameraRecorder";
 import SettingsPanel from "./components/SettingsPanel";
 import RegionActivity from "./components/RegionActivity";
 import SessionThumbnail from "./components/SessionThumbnail";
+import FirstUseIntro from "./components/FirstUseIntro";
+import HomeLastFocus from "./components/HomeLastFocus";
+import ProgressCompanion from "./components/ProgressCompanion";
 import {
   applyUxSettings,
   defaultUxMetadata,
@@ -19,6 +22,8 @@ import {
   withViewed,
 } from "./lib/ux-metadata";
 import type { UxMetadata, UxSettings } from "./lib/ux-metadata";
+import { inWeek, weekDays, weekBounds } from "./lib/week-window";
+import { clearSessionCoaching } from "./lib/coaching-session";
 
 type PrototypeReport = components["schemas"]["PrototypeAnalysisResult"];
 type SessionInfo = components["schemas"]["SessionInfo"];
@@ -52,6 +57,7 @@ const LOG_KEY = "mxr.logs.v1";
 const JOB_KEY = "mxr.activeJob.v1";
 const NAME_KEY = "mxr.displayName.v1"; // legacy read-only fallback; new writes go into mxr.ux.v1
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const INTRO_SEEN_VERSION = 1;
 
 const EXERCISES: {
   id: ExerciseId;
@@ -244,11 +250,22 @@ export default function Page() {
   const [movementSettled, setMovementSettled] = useState(false);
   const [videoErr, setVideoErr] = useState(false);
   const [cancelBusy, setCancelBusy] = useState(false);
+  // Frozen now snapshot: a single Date used by every week-window helper in
+  // this render. Recomputed only when the user returns to the tab so the
+  // rolling/calendar window does not silently shift mid-session.
   const [now, setNow] = useState(() => Date.now());
+  const [nowTick, setNowTick] = useState(0);
 
   // UX metadata (mxr.ux.v1): goal settings, week mode, display name, Viewed markers.
   const [uxMeta, setUxMeta] = useState<UxMetadata>(() => defaultUxMetadata());
   const [uxMetaErr, setUxMetaErr] = useState<string | null>(null);
+  const uxBlockedRef = useRef(false);
+
+  // First-use intro: shown only on the home view, only after metadata has
+  // loaded, and only until the user explicitly continues or skips. The
+  // "seen" marker is merged atomically into mxr.ux.v1.
+  const [introOpen, setIntroOpen] = useState(false);
+  const [introReady, setIntroReady] = useState(false);
 
   // Analyse form
   const [exercise, setExercise] = useState<ExerciseId>("lat_pulldown");
@@ -264,6 +281,7 @@ export default function Page() {
   const [pendingCreate, setPendingCreate] = useState<PendingCreate | null>(null);
   const [exercisePickerOpen, setExercisePickerOpen] = useState(false); // presentation only: exercise selector disclosure
   const [recorderOpen, setRecorderOpen] = useState(false);
+  const [cameraAvailable, setCameraAvailable] = useState<boolean | null>(null);
 
   // Save form
   const [rate, setRate] = useState(1);
@@ -282,6 +300,7 @@ export default function Page() {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const expiredRef = useRef(false);
   const prefillRef = useRef<{ reps: string; load: string; notes: string } | null>(null);
+  const originalRouteRef = useRef<Route | null>(null);
 
   // Next.js App Router patches window.history.pushState, so native
   // pushes are picked up by the router and reflected in usePathname.
@@ -310,6 +329,7 @@ export default function Page() {
   useEffect(() => {
     setLogs(loadLogs());
     const { metadata, error } = loadUxMetadata();
+    uxBlockedRef.current = Boolean(error);
     setUxMeta(metadata);
     setUxMetaErr(error);
     // Display name: prefer a valid name persisted inside mxr.ux.v1; fall
@@ -333,6 +353,11 @@ export default function Page() {
     } catch { /* ignore corrupt local data */ }
     const metaName = metadata.displayName;
     setName(typeof metaName === "string" && metaName.length <= 60 ? metaName : legacyName);
+    // First-use intro: only after metadata has loaded. The "seen" marker
+    // is merged atomically into mxr.ux.v1 by the explicit Continue/Skip
+    // handlers below — never auto-set by this effect.
+    setIntroReady(true);
+    setIntroOpen(metadata.introSeenVersion !== INTRO_SEEN_VERSION);
     initSession();
   }, [initSession]);
 
@@ -357,6 +382,13 @@ export default function Page() {
     window.addEventListener("popstate", sync);
     return () => window.removeEventListener("popstate", sync);
   }, [pathname]);
+
+  // Detect camera capability on route change (no permission request).
+  useEffect(() => {
+    const hasGUM = typeof navigator !== 'undefined' && !!navigator.mediaDevices?.getUserMedia;
+    const hasMR = typeof MediaRecorder !== 'undefined';
+    setCameraAvailable(hasGUM && hasMR);
+  }, [route.name]);
 
   // Focus heading on navigation.
   useEffect(() => {
@@ -409,6 +441,10 @@ export default function Page() {
             try { localStorage.removeItem(JOB_KEY); } catch { /* ignore */ }
             expiredRef.current = true;
             setJob(null);
+            // Owner/session loss: clear the cached coaching for this analysis
+            // and any thumbnails so a stale cue never reappears.
+            clearSessionCoaching(jobId);
+            try { window.dispatchEvent(new CustomEvent("mxr:thumbnails-clear", { detail: { analysisId: jobId } })); } catch { /* ignore */ }
             setResultErr("This analysis is no longer available on the server (expired or revoked). You can start a new upload; your local history is unchanged.");
             return;
           }
@@ -439,6 +475,8 @@ export default function Page() {
         timer = window.setTimeout(tick, 2000);
       } catch (e) {
         if ((e as Error).name === "AbortError") return;
+        // Transient network error: keep the existing logs and job metadata
+        // intact. The user can retry from the banner; nothing is erased.
         setResultErr(`Lost connection while checking analysis status: ${(e as Error).message}. The analysis continues on the server — use Retry to resume updates.`);
       }
     };
@@ -452,6 +490,20 @@ export default function Page() {
     const t = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(t);
   }, [jobActive, job]);
+
+  // Refresh the frozen "now" snapshot when the tab becomes visible again
+  // so the rolling/calendar window does not silently shift mid-session.
+  useEffect(() => {
+    const onVis = () => {
+      setVisibilityTick((t) => t + 1);
+      if (typeof document !== "undefined" && document.visibilityState === "visible") {
+        setNow(Date.now());
+        setNowTick((n) => n + 1);
+      }
+    };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, []);
 
   useEffect(() => {
     if (!toast) return;
@@ -477,14 +529,6 @@ export default function Page() {
     return () => URL.revokeObjectURL(url);
   }, [file]);
 
-  // Track tab visibility so a report that finished loading in the
-  // background is only marked Viewed once the user actually returns to it.
-  useEffect(() => {
-    const onVis = () => setVisibilityTick((t) => t + 1);
-    document.addEventListener("visibilitychange", onVis);
-    return () => document.removeEventListener("visibilitychange", onVis);
-  }, []);
-
   // Viewed marker: recorded only when the owned report has settled with an
   // actual non-null movement report matching this analysis (a failed or
   // missing movement report never counts) and the Results view is actually
@@ -497,7 +541,7 @@ export default function Page() {
     if (typeof moveId !== "string" || moveId !== result.analysis_id) return;
     if (typeof document !== "undefined" && document.visibilityState !== "visible") return;
     const id = result.analysis_id;
-    if (uxMeta.viewed[id]) return;
+    if (uxBlockedRef.current || uxMeta.viewed[id]) return;
     const next = withViewed(uxMeta, id, new Date().toISOString());
     if (persistUxMetadata(next)) {
       setUxMeta(next);
@@ -515,6 +559,7 @@ export default function Page() {
   // serialized and written once. On failure nothing is committed (name
   // included — the panel only calls onNameChange after this returns true).
   const saveSettings = useCallback((s: UxSettings, displayName?: string): boolean => {
+    if (uxBlockedRef.current) return false;
     const next = applyUxSettings(uxMeta, s);
     if (typeof displayName === "string") next.displayName = displayName;
     if (!persistUxMetadata(next)) {
@@ -524,6 +569,23 @@ export default function Page() {
     setUxMeta(next);
     setUxMetaErr(null);
     return true;
+  }, [uxMeta]);
+
+  // First-use intro: explicit Continue/Skip only. The "seen" marker is
+  // merged atomically into mxr.ux.v1; storage failure still allows
+  // navigation but the user is told honestly. No camera/upload consent is
+  // granted by either button.
+  const dismissIntro = useCallback((persist: boolean) => {
+    if (persist && !uxBlockedRef.current) {
+      const next: UxMetadata = { ...uxMeta, introSeenVersion: INTRO_SEEN_VERSION };
+      if (persistUxMetadata(next)) {
+        setUxMeta(next);
+        setUxMetaErr(null);
+      } else {
+        setUxMetaErr("Could not write to this browser's storage — your intro preference was not saved. You can continue using the app; the intro may reappear next visit.");
+      }
+    }
+    setIntroOpen(false);
   }, [uxMeta]);
 
   const onPick = async (f: File | null) => {
@@ -741,6 +803,11 @@ export default function Page() {
         method: "DELETE", credentials: "include", headers: { "X-CSRF-Token": session.csrf_token },
       });
       if (!r.ok && r.status !== 204) { window.alert(await readError(r)); return; }
+      // Successful revoke: clear cached coaching + thumbnails for this
+      // analysis so a stale cue never reappears. Local history is kept.
+      clearSessionCoaching(analysisId);
+      try { window.dispatchEvent(new CustomEvent("mxr:media-revoked", { detail: { analysisId } })); } catch { /* ignore */ }
+      try { window.dispatchEvent(new CustomEvent("mxr:thumbnails-clear", { detail: { analysisId } })); } catch { /* ignore */ }
       if (job?.analysisId === analysisId) {
         setJob(null);
         try { localStorage.removeItem(JOB_KEY); } catch { /* ignore */ }
@@ -766,30 +833,24 @@ export default function Page() {
     navigate({ name: "results", analysis: l.analysisId, exercise: l.exercise });
   };
 
-  // Week window: rolling 7 days by default; opt-in local calendar week (Mon–Sun).
-  const inWeek = (iso: string): boolean => {
-    const t = Date.parse(iso);
-    if (Number.isNaN(t)) return false;
-    if (uxMeta.weekMode === "calendar") {
-      const start = new Date();
-      start.setHours(0, 0, 0, 0);
-      start.setDate(start.getDate() - ((start.getDay() + 6) % 7)); // Monday
-      return t >= start.getTime();
-    }
-    const start = new Date();
-    start.setDate(start.getDate() - 6);
-    return t >= start.getTime();
-  };
-  const weekLogs = logs.filter((l) => inWeek(l.createdAt));
+  // Week window: shared helpers from lib/week-window. The same frozen
+  // `now` snapshot is used by both the summary/goal widget and the
+  // displayed date strip so they cannot disagree within a single render.
+  const nowDate = new Date(now);
+  const weekMode = uxMeta.weekMode;
+  const weekStart = weekBounds(weekMode, nowDate).start;
+  const weekEnd = weekBounds(weekMode, nowDate).end;
+  const weekLogs = logs.filter((l) => inWeek(l.createdAt, weekMode, nowDate));
   const lastLog = logs.length > 0 ? logs[logs.length - 1] : null;
   const recognised = logs.filter((l) => l.recognitionVersion === "analysed-set-v1" && l.recognition);
   const recognisedDedup = new Map<string, LogEntry>();
   for (const l of recognised) if (l.recognition) recognisedDedup.set(l.recognition.analysisId, l);
   const analysedSets = [...recognisedDedup.values()];
-  const weekAnalysed = analysedSets.filter((l) => inWeek(l.createdAt)).length;
+  const weekAnalysed = analysedSets.filter((l) => inWeek(l.createdAt, weekMode, nowDate)).length;
   const recentLogs = [...logs].reverse();
   const recent3 = recentLogs.slice(0, 3);
   const progressLogs = route.view === "all" ? recentLogs : recent3;
+  const weekDayList = weekDays(weekMode, nowDate);
 
   const viewedPill = (l: LogEntry) =>
     l.analysisId && uxMeta.viewed[l.analysisId] ? <span className="pill dim">Viewed</span> : null;
@@ -822,13 +883,18 @@ export default function Page() {
     </button>
   );
 
+  const openSettings = () => {
+    if (route.name !== "settings") originalRouteRef.current = route;
+    navigate({ name: "settings" });
+  };
+
   const settingsBtn = (
     <button
       type="button"
       className="iconbtn"
       aria-label="Settings and profile"
       aria-current={route.name === "settings" ? "page" : undefined}
-      onClick={() => navigate({ name: "settings" })}
+      onClick={openSettings}
     >
       <SettingsIcon />
     </button>
@@ -851,6 +917,11 @@ export default function Page() {
   );
 
   const currentExercise = EXERCISES.find((e) => e.id === exercise);
+
+  // Settings: return-to-origin preserves the route captured when settings
+  // was opened (including any results IDs and the view=all flag). Direct
+  // /settings fallback is home.
+  const settingsReturnTo: Route = originalRouteRef.current ?? { name: "home" };
 
   return (
     <div className="shell">
@@ -898,11 +969,17 @@ export default function Page() {
             <p className="illabel">Illustration — generic athlete artwork, rendered front and back views (not a 360° model)</p>
             <button className="btn herocta" onClick={() => navigate({ name: "analyse" })}>Analyse a set</button>
             {activeBanner}
+            {introReady && introOpen && (
+              <FirstUseIntro
+                onContinue={() => { dismissIntro(true); navigate({ name: "analyse" }); }}
+                onSkip={() => dismissIntro(true)}
+              />
+            )}
             {uxMeta.goalEnabled && uxMeta.goalTarget !== null && (
               <div className="card goalwidget" aria-label="Weekly analysed-set target">
                 <div className="spread">
                   <p style={{ margin: 0 }}><strong>{weekAnalysed}</strong> of <strong>{uxMeta.goalTarget}</strong> analysed sets this week</p>
-                  <button className="textlink" onClick={() => navigate({ name: "settings" })}>Adjust</button>
+                  <button className="textlink" onClick={openSettings}>Adjust</button>
                 </div>
                 <div className="goaltrack" role="progressbar" aria-valuenow={Math.min(weekAnalysed, uxMeta.goalTarget)} aria-valuemin={0} aria-valuemax={uxMeta.goalTarget} aria-label="Weekly analysed-set target progress">
                   <span className="goalfill" style={{ width: `${Math.min(100, (weekAnalysed / uxMeta.goalTarget) * 100)}%` }} />
@@ -945,7 +1022,12 @@ export default function Page() {
               </div>
             )}
             {lastLog && lastLog.analysisId && (
-              <p className="muted lastreview">Last review: {EXERCISES.find((e) => e.id === lastLog.exercise)?.name ?? lastLog.exercise} · <button type="button" className="textlink" onClick={() => resume(lastLog)}>Reopen report</button></p>
+              <HomeLastFocus
+                analysisId={lastLog.analysisId}
+                exerciseLabel={EXERCISES.find((e) => e.id === lastLog.exercise)?.name ?? lastLog.exercise}
+                createdAt={lastLog.createdAt}
+                onOpen={() => resume(lastLog)}
+              />
             )}
             <AthleteCompanion exercise={exercise} variant="map" />
             {logs.length === 0 && (
@@ -1001,10 +1083,12 @@ export default function Page() {
                   </div>
                 )}
                 <div className="row fileactions">
-                  <button type="button" className="btn" onClick={() => setRecorderOpen(true)} disabled={busy}>
-                    <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><rect x="2" y="5" width="12" height="11" rx="2.5" /><path d="M14 9 L18 6.8 V14.2 L14 12" strokeLinejoin="round" /></svg>
-                    Record a set
-                  </button>
+                  {cameraAvailable && (
+                    <button type="button" className="btn" onClick={() => setRecorderOpen(true)} disabled={busy}>
+                      <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><rect x="2" y="5" width="12" height="11" rx="2.5" /><path d="M14 9 L18 6.8 V14.2 L14 12" strokeLinejoin="round" /></svg>
+                      Record a set
+                    </button>
+                  )}
                   <label className="btn ghost filebtn">
                     <svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m3 14 4-4 4 4 3-3 4 4"/><circle cx="13" cy="7" r="1"/></svg>
                     Choose video
@@ -1017,6 +1101,9 @@ export default function Page() {
                   </label>
                   {file && <button type="button" className="btn ghost sm" onClick={clearFile} disabled={busy}>Clear file</button>}
                 </div>
+                {cameraAvailable === false && (
+                  <p className="muted" role="status">Camera recording is not available in this browser. You can still choose a video file.</p>
+                )}
                 {file && <p className="muted filemeta">{file.name} · {(file.size / (1024 * 1024)).toFixed(1)} MiB · limit {MAX_SECONDS}s / 100 MiB</p>}
                 {fileNote && <div className="state warn" role="status">{fileNote}</div>}
                 <label className="consent">
@@ -1141,7 +1228,7 @@ export default function Page() {
                     </div>
                   </div>
                   <div className="reportcol">
-                    <MovementReport analysisId={result.analysis_id} onReport={onReport} />
+                    <MovementReport analysisId={result.analysis_id} exercise={result.exercise} onReport={onReport} />
                   </div>
                 </div>
                 <div className="card savecard">
@@ -1199,17 +1286,10 @@ export default function Page() {
                   </div>
                 )}
                 <div className="card weekstrip" aria-label="Saved sets over the last seven days">
-                  <h3>{uxMeta.weekMode === "calendar" ? "This week (Mon–Sun)" : "Last 7 days"}</h3>
+                  <h3>{weekMode === "calendar" ? "This week (Mon–Sun)" : "Last 7 days"}</h3>
                   <div className="weekdays">
-                    {Array.from({ length: 7 }, (_, i) => {
-                      const day = new Date();
-                      day.setHours(0, 0, 0, 0);
-                      if (uxMeta.weekMode === "calendar") {
-                        day.setDate(day.getDate() - ((day.getDay() + 6) % 7) + i); // Monday + i
-                      } else {
-                        day.setDate(day.getDate() - (6 - i));
-                      }
-                      const nextDay = new Date(day);
+                    {weekDayList.map((day) => {
+                      const nextDay = new Date(day.getTime());
                       nextDay.setDate(nextDay.getDate() + 1);
                       const next = nextDay.getTime();
                       const count = logs.filter((l) => {
@@ -1228,6 +1308,7 @@ export default function Page() {
                   </div>
                 </div>
                 <RegionActivity sets={logs} />
+                <ProgressCompanion eligibleSets={analysedSets.length} />
                 {analysedSets.length > 0 && (
                   <div className="card exbars">
                     <h3>Analysed sets by exercise</h3>
@@ -1313,7 +1394,11 @@ export default function Page() {
               onNameChange={saveName}
               metadata={uxMeta}
               onSave={saveSettings}
-              onBack={() => navigate({ name: "home" })}
+              onBack={() => {
+                const target = originalRouteRef.current ?? { name: "home" };
+                originalRouteRef.current = null;
+                navigate(target);
+              }}
               error={uxMetaErr}
             />
           </section>

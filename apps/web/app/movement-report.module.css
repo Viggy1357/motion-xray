@@ -3,6 +3,7 @@
 .report {
   min-width: 0;
   max-width: 100%;
+  width: 100%;
   overflow-x: clip;
   display: flex;
   flex-direction: column;
@@ -38,6 +39,9 @@
   padding: 0.15rem 0.1rem 0.45rem;
   margin: 0 -0.1rem;
   min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  flex: 1 1 auto;
 }
 
 .chip {

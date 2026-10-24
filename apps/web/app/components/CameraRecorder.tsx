@@ -9,6 +9,7 @@ import {
   extensionForMime,
 } from '../lib/capture-controller';
 import type { CaptureState, Clock, FinalClip, RecorderAdapter } from '../lib/capture-controller';
+import { createRecorderAdapter } from '../lib/recorder-adapter';
 import styles from './CameraRecorder.module.css';
 
 export interface CameraRecorderProps {
@@ -20,10 +21,6 @@ export interface CameraRecorderProps {
 }
 
 type Facing = 'environment' | 'user';
-
-interface RecorderAdapterImpl extends RecorderAdapter {
-  inner: MediaRecorder;
-}
 
 /** Browser-safe clock adapter: monotonic now + bound timer functions. */
 function createBrowserClock(): Clock {
@@ -60,6 +57,10 @@ function pickMime(): string | null {
   return null;
 }
 
+/** Conservative bitrate/timeslice headroom: 4 Mbps target, 1s timeslice. */
+const RECORDER_BITRATE = 4_000_000;
+const RECORDER_TIMESLICE_MS = 1000;
+
 export default function CameraRecorder({
   onUse,
   onClose,
@@ -77,6 +78,7 @@ export default function CameraRecorder({
   const [clipFile, setClipFile] = useState<File | null>(null);
   const [clipInterrupted, setClipInterrupted] = useState(false);
   const [confirmDiscard, setConfirmDiscard] = useState(false);
+  const [confirmCancel, setConfirmCancel] = useState(false);
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const reviewRef = useRef<HTMLVideoElement | null>(null);
@@ -84,6 +86,31 @@ export default function CameraRecorder({
   const controllerRef = useRef<CaptureController | null>(null);
   const clipUrlRef = useRef<string | null>(null);
   const destroyedRef = useRef(false);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const lastFocusRef = useRef<HTMLElement | null>(null);
+  // Refs mirror the latest state so the focus-trap effect can read them
+  // without re-running on every state change.
+  const stateRef = useRef<CaptureState>('idle');
+  const confirmDiscardRef = useRef(false);
+  const confirmCancelRef = useRef(false);
+  const clipFileRef = useRef<File | null>(null);
+  // Generation counter for getUserMedia: each acquireStream call increments
+  // it; any in-flight request whose generation is stale must stop its tracks
+  // so we never end up with two live streams at once.
+  const acquireGenRef = useRef(0);
+
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
+  useEffect(() => {
+    confirmDiscardRef.current = confirmDiscard;
+  }, [confirmDiscard]);
+  useEffect(() => {
+    confirmCancelRef.current = confirmCancel;
+  }, [confirmCancel]);
+  useEffect(() => {
+    clipFileRef.current = clipFile;
+  }, [clipFile]);
 
   const releaseStream = useCallback((): void => {
     const s = streamRef.current;
@@ -118,11 +145,25 @@ export default function CameraRecorder({
       onFinalized: (clip: FinalClip) => {
         if (destroyedRef.current) return;
         releaseStream();
-        const blob = new Blob(
-          clip.chunks.map((c) => c.data.slice().buffer as ArrayBuffer),
-          { type: clip.mimeType },
-        );
-        const file = new File([blob], `recorded-set.${clip.extension}`, { type: clip.mimeType });
+        // Async Blob conversion is serialized and awaited before exposing the
+        // File to the parent. The controller has already validated duration
+        // and bytes; we still re-check here so a delayed conversion cannot
+        // smuggle an oversized or empty blob into Review.
+        const mime = clip.mimeType;
+        const ext = clip.extension;
+        const parts = clip.chunks.map((c) => c.data.slice().buffer as ArrayBuffer);
+        const blob = new Blob(parts, { type: mime });
+        if (blob.size <= 0) {
+          setError('Recording produced no usable data. Please retake or choose a video.');
+          setState('error');
+          return;
+        }
+        if (blob.size >= 100 * 1024 * 1024) {
+          setError('Trim this clip to 60 seconds and 100MiB or less.');
+          setState('error');
+          return;
+        }
+        const file = new File([blob], `recorded-set.${ext}`, { type: mime });
         const url = URL.createObjectURL(blob);
         clipUrlRef.current = url;
         setClipUrl(url);
@@ -130,6 +171,7 @@ export default function CameraRecorder({
         setClipInterrupted(clip.interrupted);
       },
       onError: (_code, message) => {
+        releaseStream();
         if (!destroyedRef.current) setError(message);
       },
     });
@@ -155,6 +197,104 @@ export default function CameraRecorder({
     return () => window.removeEventListener('beforeunload', handler);
   }, [state]);
 
+  // Track-ended / visibility / pagehide interruptions (C-E08/C-E10).
+  // pagehide and visibilitychange must flush capture and release resources
+  // promptly so the browser can reclaim hardware safely.
+  useEffect(() => {
+    const stream = streamRef.current;
+    if (!stream) return;
+    const onEnded = (): void => {
+      const c = controllerRef.current;
+      if (c && c.state === 'recording') c.stopRecording('interrupted');
+    };
+    for (const t of stream.getTracks()) t.addEventListener('ended', onEnded);
+    const onVisibility = (): void => {
+      if (document.visibilityState === 'hidden') {
+        const c = controllerRef.current;
+        if (c && c.state === 'recording') c.stopRecording('interrupted');
+      }
+    };
+    const onPageHide = (): void => {
+      const c = controllerRef.current;
+      // pagehide is a hard teardown signal: stop capture, flush final chunks,
+      // and release the stream so the browser can reclaim hardware.
+      if (c && (c.state === 'recording' || c.state === 'countdown')) {
+        c.stopRecording('interrupted');
+      }
+      releaseStream();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+    window.addEventListener('pagehide', onPageHide);
+    return () => {
+      for (const t of stream.getTracks()) t.removeEventListener('ended', onEnded);
+      document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('pagehide', onPageHide);
+    };
+  }, [state, releaseStream]);
+
+  // Focus trap + restore focus for the modal dialog.
+  // Capture the originally-focused element ONCE on mount, then trap focus
+  // using the latest state via refs so the effect does not re-run on every
+  // state change. Restore focus only on unmount.
+  useEffect(() => {
+    const root = dialogRef.current;
+    if (!root) return;
+    lastFocusRef.current = document.activeElement as HTMLElement | null;
+    const focusables = (): HTMLElement[] =>
+      Array.from(
+        root.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+    const initial = focusables()[0];
+    if (initial) initial.focus();
+    const onKey = (e: KeyboardEvent): void => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        const curState = stateRef.current;
+        const curConfirmDiscard = confirmDiscardRef.current;
+        const curConfirmCancel = confirmCancelRef.current;
+        const curClipFile = clipFileRef.current;
+        if (curConfirmDiscard) {
+          setConfirmDiscard(false);
+        } else if (curConfirmCancel) {
+          setConfirmCancel(false);
+        } else if (curState === 'review' && curClipFile) {
+          // Unsaved clip: require explicit confirmation rather than silently
+          // discarding on Escape.
+          setConfirmCancel(true);
+        } else if (curState === 'countdown') {
+          handleCancelCountdown();
+        } else if (curState === 'recording') {
+          controllerRef.current?.stopRecording('user');
+        } else {
+          handleCancel();
+        }
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const list = focusables();
+      if (list.length === 0) return;
+      const first = list[0];
+      const last = list[list.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+      if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    root.addEventListener('keydown', onKey);
+    return () => {
+      root.removeEventListener('keydown', onKey);
+      // Restore focus only on real unmount, not on every state change.
+      const prev = lastFocusRef.current;
+      if (prev && typeof prev.focus === 'function') prev.focus();
+    };
+  }, []);
+
   const acquireStream = useCallback(
     async (mode: Facing): Promise<boolean> => {
       const controller = controllerRef.current;
@@ -168,6 +308,9 @@ export default function CameraRecorder({
         controller.permissionResult(false, 'unsupported');
         return false;
       }
+      // Generation counter: any in-flight acquireStream with a stale
+      // generation must stop its tracks so we never hold two streams at once.
+      const gen = ++acquireGenRef.current;
       let stream: MediaStream;
       try {
         stream = await navigator.mediaDevices.getUserMedia({
@@ -175,6 +318,7 @@ export default function CameraRecorder({
           audio: false, // no microphone, ever
         });
       } catch (err) {
+        if (gen !== acquireGenRef.current) return false;
         const name = err instanceof DOMException ? err.name : '';
         if (name === 'NotFoundError' || name === 'OverconstrainedError') {
           controller.permissionResult(false, 'no-hardware');
@@ -183,7 +327,7 @@ export default function CameraRecorder({
         }
         return false;
       }
-      if (destroyedRef.current) {
+      if (destroyedRef.current || gen !== acquireGenRef.current) {
         for (const t of stream.getTracks()) t.stop();
         return false;
       }
@@ -196,40 +340,19 @@ export default function CameraRecorder({
       // Front switch only when another video device plausibly exists.
       try {
         const devices = await navigator.mediaDevices.enumerateDevices();
-        setCanSwitch(devices.filter((d) => d.kind === 'videoinput').length > 1);
+        if (gen === acquireGenRef.current) {
+          setCanSwitch(devices.filter((d) => d.kind === 'videoinput').length > 1);
+        }
       } catch {
-        setCanSwitch(false);
+        if (gen === acquireGenRef.current) setCanSwitch(false);
       }
-      controller.recorderFactory = (): RecorderAdapter => {
-        const inner = new MediaRecorder(stream, { mimeType: mime });
-        const adapter: RecorderAdapterImpl = {
-          inner,
-          mimeType: inner.mimeType || mime,
-          onChunk: null,
-          onStop: null,
-          onError: null,
-          start() {
-            inner.ondataavailable = (e: BlobEvent): void => {
-              if (e.data.size > 0 && adapter.onChunk) {
-                void e.data.arrayBuffer().then((buf) => {
-                  adapter.onChunk?.({ data: new Uint8Array(buf), mimeType: adapter.mimeType });
-                });
-              }
-            };
-            inner.onstop = (): void => {
-              // Allow the final dataavailable arrayBuffer to land before finalize.
-              setTimeout(() => adapter.onStop?.(), 0);
-            };
-            inner.onerror = (): void => adapter.onError?.(new Error('recorder error'));
-            inner.start(1000);
-          },
-          stop() {
-            if (inner.state !== 'inactive') inner.stop();
-            else adapter.onStop?.();
-          },
-        };
-        return adapter;
-      };
+      controller.recorderFactory = (): RecorderAdapter =>
+        createRecorderAdapter({
+          stream,
+          mimeType: mime,
+          timesliceMs: RECORDER_TIMESLICE_MS,
+          videoBitsPerSecond: RECORDER_BITRATE,
+        });
       controller.permissionResult(true);
       return true;
     },
@@ -256,7 +379,6 @@ export default function CameraRecorder({
       controller.beginPermission();
       void acquireStream(next).then((ok) => {
         if (!ok) {
-          // Switch failure retains working camera attempt on previous facing.
           setFacing(facing);
           controller.beginPermission();
           void acquireStream(facing);
@@ -270,6 +392,19 @@ export default function CameraRecorder({
     setElapsedMs(0);
     controllerRef.current?.startCountdown();
   }, []);
+
+  // Explicit countdown cancel: stops the stream, cancels timers, and resets
+  // the controller so the camera is released even though the UI claimed it
+  // would be. Reacquisition only happens on a new explicit user intent.
+  const handleCancelCountdown = useCallback((): void => {
+    const controller = controllerRef.current;
+    if (!controller) return;
+    controller.cancelCountdown();
+    releaseStream();
+    // Reset the controller so any pending recorder state is cleared and the
+    // next user intent must explicitly request a new stream.
+    controller.destroy();
+  }, [releaseStream]);
 
   const handleStop = useCallback((): void => {
     controllerRef.current?.stopRecording('user');
@@ -290,21 +425,37 @@ export default function CameraRecorder({
   }, [clipFile, onUse]);
 
   const handleCancel = useCallback((): void => {
+    if (clipFile && !confirmCancel) {
+      setConfirmCancel(true);
+      return;
+    }
+    setConfirmCancel(false);
     releaseClip();
     controllerRef.current?.destroy();
     releaseStream();
     onClose();
-  }, [onClose, releaseClip, releaseStream]);
+  }, [clipFile, confirmCancel, onClose, releaseClip, releaseStream]);
 
   const seconds = Math.floor(elapsedMs / 1000);
   const maxSeconds = Math.floor(MAX_DURATION_MS / 1000);
   const mirrored = facing === 'user';
 
   return (
-    <div className={styles.root} role="dialog" aria-label={`Record a set: ${exerciseLabel}`}>
+    <div
+      className={styles.root}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Record a set: ${exerciseLabel}`}
+      ref={dialogRef}
+    >
       <div className={styles.header}>
         <h2 className={styles.title}>Record a set — {exerciseLabel}</h2>
-        <button type="button" className={styles.closeBtn} onClick={handleCancel} aria-label="Cancel and close">
+        <button
+          type="button"
+          className={styles.closeBtn}
+          onClick={handleCancel}
+          aria-label="Cancel and close"
+        >
           ✕
         </button>
       </div>
@@ -312,7 +463,8 @@ export default function CameraRecorder({
       <p className={styles.guidance}>{guidance}</p>
       <p className={styles.hint}>
         Framing corners are guidance only; good framing cannot be verified automatically. No audio is
-        recorded and the microphone is never requested.
+        recorded and the microphone is never requested. Recording stops automatically at 60 seconds or
+        100MiB; the camera is released if you cancel the countdown.
       </p>
 
       {error ? (
@@ -385,7 +537,12 @@ export default function CameraRecorder({
               explicitly choose Upload &amp; analyse. If you prefer not to grant access, you can
               choose an existing video file instead.
             </p>
-            <button type="button" className={styles.primary} onClick={handleConsentContinue} disabled={disabled}>
+            <button
+              type="button"
+              className={styles.primary}
+              onClick={handleConsentContinue}
+              disabled={disabled}
+            >
               Continue to camera
             </button>
             <button type="button" className={styles.secondary} onClick={handleCancel}>
@@ -403,7 +560,12 @@ export default function CameraRecorder({
                 Switch to {facing === 'environment' ? 'front' : 'rear'} camera
               </button>
             ) : null}
-            <button type="button" className={styles.primary} onClick={handleStartCountdown} disabled={disabled}>
+            <button
+              type="button"
+              className={styles.primary}
+              onClick={handleStartCountdown}
+              disabled={disabled}
+            >
               Start recording
             </button>
             <button type="button" className={styles.secondary} onClick={handleCancel}>
@@ -416,7 +578,7 @@ export default function CameraRecorder({
           <button
             type="button"
             className={styles.secondary}
-            onClick={() => controllerRef.current?.cancelCountdown()}
+            onClick={handleCancelCountdown}
           >
             Cancel countdown
           </button>
@@ -440,20 +602,43 @@ export default function CameraRecorder({
             {confirmDiscard ? (
               <p role="alert">Discard this unsaved recording? This cannot be undone.</p>
             ) : null}
-            <button type="button" className={styles.primary} onClick={handleUse} disabled={disabled || !clipFile}>
+            {confirmCancel ? (
+              <p role="alert">
+                Close without saving? The recorded clip will be discarded.
+              </p>
+            ) : null}
+            <button
+              type="button"
+              className={styles.primary}
+              onClick={handleUse}
+              disabled={disabled || !clipFile}
+            >
               Use this video
             </button>
             <button type="button" className={styles.secondary} onClick={handleRetake}>
               {confirmDiscard ? 'Confirm discard & retake' : 'Retake'}
             </button>
             {confirmDiscard ? (
-              <button type="button" className={styles.secondary} onClick={() => setConfirmDiscard(false)}>
+              <button
+                type="button"
+                className={styles.secondary}
+                onClick={() => setConfirmDiscard(false)}
+              >
                 Keep clip
               </button>
             ) : null}
             <button type="button" className={styles.secondary} onClick={handleCancel}>
-              Cancel
+              {confirmCancel ? 'Confirm close & discard' : 'Cancel'}
             </button>
+            {confirmCancel ? (
+              <button
+                type="button"
+                className={styles.secondary}
+                onClick={() => setConfirmCancel(false)}
+              >
+                Keep clip
+              </button>
+            ) : null}
           </>
         ) : null}
       </div>

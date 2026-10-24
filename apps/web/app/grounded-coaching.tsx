@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { components } from "../generated/api";
 import SessionThumbnail from "./components/SessionThumbnail";
+import { storeSessionCoaching } from "./lib/coaching-session";
 
 type Rep = components["schemas"]["Rep"];
 type CoachingResult = components["schemas"]["CoachingResult"];
@@ -97,7 +98,7 @@ const highlightBodyStyle: React.CSSProperties = {
   minWidth: 0,
 };
 
-export default function GroundedCoaching({ analysisId, reps }: { analysisId: string; reps: Rep[] }) {
+export default function GroundedCoaching({ analysisId, exercise, reps }: { analysisId: string; exercise?: string; reps: Rep[] }) {
   const [state, setState] = useState<State>({ kind: "idle" });
   const ctrlRef = useRef<AbortController | null>(null);
 
@@ -132,6 +133,11 @@ export default function GroundedCoaching({ analysisId, reps }: { analysisId: str
       if (!isCoaching(data)) throw new Error("The server returned an unexpected coaching format.");
       if (ctrl.signal.aborted) return;
       setState({ kind: "ok", result: data });
+      // Cache the ACTUAL response for this analysis so HomeLastFocus can
+      // surface the real cue. exercise is optional; when undefined we
+      // store an empty string rather than inventing one.
+      const ex = typeof exercise === "string" && exercise.length > 0 ? exercise : "";
+      storeSessionCoaching(analysisId, ex, data, reps);
     } catch (e) {
       if ((e as Error).name === "AbortError" || ctrl.signal.aborted) return;
       setState({ kind: "error", message: (e as Error).message });

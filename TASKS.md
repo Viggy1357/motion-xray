@@ -12,6 +12,38 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-UX06 — recording and UI candidate delivered; device acceptance open (24 Oct)
+
+- FR01/02/03/05/06/09/10/12. Owner authorizes ordered Nebius recording repairs,
+  thumbnail/date/contrast fixes, missing UI,26-case QC and evidence-based merge.
+  Baseline5ebe828; one integrating writer, max3 independent external workers.
+- Source-only contexts; no private media or browser state to providers. Runtime
+  coaching remains explicit/separate. Reuse bounded runners, retain failed usage.
+- Justified one-off up to500k cumulative tokens across this acceptance task;
+  prior aggregate maxUSD23.32749565, activeUSD70/backupUSD30 unchanged.
+- Delivered asynchronous final-chunk preservation, actual stop-request duration,
+  59s capture headroom under strict60s input validation, countdown/resource cleanup,
+  memory-only thumbnail invalidation/collision fixes, local-date windows, intro,
+  Progress companion, actual session-cue caching and Settings return-to-origin.
+- Docker final controller/adapter checks,29 metadata/week/cache tests,13 coaching-cache
+  tests,12 overlay checks, web typecheck/build/lint pass;87 targeted API tests pass.
+  Earlier1,045 Python tests are HM-SQ01 evidence, not a UX06 rerun.
+- Browser: actual public upload->processing->report, mapped continuous replay,
+  360/375/1365 layouts, synthetic recording deadline->playable58.9977s Review,
+  retake discard, countdown cancel, denied/missing API fixtures, empty Progress,
+  Settings returning to selected clip and separate unchecked upload consent.
+- Physical camera permission remained pending despite owner approval; cancelled,
+  no real clip obtained/uploaded.100MiB overshoot is rejected safely, not Review.
+  Browser fault/quota/mobile interruption and exact full26-case acceptance remain.
+  No-person fixture failed honestly CHILD_FAILED; not proof of usable zero-cycle
+  partial report. Keep PR draft; no merge. Next HM-UX07 closes the listed gates.
+- Evidence: docs/audit/HM-UX06-delivery.md and HM-UX06-mockup-parity.md;
+  docs/delegation/HM-UX06-usage.json.25 development attempts,496,622 reported tokens,
+  USD4.072890 known conservative cost +USD1.622052 unknown-call reservations.
+  Prior aggregate maximum plus taskUSD29.02243765<70; backup untouched.
+  Three529 failures have unknown usage: cannot certify full billed tokens<500k.
+  No further paid calls; no product coaching/Tavily calls or private model context.
+
 ### HM-SQ01 — squat cycle recovery · delivered (24 Oct)
 
 - FR04/05/07/08/12. Nebius Kimi source diagnosis, local diagnostic CLI, versioned

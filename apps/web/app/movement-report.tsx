@@ -205,7 +205,7 @@ function ExperimentalMatch({ report }: { report: Report }) {
   );
 }
 
-export default function MovementReport({ analysisId, onReport }: { analysisId: string; onReport: (report: Report | null, settled: boolean) => void }) {
+export default function MovementReport({ analysisId, exercise, onReport }: { analysisId: string; exercise?: string; onReport: (report: Report | null, settled: boolean) => void }) {
   const [report, setReport] = useState<Report | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -402,7 +402,7 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
       </div>
 
       {completed.length > 0 && report.metrics.some((m) => m.value != null) && (
-        <GroundedCoaching analysisId={analysisId} reps={completed} />
+        <GroundedCoaching analysisId={analysisId} exercise={exercise} reps={completed} />
       )}
 
       {hasEstimate && (

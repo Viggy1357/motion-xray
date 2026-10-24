@@ -2,6 +2,15 @@
  * Pure capture state controller for CameraRecorder.
  * No DOM, no network, no real timers: clock and media adapters are injected.
  * Implements camera state table C00-C07 and error rows C-E01..C-E11.
+ *
+ * Countdown uses a single monotonic deadline (clock.now() + COUNTDOWN_SECONDS*1000)
+ * and a single setTimeout to that deadline; ticks are derived from the deadline,
+ * not from chained timer decrements. This avoids drift and double-fire races.
+ *
+ * Recording schedules an early deadline (recordStartMs + CAPTURE_STOP_MS) tracked
+ * by a single setTimeout, independent of the 250ms elapsed poll. The poll is
+ * only used for UI updates. A stalled browser event loop can delay any timer;
+ * strict final validation rejects a stop request beyond the 60s bound.
  */
 
 export type CaptureState =
@@ -39,7 +48,7 @@ export interface RecordedChunk {
 export interface RecorderAdapter {
   readonly mimeType: string;
   start(): void;
-  stop(): void; // must synchronously flush remaining chunks via onChunk then onStop
+  stop(): void; // requests stop; remaining chunks may be flushed asynchronously via onChunk before onStop fires
   onChunk: ((chunk: RecordedChunk) => void) | null;
   onStop: (() => void) | null;
   onError: ((err: unknown) => void) | null;
@@ -63,6 +72,11 @@ export interface ControllerEvents {
 }
 
 export const MAX_DURATION_MS = 60_000;
+// Schedule the deadline 1s before the strict 60s validation bound so the
+// actual stop request and encoded media have headroom below the bound.
+// Duration uses the actual stop-request time; a delayed stop beyond 60s
+// is rejected. Encoder conversion latency does not extend that duration.
+export const CAPTURE_STOP_MS = MAX_DURATION_MS - 1000;
 export const MAX_BYTES = 100 * 1024 * 1024; // 100 MiB
 export const COUNTDOWN_SECONDS = 3;
 
@@ -87,10 +101,16 @@ export class CaptureController {
   private recorder: RecorderAdapter | null = null;
 
   private countdownTimer: unknown = null;
-  private countdownRemaining = 0;
+  private countdownDeadlineMs = 0;
+  private countdownLastEmitted = -1;
+  private countdownDisplayTimer: unknown = null;
 
   private elapsedTimer: unknown = null;
+  private recordDeadlineTimer: unknown = null;
   private recordStartMs = 0;
+  private recordDeadlineMs = 0;
+  private recordDeadlineFired = false;
+  private recordStopMs: number | null = null;
   private bytes = 0;
   private chunks: RecordedChunk[] = [];
   private mimeType = '';
@@ -157,25 +177,48 @@ export class CaptureController {
     }
   }
 
-  /** C03 -> C04: explicit start; begins cancellable 3s monotonic countdown. */
+  /** Injected by host once a stream exists; returns a fresh recorder per take. */
+  recorderFactory: (() => RecorderAdapter) | null = null;
+
+  /**
+   * C03 -> C04: explicit start; begins cancellable 3s monotonic countdown.
+   * Uses a single deadline + single setTimeout; ticks are derived from the
+   * deadline so chained timer decrements cannot drift or double-fire.
+   */
   startCountdown(): boolean {
     if (this._state !== 'ready') return false;
-    this.countdownRemaining = COUNTDOWN_SECONDS;
+    this.countdownDeadlineMs = this.clock.now() + COUNTDOWN_SECONDS * 1000;
+    this.countdownLastEmitted = -1;
     this.setState('countdown');
-    this.events.onCountdownTick?.(this.countdownRemaining);
-    const tick = (): void => {
-      if (this._state !== 'countdown') return;
-      this.countdownRemaining -= 1;
-      if (this.countdownRemaining <= 0) {
-        this.countdownTimer = null;
-        this.beginRecording();
-        return;
-      }
-      this.events.onCountdownTick?.(this.countdownRemaining);
-      this.countdownTimer = this.clock.setTimeout(tick, 1000);
-    };
-    this.countdownTimer = this.clock.setTimeout(tick, 1000);
+    this.emitCountdownTick();
+    this.countdownTimer = this.clock.setTimeout(() => this.fireCountdown(), COUNTDOWN_SECONDS * 1000);
+    this.countdownDisplayTimer = this.clock.setInterval(() => this.emitCountdownTick(), 250);
     return true;
+  }
+
+  /**
+   * Emit a countdown tick if the remaining seconds (ceil) have changed since
+   * the last emission. Bounded updates: at most one tick per integer second.
+   */
+  private emitCountdownTick(): void {
+    if (this._state !== 'countdown') return;
+    const remainingMs = Math.max(0, this.countdownDeadlineMs - this.clock.now());
+    const remaining = Math.ceil(remainingMs / 1000);
+    if (remaining < 0) return;
+    if (remaining !== this.countdownLastEmitted) {
+      this.countdownLastEmitted = remaining;
+      this.events.onCountdownTick?.(remaining);
+    }
+  }
+
+  private fireCountdown(): void {
+    this.countdownTimer = null;
+    if (this.countdownDisplayTimer !== null) {
+      this.clock.clearInterval(this.countdownDisplayTimer);
+      this.countdownDisplayTimer = null;
+    }
+    if (this._state !== 'countdown') return;
+    this.beginRecording();
   }
 
   /** Cancel countdown: releases timers, sends 0 bytes, returns to ready. */
@@ -185,6 +228,12 @@ export class CaptureController {
       this.clock.clearTimeout(this.countdownTimer);
       this.countdownTimer = null;
     }
+    if (this.countdownDisplayTimer !== null) {
+      this.clock.clearInterval(this.countdownDisplayTimer);
+      this.countdownDisplayTimer = null;
+    }
+    this.countdownDeadlineMs = 0;
+    this.countdownLastEmitted = -1;
     this.setState('ready');
   }
 
@@ -208,16 +257,26 @@ export class CaptureController {
     this.stopping = false;
     this.finalized = false;
     this.recordStartMs = this.clock.now();
+    this.recordDeadlineMs = this.recordStartMs + CAPTURE_STOP_MS;
+    this.recordDeadlineFired = false;
+    this.recordStopMs = null;
 
     rec.onChunk = (chunk) => {
-      if (this._state !== 'recording' || this.finalized) return;
+      // MediaRecorder delivers its final chunk AFTER stopRecording() has
+      // transitioned the controller to 'finishing'. Accept chunks during
+      // finishing so the final flush is preserved, but never after the
+      // clip has been finalized. Oversize final chunks must reject safely
+      // (no truncation, no silent drop) by routing through stopRecording.
+      if (this.finalized) return;
+      if (this._state !== 'recording' && this._state !== 'finishing') return;
       this.chunks.push(chunk);
       this.bytes += chunk.data.byteLength;
       if (this.bytes >= MAX_BYTES) this.stopRecording('limit');
     };
     rec.onStop = () => this.finalize();
     rec.onError = () => {
-      if (this._state === 'recording') this.stopRecording('interrupted');
+      this.destroy();
+      this.fail('E04_CODEC', 'Could not encode the recording. Please try again.');
     };
 
     try {
@@ -230,31 +289,62 @@ export class CaptureController {
 
     this.setState('recording');
     this.events.onElapsed?.(0, 0);
+    // Absolute deadline timer: fires once at CAPTURE_STOP_MS (1s before the
+    // strict 60s validation bound) so the native MediaRecorder final flush
+    // and onStop callback have headroom to land inside MAX_DURATION_MS.
+    // The 250ms poll below is purely for UI updates.
+    this.recordDeadlineTimer = this.clock.setTimeout(
+      () => this.handleRecordDeadline(),
+      CAPTURE_STOP_MS,
+    );
     this.elapsedTimer = this.clock.setInterval(() => {
       if (this._state !== 'recording') return;
       const elapsed = this.clock.now() - this.recordStartMs;
       this.events.onElapsed?.(elapsed, this.bytes);
-      if (elapsed >= MAX_DURATION_MS) this.stopRecording('limit');
+      // Defensive: if the deadline timer was lost (e.g. clock skew), still
+      // stop. The deadline timer is the primary trigger.
+      if (elapsed >= CAPTURE_STOP_MS && !this.recordDeadlineFired) {
+        this.handleRecordDeadline();
+      }
     }, 250);
   }
 
-  /** Injected by host once a stream exists; returns a fresh recorder per take. */
-  recorderFactory: (() => RecorderAdapter) | null = null;
+  /**
+   * Deadline callback: fires once when MAX_DURATION_MS has elapsed. Stops the
+   * recording with reason 'limit'. Guarded against double-fire via
+   * recordDeadlineFired.
+   */
+  private handleRecordDeadline(): void {
+    if (this.recordDeadlineFired) return;
+    if (this._state !== 'recording') return;
+    this.recordDeadlineFired = true;
+    this.stopRecording('limit');
+  }
 
   /** C05 -> C06: explicit stop, hard limit, or interruption. */
   stopRecording(reason: 'user' | 'limit' | 'interrupted' = 'user'): void {
     if (this._state !== 'recording' || this.stopping) return;
     this.stopping = true;
     if (reason === 'interrupted') this.interrupted = true;
+    // Capture the actual stop-request timestamp BEFORE rec.stop() so the
+    // duration reflects when the user/limit/interrupt asked to stop, not
+    // when the native encoder finished flushing. recordStopMs is nullable
+    // and reset by destroy()/new-take so a stale value cannot leak across
+    // takes.
+    this.recordStopMs = this.clock.now();
     if (this.elapsedTimer !== null) {
       this.clock.clearInterval(this.elapsedTimer);
       this.elapsedTimer = null;
+    }
+    if (this.recordDeadlineTimer !== null) {
+      this.clock.clearTimeout(this.recordDeadlineTimer);
+      this.recordDeadlineTimer = null;
     }
     this.setState('finishing');
     const rec = this.recorder;
     if (rec) {
       try {
-        rec.stop(); // triggers onStop -> finalize
+        rec.stop(); // triggers onStop -> finalize (async flush permitted)
       } catch {
         this.finalize();
       }
@@ -268,7 +358,14 @@ export class CaptureController {
     if (this.finalized) return;
     this.finalized = true;
     this.stopping = false;
-    const durationMs = Math.max(0, this.clock.now() - this.recordStartMs);
+    // Duration uses the stop-request timestamp captured in stopRecording(),
+    // not the finalize instant. If recordStopMs is null (defensive: e.g.
+    // finalize called without a prior stopRecording), fall back to
+    // the current monotonic clock. Never invent a scheduled duration for
+    // an unexpected native stop; an overlong take still fails validation.
+    const stopMs = this.recordStopMs ?? this.clock.now();
+    const durationMs = Math.max(0, stopMs - this.recordStartMs);
+    this.recordStopMs = null;
     const chunks = this.chunks;
     const bytes = this.bytes;
     const mime = this.mimeType;
@@ -285,10 +382,11 @@ export class CaptureController {
       return;
     }
     // Hard limits: a clip must be strictly under 100MiB and within the 60s
-    // bound (plus flush slack). The byte guard in onChunk fires at >= MAX_BYTES,
-    // so any take that tripped it always arrives here at or over the limit and
-    // must be rejected rather than finalized.
-    if (durationMs > MAX_DURATION_MS + 2000 || bytes >= MAX_BYTES) {
+    // bound. The byte guard in onChunk fires at >= MAX_BYTES, so any take that
+    // tripped it always arrives here at or over the limit and must be rejected
+    // rather than finalized. Duration is validated against the strict 60s
+    // bound; delayed event-loop callbacks can still exceed it and fail.
+    if (durationMs > MAX_DURATION_MS || bytes >= MAX_BYTES) {
       this.fail('E05_VALIDATION', 'Trim this clip to 60 seconds and 100MiB or less.');
       return;
     }
@@ -318,6 +416,10 @@ export class CaptureController {
 
   /** Full teardown: tracks/timers/recorder races (C-E08/C-E10). */
   destroy(): void {
+    if (this.countdownDisplayTimer !== null) {
+      this.clock.clearInterval(this.countdownDisplayTimer);
+      this.countdownDisplayTimer = null;
+    }
     this.clearTimers();
     const rec = this.recorder;
     this.recorder = null;
@@ -333,6 +435,11 @@ export class CaptureController {
     }
     this.chunks = [];
     this.bytes = 0;
+    this.recordDeadlineFired = false;
+    this.recordDeadlineMs = 0;
+    this.recordStopMs = null;
+    this.countdownDeadlineMs = 0;
+    this.countdownLastEmitted = -1;
     this.setState('idle');
   }
 
@@ -344,6 +451,10 @@ export class CaptureController {
     if (this.elapsedTimer !== null) {
       this.clock.clearInterval(this.elapsedTimer);
       this.elapsedTimer = null;
+    }
+    if (this.recordDeadlineTimer !== null) {
+      this.clock.clearTimeout(this.recordDeadlineTimer);
+      this.recordDeadlineTimer = null;
     }
   }
 }
