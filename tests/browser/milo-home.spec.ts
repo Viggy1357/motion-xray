@@ -6,9 +6,8 @@ const INTRO = 'How Motion X-Ray works';
 async function gotoHome(page: Page) {
   await page.goto('/');
   const introHeading = page.getByRole('heading', { name: INTRO, level: 2 });
-  if (await introHeading.isVisible().catch(() => false)) {
-    await page.getByRole('button', { name: 'Skip intro', exact: true }).click();
-  }
+  await expect(introHeading).toBeVisible();
+  await page.getByRole('button', { name: 'Skip intro', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Make your');
   await expect(introHeading).toBeHidden();
 }
