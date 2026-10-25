@@ -104,8 +104,10 @@ technique scores stay null; only reference-resemblance estimates are reported.
 
 ## Current feature list (true record)
 
-- Guest video upload (under60s, under100MiB) and browser-local history.
-- Real CPU pose processing for the four release exercises.
+- Guest video upload (under 60s, under 100 MiB) and browser-local history.
+- Real CPU pose processing for the four release exercises: cable lat
+  pulldown, standing dumbbell curl, bodyweight squat, incline dumbbell
+  press. Lateral raise is deferred.
 - Source-time-aligned 2D pose overlay and playable detected segments.
 - Deterministic similarity-to-reference reports (no technique grading).
 - Optional grounded Nemotron coaching, **explicitly disabled** when no
@@ -113,18 +115,31 @@ technique scores stay null; only reference-resemblance estimates are reported.
 - Browser camera capture on `localhost` (own clip, consent required).
 - Local-only analysis: no API key required for the core perception path
   after the one-time model download.
+- Quiet companion Pip on the home screen and during processing — gentle
+  breathing, attentive tilt, three rotating local encouragement messages.
+  No provider call, no progress estimate, no technique or health claim.
+  Reduced-motion and visibility preferences are respected.
 
-## Status — 24 October 2026
+## Status — 25 October 2026
 
-- Branch `codex/hm-ux05-mockup-implementation` @ `64b7bc3`.
-- `./scripts/check-browser.sh`: 54 fixture cases pass in ~48s across 360 /
-  375 / 1365 Chromium viewports. See `docs/audit/HM-UX09-delivery.md`.
+- Final QC started from commit `25ec8f3` on branch
+  `codex/hm-ux05-mockup-implementation`.
+- `./scripts/check-browser.sh`: 108 fixture cases pass across 360 / 375 /
+  1365 Chromium viewports.
 - `./scripts/test.sh web`: type generation, typecheck, framework lint, and
   production build pass.
+- 1109 Python tests recorded; aggregate offline checks and contract drift
+  pass.
+- HM-FINAL01 pins patched PostCSS8.5.23 across the dependency tree. Production
+  dependency audit reports zero advisories; one moderate build-tool finding
+  remains documented in `docs/audit/HM-FINAL01-security.md`.
 - One real owned-lat `Generate coaching` call documented historically
   (1427 input / 38 output tokens, 1.103s) — see
   `docs/audit/HM057-HM06-delivery.md`. **No hosted runtime is active in
   this prep pass.**
+- Scoped Nebius source review plus coordinator adjudication completed;
+  reference calibration and measurement accuracy remain unreviewed. See
+  docs/audit/HM-FINAL01-source-review.md. No new paid product-runtime run.
 - Submission pack: `docs/submission/READINESS.md`,
   `docs/submission/DEVPOST-DRAFT.md`, `docs/submission/DEMO-SCRIPT.md`.
 

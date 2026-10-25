@@ -12,6 +12,35 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-FINAL01 — final code QC and submission pack · delivered locally (25 Oct)
+
+- FR01–12 release gate: bounded Nebius backend/runtime review and submission drafts;
+  coordinator verifies findings, full offline container checks and generated contracts.
+- Reuse accepted evidence; no recalibration, generic model tournament, new paid runtime
+  coaching, hosting purchase, repository visibility change or final submission.
+- Existing implementation PR1 and private branch may be updated/pushed. Preserve the
+  uncommitted BRAG task record. Public release/judge access remain explicit next gates.
+- Default200k cumulative tokens; shared USD70 ceiling/USD30 protected; reconcile new
+  BRAG-SETUP01 USD0.257739 once against prior HM-MILO02 aggregate before new dispatch.
+- Nebius supplied scoped runtime/worker source review, adjudication, submission drafts,
+  PostCSS patch and intro-helper race repair. No proven material application blocker
+  in reviewed scope; optional diagnostic hardening recorded, not a security certification.
+- Fixed four production dependency advisories via exact PostCSS8.5.23 pin/override;
+  production audit0, one moderate build-tool selector-parser advisory retained with
+  trusted-CSS boundary. No scoring/config/runtime quota change.
+- Checks: full offline Python/web pass (1,109 Python tests), generated contracts no
+  drift; patched web build/types/lint and final108/108 browser cases pass. Intermediate
+ 107/108 intro test race repaired without weakened assertions/timeouts. Existing local
+  web dependencies refreshed in Docker and web HTTP200; API/worker/state unchanged.
+- Refreshed README, three submission files and PR1 description. Repo remains private,
+  defaultmain old; public release/judge access/video/registration remain pending.
+  Owner confirms new project last week, corroborated by16Oct first commit/GitHub creation.
+- Evidence: docs/audit/HM-FINAL01-{delivery,source-review,security}.md and
+  docs/delegation/HM-FINAL01-usage.json. Ten calls149,607/200k tokens, USD1.304793 guard
+  incl failures; known aggregateUSD36.89465965<70 after new BRAG cost once; backup30 untouched.
+- Next HM-RELEASE03: public release/judge access and permissioned demo; verify current
+  GitHub push/CI. Owner will complete Devpost registration later; no final submission.
+
 ### HM-MILO02 — restore athlete, resting Pip and processing encouragement · delivered locally (25 Oct)
 
 - FR01/03/10/12. Owner wants original Home athlete retained with a small resting Pip

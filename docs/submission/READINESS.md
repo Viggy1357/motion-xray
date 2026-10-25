@@ -1,190 +1,152 @@
-# Submission readiness — checked24 October2026
+# READINESS — Motion X Ray
 
-Sources: https://nebiusglobalaihackathon.devpost.com/rules and
-https://nebiusglobalaihackathon.devpost.com/ . Live form fields not inspected.
+> Release requirements and remaining actions for the Nebius x NVIDIA Global AI Hackathon.
 
-Preparation is authorized. Repository visibility, new hosting spend, publication
-of private footage and final submission remain owner-controlled. Routine
-preparation, checks and updates to the existing private branch can proceed. All evidence below is grounded
-in observed build artefacts in this repository; nothing is fabricated.
+Verified 25 October 2026. Local candidate commit `25ec8f3`. GitHub repo
+`Viggy1357/motion-xray` (currently private). Implementation branch
+`codex/hm-ux05-mockup-implementation` matches remote; `main` is older
+(`c395ecf`). Draft PR #1 open, mergeable, prior CI green at `25ec8f3`.
 
-## 1. Official-rule requirement / status / evidence / remaining-action matrix
+---
 
-| # | Official requirement | Status | Evidence in repo | Remaining owner action |
-|---|---|---|---|---|
-| R1 | Working Nebius runtime + NVIDIA model call | Met (local dev only) | `docs/audit/HM057-HM06-delivery.md` — one real owned-lat set call: 1427 input / 38 output tokens, 1.103s, candidate IDs validated locally; `ALLOW_LIVE_COACHING=false` default in `.env.example` | Owner decides hosting path; no new runtime call made during this preparation |
-| R2 | Public GitHub repo with licence + setup | Not ready | `LICENSE` present locally (MIT); remote default branch is `main`, currently PRIVATE; `README.md` setup commands verified in `docs/OPERATIONS.md` | Owner authorizes changing visibility or a separate sanitized public release; confirm licence detection on GitHub (currently Other) |
-| R3 | Functioning demo / test build URL | Not ready | Local Docker stack only (`docker compose -f infra/compose.yaml up --build`); no hosted URL | Owner chooses free-tier hosting or hosted-app route; do not buy hosting in prep |
-| R4 | English project description on Devpost | Draft only | `docs/submission/DEVPOST-DRAFT.md` (this pack) | Owner pastes into Devpost form fields manually |
-| R5 | Public YouTube demo video UNDER 3 min | Not ready | `docs/submission/DEMO-SCRIPT.md` (2m40s script + capture checklist) | Owner records, edits, uploads; mark real-time waits visibly |
-| R6 | Tools used feedback (NVIDIA / Nebius / Tavily) | Partial, honest | 14 Nebius dev calls + 1 runtime guard call documented in `HM057-HM06-delivery.md`; Tavily not used at runtime (cached provider default) | Owner writes first-hand feedback; no invented praise |
-| R7 | Significant update statement (if pre-existing) | Needs owner confirmation | Original project start date not established; current branch `codex/hm-ux05-mockup-implementation` @ `64b7bc3` | Owner confirms original build start date and writes the statement |
-| R8 | Free judge access through 15 Dec 2026 noon PST | Not ready | No hosted app yet; local Docker works for owner only | Owner stands up free-tier hosted instance or hosted-app route |
-| R9 | Four criteria coverage (implementation / design / impact / idea) | Mapped | See §2 below | Owner reviews mapping before submit |
-| R10 | Tavily award eligibility (functional Tavily call) | Not established | `SEARCH_PROVIDER=cached` default; current demonstrated app path uses cached evidence; no app-runtime Tavily proof in this assessment | Owner may opt in later; do not claim eligibility now |
-| R11 | Deadline 30 Oct 10am PDT = 31 Oct 1am MYT | Tracked | This prep pack | Owner submits before deadline |
-| R12 | Track recommendation: Best Apps and Agents | Recommended | App + grounded coaching agent pattern in `HM057-HM06-delivery.md` | Owner confirms track on Devpost |
+## 1. Requirements matrix (primary sources)
 
-## 2. Four-criteria mapping (equally weighted)
+Sources: [official rules](https://nebiusglobalaihackathon.devpost.com/rules) and [event overview](https://nebiusglobalaihackathon.devpost.com/), rechecked 25 Oct 2026. Submission deadline
+**30 Oct 2026, 10:00 PDT = 31 Oct 2026, 01:00 MYT**. Judging access
+window **15 Dec 12:00 PST = 16 Dec 04:00 MYT**.
 
-- **Implementation** — Containerised Docker stack (web + api + worker), 971
-  Python tests recorded23Oct and54 browser fixture cases passing24Oct, deterministic movement
-  reports for four exercises, signed-session API, durable SQLite coaching
-  cache with atomic quotas. Evidence: `docs/audit/HM057-HM06-delivery.md`,
-  `docs/audit/HM-UX09-delivery.md`.
-- **Design** — Restrained 220ms cross-fade via native View Transitions,
-  reduced-motion respected, segment thumbnails at measured start times,
-  static Home athlete preserved. Evidence: `docs/design/HM-UX09-roadmap.md`,
-  `docs/audit/HM-UX09-delivery.md`.
-- **Impact** — Personal-training MVP for short workout clips; similarity-to-
-  reference framing (not technique grading); grounded coaching with local
-  allowlist of public summaries; no clinical or medical claims.
-  Evidence: `docs/PRODUCT.md`, `HM057-HM06-delivery.md` §"Grounded coaching".
-- **Idea** — Pose extraction → rep segmentation → exercise metrics →
-  reference comparison → deterministic similarity → grounded Nemotron
-  coaching, with explicit separation of measured signal coverage vs.
-  accuracy. Evidence: `README.md` "Intended product (P0)",
-  `docs/ANALYSIS-PROCESSING.md`.
+### R1 — Public, licensed repo with setup
+Source: Rules. Status: **Blocked — repository is private**. Owner to authorise public release before submit.
 
-## 3. Priority-ordered next steps (P0 demo / public repo / reproducible assets / runtime / demo video)
+The implementation branch contains canonical MIT text. GitHub still reports licence
+`Other` on older default `main`; verify visible licence detection after the reviewed
+release/default-branch update, before providing the public link.
 
-### P0 — Demo must work for a judge without the owner's paid key
-1. Confirm hosted-app route OR free-tier hosting that exposes the existing
-   Docker stack publicly. Judges must not need the owner's Nebius key.
-2. If hosted-app route: ensure the hosted instance uses its own
-   `NEBIUS_API_KEY` and `SESSION_SECRET`; do not embed owner secrets.
-3. Local contributors continue to use their own `.env` per `.env.example`.
+### R2 — Working demo / hosted app / test build URL
+Source: Rules. Status: **Unknown — owner action**. No hosting purchased or activated in prep. Local Docker is the only verified run path.
 
-### P1 — Public repo
-1. Owner confirms licence (MIT local; GitHub detection currently shows
-   "Other" — verify after push).
-2. Owner authorizes changing visibility or a separate sanitized public release of current branch.
-3. Confirm `README.md` setup commands still match `docs/OPERATIONS.md`.
+### R3 — English description
+Source: Rules. Status: **Verified (draft)**. `docs/submission/DEVPOST-DRAFT.md` prepared; final Devpost form not inspected from prep.
 
-### P2 — Reproducible assets
-1. Verify `./scripts/test.sh all` exits 0 on a fresh clone.
-2. Verify `./scripts/check-browser.sh` exits 0 (54 cases).
-3. Verify `./scripts/pose-smoke.sh --video demo/lat_pulldown.mp4 --start-s 10 --duration-s 10 --repeat`
-   runs against the pinned local checkpoint (sha256 in `.env.example`).
-4. Do NOT commit the model checkpoint blob; obtain from the pinned official model manifest.
+### R4 — Public YouTube video under 3 min
+Source: Rules. Status: **Unknown — owner action**. Script in `docs/submission/DEMO-SCRIPT.md`; capture not authorised by prep.
 
-### P3 — Runtime proof for demo video
-1. Record one real `Generate coaching` interaction on an owned lat set.
-2. Capture distinct cached-result replay (no second model call).
-3. Redact any private frames before publishing.
+### R5 — Show actual working device
+Source: Rules. Status: **Pending demo capture**. Apple Silicon macOS is locally verified; actual-device demo footage has not been recorded.
 
-### P4 — Demo video (UNDER 3 min, target 2m40s)
-1. Follow `docs/submission/DEMO-SCRIPT.md` time table.
-2. Mark real-time pipeline waits with visible "[real-time wait — edited]" cards.
-3. Upload to public YouTube; do not mark unlisted unless owner decides.
+### R6 — Free access through judging window
+Source: Rules. Status: **Unknown — owner action**. Depends on R2 hosting choice. Current safeguards: 20 global/day, 4 per owner/day, 100 lifetime. Remaining capacity and a durable judge-access plan must be established; these quotas alone do not establish access.
 
-## 4. Owner-controlled declarations (IRL city / registration / final submit)
+### R7 — Feedback tools available
+Source: Rules. Status: **Verified (draft)**. Devpost draft includes grounded feedback section; no invented praise.
 
-- **IRL city**: owner to declare on Devpost profile; not asserted here.
-- **Registration**: owner completes Devpost registration; this pack does not
-  register on owner's behalf.
-- **Final submit**: owner clicks Submit on Devpost. This pack prepares only.
+### R8 — Significant update if pre-26 Aug
+Source: Rules. Status: **N/A — confirmed**. First commit `09d0ca7` dated 16 Oct 2026 23:30:56 +08; GitHub API `created_at` 16 Oct 2026 15:50:33Z. New project within period; no pre-existing update block required.
 
-## 5. Historical vs. current proof (do not conflate)
+### R9 — Four criteria: implementation, design, impact, idea
+Source: Rules. Status: **Verified (draft)**. Devpost draft maps content to all four.
 
-- **Historical (23 Oct 2026, owned lat set, local dev)**: real Nebius
-  Nemotron call, 1427 input / 38 output tokens, 1.103s. See
-  `HM057-HM06-delivery.md`. This is **not** current hosted validation.
-- **Current (24 Oct 2026, branch `codex/hm-ux05-mockup-implementation`
-  @ `64b7bc3`)**: 54 browser fixture cases pass; web typecheck + production
-  build pass; no hosted runtime. See `HM-UX09-delivery.md`.
-- **Not claimed**: clinical accuracy, technique grading, muscle-activation
-  measurement, camera-derived injury risk, nutrition/recovery scoring.
+### R10 — Track selection
+Source: Rules. Status: **Verified (proposed)**. "Best Apps and Agents" proposed; owner to confirm on form.
 
-## 6. Judge access — operational / cost guard
+### R11 — Tavily bonus (functional runtime call)
+Source: Rules. Status: **Not claimed**. `SEARCH_PROVIDER=cached` default; no Tavily call in submitted runtime path.
 
-- Judges reach the app via the public URL the owner stands up.
-- Hosted instance uses its own Nebius key; owner key is not exposed.
-- Default `ALLOW_LIVE_COACHING=false`; owner flips to `true` on hosted env
-  only after confirming quota headroom.
-- Quota: 20 global reservations / UTC day, 4 per owner / day, 100 lifetime.
-  Cache hits do not consume quota. See `HM057-HM06-delivery.md` §"Grounded
-  coaching".
-- No Tavily runtime calls in default config.
-- No automatic retries; failed reservations fail closed.
+### R12 — Cloud hosting not mandatory if suitable test build
+Source: Rules. Status: **Test-build route available under the rules, delivery unverified**. Docker setup is verified locally; no publicly accessible judge test-build URL is ready.
 
-## 7. Upload owner isolation / security
+### R13 — Formal rules precedence
+Source: Rules. Status: **Verified**. Rules cited above; no claim overrides them.
 
-- Signed-session clients only; CSRF, expired raw pose, deletion, and
-  owner checks run before cache use and again before returning results.
-- Cache does not extend video/pose access.
-- Raw media TTL 24h, report TTL 7d (`.env.example`).
-- No raw video or pose arrays sent to the runtime LLM; only measured
-  observations + one sourced general cue.
-- Physical cleanup of the new text-cache ledger is future work; flagged
-  in `HM057-HM06-delivery.md`.
+### R14 — Form mapping
+Source: Rules. Status: **Proposed**. Live Devpost form not inspected from prep; mapping is best-effort.
 
-## 8. Specific run checks (source commands, existing README only)
+### R16 — Runtime: Token Factory call or Nebius compute plus NVIDIA open model
+Source: Rules. Status: **Verified (historical, local)**. One real owned-lat runtime call documented historically (1427 in / 38 out, 1.103s) — see `docs/audit/HM057-HM06-delivery.md`. Not current hosted proof. Model candidate ID: `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B`.
 
-These are the only commands referenced; all exist in repo today.
+---
 
-- `./scripts/test.sh all` — offline Python + web checks (per `README.md`).
-- `./scripts/check-browser.sh` — 54 browser fixture cases (per
-  `HM-UX09-delivery.md`).
-- `./scripts/pose-smoke.sh --video demo/lat_pulldown.mp4 --start-s 10 --duration-s 10 --repeat`
-  — local pose diagnostic (per `README.md`).
-- `docker compose -f infra/compose.yaml up --build` — full stack (per
-  `README.md`).
-- `docker compose -f infra/compose.yaml down` — stop, preserve state
-  (per `README.md`).
+## 2. Verified vs unknown — at a glance
 
-No additional commands are invented here. Anything not listed above is
-out of scope for this prep pack.
+**Verified (local, offline):**
+- Full Docker Python lint/mypy/tests + web types/build pass this run.
+- 108/108 browser fixture cases pass across 360 / 375 / 1365 viewports.
+- 1109 Python tests recorded; aggregate offline checks and contract drift pass.
+- Generated contracts regenerated with no diff.
+- Apple Silicon macOS is the only locally verified host.
+- One real owned-lat runtime call documented historically (1427 in / 38 out, 1.103s) — see `docs/audit/HM057-HM06-delivery.md`. Not current hosted proof.
+- Coaching path is **off** by default; only enabled when `ALLOW_LIVE_COACHING=true` with a valid `NEBIUS_API_KEY`.
+- Model candidate ID: `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B` (from README).
+- Coding agents are distinct: Codex performed the final source/contract gate and narrow integration corrections; Nebius produced UI and diagnostic drafts. No merged agent identity.
 
-## Current branch and reproducibility gates
+**Unknown / owner pending:**
+- Public repo URL (repo currently private).
+- Hosted demo / test build URL.
+- Public YouTube demo URL.
+- IRL event attendance/city, only if seeking the City award. Project start is confirmed by the owner and corroborated by 16 October history.
+- Public reference video redistribution and authorisation (D007 public boundary).
+- Devpost form field mapping (live form not inspected).
+- Public demo clip permission (footage not yet selected or authorised).
+- Coaching account balance (unknown; not verified).
 
-The latest implementation is on `codex/hm-ux05-mockup-implementation`; remote
-`main` is an older checkpoint (c395ecf). A default GitHub clone currently does not
-select the demonstrated build. Resolve with a reviewed release merge or explicitly
-pin the judge test-build branch/commit. No merge or visibility change performed.
+**Explicit non-claims:**
+- No clinical accuracy, technique grading, or injury-risk claims.
+- No muscle-activation or nutrition/recovery claims.
+- No user counts, paid-customer metrics, or third-party praise.
+- No claim that paid development calls satisfy product runtime.
+- No 3D skeleton in main app (separate diagnostic, not a feature).
+- No real-time / live / hardware claims.
+- No retention metrics.
+- No chat or safety advice from the model.
 
-The tracked-file extension inventory found only original avatar/concept images,
-not user videos, model binaries or databases. This is NOT a full Git-history secret
-or licensing audit. Inspect history, logs, fixture content and third-party terms
-before any public release. GitHub currently reports licence `Other` despite local
-MIT text; investigate detection rather than claiming recognisable MIT status.
+---
 
-Fresh-clone setup has NOT been rerun. The documented pose diagnostic command uses
-ignored private sample footage; replace that dependency with owner-approved public
-sample footage or clear judge-upload instructions. Download the model from the
-pinned URL in data/pose_models/mediapipe-full-v1.json and verify its SHA256; setup
-scripts do not automatically obtain it.
+## 3. Priority next actions (no exact schedule)
 
-Existing coaching limits20/day globally,4/day per owner,100 lifetime could exhaust
-before judging ends. Check actual remaining reservations and design a judge-access
-plan within an approved budget. Do not silently disable spending controls or promise
-unrestricted live coaching. Persist server secrets and storage, verify HTTPS upload,
-proxy limits, cookies/CSRF, expiry, restart and owner isolation on the chosen host.
+Ordered by dependency, not by date. Owner decides timing.
 
-No hosting account, entitlement, public URL, Devpost registration/draft or YouTube
-upload has been verified. Owner reports no existing submission. Hosting needs a
-concrete provider/uptime/cost proposal; Sites alone cannot run the Python worker.
+1. **Owner: select and authorise a public demo clip.** Until this is done, no footage capture or upload is authorised. Separate from any live call.
+2. **Owner: record the demo per `docs/submission/DEMO-SCRIPT.md`** (target 2:40, under 3:00). Insert the "[real-time wait — edited]" card over the processing screen. Record one real `Generate coaching` click; do not pre-render the note.
+3. **Owner: decide hosting.** Free-first hosting for judge access is the proposed path; no hosting purchased in prep. Local Docker alone is not a public judge link.
+4. **Review the release diff, third-party reference policy and artwork rights; then authorise public visibility** and verify the licence and setup on the release/default branch.
+5. **Owner: create the Devpost submission** using `docs/submission/DEVPOST-DRAFT.md` as the content source. Confirm field mapping against the live form.
+6. **Owner: paste the three URLs** (repo, hosted app, YouTube) into the Devpost form. No fake URLs in the draft.
+7. **Owner: confirm track** ("Best Apps and Agents" proposed).
+8. **Owner: fill the optional firsthand-feedback placeholders** in the Devpost draft from personal experience only. Do not invent.
 
-## Suggested schedule (proposal)
+**Deadline gate:** 30 Oct 2026, 10:00 PDT = 31 Oct 2026, 01:00 MYT. All of the above must complete before this gate.
 
--24–25Oct: hosting choice, sanitized release audit, fresh-clone instructions.
--25–27Oct: deploy approved target and verify actual judge upload/results/coaching.
--27–28Oct: capture permitted footage and record/edit demo under3minutes.
--29Oct: fill Devpost, verify all links in a signed-out browser and review claims.
--30Oct MYT: submit after owner review, ahead of31Oct01:00MYT cutoff.
--Through16Dec04:00MYT: retain free judge access and an operator monitoring plan.
+---
 
-Dates are planning targets, not evidence that these steps are complete.
+## 4. Release / publishing / rights / quota gates
 
-## 25 October local onboarding update
+- **Release:** Repo must be public before submit. Branch `codex/hm-ux05-mockup-implementation` is the demonstrated build; `main` is older. Owner to merge a release or document the branch choice in the Devpost description.
+- **Publishing:** No MP4 render produced in prep. Demo video export is an owner action (1080p, H.264, audio normalised).
+- **Rights:** Public reference videos are not bundled; redistribution and authorisation are unreviewed (D007). Owner to resolve before any public reference clip is shown.
+- **Quota:** Atomic coaching quota is in place. Current safeguards: 20 global/day, 4 per owner/day, 100 lifetime. Access/capacity through judging remains unverified. Account balance not verified; protected 30 untouched.
+- **Evidence budget:** No invented metrics, no invented feedback, no invented praise. Reference resemblance and measurement accuracy remain unreviewed.
 
-HM-RELEASE02 now supplies scripts/quickstart.sh, docs/QUICKSTART.md and docs/INDEX.md.
-A tracked-files-only clean export with fresh config/model/state passed Docker startup
-and worker initialization; alternate ports isolated it from the existing app.
-1,071 offline Python regressions pass. Source cues load in installed-package mode.
-No private demo footage is needed for setup; judges can record/upload their own clip.
-A synthetic no-person upload failed honestly; successful human-clip processing in
-this fresh export and other host architectures remain unverified. See
-docs/audit/HM-RELEASE02-delivery.md. This supersedes the earlier “fresh-clone setup
-not rerun” note for the bounded tracked-export test only. Public visibility, default
-release branch, video, actual form and judge-access/quota planning remain open.
+---
+
+## 5. Platform note
+
+Apple Silicon macOS is the only locally verified host. Linux Docker is
+the documented run path. Windows native is not verified (use WSL2). No
+x86_64-only claims are made.
+
+---
+
+## 6. Registration and remaining owner inputs
+
+Owner confirms registration and a Devpost project draft have not been started and will be completed later. Motion X-Ray started last week; first commit and repository creation corroborate 16 October 2026.
+
+- Public repo authorisation.
+- Hosting decision and URL.
+- Demo clip selection and authorisation.
+- Devpost form field confirmation.
+- Track confirmation.
+- Optional firsthand feedback (personal experience only).
+- IRL city (if the owner wishes to include it).
+
+No submission, no visibility change, no live inference, and no private
+footage publication is authorised by this prep document.
