@@ -7,6 +7,7 @@ import type { ReactElement } from "react";
 import type { components } from "../generated/api";
 import MovementReport from "./movement-report";
 import AthleteCompanion from "./athlete-companion";
+import MiloCompanion from "./components/MiloCompanion";
 import PoseReplay from "./pose-replay";
 import CameraRecorder from "./components/CameraRecorder";
 import SettingsPanel from "./components/SettingsPanel";
@@ -25,6 +26,7 @@ import {
 import type { UxMetadata, UxSettings } from "./lib/ux-metadata";
 import { inWeek, weekDays, weekBounds } from "./lib/week-window";
 import { clearSessionCoaching } from "./lib/coaching-session";
+import type { MiloVisualState } from "./lib/milo-assets";
 
 type PrototypeReport = components["schemas"]["PrototypeAnalysisResult"];
 type SessionInfo = components["schemas"]["SessionInfo"];
@@ -282,6 +284,7 @@ export default function Page() {
   const [pendingCreate, setPendingCreate] = useState<PendingCreate | null>(null);
   const [exercisePickerOpen, setExercisePickerOpen] = useState(false); // presentation only: exercise selector disclosure
   const [recorderOpen, setRecorderOpen] = useState(false);
+  const miloFreshIds = useRef<Set<string>>(new Set());
   const [cameraAvailable, setCameraAvailable] = useState<boolean | null>(null);
 
   // Save form
@@ -704,6 +707,11 @@ export default function Page() {
     if (!r.ok) throw new Error(await readError(r));
     const s = (await r.json()) as AnalysisStatus;
     const j = { analysisId: s.id, exercise: ex, createdAt: s.created_at };
+    miloFreshIds.current.add(s.id);
+    if (miloFreshIds.current.size > 64) {
+      const first = miloFreshIds.current.values().next().value;
+      if (first !== undefined) miloFreshIds.current.delete(first);
+    }
     setJob(j); setStatus(s); setPendingCreate(null);
     try { localStorage.setItem(JOB_KEY, JSON.stringify(j)); } catch { /* ignore */ }
     navigate({ name: "results", analysis: s.id, exercise: ex });
@@ -811,6 +819,23 @@ export default function Page() {
     Array.isArray(movementProof.metrics) &&
     movementProof.metrics.some((m) => m.value !== null);
 
+  const miloVisual: MiloVisualState =
+    recorderOpen || resultErr || (status && (status.state === "failed" || status.state === "cancelled"))
+      ? "static"
+      : jobActive
+        ? "attentive"
+        : movementSettled
+          ? recognitionEligible
+            ? miloFreshIds.current.has((job?.analysisId ?? ""))
+              ? "cheer"
+              : "idle"
+            : "attentive"
+          : "idle";
+  const miloEventKey: string =
+    recognitionEligible && (job?.analysisId ?? "") && miloFreshIds.current.has((job?.analysisId ?? ""))
+      ? (job?.analysisId ?? "") + ":result:ready"
+      : "";
+  const showMilo = uxMeta.showMilo !== false;
   const saveLog = () => {
     if (result && !movementSettled) {
       setResultErr("The movement report is still loading — wait for it to finish (or fail) before saving, so detected reps and analysis recognition are not lost.");
@@ -1042,10 +1067,24 @@ export default function Page() {
                 <p className="herosub">Movement insights for your next set.</p>
               </div>
               <div className="heroart">
-                <AthleteCompanion exercise={exercise} variant="poster" />
+                {showMilo ? (
+                  <MiloCompanion
+                    state={miloVisual}
+                    eventKey={miloEventKey}
+                    size="hero"
+                    hidden={recorderOpen}
+                    reducedMotion={false}
+                  />
+                ) : (
+                  <AthleteCompanion exercise={exercise} variant="poster" />
+                )}
               </div>
             </div>
-            <p className="illabel">Illustration — generic athlete artwork, rendered front and back views (not a 360° model)</p>
+            <p className="illabel">{
+              showMilo
+                ? "Meet Milo, your quiet gym companion."
+                : "Illustration — generic athlete artwork, rendered front and back views (not a 360° model)"
+            }</p>
             <button className="btn herocta" onClick={() => navigate({ name: "analyse" })}>Analyse a set</button>
             {activeBanner}
             {introReady && introOpen && (
@@ -1124,6 +1163,17 @@ export default function Page() {
             <h1 className="h-page" id="an-h" tabIndex={-1} ref={h1Ref}>Let’s get a clear view.</h1>
             <p className="lede">Record a set or choose a video. One set per clip, up to {MAX_SECONDS} seconds and 100 MiB. MP4, MOV or WebM.</p>
             {activeBanner}
+            {jobActive && showMilo && !recorderOpen && (
+              <div className="milo-compact-wrap">
+                <MiloCompanion
+                  state={miloVisual}
+                  eventKey={miloEventKey}
+                  size="compact"
+                  hidden={false}
+                  reducedMotion={false}
+                />
+              </div>
+            )}
             {jobActive ? (
               <div className="state warn" role="status">
                 An analysis is already in progress. You can review it or check your progress while it runs — start a new upload once it finishes.
@@ -1236,7 +1286,18 @@ export default function Page() {
 
         {route.name === "results" && (
           <section className="view" aria-labelledby="res-h">
-            <h1 className="h-page" id="res-h" tabIndex={-1} ref={h1Ref}>Your set, explained.</h1>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+              <h1 className="h-page" id="res-h" tabIndex={-1} ref={h1Ref}>Your set, explained.</h1>
+              {showMilo && !recorderOpen && (
+                <MiloCompanion
+                  state={miloVisual}
+                  eventKey={miloEventKey}
+                  size="compact"
+                  hidden={false}
+                  reducedMotion={false}
+                />
+              )}
+            </div>
             {!job && !result && (
               <div className="empty">
                 <p>No analysis selected.</p>

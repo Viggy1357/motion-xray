@@ -27,6 +27,7 @@ export default function SettingsPanel({
     metadata.goalTarget != null ? String(metadata.goalTarget) : ''
   );
   const [weekMode, setWeekMode] = useState<WeekMode>(metadata.weekMode);
+  const [showMilo, setShowMilo] = useState<boolean>(metadata.showMilo !== false);
   const [fieldError, setFieldError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
 
@@ -45,7 +46,7 @@ export default function SettingsPanel({
     // Single atomic commit: settings and display name are written together
     // in one mxr.ux.v1 record by the parent. If the write fails, onSave
     // returns false and nothing — name included — is committed.
-    const ok = onSave({ goalEnabled, goalTarget: target, weekMode }, name);
+    const ok = onSave({ goalEnabled, goalTarget: target, weekMode, showMilo }, name);
     if (ok) {
       // Reflect the name in app state only after storage succeeded.
       onNameChange(name);
@@ -60,6 +61,7 @@ export default function SettingsPanel({
     setGoalEnabled(metadata.goalEnabled);
     setGoalTarget(metadata.goalTarget != null ? String(metadata.goalTarget) : '');
     setWeekMode(metadata.weekMode);
+    setShowMilo(metadata.showMilo !== false);
     setFieldError(null);
     setSaved(false);
     onBack();
@@ -121,6 +123,19 @@ export default function SettingsPanel({
           ) : null}
         </div>
       ) : null}
+      <div className={styles.field}>
+        <label>
+          <input
+            type="checkbox"
+            checked={showMilo}
+            onChange={(e) => {
+              setShowMilo(e.target.checked);
+              setSaved(false);
+            }}
+          />{' '}
+          Show Milo companion
+        </label>
+      </div>
       <fieldset className={styles.field}>
         <legend>Week counting</legend>
         <label>

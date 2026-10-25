@@ -482,3 +482,27 @@ Ask your set/Show me why are excluded from MVP. Move/Fuel/Recover remains an
 unvalidated ecosystem direction, not shipped capability. User accepts their Mac
 camera test for MVP; broad physical-device/fault checks remain deferred rather than
 passed. Existing measurement/scoring/coaching contracts remain unchanged.
+
+## D025 — Milo Pip companion selection and bounded motion-first plan (25 October)
+
+Owner selects Milo Pip, the lilac pet concept, and requests detailed delivery/agent
+planning before handoff. MVP is one companion with idle, attentive and cheer actions;
+no progression, journal, selector, new chat/voice or live hardware. This updates D024's
+hold on companion exploration; it does not change measurement/scoring/coaching rules.
+
+Plan: docs/design/MILO-PIP-DELIVERY-PLAN.md. Selected reference is retained locally.
+Layered artwork is a feasibility hypothesis, not a working animation asset. Prove
+motion in an isolated preview, obtain aesthetic acceptance, then integrate. Proposed
+Home poster replacement retains the separate body-map function. No implementation,
+paid dispatch, new provider access or public release occurred in this planning step.
+
+Codex supervises and integrates one writer's changes; Nebius workers draft bounded
+motion/controller/integration work. Image production and optional VL visual review are
+distinct capabilities. Runtime reactions remain deterministic; development agents are
+not a new runtime agent service. Existing spend/backup and privacy controls apply.
+
+Delivery update: HM-MILO01 now has a verified local candidate. User authorised execution
+with independent Nebius workers in parallel and minimal Codex supervision. Three head
+motions and a persisted visibility setting ship; repeated save celebration is omitted.
+No new runtime LLM route. See docs/audit/HM-MILO01-delivery.md for checks, limitations
+and the justified300k allocation (289,095 actual reported tokens).

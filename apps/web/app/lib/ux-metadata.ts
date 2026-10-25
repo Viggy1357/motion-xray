@@ -1,6 +1,7 @@
 export type WeekMode = 'rolling7' | 'calendar';
 
 export interface UxSettings {
+  showMilo?: boolean;
   goalEnabled: boolean;
   goalTarget: number | null;
   weekMode: WeekMode;
@@ -15,7 +16,7 @@ export interface UxMetadata extends UxSettings {
 export const UX_METADATA_KEY = 'mxr.ux.v1';
 
 export function defaultUxMetadata(): UxMetadata {
-  return { version: 1, goalEnabled: false, goalTarget: null, weekMode: 'rolling7', viewed: {} };
+  return { version: 1, goalEnabled: false, goalTarget: null, weekMode: 'rolling7', viewed: {}, showMilo: true };
 }
 
 function isWeekMode(v: unknown): v is WeekMode {
@@ -122,12 +123,14 @@ export function loadUxMetadata(storage?: StorageLike | null): { metadata: UxMeta
 
 /** Merge settings into existing metadata, preserving unknown keys and viewed. */
 export function applyUxSettings(meta: UxMetadata, settings: UxSettings): UxMetadata {
+  const showMilo = typeof settings.showMilo === 'boolean' ? settings.showMilo : meta.showMilo !== false;
   return {
     ...meta,
     version: 1,
     goalEnabled: settings.goalEnabled,
     goalTarget: settings.goalEnabled ? settings.goalTarget : null,
     weekMode: settings.weekMode,
+    showMilo,
   };
 }
 

@@ -12,6 +12,27 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-MILO01 — Milo Pip companion · local candidate delivered (25 Oct)
+
+- FR01/02/03/09/10/12 integration. Owner selects Milo Pip (lilac pet), requests detailed
+  tasks, workflow and supervisor/worker roles before handoff. No progression, selector,
+  journal or hardware in MVP. Three actions: idle, attentive, cheer.
+- HM-MILO01-P delivered: docs/design/MILO-PIP-DELIVERY-PLAN.md and selected reference
+  docs/design/references/milo-pip-selected.png; D025 and DELIVERY routing added.
+- A–D delivered locally: layered head-motion preview, controller utility, Home/results
+  integration, persisted hide setting and focused QA. Three actions use head motion;
+  blink/paw wave are deferred. No progression, XP or new runtime provider calls.
+- Codex supervisor/single integrating writer; bounded Nebius coding workers, supervised
+  image production; VL was unnecessary. Initial200k increased to300k for demonstrated
+  rejected-draft repair/integration checks;289,095 tokens, USD2.038989 guard cost, not
+  invoice. Shared maximumUSD34.49088265<70 incl concurrent known audit; backup30 untouched.
+- Checks:87/87 browser cases at360/375/1365;49 standalone controller +13 settings checks;
+  web lint/typecheck/production build and diff whitespace pass. No new human-pose or
+  coaching end-to-end validation. Evidence docs/audit/HM-MILO01-delivery.md and
+  docs/delegation/HM-MILO01-usage.json. Main app uses direct state adapter; standalone
+  controller tests are not an end-to-end integration claim.
+- Next: owner visual feedback; HM-RELEASE03 judge access/release readiness remains open.
+
 ### HM-RELEASE02 — judge-local quickstart and repository navigation · delivered (25 Oct)
 
 - FR01/02/03/04/09/10/12. Added canonical ./scripts/quickstart.sh and container-only
