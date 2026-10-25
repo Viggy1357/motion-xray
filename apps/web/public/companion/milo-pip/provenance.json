@@ -41,9 +41,20 @@
       "width": 768,
       "height": 768,
       "pix_fmt": "yuva420p"
+    },
+    "sleeping": {
+      "source": "artifacts/development/milo-assets/sleeping-source.png",
+      "output": "apps/web/public/companion/milo-pip/sleeping.webp",
+      "source_sha256": "6c05f212b2c9f93820842e427362be9954be1cef5ed764baa11a1fc65cb6eebf",
+      "output_sha256": "2ee0bfa16c40aaf09ebdfb8fa42e6a0d671622e08ec92aedf12eafc7fa9e0892",
+      "output_bytes": 71264,
+      "width": 768,
+      "height": 768,
+      "encoder_quality": 86,
+      "note": "Imagegen edit of neutral source: curled sleeping pose, transparent background; no walking rig."
     }
   },
-  "total_bytes": 212842,
+  "total_bytes": 284106,
   "budget_bytes": 2097152,
   "packaged_at": 1792909151
 }

@@ -7,8 +7,9 @@ workflow is paused. This plan does not claim the MVP is built.
 
 ## Start here
 
-Latest companion delivery: [HM-MILO01](audit/HM-MILO01-delivery.md) — Milo Pip local
-candidate verified,87 browser cases pass. The planning note below is historical;
+Latest companion correction: [HM-MILO02](audit/HM-MILO02-delivery.md) — original Home
+athlete restored with sleeping Pip; processing encouragement and stronger motion.
+HM-MILO01 remains the initial candidate evidence. The planning note below is historical;
 HM-RELEASE03 judge access remains the next release dependency.
 
 25 October companion planning: owner selected **Milo Pip**. Before companion work,

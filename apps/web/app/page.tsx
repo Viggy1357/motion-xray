@@ -8,6 +8,7 @@ import type { components } from "../generated/api";
 import MovementReport from "./movement-report";
 import AthleteCompanion from "./athlete-companion";
 import MiloCompanion from "./components/MiloCompanion";
+import { MiloHomeRest, MiloProcessingBuddy } from "./components/MiloMoments";
 import PoseReplay from "./pose-replay";
 import CameraRecorder from "./components/CameraRecorder";
 import SettingsPanel from "./components/SettingsPanel";
@@ -1067,24 +1068,13 @@ export default function Page() {
                 <p className="herosub">Movement insights for your next set.</p>
               </div>
               <div className="heroart">
-                {showMilo ? (
-                  <MiloCompanion
-                    state={miloVisual}
-                    eventKey={miloEventKey}
-                    size="hero"
-                    hidden={recorderOpen}
-                    reducedMotion={false}
-                  />
-                ) : (
-                  <AthleteCompanion exercise={exercise} variant="poster" />
-                )}
+                <AthleteCompanion exercise={exercise} variant="poster" />
               </div>
+              {showMilo && !recorderOpen && (
+                <MiloHomeRest reducedMotion={false} />
+              )}
             </div>
-            <p className="illabel">{
-              showMilo
-                ? "Meet Milo, your quiet gym companion."
-                : "Illustration — generic athlete artwork, rendered front and back views (not a 360° model)"
-            }</p>
+            <p className="illabel">Illustration — generic athlete artwork, rendered front and back views (not a 360° model)</p>
             <button className="btn herocta" onClick={() => navigate({ name: "analyse" })}>Analyse a set</button>
             {activeBanner}
             {introReady && introOpen && (
@@ -1164,15 +1154,7 @@ export default function Page() {
             <p className="lede">Record a set or choose a video. One set per clip, up to {MAX_SECONDS} seconds and 100 MiB. MP4, MOV or WebM.</p>
             {activeBanner}
             {jobActive && showMilo && !recorderOpen && (
-              <div className="milo-compact-wrap">
-                <MiloCompanion
-                  state={miloVisual}
-                  eventKey={miloEventKey}
-                  size="compact"
-                  hidden={false}
-                  reducedMotion={false}
-                />
-              </div>
+              <MiloProcessingBuddy active={jobActive} reducedMotion={false} />
             )}
             {jobActive ? (
               <div className="state warn" role="status">
@@ -1286,16 +1268,20 @@ export default function Page() {
 
         {route.name === "results" && (
           <section className="view" aria-labelledby="res-h">
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.75rem" }}>
               <h1 className="h-page" id="res-h" tabIndex={-1} ref={h1Ref}>Your set, explained.</h1>
               {showMilo && !recorderOpen && (
-                <MiloCompanion
-                  state={miloVisual}
-                  eventKey={miloEventKey}
-                  size="compact"
-                  hidden={false}
-                  reducedMotion={false}
-                />
+                jobActive ? (
+                  <MiloProcessingBuddy active={jobActive} reducedMotion={false} />
+                ) : (
+                  <MiloCompanion
+                    state={miloVisual}
+                    eventKey={miloEventKey}
+                    size="compact"
+                    hidden={false}
+                    reducedMotion={false}
+                  />
+                )
               )}
             </div>
             {!job && !result && (

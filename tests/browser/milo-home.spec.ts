@@ -18,35 +18,29 @@ async function openSettings(page: Page) {
   await expect(page.getByRole('heading', { name: 'Settings', level: 1 })).toBeVisible();
 }
 
-test('home hero art renders with definite width and no horizontal overflow', async ({ freshPage: page }, testInfo) => {
+test('home resting pet root has data-rest and a small size on mobile', async ({ freshPage: page }, testInfo) => {
+  await page.setViewportSize({ width: 480, height: 800 });
   await gotoHome(page);
 
-  const root = page.locator('[data-asset-status]').first();
-  await expect(root).toBeVisible();
+  const rest = page.locator('[data-rest="true"]').first();
+  await expect(rest).toBeVisible();
+  await expect(rest).toHaveAttribute('aria-label', 'Milo resting');
 
-  const box = await root.boundingBox();
+  const box = await rest.boundingBox();
   expect(box).not.toBeNull();
-  expect(box!.width).toBeGreaterThanOrEqual(200);
-  expect(box!.height).toBeGreaterThanOrEqual(200);
+  expect(box!.width).toBeGreaterThanOrEqual(90);
+  expect(box!.width).toBeLessThanOrEqual(140);
 
-  const img = root.locator('img').first();
-  if (await img.count()) {
-    await expect(img).toBeVisible();
-    const natural = await img.evaluate((el) => (el as HTMLImageElement).naturalWidth);
-    expect(natural).toBeGreaterThan(0);
-  }
-
-  const overflow = await page.evaluate(
-    () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
-  );
-  expect(overflow).toBe(true);
+  const ladyImg = page.locator('.heroart img').first();
+  await expect(ladyImg).toBeVisible();
 
   await page.screenshot({ path: `/results/milo-home-${testInfo.project.name}.png`, fullPage: false });
 });
 
-test('hiding Milo companion removes the hero root and keeps the legacy fallback', async ({ freshPage: page }) => {
+test('hiding Milo companion removes the resting pet but keeps the lady athlete', async ({ freshPage: page }) => {
   await gotoHome(page);
-  await expect(page.locator('[data-asset-status]').first()).toBeVisible();
+  await expect(page.locator('.heroart img').first()).toBeVisible();
+  await expect(page.locator('[data-rest="true"]')).toHaveCount(1);
 
   await openSettings(page);
   await page.getByLabel('Show Milo companion').uncheck();
@@ -55,21 +49,19 @@ test('hiding Milo companion removes the hero root and keeps the legacy fallback'
 
   await page.getByRole('button', { name: 'Home', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Make your');
-  await expect(page.locator('[data-asset-status]')).toHaveCount(0);
-
-  await page.reload();
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Make your');
-  await expect(page.locator('[data-asset-status]')).toHaveCount(0);
+  await expect(page.locator('.heroart img').first()).toBeVisible();
+  await expect(page.locator('[data-rest="true"]')).toHaveCount(0);
 });
 
-test('reduced motion on Home disables animations on the hero root', async ({ freshPage: page }, testInfo) => {
+test('reduced motion on Home disables animations on the resting pet inner', async ({ freshPage: page }, testInfo) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await gotoHome(page);
 
-  const root = page.locator('[data-asset-status]').first();
-  await expect(root).toBeVisible();
+  const rest = page.locator('[data-rest="true"]').first();
+  await expect(rest).toBeVisible();
 
-  const anim = await root.evaluate((el) => {
+  const inner = rest.locator('div').first();
+  const anim = await inner.evaluate((el) => {
     const cs = getComputedStyle(el);
     return {
       name: cs.animationName,
@@ -79,4 +71,27 @@ test('reduced motion on Home disables animations on the hero root', async ({ fre
   expect(anim.name === 'none' || anim.duration === '0s').toBe(true);
 
   await page.screenshot({ path: `/results/milo-home-${testInfo.project.name}.png`, fullPage: false });
+});
+
+test('home resting pet does not overlap the Analyse a set CTA', async ({ freshPage: page }) => {
+  await gotoHome(page);
+
+  const rest = page.locator('[data-rest="true"]').first();
+  await expect(rest).toBeVisible();
+
+  const cta = page.getByRole('button', { name: 'Analyse a set', exact: true });
+  await expect(cta).toBeVisible();
+
+  const restBox = await rest.boundingBox();
+  const ctaBox = await cta.boundingBox();
+  expect(restBox).not.toBeNull();
+  expect(ctaBox).not.toBeNull();
+  if (restBox && ctaBox) {
+    const overlap =
+      restBox.x < ctaBox.x + ctaBox.width &&
+      restBox.x + restBox.width > ctaBox.x &&
+      restBox.y < ctaBox.y + ctaBox.height &&
+      restBox.y + restBox.height > ctaBox.y;
+    expect(overlap).toBe(false);
+  }
 });

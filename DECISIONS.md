@@ -506,3 +506,18 @@ with independent Nebius workers in parallel and minimal Codex supervision. Three
 motions and a persisted visibility setting ship; repeated save celebration is omitted.
 No new runtime LLM route. See docs/audit/HM-MILO01-delivery.md for checks, limitations
 and the justified300k allocation (289,095 actual reported tokens).
+
+## D026 — Pip accompanies the athlete and processing (25 October)
+
+Owner feedback supersedes D025's Home poster replacement: retain the original athlete
+and Front/Back controls, with a small sleeping Pip beside her. Processing uses the
+existing awake Pip plus three local encouragement messages, rotating every six seconds
+only while active and visible. Stronger head motion and a gentle processing sway make
+the existing layered asset more legible. Reduced motion, hiding Milo and recorder
+visibility gates remain respected. This is layered 2D motion, not a walking rig.
+
+A separate transparent sleeping pose is generated from the neutral Pip reference.
+No progression, model-generated encouragement, runtime provider route or scoring change.
+Read-only curl diagnostics confirm retained reference bands and two measured reference
+windows; a historic automatic reference count of zero is not a zero technique score.
+Evidence and limitations: docs/audit/HM-MILO02-delivery.md.

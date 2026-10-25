@@ -411,35 +411,3 @@ th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mu
     animation: none !important;
   }
 }
-/* Append after base rules. Scoped to the Home hero art container so it
-   overrides the inherited mobile right:-30 offset and gives the new
-   root asset a definite width. The :has() selector keeps the rule
-   scoped to instances that actually render the new root element,
-   leaving the legacy athlete fallback untouched. */
-
-.view .heroart:has([data-asset-status]) {
-  width: min(280px, 100%);
-  max-width: 70vw;
-  top: auto;
-  bottom: 12px;
-  right: 12px;
-  left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.view .heroart:has([data-asset-status]) > [data-asset-status] {
-  flex-shrink: 0;
-  width: 100%;
-  height: auto;
-}
-
-@media (min-width: 900px) {
-  .view .heroart:has([data-asset-status]) {
-    width: 340px;
-    max-width: 70vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}

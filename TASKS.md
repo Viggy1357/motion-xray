@@ -12,6 +12,29 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-MILO02 — restore athlete, resting Pip and processing encouragement · delivered locally (25 Oct)
+
+- FR01/03/10/12. Owner wants original Home athlete retained with a small resting Pip
+  beside her, more legible companion motion, and2–3 processing speech bubbles.
+- Bounded Nebius UI drafts integrated; imagegen supplied one sleeping Pip asset.
+  No walking rig or runtime model calls. Existing reduced-motion/hide controls apply.
+- Parallel read-only curl diagnostic (FR05/07/08/12): explain reported zero using
+  retained artifacts and current reference/scoring; no threshold/config changes.
+- Initial shared task envelope200k tokens, existing USD70 active/USD30 protected
+  boundaries; prior Milo ledger remains counted. Unrelated BRAG work preserved.
+- Delivered: original athlete + resting Pip; stronger head/processing motion; three
+  local encouragement bubbles. Show Milo/reduced motion respected. No new dependency.
+- Final container production build/lint/types and54/54 focused browser cases pass
+  at360/375/1365, including Front/Back controls, hide setting and bubble rotation.
+- Curl reference intact:2measured windows despite historic automatic count0. Latest
+  retained5.13s clip has101invalid elbow samples per side and null comparison; prior
+  clip has4completed cycles,83.4experimental resemblance. No analysis edits.
+- Evidence docs/audit/HM-MILO02-delivery.md; six Nebius calls109,407 tokens,
+  USD0.841245 guard (including two failed review completions); known aggregate maximum
+  USD35.33212765<70, protected30 untouched. Independent Nebius review unavailable;
+  final source/contract gate and container/browser checks performed by coordinator.
+- Next HM-RELEASE03 judge access/release readiness; walking remains future scope.
+
 ### HM-MILO01 — Milo Pip companion · local candidate delivered (25 Oct)
 
 - FR01/02/03/09/10/12 integration. Owner selects Milo Pip (lilac pet), requests detailed
