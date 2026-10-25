@@ -1,0 +1,169 @@
+{
+  "task": "BRAG-VIDEO01",
+  "date": "2026-10-25",
+  "requests": [
+    {
+      "task": "BRAG-VIDEO01",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video01",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.432207,
+      "input_token_bound": 24069,
+      "output_token_bound": 24000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 9770,
+        "prompt_tokens": 4357,
+        "total_tokens": 14127,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 4352
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 4357
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-e414cf9cfbbe7816dc661593162a483b",
+      "elapsed_s": 36.22,
+      "received_chars": 30127,
+      "conservative_cost_usd": 0.159621
+    },
+    {
+      "task": "BRAG-VIDEO01-layout-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video01-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.360054,
+      "input_token_bound": 30018,
+      "output_token_bound": 18000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 7597,
+        "prompt_tokens": 7996,
+        "total_tokens": 15593,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 7936
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 7996
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-40de3391f8a26f8d8d03e5f8c11510e6",
+      "elapsed_s": 17.06,
+      "received_chars": 22399,
+      "conservative_cost_usd": 0.137943
+    },
+    {
+      "task": "BRAG-VIDEO01-final-motion",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video01-motion",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.239373,
+      "input_token_bound": 19791,
+      "output_token_bound": 12000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5446,
+        "prompt_tokens": 5088,
+        "total_tokens": 10534,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 4992
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 5088
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-6629f75cbf4ec11be3e3e1177f856651",
+      "elapsed_s": 13.65,
+      "received_chars": 15420,
+      "conservative_cost_usd": 0.096954
+    },
+    {
+      "task": "BRAG-VIDEO01-render-temp",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video01-temp",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.075777,
+      "input_token_bound": 10259,
+      "output_token_bound": 3000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 126,
+        "prompt_tokens": 1881,
+        "total_tokens": 2007,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 1792
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1881
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-13a14095066350a8017d2f2637ad31c0",
+      "elapsed_s": 1.78,
+      "received_chars": 340,
+      "conservative_cost_usd": 0.007533
+    }
+  ],
+  "total_reported_tokens": 42261,
+  "task_token_allowance": 200000,
+  "guard_cost_usd": 0.402051,
+  "prior_aggregate_maximum_commitment_usd": 36.89465965,
+  "aggregate_maximum_commitment_usd": 37.29671065,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "protected_backup_used_usd": 0,
+  "balance_verified": false,
+  "runtime_paid_calls": 0,
+  "tavily_calls": 0,
+  "private_media_sent": false,
+  "price_basis": "USD3 input/USD15 completion per million conservative guard, not invoice",
+  "notes": [
+    "One local packet syntax failure and missing-file runner startup before reservation made no provider call. Both corrected before dispatch.",
+    "Initial render blocked by1GiB tmpfs preflight. Nebius drafted TMPDIR=/work; no network/isolation changes.",
+    "Runtime image lacks pytest; focused tests rerun in existing checks image,38passed.",
+    "Only local teaser rendered; no public demo upload or final submission."
+  ]
+}

@@ -41,6 +41,19 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 - Next HM-RELEASE03: public release/judge access and permissioned demo; verify current
   GitHub push/CI. Owner will complete Devpost registration later; no final submission.
 
+### BRAG-SETUP01 — pinned project-local launch-video tooling · ready (25 Oct)
+
+- Submission tooling only; no product pipeline change. Brag669ab928 and four
+  Hyperframes skills1776b427 installed under ignored .agents/skills, opt-in only.
+- Nebius supplies isolated renderer/wrapper/guards/offline scaffold tests. Pinned
+  Hyperframes0.8.195, Node image digest, Debian tools and npm lock; no host installs.
+- Only output folder mounted; offline checks/render, telemetry/updates/skill refresh
+  disabled. Preview localhost4173 exception; no app .env, footage or Docker socket.
+- 38 wrapper tests +9 Node tests pass. Actual blank scaffold browser check passes;
+  preview HTTP200 and clean shutdown. No MP4, storyboard, paid media or publishing.
+- Canonical docs/BRAG-QUICKSTART.md; audit BRAG-SETUP01-delivery.md and usage ledger.
+- Next: explicit /brag request, storyboard first; final video render after approval.
+
 ### HM-MILO02 — restore athlete, resting Pip and processing encouragement · delivered locally (25 Oct)
 
 - FR01/03/10/12. Owner wants original Home athlete retained with a small resting Pip
@@ -1264,3 +1277,10 @@ Every remaining task's steps, files, dependencies and acceptance are in docs/DEL
 Additional user clips are analysis inputs, not approved references. The $70 active/$30
 backup ceiling is recorded; actual account balance/history reconciliation and a reviewed
 reference remain open. Neither prevents the local upload/measurement work.
+
+## BRAG-VIDEO01 — current MVP teaser · status: done · FR02, FR09, FR10, FR12 delivery
+- Owner invokes installed Brag. Create25s landscape local video from current4f7adb2 UI, animated recreations clearly labelled; no private footage, fabricated metrics, new runtime provider call or publishing.
+- One bounded Nebius composition draft, then check/preview/render and focused repair only. Initial reserve <USD0.65, cumulative200k tokens; latest aggregate guard36.89465965, balance unverified, USD30 protected.
+- Delivered local25s1080p30 H.264/AAC teaser, poster, editable source and credits; UI recreations labelled, no private footage/results. Brag check passes61 text contrasts, zero runtime/layout/lint errors;38 wrapper tests pass.
+- Four Nebius calls:42,261 tokens, USD0.402051 conservative guard; no product runtime/Tavily/paid media. Render scratch uses output-only TMPDIR to satisfy disk preflight, same isolation.
+- Evidence docs/audit/BRAG-VIDEO01-evidence.json; portable source docs/submission/brag-video01. MP4 kept in ignored brag-output-20261025-film. Next HM-RELEASE03: permissioned real walkthrough and hosted judge access; teaser is not full runtime proof.

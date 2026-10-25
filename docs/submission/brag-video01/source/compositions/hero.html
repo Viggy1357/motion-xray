@@ -1,0 +1,56 @@
+<template>
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+#hero-root{position:absolute;inset:0;width:1920px;height:1080px;background:var(--bg);font-family:Roboto,Helvetica,Arial,sans-serif;color:var(--navy);}
+.hero-rail{position:absolute;left:0;top:0;width:280px;height:1080px;background:#ffffff;border-right:1px solid var(--border);display:flex;flex-direction:column;padding:48px 28px;}
+.hero-brand{font-size:28px;font-weight:700;letter-spacing:-0.01em;margin-bottom:48px;}
+.hero-nav{display:flex;flex-direction:column;gap:8px;}
+.hero-nav-item{font-size:28px;color:var(--muted);padding:14px 16px;border-radius:12px;}
+.hero-nav-item.active{background:rgba(49,88,232,0.08);color:var(--cobalt);font-weight:700;}
+.hero-label{position:absolute;left:400px;top:108px;font-size:28px;color:var(--muted);letter-spacing:0.02em;}
+.hero-card{position:absolute;left:400px;top:230px;width:1328px;height:650px;background:#ffffff;border:1px solid var(--border);border-radius:28px;box-shadow:0 24px 60px rgba(20,32,57,0.06);padding:0 64px;display:flex;flex-direction:column;justify-content:center;}
+.hero-copy{max-width:650px;}
+.hero-headline{font-size:88px;font-weight:900;line-height:1.02;letter-spacing:-0.02em;margin:0 0 24px 0;color:var(--navy);}
+.hero-subline{font-size:34px;color:var(--muted);margin:0 0 48px 0;line-height:1.3;}
+.hero-cta{display:inline-block;background:var(--cobalt);color:#ffffff;font-size:32px;font-weight:700;padding:20px 40px;border-radius:14px;width:fit-content;}
+.hero-art{position:absolute;right:30px;bottom:30px;width:450px;height:560px;}
+.hero-athlete{position:absolute;right:0;bottom:0;width:450px;height:560px;object-fit:contain;object-position:bottom right;}
+.hero-pip{position:absolute;right:0;bottom:0;width:96px;height:96px;object-fit:contain;}
+</style>
+<div data-hf-id="hf-locw" id="hero-root" data-composition-id="hero" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-9jw4" id="hero-rail" class="hero-rail">
+    <div data-hf-id="hf-vm6c" id="hero-brand" class="hero-brand">Motion X Ray</div>
+    <div data-hf-id="hf-m2ti" id="hero-nav" class="hero-nav">
+      <div data-hf-id="hf-kz9j" id="hero-nav-home" class="hero-nav-item active">Home</div>
+      <div data-hf-id="hf-g8fr" id="hero-nav-analyse" class="hero-nav-item">Analyse</div>
+      <div data-hf-id="hf-8pz1" id="hero-nav-progress" class="hero-nav-item">Progress</div>
+      <div data-hf-id="hf-sem5" id="hero-nav-settings" class="hero-nav-item">Settings</div>
+    </div>
+  </div>
+  <div data-hf-id="hf-wio8" id="hero-label" class="hero-label">UI recreation · MVP</div>
+  <div data-hf-id="hf-0ga0" id="hero-card" class="hero-card">
+    <div data-hf-id="hf-00bm" id="hero-copy" class="hero-copy">
+      <h1 data-hf-id="hf-vwi0" id="hero-headline" class="hero-headline" data-var-text="headline">Make your next set count.</h1>
+      <p data-hf-id="hf-limf" id="hero-subline" class="hero-subline" data-var-text="subline">Movement insights for your next set.</p>
+      <div data-hf-id="hf-yfqj" id="hero-cta" class="hero-cta" data-var-text="cta">Analyse a set</div>
+    </div>
+    <div data-hf-id="hf-r6ey" id="hero-art" class="hero-art">
+      <img data-hf-id="hf-on3n" id="hero-athlete" class="hero-athlete" src="assets/athlete.png" width="450" height="560" alt="Athlete illustration">
+      <img data-hf-id="hf-gz0v" id="hero-pip" class="hero-pip" src="assets/pip-sleeping.webp" width="96" height="96" alt="Sleeping Pip">
+    </div>
+  </div>
+</div>
+<script>
+const tl=gsap.timeline({paused:true});
+tl.fromTo("#hero-card",{opacity:0,scale:0.96},{opacity:1,scale:1,duration:0.5,ease:"power4.out"},0)
+  .fromTo("#hero-headline",{opacity:0,filter:"blur(8px)"},{opacity:1,filter:"blur(0px)",duration:0.18,ease:"power4.out"},0.1)
+  .fromTo("#hero-subline",{opacity:0,y:12},{opacity:1,y:0,duration:0.35,ease:"power3.out"},0.25)
+  .fromTo("#hero-cta",{opacity:0,y:12},{opacity:1,y:0,duration:0.35,ease:"power3.out"},0.4)
+  .fromTo("#hero-art",{opacity:0,scale:0.96},{opacity:1,scale:1,duration:0.5,ease:"power4.out"},0.2)
+  .to({},{},4.4)
+  .to("#hero-card",{opacity:0,duration:0.6,ease:"power2.in"},4.9)
+  .to("#hero-art",{opacity:0,duration:0.6,ease:"power2.in"},4.9)
+  .to("#hero-label",{opacity:0,duration:0.4},4.9);
+window.__timelines["hero"]=tl;
+</script>
+</template>

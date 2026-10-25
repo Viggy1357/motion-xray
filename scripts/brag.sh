@@ -140,6 +140,7 @@ base_args=(
   --user "$(id -u):$(id -g)"
   --mount "type=bind,src=$out,dst=/work"
   --workdir /work/composition
+  -e TMPDIR=/work
 )
 
 if [ "$cmd" = "preview" ]; then

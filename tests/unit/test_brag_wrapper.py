@@ -87,6 +87,7 @@ def test_doctor_container_flags(sandbox):
     joined = " ".join(args)
     assert "--env-file" not in joined and "-v " not in joined
     assert "/work" in joined and "/work/composition" in args
+    assert args[args.index("-e") + 1] == "TMPDIR=/work"
     assert args[-2:] == ["doctor", "--json"]
 
 

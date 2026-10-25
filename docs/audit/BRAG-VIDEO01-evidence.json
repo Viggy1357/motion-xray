@@ -1,0 +1,80 @@
+{
+  "task": "BRAG-VIDEO01",
+  "source_commit": "4f7adb2",
+  "hyperframes": "0.8.195",
+  "check_ok": true,
+  "browser_skipped": false,
+  "sections": {
+    "lint": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "runtime": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "layout": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "motion": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "contrast": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "checked": 61,
+      "passed": 61
+    },
+    "craft": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 2
+    },
+    "hdr": {},
+    "snapshots": {},
+    "saved": {},
+    "_meta": {}
+  },
+  "export": {
+    "programs": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "duration": "25.000000",
+        "nb_frames": "750"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "duration": "25.002000",
+        "nb_frames": "1173"
+      }
+    ],
+    "format": {
+      "duration": "25.002000",
+      "size": "1589424"
+    }
+  },
+  "final_sha256": "f7e23ee29ebd94616d2c7b5221f8c9bed9d662802da790b2d959eb32d1f34062",
+  "poster_sha256": "43908240e2d4e5e756a464f1c5e86a6b5047728c7525e40799c2d232e822e0d7",
+  "wrapper_tests": "38 passed",
+  "visual_qc": "Decoded frame0,3,10,17.5,23s inspected; frame0 poster replaced,750frames preserved",
+  "audio_qc": "Non-silent AAC; peak -10.9dBFS; no voice",
+  "preview": "Verified25s timeline and controls in local editor before render",
+  "craft_warnings": "Two intentional reading holds in hero/review; no gate errors",
+  "no_publication": true
+}
