@@ -49,3 +49,7 @@ htmlcov/
 
 # Workflow agent scratch (task plans, reviews) — internal, not product code
 .agents/
+
+# Local launch-video working files and renders
+/brag-output/
+/brag-output-*/

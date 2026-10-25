@@ -1,0 +1,49 @@
+{
+  "generated": "static-review",
+  "brag": {
+    "version": "0.5.0",
+    "commit": "669ab9286aa28b6c3ee30e75f181ee74319d012a",
+    "license": "MIT"
+  },
+  "hyperframes": {
+    "npm": {
+      "name": "hyperframes",
+      "version": "0.8.195",
+      "integrity": "sha512-zScR+EwO+SaeEMjYQUhSEaPBIY33zJ2AWl/NyUWUyxALeesx/svrOE+WPkpFYX+D4fB/FA1hH3DjgA1dwWIBBA==",
+      "shasum": "076c9fdd2022128298f1700c04c050e949f1c4a0",
+      "tarball": "https://registry.npmjs.org/hyperframes/-/hyperframes-0.8.195.tgz"
+    },
+    "gitHead": "1776b42736110e29397cd4512cfb1a609c6bbe28",
+    "license": "Apache-2.0",
+    "skills": [
+      "hyperframes",
+      "hyperframes-cli",
+      "hyperframes-registry",
+      "media-use"
+    ],
+    "installPath": ".agents/skills",
+    "installScope": "local-gitignored-no-global"
+  },
+  "bundledMusic": {
+    "license": "CC-BY-4.0",
+    "author": "Sascha Ende",
+    "creditRequired": true
+  },
+  "env": {
+    "HYPERFRAMES_NO_TELEMETRY": "1",
+    "DO_NOT_TRACK": "1",
+    "HYPERFRAMES_NO_UPDATE_CHECK": "1",
+    "HYPERFRAMES_NO_AUTO_INSTALL": "1",
+    "CI": "1",
+    "HYPERFRAMES_SKIP_SKILLS": "1",
+    "HYPERFRAMES_EXTRACT_CACHE_DIR": "/work/.hyperframes/extract-cache"
+  },
+  "auditNote": "Static snippet review only; not a full package/transitive audit. npm lock pins deps with lifecycle scripts disabled.",
+  "npm_lock_sha256": "842b4ddf1aa540a045031a9c5e2ab15d3893ad174613da666201a99b5b4e9888",
+  "vendor_animation": {
+    "version": "3.15.0",
+    "path": "hyperframes/dist/vendor/npm/gsap@3.15.0/dist/gsap.min.js",
+    "note": "Replaces generated CDN3.14.2 link with the exact locked renderer vendor for offline scaffolds."
+  },
+  "image_id": "sha256:c5d9855504d08bf49b314f9a35f6013cbfb8ed2de4a9b30f724f108a0d1525d0"
+}
