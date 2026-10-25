@@ -1,0 +1,88 @@
+{
+  "task": "BRAG-VIDEO02",
+  "source_commit": "e49d0d9",
+  "renderer": "Hyperframes0.8.195",
+  "check_ok": true,
+  "browser_skipped": false,
+  "sections": {
+    "lint": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "runtime": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "layout": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "motion": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "contrast": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0,
+      "checked": 33,
+      "passed": 33
+    },
+    "craft": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 1
+    },
+    "hdr": {},
+    "snapshots": {},
+    "saved": {},
+    "_meta": {}
+  },
+  "craft_note": "One first_frame_empty warning in editable composition; final delivered frame0 replaced with settled poster, decoded and inspected. No check bypass.",
+  "export": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "duration": "30.000000",
+        "nb_frames": "900"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "duration": "30.016000",
+        "nb_frames": "1408"
+      }
+    ],
+    "format": {
+      "duration": "30.016000",
+      "size": "3304779"
+    }
+  },
+  "sha256": "d09558abf8383fde8a210352bf1cde34a7eecee92a617b3cd298eaea5ec66ac2",
+  "poster_sha256": "e5d9511557e85957a5a85f9d78023828708d19c52afa6c3303c690697eed7a30",
+  "visual_qc": "Decoded final MP4 frames0,3.5,6.5,12.8,22.5,28.5 inspected. Milo visible with correct body/head; app and credits not occluded.",
+  "audio_qc": {
+    "mean_dbfs": -20.6,
+    "peak_dbfs": -7.8,
+    "voice": false
+  },
+  "preview": "Local editor verified master30s with Play control before render; previous preview stopped to reuse4173.",
+  "script_words": {
+    "walkthrough": 176,
+    "future": 31
+  },
+  "planned_combined_runtime_s": 150,
+  "actual_rendered_video_s": 30,
+  "no_private_footage": true,
+  "not_published": true
+}

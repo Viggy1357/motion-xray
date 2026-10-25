@@ -1284,3 +1284,11 @@ reference remain open. Neither prevents the local upload/measurement work.
 - Delivered local25s1080p30 H.264/AAC teaser, poster, editable source and credits; UI recreations labelled, no private footage/results. Brag check passes61 text contrasts, zero runtime/layout/lint errors;38 wrapper tests pass.
 - Four Nebius calls:42,261 tokens, USD0.402051 conservative guard; no product runtime/Tavily/paid media. Render scratch uses output-only TMPDIR to satisfy disk preflight, same isolation.
 - Evidence docs/audit/BRAG-VIDEO01-evidence.json; portable source docs/submission/brag-video01. MP4 kept in ignored brag-output-20261025-film. Next HM-RELEASE03: permissioned real walkthrough and hosted judge access; teaser is not full runtime proof.
+
+## BRAG-VIDEO02 — Meet Milo launch teaser · status: done · FR02/09/10/12 delivery
+- Owner approves30slaunchfilm, animatedMilo leads app journey; reportlimitations stayinwalkthrough. Draft100swalkthrough+20sfutureclosing, total150s.
+- Two independentNebiusworkers, oneintegrator; initialUSD0.92reservationmax,200kcumulativetokens. Prioraggregate37.29671065 guard; balanceunverified/USD30protected. No privatefootage, runtimecalls, newmediaaccountsorpublication.
+- Delivered local30s1080p30 Milo-led launch film, licensed upbeat music and5timed SFX, poster and portable editable source in docs/submission/brag-video02. Original25s teaser preserved.
+- Brag gate: zero lint/runtime/layout/contrast errors or warnings;33contrast checks. One editable first-frame warning resolved in delivered MP4 by poster replacement. Final900frames,H.264/AAC30.016s container; peak-7.8dBFS, decoded frames inspected. No application code changed.
+- Seven Nebius MiniMaxM3 calls,84,495tokens, USD0.731805 conservative guard; cumulative aggregate guard38.02851565, account balance unverified/USD30protected. No private media/product runtime/Tavily/paid media service calls.
+- Walkthrough176words100s andfuture31words20s drafted in docs/submission/MILO-WALKTHROUGH-DRAFT.md. Planned full submission2:30; only30s teaser rendered. Next: owner review and exact permissioned clip selection, then actual walkthrough capture/assembly; no fake runtime demo or publication.

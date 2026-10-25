@@ -1,0 +1,277 @@
+{
+  "task": "BRAG-VIDEO02",
+  "date": "2026-10-25",
+  "requests": [
+    {
+      "task": "BRAG-VIDEO02-film",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video02-film",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.467832,
+      "input_token_bound": 25944,
+      "output_token_bound": 26000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 16381,
+        "prompt_tokens": 5100,
+        "total_tokens": 21481,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 4992
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 5100
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-f8c9858c65df938be40448568b587f44",
+      "elapsed_s": 42.39,
+      "received_chars": 43827,
+      "conservative_cost_usd": 0.261015
+    },
+    {
+      "task": "BRAG-VIDEO02-story",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video02-story",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.150018,
+      "input_token_bound": 17506,
+      "output_token_bound": 6500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2738,
+        "prompt_tokens": 3443,
+        "total_tokens": 6181,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 3328
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3443
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-17fdec13c0d84564c5e41a5bda147e9b",
+      "elapsed_s": 9.57,
+      "received_chars": 10252,
+      "conservative_cost_usd": 0.051399
+    },
+    {
+      "task": "BRAG-VIDEO02-actor-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video02-actor",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.340659,
+      "input_token_bound": 33553,
+      "output_token_bound": 16000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 7587,
+        "prompt_tokens": 10344,
+        "total_tokens": 17931,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 10240
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 10344
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-c58f2a5d836ca2b46dd7c6e19ce81b00",
+      "elapsed_s": 19.1,
+      "received_chars": 20508,
+      "conservative_cost_usd": 0.144837
+    },
+    {
+      "task": "BRAG-VIDEO02-ui-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video02-ui",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.33304500000000004,
+      "input_token_bound": 26015,
+      "output_token_bound": 17000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5832,
+        "prompt_tokens": 7387,
+        "total_tokens": 13219,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 7296
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 7387
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-b663b74aaf81b7366a016387a3e008bb",
+      "elapsed_s": 14.69,
+      "received_chars": 16401,
+      "conservative_cost_usd": 0.109641
+    },
+    {
+      "task": "BRAG-VIDEO02-script-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video02-script",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.120717,
+      "input_token_bound": 12739,
+      "output_token_bound": 5500,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1887,
+        "prompt_tokens": 2349,
+        "total_tokens": 4236,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 2304
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 2349
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-b67dea011c33c0c1dfa51ee28aeabdb0",
+      "elapsed_s": 6.11,
+      "received_chars": 6891,
+      "conservative_cost_usd": 0.035352
+    },
+    {
+      "task": "BRAG-VIDEO02-final-polish",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video02-polish",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.212235,
+      "input_token_bound": 40745,
+      "output_token_bound": 6000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1968,
+        "prompt_tokens": 12363,
+        "total_tokens": 14331,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 12288
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 12363
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-0c90eb58f5a563daf5acae099cb43514",
+      "elapsed_s": 6.21,
+      "received_chars": 5657,
+      "conservative_cost_usd": 0.066609
+    },
+    {
+      "task": "BRAG-VIDEO02-actor-scene",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video02-actor-scene",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.18015,
+      "input_token_bound": 15050,
+      "output_token_bound": 9000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3467,
+        "prompt_tokens": 3649,
+        "total_tokens": 7116,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 3584
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3649
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-5d6f4aa193843b88da2a8867eab0f9c5",
+      "elapsed_s": 8.35,
+      "received_chars": 9679,
+      "conservative_cost_usd": 0.06295200000000001
+    }
+  ],
+  "total_reported_tokens": 84495,
+  "task_token_allowance": 200000,
+  "guard_cost_usd": 0.731805,
+  "prior_aggregate_maximum_commitment_usd": 37.29671065,
+  "aggregate_maximum_commitment_usd": 38.02851565,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "protected_backup_used_usd": 0,
+  "balance_verified": false,
+  "runtime_paid_calls": 0,
+  "tavily_calls": 0,
+  "private_media_sent": false,
+  "price_basis": "Conservative USD3 input/USD15 completion per million, not invoice",
+  "notes": [
+    "Seven direct Nebius MiniMaxM3 calls; existing thinking-disabled control reused. Up to3 independent workers with disjoint files, one integrator. No other coding-model agents.",
+    "Initial animation/lint/asset failures preserved in local QC logs. Integration corrected double coordinate transform, body/head layering, source asset bindings, scene-ID spelling and root-relative paths.",
+    "Only30s teaser rendered.100s walkthrough176-word narration and20s future31-word narration are drafts; no recorded walkthrough or generated voice.",
+    "No new paid media provider, runtime coaching, private media or publishing."
+  ]
+}

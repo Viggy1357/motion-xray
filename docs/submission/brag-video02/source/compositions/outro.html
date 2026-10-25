@@ -1,0 +1,33 @@
+<template>
+<style>
+  #root{position:absolute;inset:0;background:var(--cobalt,#3158e8);overflow:hidden;box-sizing:border-box;width:1920px;height:1080px}
+  .diag{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,transparent 50%,rgba(20,32,57,.25) 100%);opacity:1}
+  .title{position:absolute;left:192px;top:280px;font-size:130px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:.95;margin:0;max-width:900px;opacity:0}
+  .title .x{color:#cbb8f2}
+  .sub{position:absolute;left:192px;top:580px;font-size:36px;font-weight:500;color:rgba(255,255,255,.85);letter-spacing:.02em;margin:0;opacity:0}
+  .cta{position:absolute;left:192px;top:700px;font-size:32px;font-weight:800;color:#142039;background:#fff;padding:18px 36px;border-radius:36px;letter-spacing:.02em;opacity:0;box-shadow:0 12px 40px rgba(0,0,0,.3);display:inline-block}
+  .footer{position:absolute;left:192px;top:900px;font-size:28px;color:rgba(255,255,255,.85);letter-spacing:.04em;opacity:0}
+  .credit{position:absolute;left:192px;top:950px;font-size:28px;color:rgba(255,255,255,.7);letter-spacing:.04em;opacity:0}
+</style>
+<div data-hf-id="hf-x7nm" id="root" data-composition-id="outro" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-cy59" class="diag"></div>
+  <h1 data-hf-id="hf-c06g" class="title" id="outro-title">Motion <span data-hf-id="hf-us5t" class="x">X Ray</span></h1>
+  <p data-hf-id="hf-vq38" class="sub" id="outro-sub">Make your next set count.</p>
+  <div data-hf-id="hf-z0ls" class="cta" id="outro-cta">Analyse a set →</div>
+  <div data-hf-id="hf-je87" class="footer" id="outro-footer">Animated product film · UI recreation</div>
+  <div data-hf-id="hf-fwr2" class="credit" id="outro-credit">Music: Sascha Ende · ende.app · CC BY 4.0</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+// Title kinetic reveal
+tl.fromTo("#outro-title", { opacity: 0, scale: 0.92, filter: "blur(10px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "power4.out" }, 0.1);
+tl.fromTo("#outro-sub", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.55);
+tl.fromTo("#outro-cta", { opacity: 0, y: 16, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 0.8);
+// Footer fade at 4s, hold final 2s
+tl.fromTo("#outro-footer", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 3.0);
+tl.fromTo("#outro-credit", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 3.0);
+// Hold
+tl.to({}, { duration: 1.0 }, 5.0);
+window.__timelines["outro"] = tl;
+</script>
+</template>

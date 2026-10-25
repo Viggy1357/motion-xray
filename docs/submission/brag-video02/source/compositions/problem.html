@@ -1,0 +1,93 @@
+<template>
+<style>
+  #root{position:absolute;inset:0;background:linear-gradient(135deg,#142039 0%,#1b2a4a 60%,#142039 100%);overflow:hidden;box-sizing:border-box;width:1920px;height:1080px}
+  .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(203,184,242,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(203,184,242,.06) 1px,transparent 1px);background-size:80px 80px;opacity:.5}
+  .stage{position:absolute;left:192px;top:160px;width:900px;height:760px}
+  .title{position:absolute;left:0;top:0;font-size:140px;font-weight:900;line-height:.95;color:#fff;letter-spacing:-.02em;margin:0;max-width:900px}
+  .title .accent{color:#cbb8f2}
+  .sub{position:absolute;left:0;top:480px;font-size:36px;font-weight:500;color:rgba(255,255,255,.78);max-width:780px;line-height:1.25;margin:0}
+  /* Gym illustration (vector) — right zone 1050..1728, y 500..900 */
+  .gym{position:absolute;left:1050px;top:500px;width:678px;height:400px}
+  .floor{position:absolute;left:0;bottom:0;width:100%;height:40px;background:linear-gradient(180deg,#0f1a30,#142039);border-top:2px solid rgba(203,184,242,.2)}
+  .rack{position:absolute;left:40px;bottom:40px;width:280px;height:300px;border:5px solid #cbb8f2;border-radius:8px;background:rgba(49,88,232,.08)}
+  .rack .bar{position:absolute;left:10px;top:100px;width:260px;height:8px;background:#cbb8f2;border-radius:4px}
+  .rack .plate{position:absolute;top:70px;width:50px;height:70px;background:#3158e8;border-radius:6px}
+  .rack .plate.l{left:24px}.rack .plate.r{right:24px}
+  .bench{position:absolute;left:340px;bottom:40px;width:200px;height:70px;background:#1b2a4a;border:4px solid #cbb8f2;border-radius:6px}
+  .bench .leg{position:absolute;bottom:-50px;width:12px;height:50px;background:#cbb8f2}
+  .bench .leg.l{left:16px}.bench .leg.r{right:16px}
+  .tripod{position:absolute;right:20px;bottom:40px;width:100px;height:240px}
+  .tripod .leg{position:absolute;bottom:0;width:6px;height:200px;background:#cbb8f2;transform-origin:50% 100%}
+  .tripod .leg.a{left:16px;transform:rotate(-8deg)}
+  .tripod .leg.b{left:46px}
+  .tripod .leg.c{left:76px;transform:rotate(8deg)}
+  .phone{position:absolute;left:0;top:0;width:100px;height:170px;background:#142039;border:4px solid #cbb8f2;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .phone .rec{width:16px;height:16px;border-radius:50%;background:#e23b3b;box-shadow:0 0 10px rgba(226,59,59,.7)}
+  .athlete{position:absolute;right:140px;bottom:40px;width:150px;height:300px;background:url('assets/athlete.png') center/contain no-repeat}
+  /* Scrub bar — no fake numeric labels */
+  .scrub{position:absolute;left:192px;bottom:90px;width:900px;height:56px;background:rgba(248,250,253,.08);border:2px solid rgba(203,184,242,.3);border-radius:28px;overflow:hidden}
+  .scrub .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#3158e8,#cbb8f2)}
+  .scrub .head{position:absolute;top:50%;width:22px;height:22px;background:#fff;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(49,88,232,.6)}
+  .scrub .head.a{left:18%}
+  .scrub .head.b{left:42%}
+  .scrub .head.c{left:71%}
+  .scrub .head.active{background:#cbb8f2}
+  .wipe{position:absolute;inset:0;background:linear-gradient(120deg,transparent 0%,rgba(49,88,232,.15) 50%,transparent 100%);transform:translateX(-100%);overflow:visible}
+</style>
+<div data-hf-id="hf-rs66" id="root" data-composition-id="problem" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-kxq8" class="grid"></div>
+  <div data-hf-id="hf-0ko1" class="wipe" id="problem-wipe" data-layout-ignore></div>
+  <div data-hf-id="hf-tan6" class="stage">
+    <h1 data-hf-id="hf-lio9" class="title" id="problem-title">Another set.<br data-hf-id="hf-x5px"><span data-hf-id="hf-tkdr" class="accent">Still guessing?</span></h1>
+    <p data-hf-id="hf-i03n" class="sub" id="problem-sub">No coach beside you.</p>
+  </div>
+  <div data-hf-id="hf-za3t" class="gym">
+    <div data-hf-id="hf-2j4h" class="rack">
+      <div data-hf-id="hf-ufsv" class="bar"></div>
+      <div data-hf-id="hf-o0k0" class="plate l"></div>
+      <div data-hf-id="hf-qf4m" class="plate r"></div>
+    </div>
+    <div data-hf-id="hf-lql6" class="bench"><div data-hf-id="hf-jwo0" class="leg l"></div><div data-hf-id="hf-id8m" class="leg r"></div></div>
+    <div data-hf-id="hf-bmx9" class="athlete"></div>
+    <div data-hf-id="hf-69io" class="tripod">
+      <div data-hf-id="hf-xabp" class="leg a"></div>
+      <div data-hf-id="hf-3g1i" class="leg b"></div>
+      <div data-hf-id="hf-7e5j" class="leg c"></div>
+      <div data-hf-id="hf-kda4" class="phone"><div data-hf-id="hf-0abm" class="rec"></div></div>
+    </div>
+    <div data-hf-id="hf-kk9u" class="floor"></div>
+  </div>
+  <div data-hf-id="hf-1zdu" class="scrub" id="problem-scrub">
+    <div data-hf-id="hf-89es" class="fill" id="problem-fill"></div>
+    <div data-hf-id="hf-9ozn" class="head a" id="problem-head-a"></div>
+    <div data-hf-id="hf-dcm7" class="head b" id="problem-head-b"></div>
+    <div data-hf-id="hf-ed5j" class="head c" id="problem-head-c"></div>
+  </div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+// Diagonal wipe in
+tl.fromTo("#problem-wipe", { x: "-100%" }, { x: "100%", duration: 0.6, ease: "power3.inOut" }, 0);
+// Title entrance
+tl.fromTo("#problem-title", { opacity: 0, x: -40, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.55, ease: "power4.out" }, 0.25);
+tl.fromTo("#problem-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.7);
+// Gym illustration entrance
+tl.fromTo(".rack", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.4);
+tl.fromTo(".bench", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.55);
+tl.fromTo(".tripod", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.7);
+tl.fromTo(".athlete", { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.85);
+// Scrub bar: hesitation — head jumps between two positions, no fake scores
+tl.fromTo("#problem-scrub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 1.2);
+tl.fromTo("#problem-fill", { width: "0%" }, { width: "18%", duration: 0.5, ease: "power2.out" }, 1.6);
+tl.fromTo("#problem-head-a", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 1.7);
+tl.to("#problem-head-a", { scale: 1.2, duration: 0.15, ease: "power2.out" }, 2.4);
+tl.to("#problem-head-a", { scale: 1, duration: 0.2, ease: "power2.in" }, 2.55);
+tl.to("#problem-fill", { width: "42%", duration: 0.6, ease: "power2.inOut" }, 2.7);
+tl.fromTo("#problem-head-b", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 2.9);
+tl.to("#problem-head-b", { scale: 1.2, duration: 0.15, ease: "power2.out" }, 3.6);
+tl.to("#problem-head-b", { scale: 1, duration: 0.2, ease: "power2.in" }, 3.75);
+// Hold
+tl.to({}, { duration: 1.0 }, 4.0);
+window.__timelines["problem"] = tl;
+</script>
+</template>
