@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" data-composition-variables='[{"id":"brand","type":"string","label":"Brand","default":"MotionXRay"}]'>
+<head>
+<meta charset="utf-8" />
+<title>MotionXRay — Walkthrough</title>
+<style>
+  html,body{margin:0;padding:0;background:#142039;color:#f8fafd;font-family:Outfit,Inter,sans-serif;overflow:hidden}
+  #root{position:absolute;inset:0;background:#142039}
+</style>
+<script src="assets/vendor/gsap.min.js"></script>
+</head>
+<body>
+<div data-hf-id="hf-aoan" id="root" data-composition-id="main" data-start="0" data-duration="100" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-j53e" id="home" data-composition-id="home" data-composition-src="compositions/home.html" data-start="0" data-duration="12" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <div data-hf-id="hf-9mkp" id="upload" data-composition-id="upload" data-composition-src="compositions/upload.html" data-start="12" data-duration="18" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <div data-hf-id="hf-jc32" id="processing" data-composition-id="processing" data-composition-src="compositions/processing.html" data-start="30" data-duration="15" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <div data-hf-id="hf-y8p8" id="results" data-composition-id="results" data-composition-src="compositions/results.html" data-start="45" data-duration="25" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <div data-hf-id="hf-3ncj" id="coaching" data-composition-id="coaching" data-composition-src="compositions/coaching.html" data-start="70" data-duration="20" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <div data-hf-id="hf-69oa" id="limits" data-composition-id="limits" data-composition-src="compositions/limits.html" data-start="90" data-duration="10" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <audio data-hf-id="hf-h4f3" id="walk-music" data-start="0" data-duration="100" data-volume="0.22" data-fade-in="1" data-fade-out="1" src="assets/walk-music.mp3"></audio>
+</div>
+<script>
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = gsap.timeline({ paused: true });
+</script>
+</body>
+</html>

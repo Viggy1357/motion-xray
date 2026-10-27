@@ -1,0 +1,45 @@
+<template>
+<style>
+  #root{position:absolute;inset:0;background:#142039;box-sizing:border-box}
+  .copy{position:absolute;left:130px;top:150px;width:520px}
+  .copy h1{font-family:Outfit,sans-serif;font-weight:900;font-size:80px;line-height:1.04;margin:0 0 18px;color:#f8fafd}
+  .copy h1 span{color:#cbb8f2}
+  .copy p{font-size:38px;line-height:1.28;margin:0 0 14px;color:#f8fafd}
+  .copy .note{font-size:32px;color:#cbb8f2;margin-top:18px;font-weight:700}
+  .panel{position:absolute;left:700px;top:130px;width:1120px;height:820px;background:#0d172a;border:2px solid #3158e8;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .panel img,.panel video{width:100%;height:100%;object-fit:contain}
+  .badge{position:absolute;left:130px;top:60px;font-size:28px;font-weight:700;color:#f8fafd}
+  .badge b{color:#cbb8f2}
+  .label{position:absolute;left:130px;bottom:60px;font-size:28px;color:#cbb8f2;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+  .chapter{position:absolute;right:60px;top:60px;font-size:28px;color:#cbb8f2;font-weight:700}
+  .bar{position:absolute;left:130px;top:920px;width:520px;height:10px;background:#0d172a;border-radius:6px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0%;background:#3158e8}
+</style>
+<div data-hf-id="hf-p1k8" id="root" data-composition-id="processing" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-o696" class="badge" id="pr-badge"><b data-hf-id="hf-ebdr">Motion X Ray</b> · Walkthrough</div>
+  <div data-hf-id="hf-2gwg" class="chapter" id="pr-chapter">Chapter 3 of 6</div>
+  <div data-hf-id="hf-bdx3" class="copy">
+    <h1 data-hf-id="hf-s4qp" id="pr-title" class="clip" data-start="0.2" data-duration="14.8" data-track-index="2" data-track-kind="captions">Measure<br data-hf-id="hf-x5px"/><span data-hf-id="hf-eri8">visible movement.</span></h1>
+    <p data-hf-id="hf-k3dm" id="pr-p1" class="clip" data-start="1.8" data-duration="13.2" data-track-index="2" data-track-kind="captions">Geometry runs over the frames.</p>
+    <p data-hf-id="hf-hfpj" id="pr-p2" class="clip" data-start="4.0" data-duration="11" data-track-index="2" data-track-kind="captions" data-hold="true">Processing wait condensed.</p>
+    <p data-hf-id="hf-2gca" id="pr-p3" class="clip" data-start="7.0" data-duration="8" data-track-index="2" data-track-kind="captions" data-hold="true">Visible landmarks become movement measurements.</p>
+    <div data-hf-id="hf-ohiu" class="note clip" id="pr-note" data-start="10" data-duration="5" data-track-index="2" data-track-kind="captions" data-hold="true">Full processing wait shortened for this demo.</div>
+  </div>
+  <div data-hf-id="hf-owjm" class="panel">
+    <video data-hf-id="hf-do8h" id="pr-img" class="clip" data-start="0.4" data-duration="14.6" data-track-index="1" data-track-kind="graphics" src="assets/walk-capture.mp4" muted playsinline preload="auto" data-media-start="30.4" aria-label="Recorded app walkthrough"></video>
+  </div>
+  <div data-hf-id="hf-y4o0" class="bar" data-start="0" data-duration="15" data-track-index="2" data-track-kind="captions"><i data-hf-id="hf-i0i3" id="pr-bar"></i></div>
+  <div data-hf-id="hf-4vyw" class="label" id="pr-label">Scene 3 · Processing · condensed</div>
+</div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo("#pr-title",{opacity:0,filter:"blur(8px)"},{opacity:1,filter:"blur(0px)",duration:0.6,ease:"power4.out"},0.2);
+  tl.fromTo("#pr-p1",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},1.8);
+  tl.fromTo("#pr-p2",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},4.0);
+  tl.fromTo("#pr-p3",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},7.0);
+  tl.fromTo(".note",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},10);
+  tl.fromTo("#pr-img",{opacity:0,scale:1.02},{opacity:1,scale:1,duration:0.8,ease:"power2.out"},0.4);
+  tl.fromTo("#pr-bar",{width:"0%"},{width:"100%",duration:14,ease:"none"},0.4);
+  window.__timelines["processing"] = tl;
+</script>
+</template>

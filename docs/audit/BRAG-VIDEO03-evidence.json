@@ -1,0 +1,572 @@
+{
+  "task": "BRAG-VIDEO03",
+  "app_base_commit": "b3bc796",
+  "local_only": true,
+  "output": "brag-output-20261027-submission/motion-xray-submission.mp4",
+  "sha256": "d59bfaf1af29b1032ba9eafe36312a4d22135d3f13c3a5c277ec1fbdf19600fc",
+  "probe": {
+    "programs": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "nb_frames": "4500"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "sample_rate": "48000",
+        "r_frame_rate": "0/0",
+        "nb_frames": "7033"
+      }
+    ],
+    "format": {
+      "duration": "150.000000",
+      "size": "12953163"
+    }
+  },
+  "audio": {
+    "mean_dbfs": -25.4,
+    "peak_dbfs": -5.0
+  },
+  "qc": {
+    "walkthrough_check": {
+      "ok": true,
+      "strict": false,
+      "browserSkipped": false,
+      "lint": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 16,
+        "infoCount": 0,
+        "findings": [
+          {
+            "code": "nested_media_start_basis_ambiguous",
+            "severity": "warning",
+            "message": "<video id=\"co-img\"> has data-start=\"0.4\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+            "selector": "#co-img",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/coaching.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Keep data-start=\"0.4\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+          },
+          {
+            "code": "timeline_track_too_dense",
+            "severity": "warning",
+            "message": "Track 2 has 5 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/coaching.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+          },
+          {
+            "code": "studio_missing_editable_id",
+            "severity": "warning",
+            "message": "<div class=\"sub\" data-start=\"7.6\" data-track-index=\"2\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/home.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+          },
+          {
+            "code": "nested_media_start_basis_ambiguous",
+            "severity": "warning",
+            "message": "<video id=\"home-img\"> has data-start=\"0.4\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+            "selector": "#home-img",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/home.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Keep data-start=\"0.4\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+          },
+          {
+            "code": "timeline_track_too_dense",
+            "severity": "warning",
+            "message": "Track 2 has 5 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/home.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+          },
+          {
+            "code": "nested_media_start_basis_ambiguous",
+            "severity": "warning",
+            "message": "<video id=\"li-img\"> has data-start=\"0.4\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+            "selector": "#li-img",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/limits.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Keep data-start=\"0.4\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+          },
+          {
+            "code": "timeline_track_too_dense",
+            "severity": "warning",
+            "message": "Track 2 has 4 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/limits.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+          },
+          {
+            "code": "studio_missing_editable_id",
+            "severity": "warning",
+            "message": "<div class=\"bar\" data-start=\"0\" data-track-index=\"2\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/processing.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+          },
+          {
+            "code": "nested_media_start_basis_ambiguous",
+            "severity": "warning",
+            "message": "<video id=\"pr-img\"> has data-start=\"0.4\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+            "selector": "#pr-img",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/processing.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Keep data-start=\"0.4\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+          },
+          {
+            "code": "timeline_track_too_dense",
+            "severity": "warning",
+            "message": "Track 2 has 6 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/processing.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+          },
+          {
+            "code": "timed_element_missing_clip_class",
+            "severity": "warning",
+            "message": "<div> has timing attributes but no class=\"clip\". The runtime still hides it outside its time range, but Studio and the GSAP clip-ownership rules use .clip to recognise a clip, so leaving it off makes the element harder to edit and to lint.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/processing.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Add class=\"clip\" to the element so Studio and the linter can recognise it as a clip."
+          },
+          {
+            "code": "nested_media_start_basis_ambiguous",
+            "severity": "warning",
+            "message": "<video id=\"re-img-results\"> has data-start=\"0.4\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+            "selector": "#re-img-results",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/results.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Keep data-start=\"0.4\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+          },
+          {
+            "code": "nested_media_start_basis_ambiguous",
+            "severity": "warning",
+            "message": "<video id=\"re-img-replay\"> has data-start=\"12\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+            "selector": "#re-img-replay",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/results.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Keep data-start=\"12\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+          },
+          {
+            "code": "timeline_track_too_dense",
+            "severity": "warning",
+            "message": "Track 2 has 5 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/results.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+          },
+          {
+            "code": "nested_media_start_basis_ambiguous",
+            "severity": "warning",
+            "message": "<video id=\"up-img\"> has data-start=\"0.4\" inside a sub-composition. Nested media timing is local to its composition by default; a nonzero value can be confused with a legacy root-global timestamp.",
+            "selector": "#up-img",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/upload.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Keep data-start=\"0.4\" if it is composition-local. If this is a legacy root-global timestamp, add data-hf-media-start-basis=\"global\"; otherwise convert it to local time by subtracting the host start."
+          },
+          {
+            "code": "timeline_track_too_dense",
+            "severity": "warning",
+            "message": "Track 2 has 5 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "/work/composition/compositions/upload.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 0,
+            "fixHint": "Move coherent scene groups into smaller .html files and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+          }
+        ],
+        "filesScanned": 7
+      },
+      "runtime": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": []
+      },
+      "layout": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": [],
+        "duration": 100,
+        "samples": [
+          5.556,
+          16.667,
+          27.778,
+          38.889,
+          50,
+          61.111,
+          72.222,
+          83.333,
+          94.444
+        ],
+        "transitionSamples": [],
+        "transitionSamplesDropped": 0,
+        "tolerance": 2,
+        "totalIssueCount": 0,
+        "truncated": false
+      },
+      "motion": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": [],
+        "enabled": false,
+        "samples": 0
+      },
+      "contrast": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": [],
+        "enabled": true,
+        "samples": [
+          5.556,
+          27.778,
+          50,
+          72.222,
+          94.444
+        ],
+        "checked": 42,
+        "passed": 42
+      },
+      "craft": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": [],
+        "enabled": true,
+        "step": 0.1670000000000016,
+        "samples": 599
+      },
+      "hdr": {
+        "autoPromotion": null,
+        "inspection": "available"
+      },
+      "snapshots": {
+        "enabled": false,
+        "files": [],
+        "times": [],
+        "findingFiles": []
+      },
+      "saved": {
+        "id": "8fc9a37a-3d78-4781-9424-a5131cc6a0e5",
+        "revision": null,
+        "report": "/work/composition/.hyperframes/artifacts/checks/8fc9a37a-3d78-4781-9424-a5131cc6a0e5.json",
+        "attribution": "unversioned"
+      },
+      "_meta": {
+        "version": "0.8.195",
+        "updateAvailable": false
+      }
+    },
+    "future_check": {
+      "ok": true,
+      "strict": false,
+      "browserSkipped": false,
+      "lint": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": [],
+        "filesScanned": 1
+      },
+      "runtime": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": []
+      },
+      "layout": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": [],
+        "duration": 20,
+        "samples": [
+          1.111,
+          3.333,
+          5.556,
+          7.778,
+          10,
+          12.222,
+          14.444,
+          16.667,
+          18.889
+        ],
+        "transitionSamples": [],
+        "transitionSamplesDropped": 0,
+        "tolerance": 2,
+        "totalIssueCount": 0,
+        "truncated": false
+      },
+      "motion": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": [],
+        "enabled": false,
+        "samples": 0
+      },
+      "contrast": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0,
+        "findings": [],
+        "enabled": true,
+        "samples": [
+          1.111,
+          5.556,
+          10,
+          14.444,
+          18.889
+        ],
+        "checked": 31,
+        "passed": 31
+      },
+      "craft": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 3,
+        "infoCount": 0,
+        "findings": [
+          {
+            "code": "dead_stretch",
+            "severity": "warning",
+            "message": "Nothing on screen changes for 3.13 s (1.63\u20134.75 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "index.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 1.625,
+            "seconds": 3.125,
+            "floorSeconds": 3,
+            "until": 4.75
+          },
+          {
+            "code": "dead_stretch",
+            "severity": "warning",
+            "message": "Nothing on screen changes for 3.13 s (6.63\u20139.75 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "index.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 6.625,
+            "seconds": 3.125,
+            "floorSeconds": 3,
+            "until": 9.75
+          },
+          {
+            "code": "dead_stretch",
+            "severity": "warning",
+            "message": "Nothing on screen changes for 3.13 s (11.63\u201314.75 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+            "selector": "[data-composition-id]",
+            "dataAttributes": {},
+            "sourceFile": "index.html",
+            "bbox": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "time": 11.625,
+            "seconds": 3.125,
+            "floorSeconds": 3,
+            "until": 14.75
+          }
+        ],
+        "enabled": true,
+        "step": 0.125,
+        "samples": 160
+      },
+      "hdr": {
+        "autoPromotion": null,
+        "inspection": "available"
+      },
+      "snapshots": {
+        "enabled": false,
+        "files": [],
+        "times": [],
+        "findingFiles": []
+      },
+      "saved": {
+        "id": "9a0c94dd-fc3b-4740-89eb-0812bcaeb72c",
+        "revision": null,
+        "report": "/work/composition/.hyperframes/artifacts/checks/9a0c94dd-fc3b-4740-89eb-0812bcaeb72c.json",
+        "attribution": "unversioned"
+      },
+      "_meta": {
+        "version": "0.8.195",
+        "updateAvailable": false
+      }
+    },
+    "final_decoded_samples_s": [
+      0,
+      35,
+      55,
+      70,
+      90,
+      115,
+      133,
+      138,
+      143,
+      148
+    ],
+    "visual_review": "passed; roadmap transition boundaries intentionally fade",
+    "continuous_recording": true,
+    "processing_wait_condensed": true
+  },
+  "runtime_coaching": {
+    "calls": 1,
+    "http_status": 200,
+    "ui_status": "unavailable",
+    "validation_status": "unvalidated",
+    "replacement_response": false
+  },
+  "publication": false
+}

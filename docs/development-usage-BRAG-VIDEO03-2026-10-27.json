@@ -1,0 +1,242 @@
+{
+  "task": "BRAG-VIDEO03",
+  "development_calls": [
+    {
+      "task": "BRAG-VIDEO03-recorded-footage-integration",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video03-footage",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.240657,
+      "input_token_bound": 30219,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 6065,
+        "prompt_tokens": 8229,
+        "total_tokens": 14294,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 8192
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 8229
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-db8c6a0f3b8a342021385797789aa63d",
+      "elapsed_s": 13.49,
+      "received_chars": 19199,
+      "conservative_cost_usd": 0.115662
+    },
+    {
+      "task": "BRAG-VIDEO03-future-layout",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video03-future-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.209223,
+      "input_token_bound": 19741,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3883,
+        "prompt_tokens": 5485,
+        "total_tokens": 9368,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 5376
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 5485
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-9cadff1043c154c20cac13c3ec16f5c9",
+      "elapsed_s": 9.55,
+      "received_chars": 10230,
+      "conservative_cost_usd": 0.0747
+    },
+    {
+      "task": "BRAG-VIDEO03-future",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video03-future",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.25170899999999996,
+      "input_token_bound": 23903,
+      "output_token_bound": 12000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 6587,
+        "prompt_tokens": 4527,
+        "total_tokens": 11114,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 4480
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 4527
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-a0b4e214e2694366ed3deaba394a0165",
+      "elapsed_s": 16.5,
+      "received_chars": 17907,
+      "conservative_cost_usd": 0.112386
+    },
+    {
+      "task": "BRAG-VIDEO03-recorder-correctness",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video03-recorder-fix",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.18785100000000002,
+      "input_token_bound": 17617,
+      "output_token_bound": 9000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3245,
+        "prompt_tokens": 3504,
+        "total_tokens": 6749,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 3456
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3504
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-1c798a91f74057f1a28fb8d0bb4ec411",
+      "elapsed_s": 8.44,
+      "received_chars": 11250,
+      "conservative_cost_usd": 0.059187000000000003
+    },
+    {
+      "task": "BRAG-VIDEO03-recorder",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video03-recorder",
+      "status": "failed",
+      "maximum_cost_usd": 0.178236,
+      "input_token_bound": 9412,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3533,
+        "prompt_tokens": 1401,
+        "total_tokens": 4934,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 1280
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 1401
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-5977bb1ac59c1e209c0e5b43f05b4bb2",
+      "error_type": "JSONDecodeError",
+      "error_status_code": null,
+      "error_code": null,
+      "elapsed_s": 10.04,
+      "received_chars": 12212,
+      "conservative_cost_usd": 0.057198
+    },
+    {
+      "task": "BRAG-VIDEO03-walkthrough",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "brag-video03-walkthrough",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.35967299999999996,
+      "input_token_bound": 24891,
+      "output_token_bound": 19000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 9591,
+        "prompt_tokens": 4765,
+        "total_tokens": 14356,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 4736
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 4765
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-1090c3ec0650c627ebe61345faec0cb1",
+      "elapsed_s": 23.05,
+      "received_chars": 29202,
+      "conservative_cost_usd": 0.15816
+    }
+  ],
+  "development_tokens": 60815,
+  "development_conservative_usd": 0.577293,
+  "runtime_coaching": {
+    "authorized_calls": 1,
+    "actual_calls": 1,
+    "status": "unvalidated",
+    "ui_status": "unavailable",
+    "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+    "prompt_tokens": 1427,
+    "completion_tokens": 71,
+    "total_tokens": 1498,
+    "conservative_usd": 0.005346
+  },
+  "aggregate_conservative_usd": 38.61115465,
+  "active_ceiling_usd": 70,
+  "protected_backup_used_usd": 0,
+  "account_balance": "unverified",
+  "note": "Conservative guards, not invoice prices. Failed recorder generation remains charged; JSON prefix recovered and reviewed."
+}

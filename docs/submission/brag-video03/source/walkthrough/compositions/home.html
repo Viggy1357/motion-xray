@@ -1,0 +1,42 @@
+<template>
+<style>
+  #root{position:absolute;inset:0;background:#142039;box-sizing:border-box}
+  .copy{position:absolute;left:130px;top:150px;width:520px}
+  .copy h1{font-family:Outfit,sans-serif;font-weight:900;font-size:84px;line-height:1.02;margin:0 0 18px;color:#f8fafd;letter-spacing:-0.01em}
+  .copy h1 span{color:#cbb8f2}
+  .copy p{font-size:38px;line-height:1.25;margin:0 0 14px;color:#f8fafd;font-weight:400}
+  .copy .sub{font-size:32px;color:#cbb8f2;margin-top:22px;font-weight:700}
+  .panel{position:absolute;left:700px;top:130px;width:1120px;height:820px;background:#0d172a;border:2px solid #3158e8;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .panel img,.panel video{width:100%;height:100%;object-fit:contain}
+  .badge{position:absolute;left:130px;top:60px;font-size:28px;font-weight:700;color:#f8fafd;letter-spacing:0.02em}
+  .badge b{color:#cbb8f2}
+  .label{position:absolute;left:130px;bottom:60px;font-size:28px;color:#cbb8f2;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+  .chapter{position:absolute;right:60px;top:60px;font-size:28px;color:#cbb8f2;font-weight:700}
+  .hold{font-size:32px;color:#f8fafd;margin-top:18px;opacity:0.85}
+</style>
+<div data-hf-id="hf-axls" id="root" data-composition-id="home" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-elxn" class="badge" id="home-badge"><b data-hf-id="hf-ebdr">Motion X Ray</b> · Walkthrough</div>
+  <div data-hf-id="hf-4p69" class="chapter" id="home-chapter">Chapter 1 of 6</div>
+  <div data-hf-id="hf-bdx3" class="copy">
+    <h1 data-hf-id="hf-mul7" id="home-title" class="clip" data-start="0.2" data-duration="11.8" data-track-index="2" data-track-kind="captions">Review one<br data-hf-id="hf-x5px"/><span data-hf-id="hf-jn9o">filmed set.</span></h1>
+    <p data-hf-id="hf-h9ch" id="home-p1" class="clip" data-start="1.6" data-duration="10.4" data-track-index="2" data-track-kind="captions">A short walkthrough of how a clip becomes a measured moment.</p>
+    <p data-hf-id="hf-cvib" id="home-p2" class="clip" data-start="3.4" data-duration="8.6" data-track-index="2" data-track-kind="captions" data-hold="true">See your set from a clearer perspective.</p>
+    <p data-hf-id="hf-5vhj" id="home-p3" class="clip" data-start="5.6" data-duration="6.4" data-track-index="2" data-track-kind="captions" data-hold="true">One filmed set, one focused review.</p>
+    <div data-hf-id="hf-bg8b" class="sub clip" data-start="7.6" data-duration="4.4" data-track-index="2" data-track-kind="captions" data-hold="true">Measure. Replay. Refocus.</div>
+  </div>
+  <div data-hf-id="hf-owjm" class="panel">
+    <video data-hf-id="hf-eiky" id="home-img" class="clip" data-start="0.4" data-duration="11.6" data-track-index="1" data-track-kind="graphics" src="assets/walk-capture.mp4" muted playsinline preload="auto" data-media-start="0.4" aria-label="Recorded app walkthrough"></video>
+  </div>
+  <div data-hf-id="hf-h8dp" class="label" id="home-label">Scene 1 · Home</div>
+</div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo("#home-title",{opacity:0,filter:"blur(8px)"},{opacity:1,filter:"blur(0px)",duration:0.6,ease:"power4.out"},0.2);
+  tl.fromTo("#home-p1",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},1.6);
+  tl.fromTo("#home-p2",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},3.4);
+  tl.fromTo("#home-p3",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},5.6);
+  tl.fromTo(".sub",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},7.6);
+  tl.fromTo("#home-img",{opacity:0,scale:1.02},{opacity:1,scale:1,duration:0.8,ease:"power2.out"},0.4);
+  window.__timelines["home"] = tl;
+</script>
+</template>

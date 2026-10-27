@@ -1,3 +1,5 @@
+> Update 27 October: the finished local 2:30 cut and actual recording outcomes are documented in [brag-video03/README.md](brag-video03/README.md). The draft below predates recording.
+
 # MILO walkthrough draft — 100s (0:30–2:10)
 
 Narration is written, not generated. 176 spoken words across 6 blocks, leaving time for clicks and pauses. Capture requirements distinguish real actions from edited waits. No actual footage captured or published by this task.

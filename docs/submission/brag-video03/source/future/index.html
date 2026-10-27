@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MotionXRay — Future</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    width: 1920px; height: 1080px;
+    background: #142039;
+    font-family: 'Outfit', system-ui, sans-serif;
+    overflow: hidden;
+    color: #f8fafd;
+  }
+  #root {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    background: #142039;
+  }
+  .phase-group {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+    background: #142039;
+    opacity: 0;
+  }
+  #planned-badge {
+    position: absolute;
+    top: 72px;
+    right: 96px;
+    width: 190px;
+    height: 56px;
+    background: #3158e8;
+    color: #f8fafd;
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  #brand-mark {
+    position: absolute;
+    left: 120px;
+    top: 72px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #f8fafd;
+    letter-spacing: 1px;
+    z-index: 10;
+  }
+  #milo {
+    position: absolute;
+    left: 1320px;
+    top: 570px;
+    width: 360px;
+    height: 360px;
+    z-index: 8;
+  }
+  #milo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  #milo-bob {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 90%;
+  }
+  .phase-headline {
+    position: absolute;
+    left: 120px;
+    top: 240px;
+    width: 1100px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 84px;
+    font-weight: 700;
+    color: #f8fafd;
+    line-height: 1.1;
+    margin: 0;
+  }
+  .phase-sub {
+    position: absolute;
+    left: 120px;
+    top: 480px;
+    width: 1100px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: #cbb8f2;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .tile {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: rgba(49, 88, 232, 0.18);
+    border: 2px solid #3158e8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #f8fafd;
+  }
+  #p1-tile-1 { left: 120px;  top: 650px; }
+  #p1-tile-2 { left: 344px;  top: 650px; }
+  #p1-tile-3 { left: 568px;  top: 650px; }
+  #p1-tile-4 { left: 792px;  top: 650px; }
+  #p1-tile-5 { left: 1016px; top: 650px; }
+
+  .journal-card {
+    position: absolute;
+    width: 300px;
+    height: 120px;
+    background: rgba(203, 184, 242, 0.12);
+    border: 2px solid #cbb8f2;
+    border-radius: 16px;
+    padding: 20px;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .journal-date {
+    font-size: 28px;
+    color: #cbb8f2;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .journal-label {
+    font-size: 30px;
+    font-weight: 600;
+    color: #f8fafd;
+  }
+  #p2-card-1 { left: 120px;  top: 650px; }
+  #p2-card-2 { left: 444px;  top: 650px; }
+  #p2-card-3 { left: 768px;  top: 650px; }
+
+  #p3-camera {
+    position: absolute;
+    left: 200px;
+    top: 650px;
+    width: 180px;
+    height: 180px;
+  }
+  #p3-camera-label {
+    position: absolute;
+    left: 200px;
+    top: 850px;
+    width: 600px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #cbb8f2;
+  }
+
+  #music-credit {
+    position: absolute;
+    left: 120px;
+    top: 970px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    color: #cbb8f2;
+    opacity: 0.85;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+<div data-hf-id="hf-udzq"
+  id="root"
+  data-composition-id="future"
+  data-start="0"
+  data-duration="20"
+  data-width="1920"
+  data-height="1080"
+>
+
+  <!-- Persistent PLANNED badge -->
+  <div data-hf-id="hf-q53z" id="planned-badge">PLANNED</div>
+
+  <!-- Persistent brand mark -->
+  <div data-hf-id="hf-lvtc" id="brand-mark">Motion X Ray</div>
+
+  <!-- Persistent Milo actor -->
+  <div data-hf-id="hf-bo44" id="milo">
+    <div data-hf-id="hf-4acu" id="milo-bob">
+      <img data-hf-id="hf-d0hk" src="assets/milo.webp" alt="Milo">
+    </div>
+  </div>
+
+  <!-- Phase 1 group: 0–5s -->
+  <div data-hf-id="hf-itzo" id="phase-1" class="phase-group">
+    <h1 data-hf-id="hf-som2" class="phase-headline">More exercises.<br data-hf-id="hf-x5px">Stronger calibration.</h1>
+    <p data-hf-id="hf-v9ja" class="phase-sub">A wider library, refined to your movement.</p>
+    <div data-hf-id="hf-6gmw" id="p1-tile-1" class="tile">Squat</div>
+    <div data-hf-id="hf-v0cy" id="p1-tile-2" class="tile">Deadlift</div>
+    <div data-hf-id="hf-4rwa" id="p1-tile-3" class="tile">Bench</div>
+    <div data-hf-id="hf-jry9" id="p1-tile-4" class="tile">Row</div>
+    <div data-hf-id="hf-ifzt" id="p1-tile-5" class="tile">Press</div>
+  </div>
+
+  <!-- Phase 2 group: 5–10s -->
+  <div data-hf-id="hf-rhvj" id="phase-2" class="phase-group">
+    <h1 data-hf-id="hf-whht" class="phase-headline">Connect reviews<br data-hf-id="hf-rsrt">to progress and routines.</h1>
+    <p data-hf-id="hf-uud5" class="phase-sub">See patterns across sessions, at a glance.</p>
+    <div data-hf-id="hf-p3t1" id="p2-card-1" class="journal-card">
+      <div data-hf-id="hf-q784" class="journal-date">MON</div>
+      <div data-hf-id="hf-9629" class="journal-label">Pull day</div>
+    </div>
+    <div data-hf-id="hf-v9iu" id="p2-card-2" class="journal-card">
+      <div data-hf-id="hf-utre" class="journal-date">WED</div>
+      <div data-hf-id="hf-sv76" class="journal-label">Leg day</div>
+    </div>
+    <div data-hf-id="hf-z7mv" id="p2-card-3" class="journal-card">
+      <div data-hf-id="hf-08dh" class="journal-date">FRI</div>
+      <div data-hf-id="hf-1h6q" class="journal-label">Push day</div>
+    </div>
+  </div>
+
+  <!-- Phase 3 group: 10–15s -->
+  <div data-hf-id="hf-njri" id="phase-3" class="phase-group">
+    <h1 data-hf-id="hf-58ut" class="phase-headline">An optional<br data-hf-id="hf-szow">compact camera.</h1>
+    <p data-hf-id="hf-ml7y" class="phase-sub">A simple add-on for closer angles.</p>
+    <svg data-hf-id="hf-ux3e" id="p3-camera" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+      <rect data-hf-id="hf-afnz" x="10" y="40" width="160" height="110" rx="14" ry="14"
+            fill="none" stroke="#3158e8" stroke-width="4"/>
+      <rect data-hf-id="hf-tjjd" x="60" y="20" width="60" height="22" rx="4" ry="4"
+            fill="none" stroke="#3158e8" stroke-width="4"/>
+      <circle data-hf-id="hf-ayw5" cx="90" cy="95" r="32"
+              fill="none" stroke="#cbb8f2" stroke-width="4"/>
+      <circle data-hf-id="hf-s2yy" cx="90" cy="95" r="14" fill="#cbb8f2"/>
+      <circle data-hf-id="hf-cv2y" cx="148" cy="58" r="4" fill="#cbb8f2"/>
+    </svg>
+    <div data-hf-id="hf-oset" id="p3-camera-label">Concept illustration</div>
+  </div>
+
+  <!-- Phase 4 group: 15–20s -->
+  <div data-hf-id="hf-w7nd" id="phase-4" class="phase-group">
+    <h1 data-hf-id="hf-gcsv" class="phase-headline">Milo. With you<br data-hf-id="hf-sldv">for the next set.</h1>
+    <p data-hf-id="hf-qx0w" class="phase-sub">Shaping the next chapter.</p>
+    <div data-hf-id="hf-fur6" id="music-credit">Music: Sascha Ende · ende.app · CC BY 4.0</div>
+  </div>
+
+  <!-- Audio: music -->
+  <audio data-hf-id="hf-qbj5"
+    id="future-music"
+    data-start="0"
+    data-duration="20"
+    data-track-index="0"
+    data-media-start="30"
+    data-volume="0.45"
+    data-fade-out="1.5"
+    src="assets/future-music.mp3"
+  ></audio>
+
+  <!-- SFX drops -->
+  <audio data-hf-id="hf-hqhb" id="drop-1" data-start="5"  data-duration="0.1" data-track-index="3" data-volume="0.6" src="assets/drop.ogg"></audio>
+  <audio data-hf-id="hf-s660" id="drop-2" data-start="10" data-duration="0.1" data-track-index="3" data-volume="0.6" src="assets/drop.ogg"></audio>
+  <audio data-hf-id="hf-fn7y" id="drop-3" data-start="15" data-duration="0.1" data-track-index="3" data-volume="0.6" src="assets/drop.ogg"></audio>
+
+</div>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script>
+  window.__timelines = window.__timelines || {};
+  const tl = gsap.timeline({ paused: true });
+
+  // Stable baselines for persistent targets
+  gsap.set("#planned-badge", { opacity: 1 });
+  gsap.set("#brand-mark",     { opacity: 1 });
+  gsap.set("#milo",           { x: 0, y: 0, scale: 1, opacity: 1 });
+  gsap.set("#milo-bob",       { x: 0, y: 0, rotation: 0 });
+  gsap.set("#phase-1",        { opacity: 0 });
+  gsap.set("#phase-2",        { opacity: 0 });
+  gsap.set("#phase-3",        { opacity: 0 });
+  gsap.set("#phase-4",        { opacity: 0 });
+  gsap.set("#music-credit",   { opacity: 0 });
+
+  // Milo: 4 finite tilt/hop moments on the child wrapper
+  tl.to("#milo-bob", { rotation: -6, y: -10, duration: 0.25, ease: "power2.out" }, 1.0);
+  tl.to("#milo-bob", { rotation:  0, y:   0, duration: 0.30, ease: "power2.in"  }, 1.25);
+
+  tl.to("#milo-bob", { rotation:  5, y:  -8, duration: 0.25, ease: "power2.out" }, 6.0);
+  tl.to("#milo-bob", { rotation:  0, y:   0, duration: 0.30, ease: "power2.in"  }, 6.25);
+
+  tl.to("#milo-bob", { rotation: -4, y:  -6, duration: 0.25, ease: "power2.out" }, 11.0);
+  tl.to("#milo-bob", { rotation:  0, y:   0, duration: 0.30, ease: "power2.in"  }, 11.25);
+
+  tl.to("#milo-bob", { rotation:  7, y: -14, duration: 0.30, ease: "power2.out" }, 16.0);
+  tl.to("#milo-bob", { rotation:  0, y:   0, duration: 0.40, ease: "power2.in"  }, 16.30);
+
+  // Phase 1 — 0–5s
+  tl.to("#phase-1", { opacity: 1, duration: 0.35, ease: "power2.out" }, 0.0);
+  tl.to("#phase-1", { opacity: 0, duration: 0.20, ease: "power2.in"  }, 4.80);
+
+  // Phase 2 — 5–10s
+  tl.to("#phase-2", { opacity: 1, duration: 0.35, ease: "power2.out" }, 5.0);
+  tl.to("#phase-2", { opacity: 0, duration: 0.20, ease: "power2.in"  }, 9.80);
+
+  // Phase 3 — 10–15s
+  tl.to("#phase-3", { opacity: 1, duration: 0.35, ease: "power2.out" }, 10.0);
+  tl.to("#phase-3", { opacity: 0, duration: 0.20, ease: "power2.in"  }, 14.80);
+
+  // Phase 4 — 15–20s
+  tl.to("#phase-4", { opacity: 1, duration: 0.35, ease: "power2.out" }, 15.0);
+
+  // Music credit visible only during last 5s of phase 4
+  tl.to("#music-credit", { opacity: 0.85, duration: 0.35, ease: "power2.out" }, 15.0);
+
+  window.__timelines["future"] = tl;
+</script>
+</body>
+</html>
