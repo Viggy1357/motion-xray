@@ -1,3 +1,5 @@
+> **29 October publication preparation:** The release update brings `main` to the current implementation. The owner must still make GitHub public; visibility is intentionally unchanged. Standard MIT text is in LICENSE, with third-party notices separate. The 2:30 local video is finished; latest recorded coaching returned unavailable after validation. No hosted app or public YouTube URL has been verified here. See [current release checklist](PUBLIC-RELEASE.md). The dated matrix below is historical and may describe superseded branch/video status.
+
 # READINESS — Motion X Ray
 
 > Release requirements and remaining actions for the Nebius x NVIDIA Global AI Hackathon.

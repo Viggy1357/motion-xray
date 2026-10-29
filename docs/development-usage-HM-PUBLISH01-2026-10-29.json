@@ -1,0 +1,40 @@
+{
+  "task": "HM-PUBLISH01",
+  "model": "MiniMaxAI/MiniMax-M3",
+  "request": "hm-publish01",
+  "status": "accepted_after_coordinator_review",
+  "maximum_cost_usd": 0.162072,
+  "input_token_bound": 24024,
+  "output_token_bound": 6000,
+  "historical_known_cost_usd": 0.02093765,
+  "historical_unknown_calls": 4,
+  "unknown_history_contingency_usd": 1,
+  "price_basis": "Conservative guard USD3 input/USD15 completion per million, not invoice",
+  "usage": {
+    "completion_tokens": 4499,
+    "prompt_tokens": 4736,
+    "total_tokens": 9235,
+    "completion_tokens_details": {
+      "audio_tokens": null,
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cached_tokens": 0,
+      "created_cache_tokens": 4736
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 4736
+  },
+  "finish_reason": "stop",
+  "input_rate_usd_per_million": 3,
+  "output_rate_usd_per_million": 15,
+  "request_id": "chatcmpl-9d0ff98dfd50bc31",
+  "elapsed_s": 17.31,
+  "received_chars": 17877,
+  "conservative_cost_usd": 0.081693,
+  "prior_aggregate_guard_usd": 38.61115465,
+  "aggregate_guard_usd": 38.69284765,
+  "protected_backup_used_usd": 0,
+  "account_balance": "unverified"
+}

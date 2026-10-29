@@ -16,3 +16,8 @@ models
 **/*.egg-info
 scripts/_nemotron_probe.py
 scripts/_run_nemotron_live.sh
+
+# Local submission media and rendered film projects
+Videos
+brag-output
+brag-output-*

@@ -12,17 +12,12 @@ every command, every path, every diagnostic is listed below.
 - macOS / Linux: only Apple Silicon has been locally verified.
 - Network access on first build (dependency + ~9.4MB model download).
 
-## Step 1 — Clone and pin the demonstrated branch
+## Step 1 — Clone the repository
 
 ```bash
-git clone --branch codex/hm-ux05-mockup-implementation https://github.com/Viggy1357/motion-xray.git
+git clone https://github.com/Viggy1357/motion-xray.git
 cd motion-xray
 ```
-
-> The default branch is currently `main` (older checkpoint). The
-> demonstrated build lives on `codex/hm-ux05-mockup-implementation`
-> until the owner merges a release. A default clone does **not** select
-> the demonstrated build.
 
 ## Step 2 — Run the canonical quickstart
 
@@ -103,6 +98,10 @@ No fake offline coach is provided. With `ALLOW_LIVE_COACHING=false` or
 no `NEBIUS_API_KEY`, the coaching path is disabled and the core
 perception path still works.
 
+For the runtime model, bounded coaching design, development-worker usage and
+latest recording limitations, see the root README's **NVIDIA Nemotron and Nebius usage**
+section and [current publication checklist](submission/PUBLIC-RELEASE.md).
+
 ## Step 7 — Stop the stack (preserve state)
 
 ```bash
@@ -141,3 +140,7 @@ stack. Use this to pre-warm a fresh clone.
   **distinct** from the core perception path and is **off** by default.
   Enabling it requires `ALLOW_LIVE_COACHING=true` and a valid
   `NEBIUS_API_KEY`.
+- The judge route is a local Docker build using an own video (≤60s, ≤100MiB);
+  no private demo media is bundled, and analysis may take several minutes.
+  An API key is optional for the core path and required only for the paid
+  coaching path. No public demo is claimed.

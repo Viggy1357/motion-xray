@@ -53,3 +53,6 @@ htmlcov/
 # Local launch-video working files and renders
 /brag-output/
 /brag-output-*/
+
+# Owner-managed local submission media
+/Videos/

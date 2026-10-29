@@ -19,15 +19,10 @@ from the network; core analysis then needs no external inference service. Docker
 check image registries; a fully offline bootstrap is not guaranteed.
 
 ```bash
-git clone --branch codex/hm-ux05-mockup-implementation https://github.com/Viggy1357/motion-xray.git
+git clone https://github.com/Viggy1357/motion-xray.git
 cd motion-xray
 ./scripts/quickstart.sh
 ```
-
-> The default branch is currently `main` (older checkpoint). The
-> demonstrated build lives on `codex/hm-ux05-mockup-implementation` until
-> the owner merges a release. A default clone does **not** select the
-> demonstrated build.
 
 ### Prerequisites
 
@@ -90,6 +85,41 @@ Generates `.env` and downloads/verifies the model without starting the
 stack. Use this to pre-warm a fresh clone.
 
 
+## NVIDIA Nemotron and Nebius usage
+
+The required NVIDIA-model call is the optional grounded coaching path. It is
+**distinct** from the core perception path and is **off** by default.
+
+- **Runtime model**: `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B`, hosted via the
+  Nebius Token Factory OpenAI-compatible server-side endpoint. The model is
+  selected for a bounded, low-latency, low-cost coaching task; no benchmark
+  claim is made.
+- **Selection logic**: the server-side path selects only evidence-linked
+  coaching IDs that are eligible for the current clip. Local validation and
+  fixed text are used; the model never receives raw video and never invents
+  numeric measurements.
+- **Deterministic measurements**: pose and rep measurements are produced
+  deterministically on CPU using MediaPipe; they are kept separate from the
+  Nemotron coaching call.
+- **Historical record**: one real owned-set `Generate coaching` call is
+  documented historically (1427 input / 38 output tokens, 1.103s) — see
+  `docs/audit/HM057-HM06-delivery.md`. The latest 27 Oct recording failed
+  local validation and coaching was shown as unavailable; that outcome is recorded
+  honestly and is **not** attributed to a runtime outage. No claim is made
+  that all calls are reliable. **The recording used one request without a retry.**
+- **Development usage**: bounded Nebius coding workers were used with
+  parallel independent drafts, usage tracking, and coordinator review to
+  accelerate UI, analysis implementation, and video composition. No
+  measured speed or savings claim is made.
+- **Scope**: only the Nebius Token Factory is used. AI Cloud GPU instances,
+  serverless inference, and hosted deployment are **not** used. Tavily is
+  not demonstrated at runtime; the cached default applies.
+
+## Current submission note (29 October 2026)
+
+The submission film was rendered locally at 150s; see
+`docs/submission/brag-video03/README.md`. The owner supplies the YouTube URL in the submission; no hosted app URL is configured here.
+
 ## Project purpose
 
 Motion X Ray is a personal-training MVP for short workout clips. The intended
@@ -120,7 +150,7 @@ technique scores stay null; only reference-resemblance estimates are reported.
   No provider call, no progress estimate, no technique or health claim.
   Reduced-motion and visibility preferences are respected.
 
-## Status — 25 October 2026
+## Status — 25 October 2026 (historical QC, not newly rerun)
 
 - Final QC started from commit `25ec8f3` on branch
   `codex/hm-ux05-mockup-implementation`.
@@ -203,3 +233,9 @@ terms; see `docs/OPERATIONS.md` and `DECISIONS.md`.
   use; that is demonstrated through the separately enabled coaching path.
 - No hosted URL is provided in this prep pass. Local Docker is the only
   verified run path.
+- The main app's estimated 3D motion replay is a roadmap feature; partial
+  unreviewed references are not technique-grade.
+- The judge route is a local Docker build using an own video (≤60s, ≤100MiB);
+  no private demo media is bundled, and analysis may take several minutes.
+  An API key is optional for the core path and required only for the paid
+  coaching path. No public demo is claimed.
