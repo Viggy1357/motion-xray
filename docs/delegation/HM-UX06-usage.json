@@ -1,0 +1,650 @@
+{
+  "task": "HM-UX06",
+  "as_of": "2026-10-24",
+  "baseline": "5ebe828",
+  "status": "candidate_not_merged",
+  "development_provider": "Nebius Token Factory",
+  "requests": [
+    {
+      "request": "ux6-cache-regression",
+      "task": "HM-UX06-REGRESSION-015",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_accepted_with_integration_corrections",
+      "usage": {
+        "completion_tokens": 1659,
+        "prompt_tokens": 7823,
+        "total_tokens": 9482,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 7808
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 7823
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 5.86,
+      "conservative_cost_usd": 0.048354,
+      "maximum_reservation_usd": 0.166485,
+      "input_token_bound": 32995,
+      "output_token_bound": 4500,
+      "review": "Parsed JSON control-character newlines with strict=False preserving raw. Accepted three actual behavioral tests and header clarification. Rejected stale-entry comment claiming acquire succeeds after tombstone."
+    },
+    {
+      "request": "ux6-cache-repair",
+      "task": "HM-UX06-CACHE-013",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "status": "draft_rejected",
+      "usage": {
+        "completion_tokens": 813,
+        "prompt_tokens": 7592,
+        "total_tokens": 8405,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 5.57,
+      "conservative_cost_usd": 0.034971,
+      "maximum_reservation_usd": 0.19174200000000002,
+      "input_token_bound": 31414,
+      "output_token_bound": 6500,
+      "review": "Rejected: revokes identical live URL despite explicit requirement; falsely claims tests added but output contains no test patch. No source from this draft applied."
+    },
+    {
+      "request": "ux6-camera-async-repair",
+      "task": "HM-UX06-CAM-001-async-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 13541,
+        "prompt_tokens": 12027,
+        "total_tokens": 25568,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 11904
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 12027
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 31.18,
+      "conservative_cost_usd": 0.239196,
+      "maximum_reservation_usd": 0.42465300000000006,
+      "input_token_bound": 51551,
+      "output_token_bound": 18000,
+      "review": null
+    },
+    {
+      "request": "ux6-camera-cleanup-repair",
+      "task": "HM-UX06-CAM-001-cleanup-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 7049,
+        "prompt_tokens": 9077,
+        "total_tokens": 16126,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 8960
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 9077
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 17.99,
+      "conservative_cost_usd": 0.132966,
+      "maximum_reservation_usd": 0.45784800000000003,
+      "input_token_bound": 42616,
+      "output_token_bound": 22000,
+      "review": null
+    },
+    {
+      "request": "ux6-camera-contract-repair",
+      "task": "HM-UX06-CAM-001-contract-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 12147,
+        "prompt_tokens": 9882,
+        "total_tokens": 22029,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 9856
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 9882
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 29.04,
+      "conservative_cost_usd": 0.211851,
+      "maximum_reservation_usd": 0.400353,
+      "input_token_bound": 43451,
+      "output_token_bound": 18000,
+      "review": null
+    },
+    {
+      "request": "ux6-camera-recovery",
+      "task": "HM-UX06-CAM-001-recovery",
+      "model": "nvidia/Nemotron-3.5-Super-VL",
+      "status": "failed",
+      "usage": {
+        "completion_tokens": 49152,
+        "prompt_tokens": 19016,
+        "total_tokens": 68168,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 49151
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 15232
+        }
+      },
+      "finish_reason": "length",
+      "elapsed_s": 115.58,
+      "conservative_cost_usd": 0.794328,
+      "maximum_reservation_usd": 0.978912,
+      "input_token_bound": 80544,
+      "output_token_bound": 49152,
+      "review": null
+    },
+    {
+      "request": "ux6-camera-replanned",
+      "task": "HM-UX06-CAM-001-replanned",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 17556,
+        "prompt_tokens": 18060,
+        "total_tokens": 35616,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 18048
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 18060
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 45.11,
+      "conservative_cost_usd": 0.31752,
+      "maximum_reservation_usd": 0.7334430000000001,
+      "input_token_bound": 80641,
+      "output_token_bound": 32768,
+      "review": null
+    },
+    {
+      "request": "ux6-camera",
+      "task": "HM-UX06-CAM-001",
+      "model": "moonshotai/Kimi-K3",
+      "status": "failed",
+      "usage": null,
+      "finish_reason": null,
+      "elapsed_s": 4.65,
+      "conservative_cost_usd": null,
+      "maximum_reservation_usd": 0.7327170000000001,
+      "input_token_bound": 80399,
+      "output_token_bound": 32768,
+      "review": null
+    },
+    {
+      "request": "ux6-conversion",
+      "task": "HM-UX06-ENCODE-017",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "status": "draft_partially_accepted_after_envelope_recovery",
+      "usage": {
+        "completion_tokens": 1228,
+        "prompt_tokens": 2365,
+        "total_tokens": 3593,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 8.8,
+      "conservative_cost_usd": 0.025515,
+      "maximum_reservation_usd": 0.078456,
+      "input_token_bound": 14152,
+      "output_token_bound": 2400,
+      "review": "Raw response was literal patch JSON rather than files envelope; retained failed usage. Accepted adapter conversion rejection cleanup. Rejected test patch: setter-only fake handler cannot be read; initial valid chunk contradicts assertion; counting rejection listeners proves nothing. Coordinator wired controller encoder error to existing destroy()+E04 failure rather than corrupt partial success."
+    },
+    {
+      "request": "ux6-data-recovery",
+      "task": "HM-UX06-DATA-002-recovery",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 12016,
+        "prompt_tokens": 12007,
+        "total_tokens": 24023,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 11904
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 12007
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 31.77,
+      "conservative_cost_usd": 0.216261,
+      "maximum_reservation_usd": 0.6417120000000001,
+      "input_token_bound": 50064,
+      "output_token_bound": 32768,
+      "review": null
+    },
+    {
+      "request": "ux6-data",
+      "task": "HM-UX06-DATA-002",
+      "model": "moonshotai/Kimi-K3",
+      "status": "failed",
+      "usage": null,
+      "finish_reason": null,
+      "elapsed_s": 4.89,
+      "conservative_cost_usd": null,
+      "maximum_reservation_usd": 0.494865,
+      "input_token_bound": 49955,
+      "output_token_bound": 23000,
+      "review": null
+    },
+    {
+      "request": "ux6-error-test",
+      "task": "HM-UX06-ENCODE-TEST-018",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_accepted_with_integration_corrections",
+      "usage": {
+        "completion_tokens": 691,
+        "prompt_tokens": 912,
+        "total_tokens": 1603,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 896
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 912
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 3.25,
+      "conservative_cost_usd": 0.013101,
+      "maximum_reservation_usd": 0.046143,
+      "input_token_bound": 7381,
+      "output_token_bound": 1600,
+      "review": "Translated invented adapter option/callback properties to existing constructor options and handler assignments; removed dead StubMediaRecorder factory and replaced nonexistent isDestroyed property assertion with observable inner inactive state. Failure behavior not weakened."
+    },
+    {
+      "request": "ux6-extras",
+      "task": "HM-UX06-EXTRA-003",
+      "model": "moonshotai/Kimi-K3",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 6075,
+        "prompt_tokens": 8286,
+        "total_tokens": 14361,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 11
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 161.29,
+      "conservative_cost_usd": 0.115983,
+      "maximum_reservation_usd": 0.382413,
+      "input_token_bound": 37471,
+      "output_token_bound": 18000,
+      "review": null
+    },
+    {
+      "request": "ux6-final-fixes",
+      "task": "HM-UX06-FIX-006",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 2545,
+        "prompt_tokens": 5065,
+        "total_tokens": 7610,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 4992
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 5065
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 8.65,
+      "conservative_cost_usd": 0.05337,
+      "maximum_reservation_usd": 0.19053900000000001,
+      "input_token_bound": 23513,
+      "output_token_bound": 8000,
+      "review": null
+    },
+    {
+      "request": "ux6-final-gate-fixes",
+      "task": "HM-UX06-GATE-009",
+      "model": "moonshotai/Kimi-K3",
+      "status": "failed",
+      "usage": null,
+      "finish_reason": null,
+      "elapsed_s": 4.66,
+      "conservative_cost_usd": null,
+      "maximum_reservation_usd": 0.39447,
+      "input_token_bound": 51490,
+      "output_token_bound": 16000,
+      "review": null
+    },
+    {
+      "request": "ux6-final-layout-cache",
+      "task": "HM-UX06-FINAL-014",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_partially_accepted",
+      "usage": {
+        "completion_tokens": 5239,
+        "prompt_tokens": 16677,
+        "total_tokens": 21916,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 16640
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 16677
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 14.84,
+      "conservative_cost_usd": 0.128616,
+      "maximum_reservation_usd": 0.393768,
+      "input_token_bound": 61256,
+      "output_token_bound": 14000,
+      "review": "Accepted CSS and store collision fix. Rejected expiry rewrite that would leave mounted private pixels indefinitely and tests expecting reinsertion after tombstone. Final tests requested independently without weakening expiry."
+    },
+    {
+      "request": "ux6-gate-replanned",
+      "task": "HM-UX06-GATE-009-replanned",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 3309,
+        "prompt_tokens": 12310,
+        "total_tokens": 15619,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 22.26,
+      "conservative_cost_usd": 0.086565,
+      "maximum_reservation_usd": 0.39519,
+      "input_token_bound": 51730,
+      "output_token_bound": 16000,
+      "review": null
+    },
+    {
+      "request": "ux6-gate",
+      "task": "HM-UX06-GATE-008",
+      "model": "nvidia/Nemotron-3.5-Super-VL",
+      "status": "failed",
+      "usage": {
+        "completion_tokens": 12000,
+        "prompt_tokens": 2478,
+        "total_tokens": 14478,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 12000
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 0
+        }
+      },
+      "finish_reason": "length",
+      "elapsed_s": 28.42,
+      "conservative_cost_usd": 0.187434,
+      "maximum_reservation_usd": 0.222222,
+      "input_token_bound": 14074,
+      "output_token_bound": 12000,
+      "review": null
+    },
+    {
+      "request": "ux6-integration-repair",
+      "task": "HM-UX06-INTEGRATION-REPAIR-007",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_partially_accepted",
+      "usage": {
+        "completion_tokens": 12572,
+        "prompt_tokens": 9867,
+        "total_tokens": 22439,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 9856
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 9867
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 31.54,
+      "conservative_cost_usd": 0.21818099999999999,
+      "maximum_reservation_usd": 0.374256,
+      "input_token_bound": 44752,
+      "output_token_bound": 16000,
+      "review": null
+    },
+    {
+      "request": "ux6-integrator",
+      "task": "HM-UX06-INTEGRATE-005",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 38594,
+        "prompt_tokens": 37508,
+        "total_tokens": 76102,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 37504
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 37508
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 93.96,
+      "conservative_cost_usd": 0.691434,
+      "maximum_reservation_usd": 1.197126,
+      "input_token_bound": 153282,
+      "output_token_bound": 49152,
+      "review": null
+    },
+    {
+      "request": "ux6-qc",
+      "task": "HM-UX06-QA-004",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 5973,
+        "prompt_tokens": 11323,
+        "total_tokens": 17296,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 11264
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 11323
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 19.18,
+      "conservative_cost_usd": 0.123564,
+      "maximum_reservation_usd": 0.40546499999999996,
+      "input_token_bound": 55155,
+      "output_token_bound": 16000,
+      "review": null
+    },
+    {
+      "request": "ux6-recorder-final",
+      "task": "HM-UX06-RECORDER-016",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_accepted_with_integration_corrections",
+      "usage": {
+        "completion_tokens": 6053,
+        "prompt_tokens": 8414,
+        "total_tokens": 14467,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 8320
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 8414
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 16.15,
+      "conservative_cost_usd": 0.116037,
+      "maximum_reservation_usd": 0.214995,
+      "input_token_bound": 36665,
+      "output_token_bound": 7000,
+      "review": "Accepted deferred-flush controller/tests and early stop. Translated new-take context around existing mimeType line. Replaced invented scheduled fallback duration with actual monotonic clock, clarified comments, released stream in component error callback. Worker claims not treated as observed results."
+    },
+    {
+      "request": "ux6-source-review",
+      "task": "HM-UX06-REVIEW-012",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "status": "draft_pending_review",
+      "usage": {
+        "completion_tokens": 240,
+        "prompt_tokens": 17935,
+        "total_tokens": 18175,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 5.54,
+      "conservative_cost_usd": 0.057405,
+      "maximum_reservation_usd": 0.30747,
+      "input_token_bound": 77490,
+      "output_token_bound": 5000,
+      "review": null
+    },
+    {
+      "request": "ux6-ui-closure",
+      "task": "HM-UX06-UI-010",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "status": "draft_partially_accepted",
+      "usage": {
+        "completion_tokens": 3746,
+        "prompt_tokens": 28302,
+        "total_tokens": 32048,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 22.82,
+      "conservative_cost_usd": 0.141096,
+      "maximum_reservation_usd": 0.514938,
+      "input_token_bound": 111646,
+      "output_token_bound": 12000,
+      "review": "Accepted six CSS/thumbnail literal patches. Rejected remaining functional patches: invented prop, ineffective storage guard, unused capability state and wrong Skip navigation."
+    },
+    {
+      "request": "ux6-ui-repair",
+      "task": "HM-UX06-UI-011",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "status": "draft_accepted_with_integration_corrections",
+      "usage": {
+        "completion_tokens": 3054,
+        "prompt_tokens": 24444,
+        "total_tokens": 27498,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 17.51,
+      "conservative_cost_usd": 0.119142,
+      "maximum_reservation_usd": 0.452391,
+      "input_token_bound": 105797,
+      "output_token_bound": 9000,
+      "review": "Exact source patches accepted. Coordinator added omitted existing viewed guard, wired Continue navigation and preserved read error rather than replacing it with generic write error. Worker reviewNotes overstated these behaviors."
+    }
+  ],
+  "summary": {
+    "attempted_requests": 25,
+    "known_reported_tokens": 496622,
+    "unknown_usage_calls": 3,
+    "unknown_calls_token_upper_bounds_sum": 253612,
+    "task_one_off_reported_token_allowance": 500000,
+    "token_limit_certification": "Reported usage is below 500k; three capacity failures have unknown usage, so full billed-token compliance cannot be certified. No further calls dispatched.",
+    "known_conservative_cost_usd": 4.07289,
+    "unknown_full_maximum_reservations_usd": 1.622052,
+    "task_cost_plus_unknown_reservations_usd": 5.694942,
+    "prior_aggregate_maximum_usd": 23.32749565,
+    "aggregate_maximum_usd": 29.02243765,
+    "active_ceiling_usd": 70,
+    "protected_backup_usd": 30,
+    "backup_used": false,
+    "account_balance_verified": false,
+    "cost_basis": "Conservative request guards, not provider invoice. Failed and rejected calls retained. Three529 calls retain their full request reservations; unknown usage is not counted as zero.",
+    "paid_product_coaching_calls": 0,
+    "tavily_calls": 0,
+    "codex_savings_measured": false
+  }
+}

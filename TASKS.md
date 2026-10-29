@@ -12,6 +12,275 @@ numbers remain in use; some differ from the archived brief's FR numbers.
 
 ## Active build —22 October2026
 
+### HM-FINAL01 — final code QC and submission pack · delivered locally (25 Oct)
+
+- FR01–12 release gate: bounded Nebius backend/runtime review and submission drafts;
+  coordinator verifies findings, full offline container checks and generated contracts.
+- Reuse accepted evidence; no recalibration, generic model tournament, new paid runtime
+  coaching, hosting purchase, repository visibility change or final submission.
+- Existing implementation PR1 and private branch may be updated/pushed. Preserve the
+  uncommitted BRAG task record. Public release/judge access remain explicit next gates.
+- Default200k cumulative tokens; shared USD70 ceiling/USD30 protected; reconcile new
+  BRAG-SETUP01 USD0.257739 once against prior HM-MILO02 aggregate before new dispatch.
+- Nebius supplied scoped runtime/worker source review, adjudication, submission drafts,
+  PostCSS patch and intro-helper race repair. No proven material application blocker
+  in reviewed scope; optional diagnostic hardening recorded, not a security certification.
+- Fixed four production dependency advisories via exact PostCSS8.5.23 pin/override;
+  production audit0, one moderate build-tool selector-parser advisory retained with
+  trusted-CSS boundary. No scoring/config/runtime quota change.
+- Checks: full offline Python/web pass (1,109 Python tests), generated contracts no
+  drift; patched web build/types/lint and final108/108 browser cases pass. Intermediate
+ 107/108 intro test race repaired without weakened assertions/timeouts. Existing local
+  web dependencies refreshed in Docker and web HTTP200; API/worker/state unchanged.
+- Refreshed README, three submission files and PR1 description. Repo remains private,
+  defaultmain old; public release/judge access/video/registration remain pending.
+  Owner confirms new project last week, corroborated by16Oct first commit/GitHub creation.
+- Evidence: docs/audit/HM-FINAL01-{delivery,source-review,security}.md and
+  docs/delegation/HM-FINAL01-usage.json. Ten calls149,607/200k tokens, USD1.304793 guard
+  incl failures; known aggregateUSD36.89465965<70 after new BRAG cost once; backup30 untouched.
+- Next HM-RELEASE03: public release/judge access and permissioned demo; verify current
+  GitHub push/CI. Owner will complete Devpost registration later; no final submission.
+
+### BRAG-SETUP01 — pinned project-local launch-video tooling · ready (25 Oct)
+
+- Submission tooling only; no product pipeline change. Brag669ab928 and four
+  Hyperframes skills1776b427 installed under ignored .agents/skills, opt-in only.
+- Nebius supplies isolated renderer/wrapper/guards/offline scaffold tests. Pinned
+  Hyperframes0.8.195, Node image digest, Debian tools and npm lock; no host installs.
+- Only output folder mounted; offline checks/render, telemetry/updates/skill refresh
+  disabled. Preview localhost4173 exception; no app .env, footage or Docker socket.
+- 38 wrapper tests +9 Node tests pass. Actual blank scaffold browser check passes;
+  preview HTTP200 and clean shutdown. No MP4, storyboard, paid media or publishing.
+- Canonical docs/BRAG-QUICKSTART.md; audit BRAG-SETUP01-delivery.md and usage ledger.
+- Next: explicit /brag request, storyboard first; final video render after approval.
+
+### HM-MILO02 — restore athlete, resting Pip and processing encouragement · delivered locally (25 Oct)
+
+- FR01/03/10/12. Owner wants original Home athlete retained with a small resting Pip
+  beside her, more legible companion motion, and2–3 processing speech bubbles.
+- Bounded Nebius UI drafts integrated; imagegen supplied one sleeping Pip asset.
+  No walking rig or runtime model calls. Existing reduced-motion/hide controls apply.
+- Parallel read-only curl diagnostic (FR05/07/08/12): explain reported zero using
+  retained artifacts and current reference/scoring; no threshold/config changes.
+- Initial shared task envelope200k tokens, existing USD70 active/USD30 protected
+  boundaries; prior Milo ledger remains counted. Unrelated BRAG work preserved.
+- Delivered: original athlete + resting Pip; stronger head/processing motion; three
+  local encouragement bubbles. Show Milo/reduced motion respected. No new dependency.
+- Final container production build/lint/types and54/54 focused browser cases pass
+  at360/375/1365, including Front/Back controls, hide setting and bubble rotation.
+- Curl reference intact:2measured windows despite historic automatic count0. Latest
+  retained5.13s clip has101invalid elbow samples per side and null comparison; prior
+  clip has4completed cycles,83.4experimental resemblance. No analysis edits.
+- Evidence docs/audit/HM-MILO02-delivery.md; six Nebius calls109,407 tokens,
+  USD0.841245 guard (including two failed review completions); known aggregate maximum
+  USD35.33212765<70, protected30 untouched. Independent Nebius review unavailable;
+  final source/contract gate and container/browser checks performed by coordinator.
+- Next HM-RELEASE03 judge access/release readiness; walking remains future scope.
+
+### HM-MILO01 — Milo Pip companion · local candidate delivered (25 Oct)
+
+- FR01/02/03/09/10/12 integration. Owner selects Milo Pip (lilac pet), requests detailed
+  tasks, workflow and supervisor/worker roles before handoff. No progression, selector,
+  journal or hardware in MVP. Three actions: idle, attentive, cheer.
+- HM-MILO01-P delivered: docs/design/MILO-PIP-DELIVERY-PLAN.md and selected reference
+  docs/design/references/milo-pip-selected.png; D025 and DELIVERY routing added.
+- A–D delivered locally: layered head-motion preview, controller utility, Home/results
+  integration, persisted hide setting and focused QA. Three actions use head motion;
+  blink/paw wave are deferred. No progression, XP or new runtime provider calls.
+- Codex supervisor/single integrating writer; bounded Nebius coding workers, supervised
+  image production; VL was unnecessary. Initial200k increased to300k for demonstrated
+  rejected-draft repair/integration checks;289,095 tokens, USD2.038989 guard cost, not
+  invoice. Shared maximumUSD34.49088265<70 incl concurrent known audit; backup30 untouched.
+- Checks:87/87 browser cases at360/375/1365;49 standalone controller +13 settings checks;
+  web lint/typecheck/production build and diff whitespace pass. No new human-pose or
+  coaching end-to-end validation. Evidence docs/audit/HM-MILO01-delivery.md and
+  docs/delegation/HM-MILO01-usage.json. Main app uses direct state adapter; standalone
+  controller tests are not an end-to-end integration claim.
+- Next: owner visual feedback; HM-RELEASE03 judge access/release readiness remains open.
+
+### HM-RELEASE02 — judge-local quickstart and repository navigation · delivered (25 Oct)
+
+- FR01/02/03/04/09/10/12. Added canonical ./scripts/quickstart.sh and container-only
+  env/model bootstrap; README/QUICKSTART/INDEX now form judge-facing navigation.
+  Auto-generates persistent secret and verifies pinned model; never overwrites
+  configured env or corrupt existing model. Live coaching remains explicit/off.
+- Clean tracked export with spaces, fresh env/model/state and isolated ports passes
+  actual download, build/start, API/web/session/worker and MediaPipe initialization.
+  Repeat prepare preserves env/model bytes. Synthetic blank clip consumes worker job
+  and fails honestly; not a successful human-pose or accuracy demonstration.
+- Installed-package coaching claims lookup fixed with bundled resource fallback.
+  Added19 bootstrap +7 packaging regressions; unchanged existing assertions retained.
+  ./scripts/test.sh python exit0: Ruff/mypy71,1,071 tests; provider smokes dry runs.
+- MIT text normalized by moving third-party note to THIRD_PARTY_NOTICES.md; history
+  credential-pattern scan0 (not exhaustive certification). No private media/model
+  redistribution, new runtime spend, public visibility change or release merge.
+- Evidence docs/audit/HM-RELEASE02-delivery.md; six Nebius calls90,507 tokens,
+  USD0.744717 guard in docs/delegation/HM-RELEASE02-usage.json. Existing200k cap;
+  aggregateUSD32.37368365<70, protected30 untouched.
+- Next HM-RELEASE03: release branch/public visibility, platform matrix, judge access.
+  MacDocker verified; Windows/WSL2/LinuxAMD64 remain unverified. Old main persists;
+  quickstart pins current implementation branch until reviewed release.
+
+
+### HM-RELEASE01 — submission preparation · drafts prepared, release blocked (25 Oct)
+
+- FR01/02/03/09/10/12 release evidence. Official rules/homepage rechecked24Oct;
+  owner reports no Devpost draft/demo/account link. Best Apps and Agents recommended.
+- Prepared docs/submission/{READINESS,DEVPOST-DRAFT,DEMO-SCRIPT}.md and refreshed
+  README recording/status/setup claims. Proposed form mapping only: authenticated
+  Devpost form not inspected, no registration/submission/publication performed.
+- GitHub live check: PRIVATE, default main at olderc395ecf; latest tested branch
+ 64b7bc3. Local MIT file present but GitHub detectsOther. Resolve public-release
+  history/secret/asset audit, default release branch and licence detection.
+- Public demo/test-build and public YouTube video missing. Real local NVIDIA Nano
+  runtime proof documented23Oct; hosted validation still missing. Judge access
+  must last through15Dec12:00PST (16Dec04:00MYT). Current coaching lifetime/day
+  quotas require an approved access/budget plan; do not weaken controls silently.
+- Fresh-clone setup/model download/private sample independence not verified.
+  Existing model manifest supplied; setup does not automatically download it.
+- Documentation-only: diff whitespace and local link/path checks; no new app tests
+  or paid runtime calls. One Nebius drafting call14,009 tokens, USD0.118719 guard.
+- Next: HM-RELEASE01B hosting proposal/reproducible sanitized public release, then
+  actual demo capture using owner-approved footage, Devpost entry and final review.
+
+
+### HM-UX09 — segment previews and restrained transitions · delivered (24 Oct)
+
+- FR01/02/03/10/12. Owner requests real source-video segment thumbnails,
+  smoother UI, unchanged Home athlete, final focused QC and GitHub push.
+- Completed-cycle selector cards now reuse SessionThumbnail with parent analysis ID
+  and measured source start time. Existing timestamp map resolves proxy frame;
+  full-frame previews retain aspect ratio; missing/expired media uses fallback.
+  Segment selection keeps existing source-time seek and active-state semantics.
+- Native same-document main-content cross-fade plus restrained control feedback;
+  unchanged routes, consent, recording, analysis and static avatar. Unsupported,
+  reduced-motion and active-media paths navigate without transition; failures do
+  not duplicate history entries. No dependencies or contracts changed.
+- Docker scripts/test.sh web passes typecheck/build (including framework lint).
+  scripts/check-browser.sh:54/54 cases pass across360/375/1365 Chromium viewports.
+  Includes actual synthetic WebM decode into full-aspect thumbnail, missing map,
+  source seek, responsive layout, transition-throw fallback and existing camera QC.
+- User personally accepts Mac camera->record->upload->processing for MVP.
+  Broad physical-device/browser, network/storage/quota and result-edge testing
+  remains deferred, not passed. No new paid product calls/private media contexts.
+- Seven Nebius calls, including truncated repair, accounted in
+  docs/delegation/HM-UX09-usage.json; justified300k one-off within authorized500k
+  and USD70 ceiling. Evidence docs/audit/HM-UX09-delivery.md.
+- Roadmap docs/design/HM-UX09-roadmap.md records deferred3D, loading content,
+  future Move/Fuel/Recover concepts; Ask your set/Show me why excluded from MVP.
+- Next HM-RELEASE01: hosting/judge-access and submission readiness; deferred
+  robustness matrix remains backlog. Existing PR stays draft; push is not merge.
+
+
+### HM-UX07A — reusable Docker browser QC harness · delivered (24 Oct)
+
+- FR01/02/03/09/10/12 verification. Owner-approved alternative to repeated
+  interactive computer use; baseline87d3af4. One integrating writer; PR stays draft.
+- Added pinned/digest-bound Playwright image, isolated test package/lock, host
+  scripts/check-browser.sh wrapper, typechecked fixtures and ten real-frontend
+  tests across360/375/1365 Chromium CSS viewports. No production app edits.
+- Docker build/typecheck pass;30 browser cases pass,0 skipped/flaky/unexpected.
+  Native MediaRecorder uses a synthetic camera; fresh contexts never touch user
+  history. API interception plus runtime network:none prevents paid runtime calls.
+- Intentional negative POST control aborted and failed with exit1 as expected;
+  failure screenshot/trace retained. Passing cases retain neither. Results stay
+  ignored under artifacts/browser-qc; one command reruns the suite without model
+  decisions per click. No measured Codex credit saving claimed.
+- Five Nebius calls88,489 reported tokens /100k task allowance; USD0.929919
+  conservative cost including rejected and reasoning-only failed drafts.
+  Prior aggregate maximum+taskUSD29.95235665<70; protected30 untouched.
+- Evidence docs/BROWSER-QC.md, docs/audit/HM-UX07A-delivery.md and
+  docs/delegation/HM-UX07A-usage.json. Next HM-UX07B: open original release gates.
+  Thirty fixture-browser cases are not full26-case/physical-device certification.
+
+### HM-UX06 — recording and UI candidate delivered; device acceptance open (24 Oct)
+
+- FR01/02/03/05/06/09/10/12. Owner authorizes ordered Nebius recording repairs,
+  thumbnail/date/contrast fixes, missing UI,26-case QC and evidence-based merge.
+  Baseline5ebe828; one integrating writer, max3 independent external workers.
+- Source-only contexts; no private media or browser state to providers. Runtime
+  coaching remains explicit/separate. Reuse bounded runners, retain failed usage.
+- Justified one-off up to500k cumulative tokens across this acceptance task;
+  prior aggregate maxUSD23.32749565, activeUSD70/backupUSD30 unchanged.
+- Delivered asynchronous final-chunk preservation, actual stop-request duration,
+  59s capture headroom under strict60s input validation, countdown/resource cleanup,
+  memory-only thumbnail invalidation/collision fixes, local-date windows, intro,
+  Progress companion, actual session-cue caching and Settings return-to-origin.
+- Docker final controller/adapter checks,29 metadata/week/cache tests,13 coaching-cache
+  tests,12 overlay checks, web typecheck/build/lint pass;87 targeted API tests pass.
+  Earlier1,045 Python tests are HM-SQ01 evidence, not a UX06 rerun.
+- Browser: actual public upload->processing->report, mapped continuous replay,
+  360/375/1365 layouts, synthetic recording deadline->playable58.9977s Review,
+  retake discard, countdown cancel, denied/missing API fixtures, empty Progress,
+  Settings returning to selected clip and separate unchecked upload consent.
+- Physical camera permission remained pending despite owner approval; cancelled,
+  no real clip obtained/uploaded.100MiB overshoot is rejected safely, not Review.
+  Browser fault/quota/mobile interruption and exact full26-case acceptance remain.
+  No-person fixture failed honestly CHILD_FAILED; not proof of usable zero-cycle
+  partial report. Keep PR draft; no merge. Next HM-UX07 closes the listed gates.
+- Evidence: docs/audit/HM-UX06-delivery.md and HM-UX06-mockup-parity.md;
+  docs/delegation/HM-UX06-usage.json.25 development attempts,496,622 reported tokens,
+  USD4.072890 known conservative cost +USD1.622052 unknown-call reservations.
+  Prior aggregate maximum plus taskUSD29.02243765<70; backup untouched.
+  Three529 failures have unknown usage: cannot certify full billed tokens<500k.
+  No further paid calls; no product coaching/Tavily calls or private model context.
+
+### HM-SQ01 — squat cycle recovery · delivered (24 Oct)
+
+- FR04/05/07/08/12. Nebius Kimi source diagnosis, local diagnostic CLI, versioned
+  squat policy/tests and separate timeline cleanup; NVIDIA source review accepted.
+  Codex applied outputs, ran container/local checks and synced the draft PR.
+- squat-measure-v2 opts into the existing same-band, endpoint-capped0.1s missing-gap
+  policy. Thresholds/dwell/max-gap, observed geometry and reference bands unchanged;
+  v1 JSON preserved. Missing frames never count as observed joints or dwell.
+- Completed candidates expose gap warnings/provenance; score remains null and any
+  reference estimate stays partial/unreviewed. Curl/press/lat policies unchanged.
+- Docker scripts/check-python.sh:1,045 tests pass, Ruff clean, mypy71 sources clean;
+  provider smokes dry-run only. Web typecheck/build passes. Synthetic regressions
+  cover accepted short gaps, rejected cross-band/long/trailing gaps, no fake dwell,
+  deterministic repeat, unchanged other profiles and immutable v1 geometry.
+- Local retained affected artifact recovers candidates; repeated full derived reports
+  byte-identical. Two retained public samples keep their strict candidate counts.
+  API restarted with queue empty; real browser report and replay-follow verified.
+  No re-upload, new pose inference, private data/provider sharing or paid coaching.
+- UI shows completed cycles in main strip; all actual partial/excluded fragments
+  remain replayable in one collapsed disclosure. No fabricated or hidden counts.
+- Evidence: docs/audit/HM-SQ01-delivery.md, HM-SQ01-diagnosis.md,
+  HM-SQ01-source-review.md and docs/delegation/HM-SQ01-usage.json.
+- Five development calls:127,932 reported tokens,USD0.840144 conservative guard,
+  within200k task allowance. Account balance unverified; backup untouched.
+- Next HM-SQ02: broader independently labelled squat validation; HM-UX06 device
+  recording/fresh-flow acceptance remains open. This is candidate recovery, not
+  proof of exact rep-count accuracy or clinically validated technique assessment.
+
+### HM-UX05 — Nebius-led mockup implementation · candidate delivered (23 Oct)
+
+- FR01/02/03/05/06/09/10/12 presentation. Owner authorizes HM-UX04 implementation;
+  baseline c395ecf. All substantive application drafts/repairs/integration and review
+  produced through Nebius APIs; Codex dispatched, applied, checked and synced files.
+- NVIDIA Super VL orchestration, component referee and integration gate; Kimi-K3
+  camera/results/metadata/integration and targeted repairs. Two NVIDIA implementation
+  attempts exhausted reasoning without files; retained usage, bounded Kimi recovery.
+- Added real camera component/controller, settings route, single-write local profile
+  and optional goals, recent-three/all-history, viewed metadata, region counts,
+  eligible-set milestone, actual-media thumbnails, playback-follow segment chips,
+  sourced coaching highlight and matching rendered front/back artwork. No new backend
+  schema/scoring/thresholds or automatic runtime provider calls.
+- Docker: typecheck, production build/lint, capture controller regression checks,
+  13 metadata tests and 12 pose-overlay tests pass. Browser: Home/front/back,
+  Settings Cancel, Progress/history, camera education/Cancel and expired report verified.
+- Candidate, not full device acceptance: actual permission/record/retake/use and a
+  fresh end-to-end result still need device testing. First-use intro, small Progress
+  companion and session cue caching remain parity follow-ups. True rotating mesh
+  remains future work; current character is explicitly two rendered views.
+- Evidence: docs/delegation/HM-UX05-nebius-team.md, HM-UX05-usage.json,
+  docs/audit/HM-UX05-component-review.md, HM-UX05-integration-gate.md and
+  docs/design/HM-UX05-delivery.md. Sixteen paid development calls,456,597 reported
+  tokens including failures,USD3.767127 conservative guard (not invoice); under500k
+  one-off andUSD70 active ceiling. Backup untouched; balance unverified.
+- Next HM-UX06: real-device/fresh-analysis acceptance and remaining parity items.
+  Push candidate branch/draft PR; do not merge while runtime gates remain open.
+
 ### HM-UX04 — mockup parity and screen/state specification · planning delivered (23 Oct)
 
 - Owner requests detailed missing-screen/state specification before handover;
@@ -1008,3 +1277,34 @@ Every remaining task's steps, files, dependencies and acceptance are in docs/DEL
 Additional user clips are analysis inputs, not approved references. The $70 active/$30
 backup ceiling is recorded; actual account balance/history reconciliation and a reviewed
 reference remain open. Neither prevents the local upload/measurement work.
+
+## BRAG-VIDEO01 — current MVP teaser · status: done · FR02, FR09, FR10, FR12 delivery
+- Owner invokes installed Brag. Create25s landscape local video from current4f7adb2 UI, animated recreations clearly labelled; no private footage, fabricated metrics, new runtime provider call or publishing.
+- One bounded Nebius composition draft, then check/preview/render and focused repair only. Initial reserve <USD0.65, cumulative200k tokens; latest aggregate guard36.89465965, balance unverified, USD30 protected.
+- Delivered local25s1080p30 H.264/AAC teaser, poster, editable source and credits; UI recreations labelled, no private footage/results. Brag check passes61 text contrasts, zero runtime/layout/lint errors;38 wrapper tests pass.
+- Four Nebius calls:42,261 tokens, USD0.402051 conservative guard; no product runtime/Tavily/paid media. Render scratch uses output-only TMPDIR to satisfy disk preflight, same isolation.
+- Evidence docs/audit/BRAG-VIDEO01-evidence.json; portable source docs/submission/brag-video01. MP4 kept in ignored brag-output-20261025-film. Next HM-RELEASE03: permissioned real walkthrough and hosted judge access; teaser is not full runtime proof.
+
+## BRAG-VIDEO02 — Meet Milo launch teaser · status: done · FR02/09/10/12 delivery
+- Owner approves30slaunchfilm, animatedMilo leads app journey; reportlimitations stayinwalkthrough. Draft100swalkthrough+20sfutureclosing, total150s.
+- Two independentNebiusworkers, oneintegrator; initialUSD0.92reservationmax,200kcumulativetokens. Prioraggregate37.29671065 guard; balanceunverified/USD30protected. No privatefootage, runtimecalls, newmediaaccountsorpublication.
+- Delivered local30s1080p30 Milo-led launch film, licensed upbeat music and5timed SFX, poster and portable editable source in docs/submission/brag-video02. Original25s teaser preserved.
+- Brag gate: zero lint/runtime/layout/contrast errors or warnings;33contrast checks. One editable first-frame warning resolved in delivered MP4 by poster replacement. Final900frames,H.264/AAC30.016s container; peak-7.8dBFS, decoded frames inspected. No application code changed.
+- Seven Nebius MiniMaxM3 calls,84,495tokens, USD0.731805 conservative guard; cumulative aggregate guard38.02851565, account balance unverified/USD30protected. No private media/product runtime/Tavily/paid media service calls.
+- Walkthrough176words100s andfuture31words20s drafted in docs/submission/MILO-WALKTHROUGH-DRAFT.md. Planned full submission2:30; only30s teaser rendered. Next: owner review and exact permissioned clip selection, then actual walkthrough capture/assembly; no fake runtime demo or publication.
+
+## BRAG-VIDEO03 — finished2:30local submission draft · status:done · FR02/09/10/12delivery
+- Ownerrequests100swalkthrough+20sfuture, combinedwithexisting30steaser. Latclip+realreportapprovedforLOCALreviewonly. Nebiusbuilds,Codexcapture/integration/QC.
+- Initialtwo-dispatchreservationUSD0.95max,200kcumulativetokens; prioraggregateguard38.02851565,balanceunverified/USD30protected. Noexternalpublication/privatecontextsenttoworkers.
+- Delivered actual 150.000s local MP4: unchanged30sMilo teaser,100sreal recorded upload/report/replay walkthrough,20sPLANNEDfuture. 1920×1080/30fps,4,500frames,H264/AAC48kHz; peak−5dBFS. No narration/publication. Raw178srecording preserved;88sprocessingwait explicitly condensed to15s.
+- One authorized coaching runtime call returned unavailable/unvalidated; shown honestly, no replacement or retry. Measurements/replay succeed; this is not a successful coaching demo. Next: separate bounded coaching-response validation investigation, any further paid runtime call needs new authorization.
+- Six Nebius development calls:60,815tokens,USD0.577293conservativeguard including failed recorder JSON response; one runtimecall1,498tokens,USD0.005346guard. Aggregate38.61115465guard; invoice/balanceunverified,USD30backupuntouched. No private media sent to coding workers.
+- Checks: walkthroughzeroerrors/16editabilitywarnings; futurecheckpassed; decodedfinalframesinspected; ffprobe150s/4500frames; audio−5dBFS. Source/recorder/editdecisions/assethashes in docs/submission/brag-video03; docs/audit/BRAG-VIDEO03-evidence.json and usageledger. No application code changed. First recorder selector failure repaired before upload/coaching; failed output preserved locally.
+
+## HM-PUBLISH01 — public repository preparation · status: done · FR02/09/12 delivery
+- Owner authorizes documentation updates, release push/main update; visibility stays private until owner changes it. Preserve untracked Videos/.
+- One bounded Nebius docs worker, 6k output cap, <USD0.25 reservation,200k cumulative allowance; prior aggregate guard38.61115465, balance unverified, USD30 protected. No runtime calls. History/privacy scan before pushing main.
+- Integrated Nebius README/quickstart draft; standard MIT already present on release branch, separate notices preserved. Added NVIDIA/runtime vs development usage, accurate coaching failure status, main-clone instructions, publication checklist, dated-readiness supersession and Videos/film Docker-context exclusions. No application logic changed.
+- History scan:1,004 blobs/1.095GB across all local refs, zero credential-pattern candidates. Four video blobs exist only in local Codex checkpoints, absent from branch histories; preserve locally and never mirror-push. Private files remain ignored. Evidence docs/audit/HM-PUBLISH01-history-scan.json.
+- Fresh Python Docker checks:1109passed/1warning, Ruff/mypy pass. Cached Docker web typecheck/build pass, every tracked frontend file byte-verified against image. Fresh web dependency rebuild interrupted to avoid redundant slow download; no frontend changes. quickstart--help/diff checks pass. No paid runtime calls. Nebius docs worker9,235tokens/USD0.081693guard; aggregate38.69284765, balanceunverified/USD30backupuntouched.
+- Update existing PR1 and merge release into main after checks; visibility remains PRIVATE for owner. Next: owner makes public, verifies signed-out access, supplies public YouTube and working judge demo/test-build route; current localhost is not hosted.

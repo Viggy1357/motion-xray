@@ -1,0 +1,38 @@
+<template>
+<style>
+  #root{position:absolute;inset:0;background:var(--cobalt,#3158e8);overflow:hidden;box-sizing:border-box;width:1920px;height:1080px}
+  .diag{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 40%,rgba(203,184,242,.06) 100%);opacity:1}
+  .ring{position:absolute;border-radius:50%;border:3px solid rgba(203,184,242,.45);opacity:0;transform-origin:50% 50%}
+  .ring.r1{left:1390px;top:500px;width:520px;height:520px;margin-left:-260px;margin-top:-260px}
+  .ring.r2{left:1390px;top:500px;width:380px;height:380px;margin-left:-190px;margin-top:-190px;border-color:rgba(49,88,232,.55)}
+  .ring.r3{left:1390px;top:500px;width:240px;height:240px;margin-left:-120px;margin-top:-120px;border-color:rgba(203,184,242,.65)}
+  .title{position:absolute;left:192px;top:270px;font-size:140px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:.95;margin:0;max-width:750px;opacity:0}
+  .title .accent{color:#cbb8f2;display:block}
+  .sub{position:absolute;left:192px;top:640px;font-size:36px;font-weight:500;color:rgba(255,255,255,.82);letter-spacing:.02em;margin:0;opacity:0}
+</style>
+<div data-hf-id="hf-jat4" id="root" data-composition-id="meet" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-cy59" class="diag"></div>
+  <div data-hf-id="hf-1dpa" class="ring r1" id="meet-ring1"></div>
+  <div data-hf-id="hf-wnsq" class="ring r2" id="meet-ring2"></div>
+  <div data-hf-id="hf-xrva" class="ring r3" id="meet-ring3"></div>
+  <h1 data-hf-id="hf-neih" class="title" id="meet-title">Meet<br data-hf-id="hf-x5px"><span data-hf-id="hf-6nfq" class="accent">Milo.</span></h1>
+  <p data-hf-id="hf-dzgu" class="sub" id="meet-sub">Your training companion</p>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+// Rings: entrance .5s, settle after .8s (no spinning burst covering text)
+tl.fromTo("#meet-ring1", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0);
+tl.fromTo("#meet-ring2", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0.1);
+tl.fromTo("#meet-ring3", { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0.2);
+// Settle (no rotation, no spin)
+tl.to("#meet-ring1", { scale: 1.04, duration: 1.6, ease: "sine.inOut" }, 0.8);
+tl.to("#meet-ring2", { scale: 1.06, duration: 1.6, ease: "sine.inOut" }, 0.8);
+tl.to("#meet-ring3", { scale: 1.08, duration: 1.6, ease: "sine.inOut" }, 0.8);
+// Title reveal
+tl.fromTo("#meet-title", { opacity: 0, y: 24, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power4.out" }, 0.3);
+tl.fromTo("#meet-sub", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.75);
+// Hold
+tl.to({}, { duration: 2.0 }, 1.2);
+window.__timelines["meet"] = tl;
+</script>
+</template>

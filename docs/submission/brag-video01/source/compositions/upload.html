@@ -1,0 +1,81 @@
+<template>
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+#upload-root{position:absolute;inset:0;width:1920px;height:1080px;background:var(--bg);font-family:Roboto,Helvetica,Arial,sans-serif;color:var(--navy);}
+.up-rail{position:absolute;left:0;top:0;width:280px;height:1080px;background:#ffffff;border-right:1px solid var(--border);display:flex;flex-direction:column;padding:48px 28px;}
+.up-brand{font-size:28px;font-weight:700;margin-bottom:48px;}
+.up-nav{display:flex;flex-direction:column;gap:8px;}
+.up-nav-item{font-size:28px;color:var(--muted);padding:14px 16px;border-radius:12px;}
+.up-nav-item.active{background:rgba(49,88,232,0.08);color:var(--cobalt);font-weight:700;}
+.up-label{position:absolute;left:400px;top:108px;font-size:28px;color:var(--muted);}
+.up-title{position:absolute;left:400px;top:170px;font-size:64px;font-weight:900;letter-spacing:-0.02em;margin:0;color:var(--navy);}
+.up-subtitle{position:absolute;left:400px;top:250px;font-size:32px;color:var(--muted);margin:0;}
+.up-chooser{position:absolute;left:400px;top:320px;width:1328px;height:160px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.up-exercise{background:#ffffff;border:2px solid var(--border);border-radius:18px;padding:20px 24px;display:flex;flex-direction:column;justify-content:center;}
+.up-exercise.selected{border-color:var(--cobalt);box-shadow:0 0 0 4px rgba(49,88,232,0.12);}
+.up-exercise-name{font-size:28px;font-weight:700;color:var(--navy);}
+.up-exercise-tag{font-size:28px;color:var(--muted);margin-top:8px;}
+.up-upload{position:absolute;left:400px;top:540px;width:760px;height:350px;background:#ffffff;border:2px dashed var(--border);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;}
+.up-upload-title{font-size:34px;font-weight:700;color:var(--navy);}
+.up-upload-hint{font-size:28px;color:var(--muted);}
+.up-chip{background:rgba(49,88,232,0.08);color:var(--cobalt);font-size:28px;font-weight:700;padding:12px 24px;border-radius:999px;opacity:0;}
+.up-stage{position:absolute;left:1200px;top:540px;width:528px;height:350px;background:#ffffff;border:1px solid var(--border);border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:20px;opacity:0;}
+.up-stage-title{font-size:32px;font-weight:700;color:var(--navy);}
+.up-stage-row{display:flex;align-items:center;gap:20px;}
+.up-pip{width:96px;height:96px;object-fit:contain;}
+.up-stage-label{font-size:28px;color:var(--muted);}
+.up-stage-bar{height:14px;background:var(--border);border-radius:999px;overflow:hidden;margin-top:auto;}
+.up-stage-bar-fill{height:100%;width:35%;background:var(--cobalt);border-radius:999px;}
+.up-condensed{position:absolute;left:1200px;top:920px;font-size:28px;color:var(--cobalt);font-weight:700;opacity:0;}
+</style>
+<div data-hf-id="hf-3t8y" id="upload-root" data-composition-id="upload" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-tu32" id="up-rail" class="up-rail">
+    <div data-hf-id="hf-emuw" id="up-brand" class="up-brand">Motion X Ray</div>
+    <div data-hf-id="hf-5yki" id="up-nav" class="up-nav">
+      <div data-hf-id="hf-v4ub" id="up-nav-home" class="up-nav-item">Home</div>
+      <div data-hf-id="hf-l025" id="up-nav-analyse" class="up-nav-item active">Analyse</div>
+      <div data-hf-id="hf-l6wz" id="up-nav-progress" class="up-nav-item">Progress</div>
+      <div data-hf-id="hf-oyjn" id="up-nav-settings" class="up-nav-item">Settings</div>
+    </div>
+  </div>
+  <div data-hf-id="hf-n2as" id="up-label" class="up-label">UI recreation · MVP</div>
+  <h2 data-hf-id="hf-n21n" id="up-title" class="up-title">Film one set.</h2>
+  <p data-hf-id="hf-sb89" id="up-subtitle" class="up-subtitle">See what the camera could measure.</p>
+  <div data-hf-id="hf-bo3e" id="up-chooser" class="up-chooser">
+    <div data-hf-id="hf-d8bo" id="up-ex-1" class="up-exercise selected"><div data-hf-id="hf-h7ba" class="up-exercise-name">Lat pulldown</div><div data-hf-id="hf-vyqe" class="up-exercise-tag">Back</div></div>
+    <div data-hf-id="hf-qp8e" id="up-ex-2" class="up-exercise"><div data-hf-id="hf-jabr" class="up-exercise-name">Dumbbell curl</div><div data-hf-id="hf-l1y6" class="up-exercise-tag">Arms</div></div>
+    <div data-hf-id="hf-wuy7" id="up-ex-3" class="up-exercise"><div data-hf-id="hf-7qes" class="up-exercise-name">Bodyweight squat</div><div data-hf-id="hf-i8t4" class="up-exercise-tag">Legs</div></div>
+    <div data-hf-id="hf-0t28" id="up-ex-4" class="up-exercise"><div data-hf-id="hf-r95e" class="up-exercise-name">Incline dumbbell press</div><div data-hf-id="hf-63xu" class="up-exercise-tag">Chest</div></div>
+  </div>
+  <div data-hf-id="hf-07x8" id="up-upload" class="up-upload">
+    <div data-hf-id="hf-wl6n" id="up-upload-title" class="up-upload-title">Drop a set recording</div>
+    <div data-hf-id="hf-fi1l" id="up-upload-hint" class="up-upload-hint">MP4 or MOV · one set</div>
+    <div data-hf-id="hf-gic5" id="up-chip" class="up-chip">set-recording.mp4</div>
+  </div>
+  <div data-hf-id="hf-e64y" id="up-stage" class="up-stage">
+    <div data-hf-id="hf-emby" id="up-stage-title" class="up-stage-title">Measuring movement</div>
+    <div data-hf-id="hf-oi9m" id="up-stage-row" class="up-stage-row">
+      <img data-hf-id="hf-chpe" id="up-pip" class="up-pip" src="assets/pip.webp" width="96" height="96" alt="Pip">
+      <div data-hf-id="hf-wrka" id="up-stage-label" class="up-stage-label">Pose + cycle segmentation</div>
+    </div>
+    <div data-hf-id="hf-p0v6" id="up-stage-bar" class="up-stage-bar"><div data-hf-id="hf-be8m" id="up-stage-bar-fill" class="up-stage-bar-fill"></div></div>
+  </div>
+  <div data-hf-id="hf-zern" id="up-condensed" class="up-condensed">Processing sequence condensed</div>
+</div>
+<script>
+const tl=gsap.timeline({paused:true});
+tl.fromTo("#up-title",{opacity:0,y:16},{opacity:1,y:0,duration:0.4,ease:"power3.out"},0)
+  .fromTo("#up-subtitle",{opacity:0,y:12},{opacity:1,y:0,duration:0.35,ease:"power3.out"},0.1)
+  .fromTo("#up-ex-1",{opacity:0,y:16},{opacity:1,y:0,duration:0.35,ease:"power3.out"},0.2)
+  .fromTo("#up-ex-2",{opacity:0,y:16},{opacity:1,y:0,duration:0.35,ease:"power3.out"},0.28)
+  .fromTo("#up-ex-3",{opacity:0,y:16},{opacity:1,y:0,duration:0.35,ease:"power3.out"},0.36)
+  .fromTo("#up-ex-4",{opacity:0,y:16},{opacity:1,y:0,duration:0.35,ease:"power3.out"},0.44)
+  .fromTo("#up-upload",{opacity:0,scale:0.97},{opacity:1,scale:1,duration:0.45,ease:"power4.out"},0.6)
+  .fromTo("#up-chip",{opacity:0},{opacity:1,duration:0.4,ease:"power2.out"},1.8)
+  .fromTo("#up-stage",{opacity:0,scale:0.97},{opacity:1,scale:1,duration:0.45,ease:"power4.out"},2.7)
+  .fromTo("#up-condensed",{opacity:0},{opacity:1,duration:0.4,ease:"power2.out"},2.7)
+  .to({},{},6.0)
+  .to("#upload-root > div",{opacity:0,duration:0.5,ease:"power2.in"},6.5);
+window.__timelines["upload"]=tl;
+</script>
+</template>

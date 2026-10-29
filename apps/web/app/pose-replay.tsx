@@ -32,6 +32,8 @@ type RVFCVideo = HTMLVideoElement & {
 
 const MAX_POSE_BYTES = 32 * 1024 * 1024;
 const MAX_MAP_BYTES = 8 * 1024 * 1024;
+// Source-time broadcast throttle: max 5 Hz.
+const SOURCE_TIME_MIN_INTERVAL_MS = 200;
 
 // Bound by actually-read bytes, not by Content-Length alone: stream the
 // body, cancel the reader and abort past the cap so an untrusted artifact
@@ -95,6 +97,11 @@ export default function PoseReplay({
     onVideoErrorRef.current = onVideoError;
   }, [onVideoError]);
 
+  const analysisIdRef = useRef(analysisId);
+  useEffect(() => {
+    analysisIdRef.current = analysisId;
+  }, [analysisId]);
+
   const statusRef = useRef<OverlayStatus>(status);
   useEffect(() => {
     statusRef.current = status;
@@ -103,6 +110,33 @@ export default function PoseReplay({
   useEffect(() => {
     overlayOnRef.current = overlayOn;
   }, [overlayOn]);
+
+  const lastSourceTimeEmitRef = useRef(0);
+
+  // Broadcast the player's current ORIGINAL source PTS (from the canonical
+  // measured timestamp map, never zero-assumed) so listeners can follow
+  // actual playback. Throttled to max 5 Hz; emits nothing outside the map.
+  const emitSourceTime = useCallback(() => {
+    const video = videoRef.current;
+    const st = statusRef.current;
+    if (!video || st.kind !== "ready" || video.error) {
+      return;
+    }
+    const now = performance.now();
+    if (now - lastSourceTimeEmitRef.current < SOURCE_TIME_MIN_INTERVAL_MS) {
+      return;
+    }
+    const sourceS = sourceTimeAt(st.map, video.currentTime);
+    if (sourceS === null) {
+      return;
+    }
+    lastSourceTimeEmitRef.current = now;
+    window.dispatchEvent(
+      new CustomEvent("mxr:source-time", {
+        detail: { analysisId: analysisIdRef.current, sourceS },
+      })
+    );
+  }, []);
 
   const clearCanvas = useCallback(() => {
     const canvas = canvasRef.current;
@@ -141,6 +175,9 @@ export default function PoseReplay({
     }
 
     const st = statusRef.current;
+    if (st.kind === "ready") {
+      emitSourceTime();
+    }
     if (!overlayOnRef.current || st.kind !== "ready") {
       return;
     }
@@ -189,7 +226,7 @@ export default function PoseReplay({
       ctx.strokeStyle = WHITE;
       ctx.stroke();
     }
-  }, []);
+  }, [emitSourceTime]);
 
   // Draw once refs are current: toggling the overlay on, or data becoming
   // ready while paused, must render immediately rather than showing a stale
@@ -399,43 +436,55 @@ export default function PoseReplay({
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          background: "#0a0a0a",
-          borderRadius: 8,
-          overflow: "hidden",
-        }}
-      >
-        <video
-          id="mxr-analysis-video"
-          data-analysis-video
-          ref={videoRef}
-          src={`/api/analyses/${encodeURIComponent(analysisId)}/artifacts/proxy`}
-          controls
-          playsInline
-          preload="metadata"
+      <figure style={{ margin: 0 }}>
+        <div
           style={{
-            display: "block",
+            position: "relative",
             width: "100%",
-            maxHeight: 480,
-            objectFit: "contain",
             background: "#0a0a0a",
+            borderRadius: 8,
+            overflow: "hidden",
           }}
-        />
-        <canvas
-          ref={canvasRef}
-          aria-hidden="true"
+        >
+          <video
+            id="mxr-analysis-video"
+            data-analysis-video
+            ref={videoRef}
+            src={`/api/analyses/${encodeURIComponent(analysisId)}/artifacts/proxy`}
+            controls
+            playsInline
+            preload="metadata"
+            style={{
+              display: "block",
+              width: "100%",
+              maxHeight: 480,
+              objectFit: "contain",
+              background: "#0a0a0a",
+            }}
+          />
+          <canvas
+            ref={canvasRef}
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              pointerEvents: "none",
+            }}
+          />
+        </div>
+        <figcaption
           style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            pointerEvents: "none",
+            marginTop: 6,
+            fontSize: 12,
+            lineHeight: 1.4,
+            color: "#5b657d",
           }}
-        />
-      </div>
+        >
+          Your actual uploaded video. Tap a segment below to jump to it.
+        </figcaption>
+      </figure>
       <div
         style={{
           display: "flex",

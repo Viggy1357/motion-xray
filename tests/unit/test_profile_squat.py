@@ -1,4 +1,10 @@
-"""Analytic tests for the bodyweight squat profile module."""
+"""Analytic tests for the bodyweight squat profile module.
+
+The module PROFILE is squat-measure-v2 (adds the opt-in ``missing_gap_s``
+policy). The historical squat-measure-v1 JSON config is preserved unchanged
+on disk and pinned here as an immutable comparison of the unchanged
+geometry/threshold fields; no v1 coverage was deleted.
+"""
 
 from __future__ import annotations
 
@@ -13,6 +19,14 @@ from movement.profile_squat import PROFILE, observe
 
 WIDTH = 100
 HEIGHT = 100
+
+CONFIG_DIR = (
+    Path(__file__).resolve().parents[2]
+    / "packages"
+    / "movement"
+    / "movement"
+    / "configs"
+)
 
 
 def _joint(xy=None, xyz=None, valid=True, interpolated=False):
@@ -65,27 +79,42 @@ def _right_angle_joints(side):
 
 
 def test_profile_config_matches_json():
-    cfg_path = (
-        Path(__file__).resolve().parents[2]
-        / "packages"
-        / "movement"
-        / "movement"
-        / "configs"
-        / "squat-measure-v1.json"
-    )
-    assert json.loads(cfg_path.read_text()) == PROFILE
+    cfg = json.loads((CONFIG_DIR / "squat-measure-v2.json").read_text())
+    assert cfg == PROFILE
+
+
+def test_historical_v1_config_preserved_immutable():
+    # The v1 JSON is retained unchanged as historical record: same geometry
+    # and segmentation thresholds, and it never gained the v2 gap policy.
+    v1 = json.loads((CONFIG_DIR / "squat-measure-v1.json").read_text())
+    assert v1["version"] == "squat-measure-v1"
+    assert "missing_gap_s" not in v1
+    for key in (
+        "exercise_id",
+        "variant",
+        "signal_metric",
+        "signal_space",
+        "low_degrees",
+        "high_degrees",
+        "dwell_s",
+        "max_gap_s",
+        "metrics",
+        "omitted_components",
+    ):
+        assert v1[key] == PROFILE[key]
 
 
 def test_profile_constants():
     assert PROFILE["exercise_id"] == "squat"
     assert PROFILE["variant"] == "bodyweight"
-    assert PROFILE["version"] == "squat-measure-v1"
+    assert PROFILE["version"] == "squat-measure-v2"
     assert PROFILE["signal_metric"] == "knee_angle"
     assert PROFILE["signal_space"] == "estimated_3d"
     assert PROFILE["low_degrees"] == 100.0
     assert PROFILE["high_degrees"] == 150.0
     assert PROFILE["dwell_s"] == 0.1
     assert PROFILE["max_gap_s"] == 0.1
+    assert PROFILE["missing_gap_s"] == 0.1
 
 
 def test_straight_line_angles_180():

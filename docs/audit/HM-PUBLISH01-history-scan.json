@@ -1,0 +1,15 @@
+{
+  "scope": "all locally reachable branches/history after fetch",
+  "blobs_scanned": 1004,
+  "bytes_scanned": 1095480829,
+  "credential_candidates": [],
+  "limitations": "Pattern-based review, not proof of absence. Public artwork and textual local paths reviewed separately. Untracked media not included.",
+  "release_branch_private_media_candidates": [],
+  "local_checkpoint_only_media_paths": [
+    "Videos/Motion-X-Ray final Submission.mp4",
+    "Videos/Video App Explain Motion X Ray.mov",
+    "Videos/Video Explain  (Me)- Motion X Ray.mov",
+    "Videos/motion-xray-submission.mp4"
+  ],
+  "local_checkpoint_refs_pushed": false
+}

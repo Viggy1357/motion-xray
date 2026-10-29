@@ -1,0 +1,20 @@
+{
+  "task": "HM-PUBLISH01",
+  "checks": {
+    "python": "1109 passed, 1 warning; Ruff and mypy passed",
+    "web": "type generation, typecheck and production build passed",
+    "cached_web_image": "sha256:58b3ab8cac7e6cc75d7808c06262d101ad26315931f2a23dc3b52ccef80e4af4",
+    "cached_frontend_tracked_files_verified": 68,
+    "fresh_dependency_rebuild": "interrupted during slow downloads; no application source changes, exact cached frontend bytes verified",
+    "quickstart_help": "passed",
+    "git_diff_check": "passed",
+    "provider_calls": "one Nebius development docs draft; zero runtime/Tavily calls"
+  },
+  "publication": "visibility intentionally private; owner changes after verification",
+  "history_scan": "HM-PUBLISH01-history-scan.json",
+  "limitations": [
+    "pattern-based scan is not proof of absence",
+    "no new real-video inference or coaching call",
+    "no hosted judge URL verified"
+  ]
+}

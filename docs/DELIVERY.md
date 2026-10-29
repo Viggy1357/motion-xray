@@ -7,6 +7,17 @@ workflow is paused. This plan does not claim the MVP is built.
 
 ## Start here
 
+Latest companion correction: [HM-MILO02](audit/HM-MILO02-delivery.md) — original Home
+athlete restored with sleeping Pip; processing encouragement and stronger motion.
+HM-MILO01 remains the initial candidate evidence. The planning note below is historical;
+HM-RELEASE03 judge access remains the next release dependency.
+
+25 October companion planning: owner selected **Milo Pip**. Before companion work,
+read [Milo Pip delivery plan](design/MILO-PIP-DELIVERY-PLAN.md), TASKS HM-MILO01 and
+D025. Planning only: first deliver an isolated three-action motion preview, then gate
+controller/app integration on accepted assets. No progression, journal or hardware.
+This is a bounded UI addition; existing HM-RELEASE03 judge-access work remains open.
+
 Latest processing checkpoint: `docs/audit/HM-FAST02-delivery.md` — local env
 `POSE_ANALYSIS_RESIZE=1` enables bounded 720p/1280 resize for all four exercises;
 owner accepts the known resized-squat partial (0 complete cycles vs 1 original).

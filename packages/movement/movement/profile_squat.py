@@ -1,4 +1,4 @@
-"""Bodyweight squat single-frame feature module (squat-measure-v1).
+"""Bodyweight squat single-frame feature module (squat-measure-v2).
 
 Computes knee and hip joint angles plus a projected torso axis angle from one
 PoseFrame. Every feature emits exactly one AngleObservation per call, even
@@ -6,6 +6,15 @@ when the geometry cannot be measured (``value=None`` with a deterministic
 ``reason``). No smoothing, segmentation, depth, or technique judgments are
 made here; PROFILE band values are segmentation trial bounds only, not
 technique tolerances or calibrated norms.
+
+Version ``squat-measure-v2`` adds the opt-in ``missing_gap_s`` policy
+(following the curl-measure-v2 precedent): a run of missing signal samples
+may be bridged by ``find_cycles`` only when both bracketing observed samples
+share one threshold band and their elapsed time fits within ``missing_gap_s``.
+Missing frames are never imputed and never count toward dwell; accepted spans
+are diagnostics metadata only. ``low_degrees``/``high_degrees``/``dwell_s``/
+``max_gap_s`` are unchanged from squat-measure-v1. The v1 JSON config is
+preserved unchanged alongside the new v2 config.
 """
 
 from __future__ import annotations
@@ -22,9 +31,10 @@ from movement.observations import (
 from movement.posture import ProjectionAxis, measure_torso_frame
 
 # Image-space up axis. Camera orientation is provisional and unverified for
-# this variant; no calibration claim is made.
+# this variant; no calibration claim is made. The axis version tracks the
+# profile version (squat-measure-v2); the geometry is identical to v1.
 SQUAT_TORSO_AXIS = ProjectionAxis(
-    version="squat-measure-v1",
+    version="squat-measure-v2",
     axis_id="image_up_unverified",
     up_xy=(0.0, -1.0),
     positive_cross_sign=1,
@@ -33,13 +43,14 @@ SQUAT_TORSO_AXIS = ProjectionAxis(
 PROFILE: dict = {
     "exercise_id": "squat",
     "variant": "bodyweight",
-    "version": "squat-measure-v1",
+    "version": "squat-measure-v2",
     "signal_metric": "knee_angle",
     "signal_space": "estimated_3d",
     "low_degrees": 100.0,
     "high_degrees": 150.0,
     "dwell_s": 0.1,
     "max_gap_s": 0.1,
+    "missing_gap_s": 0.1,
     "metrics": {
         "knee_angle": {
             "projected_2d": {"unit": "degrees", "label": "Knee angle (hip-knee-ankle), projected 2D"},

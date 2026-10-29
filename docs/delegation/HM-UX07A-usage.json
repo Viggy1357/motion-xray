@@ -1,0 +1,136 @@
+{
+  "task": "HM-UX07A",
+  "as_of": "2026-10-24",
+  "requests": [
+    {
+      "request": "ux7-browser-focused",
+      "task": "HM-UX07A-BROWSER-03",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "status": "draft_partially_accepted",
+      "usage": {
+        "completion_tokens": 3892,
+        "prompt_tokens": 4932,
+        "total_tokens": 8824,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "conservative_cost_usd": 0.073176,
+      "maximum_cost_usd": 0.22583399999999998,
+      "review": "Fixture/config accepted with session allowlist accounting correction, real fake-camera args and removal of unnecessary iPhone descriptor. Spec rejected: wrong education selectors, invalid camera API assignment, Skip then Continue, fictitious preview selector and no actual countdown test."
+    },
+    {
+      "request": "ux7-browser-repair",
+      "task": "HM-UX07A-BROWSER-02",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_partially_accepted",
+      "usage": {
+        "completion_tokens": 9699,
+        "prompt_tokens": 13778,
+        "total_tokens": 23477,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 13696
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 13778
+      },
+      "finish_reason": "stop",
+      "conservative_cost_usd": 0.186819,
+      "maximum_cost_usd": 0.40125900000000003,
+      "review": "Accepted isolated Docker/Compose/host wrapper/package/tsconfig only. Rejected fixture/spec/config: retained browser.newContext dropping project options and incorrect UI states despite repair request. Bounded reroute for3 test files."
+    },
+    {
+      "request": "ux7-browser-spec-recovery",
+      "task": "HM-UX07A-BROWSER-05",
+      "model": "moonshotai/Kimi-K3",
+      "status": "draft_accepted_with_integration_corrections",
+      "usage": {
+        "completion_tokens": 18597,
+        "prompt_tokens": 1942,
+        "total_tokens": 20539,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 1920
+        },
+        "reasoning_tokens": 15486
+      },
+      "finish_reason": "stop",
+      "conservative_cost_usd": 0.284781,
+      "maximum_cost_usd": 0.40526700000000004,
+      "review": "Accepted meaningful source-driven10-test suite; corrected two parent Record labels to actual Record a set. Native MediaRecorder and before-navigation API fixtures preserved; all checks still require execution."
+    },
+    {
+      "request": "ux7-browser-spec",
+      "task": "HM-UX07A-BROWSER-04",
+      "model": "moonshotai/Kimi-K3",
+      "status": "failed",
+      "usage": {
+        "completion_tokens": 12000,
+        "prompt_tokens": 1942,
+        "total_tokens": 13942,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 12002
+      },
+      "finish_reason": "length",
+      "conservative_cost_usd": 0.185826,
+      "maximum_cost_usd": 0.216627,
+      "review": null
+    },
+    {
+      "request": "ux7-browser",
+      "task": "HM-UX07A-BROWSER-01",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_rejected",
+      "usage": {
+        "completion_tokens": 11183,
+        "prompt_tokens": 10524,
+        "total_tokens": 21707,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 10496
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 10524
+      },
+      "finish_reason": "stop",
+      "conservative_cost_usd": 0.19931700000000002,
+      "maximum_cost_usd": 0.418845,
+      "review": "Rejected before integration: architecture-specific download, dropped project options, missing fake-camera flags, nonexistent UI selectors and false Skip assertions."
+    }
+  ],
+  "summary": {
+    "attempts": 5,
+    "reported_tokens": 88489,
+    "task_allowance_tokens": 100000,
+    "conservative_known_cost_usd": 0.929919,
+    "unknown_usage_calls": 0,
+    "prior_aggregate_maximum_usd": 29.02243765,
+    "aggregate_maximum_usd": 29.95235665,
+    "active_ceiling_usd": 70,
+    "protected_backup_usd": 30,
+    "backup_used": false,
+    "account_balance_verified": false,
+    "paid_product_calls": 0,
+    "tavily_calls": 0,
+    "interactive_computer_use_calls": 0,
+    "codex_savings_measured": false,
+    "cost_basis": "Conservative request guards, not provider invoice; failed and rejected calls retained. Prior aggregate maximum includes earlier unknown-call reservations."
+  }
+}

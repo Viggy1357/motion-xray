@@ -1,0 +1,268 @@
+{
+  "repository": "https://github.com/latent-spaces/brag",
+  "commit": "669ab9286aa28b6c3ee30e75f181ee74319d012a",
+  "plugin_version": "0.5.0",
+  "date": "2026-10-25",
+  "tree_complete": true,
+  "tree_entries": 411,
+  "text_files_fetched": 76,
+  "text_bytes": 1273794,
+  "media_files_not_fetched": 294,
+  "symlinks_stored_as_text": 6,
+  "all_fetched_git_blob_hashes_verified": true,
+  "osv": {
+    "ecosystem": "PyPI",
+    "package_count": 30,
+    "query": {
+      "queries": [
+        {
+          "package": {
+            "name": "audioop-lts",
+            "ecosystem": "PyPI"
+          },
+          "version": "0.2.2"
+        },
+        {
+          "package": {
+            "name": "audioread",
+            "ecosystem": "PyPI"
+          },
+          "version": "3.1.0"
+        },
+        {
+          "package": {
+            "name": "certifi",
+            "ecosystem": "PyPI"
+          },
+          "version": "2026.10.23"
+        },
+        {
+          "package": {
+            "name": "cffi",
+            "ecosystem": "PyPI"
+          },
+          "version": "2.0.0"
+        },
+        {
+          "package": {
+            "name": "charset-normalizer",
+            "ecosystem": "PyPI"
+          },
+          "version": "3.4.7"
+        },
+        {
+          "package": {
+            "name": "decorator",
+            "ecosystem": "PyPI"
+          },
+          "version": "5.3.1"
+        },
+        {
+          "package": {
+            "name": "idna",
+            "ecosystem": "PyPI"
+          },
+          "version": "3.18"
+        },
+        {
+          "package": {
+            "name": "joblib",
+            "ecosystem": "PyPI"
+          },
+          "version": "1.5.3"
+        },
+        {
+          "package": {
+            "name": "lazy-loader",
+            "ecosystem": "PyPI"
+          },
+          "version": "0.5"
+        },
+        {
+          "package": {
+            "name": "librosa",
+            "ecosystem": "PyPI"
+          },
+          "version": "0.11.0"
+        },
+        {
+          "package": {
+            "name": "llvmlite",
+            "ecosystem": "PyPI"
+          },
+          "version": "0.47.0"
+        },
+        {
+          "package": {
+            "name": "msgpack",
+            "ecosystem": "PyPI"
+          },
+          "version": "1.2.1"
+        },
+        {
+          "package": {
+            "name": "narwhals",
+            "ecosystem": "PyPI"
+          },
+          "version": "2.22.1"
+        },
+        {
+          "package": {
+            "name": "numba",
+            "ecosystem": "PyPI"
+          },
+          "version": "0.65.1"
+        },
+        {
+          "package": {
+            "name": "numpy",
+            "ecosystem": "PyPI"
+          },
+          "version": "2.4.6"
+        },
+        {
+          "package": {
+            "name": "packaging",
+            "ecosystem": "PyPI"
+          },
+          "version": "26.2"
+        },
+        {
+          "package": {
+            "name": "platformdirs",
+            "ecosystem": "PyPI"
+          },
+          "version": "4.10.0"
+        },
+        {
+          "package": {
+            "name": "pooch",
+            "ecosystem": "PyPI"
+          },
+          "version": "1.9.0"
+        },
+        {
+          "package": {
+            "name": "pycparser",
+            "ecosystem": "PyPI"
+          },
+          "version": "3.0"
+        },
+        {
+          "package": {
+            "name": "requests",
+            "ecosystem": "PyPI"
+          },
+          "version": "2.34.2"
+        },
+        {
+          "package": {
+            "name": "scikit-learn",
+            "ecosystem": "PyPI"
+          },
+          "version": "1.9.0"
+        },
+        {
+          "package": {
+            "name": "scipy",
+            "ecosystem": "PyPI"
+          },
+          "version": "1.17.1"
+        },
+        {
+          "package": {
+            "name": "soundfile",
+            "ecosystem": "PyPI"
+          },
+          "version": "0.14.0"
+        },
+        {
+          "package": {
+            "name": "soxr",
+            "ecosystem": "PyPI"
+          },
+          "version": "1.1.0"
+        },
+        {
+          "package": {
+            "name": "standard-aifc",
+            "ecosystem": "PyPI"
+          },
+          "version": "3.13.0"
+        },
+        {
+          "package": {
+            "name": "standard-chunk",
+            "ecosystem": "PyPI"
+          },
+          "version": "3.13.0"
+        },
+        {
+          "package": {
+            "name": "standard-sunau",
+            "ecosystem": "PyPI"
+          },
+          "version": "3.13.0"
+        },
+        {
+          "package": {
+            "name": "threadpoolctl",
+            "ecosystem": "PyPI"
+          },
+          "version": "3.6.0"
+        },
+        {
+          "package": {
+            "name": "typing-extensions",
+            "ecosystem": "PyPI"
+          },
+          "version": "4.15.0"
+        },
+        {
+          "package": {
+            "name": "urllib3",
+            "ecosystem": "PyPI"
+          },
+          "version": "2.8.0"
+        }
+      ]
+    },
+    "response": {
+      "results": [
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {}
+      ]
+    }
+  },
+  "code_executed": false,
+  "skill_installed": false,
+  "review_usage_file": "docs/development-usage-BRAG-AUDIT01-2026-10-25.json"
+}

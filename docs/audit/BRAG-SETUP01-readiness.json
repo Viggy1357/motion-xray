@@ -1,0 +1,97 @@
+{
+  "task": "BRAG-SETUP01",
+  "date": "2026-10-25",
+  "image_id": "sha256:c5d9855504d08bf49b314f9a35f6013cbfb8ed2de4a9b30f724f108a0d1525d0",
+  "hyperframes_version": "0.8.195",
+  "browser_check_ok": true,
+  "browser_skipped": false,
+  "browser_sections": {
+    "lint": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "runtime": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "layout": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 1
+    },
+    "motion": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "contrast": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    },
+    "craft": {
+      "ok": true,
+      "errorCount": 0,
+      "warningCount": 0
+    }
+  },
+  "required_tools": {
+    "Node.js": {
+      "name": "Node.js",
+      "ok": true,
+      "detail": "v22.23.3 (linux arm64)"
+    },
+    "Frames cache": {
+      "name": "Frames cache",
+      "ok": true,
+      "detail": "/work/.hyperframes/extract-cache \u00b7 66396.5 GB free at /work \u00b7 HYPERFRAMES_EXTRACT_CACHE_DIR"
+    },
+    "FFmpeg": {
+      "name": "FFmpeg",
+      "ok": true,
+      "detail": "ffmpeg 5.1.9-0 at /usr/bin/ffmpeg"
+    },
+    "FFprobe": {
+      "name": "FFprobe",
+      "ok": true,
+      "detail": "ffprobe 5.1.9-0 at /usr/bin/ffprobe"
+    },
+    "Chrome": {
+      "name": "Chrome",
+      "ok": true,
+      "detail": "env: /usr/bin/chromium"
+    }
+  },
+  "doctor_overall_ok": false,
+  "doctor_nonrequired_warnings": [
+    "Archive extractor",
+    "whisper-cpp",
+    "TTS (Kokoro)",
+    "BGM (MusicGen)",
+    "Docker",
+    "Docker running"
+  ],
+  "npm_vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "wrapper_tests": 38,
+  "node_tests": 9,
+  "preview_http_status": 200,
+  "preview_clean_shutdown": true,
+  "mp4_generated": false,
+  "skills_global_install": false,
+  "installed_skill_provenance": "infra/brag/installed-skills.json",
+  "limits": [
+    "No final video render or voice/provider model installation.",
+    "Doctor overall false because optional unzip/voice/transcription/MusicGen/nestedDocker missing; required local renderer tools and actual browser check pass.",
+    "Preview bridge can reach outbound; only checks/renders networknone.",
+    "npm audit0 is database result, not complete dependency/OS vulnerability guarantee."
+  ]
+}

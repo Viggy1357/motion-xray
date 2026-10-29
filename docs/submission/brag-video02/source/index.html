@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" data-composition-variables='[{"id":"appName","type":"string","label":"App name","default":"Motion X Ray"}]'>
+<head>
+<meta charset="utf-8" />
+<title>Meet Milo — Motion X Ray</title>
+<meta name="viewport" content="width=1920" />
+<style>
+  :root{
+    --cobalt:#3158e8;
+    --lilac:#cbb8f2;
+    --navy:#142039;
+    --paper:#f8fafd;
+    --white:#ffffff;
+    --ink:#142039;
+  }
+  html,body{margin:0;padding:0;background:var(--navy);color:var(--white);font-family:Outfit,Roboto,Inter,sans-serif;overflow:hidden}
+  #root{position:absolute;inset:0;background:var(--navy);box-sizing:border-box;width:1920px;height:1080px}
+  /* Scenes lane */
+  .scene-host{position:absolute;inset:0;z-index:1}
+  /* Audio */
+  audio{position:absolute;width:0;height:0;opacity:0}
+  /* Caption band */
+  #caption{position:absolute;left:0;right:0;bottom:18px;text-align:center;font-size:22px;color:rgba(255,255,255,.7);letter-spacing:.04em;z-index:20;pointer-events:none}
+</style>
+</head>
+<body>
+<div data-hf-id="hf-j7pz" id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1920" data-height="1080">
+
+  <!-- Persistent Milo overlay (subcomposition) -->
+  <div data-hf-id="hf-c1p9" id="milo-character" class="clip" data-composition-id="milo-character" data-composition-src="compositions/milo-character.html" data-start="0" data-duration="30" data-track-index="3" data-track-kind="graphics" data-width="1920" data-height="1080" style="position:absolute;inset:0;z-index:10;pointer-events:none"></div>
+
+  <!-- Scene hosts (lane 1) -->
+  <div data-hf-id="hf-d3u7" id="problem"  class="scene-host" data-composition-id="problem"  data-composition-src="compositions/problem.html"  data-start="0"  data-duration="5"  data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <div data-hf-id="hf-v26v" id="meet"     class="scene-host" data-composition-id="meet"     data-composition-src="compositions/meet.html"     data-start="5"  data-duration="4"  data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <div data-hf-id="hf-koda" id="journey"  class="scene-host" data-composition-id="journey"  data-composition-src="compositions/journey.html"  data-start="9"  data-duration="8"  data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <div data-hf-id="hf-ktj2" id="review"   class="scene-host" data-composition-id="review"   data-composition-src="compositions/review.html"   data-start="17" data-duration="7"  data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+  <div data-hf-id="hf-5cty" id="outro"    class="scene-host" data-composition-id="outro"    data-composition-src="compositions/outro.html"    data-start="24" data-duration="6"  data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+
+  <!-- Music (lane 0) -->
+  <audio data-hf-id="hf-jz9k" id="music" data-start="0" data-duration="30" data-volume="0.6" data-fade-in="0.15" data-fade-out="1.0" src="assets/music.mp3" data-track-index="0" data-track-kind="audio"></audio>
+
+  <!-- SFX (lane 2) -->
+  <audio data-hf-id="hf-b4j8" id="sfx-impact-5"  data-start="5"  data-duration="0.18" data-volume="0.35" src="assets/impact.ogg"  data-track-index="2" data-track-kind="audio"></audio>
+  <audio data-hf-id="hf-9s7l" id="sfx-drop-9"    data-start="9"  data-duration="0.10" data-volume="0.30" src="assets/drop.ogg"    data-track-index="2" data-track-kind="audio"></audio>
+  <audio data-hf-id="hf-ew35" id="sfx-select-12" data-start="12" data-duration="0.05" data-volume="0.30" src="assets/select.ogg"  data-track-index="2" data-track-kind="audio"></audio>
+  <audio data-hf-id="hf-pysz" id="sfx-drop-17"   data-start="17" data-duration="0.10" data-volume="0.30" src="assets/drop.ogg"    data-track-index="2" data-track-kind="audio"></audio>
+  <audio data-hf-id="hf-o3ba" id="sfx-impact-24" data-start="24" data-duration="0.18" data-volume="0.35" src="assets/impact.ogg"  data-track-index="2" data-track-kind="audio"></audio>
+
+  <!-- Caption band -->
+  <div data-hf-id="hf-vbhs" id="caption" data-track-index="4" data-track-kind="captions"></div>
+</div>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script>
+window.__timelines = window.__timelines || {};
+window.__timelines["main"] = gsap.timeline({ paused: true });
+</script>
+</body>
+</html>

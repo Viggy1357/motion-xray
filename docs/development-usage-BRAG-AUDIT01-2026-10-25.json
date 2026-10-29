@@ -1,0 +1,52 @@
+{
+  "task": "BRAG-AUDIT01",
+  "date": "2026-10-25",
+  "purpose": "Public third-party repository static security audit; no installation or execution",
+  "calls": [
+    {
+      "task": "BRAG-AUDIT01",
+      "model": "moonshotai/Kimi-K3",
+      "request": "brag-audit-review",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.351291,
+      "input_token_bound": 77097,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1718,
+        "prompt_tokens": 17480,
+        "total_tokens": 19198,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 13
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "765dc87c7ad34d75afc22ba78e24eb9d",
+      "elapsed_s": 11.16,
+      "received_chars": 7571,
+      "conservative_cost_usd": 0.07821
+    }
+  ],
+  "total_reported_tokens": 19198,
+  "guard_cost_usd": 0.07821,
+  "prior_aggregate_guard_usd": 17.83949965,
+  "aggregate_guard_usd": 17.91770965,
+  "aggregate_maximum_commitment_usd": 18.798434649999997,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "balance_verified": false,
+  "notes": [
+    "One Nebius first-pass reviewer; public source only, no private app files/media/credentials in prompt.",
+    "Reviewer scope/binary/dependency limits checked by integrator; no code or skill executed.",
+    "Last available UX04 ledger used as baseline; other concurrent/unrecorded costs not independently verified.",
+    "No app runtime/Tavily/hosting spend; public GitHub/OSV read-only requests only."
+  ]
+}

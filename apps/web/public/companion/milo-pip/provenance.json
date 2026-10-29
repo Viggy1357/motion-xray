@@ -1,0 +1,60 @@
+{
+  "generated_tool": "built-in imagegen",
+  "generated_date": "2026-10-25",
+  "model": "unspecified",
+  "concept_reference": "docs/design/references/milo-pip-selected.png",
+  "note": "Original image is not a rig and no legal clearance is claimed. Layers are packaged from transparent PNG sources via ffmpeg libwebp.",
+  "encoder": {
+    "codec": "libwebp",
+    "quality": 85,
+    "compression_level": 6,
+    "scale": "768:768",
+    "pix_fmt": "yuva420p"
+  },
+  "layers": {
+    "neutral": {
+      "source": "artifacts/development/milo-assets/neutral-source.png",
+      "output": "apps/web/public/companion/milo-pip/neutral.webp",
+      "source_sha256": "9c8338ecd032fc01f2bf766ab63aa3601369aa257d468ca06dbb60f4ef2e5bcd",
+      "output_sha256": "3a73f8ee509ed4e00ef667e038cb27bf6fcf113ac644c73af38a759a5d3cd726",
+      "output_bytes": 99420,
+      "width": 768,
+      "height": 768,
+      "pix_fmt": "yuva420p"
+    },
+    "body": {
+      "source": "artifacts/development/milo-assets/body-source.png",
+      "output": "apps/web/public/companion/milo-pip/body.webp",
+      "source_sha256": "7375859de1dfd4eaf91e2244555eddcc0824df68c5da63313b5f30400287adf6",
+      "output_sha256": "f5a6ef05eb4d0c0f4e440597341dac752c9495f48ce9ed19ddaf3c0c248f6b38",
+      "output_bytes": 52074,
+      "width": 768,
+      "height": 768,
+      "pix_fmt": "yuva420p"
+    },
+    "head": {
+      "source": "artifacts/development/milo-assets/head-source.png",
+      "output": "apps/web/public/companion/milo-pip/head.webp",
+      "source_sha256": "aa9d51615e2ce4a3dc60c6209c500c795c93ff42a3461c784afaee499f4c278d",
+      "output_sha256": "27c356ca4aa720546412fbd09d0862bbb100e8d83b1d305183f8e5a5b739a78e",
+      "output_bytes": 61348,
+      "width": 768,
+      "height": 768,
+      "pix_fmt": "yuva420p"
+    },
+    "sleeping": {
+      "source": "artifacts/development/milo-assets/sleeping-source.png",
+      "output": "apps/web/public/companion/milo-pip/sleeping.webp",
+      "source_sha256": "6c05f212b2c9f93820842e427362be9954be1cef5ed764baa11a1fc65cb6eebf",
+      "output_sha256": "2ee0bfa16c40aaf09ebdfb8fa42e6a0d671622e08ec92aedf12eafc7fa9e0892",
+      "output_bytes": 71264,
+      "width": 768,
+      "height": 768,
+      "encoder_quality": 86,
+      "note": "Imagegen edit of neutral source: curled sleeping pose, transparent background; no walking rig."
+    }
+  },
+  "total_bytes": 284106,
+  "budget_bytes": 2097152,
+  "packaged_at": 1792909151
+}

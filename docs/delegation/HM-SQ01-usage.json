@@ -1,0 +1,117 @@
+{
+  "task": "HM-SQ01",
+  "completed_on": "2026-10-24",
+  "task_ceiling_tokens": 200000,
+  "total_reported_tokens": 127932,
+  "conservative_guard_usd": 0.840144,
+  "price_basis": "USD3 input/USD15 completion per million conservative guard, not invoice; reasoning already included in completion.",
+  "prior_aggregate_maximum_usd": 22.48735165,
+  "aggregate_maximum_usd": 23.32749565,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "backup_activated": false,
+  "account_balance_verified": false,
+  "runtime_paid_calls": 0,
+  "tavily_calls": 0,
+  "source_only_provider_context": true,
+  "calls": [
+    {
+      "request": "sq01-diagnostic",
+      "model": "moonshotai/Kimi-K3",
+      "status": "draft_pending_review",
+      "finish_reason": "stop",
+      "conservative_cost_usd": 0.147966,
+      "maximum_cost_usd": 0.616146,
+      "usage": {
+        "completion_tokens": 5126,
+        "prompt_tokens": 23692,
+        "total_tokens": 28818,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 418
+      }
+    },
+    {
+      "request": "sq01-repair",
+      "model": "moonshotai/Kimi-K3",
+      "status": "draft_pending_review",
+      "finish_reason": "stop",
+      "conservative_cost_usd": 0.178632,
+      "maximum_cost_usd": 0.549132,
+      "usage": {
+        "completion_tokens": 7624,
+        "prompt_tokens": 21424,
+        "total_tokens": 29048,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 2979
+      }
+    },
+    {
+      "request": "sq01-review",
+      "model": "nvidia/Nemotron-3.5-Super-VL",
+      "status": "draft_pending_review",
+      "finish_reason": "stop",
+      "conservative_cost_usd": 0.124443,
+      "maximum_cost_usd": 0.47763900000000004,
+      "usage": {
+        "completion_tokens": 4821,
+        "prompt_tokens": 17376,
+        "total_tokens": 22197,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 3928
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 13056
+        }
+      }
+    },
+    {
+      "request": "sq01-test-repair",
+      "model": "moonshotai/Kimi-K3",
+      "status": "draft_pending_review",
+      "finish_reason": "stop",
+      "conservative_cost_usd": 0.218844,
+      "maximum_cost_usd": 0.508152,
+      "usage": {
+        "completion_tokens": 10893,
+        "prompt_tokens": 18483,
+        "total_tokens": 29376,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 1229
+      }
+    },
+    {
+      "request": "sq01-ui",
+      "model": "moonshotai/Kimi-K3",
+      "status": "draft_pending_review",
+      "finish_reason": "stop",
+      "conservative_cost_usd": 0.170259,
+      "maximum_cost_usd": 0.341322,
+      "usage": {
+        "completion_tokens": 9565,
+        "prompt_tokens": 8928,
+        "total_tokens": 18493,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128
+        },
+        "reasoning_tokens": 47
+      }
+    }
+  ]
+}

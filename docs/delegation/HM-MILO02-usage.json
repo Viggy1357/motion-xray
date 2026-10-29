@@ -1,0 +1,250 @@
+{
+  "task": "HM-MILO02",
+  "date": "2026-10-25",
+  "calls": [
+    {
+      "task": "HM-MILO02-UI",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "milo02-ui",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.334953,
+      "input_token_bound": 41651,
+      "output_token_bound": 14000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5992,
+        "prompt_tokens": 9364,
+        "total_tokens": 15356,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 9344
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 9364
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-9ef10f827b6c545e7286dcbd0bab4db1",
+      "elapsed_s": 15.78,
+      "received_chars": 19483,
+      "conservative_cost_usd": 0.117972
+    },
+    {
+      "task": "HM-MILO02-curl-diagnostic",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "milo02-curl",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.278142,
+      "input_token_bound": 52714,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 4073,
+        "prompt_tokens": 11591,
+        "total_tokens": 15664,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 11520
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 11591
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-878b568f43526f9978519a091d811fe4",
+      "elapsed_s": 13.13,
+      "received_chars": 14720,
+      "conservative_cost_usd": 0.095868
+    },
+    {
+      "task": "HM-MILO02-UI-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "milo02-ui-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.329802,
+      "input_token_bound": 49934,
+      "output_token_bound": 12000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 7879,
+        "prompt_tokens": 11589,
+        "total_tokens": 19468,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 11520
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 11589
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-2cc143684e46f4c92d7a0608dc465ad6",
+      "elapsed_s": 18.94,
+      "received_chars": 25368,
+      "conservative_cost_usd": 0.152952
+    },
+    {
+      "task": "HM-MILO02-curl-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "milo02-curl-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.411516,
+      "input_token_bound": 97172,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 3424,
+        "prompt_tokens": 21190,
+        "total_tokens": 24614,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 21120
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 21190
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-f901b14533c18efc02ceed1d40e4b2a8",
+      "elapsed_s": 11.21,
+      "received_chars": 12297,
+      "conservative_cost_usd": 0.11493
+    },
+    {
+      "task": "HM-MILO02-focused-review",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "milo02-review",
+      "status": "failed",
+      "maximum_cost_usd": 0.16000199999999998,
+      "input_token_bound": 28334,
+      "output_token_bound": 5000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5000,
+        "prompt_tokens": 6440,
+        "total_tokens": 11440,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 4999
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 6400
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 6440
+      },
+      "finish_reason": "length",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-2d686167ef078ba132b6e754cf524461",
+      "error_type": "JSONDecodeError",
+      "error_status_code": null,
+      "error_code": null,
+      "elapsed_s": 14.04,
+      "received_chars": 0,
+      "conservative_cost_usd": 0.09432
+    },
+    {
+      "task": "HM-MILO02-review-completion",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "milo02-review-completion",
+      "status": "failed",
+      "maximum_cost_usd": 0.331449,
+      "input_token_bound": 28563,
+      "output_token_bound": 16384,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 16384,
+        "prompt_tokens": 6481,
+        "total_tokens": 22865,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 16383
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 128,
+          "created_cache_tokens": 6272
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 6353
+      },
+      "finish_reason": "length",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-74d4abc85ccd74035ac663630b07d949",
+      "error_type": "JSONDecodeError",
+      "error_status_code": null,
+      "error_code": null,
+      "elapsed_s": 41.31,
+      "received_chars": 0,
+      "conservative_cost_usd": 0.265203
+    }
+  ],
+  "total_reported_tokens": 109407,
+  "task_token_allowance": 200000,
+  "guard_cost_usd": 0.841245,
+  "prior_aggregate_maximum_usd": 34.49088265,
+  "aggregate_maximum_commitment_usd": 35.33212765,
+  "unknown_usage_reservations_usd": 0,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "protected_backup_used_usd": 0,
+  "balance_verified": false,
+  "imagegen_calls": 1,
+  "imagegen_cost": "separate, not included or verified",
+  "runtime_paid_calls": 0,
+  "tavily_calls": 0,
+  "private_media_sent": false,
+  "price_basis": "USD3 input/USD15 completion per million conservative guard, not invoice; failures included",
+  "notes": [
+    "Malformed initial curl packet and conservative input-bound assertion failed before provider dispatch; no provider record.",
+    "Two review requests exhausted completion in reasoning without final output; costs retained, worker stopped. No independent Nebius review delivered.",
+    "Substantive UI and diagnostic drafts came from Nebius; Codex integrated scoped patches, corrected omitted real Pip/import, added small motion/layout and test checks.",
+    "Baseline aggregate includes previously known BRAG audit once; other concurrency and account balance not verified."
+  ]
+}

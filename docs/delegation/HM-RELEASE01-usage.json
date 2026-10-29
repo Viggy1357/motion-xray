@@ -1,0 +1,30 @@
+{
+  "task": "HM-RELEASE01-01",
+  "model": "MiniMaxAI/MiniMax-M3",
+  "status": "draft_pending_review",
+  "usage": {
+    "completion_tokens": 6391,
+    "prompt_tokens": 7618,
+    "total_tokens": 14009,
+    "completion_tokens_details": {
+      "audio_tokens": null,
+      "reasoning_tokens": 0
+    },
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cached_tokens": 0,
+      "created_cache_tokens": 7552
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 7618
+  },
+  "finish_reason": "stop",
+  "elapsed_s": 22.18,
+  "conservative_cost_usd": 0.118719,
+  "maximum_cost_usd": 0.355914,
+  "review": "accepted with local factual corrections; no app changes",
+  "active_ceiling_usd": 70,
+  "aggregate_maximum_usd": 31.62896665,
+  "protected_backup_usd": 30,
+  "paid_runtime_calls": 0
+}

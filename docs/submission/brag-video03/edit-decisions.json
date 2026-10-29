@@ -1,0 +1,38 @@
+{
+  "sections_seconds": {
+    "teaser": 30,
+    "walkthrough": 100,
+    "future": 20
+  },
+  "walkthrough_chapters": {
+    "home": {
+      "start_s": 0.198,
+      "duration_s": 12
+    },
+    "upload": {
+      "start_s": 12.906,
+      "duration_s": 18
+    },
+    "processing": {
+      "start_s": 33.547,
+      "duration_s": 15
+    },
+    "results": {
+      "start_s": 121.214,
+      "duration_s": 25
+    },
+    "coaching": {
+      "start_s": 146.447,
+      "duration_s": 20
+    },
+    "limits": {
+      "start_s": 166.514,
+      "duration_s": 10
+    }
+  },
+  "processing_wait_s": 87.667,
+  "processing_edit_s": 15,
+  "coaching_requests": 1,
+  "coaching_status": "unavailable",
+  "raw_elapsed_ms": 177924
+}

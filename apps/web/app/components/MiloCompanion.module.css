@@ -1,0 +1,145 @@
+.root {
+  position: relative;
+  display: inline-block;
+  contain: layout paint;
+  pointer-events: none;
+  user-select: none;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  will-change: transform;
+}
+
+.head,
+.paw {
+  position: absolute;
+  inset: auto;
+  height: auto;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  will-change: transform;
+}
+
+.hero {
+  width: min(280px, 100%);
+}
+
+.compact {
+  width: min(96px, 100%);
+}
+
+/* ---------- Idle: gentle head movement only (no whole-stage breathe) ---------- */
+.idle .head {
+  animation: milo-idle-head 6.8s ease-in-out infinite;
+}
+
+@keyframes milo-idle-head {
+  0%,
+  20%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  35% {
+    transform: translate(1.2%, -1.5%) rotate(2deg);
+  }
+  70% {
+    transform: translate(-1%, 1%) rotate(-1.5deg);
+  }
+}
+
+/* ---------- Attentive: small head tilt + gaze ---------- */
+.attentive .head {
+  animation: milo-attentive-tilt 1s ease-out 1 forwards;
+}
+
+@keyframes milo-attentive-tilt {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  35% {
+    transform: rotate(6deg) translate(1.6%, -1%);
+  }
+  100% {
+    transform: rotate(4deg) translate(0.8%, -0.4%);
+  }
+}
+
+/* ---------- Cheer: head nod + optional paw raise ---------- */
+.cheer .head {
+  animation: milo-cheer-nod 1.4s ease-in-out 1 forwards;
+}
+
+.cheer .paw {
+  animation: milo-cheer-paw 1.4s ease-in-out 1 forwards;
+}
+
+@keyframes milo-cheer-nod {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(0, 1.6%) rotate(-2deg);
+  }
+  45% {
+    transform: translate(0, -1.2%) rotate(3deg);
+  }
+  70% {
+    transform: translate(0, 0.6%) rotate(-1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes milo-cheer-paw {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(0, -3%) rotate(-6deg);
+  }
+  55% {
+    transform: translate(0, -1.5%) rotate(-3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* ---------- Static: no motion ---------- */
+.static .stage,
+.static .head,
+.static .paw {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* ---------- Reduced motion: pause everything ---------- */
+.reducedMotion .stage,
+.reducedMotion .head,
+.reducedMotion .paw {
+  animation: none !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root .stage,
+  .root .head,
+  .root .paw {
+    animation: none !important;
+    transform: none !important;
+  }
+}

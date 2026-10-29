@@ -1,0 +1,39 @@
+<template>
+<style>
+  #root{position:absolute;inset:0;background:#142039;box-sizing:border-box}
+  .copy{position:absolute;left:130px;top:150px;width:560px}
+  .copy h1{font-family:Outfit,sans-serif;font-weight:900;font-size:80px;line-height:1.04;margin:0 0 18px;color:#f8fafd}
+  .copy h1 span{color:#cbb8f2}
+  .copy p{font-size:38px;line-height:1.28;margin:0 0 14px;color:#f8fafd}
+  .copy .note{font-size:32px;color:#cbb8f2;margin-top:18px;font-weight:700}
+  .panel{position:absolute;left:760px;top:130px;width:1060px;height:820px;background:#0d172a;border:2px solid #3158e8;border-radius:18px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .panel img,.panel video{width:100%;height:100%;object-fit:contain}
+  .badge{position:absolute;left:130px;top:60px;font-size:28px;font-weight:700;color:#f8fafd}
+  .badge b{color:#cbb8f2}
+  .label{position:absolute;left:130px;bottom:60px;font-size:28px;color:#cbb8f2;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+  .chapter{position:absolute;right:60px;top:60px;font-size:28px;color:#cbb8f2;font-weight:700}
+</style>
+<div data-hf-id="hf-hii7" id="root" data-composition-id="limits" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-n7s3" class="badge" id="li-badge"><b data-hf-id="hf-ebdr">Motion X Ray</b> · Walkthrough</div>
+  <div data-hf-id="hf-v50i" class="chapter" id="li-chapter">Chapter 6 of 6</div>
+  <div data-hf-id="hf-bdx3" class="copy">
+    <h1 data-hf-id="hf-spb3" id="li-title" class="clip" data-start="0.2" data-duration="9.8" data-track-index="2" data-track-kind="captions">A provisional<br data-hf-id="hf-x5px"/><span data-hf-id="hf-41pa">reference estimate.</span></h1>
+    <p data-hf-id="hf-7bf5" id="li-p1" class="clip" data-start="1.8" data-duration="8.2" data-track-index="2" data-track-kind="captions">Not a technique grade.</p>
+    <p data-hf-id="hf-2c6m" id="li-p2" class="clip" data-start="3.6" data-duration="6.4" data-track-index="2" data-track-kind="captions" data-hold="true">Missing measurements stay unavailable.</p>
+    <div data-hf-id="hf-1h89" class="note clip" id="li-note" data-start="5.6" data-duration="4.4" data-track-index="2" data-track-kind="captions" data-hold="true">Recorded app walkthrough · edited for length.</div>
+  </div>
+  <div data-hf-id="hf-owjm" class="panel">
+    <video data-hf-id="hf-xako" id="li-img" class="clip" data-start="0.4" data-duration="9.6" data-track-index="1" data-track-kind="graphics" src="assets/walk-capture.mp4" muted playsinline preload="auto" data-media-start="90.4" aria-label="Recorded app walkthrough"></video>
+  </div>
+  <div data-hf-id="hf-ed5x" class="label" id="li-label">Scene 6 · Limits</div>
+</div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo("#li-title",{opacity:0,filter:"blur(8px)"},{opacity:1,filter:"blur(0px)",duration:0.6,ease:"power4.out"},0.2);
+  tl.fromTo("#li-p1",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},1.8);
+  tl.fromTo("#li-p2",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},3.6);
+  tl.fromTo(".note",{opacity:0,y:14},{opacity:1,y:0,duration:0.5,ease:"power2.out"},5.6);
+  tl.fromTo("#li-img",{opacity:0,scale:1.02},{opacity:1,scale:1,duration:0.8,ease:"power2.out"},0.4);
+  window.__timelines["limits"] = tl;
+</script>
+</template>

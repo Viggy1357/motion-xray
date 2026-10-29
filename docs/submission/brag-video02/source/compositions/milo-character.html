@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Milo Character</title>
+<meta name="viewport" content="width=1920" />
+<style>
+  html,body{margin:0;padding:0;background:transparent;overflow:hidden}
+  #root{position:absolute;inset:0;background:transparent;width:1920px;height:1080px;box-sizing:border-box}
+  #milo-host{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:10;pointer-events:none;will-change:transform;transform-origin:0 0}
+  #milo-travel{position:absolute;left:0;top:0;width:420px;height:420px;transform-origin:0 0;will-change:transform}
+  #milo{position:absolute;left:0;top:0;width:420px;height:420px;transform-origin:0 0}
+  #milo .body{position:absolute;left:0;top:0;width:100%;height:100%;background:url('assets/body.webp') center/contain no-repeat}
+  #milo .head{position:absolute;left:14%;top:0;width:66%;height:75%;background:url('assets/head.webp') center/contain no-repeat;transform-origin:50% 75%}
+  #milo .shadow{position:absolute;left:10%;top:78%;width:80%;height:14%;background:radial-gradient(ellipse at center, rgba(20,32,57,.45), rgba(20,32,57,0) 70%);filter:blur(6px)}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="milo-character" data-start="0" data-duration="30" data-width="1920" data-height="1080">
+  <div id="milo-host" class="clip" data-start="0" data-duration="30" data-track-index="3" data-track-kind="graphics">
+    <div id="milo-travel">
+      <div id="milo">
+        <div class="shadow"></div>
+        <div class="body"></div>
+        <div class="head" id="milo-head"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+window.__timelines = window.__timelines || {};
+
+const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
+
+// Milo persistent path — global coordinates, transform via x/y/scale only.
+// Outer host = position; inner #milo-travel = travel (x/y/scale); inner #milo = pose (squash/hop).
+const M = document.getElementById("milo-host");
+const T = document.getElementById("milo-travel");
+const P = document.getElementById("milo");
+const H = document.getElementById("milo-head");
+
+// Initial deterministic pose at t=0 (no duplicate)
+tl.set(M, { x: 0, y: 0, scaleX: 1, scaleY: 1 }, 0);
+tl.set(T, { x: 1680, y: 620, scaleX: 0.55, scaleY: 0.55 }, 0);
+tl.set(P, { x: 0, y: 0, scaleX: 1, scaleY: 1 }, 0);
+tl.set(H, { rotation: 8, transformOrigin: "50% 75%" }, 0);
+
+// 0.4 — peek in
+tl.to(T, { x: 1490, y: 580, scaleX: 0.65, scaleY: 0.65, duration: 1.0, ease: "power2.inOut" }, 0.4);
+tl.to(H, { rotation: -6, duration: 0.8, ease: "sine.inOut" }, 0.6);
+tl.to(H, { rotation: 4, duration: 0.8, ease: "sine.inOut" }, 1.4);
+
+// 4.6 — move into meet hero (left of pet zone, right of text zone)
+tl.to(T, { x: 1130, y: 260, scaleX: 1.25, scaleY: 1.25, duration: 0.7, ease: "power3.inOut" }, 4.6);
+tl.to(H, { rotation: 0, duration: 0.5, ease: "back.out(2)" }, 4.6);
+
+// HOLD hero until 8.5 (no 3s shrink through intro)
+tl.to({}, { duration: 3.9 }, 4.6);
+
+// 8.6 — move to guide position (right side, open)
+tl.to(T, { x: 1240, y: 470, scaleX: 0.85, scaleY: 0.85, duration: 0.65, ease: "power2.inOut" }, 8.6);
+tl.to(H, { rotation: 4, duration: 0.6, ease: "sine.inOut" }, 8.6);
+
+// 11.7 — travel to 1160,470
+tl.to(T, { x: 1160, y: 470, scaleX: 0.85, scaleY: 0.85, duration: 0.4, ease: "power2.inOut" }, 11.7);
+// 13.8 — back to 1240,470
+tl.to(T, { x: 1240, y: 470, scaleX: 0.85, scaleY: 0.85, duration: 0.4, ease: "power2.inOut" }, 13.8);
+
+// 17.0 — review beat
+tl.to(T, { x: 1230, y: 450, scaleX: 0.95, scaleY: 0.95, duration: 0.5, ease: "power2.inOut" }, 17.0);
+
+// 20.3 — small shift
+tl.to(T, { x: 1280, y: 450, scaleX: 0.95, scaleY: 0.95, duration: 0.4, ease: "power2.inOut" }, 20.3);
+
+// 23.8 — outro hero move
+tl.to(T, { x: 1200, y: 290, scaleX: 1.30, scaleY: 1.30, duration: 0.65, ease: "power2.inOut" }, 23.8);
+tl.to(H, { rotation: 0, duration: 0.6, ease: "back.out(2)" }, 23.8);
+
+// Inner pose hops (separate track, no overlap with travel tweens)
+function hop(t, lift, dur){
+  tl.to(P, { y: -lift, duration: dur*0.4, ease: "power2.out" }, t)
+    .to(P, { y: 0, duration: dur*0.6, ease: "power3.in" }, t + dur*0.4);
+}
+hop(5.1,  35, 0.5);
+hop(9.4,  35, 0.5);
+hop(11.9, 35, 0.5);
+hop(14.5, 35, 0.5);
+hop(17.5, 35, 0.5);
+hop(20.7, 35, 0.5);
+hop(24.5, 35, 0.5);
+
+// Optional head tilts (no infinite, no competing)
+tl.to(H, { rotation: 3, duration: 1.2, ease: "sine.inOut" }, 26.0);
+tl.to(H, { rotation: -2, duration: 1.2, ease: "sine.inOut" }, 27.4);
+
+window.__timelines["milo-character"] = tl;
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+{
+  "task": "HM-UX09",
+  "calls": [
+    {
+      "task": "HM-UX09-01",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.38817599999999997,
+      "usage": {
+        "completion_tokens": 10460,
+        "prompt_tokens": 11548,
+        "total_tokens": 22008,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 11520
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 11548
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 24.63,
+      "conservative_cost_usd": 0.19154400000000002,
+      "error_type": null
+    },
+    {
+      "task": "HM-UX09-02",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.5461320000000001,
+      "usage": {
+        "completion_tokens": 11289,
+        "prompt_tokens": 25226,
+        "total_tokens": 36515,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 25216
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 25226
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 35.59,
+      "conservative_cost_usd": 0.245013,
+      "error_type": null
+    },
+    {
+      "task": "HM-UX09-03",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.6639299999999999,
+      "usage": {
+        "completion_tokens": 2464,
+        "prompt_tokens": 33767,
+        "total_tokens": 36231,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 22.04,
+      "conservative_cost_usd": 0.138261,
+      "error_type": null
+    },
+    {
+      "task": "HM-UX09-04",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "failed",
+      "maximum_cost_usd": 0.48090900000000003,
+      "usage": {
+        "completion_tokens": 16000,
+        "prompt_tokens": 20454,
+        "total_tokens": 36454,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 20352
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 20454
+      },
+      "finish_reason": "length",
+      "elapsed_s": 42.41,
+      "conservative_cost_usd": 0.301362,
+      "error_type": "JSONDecodeError"
+    },
+    {
+      "task": "HM-UX09-05",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.712119,
+      "usage": {
+        "completion_tokens": 4849,
+        "prompt_tokens": 37315,
+        "total_tokens": 42164,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 37248
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 37315
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 15.28,
+      "conservative_cost_usd": 0.18468,
+      "error_type": null
+    },
+    {
+      "task": "HM-UX09-06",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.482973,
+      "usage": {
+        "completion_tokens": 12138,
+        "prompt_tokens": 20566,
+        "total_tokens": 32704,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 256,
+          "created_cache_tokens": 20224
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 20310
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 33.62,
+      "conservative_cost_usd": 0.243768,
+      "error_type": null
+    },
+    {
+      "task": "HM-UX09-07",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.204102,
+      "usage": {
+        "completion_tokens": 1166,
+        "prompt_tokens": 8779,
+        "total_tokens": 9945,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 11.52,
+      "conservative_cost_usd": 0.043827,
+      "error_type": null
+    }
+  ],
+  "reported_tokens": 216021,
+  "task_allowance_tokens": 300000,
+  "allowance_reason": "Owner-authorized one-off increase beyond200k for truncated combined repair and targeted thumbnail browser coverage; below500k maximum. No further paid calls planned.",
+  "conservative_cost_usd": 1.348455,
+  "price_basis": "USD3 input / USD15 completion per million conservative accounting, not verified invoice. Failure usage retained.",
+  "planning_UX08_cost_usd": 0.209436,
+  "prior_aggregate_maximum_usd": 29.95235665,
+  "new_aggregate_maximum_usd": 31.51024765,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "private_media_sent": false,
+  "runtime_paid_calls": 0,
+  "tavily_calls": 0,
+  "preflight_failures": "One runner input-size assertion rejected before API; no inference usage."
+}

@@ -1,0 +1,392 @@
+{
+  "task": "HM-FINAL01",
+  "date": "2026-10-25",
+  "calls": [
+    {
+      "task": "HM-FINAL01-runtime-review",
+      "model": "moonshotai/Kimi-K3",
+      "request": "final01-runtime",
+      "status": "failed",
+      "maximum_cost_usd": 0.425682,
+      "input_token_bound": 59974,
+      "output_token_bound": 16384,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 16384,
+        "prompt_tokens": 12713,
+        "total_tokens": 29097,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 16384
+      },
+      "finish_reason": "length",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "0033362fdd174955afd53d54696a150f",
+      "error_type": "JSONDecodeError",
+      "error_status_code": null,
+      "error_code": null,
+      "elapsed_s": 209.45,
+      "received_chars": 0,
+      "conservative_cost_usd": 0.283899
+    },
+    {
+      "task": "HM-FINAL01-submission-pack",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "final01-submission",
+      "status": "failed",
+      "maximum_cost_usd": 0.339285,
+      "input_token_bound": 31175,
+      "output_token_bound": 16384,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 16384,
+        "prompt_tokens": 6208,
+        "total_tokens": 22592,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 15164
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 6144
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 6208
+      },
+      "finish_reason": "length",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-410dfab0a9147b7f1d75b54cd5f6b263",
+      "error_type": "JSONDecodeError",
+      "error_status_code": null,
+      "error_code": null,
+      "elapsed_s": 44.84,
+      "received_chars": 5283,
+      "conservative_cost_usd": 0.264384
+    },
+    {
+      "task": "HM-FINAL01-worker-review",
+      "model": "moonshotai/Kimi-K3",
+      "request": "final01-worker",
+      "status": "failed",
+      "maximum_cost_usd": 0.355371,
+      "input_token_bound": 36537,
+      "output_token_bound": 16384,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 16384,
+        "prompt_tokens": 7307,
+        "total_tokens": 23691,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 16384
+      },
+      "finish_reason": "length",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "4339caee6ce740f4ab0aaedd6f4e16c0",
+      "error_type": "JSONDecodeError",
+      "error_status_code": null,
+      "error_code": null,
+      "elapsed_s": 201.31,
+      "received_chars": 0,
+      "conservative_cost_usd": 0.267681
+    },
+    {
+      "task": "HM-FINAL01-submission-controlled",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "final01-submission-controlled",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.305535,
+      "input_token_bound": 31845,
+      "output_token_bound": 14000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 6428,
+        "prompt_tokens": 6368,
+        "total_tokens": 12796,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 6272
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 6368
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-33e2e990194923802f1eba76293c3658",
+      "elapsed_s": 18.58,
+      "received_chars": 25765,
+      "conservative_cost_usd": 0.115524
+    },
+    {
+      "task": "HM-FINAL01-runtime-controlled",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "final01-runtime-controlled",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.426306,
+      "input_token_bound": 60182,
+      "output_token_bound": 16384,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1216,
+        "prompt_tokens": 13015,
+        "total_tokens": 14231,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 12928
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 13015
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-e282ca15671c4ee874c5c494f5f72a0c",
+      "elapsed_s": 6.05,
+      "received_chars": 5151,
+      "conservative_cost_usd": 0.057285
+    },
+    {
+      "task": "HM-FINAL01-worker-controlled",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "final01-worker-controlled",
+      "status": "failed",
+      "maximum_cost_usd": 0.355995,
+      "input_token_bound": 36745,
+      "output_token_bound": 16384,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2155,
+        "prompt_tokens": 7558,
+        "total_tokens": 9713,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 7552
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 7558
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-18b7b58bc2adcb394e42889af06bb4b4",
+      "error_type": "JSONDecodeError",
+      "error_status_code": null,
+      "error_code": null,
+      "elapsed_s": 8.41,
+      "received_chars": 8335,
+      "conservative_cost_usd": 0.054999
+    },
+    {
+      "task": "HM-FINAL01-findings-adjudication",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "final01-adjudicate",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.359754,
+      "input_token_bound": 69918,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2241,
+        "prompt_tokens": 15506,
+        "total_tokens": 17747,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 15488
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 15506
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-2a1439d6f5f2592e4800ef0152d395af",
+      "elapsed_s": 12.25,
+      "received_chars": 9618,
+      "conservative_cost_usd": 0.080133
+    },
+    {
+      "task": "HM-FINAL01-submission-polish",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "final01-pack-polish",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.291165,
+      "input_token_bound": 27055,
+      "output_token_bound": 14000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 5583,
+        "prompt_tokens": 5462,
+        "total_tokens": 11045,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 5376
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 5462
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-9f1cf2a82d3cacfd10602539f483d7e4",
+      "elapsed_s": 22.0,
+      "received_chars": 23080,
+      "conservative_cost_usd": 0.100131
+    },
+    {
+      "task": "HM-FINAL01-postcss-fix",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "final01-postcss",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.13969499999999999,
+      "input_token_bound": 6565,
+      "output_token_bound": 8000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1608,
+        "prompt_tokens": 811,
+        "total_tokens": 2419,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 768
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 811
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-67956ab27f0286a12563dcc2507e3e9e",
+      "elapsed_s": 6.01,
+      "received_chars": 5389,
+      "conservative_cost_usd": 0.026553
+    },
+    {
+      "task": "HM-FINAL01-browser-race-repair",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "request": "final01-browser-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.154704,
+      "input_token_bound": 16568,
+      "output_token_bound": 7000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2948,
+        "prompt_tokens": 3328,
+        "total_tokens": 6276,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 3328
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3328
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "chatcmpl-908e00e97f172fcd0b0b32a1b3aed908",
+      "elapsed_s": 9.51,
+      "received_chars": 9798,
+      "conservative_cost_usd": 0.054204
+    }
+  ],
+  "total_reported_tokens": 149607,
+  "task_token_allowance": 200000,
+  "guard_cost_usd": 1.304793,
+  "prior_HM_MILO02_aggregate_usd": 35.33212765,
+  "additional_BRAG_SETUP01_usd": 0.257739,
+  "aggregate_maximum_commitment_usd": 36.89465965,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "protected_backup_used_usd": 0,
+  "unknown_usage_reservations_usd": 0,
+  "balance_verified": false,
+  "runtime_paid_calls": 0,
+  "tavily_calls": 0,
+  "private_media_sent": false,
+  "price_basis": "USD3 input/USD15 completion per million conservative guard; not invoice; all failed calls retained",
+  "notes": [
+    "Three initial requests exhausted completion predominantly or wholly in reasoning. Provider-specific control researched from official Nebius source; MiniMax chat_template_kwargs.thinking_mode=disabled restored visible output. No runtime provider configuration changed.",
+    "Worker-controlled response finished stop but had a trailing Markdown fence: strict runner rejected it. JSON prefix was recovered for source-review candidate adjudication only; failure and usage kept.",
+    "Initial review candidates contained false CSRF/lease/race claims. Exact helper/test evidence supplied to a focused adjudication worker; unsafe suggestions to delete failed quota reservations rejected.",
+    "One preparation dispatch was auto-review rejected before launch; inspected exact packet and then original dispatch was approved. No provider spend for blocked attempt.",
+    "Draft style follows supplied writing/explicitpreferences; write-like-me connector unavailable, no retrieved-style-match claimed.",
+    "HM-MILO02 baseline already includes BRAG-AUDIT01 once; add only newer BRAG-SETUP01 actual guard. Other concurrent/account balance unknown.",
+    "PostCSS exact-pin/override drafted by Nebius after fresh registry audit. A genuine browser helper synchronization race (intro mounts after initial visibility snapshot) was repaired by Nebius without assertion deletion, timeout increases or app behavior changes."
+  ]
+}

@@ -1,0 +1,210 @@
+/* Shared panel + control styles. Uses real design tokens (white / cobalt) so
+ * the panel reads correctly on both light and dark surfaces. All interactive
+ * controls are 44px tall for touch targets; status text uses readable contrast. */
+
+.panel {
+  --mxr-white: #ffffff;
+  --mxr-cobalt: #1f4dff;
+  --mxr-cobalt-strong: #2f6bff;
+  --mxr-cobalt-soft: rgba(31, 77, 255, 0.18);
+  --mxr-surface: #ffffff;
+  --mxr-surface-alt: #f4f6fb;
+  --mxr-text: #0b1220;
+  --mxr-text-muted: #4b5566;
+  --mxr-border: rgba(11, 18, 32, 0.16);
+  --mxr-border-strong: rgba(11, 18, 32, 0.32);
+  --mxr-track: rgba(11, 18, 32, 0.12);
+  --mxr-error: #b3261e;
+  --mxr-success: #1f7a3a;
+}
+
+.thumb,
+.thumbFallback {
+  --mxr-surface-alt: #f4f6fb;
+  --mxr-text-muted: #4b5566;
+  --mxr-border: rgba(11, 18, 32, 0.16);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--mxr-surface);
+  color: var(--mxr-text);
+  border: 1px solid var(--mxr-border);
+}
+
+.heading {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--mxr-text);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--mxr-text);
+}
+
+.field input[type='text'],
+.field input[type='number'] {
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--mxr-border-strong);
+  background: var(--mxr-surface-alt);
+  color: var(--mxr-text);
+  font-size: 14px;
+}
+
+.field input[type='text']::placeholder,
+.field input[type='number']::placeholder {
+  color: var(--mxr-text-muted);
+}
+
+.field label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--mxr-text);
+}
+
+.note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--mxr-text-muted);
+}
+
+.statusOk {
+  margin: 0;
+  font-size: 13px;
+  color: var(--mxr-success);
+}
+
+.statusWarn {
+  margin: 0;
+  font-size: 13px;
+  color: var(--mxr-text-muted);
+}
+
+.error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--mxr-error);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primaryButton {
+  background: var(--mxr-cobalt-strong);
+  color: var(--mxr-white);
+  border: 1px solid var(--mxr-cobalt-strong);
+}
+
+.primaryButton:hover {
+  background: var(--mxr-cobalt);
+  border-color: var(--mxr-cobalt);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: var(--mxr-text);
+  border: 1px solid var(--mxr-border-strong);
+}
+
+.secondaryButton:hover {
+  background: var(--mxr-cobalt-soft);
+}
+
+.regionList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.regionRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--mxr-text);
+}
+
+.regionLabel {
+  width: 56px;
+  text-transform: capitalize;
+  color: var(--mxr-text);
+}
+
+.barTrack {
+  flex: 1;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--mxr-track);
+  overflow: hidden;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  background: var(--mxr-cobalt-strong);
+  transition: width 200ms ease;
+}
+
+.regionCount {
+  min-width: 24px;
+  text-align: right;
+  color: var(--mxr-text);
+}
+
+.thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  background: var(--mxr-surface-alt);
+}
+
+.thumbFallback {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mxr-surface-alt);
+  color: var(--mxr-text-muted);
+  border: 1px solid var(--mxr-border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barFill {
+    transition: none;
+  }
+}

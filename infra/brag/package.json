@@ -1,0 +1,9 @@
+{
+  "name": "brag-renderer",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Isolated Hyperframes renderer runtime (no scripts, no telemetry).",
+  "dependencies": {
+    "hyperframes": "0.8.195"
+  }
+}

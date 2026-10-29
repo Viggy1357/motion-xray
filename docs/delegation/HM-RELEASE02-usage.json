@@ -1,0 +1,143 @@
+{
+  "task": "HM-RELEASE02",
+  "calls": [
+    {
+      "task": "HM-RELEASE02-01",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "usage": {
+        "completion_tokens": 10492,
+        "prompt_tokens": 3308,
+        "total_tokens": 13800,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 3200
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3308
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 34.85,
+      "conservative_cost_usd": 0.16730399999999998,
+      "maximum_cost_usd": 0.292449
+    },
+    {
+      "task": "HM-RELEASE02-02",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "usage": {
+        "completion_tokens": 4685,
+        "prompt_tokens": 7329,
+        "total_tokens": 12014,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 7296
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 7329
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 15.74,
+      "conservative_cost_usd": 0.09226200000000001,
+      "maximum_cost_usd": 0.347094
+    },
+    {
+      "task": "HM-RELEASE02-03",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "usage": {
+        "completion_tokens": 9081,
+        "prompt_tokens": 9715,
+        "total_tokens": 18796,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 43.89,
+      "conservative_cost_usd": 0.16536,
+      "maximum_cost_usd": 0.373116
+    },
+    {
+      "task": "HM-RELEASE02-04",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "usage": {
+        "completion_tokens": 6745,
+        "prompt_tokens": 8044,
+        "total_tokens": 14789,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 7936
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 8044
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 22.51,
+      "conservative_cost_usd": 0.125307,
+      "maximum_cost_usd": 0.242319
+    },
+    {
+      "task": "HM-RELEASE02-05",
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "usage": {
+        "completion_tokens": 1060,
+        "prompt_tokens": 12608,
+        "total_tokens": 13668,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 10.59,
+      "conservative_cost_usd": 0.05372400000000001,
+      "maximum_cost_usd": 0.260517
+    },
+    {
+      "task": "HM-RELEASE02-06",
+      "model": "MiniMaxAI/MiniMax-M3",
+      "usage": {
+        "completion_tokens": 7370,
+        "prompt_tokens": 10070,
+        "total_tokens": 17440,
+        "completion_tokens_details": {
+          "audio_tokens": null,
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "created_cache_tokens": 9984
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 10070
+      },
+      "finish_reason": "stop",
+      "elapsed_s": 21.55,
+      "conservative_cost_usd": 0.14076,
+      "maximum_cost_usd": 0.314601
+    }
+  ],
+  "reported_tokens": 90507,
+  "task_allowance": 200000,
+  "conservative_cost_usd": 0.744717,
+  "aggregate_maximum_usd": 32.37368365,
+  "active_ceiling_usd": 70,
+  "protected_backup_usd": 30,
+  "price_basis": "USD3 input/USD15 completion per million guard, not invoice; all draft/rejected/repair calls retained",
+  "runtime_paid_calls": 0,
+  "private_media_sent": false,
+  "review": "Initial bootstrap drafts rejected for missing host orchestration; targeted corrections integrated. Review env-file-placement finding rejected as incorrect (Compose global option); dead code and health documentation corrected. Installed-package cue lookup repaired without weakening existing assertions."
+}

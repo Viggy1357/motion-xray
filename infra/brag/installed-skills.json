@@ -1,0 +1,41 @@
+{
+  "scope": "project-only",
+  "guard_sha256": "4dabfc8e30968128c312b1b0e89f05e9c193deb9148fac4912fabf28efc4b4cf",
+  "skills": [
+    {
+      "skill": "brag",
+      "path": ".agents/skills/brag/SKILL.md",
+      "upstream_sha256": "db8e65608a61a28ac051eec42d4c23ef2a01bae92112d0735f1b08cd45569711",
+      "installed_sha256": "d0af65017ebf28cea9ac0abe17e19d2bb0178ad9baa43c66d81d3a43aa81b435",
+      "implicit_invocation": false
+    },
+    {
+      "skill": "hyperframes",
+      "path": ".agents/skills/hyperframes/SKILL.md",
+      "upstream_sha256": "180ce4eea5f33f1617105c92e2690a5a2320abf624c263186ec0cb1a78a919ef",
+      "installed_sha256": "1674d38ab66860757a4cbe5796f00fdc3d5dfd976997132b2791c7fe98a2a0c5",
+      "implicit_invocation": false
+    },
+    {
+      "skill": "hyperframes-cli",
+      "path": ".agents/skills/hyperframes-cli/SKILL.md",
+      "upstream_sha256": "44a48ccfa4cbd4f4234f8306c96268a4be56a0f2376abedbf31d2167b3c21286",
+      "installed_sha256": "99bda30c2153db0267f4b0b80313eccb13ee2b0e241655e787a0d5ef399e6e0f",
+      "implicit_invocation": false
+    },
+    {
+      "skill": "hyperframes-registry",
+      "path": ".agents/skills/hyperframes-registry/SKILL.md",
+      "upstream_sha256": "1c7b27632c9ea9febaafc2d9af073b377029f46be4bee70d75b5e713eb698423",
+      "installed_sha256": "72bd956722b844734c1b7a50091c558e63e1b76c00800ebd08eb5a38e5b01c32",
+      "implicit_invocation": false
+    },
+    {
+      "skill": "media-use",
+      "path": ".agents/skills/media-use/SKILL.md",
+      "upstream_sha256": "ef3976a02ff516d8e5ed0b7fff19d4bbf9358264233bace33fdacaa3aa7f37de",
+      "installed_sha256": "1fb336a90519367021095bc8e1ca5e5d8950728d31de421c29a6ecf7c139b267",
+      "implicit_invocation": false
+    }
+  ]
+}

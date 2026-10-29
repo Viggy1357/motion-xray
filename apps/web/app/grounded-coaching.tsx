@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { components } from "../generated/api";
+import SessionThumbnail from "./components/SessionThumbnail";
+import { storeSessionCoaching } from "./lib/coaching-session";
 
 type Rep = components["schemas"]["Rep"];
 type CoachingResult = components["schemas"]["CoachingResult"];
@@ -35,31 +37,35 @@ function seekTo(seconds: number): void {
   window.dispatchEvent(new CustomEvent("mxr:seek-source", { detail: { seconds } }));
 }
 
+// Strict validated prefix: 'Segment N (' where N must match an ACTUAL
+// Rep.ordinal. No match → no replay association, never an invented one.
 const SEGMENT_PREFIX = /^Segment (\d+) \(/;
 
-function Observation({ text, reps }: { text: string; reps: Rep[] }) {
+function matchRep(text: string, reps: Rep[]): Rep | undefined {
   const m = SEGMENT_PREFIX.exec(text);
-  const rep = m ? reps.find((r) => r.ordinal === Number(m[1])) : undefined;
+  if (!m) return undefined;
+  const ordinal = Number(m[1]);
+  if (!Number.isInteger(ordinal)) return undefined;
+  return reps.find((r) => r.ordinal === ordinal);
+}
+
+function ReplayButton({ rep }: { rep: Rep }) {
   return (
-    <li style={{ margin: ".3rem 0" }}>
-      {text}
-      {rep && (
-        <button
-          type="button"
-          className="btn ghost sm"
-          style={{ marginLeft: ".5rem" }}
-          onClick={() => seekTo(rep.start_s)}
-          aria-label={`Replay segment ${rep.ordinal} from ${rep.start_s.toFixed(2)} seconds`}
-        >
-          ▶ Replay
-        </button>
-      )}
-    </li>
+    <button
+      type="button"
+      className="btn ghost sm"
+      onClick={() => seekTo(rep.start_s)}
+      aria-label={`Replay segment ${rep.ordinal} from ${rep.start_s.toFixed(2)} seconds`}
+    >
+      ▶ Replay this moment
+    </button>
   );
 }
 
 const URL_RE = /(https:\/\/[^\s)]+)/g;
 
+// Source URLs come ONLY from actual limitations strings supplied by the
+// response; never constructed from narrative text or invented identifiers.
 function Limitation({ text }: { text: string }) {
   const parts = text.split(URL_RE);
   return (
@@ -75,7 +81,24 @@ function Limitation({ text }: { text: string }) {
   );
 }
 
-export default function GroundedCoaching({ analysisId, reps }: { analysisId: string; reps: Rep[] }) {
+const highlightCardStyle: React.CSSProperties = {
+  display: "flex",
+  gap: "0.85rem",
+  alignItems: "flex-start",
+  flexWrap: "wrap",
+  marginTop: ".5rem",
+  padding: "0.85rem",
+  border: "1px solid #e2e8f4",
+  borderRadius: 14,
+  background: "#f7f9fd",
+};
+
+const highlightBodyStyle: React.CSSProperties = {
+  flex: "1 1 220px",
+  minWidth: 0,
+};
+
+export default function GroundedCoaching({ analysisId, exercise, reps }: { analysisId: string; exercise?: string; reps: Rep[] }) {
   const [state, setState] = useState<State>({ kind: "idle" });
   const ctrlRef = useRef<AbortController | null>(null);
 
@@ -86,6 +109,7 @@ export default function GroundedCoaching({ analysisId, reps }: { analysisId: str
     return () => ctrlRef.current?.abort();
   }, [analysisId]);
 
+  // Explicit paid POST only: fired solely from the user-initiated button.
   const generate = async () => {
     if (state.kind === "busy") return;
     const ctrl = new AbortController();
@@ -109,6 +133,11 @@ export default function GroundedCoaching({ analysisId, reps }: { analysisId: str
       if (!isCoaching(data)) throw new Error("The server returned an unexpected coaching format.");
       if (ctrl.signal.aborted) return;
       setState({ kind: "ok", result: data });
+      // Cache the ACTUAL response for this analysis so HomeLastFocus can
+      // surface the real cue. exercise is optional; when undefined we
+      // store an empty string rather than inventing one.
+      const ex = typeof exercise === "string" && exercise.length > 0 ? exercise : "";
+      storeSessionCoaching(analysisId, ex, data, reps);
     } catch (e) {
       if ((e as Error).name === "AbortError" || ctrl.signal.aborted) return;
       setState({ kind: "error", message: (e as Error).message });
@@ -116,11 +145,17 @@ export default function GroundedCoaching({ analysisId, reps }: { analysisId: str
   };
 
   const busy = state.kind === "busy";
+  const okResult = state.kind === "ok" && state.result.status === "ok" ? state.result : null;
+  // Exactly one highlight: the first ACTUAL observation, plus the optional
+  // ACTUAL next-set cue. No fabricated second cue, no fabricated observation.
+  const highlightObservation = okResult && okResult.observations.length > 0 ? okResult.observations[0] : null;
+  const highlightRep = highlightObservation !== null ? matchRep(highlightObservation, reps) : undefined;
+  const restObservations = okResult ? okResult.observations.slice(1) : [];
 
   return (
     <div className="card" style={{ marginBottom: "1rem" }} aria-label="Grounded coaching">
       <div className="row" style={{ justifyContent: "space-between", alignItems: "baseline" }}>
-        <h3 style={{ margin: 0 }}>Grounded coaching</h3>
+        <h3 style={{ margin: 0 }}>Coaching highlight</h3>
       </div>
       <p className="muted" style={{ margin: ".3rem 0 .6rem" }}>
         Turn this set’s measured observations into feedback, with replay links and a sourced cue for your next set.
@@ -153,22 +188,68 @@ export default function GroundedCoaching({ analysisId, reps }: { analysisId: str
           )}
         </div>
       )}
-      {state.kind === "ok" && state.result.status === "ok" && (
+      {okResult && (
         <div style={{ marginTop: ".5rem" }}>
-          {state.result.summary && !state.result.observations.includes(state.result.summary) && <p style={{ margin: ".2rem 0 .5rem" }}>{state.result.summary}</p>}
-          {state.result.observations.length > 0 && (
-            <ul style={{ margin: ".2rem 0 .5rem", paddingLeft: "1.2rem" }}>
-              {state.result.observations.map((o, i) => <Observation key={i} text={o} reps={reps} />)}
-            </ul>
+          {highlightObservation !== null ? (
+            <div style={highlightCardStyle} aria-label="Coaching highlight">
+              {highlightRep && (
+                <SessionThumbnail
+                  analysisId={analysisId}
+                  sourceS={highlightRep.start_s}
+                  label={`Segment ${highlightRep.ordinal}`}
+                />
+              )}
+              <div style={highlightBodyStyle}>
+                <p style={{ margin: 0, fontSize: "1rem", fontWeight: 600, lineHeight: 1.4, color: "#142039" }}>
+                  {highlightObservation}
+                </p>
+                {okResult.next_set_cue && (
+                  <p className="muted" style={{ margin: ".35rem 0 0" }}>
+                    <strong>Next set cue:</strong> {okResult.next_set_cue}
+                  </p>
+                )}
+                {highlightRep && (
+                  <p style={{ margin: ".5rem 0 0" }}>
+                    <ReplayButton rep={highlightRep} />
+                  </p>
+                )}
+              </div>
+            </div>
+          ) : (
+            <p className="muted" style={{ margin: ".2rem 0 .5rem" }}>
+              {okResult.summary ?? "No specific observation was produced for this set. Your measured values above remain available."}
+            </p>
           )}
-          {state.result.next_set_cue && (
-            <p style={{ margin: ".2rem 0 .5rem" }}><strong>Next set cue:</strong> {state.result.next_set_cue}</p>
+          {okResult.summary && highlightObservation !== null && !okResult.observations.includes(okResult.summary) && (
+            <p className="muted" style={{ margin: ".4rem 0 0" }}>{okResult.summary}</p>
           )}
-          {state.result.limitations.length > 0 && (
-            <details>
-              <summary className="muted" style={{ cursor: "pointer" }}>Limitations &amp; sources</summary>
+          {restObservations.length > 0 && (
+            <details style={{ marginTop: ".5rem" }}>
+              <summary className="muted" style={{ cursor: "pointer", minHeight: 44 }}>
+                All observations ({okResult.observations.length})
+              </summary>
+              <ul style={{ margin: ".3rem 0 0", paddingLeft: "1.2rem" }}>
+                {restObservations.map((o, i) => {
+                  const rep = matchRep(o, reps);
+                  return (
+                    <li key={i} style={{ margin: ".3rem 0" }}>
+                      {o}
+                      {rep && (
+                        <span style={{ marginLeft: ".5rem" }}>
+                          <ReplayButton rep={rep} />
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </details>
+          )}
+          {okResult.limitations.length > 0 && (
+            <details style={{ marginTop: ".5rem" }}>
+              <summary className="muted" style={{ cursor: "pointer", minHeight: 44 }}>Limitations &amp; sources</summary>
               <ul className="muted" style={{ margin: ".4rem 0 0", paddingLeft: "1.2rem" }}>
-                {state.result.limitations.map((l, i) => <Limitation key={i} text={l} />)}
+                {okResult.limitations.map((l, i) => <Limitation key={i} text={l} />)}
               </ul>
             </details>
           )}

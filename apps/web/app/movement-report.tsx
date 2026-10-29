@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { components } from "../generated/api";
 import GroundedCoaching from "./grounded-coaching";
+import SessionThumbnail from "./components/SessionThumbnail";
 import styles from "./movement-report.module.css";
 
 type Report = components["schemas"]["PrototypeAnalysisResult"];
@@ -205,7 +206,35 @@ function ExperimentalMatch({ report }: { report: Report }) {
   );
 }
 
-export default function MovementReport({ analysisId, onReport }: { analysisId: string; onReport: (report: Report | null, settled: boolean) => void }) {
+// Segment selector card: thumbnail + label + interval. Reuses SessionThumbnail
+// (which already handles missing/expired map/media fallback and cache
+// invalidation). The thumbnail is the visual anchor; the button itself stays
+// the click target so keyboard activation and aria-pressed semantics are
+// preserved exactly as before.
+function SegmentChip({ r, analysisId, active, onActivate }: { r: Rep; analysisId: string; active: boolean; onActivate: () => void }) {
+  const label = `Segment ${r.ordinal} preview`;
+  return (
+    <button
+      type="button"
+      className={styles.chip}
+      data-active={active || undefined}
+      aria-pressed={active}
+      title={`Segment ${r.ordinal} · ${r.start_s.toFixed(2)}s – ${r.end_s.toFixed(2)}s`}
+      aria-label={`Play video from segment ${r.ordinal}`}
+      onClick={onActivate}
+    >
+      <span className={styles.chipThumb} aria-hidden="true">
+        <SessionThumbnail analysisId={analysisId} sourceS={r.start_s} label={label} />
+      </span>
+      <span className={styles.chipText}>
+        <span className={styles.chipLabel}>Segment {r.ordinal}</span>
+        <span className={styles.chipTime}>{r.start_s.toFixed(2)}s – {r.end_s.toFixed(2)}s</span>
+      </span>
+    </button>
+  );
+}
+
+export default function MovementReport({ analysisId, exercise, onReport }: { analysisId: string; exercise?: string; onReport: (report: Report | null, settled: boolean) => void }) {
   const [report, setReport] = useState<Report | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -217,6 +246,7 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
     setReport(null);
     setError(null);
     setLoading(true);
+    setActiveSeg(null);
     onReport(null, false); // fetch in flight: parent must not treat null as 'no report'
     void (async () => {
       try {
@@ -251,6 +281,29 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
     return () => ctrl.abort();
   }, [analysisId, retry, onReport]);
 
+  // Active segment follows ACTUAL playback: the player broadcasts the
+  // original source PTS (mxr:source-time). A completed interval wins; an
+  // excluded fragment is the fallback; outside every interval select none.
+  // Never fabricate boundaries or rep events.
+  useEffect(() => {
+    if (!report) return;
+    const completed = report.reps.filter((r) => r.completion_status === "completed");
+    const excluded = report.reps.filter((r) => r.completion_status !== "completed");
+    const onSourceTime = (ev: Event) => {
+      const detail = (ev as CustomEvent<unknown>).detail as
+        | { analysisId?: unknown; sourceS?: unknown }
+        | null;
+      if (!detail || detail.analysisId !== analysisId) return;
+      const sourceS = detail.sourceS;
+      if (typeof sourceS !== "number" || !Number.isFinite(sourceS)) return;
+      const inInterval = (r: Rep) => sourceS >= r.start_s && sourceS <= r.end_s;
+      const hit = completed.find(inInterval) ?? excluded.find(inInterval) ?? null;
+      setActiveSeg(hit ? hit.id : null);
+    };
+    window.addEventListener("mxr:source-time", onSourceTime);
+    return () => window.removeEventListener("mxr:source-time", onSourceTime);
+  }, [report, analysisId]);
+
   if (loading) {
     return (
       <div className="state" role="status" aria-live="polite">
@@ -273,8 +326,15 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
   const visibility = q.expected_supporting_samples > 0
     ? Math.round((q.valid_observed_samples / q.expected_supporting_samples) * 100)
     : null;
-  const completed = report.reps.filter((r) => r.completion_status === "completed");
-  const fragments = report.reps.filter((r) => r.completion_status !== "completed");
+  const completed = [...report.reps]
+    .filter((r) => r.completion_status === "completed")
+    .sort((a, b) => a.start_s - b.start_s || a.ordinal - b.ordinal);
+  const fragments = [...report.reps]
+    .filter((r) => r.completion_status !== "completed")
+    .sort((a, b) => a.start_s - b.start_s || a.ordinal - b.ordinal);
+  // Primary timeline shows ONLY actual completed cycles. Excluded/partial
+  // fragments live exclusively in the disclosure below (single list, no
+  // duplicates) so a zero-completed result does not flood the timeline.
   const coverageEntries = Object.entries(q.per_metric_coverage);
   const byRep = new Map<string, Metric[]>();
   for (const m of report.metrics) {
@@ -298,24 +358,26 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
         <span className="pill dim">Experimental</span>
       </div>
 
-      {completed.length > 0 && (
-        <nav className={styles.chipStrip} aria-label="Completed segments">
+      {completed.length > 0 ? (
+        <nav className={styles.chipStrip} aria-label="Completed cycles">
           {completed.map((r) => (
-            <button
+            <SegmentChip
               key={r.id}
-              type="button"
-              className={styles.chip}
-              data-active={activeSeg === r.id || undefined}
-              aria-pressed={activeSeg === r.id}
-              title={`Segment ${r.ordinal} · ${r.start_s.toFixed(2)}s – ${r.end_s.toFixed(2)}s`}
-              aria-label={`Play video from segment ${r.ordinal}`}
-              onClick={() => { setActiveSeg(r.id); seekTo(r.start_s); }}
-            >
-              <span className={styles.chipLabel}>Segment {r.ordinal}</span>
-              <span className={styles.chipTime}>{r.start_s.toFixed(2)}s – {r.end_s.toFixed(2)}s</span>
-            </button>
+              r={r}
+              analysisId={analysisId}
+              active={activeSeg === r.id}
+              onActivate={() => { setActiveSeg(r.id); seekTo(r.start_s); }}
+            />
           ))}
         </nav>
+      ) : (
+        <p className={styles.emptyNote} role="status">
+          Analysis finished, but no full repetitions were identified in this video.
+          {fragments.length > 0
+            ? ` ${fragments.length} partial or excluded fragment${fragments.length === 1 ? " was" : "s were"} detected — see “Partial / excluded fragments” below for exact timestamps and playback.`
+            : ""}{" "}
+          Signal visibility below reflects pose-signal visibility, not accuracy.
+        </p>
       )}
 
       <div className={styles.panel} aria-label="Session summary">
@@ -363,7 +425,7 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
       </div>
 
       {completed.length > 0 && report.metrics.some((m) => m.value != null) && (
-        <GroundedCoaching analysisId={analysisId} reps={completed} />
+        <GroundedCoaching analysisId={analysisId} exercise={exercise} reps={completed} />
       )}
 
       {hasEstimate && (
@@ -403,12 +465,12 @@ export default function MovementReport({ analysisId, onReport }: { analysisId: s
               <thead><tr><th>Segment</th><th>Start</th><th>End</th><th>Status</th><th></th></tr></thead>
               <tbody>
                 {fragments.map((r) => (
-                  <tr key={r.id}>
+                  <tr key={r.id} data-active={activeSeg === r.id || undefined}>
                     <td>{r.ordinal}</td>
                     <td>{r.start_s.toFixed(2)}s</td>
                     <td>{r.end_s.toFixed(2)}s</td>
                     <td><span className="pill warn">{r.completion_status.replaceAll("_", " ")}</span></td>
-                    <td><button type="button" className={styles.playButton} onClick={() => seekTo(r.start_s)} aria-label={`Play video from segment ${r.ordinal}`}>Play</button></td>
+                    <td><button type="button" className={styles.playButton} onClick={() => { setActiveSeg(r.id); seekTo(r.start_s); }} aria-label={`Play video from segment ${r.ordinal}`}>Play</button></td>
                   </tr>
                 ))}
               </tbody>

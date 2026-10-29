@@ -454,3 +454,70 @@ Specification v2.0 (15 Oct 2026).
   mint recognition. Counts describe activity, not strength, muscle growth or safety.
 - Additional one-off development tasks may use up to500k cumulative tokens under
   the23 October owner update; USD70 active/USD30 protected boundaries remain.
+
+
+## D023 — Squat-only conservative observation-gap retention
+
+- 24 October2026: owner authorizes Nebius-led repair of squat fragmentation.
+- squat-measure-v2 opts into the existing D019 same-band gap policy at0.1s.
+  Only confirmed phase anchors survive a missing run bracketed by observed samples
+  in the same high, low or middle band within0.1s (+1e-9 numerical tolerance).
+  Missing samples clear dwell and remain missing; long/cross-band/trailing gaps
+  do not bridge. No interpolation or per-frame side switching.
+- Squat geometry/low100/high150/dwell0.1/max-gap0.1 unchanged; original v1 JSON
+  preserved. Version/hash and gap reasons/warnings remain visible in derived reports.
+  Other exercise policies, resize recipe, reference bands and public schemas unchanged.
+- Existing retained pose can produce a new derived movement report after API restart;
+  original uploaded bytes, stored pose and legacy pose-only result remain unchanged.
+  Top-level technique score stays null; unreviewed comparison stays partial.
+- Synthetic regressions and local retained comparisons support candidate recovery,
+  not independently validated physical rep counts. Broader labelled validation is next.
+- Evidence: audit/HM-SQ01-delivery.md and HM-SQ01-source-review.md under docs/.
+
+## D024 — Narrow UI finish before hackathon submission (24 October)
+
+Owner prioritises real segment thumbnails and smooth navigation, retaining the current
+Home athlete. Rigged3D/exercise animation and broader avatar flow are deferred.
+Ask your set/Show me why are excluded from MVP. Move/Fuel/Recover remains an
+unvalidated ecosystem direction, not shipped capability. User accepts their Mac
+camera test for MVP; broad physical-device/fault checks remain deferred rather than
+passed. Existing measurement/scoring/coaching contracts remain unchanged.
+
+## D025 — Milo Pip companion selection and bounded motion-first plan (25 October)
+
+Owner selects Milo Pip, the lilac pet concept, and requests detailed delivery/agent
+planning before handoff. MVP is one companion with idle, attentive and cheer actions;
+no progression, journal, selector, new chat/voice or live hardware. This updates D024's
+hold on companion exploration; it does not change measurement/scoring/coaching rules.
+
+Plan: docs/design/MILO-PIP-DELIVERY-PLAN.md. Selected reference is retained locally.
+Layered artwork is a feasibility hypothesis, not a working animation asset. Prove
+motion in an isolated preview, obtain aesthetic acceptance, then integrate. Proposed
+Home poster replacement retains the separate body-map function. No implementation,
+paid dispatch, new provider access or public release occurred in this planning step.
+
+Codex supervises and integrates one writer's changes; Nebius workers draft bounded
+motion/controller/integration work. Image production and optional VL visual review are
+distinct capabilities. Runtime reactions remain deterministic; development agents are
+not a new runtime agent service. Existing spend/backup and privacy controls apply.
+
+Delivery update: HM-MILO01 now has a verified local candidate. User authorised execution
+with independent Nebius workers in parallel and minimal Codex supervision. Three head
+motions and a persisted visibility setting ship; repeated save celebration is omitted.
+No new runtime LLM route. See docs/audit/HM-MILO01-delivery.md for checks, limitations
+and the justified300k allocation (289,095 actual reported tokens).
+
+## D026 — Pip accompanies the athlete and processing (25 October)
+
+Owner feedback supersedes D025's Home poster replacement: retain the original athlete
+and Front/Back controls, with a small sleeping Pip beside her. Processing uses the
+existing awake Pip plus three local encouragement messages, rotating every six seconds
+only while active and visible. Stronger head motion and a gentle processing sway make
+the existing layered asset more legible. Reduced motion, hiding Milo and recorder
+visibility gates remain respected. This is layered 2D motion, not a walking rig.
+
+A separate transparent sleeping pose is generated from the neutral Pip reference.
+No progression, model-generated encouragement, runtime provider route or scoring change.
+Read-only curl diagnostics confirm retained reference bands and two measured reference
+windows; a historic automatic reference count of zero is not a zero technique score.
+Evidence and limitations: docs/audit/HM-MILO02-delivery.md.

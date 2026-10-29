@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import importlib.resources
 import json
 import math
 import os
@@ -44,6 +45,7 @@ PROMPT_VERSION = "v1"
 MIN_COVERAGE = 0.8
 
 _CLAIMS_REL = "packages/providers/providers/llm/coaching-claims-v1.json"
+_CLAIMS_VERSION_DEFAULT = "coaching-claims-v1"
 
 
 def _claims_path() -> Optional[Path]:
@@ -54,16 +56,73 @@ def _claims_path() -> Optional[Path]:
     return None
 
 
-def _load_claims(exercise: str) -> tuple[str, list[dict[str, Any]]]:
-    path = _claims_path()
-    if path is None:
-        return "coaching-claims-v1", []
+def _load_claims_resource() -> Optional[tuple[str, list[dict[str, Any]]]]:
+    """Load the bundled claims JSON from the installed ``providers.llm`` package.
+
+    Returns ``None`` when the resource is missing or unreadable so the caller
+    can fall back to a safe empty result without inventing cues.
+    """
     try:
-        data = json.loads(path.read_text())
+        traversable = importlib.resources.files("providers.llm")
+    except (ModuleNotFoundError, ImportError):
+        return None
+    try:
+        resource = traversable.joinpath("coaching-claims-v1.json")
+    except (AttributeError, TypeError):
+        return None
+    try:
+        if not resource.is_file():
+            return None
     except (OSError, ValueError):
-        return "coaching-claims-v1", []
-    claims = [c for c in data.get("claims", []) if c.get("exercise") == exercise]
-    return str(data.get("version", "coaching-claims-v1")), claims
+        return None
+    try:
+        raw = resource.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError, ValueError):
+        return None
+    try:
+        data = json.loads(raw)
+    except ValueError:
+        return None
+    if not isinstance(data, dict):
+        return None
+    claims = data.get("claims") or []
+    if not isinstance(claims, list):
+        claims = []
+    version = str(data.get("version") or _CLAIMS_VERSION_DEFAULT)
+    return version, claims
+
+
+def _load_claims(exercise: str) -> tuple[str, list[dict[str, Any]]]:
+    """Return ``(version, claims_for_exercise)``.
+
+    Resolution order:
+      1. Source-tree path (developer checkout / editable install).
+      2. Installed package resource (``providers.llm`` wheel data).
+
+    Both sources fail closed: missing or malformed JSON yields the default
+    version and an empty claim list, never an invented cue.
+    """
+    path = _claims_path()
+    if path is not None:
+        try:
+            data = json.loads(path.read_text())
+        except (OSError, ValueError):
+            return _CLAIMS_VERSION_DEFAULT, []
+        if not isinstance(data, dict):
+            return _CLAIMS_VERSION_DEFAULT, []
+        if isinstance(data, dict):
+            rows = data.get("claims") or []
+            if not isinstance(rows, list):
+                return _CLAIMS_VERSION_DEFAULT, []
+            claims = [c for c in rows if isinstance(c, dict) and c.get("exercise") == exercise]
+            return str(data.get("version") or _CLAIMS_VERSION_DEFAULT), claims
+
+    bundled = _load_claims_resource()
+    if bundled is None:
+        return _CLAIMS_VERSION_DEFAULT, []
+    version, claims = bundled
+    filtered = [c for c in claims if isinstance(c, dict) and c.get("exercise") == exercise]
+    return version, filtered
 
 
 def _default_provider_factory():

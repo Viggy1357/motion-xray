@@ -1,0 +1,65 @@
+{
+  "assets": [
+    {
+      "path": "brag-output-20261027-submission/composition/assets/milo.webp",
+      "bytes": 99420,
+      "sha256": "3a73f8ee509ed4e00ef667e038cb27bf6fcf113ac644c73af38a759a5d3cd726",
+      "committed": false
+    },
+    {
+      "path": "brag-output-20261027-submission/composition/assets/future-music.mp3",
+      "bytes": 2103552,
+      "sha256": "364a546834db4c0c2e3b3240eb6df03e98b7362230154b04c5c614442f6660d7",
+      "committed": false
+    },
+    {
+      "path": "brag-output-20261027-submission/composition/assets/walk-music.mp3",
+      "bytes": 3936384,
+      "sha256": "aa56ab1cdcbef6b05566c6a7c114323078580ccf6a740a9e6c6b6c4b40b4389f",
+      "committed": false
+    },
+    {
+      "path": "brag-output-20261027-submission/composition/assets/walk-capture.mp4",
+      "bytes": 3870312,
+      "sha256": "9fa8784ead03a09f6ae63a14dd5b8f17a2f014c98f3476e1ab6742a8cf1cd2be",
+      "committed": false
+    },
+    {
+      "path": "brag-output-20261027-submission/composition/assets/drop.ogg",
+      "bytes": 5859,
+      "sha256": "692ee3a6f1821402ca649ff735bee9591dc4846c8098fc7d6a90fd15fa57c1af",
+      "committed": false
+    },
+    {
+      "path": "brag-output-20261027-submission/composition/assets/vendor/gsap.min.js",
+      "bytes": 72927,
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "committed": false
+    },
+    {
+      "path": "brag-output-20261027-future/composition/assets/milo.webp",
+      "bytes": 99420,
+      "sha256": "3a73f8ee509ed4e00ef667e038cb27bf6fcf113ac644c73af38a759a5d3cd726",
+      "committed": false
+    },
+    {
+      "path": "brag-output-20261027-future/composition/assets/future-music.mp3",
+      "bytes": 2103552,
+      "sha256": "364a546834db4c0c2e3b3240eb6df03e98b7362230154b04c5c614442f6660d7",
+      "committed": false
+    },
+    {
+      "path": "brag-output-20261027-future/composition/assets/drop.ogg",
+      "bytes": 5859,
+      "sha256": "692ee3a6f1821402ca649ff735bee9591dc4846c8098fc7d6a90fd15fa57c1af",
+      "committed": false
+    },
+    {
+      "path": "brag-output-20261027-future/composition/assets/vendor/gsap.min.js",
+      "bytes": 72927,
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "committed": false
+    }
+  ],
+  "private_media": "Owner-approved local footage only; excluded from Git and model context."
+}

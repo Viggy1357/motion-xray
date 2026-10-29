@@ -1,0 +1,177 @@
+{
+  "task": "BRAG-SETUP01",
+  "date": "2026-10-25",
+  "calls": [
+    {
+      "task": "BRAG-SETUP01",
+      "model": "moonshotai/Kimi-K3",
+      "request": "brag-setup01",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.323667,
+      "input_token_bound": 7889,
+      "output_token_bound": 20000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2906,
+        "prompt_tokens": 1128,
+        "total_tokens": 4034,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 8
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "3d60de0de0e44e42bf60e2d727cbcd99",
+      "elapsed_s": 25.98,
+      "received_chars": 9482,
+      "conservative_cost_usd": 0.046973999999999995
+    },
+    {
+      "task": "BRAG-SETUP01-guards",
+      "model": "moonshotai/Kimi-K3",
+      "request": "brag-setup-guards",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.208176,
+      "input_token_bound": 34392,
+      "output_token_bound": 7000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1679,
+        "prompt_tokens": 7888,
+        "total_tokens": 9567,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 9
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "d101d03f246a431582237af8135f2d05",
+      "elapsed_s": 14.57,
+      "received_chars": 6109,
+      "conservative_cost_usd": 0.048849000000000004
+    },
+    {
+      "task": "BRAG-SETUP01-repair",
+      "model": "moonshotai/Kimi-K3",
+      "request": "brag-setup-repair",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.255525,
+      "input_token_bound": 15175,
+      "output_token_bound": 14000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 4743,
+        "prompt_tokens": 3077,
+        "total_tokens": 7820,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 61
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "a2b195b6ba834c45a85fe9222198df98",
+      "elapsed_s": 36.06,
+      "received_chars": 15759,
+      "conservative_cost_usd": 0.080376
+    },
+    {
+      "task": "BRAG-SETUP01-finalfix",
+      "model": "moonshotai/Kimi-K3",
+      "request": "brag-setup-finalfix-request",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.131643,
+      "input_token_bound": 18881,
+      "output_token_bound": 5000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 1424,
+        "prompt_tokens": 3992,
+        "total_tokens": 5416,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 482
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "8ffbc196e52b4075af315728da33b43f",
+      "elapsed_s": 10.93,
+      "received_chars": 3469,
+      "conservative_cost_usd": 0.033336000000000005
+    },
+    {
+      "task": "BRAG-SETUP01-offline",
+      "model": "moonshotai/Kimi-K3",
+      "request": "brag-setup-offline",
+      "status": "draft_pending_review",
+      "maximum_cost_usd": 0.19023,
+      "input_token_bound": 13410,
+      "output_token_bound": 10000,
+      "historical_known_cost_usd": 0.02093765,
+      "historical_unknown_calls": 4,
+      "unknown_history_contingency_usd": 1,
+      "price_basis": "conservative bootstrap guard USD2 input/USD5 completion per million, not invoice price",
+      "usage": {
+        "completion_tokens": 2685,
+        "prompt_tokens": 2643,
+        "total_tokens": 5328,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 64
+        },
+        "reasoning_tokens": 12
+      },
+      "finish_reason": "stop",
+      "input_rate_usd_per_million": 3,
+      "output_rate_usd_per_million": 15,
+      "request_id": "8573bb872bb24590943151fa47b9c27f",
+      "elapsed_s": 16.4,
+      "received_chars": 8876,
+      "conservative_cost_usd": 0.048204
+    }
+  ],
+  "total_reported_tokens": 32165,
+  "guard_cost_usd": 0.257739,
+  "prior_aggregate_guard_usd": 17.91770965,
+  "aggregate_guard_usd": 18.17544865,
+  "aggregate_maximum_commitment_usd": 19.056173649999998,
+  "active_ceiling_usd": 70,
+  "protected_reserve_usd": 30,
+  "balance_verified": false,
+  "notes": [
+    "Initial four-call source-only batch: runtime draft, disjoint guard review, wrapper repair and exact observed fix. Subsequent concrete offline-init failure justified one scoped helper batch.",
+    "No private app source, user footage or credentials in prompts; only own wrapper/public package snippets.",
+    "Integrator applied allowlisted drafts; tiny syntax newline/help-route fixes and extraction-cache env applied locally, no large Codex implementation fallback.",
+    "Failed local JS preparation before requests spent zero provider tokens. All five provider calls completed stop; failed local checks retained as evidence.",
+    "Previous unknown-use reservations remain included in aggregate maximum; other concurrent Milo work not independently reconciled.",
+    "No paid product coaching, HeyGen, Tavily, cloud hosting or publishing calls. Docker image downloads/build are local infrastructure, not activated cloud services."
+  ]
+}

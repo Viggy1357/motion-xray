@@ -15,23 +15,27 @@ summary{cursor:pointer}
 summary::-webkit-details-marker{color:var(--cobalt)}
 :focus-visible{outline:3px solid var(--cobalt);outline-offset:2px;border-radius:6px}
 .visuallyhidden{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
-.skip{position:absolute;left:-999px;top:0;background:var(--cobalt);color:#fff;padding:.5rem 1rem;z-index:99;border-radius:0 0 10px 0}
+.skip{position:absolute;left:-999px;top:0;background:var(--cobalt);color:#fff;padding:.5rem 1rem;z-index:99;border-radius:0 0 10px 0;min-height:44px}
 .skip:focus{left:8px;top:8px}
 
 /* ---------- shell / navigation ---------- */
 .shell{display:flex;min-height:100vh}
 .rail{width:230px;flex-shrink:0;display:flex;flex-direction:column;gap:1.5rem;padding:1.5rem 1rem;position:sticky;top:0;height:100vh;background:var(--card);border-right:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.05rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;min-height:44px}
 .railnav{display:flex;flex-direction:column;gap:.25rem}
-.navbtn{display:flex;align-items:center;gap:.7rem;background:none;border:0;color:var(--muted);padding:.65rem .9rem;border-radius:var(--r-md);font-size:.95rem;font-weight:600;text-align:left}
+.navbtn{display:flex;align-items:center;gap:.7rem;background:none;border:0;color:var(--muted);padding:.65rem .9rem;border-radius:var(--r-md);font-size:.95rem;font-weight:600;text-align:left;min-height:44px}
 .navbtn:hover{background:var(--paper2)}
 .navbtn[aria-current="page"]{background:var(--tint);color:var(--cobalt)}
 .navicon{display:inline-flex;align-items:center;justify-content:center}
 .railfoot{margin-top:auto;font-size:.75rem;color:var(--muted);line-height:1.6}
+.railsettings{display:flex}
 .main{flex:1;min-width:0;padding:2.5rem clamp(1rem,4vw,3.5rem) 6rem}
 .view{max-width:1020px;margin:0 auto;min-width:0}
 .brandbar{display:none}
 .artfallback{padding:2rem;color:var(--muted)}
+.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:0}
+.iconbtn:hover{background:var(--paper2);color:var(--cobalt)}
+.iconbtn[aria-current="page"]{background:var(--tint);color:var(--cobalt);border-color:transparent}
 
 /* ---------- typography ---------- */
 .kicker{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cobalt);font-weight:700;margin:0 0 .5rem}
@@ -40,7 +44,7 @@ summary::-webkit-details-marker{color:var(--cobalt)}
 .h-step{font-size:1.15rem;margin:1.8rem 0 .8rem}
 .lede{color:var(--muted);max-width:56ch;margin:0 0 1.6rem}
 .muted{color:var(--muted);font-size:.85rem}
-.textlink{background:none;border:0;padding:0;min-height:0;color:var(--cobalt);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.textlink{background:none;border:0;padding:0;min-height:44px;color:var(--cobalt);font-weight:600;text-decoration:underline;text-underline-offset:2px}
 
 /* ---------- home hero ---------- */
 .homeview{padding-bottom:1rem}
@@ -48,14 +52,25 @@ summary::-webkit-details-marker{color:var(--cobalt)}
 .herocopy{position:relative;z-index:2;width:min(78%,270px);padding:1.25rem 0 0 1.25rem;align-self:flex-start}
 .h-hero{font-size:clamp(1.75rem,4.6vw,2.6rem);line-height:1.08;letter-spacing:-.02em;outline:none}
 .herosub{color:var(--muted);margin:.7rem 0 0;font-size:.95rem;max-width:150px}
-.homeactivity{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--card);border-radius:18px;padding:1rem 1.1rem}
+.homeactivity{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--card);border-radius:18px;padding:1rem 1.1rem;margin-bottom:1rem}
 .homeactivity p{margin:0}
 .homeactivity strong{font-size:1.15rem}
 .homeactivity .textlink{min-height:44px}
-.heroart{position:absolute;right:0;bottom:0;z-index:1;display:flex;justify-content:flex-end;pointer-events:none}
-.athimg{display:block;width:300px;height:430px;object-fit:contain;object-position:bottom right}
+.heroart{position:absolute;right:0;bottom:0;top:0;z-index:1;display:flex;align-items:flex-end;justify-content:flex-end}
+.athwrap{position:relative;display:flex;flex-direction:column;align-items:flex-end;max-height:100%}
+.athstage{position:relative;display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;max-height:100%;padding-bottom:48px}
+.athimg{display:block;width:280px;height:382px;object-fit:contain;object-position:bottom right}
 .athimg.compact{width:220px;height:260px}
-.illabel{font-size:.72rem;color:var(--muted);margin:.35rem 0 1rem;letter-spacing:.02em}
+.regiondot{position:absolute;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle,rgba(49,88,232,.4) 0%,rgba(49,88,232,.12) 55%,transparent 72%);pointer-events:none}
+/* Segmented Front/Back control: dedicated space at bottom-right of the stage,
+   clear of the athlete's face and the hero copy, never clipped at the top */
+.viewtoggle{position:absolute;bottom:.5rem;right:.5rem;top:auto;z-index:3;display:flex;gap:.25rem;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.25rem;box-shadow:0 2px 10px rgba(20,32,57,.16)}
+.viewtoggle button{border:1px solid transparent;background:transparent;color:var(--ink);font-size:.78rem;font-weight:700;border-radius:999px;padding:.35rem .9rem;min-height:44px;min-width:56px}
+.viewtoggle button:hover{background:var(--paper2)}
+.viewtoggle button[aria-pressed="true"]{background:var(--cobalt);color:#fff}
+.viewtoggle button:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+/* Redundant inside the hero scene; the screen-reader summary remains */
+.illabel{display:none;font-size:.72rem;color:var(--muted);margin:.35rem .6rem 0 0;letter-spacing:.02em;align-self:flex-end}
 .herocta{width:100%;margin-bottom:1.25rem}
 .lastreview{margin:.9rem 0 0}
 @media(min-width:900px){
@@ -63,7 +78,7 @@ summary::-webkit-details-marker{color:var(--cobalt)}
   .herocopy{width:52%;max-width:52%;padding:2.5rem}
   .herosub{max-width:26ch}
   .h-hero{font-size:2.9rem}
-  .athimg{width:300px;height:440px}
+  .athimg{width:300px;height:412px}
   .athimg.compact{height:300px}
   .herocta{width:auto;min-width:280px}
 }
@@ -72,7 +87,7 @@ summary::-webkit-details-marker{color:var(--cobalt)}
   .herocopy{width:min(78%,270px);padding:1.25rem 0 0 1.25rem}
   .h-hero{font-size:1.75rem}
   .heroart{right:-30px}
-  .athimg{width:300px;height:430px}
+  .athimg{width:280px;height:382px}
 }
 
 /* ---------- companion map panel ---------- */
@@ -97,8 +112,9 @@ summary::-webkit-details-marker{color:var(--cobalt)}
 
 /* ---------- cards / grids ---------- */
 .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
-.resultgrid{display:grid;gap:1.25rem;grid-template-columns:1fr;margin-bottom:1.25rem}
-@media(min-width:900px){.resultgrid{grid-template-columns:1.6fr 1fr}}
+.resultgrid{display:grid;gap:1.25rem;grid-template-columns:minmax(0,1fr);margin-bottom:1.25rem}
+.resultgrid>*{min-width:0}
+@media(min-width:900px){.resultgrid{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}}
 .card{background:var(--card);border-radius:var(--r-lg);padding:1.25rem;min-width:0;box-shadow:0 1px 3px rgba(20,32,57,.05)}
 .card h3{font-size:1.05rem;margin-bottom:.35rem}
 .card p{margin:.25rem 0;color:var(--muted);font-size:.88rem}
@@ -109,7 +125,7 @@ summary::-webkit-details-marker{color:var(--cobalt)}
 .exlabel{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
 .exname{font-size:1.05rem;font-weight:700}
 .exselect{display:grid;gap:.6rem;margin:0 0 1rem}
-.exoption{display:flex;align-items:center;gap:.9rem;text-align:left;background:var(--card);border-radius:var(--r-lg);padding:.8rem 1rem;border:2px solid transparent;box-shadow:0 1px 3px rgba(20,32,57,.05);transition:border-color .15s}
+.exoption{display:flex;align-items:center;gap:.9rem;text-align:left;background:var(--card);border-radius:var(--r-lg);padding:.8rem 1rem;border:2px solid transparent;box-shadow:0 1px 3px rgba(20,32,57,.05);transition:border-color .15s;min-height:44px}
 .exoption:hover{border-color:var(--tint)}
 .exoption[aria-pressed="true"]{border-color:var(--cobalt)}
 .exoption:disabled{opacity:.55;cursor:not-allowed}
@@ -135,7 +151,7 @@ summary::-webkit-details-marker{color:var(--cobalt)}
 .btn.ghost{background:var(--card);border-color:var(--line);color:var(--ink);font-weight:600}
 .btn.ghost:hover{background:var(--paper2)}
 .btn.danger{background:transparent;border-color:var(--bad);color:var(--bad)}
-.btn.sm{padding:.4rem 1rem;font-size:.85rem;min-height:40px}
+.btn.sm{padding:.4rem 1rem;font-size:.85rem;min-height:44px}
 
 /* ---------- forms ---------- */
 .field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem;min-width:0}
@@ -145,7 +161,7 @@ select{width:auto}
 .consent{display:flex;gap:.6rem;align-items:flex-start;font-size:.9rem;margin:1rem 0}
 .consent input{margin-top:.25rem;width:1.15rem;height:1.15rem;accent-color:var(--cobalt);flex-shrink:0}
 .fileactions{margin-top:.25rem}
-.filebtn{position:relative;overflow:hidden;width:100%}
+.filebtn{position:relative;overflow:hidden}
 .filebtn:focus-within{outline:3px solid var(--cobalt);outline-offset:2px}
 .filemeta{margin:.5rem 0 0;font-size:.8rem}
 
@@ -159,6 +175,9 @@ video.preview{max-height:300px;margin-top:0}
 .drop input[type=file]{max-width:100%;font-size:.9rem}
 .progress{height:10px;background:var(--paper2);border-radius:999px;overflow:hidden;margin:.6rem 0}
 .progress>div{height:100%;background:var(--cobalt);transition:width .2s}
+/* Camera overlay: fixed above the mobile bottom nav (z-index 50), opaque panel inside */
+.recorderoverlay{position:fixed;inset:0;z-index:70;background:rgba(11,18,32,.6);display:flex;align-items:center;justify-content:center;padding:1rem;padding-top:calc(1rem + env(safe-area-inset-top));padding-bottom:calc(1rem + env(safe-area-inset-bottom));overflow:auto;overscroll-behavior:contain}
+.recorderoverlay>*{width:min(560px,100%);max-height:100%;overflow:auto;background:var(--card);color:var(--ink)}
 
 /* ---------- pills / states ---------- */
 .pill{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:.2rem .65rem;white-space:nowrap}
@@ -196,11 +215,41 @@ th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mu
 .sessionnotes{margin:.25rem 0 0;font-size:.85rem;color:var(--muted);font-style:italic}
 .sessionactions{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
 .manage{margin:0;border:0;padding:0;background:none;overflow:visible}
-.manage summary{list-style:none;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.4rem 1rem;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:600;font-size:.85rem;min-height:40px}
+.manage summary{list-style:none;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.4rem 1rem;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:600;font-size:.85rem;min-height:44px}
 .manage summary::-webkit-details-marker{display:none}
 .manage summary:hover{background:var(--paper2)}
 .manage[open] summary{background:var(--paper2)}
 .managebody{display:flex;flex-direction:column;gap:.5rem;padding:.75rem;margin-top:.5rem;background:var(--card);border-radius:var(--r-md);box-shadow:0 4px 16px rgba(20,32,57,.12);align-items:stretch}
+
+/* ---------- recents / thumbnails / goal / milestone ---------- */
+.recents{margin-top:1rem}
+.recentrow{display:flex;align-items:center;gap:.8rem;padding:.65rem 0;border-top:1px solid var(--line)}
+.recentrow:first-of-type{border-top:0}
+.recentmain{min-width:0;flex:1}
+.recentthumb{width:56px;height:56px;border-radius:12px;overflow:hidden;background:var(--paper2);display:inline-flex;align-items:center;justify-content:center;color:var(--muted);flex-shrink:0}
+.recentthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.goalwidget{margin:0 0 1rem}
+.goaltrack{height:10px;background:var(--paper2);border-radius:999px;overflow:hidden;margin-top:.6rem}
+.goalfill{display:block;height:100%;background:var(--cobalt);border-radius:999px}
+.milestone{display:flex;gap:.8rem;align-items:flex-start;background:var(--tint);border-radius:var(--r-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+
+/* ---------- first-use intro / last focus / progress companion ---------- */
+.introCard{margin:0 0 1rem;background:var(--card);border-radius:var(--r-lg);padding:1.25rem;box-shadow:0 1px 3px rgba(20,32,57,.05)}
+.introTitle{font-size:1.05rem;margin:0 0 .5rem}
+.introList{margin:.25rem 0 .75rem;padding-left:1.2rem;color:var(--ink2);font-size:.92rem;display:grid;gap:.4rem}
+.introActions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.5rem}
+.introPrimary{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.55rem 1.4rem;border:1px solid var(--cobalt);background:var(--cobalt);color:#fff;font-weight:700;font-size:.92rem;min-height:44px}
+.introGhost{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.55rem 1.4rem;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:600;font-size:.92rem;min-height:44px}
+.introMuted{margin:.6rem 0 0;font-size:.8rem;color:var(--muted)}
+.focusCard{margin:0 0 1rem;background:var(--card);border-radius:var(--r-lg);padding:1.1rem 1.25rem;box-shadow:0 1px 3px rgba(20,32,57,.05)}
+.focusRow{display:flex;gap:.85rem;align-items:flex-start;flex-wrap:wrap}
+.focusBody{flex:1 1 220px;min-width:0}
+.focusText{margin:.35rem 0 0;font-size:1rem;font-weight:600;line-height:1.4;color:var(--ink)}
+.focusActions{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap}
+.focusPrimary{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:.5rem 1.2rem;border:1px solid var(--cobalt);background:var(--cobalt);color:#fff;font-weight:700;font-size:.88rem;min-height:40px}
+.companionStrip{display:flex;align-items:center;gap:.85rem;background:var(--card);border-radius:var(--r-lg);padding:.85rem 1.1rem;margin:0 0 1rem;box-shadow:0 1px 3px rgba(20,32,57,.05)}
+.companionArt{width:64px;height:64px;object-fit:contain;border-radius:12px;background:var(--paper2)}
+.companionText{margin:0;font-size:.92rem;color:var(--ink2)}
 
 /* ---------- misc ---------- */
 .row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
@@ -217,7 +266,7 @@ th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mu
 .mobilebrand{display:none}
 @media (max-width:720px){
   .rail{display:none}
-  .brandbar{display:flex;align-items:center;padding:1.15rem 0 1.5rem}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;padding:1.15rem 0 1.5rem}
   .brandbar .brand{font-size:.9rem;gap:.45rem}
   .mobilebrand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1rem;color:var(--ink);padding:.9rem 1rem .25rem;text-decoration:none;letter-spacing:-.01em}
   .main{padding:0 1rem 7rem}
@@ -237,4 +286,128 @@ th{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mu
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition:none!important;animation:none!important}
+}
+
+/* ---------- UX09: restrained transition polish ---------- */
+/* Scope: buttons, chips, cards, nav, icon buttons, exercise options, manage summary.
+   Avatar artwork (.athimg, .athstage, .heroart, .regiondot, .viewtoggle) is
+   intentionally excluded so the existing illustration never moves or changes. */
+.btn,
+.chip,
+.card,
+.navbtn,
+.iconbtn,
+.exoption,
+.excard,
+.introPrimary,
+.introGhost,
+.focusPrimary,
+.manage summary,
+.textlink{
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+  will-change: auto;
+}
+.btn:hover,
+.chip:hover,
+.navbtn:hover,
+.iconbtn:hover,
+.exoption:hover,
+.excard:hover,
+.introPrimary:hover,
+.introGhost:hover,
+.focusPrimary:hover,
+.manage summary:hover,
+.textlink:hover{
+  transform: translateY(-1px);
+}
+.btn:active,
+.chip:active,
+.navbtn:active,
+.iconbtn:active,
+.exoption:active,
+.excard:active,
+.introPrimary:active,
+.introGhost:active,
+.focusPrimary:active,
+.manage summary:active,
+.textlink:active{
+  transform: translateY(0) scale(.985);
+}
+.btn:focus-visible,
+.chip:focus-visible,
+.navbtn:focus-visible,
+.iconbtn:focus-visible,
+.exoption:focus-visible,
+.excard:focus-visible,
+.introPrimary:focus-visible,
+.introGhost:focus-visible,
+.focusPrimary:focus-visible,
+.manage summary:focus-visible,
+.textlink:focus-visible{
+  box-shadow: 0 0 0 3px rgba(49,88,232,.28);
+}
+.card:hover{
+  box-shadow: 0 4px 14px rgba(20,32,57,.08);
+}
+
+/* View entry: no animation on .view. The avatar artwork must stay
+   stationary, so the only motion is the named main-view cross-fade
+   declared further below. */
+.heroart,
+.athstage,
+.athwrap,
+.athimg,
+.regiondot,
+.viewtoggle{
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Native same-document View Transitions (progressive enhancement only).
+   Activated only when the API is supported AND reduced motion is not set.
+   The JS layer (page.tsx navigate) is responsible for calling
+   document.startViewTransition; this CSS only styles the resulting pseudo
+   elements. No blanket root screenshot animation is used — only the main
+   view node cross-fades, so the camera/avatar DOM is never frozen. */
+@supports (view-transition-name: a){
+  .main{
+    view-transition-name: main-view;
+  }
+  /* Disable the root pseudo animation. The root grouping still
+     captures the rest of the page, but no animation runs on it,
+     so the avatar artwork never moves. */
+  ::view-transition-group,
+  ::view-transition-old(root),
+  ::view-transition-new(root){
+    animation: none !important;
+  }
+  ::view-transition-old(main-view),
+  ::view-transition-new(main-view){
+    animation-duration: 220ms;
+    animation-timing-function: ease;
+  }
+  ::view-transition-old(main-view){animation-name: ux09-fade-out}
+  ::view-transition-new(main-view){animation-name: ux09-fade-in}
+  /* Fade only — no vertical avatar motion. */
+  @keyframes ux09-fade-out{from{opacity:1}to{opacity:0}}
+  @keyframes ux09-fade-in{from{opacity:0}to{opacity:1}}
+}
+
+/* Reduced motion: disable every transition polish and any view-transition
+   pseudo animations. Existing reduced-motion rule above already nulls
+   transitions/animations; this block additionally suppresses the
+   view-transition pseudo animations introduced by UX09. */
+@media (prefers-reduced-motion:reduce){
+  ::view-transition-group,
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(main-view),
+  ::view-transition-new(main-view){
+    animation: none !important;
+  }
 }

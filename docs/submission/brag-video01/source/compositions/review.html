@@ -1,0 +1,91 @@
+<template>
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+#review-root{position:absolute;inset:0;width:1920px;height:1080px;background:var(--bg);font-family:Roboto,Helvetica,Arial,sans-serif;color:var(--navy);}
+.rv-rail{position:absolute;left:0;top:0;width:280px;height:1080px;background:#ffffff;border-right:1px solid var(--border);display:flex;flex-direction:column;padding:48px 28px;}
+.rv-brand{font-size:28px;font-weight:700;margin-bottom:48px;}
+.rv-nav{display:flex;flex-direction:column;gap:8px;}
+.rv-nav-item{font-size:28px;color:var(--muted);padding:14px 16px;border-radius:12px;}
+.rv-nav-item.active{background:rgba(49,88,232,0.08);color:var(--cobalt);font-weight:700;}
+.rv-label{position:absolute;left:400px;top:108px;font-size:28px;color:var(--muted);}
+.rv-title{position:absolute;left:400px;top:170px;max-width:1328px;font-size:64px;font-weight:900;letter-spacing:-0.02em;margin:0;color:var(--navy);}
+.rv-subtitle{position:absolute;left:400px;top:250px;font-size:32px;color:var(--muted);margin:0;}
+.rv-replay{position:absolute;left:400px;top:340px;width:720px;height:520px;background:rgba(20,32,57,0.06);border:1px solid var(--border);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;gap:24px;}
+.rv-replay-label{font-size:28px;font-weight:700;color:var(--muted);letter-spacing:0.02em;}
+.rv-replay-sub{font-size:28px;color:var(--muted);}
+.rv-replay-controls{display:flex;align-items:center;justify-content:center;gap:24px;}
+.rv-play-btn{width:68px;height:68px;border-radius:50%;background:var(--cobalt);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;}
+.rv-play-btn svg{width:24px;height:24px;display:block;}
+.rv-ctrl-label{font-size:28px;color:var(--navy);font-weight:600;}
+.rv-replay-strip{width:100%;display:flex;flex-direction:column;gap:10px;}
+.rv-seek{position:relative;width:100%;height:10px;background:var(--border);border-radius:999px;overflow:hidden;}
+.rv-seek-fill{position:absolute;left:0;top:0;height:100%;width:20%;background:var(--cobalt);border-radius:999px;}
+.rv-seek-labels{display:flex;justify-content:space-between;}
+.rv-report{position:absolute;left:1160px;top:340px;width:568px;height:340px;background:#ffffff;border:1px solid var(--border);border-radius:24px;padding:36px;display:flex;flex-direction:column;gap:14px;}
+.rv-report-title{font-size:32px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.rv-feature{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--border);border-radius:14px;font-size:28px;color:var(--navy);}
+.rv-dot{width:12px;height:12px;border-radius:50%;background:var(--cobalt);flex-shrink:0;}
+.rv-coach{position:absolute;left:1160px;top:700px;width:568px;height:220px;background:rgba(49,88,232,0.06);border:1px solid rgba(49,88,232,0.2);border-radius:18px;padding:24px;display:flex;flex-direction:column;justify-content:flex-start;gap:12px;}
+.rv-coach-label{font-size:28px;color:var(--cobalt);font-weight:700;}
+.rv-coach-text{font-size:29px;color:var(--navy);font-weight:700;line-height:1.1;}
+.rv-coach-cta{display:inline-flex;align-items:center;justify-content:center;background:var(--cobalt);color:#ffffff;font-size:28px;font-weight:700;padding:8px 16px;height:48px;border-radius:12px;border:none;align-self:flex-start;opacity:0;}
+.rv-disclose{position:absolute;left:400px;top:950px;width:1328px;font-size:28px;color:var(--muted);line-height:1.4;}
+</style>
+<div data-hf-id="hf-d5bk" id="review-root" data-composition-id="review" data-width="1920" data-height="1080">
+  <div data-hf-id="hf-yoyc" id="rv-rail" class="rv-rail">
+    <div data-hf-id="hf-iuhw" id="rv-brand" class="rv-brand">Motion X Ray</div>
+    <div data-hf-id="hf-7q4m" id="rv-nav" class="rv-nav">
+      <div data-hf-id="hf-z139" id="rv-nav-home" class="rv-nav-item">Home</div>
+      <div data-hf-id="hf-2lk1" id="rv-nav-analyse" class="rv-nav-item active">Analyse</div>
+      <div data-hf-id="hf-6zbx" id="rv-nav-progress" class="rv-nav-item">Progress</div>
+      <div data-hf-id="hf-sd3x" id="rv-nav-settings" class="rv-nav-item">Settings</div>
+    </div>
+  </div>
+  <div data-hf-id="hf-3y6w" id="rv-label" class="rv-label">UI recreation · MVP</div>
+  <h2 data-hf-id="hf-m8ie" id="rv-title" class="rv-title">From movement to one grounded cue.</h2>
+  <p data-hf-id="hf-feyj" id="rv-subtitle" class="rv-subtitle">Source-time replay · evidence-linked coaching</p>
+  <div data-hf-id="hf-u47i" id="rv-replay" class="rv-replay">
+    <div data-hf-id="hf-hsy0" id="rv-replay-label" class="rv-replay-label">Replay interface</div>
+    <div data-hf-id="hf-rsub" id="rv-replay-sub" class="rv-replay-sub">No workout footage shown</div>
+    <div data-hf-id="hf-ctrl" id="rv-replay-controls" class="rv-replay-controls">
+      <button data-hf-id="hf-play" id="rv-play-btn" class="rv-play-btn" type="button" aria-label="Play">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="6,4 20,12 6,20" fill="#ffffff"/></svg>
+      </button>
+      <span data-hf-id="hf-cl1" id="rv-ctrl-1" class="rv-ctrl-label">Replay segment</span>
+      <span data-hf-id="hf-cl2" id="rv-ctrl-2" class="rv-ctrl-label">Source-time replay</span>
+    </div>
+    <div data-hf-id="hf-strip" id="rv-replay-strip" class="rv-replay-strip">
+      <div data-hf-id="hf-seek" id="rv-seek" class="rv-seek"><div data-hf-id="hf-sf" id="rv-seek-fill" class="rv-seek-fill"></div></div>
+    </div>
+  </div>
+  <div data-hf-id="hf-5cqw" id="rv-report" class="rv-report">
+    <div data-hf-id="hf-bvov" id="rv-report-title" class="rv-report-title">Movement report</div>
+    <div data-hf-id="hf-ucwm" id="rv-f-1" class="rv-feature"><span data-hf-id="hf-p38r" class="rv-dot"></span>Measured segments</div>
+    <div data-hf-id="hf-12wd" id="rv-f-2" class="rv-feature"><span data-hf-id="hf-jwcr" class="rv-dot"></span>Reference comparison</div>
+    <div data-hf-id="hf-sg56" id="rv-f-3" class="rv-feature"><span data-hf-id="hf-ji1q" class="rv-dot"></span>Provisional estimate</div>
+  </div>
+  <div data-hf-id="hf-rd5y" id="rv-coach" class="rv-coach">
+    <div data-hf-id="hf-hmcf" id="rv-coach-label" class="rv-coach-label">Evidence-linked coaching</div>
+    <div data-hf-id="hf-z88s" id="rv-coach-text" class="rv-coach-text">One grounded cue for your next set.</div>
+    <button data-hf-id="hf-cta" id="rv-coach-cta" class="rv-coach-cta" type="button">Generate coaching</button>
+  </div>
+  <div data-hf-id="hf-5572" id="rv-disclose" class="rv-disclose">Reference resemblance is provisional. Missing measurements stay unavailable.</div>
+</div>
+<script>
+const tl=gsap.timeline({paused:true});
+tl.fromTo("#rv-title",{opacity:0,y:16},{opacity:1,y:0,duration:0.4,ease:"power3.out"},0)
+  .fromTo("#rv-subtitle",{opacity:0,y:12},{opacity:1,y:0,duration:0.35,ease:"power3.out"},0.1)
+  .fromTo("#rv-replay",{opacity:0,scale:0.97},{opacity:1,scale:1,duration:0.5,ease:"power4.out"},0.25)
+  .fromTo("#rv-report",{opacity:0,x:24},{opacity:1,x:0,duration:0.5,ease:"power4.out"},0.35)
+  .fromTo("#rv-f-1",{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:"power3.out"},0.8)
+  .fromTo("#rv-f-2",{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:"power3.out"},1.5)
+  .fromTo("#rv-f-3",{opacity:0,y:10},{opacity:1,y:0,duration:0.3,ease:"power3.out"},2.2)
+  .fromTo("#rv-coach",{opacity:0,y:12},{opacity:1,y:0,duration:0.4,ease:"power3.out"},2.8)
+  .fromTo("#rv-coach-cta",{opacity:0},{opacity:1,duration:0.35,ease:"power2.out"},3.0)
+  .fromTo("#rv-coach-text",{opacity:0},{opacity:1,duration:0.4,ease:"power2.out"},3.8)
+  .fromTo("#rv-disclose",{opacity:0},{opacity:1,duration:0.5,ease:"power2.out"},1.1)
+  .to({},{},6.5)
+  .to("#review-root > div",{opacity:0,duration:0.5,ease:"power2.in"},7.0);
+window.__timelines["review"]=tl;
+</script>
+</template>
